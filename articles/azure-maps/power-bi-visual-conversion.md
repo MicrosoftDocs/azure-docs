@@ -18,7 +18,7 @@ The Azure Maps visual is now Generally Available, providing a streamlined and in
 
 A conversion function is available in Power BI desktop to convert any existing Map and Filled map visuals to the new Azure Maps visual.
 
-When opening a report with Map and Filled map visuals, you will see the following dialog giving you the option to upgrade to the new Azure Maps visual:
+When opening a report with Map and Filled map visuals, you'll see the following dialog giving you the option to upgrade to the new Azure Maps visual:
 
 :::image type="content" source="media/power-bi-visual/introducing-azure-map-visual.png" alt-text="Screenshot showing the option to upgrade maps to the Azure Maps visual.":::
 

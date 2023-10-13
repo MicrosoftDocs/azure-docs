@@ -6,7 +6,7 @@ ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 04/18/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster baremetalmachinekeyset`
@@ -16,14 +16,14 @@ ms.custom: template-how-to
 
 There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these bare metal machines.
 
-When the command runs, it executes on each bare metal machine in the Cluster. If a bare metal machine is unavailable or powered off at the time of command execution, the status of the command reflects which bare metal machines couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
 There's no limit to the number of users in a group.
 
 > [!CAUTION]
 > Notes for jump host IP addresses
 
-- The keyset create/update process adds the jump host IP addresses to the IP tables for the Cluster. The process adds these addresses to IP tables and restricts SSH access to only those IPs.
+- The keyset create/update process adds the jump host IP addresses to the IP tables for each machine in the Cluster. This restricts SSH access to be allowed only from those jump hosts.
 - It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses may be different than the public facing IP address used to access the jump host.
 - Once added, users are able to access bare metal machines from any specified jump host IP including a jump host IP defined in another bare metal machine keyset group.
 - Existing SSH access remains when adding the first bare metal machine keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
@@ -34,7 +34,7 @@ There's no limit to the number of users in a group.
 - The on-premises Cluster must have connectivity to Azure.
 - Get the Resource Group name for the `Cluster` resource.
 - The process applies keysets to all running bare metal machines.
-- The added users must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
+- The added users must be part of a Microsoft Entra group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
 - To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`, `/write`, and `/delete`.
 
 > [!NOTE]

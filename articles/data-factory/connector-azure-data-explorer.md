@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 07/24/2023
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
@@ -39,7 +39,7 @@ You can copy data from any supported source data store to Azure Data Explorer. Y
 
 With the Azure Data Explorer connector, you can do the following:
 
-* Copy data by using Azure Active Directory (Azure AD) application token authentication with a **service principal**.
+* Copy data by using Microsoft Entra application token authentication with a **service principal**.
 * As a source, retrieve data by using a KQL (Kusto) query.
 * As a sink, append data to a destination table.
 
@@ -88,7 +88,7 @@ The Azure Data Explorer connector supports the following authentication types. S
 
 To use service principal authentication, follow these steps to get a service principal and to grant permissions:
 
-1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -97,7 +97,7 @@ To use service principal authentication, follow these steps to get a service pri
 2. Grant the service principal the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
     - **As source**, grant at least the **Database viewer** role to your database
-    - **As sink**, grant at least the **Database ingestor** role to your database
+    - **As sink**, grant at least the **Database user** role to your database
 
 >[!NOTE]
 >When you use the UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by clicking the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
@@ -110,8 +110,8 @@ The following properties are supported for the Azure Data Explorer linked servic
 | endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
 | database | Name of database. | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
-| servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalId | Specify the application's client ID. This is known as "Microsoft Entra application client ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
+| servicePrincipalKey | Specify the application's key. This is known as "Microsoft Entra application key" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
 **Example: using service principal key authentication**
@@ -145,8 +145,8 @@ To use system-assigned managed identity authentication, follow these steps to gr
 
 2. Grant the managed identity the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
-    - **As source**, grant at least the **Database viewer** role to your database
-    - **As sink**, grant at least the **Database ingestor** role to your database
+    - **As source**, grant the **Database viewer** role to your database.
+    - **As sink**, grant the **Database ingestor** and **Database viewer** roles to your database.
 
 >[!NOTE]
 >When you use the UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don't have permission for these operations.

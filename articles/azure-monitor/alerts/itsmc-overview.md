@@ -21,14 +21,12 @@ Azure Monitor supports connections with the following ITSM tools:
 - ServiceNow ITSM or IT Operations Management (ITOM)
 - BMC
 
-For information about legal terms and the privacy policy, see the [Microsoft privacy statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
-
 ## ITSM integration workflow
 Depending on your integration, start connecting to your ITSM tool with these steps:
 
 - For ServiceNow ITOM events or BMC Helix, use the secure webhook action:
 
-     1. [Register your app with Azure Active Directory](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory).
+     1. [Register your app with Microsoft Entra ID](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory).
      1. [Define a service principal](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-a-service-principal).
      1. [Create a secure webhook action group](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group).
      1. Configure your partner environment. Secure Export supports connections with the following ITSM tools:
@@ -36,6 +34,10 @@ Depending on your integration, start connecting to your ITSM tool with these ste
          - [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
 -  For ServiceNow ITSM, use the ITSM action:
+
+    > [!NOTE]
+    > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information about legal terms and the privacy policy, see the [Microsoft privacy statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
+
 
     1. Connect to your ITSM. For more information, see the [ServiceNow connection instructions](./itsmc-connections-servicenow.md).
     1. (Optional) Set up the IP ranges. To list the ITSM IP addresses to allow ITSM connections from partner ITSM tools, list the whole public IP range of an Azure region where the Log Analytics workspace belongs. For more information, see the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56519). For regions EUS/WEU/WUS2/US South Central, the customer can list the ActionGroup network tag only.

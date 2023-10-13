@@ -8,28 +8,25 @@ author: shmed
 ms.author: ramero
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 07/17/2023
 ---
 
 # Add scoring profiles to boost search scores
 
-In this article, you'll learn how to define a scoring profile for boosting search scores based on criteria.
-
-Criteria can be a weighted field, such as when a match found in a "tags" field is more relevant than a match found in "descriptions". Criteria can also be a function, such as the `distance` function that favors results that are within a specified distance of the current location.
-
-Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
+In this article, you'll learn how to define a scoring profile. A scoring profile is critera for boosting a search score based on parameters that you provide. For example, you might want matches found in a "tags" field to be more relevant than the same match found in "descriptions". Criteria can be a weighted field (such as the "tags" example) or a function. Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
 > [!NOTE]
-> Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search. You can also visit [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
+> Unfamiliar with relevance concepts? The following [video segment on YouTube](https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970) fast-forwards to how scoring profiles work in Azure Cognitive Search. You can also visit [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
 >
-> > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
->
+
+<!-- > > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+> -->
 
 ## Scoring profile definition
 
-A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters.
+A scoring profile is named object defined in an index schema. A profile can be composed of weighted fields, functions, and parameters.
 
-The following definition shows a simple profile named 'geo'. This example boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within 10 kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
+The following definition shows a simple profile named "geo". This example boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within 10 kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
 ```json
 "scoringProfiles": [
@@ -56,7 +53,7 @@ The following definition shows a simple profile named 'geo'. This example boosts
 ]
 ```  
 
-To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're using the REST API, queries are specified through GET and POST requests.
+To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're using the REST API, queries are specified through GET and POST requests. In the following example, "currentLocation" has a delimiter of a single dash (`-`). It's followed by longitude and latitude coordinates, where longitude is a negative value.
 
 ```http
 GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30
@@ -81,7 +78,7 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 ## How scores are computed
 
-Scores are computed for full text search queries for ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
+Scores are computed for full text search queries. Matches are scored based on how relevant the match is, and the highest scoring matches are returned in the query response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
 You can use the [featuresMode (preview)](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request extra scoring details with the search results (including the field level scores).
 
@@ -119,22 +116,23 @@ Weighted fields are composed of a searchable field and a positive number that is
 
 ```json
 "scoringProfiles": [  
-{  
-  "name": "boostKeywords",  
-  "text": {  
-    "weights": {  
-      "HotelName": 2,  
-      "Description": 5 
-    }  
-  }  
-}
+    {  
+      "name": "boostKeywords",  
+      "text": {  
+        "weights": {  
+          "HotelName": 2,  
+          "Description": 5 
+        }  
+      }  
+    }
+]
 ```
 
 <a name="functions"></a>
 
 ### Using functions
 
-Use functions when simple relative weights are insufficient or don't apply, as is the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile.
+Use functions when simple relative weights are insufficient or don't apply, as is the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile. For more information about the EDM data types used in Cognitive Search, see [Supported data types](/rest/api/searchservice/supported-data-types).
 
 | Function | Description |
 |-|-|

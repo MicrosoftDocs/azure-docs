@@ -1,23 +1,26 @@
 ---
-title: Edit speakers in the Azure Video Indexer website
-description: The article demonstrates how to edit speakers with the Azure Video Indexer website.
+title: Edit speakers in the Azure AI Video Indexer website
+description: The article demonstrates how to edit speakers with the Azure AI Video Indexer website.
 ms.topic: how-to
 ms.date: 11/01/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Edit speakers with the Azure Video Indexer website
+# Edit speakers with the Azure AI Video Indexer website
 
-Azure Video Indexer identifies each speaker in a video and attributes each transcribed line to a speaker. The speakers are given a unique identity such as `Speaker #1` and `Speaker #2`. To provide clarity and enrich the transcript quality, you may want to replace the assigned identity with each speaker's actual name. To edit speakers' names, use the edit actions as described in the article. 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
-The article demonstrates how to edit speakers with the [Azure Video Indexer website](https://www.videoindexer.ai/). The same editing operations are possible with an API. To use API, call [update video index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index).
+Azure AI Video Indexer identifies each speaker in a video and attributes each transcribed line to a speaker. The speakers are given a unique identity such as `Speaker #1` and `Speaker #2`. To provide clarity and enrich the transcript quality, you may want to replace the assigned identity with each speaker's actual name. To edit speakers' names, use the edit actions as described in the article. 
+
+The article demonstrates how to edit speakers with the [Azure AI Video Indexer website](https://www.videoindexer.ai/). The same editing operations are possible with an API. To use API, call [update video index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index).
 
 > [!NOTE]
-> The addition or editing of a speaker name is applied throughout the transcript of the video but is not applied to other videos in your Azure Video Indexer account.
+> The addition or editing of a speaker name is applied throughout the transcript of the video but is not applied to other videos in your Azure AI Video Indexer account.
 
 ## Start editing
 
-1. Sign in to the [Azure Video Indexer website](https://www.videoindexer.ai/).
+1. Sign in to the [Azure AI Video Indexer website](https://www.videoindexer.ai/).
 2. Select a video.
 3. Select the **Timeline** tab.
 4. Choose to view speakers.
@@ -26,7 +29,7 @@ The article demonstrates how to edit speakers with the [Azure Video Indexer webs
 
 ## Add a new speaker
 
-This action allows adding new speakers that were not identified by Azure Video Indexer. To add a new speaker from the website for the selected video, do the following: 
+This action allows adding new speakers that were not identified by Azure AI Video Indexer. To add a new speaker from the website for the selected video, do the following: 
 
 1. Select the edit mode.
 
@@ -43,7 +46,7 @@ This action allows adding new speakers that were not identified by Azure Video I
  
 ## Rename an existing speaker
 
-This action allows renaming an existing speaker that was identified by Azure Video Indexer. The update applies to all speakers identified by this name.
+This action allows renaming an existing speaker that was identified by Azure AI Video Indexer. The update applies to all speakers identified by this name.
  
 To rename a speaker from the website for the selected video, do the following: 
 
@@ -73,4 +76,4 @@ When adding a new speaker or renaming a speaker, the new name should be unique.
 
 ## Next steps 
 
-[Insert or remove transcript lines in the Azure Video Indexer website](edit-transcript-lines-portal.md)
+[Insert or remove transcript lines in the Azure AI Video Indexer website](edit-transcript-lines-portal.md)

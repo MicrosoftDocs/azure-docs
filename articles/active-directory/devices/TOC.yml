@@ -7,68 +7,71 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Azure AD join a new Windows device
-    href: azuread-joined-devices-frx.md
+  - name: Microsoft Entra join a new Windows device
+    href: device-join-out-of-box.md
 - name: Concepts
   expanded: true
   items:
-  - name: Azure AD registered devices
-    href: concept-azure-ad-register.md
-  - name: Azure AD joined devices 
-    href: concept-azure-ad-join.md
-  - name: Hybrid Azure AD joined devices
-    href: concept-azure-ad-join-hybrid.md
+  - name: Microsoft Entra registered devices
+    href: concept-device-registration.md
+  - name: Microsoft Entra joined devices 
+    href: concept-directory-join.md
+  - name: Microsoft Entra hybrid joined devices
+    href: concept-hybrid-join.md
   - name: Device registration flows
     href: device-registration-how-it-works.md
   - name: SSO to on-premises resources
-    href: azuread-join-sso.md
+    href: device-sso-to-on-premises-resources.md
   - name: Primary Refresh Tokens
     href: concept-primary-refresh-token.md
 - name: How-to guides
   expanded: false
   items:
-  - name: Plan your Azure AD device deployment
+  - name: Plan your Microsoft Entra device deployment
     href: plan-device-deployment.md
-  - name: Azure AD join
+  - name: Microsoft Entra join
     expanded: false
     items:
-    - name: Plan your Azure AD join implementation
-      href: azureadjoin-plan.md
-    - name: Assign local admins to Azure AD joined devices
+    - name: Plan your Microsoft Entra join implementation
+      href: device-join-plan.md
+    - name: Assign local admins to Microsoft Entra joined devices
       href: assign-local-admin.md
-  - name: Hybrid Azure AD join
+  - name: Microsoft Entra hybrid join
     expanded: false
     items:
-    - name: Plan your hybrid Azure AD join implementation
-      href: hybrid-azuread-join-plan.md
-    - name: Targeted hybrid Azure AD join deployment
-      href: hybrid-azuread-join-control.md 
-    - name: Configure hybrid Azure AD join
-      href: howto-hybrid-azure-ad-join.md
-    - name: Verifying hybrid Azure AD join
-      href: howto-hybrid-join-verify.md
-    - name: Troubleshoot hybrid Azure AD join
+    - name: Plan your Microsoft Entra hybrid join implementation
+      href: hybrid-join-plan.md
+    - name: Targeted Microsoft Entra hybrid join deployment
+      href: hybrid-join-control.md 
+    - name: Configure Microsoft Entra hybrid join
+      href: how-to-hybrid-join.md
+    - name: Verifying Microsoft Entra hybrid join
+      href: how-to-hybrid-join-verify.md
+    - name: Troubleshoot Microsoft Entra hybrid join
       expanded: false
       items:
-      - name: Troubleshoot hybrid Azure AD joined Windows current version
+      - name: Troubleshoot Microsoft Entra hybrid joined Windows current version
         href: troubleshoot-hybrid-join-windows-current.md
       - name: Troubleshoot pending device state
         href: /troubleshoot/azure/active-directory/pending-devices?toc=/azure/active-directory/fundamentals/toc.json
       - name: Troubleshoot using dsregcmd
         href: troubleshoot-device-dsregcmd.md
-      - name: Troubleshoot hybrid Azure AD joined down level Windows devices
+      - name: Troubleshoot Microsoft Entra hybrid joined down level Windows devices
         href: troubleshoot-hybrid-join-windows-legacy.md
   - name: Local Administrator Password Solution
     href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
-    href: device-management-azure-portal.md
-  - name: Troubleshooting Windows devices
+    href: manage-device-identities.md
+  - name: Troubleshoot Windows devices
     href: troubleshoot-device-windows-joined.md
+  - name: Troubleshoot primary refresh tokens on Windows devices
+    displayName: PRT
+    href: troubleshoot-primary-refresh-token.md
   - name: Manage stale devices
     href: manage-stale-devices.md
-  - name: Azure Linux VMs and Azure AD
+  - name: Azure Linux VMs and Microsoft Entra ID
     href: howto-vm-sign-in-azure-ad-linux.md
-  - name: Azure Windows VMs and Azure AD
+  - name: Azure Windows VMs and Microsoft Entra ID
     href: howto-vm-sign-in-azure-ad-windows.md
   - name: Virtual desktop infrastructure
     href: howto-device-identity-virtual-desktop-infrastructure.md
@@ -86,17 +89,17 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Enterprise state roaming Windows settings
       href: enterprise-state-roaming-windows-settings-reference.md
-  - name: Troubleshooting SSO on Apple devices
+  - name: Troubleshoot SSO on Apple devices
     href: troubleshoot-mac-sso-extension-plugin.md
 - name: Reference
   items:
-  - name: Hybrid Azure AD join reference
+  - name: Microsoft Entra hybrid join reference
     expanded: false
     items:
-    - name: Configure hybrid Azure AD join manually
-      href: hybrid-azuread-join-manual.md
+    - name: Configure Microsoft Entra hybrid join manually
+      href: hybrid-join-manual.md
     - name: Enable older operating systems
-      href: howto-hybrid-join-downlevel.md
+      href: how-to-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
   - name: Microsoft Graph APIs

@@ -5,7 +5,7 @@ description: Learn how to manage Azure storage containers using Azure PowerShell
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: shaas
@@ -25,16 +25,16 @@ This how-to article explains how to work with both individual and multiple stora
 
 - Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with an Azure Active Directory (Azure AD) account or using a shared key. The examples in this article use Azure AD authentication in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them on subsequent data operations, eliminating the need to reauthenticate.
+You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with a Microsoft Entra account or using a shared key. The examples in this article use Microsoft Entra authentication in conjunction with context objects. Context objects encapsulate your Microsoft Entra credentials and pass them on subsequent data operations, eliminating the need to reauthenticate.
 
-To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+To sign in to your Azure account with a Microsoft Entra account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```powershell
 # Connect to your Azure subscription
  Connect-AzAccount
 ```
 
-After the connection has been established, create the storage account context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure AD credentials.
+After the connection has been established, create the storage account context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Microsoft Entra credentials.
 
 ```powershell
 # Create a context object using Azure AD credentials
@@ -51,7 +51,7 @@ The following example illustrates three options for the creation of blob contain
 
 To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. Remember to replace the placeholder values in brackets with your own values.
 
- ```azurepowershell
+```azurepowershell
 # Create variables
  $containerName  = "individual-container"
  $prefixName     = "loop"
@@ -332,5 +332,5 @@ loop-container4
 
 ## See also
 
-- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
+- [Run PowerShell commands with Microsoft Entra credentials to access blob data](./authorize-data-operations-powershell.md)
 - [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)

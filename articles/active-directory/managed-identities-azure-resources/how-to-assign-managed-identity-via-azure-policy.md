@@ -30,7 +30,7 @@ Policy definitions for these common use cases are already available in your Azur
 
 Azure Monitoring Agents require a [managed identity](overview.md) on the monitored Azure Virtual Machines (VMs). This document describes the behavior of a built-in Azure Policy provided by Microsoft that helps ensure a managed identity, needed for these scenarios, is assigned to VMs at scale. 
 
-While using system-assigned managed identity is possible, when used at scale (for example, for all VMs in a subscription) it results in substantial number of identities created (and deleted) in Azure AD (Azure Active Directory). To avoid this churn of identities, it is recommended to use user-assigned managed identities, which can be created once and shared across multiple VMs. 
+While using system-assigned managed identity is possible, when used at scale (for example, for all VMs in a subscription) it results in substantial number of identities created (and deleted) in Microsoft Entra ID. To avoid this churn of identities, it is recommended to use user-assigned managed identities, which can be created once and shared across multiple VMs. 
 
 > [!NOTE]
 > We recommend using a user-assigned managed identity per Azure subscription per Azure region.
@@ -46,9 +46,9 @@ The policy is designed to implement this recommendation.
 
 When executed, the policy takes the following actions:
 
-1.	Create, if not exist, a new built-in user-assigned managed identity in the subscription and each Azure region based on the VMs that are in scope of the policy. 
-2.	Once created, put a lock on the user-assigned managed identity so that it will not be accidentally deleted. 
-3.	Assign the built-in user-assigned managed identity to Virtual Machines from the subscription and region based on the VMs that are in scope of the policy. 
+1. Create, if not exist, a new built-in user-assigned managed identity in the subscription and each Azure region based on the VMs that are in scope of the policy. 
+2. Once created, put a lock on the user-assigned managed identity so that it will not be accidentally deleted. 
+3. Assign the built-in user-assigned managed identity to Virtual Machines from the subscription and region based on the VMs that are in scope of the policy. 
 > [!NOTE]
 > If the Virtual Machine has exactly 1 user-assigned managed identity already assigned, then the policy skips this VM to assign the built-in identity. This is to make sure assignment of the policy does not break applications that take a dependency on [the default behavior of the token endpoint on IMDS.](managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
 

@@ -2,7 +2,7 @@
 title: Configure properties for an Azure event hub
 description: Learn how to configure status, partition count, cleanup policy, and retention time for an event hub
 ms.topic: how-to
-ms.custom: log-compaction
+ms.custom: log-compaction, devx-track-arm-template, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 06/19/2023
 ---
 

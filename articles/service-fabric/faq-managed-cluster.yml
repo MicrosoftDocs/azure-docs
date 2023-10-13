@@ -63,7 +63,7 @@ sections:
           Yes, you can configure internal-only load balancer. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
       
       - question: | 
-          Can I change the Azure AD tenant after initial deployment?
+          Can I change the Microsoft Entra tenant after initial deployment?
         answer: |
           No. At this time you would need to create a new Service Fabric managed cluster resource.
 
@@ -101,6 +101,12 @@ sections:
           Can I set up maintenance control for my cluster?
         answer: |
           Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
+
+      - question: |
+          Why do I get 'Your connection isn't private' when connecting to Service Fabric Explorer (SFX) on a managed cluster?
+        answer: |
+          Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
+          
 
   - name: Applications
     questions:

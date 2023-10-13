@@ -2,8 +2,8 @@
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
 ms.topic: reference
-ms.date: 2/23/2022
-ms.reviewer: ofmanor
+ms.date: 9/20/2023
+ms.reviewer: nolavime
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
@@ -164,9 +164,9 @@ If you have received a notification for an alert (such as an email or an SMS) mo
     ![Screenshot of multiple action groups in an alert.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## Action or notification has an unexpected content
-Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are recieving a degraded experience, if there is a note at the top of your email notification that says: 
+Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are receiving a degraded experience, if there is a note at the top of your email notification that says: 
 
-"This is a degraded email experience. That means the formatting may be off or details could be missing. For more infomration on teh degraded emaiol experience, read here."
+"This is a degraded email experience. That means the formatting may be off or details could be missing. For more information on the degraded email experience, read here."
 
 If your notification does not contain this note and you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
 
@@ -246,7 +246,6 @@ If you received an error while trying to create, update or delete an [alert proc
 1. **Did you verify the alert processing rule parameters?**  
 
     Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
-
 
 ## Next steps
 - If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).

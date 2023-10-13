@@ -5,7 +5,7 @@ services: key-vault
 author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: keys
@@ -21,7 +21,7 @@ For added assurance when you use Azure Key Vault, you can import or generate a k
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault.
 
 > [!NOTE]
-> This functionality is not available for Azure China 21Vianet.
+> This functionality is not available for Microsoft Azure operated by 21Vianet.
 >
 > This import method is available only for [supported HSMs](#supported-hsms).
 

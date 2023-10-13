@@ -1,21 +1,21 @@
 ---
-title: Use the application routing add-on with Azure Kubernetes Service (AKS) clusters (preview)
+title: Azure Kubernetes Service (AKS) managed nginx ingress with the application routing add-on (preview)
 description: Use the application routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
-author: sabbour
+author: asudbring
 ms.topic: how-to
-ms.date: 05/04/2023
-ms.author: asabbour
+ms.date: 08/07/2023
+ms.author: allensu
 ---
 
-# Use the application routing add-on with Azure Kubernetes Service (AKS) clusters (preview)
+# Managed nginx ingress with the application routing add-on (preview)
 
-The application routing add-on configures an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. It can optionally integrate with Open Service Mesh (OSM) for end-to-end encryption of inter-cluster communication using mutual TLS (mTLS). When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
+The application routing add-on configures an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Application routing add-on overview
+## Application routing add-on with nginx overview
 
 The application routing add-on deploys the following components:
 
@@ -321,7 +321,8 @@ The application routing add-on creates an ingress class on the cluster called *w
 2. Copy the following YAML into a new file named **ingress.yaml** and save the file to your local computer.
 
     > [!NOTE]
-    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. `secretName` is the name of the secret that will be generated to store the certificate. This certificate will be presented in the browser.
+    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
+    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-aks-helloworld`.
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -347,7 +348,7 @@ The application routing add-on creates an ingress class on the cluster called *w
       tls:
      - hosts:
         - <Hostname>
-        secretName: keyvault-aks-helloworld
+        secretName: keyvault-<Ingress resource name>
     ```
 
 ### Create the resources on the cluster
@@ -447,7 +448,8 @@ OSM issues a certificate that Nginx uses as the client certificate to proxy HTTP
 2. Copy the following YAML into a new file named **ingress.yaml** and save the file to your local computer.
 
     > [!NOTE]
-    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. `secretName` is the name of the secret that will be generated to store the certificate. This certificate will be presented in the browser.
+    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
+    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-aks-helloworld`.
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -480,7 +482,7 @@ OSM issues a certificate that Nginx uses as the client certificate to proxy HTTP
       tls:
      - hosts:
         - <Hostname>
-        secretName: keyvault-aks-helloworld
+        secretName: keyvault-<Ingress resource name>
     ```
 
 ### Create the resources on the cluster

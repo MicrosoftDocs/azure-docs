@@ -1,5 +1,5 @@
 ---
-title: Archive for What's new in Sovereign Clouds?
+title: Archive for What's new in Azure Sovereign Clouds?
 description: The What's new in sovereign cloud release notes in the Overview section of this content set contain six months of activity. After six months, the items are removed from the main article and put into this archive article for the next two years.
 services: active-directory
 author: owinfreyATL
@@ -20,6 +20,37 @@ The primary [What's new in sovereign clouds release notes](whats-new-sovereign-c
 
 ---
 
+## December 2022
+
+### General Availability - Risk-based Conditional Access for workload identities
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
+
+---
+
+### General Availability - API to recover accidentally deleted Service Principals
+
+**Type:** New feature  
+**Service category:** Enterprise Apps        
+**Product capability:** Identity Lifecycle Management     
+
+Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
+
+---
+
+### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** Identity Security & Protection   
+
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md).
+
+---
 
 ## November 2022
 
@@ -147,7 +178,7 @@ Azure AD certificate-based authentication (CBA) enables customers to allow or re
 **Product capability:** Device Lifecycle Management   
  
 
-BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/manage-device-identities.md#view-or-copy-bitlocker-keys).
  
 ---
 
@@ -193,7 +224,7 @@ Pick a group of up to five members and provision them into your third-party appl
 
 The new Device Overview in the Azure portal provides meaningful and actionable insights about devices in your tenant.
 
-In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/device-management-azure-portal.md).
+In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/manage-device-identities.md).
  
 ---
 
@@ -296,7 +327,7 @@ Identity Protection now emits risk (such as unfamiliar sign-in properties) on no
 
 Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Azure AD tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Azure AD protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Azure AD protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials.
 
-For more information on this capability and supported scenarios, see: [Workload identity federation](../develop/workload-identity-federation.md).
+For more information on this capability and supported scenarios, see: [Workload identity federation](../workload-identities/workload-identity-federation.md).
  
 
 ---

@@ -5,7 +5,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ms.date: 10/24/2022
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
 ---
@@ -219,7 +219,9 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
-#### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+#### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
@@ -227,7 +229,7 @@ For example, your app can authenticate using your Visual Studio Code sign-in cre
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
 
     #### [Azure CLI](#tab/sign-in-azure-cli)
 

@@ -71,7 +71,7 @@ Most users leave their consistency level at the default session consistency sett
 
 The processing of cutting-over or connecting your application allows you to switch your application to use Azure Cosmos DB once migration is finished. Follow the steps below:
 
-1. In a new window sign into the [Azure portal](https://www.portal.azure.com/)
+1. In a new window, sign in to the [Azure portal](https://www.portal.azure.com/).
 2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
 3. Open the **Connection String** blade. The right pane contains all the information that you need to successfully connect to your account.
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.

@@ -23,7 +23,7 @@ The steps in this article help you create the architecture in the following diag
 
 [!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
 
-* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](certificates-point-to-site.md).
+* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Microsoft Entra authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
 ## Create a virtual WAN
 
@@ -37,11 +37,11 @@ The point-to-site (P2S) configuration defines the parameters for connecting remo
 
 When selecting the authentication method, you have three choices. Each method has specific requirements. Select one of the following methods, and then complete the steps.
 
-* **Azure Active Directory authentication:** Obtain the following:
+* **Microsoft Entra authentication:** Obtain the following:
 
-   * The **Application ID** of the Azure VPN Enterprise Application registered in your Azure AD tenant.
+   * The **Application ID** of the Azure VPN Enterprise Application registered in your Microsoft Entra tenant.
    * The **Issuer**. Example: `https://sts.windows.net/your-Directory-ID`.
-   * The **Azure AD tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
+   * The **Microsoft Entra tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
@@ -103,7 +103,7 @@ Once you complete these steps, you will have created an architecture that allows
 1. Under Security, select **Azure Firewall policies**.
 1. Select **Create Azure Firewall Policy**.
 1. Under **Policy details**, type in a name and select the region your virtual hub is deployed in.
-1. Select **Next: DNS Settings (preview)**.
+1. Select **Next: DNS Settings**.
 1. Select **Next: Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. Provide a name for the collection. Set the type as **Network**. Add a priority value **100**.

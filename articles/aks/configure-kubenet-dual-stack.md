@@ -5,7 +5,7 @@ description: Learn how to configure dual-stack kubenet networking in Azure Kuber
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 ms.topic: how-to
 ms.date: 06/27/2023
 ---
@@ -46,6 +46,9 @@ AKS configures the required supporting services for dual-stack networking. This 
 * IPv4 and IPv6 node and pod addresses.
 * Outbound rules for both IPv4 and IPv6 traffic.
 * Load balancer setup for IPv4 and IPv6 services.
+
+> [!NOTE]
+> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.  
 
 ## Deploying a dual-stack cluster
 
@@ -417,6 +420,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [kubernetes-dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
 
 <!-- LINKS - Internal -->
+[outbound-type]: ./egress-outboundtype.md
 [deploy-arm-template]: ../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md
 [deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
 [kubenet]: ./configure-kubenet.md

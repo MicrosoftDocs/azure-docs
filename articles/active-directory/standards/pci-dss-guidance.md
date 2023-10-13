@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory PCI-DSS guidance
-description: Guidance on meeting payment card industry (PCI) compliance with Azure AD
+title: Microsoft Entra PCI-DSS guidance
+description: Guidance on meeting payment card industry (PCI) compliance with Microsoft Entra ID
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,37 +15,39 @@ ms.custom: it-pro
 ms.collection: 
 ---
 
-# Azure Active Directory PCI-DSS guidance
+# Microsoft Entra PCI-DSS guidance
 
-The Payment Card Industry Security Standards Council (PCI SSC) is responsible for developing and promoting data security standards and resources, including the Payment Card Industry Data Security Standard (PCI-DSS), to ensure the security of payment transactions. To achieve PCI compliance, organizations using Azure Active Directory (Azure AD) can refer to guidance in this document. However, it is the responsibility of the organizations to ensure their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining secure systems, products, and networks that handle, process, and store payment card information. 
+The Payment Card Industry Security Standards Council (PCI SSC) is responsible for developing and promoting data security standards and resources, including the Payment Card Industry Data Security Standard (PCI-DSS), to ensure the security of payment transactions. To achieve PCI compliance, organizations using Microsoft Entra ID can refer to guidance in this document. However, it's the responsibility of the organizations to ensure their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining secure systems, products, and networks that handle, process, and store payment card information. 
 
-While Azure AD helps meet some PCI-DSS control requirements, and provides modern identity and access protocols for cardholder data environment (CDE) resources, it should not be the sole mechanism for protecting cardholder data. Therefore, review this document set and all PCI-DSS requirements to establish a comprehensive security program that preserves customer trust. For a complete list of requirements, please visit the official PCI Security Standards Council website at pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf)
+While Microsoft Entra ID helps meet some PCI-DSS control requirements, and provides modern identity and access protocols for cardholder data environment (CDE) resources, it shouldn't be the sole mechanism for protecting cardholder data. Therefore, review this document set and all PCI-DSS requirements to establish a comprehensive security program that preserves customer trust. For a complete list of requirements, visit the official PCI Security Standards Council website at pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf)
 
 ## PCI requirements for controls
 
-The global PCI-DSS v4.0  establishes a baseline of technical and operational standards for protecting account data. It “was developed to encourage and enhance payment card account data security and facilitate the broad adoption of consistent data security measures, globally. It provides a baseline of technical and operational requirements designed to protect account data. While specifically designed to focus on environments with payment card account data, PCI-DSS can also be used to protect against threats and secure other elements in the payment ecosystem.”  
+The global PCI-DSS v4.0  establishes a baseline of technical and operational standards for protecting account data. It "was developed to encourage and enhance payment card account data security and facilitate the broad adoption of consistent data security measures, globally. It provides a baseline of technical and operational requirements designed to protect account data. While designed to focus on environments with payment card account data, PCI-DSS can also be used to protect against threats and secure other elements in the payment ecosystem."  
 
-## Azure AD configuration and PCI-DSS
+<a name='azure-ad-configuration-and-pci-dss'></a>
 
-This document serves as a comprehensive guide for technical and business leaders who are responsible for managing identity and access management (IAM) with Azure Active Directory (Azure AD) in compliance with the Payment Card Industry Data Security Standard (PCI DSS). By following the key requirements, best practices, and approaches outlined in this document, organizations can reduce the scope, complexity, and risk of PCI noncompliance, while promoting security best practices and standards compliance. The guidance provided in this document aims to help organizations configure Azure AD in a way that meets the necessary PCI DSS requirements and promotes effective IAM practices.
+## Microsoft Entra configuration and PCI-DSS
 
-Technical and business leaders can use the following guidance to fulfill responsibilities for identity and access management (IAM) with Azure AD. For more information on PCI-DSS in other Microsoft workloads, see [Overview of the Microsoft cloud security benchmark (v1)](/security/benchmark/azure/overview).
+This document serves as a comprehensive guide for technical and business leaders who are responsible for managing identity and access management (IAM) with Microsoft Entra ID in compliance with the Payment Card Industry Data Security Standard (PCI DSS). By following the key requirements, best practices, and approaches outlined in this document, organizations can reduce the scope, complexity, and risk of PCI noncompliance, while promoting security best practices and standards compliance. The guidance provided in this document aims to help organizations configure Microsoft Entra ID in a way that meets the necessary PCI DSS requirements and promotes effective IAM practices.
+
+Technical and business leaders can use the following guidance to fulfill responsibilities for identity and access management (IAM) with Microsoft Entra ID. For more information on PCI-DSS in other Microsoft workloads, see [Overview of the Microsoft cloud security benchmark (v1)](/security/benchmark/azure/overview).
 
 PCI-DSS requirements and testing procedures consist of 12 principal requirements that ensure the secure handling of payment card information. Together, these requirements are a comprehensive framework that helps organizations secure payment card transactions and protect sensitive cardholder data. 
 
-Azure AD is an enterprise identity service that secures applications, systems, and resources to support PCI-DSS compliance. The following table has the PCI principal requirements and links to Azure AD recommended controls for PCI-DSS compliance.
+Microsoft Entra ID is an enterprise identity service that secures applications, systems, and resources to support PCI-DSS compliance. The following table has the PCI principal requirements and links to Microsoft Entra ID recommended controls for PCI-DSS compliance.
 
 ## Principal PCI-DSS requirements
 
-PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
+PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by Microsoft Entra ID, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
-|PCI Data Security Standard - High Level Overview|Azure AD recommended PCI-DSS controls|
+|PCI Data Security Standard - High Level Overview|Microsoft Entra ID recommended PCI-DSS controls|
 |-|-|
-|Build and Maintain Secure Network and Systems|[1. Install and Maintain Network Security Controls]() </br> [2. Apply Secure Configurations to All System Components]()|
+|Build and Maintain Secure Network and Systems|[1. Install and Maintain Network Security Controls](pci-requirement-1.md) </br> [2. Apply Secure Configurations to All System Components](pci-requirement-2.md)|
 |Protect Account Data|3. Protect Stored Account Data </br> 4. Protect Cardholder Data with Strong Cryptography During Transmission Over Public Networks|
-|Maintain a Vulnerability Management Program|[5. Protect All Systems and Networks from Malicious Software]() </br> [6. Develop and Maintain Secure Systems and Software]()|
-|Implement Strong Access Control Measures|[7. Restrict Access to System Components and Cardholder Data by Business Need to Know]() </br> [8. Identify and Authenticate Access to System Components]() </br> 9. Restrict Physical Access to System Components and Cardholder Data|
-|Regularly Monitor and Test Networks|[10. Log and Monitor All Access to System Components and Cardholder Data]() </br> [11. Test Security of Systems and Networks Regularly]()|
+|Maintain a Vulnerability Management Program|[5. Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) </br> [6. Develop and Maintain Secure Systems and Software](pci-requirement-6.md)|
+|Implement Strong Access Control Measures|[7. Restrict Access to System Components and Cardholder Data by Business Need to Know](pci-requirement-7.md) </br> [8. Identify and Authenticate Access to System Components](pci-requirement-8.md) </br> 9. Restrict Physical Access to System Components and Cardholder Data|
+|Regularly Monitor and Test Networks|[10. Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md) </br> [11. Test Security of Systems and Networks Regularly](pci-requirement-11.md)|
 |Maintain an Information Security Policy|12. Support Information Security with Organizational Policies and Programs|
 
 ## PCI-DSS applicability
@@ -62,7 +64,7 @@ CHD consists of:
 SAD consists of security-related information used to authenticate cardholders and/or authorize payment card transactions. SAD includes, but isn't limited to:
 
 * **Full track data** - magnetic stripe or chip equivalent
-* **Card verification codes/values** - also referred to as the card validation code (CVC), or value (CVV). It’s the three- or four-digit value on the front or back of the payment card. It’s also referred to as CAV2, CVC2, CVN2, CVV2 or CID, determined by the participating payment brands (PPB).  
+* **Card verification codes/values** - also referred to as the card validation code (CVC), or value (CVV). It's the three- or four-digit value on the front or back of the payment card. It's also referred to as CAV2, CVC2, CVN2, CVV2 or CID, determined by the participating payment brands (PPB).  
 * **PIN** - personal identification number 
   * **PIN blocks** - an encrypted representation of the PIN used in a debit or credit card transaction. It ensures the secure transmission of sensitive information during a transaction 
 
@@ -77,11 +79,11 @@ Protecting the CDE is essential to the security and confidentiality of customer 
 
 PCI audit scope relates to the systems, networks, and processes in the storage, processing, or transmission of CHD and/or SAD. If Account Data is stored, processed, or transmitted in a cloud environment, PCI-DSS applies to that environment and compliance typically involves validation of the cloud environment and the usage of it.  There are five fundamental elements in scope for a PCI audit: 
 
-* **Cardholder data environment (CDE)** - the area where CHD, and/or SAD, is stored, processed, or transmitted. It includes an organization’s components that touch CHD, such as networks, and network components, databases, servers, applications, and payment terminals.
+* **Cardholder data environment (CDE)** - the area where CHD, and/or SAD, is stored, processed, or transmitted. It includes an organization's components that touch CHD, such as networks, and network components, databases, servers, applications, and payment terminals.
 * **People** - with access to the CDE, such as employees, contractors, and third-party service providers, are in the scope of a PCI audit.
 * **Processes** - that involve CHD, such as authorization, authentication, encryption and storage of account data in any format, are within the scope of a PCI audit.
 * **Technology** - that processes, stores, or transmits CHD, including hardware such as printers, and multi-function devices that scan, print and fax, end-user devices such as computers, laptops workstations, administrative workstations, tablets and mobile devices, software, and other IT systems, are in the scope of a PCI audit.
-* **System components** – that might not store, process, or transmit CHD/SAD but have unrestricted connectivity to system components that store, process, or transmit CHD/SAD, or that could effect the security of the CDE.
+* **System components** – that might not store, process, or transmit CHD/SAD but have unrestricted connectivity to system components that store, process, or transmit CHD/SAD, or that could affect the security of the CDE.
 
 If PCI scope is minimized, organizations can effectively reduce the effects of security incidents and lower the risk of data breaches. Segmentation can be a valuable strategy for reducing the size of the PCI CDE, resulting in reduced compliance costs and overall benefits for the organization including but not limited to:
 
@@ -92,7 +94,7 @@ If PCI scope is minimized, organizations can effectively reduce the effects of s
 
 ## Strategies to reduce PCI audit scope
 
-An organization’s definition of its CDE determines PCI audit scope. Organizations document and communicate this definition to the PCI-DSS Qualified Security Assessor (QSA) performing the audit. The QSA assesses controls for the CDE to determine compliance.
+An organization's definition of its CDE determines PCI audit scope. Organizations document and communicate this definition to the PCI-DSS Qualified Security Assessor (QSA) performing the audit. The QSA assesses controls for the CDE to determine compliance.
 Adherence to PCI standards and use of effective risk mitigation helps businesses protect customer personal and financial data, which maintains trust in their operations. The following section outlines strategies to reduce risk in PCI audit scope. 
 
 ### Tokenization
@@ -110,26 +112,26 @@ When using cloud-based processing methodologies, consider the relevant risks to 
 
 PCI-DSS requires organizations to maintain a secure CDE. With effectively configured CDE, businesses can mitigate their risk exposure and reduce the associated costs for both on-premises and cloud environments. This approach helps minimize the scope of a PCI audit, making it easier and more cost-effective to demonstrate compliance with the standard.
 
-To configure Azure AD to secure the CDE: 
+To configure Microsoft Entra ID to secure the CDE: 
 
 * Use passwordless credentials for users: Windows Hello for Business, FIDO2 security keys, and Microsoft Authenticator app
 * Use strong credentials for workload identities: certificates and managed identities for Azure resources.
-  * Integrate access technologies such as VPN, remote desktop, and network access points with Azure AD for authentication, if applicable
-* Enable privileged identity management and access reviews for Azure AD roles, privileged access groups and Azure resources
+  * Integrate access technologies such as VPN, remote desktop, and network access points with Microsoft Entra ID for authentication, if applicable
+* Enable privileged identity management and access reviews for Microsoft Entra roles, privileged access groups and Azure resources
 * Use Conditional Access policies to enforce PCI-requirement controls: credential strength, device state, and enforce them based on location, group membership, applications, and risk 
 * Use modern authentication for DCE workloads
-* Archive Azure AD logs in security information and event management (SIEM) systems
+* Archive Microsoft Entra logs in security information and event management (SIEM) systems
 
-Where applications and resources use Azure AD for identity and access management (IAM), the Azure AD tenant(s) are in scope of PCI audit, and the guidance herein is applicable. Organizations must evaluate identity and resource isolation requirements, between non-PCI and PCI workloads, to determine their best architecture.
+Where applications and resources use Microsoft Entra ID for identity and access management (IAM), the Microsoft Entra tenant(s) are in scope of PCI audit, and the guidance herein is applicable. Organizations must evaluate identity and resource isolation requirements, between non-PCI and PCI workloads, to determine their best architecture.
 
 Learn more
 
-* [Introduction to delegated administration and isolated environments](../fundamentals/secure-introduction.md)
+* [Introduction to delegated administration and isolated environments](../architecture/secure-introduction.md)
 * [How to use the Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 * [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 * [What are access reviews?](../governance/access-reviews-overview.md)
 * [What is Conditional Access?](../conditional-access/overview.md)
-* [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md)
+* [Audit logs in Microsoft Entra ID](../reports-monitoring/concept-audit-logs.md)
 
 ### Establish a responsibility matrix
 
@@ -167,7 +169,7 @@ With ongoing processes, organizations respond effectively to changes in the regu
 
 ### Implement strong security for shared infrastructure
 
-Typically, web services such as Azure, have a shared infrastructure wherein customer data might be stored on the same physical server or data storage device. This scenario creates the risk of unauthorized customers accessing data they don’t own, and the risk of malicious actors targeting the shared infrastructure. Azure AD security features help mitigate risks associated with shared infrastructure:
+Typically, web services such as Azure, have a shared infrastructure wherein customer data might be stored on the same physical server or data storage device. This scenario creates the risk of unauthorized customers accessing data they don't own, and the risk of malicious actors targeting the shared infrastructure. Microsoft Entra security features help mitigate risks associated with shared infrastructure:
 
 * User authentication to network access technologies that support modern authentication protocols: virtual private network (VPN), remote desktop, and network access points.
 * Access control policies that enforce strong authentication methods and device compliance based on signals such as user context, device, location, and risk. 
@@ -180,22 +182,22 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 PCI-DSS cites no specific geographic location for credit card data storage. However, it requires cardholder data is stored securely, which might include geographic restrictions, depending on the organization's security and regulatory requirements. Different countries and regions have data protection and privacy laws. Consult with a legal or compliance advisor to determine applicable data residency requirements. 
 
-Learn more: [Azure AD and data residency](../fundamentals/data-residency.md)
+Learn more: [Microsoft Entra ID and data residency](../fundamentals/data-residency.md)
 
 ### Third-party security risks
 
 A non-PCI compliant third-party provider poses a risk to PCI compliance. Regularly assess and monitor third-party vendors and service providers to ensure they maintain required controls to protect cardholder data.
 
-Azure AD features and functions in **Data residency** help mitigate risks associated with third-party security. 
+Microsoft Entra features and functions in **Data residency** help mitigate risks associated with third-party security. 
 
 ### Logging and monitoring
 
-Implement accurate logging and monitoring to detect, and respond to, security incidents in a timely manner. Azure AD helps manage PCI compliance with audit and activity logs, and reports that can be integrated with a SIEM system. Azure AD has role -based access control (RBAC) and MFA to secure access to sensitive resources, encryption, and threat protection features to protect organizations from unauthorized access and data theft. 
+Implement accurate logging and monitoring to detect, and respond to, security incidents in a timely manner. Microsoft Entra ID helps manage PCI compliance with audit and activity logs, and reports that can be integrated with a SIEM system. Microsoft Entra ID has role -based access control (RBAC) and MFA to secure access to sensitive resources, encryption, and threat protection features to protect organizations from unauthorized access and data theft. 
 
 Learn more: 
 
-•	[What are Azure AD reports?](../reports-monitoring/overview-reports.md)
-•	[Azure AD built-in roles](../roles/permissions-reference.md)
+* [What are Microsoft Entra reports?](../reports-monitoring/overview-reports.md)
+* [Microsoft Entra built-in roles](../roles/permissions-reference.md)
 
 ### Multi-application environments: host outside the CDE
 
@@ -208,11 +210,11 @@ PCI-DSS ensures that companies that accept, process, store, or transmit credit c
 
 ## Next steps
 
-PCI-DSS requirements **3**, **4**, **9**, and **12** aren't applicable to Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
+PCI-DSS requirements **3**, **4**, **9**, and **12** aren't applicable to Microsoft Entra ID, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
-To configure Azure AD to comply with PCI-DSS, see the following articles. 
+To configure Microsoft Entra ID to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS guidance](pci-dss-guidance.md) (You're here)
+* [Microsoft Entra PCI-DSS guidance](pci-dss-guidance.md) (You're here)
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md)
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md)
@@ -221,5 +223,4 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md)
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
-* [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)
-
+* [Microsoft Entra PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)

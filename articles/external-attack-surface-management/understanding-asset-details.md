@@ -20,7 +20,7 @@ For more information, see [Understanding inventory assets](understanding-invento
 
 You can view the asset details page for any asset by selecting its name from your inventory list. On the left pane of this page, you can view an asset summary that provides key information about that particular asset. This section primarily includes data that applies to all asset types, although more fields are available in some cases. For more information on the metadata provided for each asset type in the summary section, see the following chart.
 
-![Screenshot that shows an asset details page with the summary pane highlighted.](media/Inventory_1.png)
+![Screenshot that shows an asset details page with the summary pane highlighted.](media/inventory-1.png)
 
 ### General information
 
@@ -31,11 +31,12 @@ This section includes high-level information that's key to understanding your as
 | Asset name | The name of an asset. | All |
 | UUID | This 128-bit label represents the universally unique identifier (UUID) for the asset. | All |
 | Added to inventory | The date that an asset was added to inventory, whether it was automatically added to the **Approved Inventory** state or it's in another state like **Candidate**.  | All |
+| Last updated | The date that a manual user last updated the asset (for example, by making a state change or asset removal).  | All |
+| External ID | A manually added External ID value.  | All |
 | Status | The status of the asset within the RiskIQ system. Options include **Approved Inventory**, **Candidate**, **Dependencies**, or **Requires Investigation**. | All |
 | First seen (Global Security Graph) | The date that Microsoft first scanned the asset and added it to the comprehensive Global Security Graph.  | All |
 | Last seen (Global Security Graph) | The date that Microsoft most recently scanned the asset. | All |
 | Discovered on | Indicates the creation date of the discovery group that detected the asset.  | All |
-| Last updated | The date that a manual user last updated the asset (for example, by making a state change or asset removal).  | All |
 | Country | The country of origin detected for this asset. | All |
 | State/Province | The state or province of origin detected for this asset. | All |
 | City | The city of origin detected for this asset. | All |
@@ -257,6 +258,16 @@ The following fields are included in the table in the **Values** section on the 
 | Name servers | Any name servers associated with the registered entity. |
 
 Many organizations opt to obfuscate their registry information. Sometimes contact email addresses end in *@anonymised.email*. This placeholder is used instead of a real contact address. Many fields are optional during registration configuration, so any field with an empty value wasn't included by the registrant.
+
+
+
+### Change history 
+
+The "Change history" tab displays a list of modifications that have been applied to an asset over time. This information helps you track these changes over time and better understand the lifecycle of the asset.  This tab displays a variety of changes, including but not limited to asset states, labels and external IDs. For each change, we list the user who implemented the change and a timestamp. 
+
+[ ![Screenshot that shows the Change history tab.](media/change-history-1.png) ](media/change-history-1.png#lightbox)
+
+
 
 ## Next steps
 

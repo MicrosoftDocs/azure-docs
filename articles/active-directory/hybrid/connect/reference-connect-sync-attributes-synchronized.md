@@ -1,6 +1,6 @@
 ---
-title: 'Attributes synchronized by Azure AD Connect'
-description: Lists the attributes that are synchronized to Azure Active Directory.
+title: 'Attributes synchronized by Microsoft Entra Connect'
+description: Lists the attributes that are synchronized to Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,15 +17,15 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Attributes synchronized to Azure Active Directory
-This topic lists the attributes that are synchronized by Azure AD Connect sync.  
-The attributes are grouped by the related Azure AD app.
+# Microsoft Entra Connect Sync: Attributes synchronized to Microsoft Entra ID
+This topic lists the attributes that are synchronized by Microsoft Entra Connect Sync.  
+The attributes are grouped by the related Microsoft Entra app.
 
 ## Attributes to synchronize
 A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Microsoft 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive personal data, like in this example:  
 ![bad attributes](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-In this case, start with the list of attributes in this topic and identify those attributes that would contain personal data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+In this case, start with the list of attributes in this topic and identify those attributes that would contain personal data and cannot be synchronized. Then deselect those attributes during installation using [Microsoft Entra app and attribute filtering](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
@@ -38,10 +38,10 @@ In this case, start with the list of attributes in this topic and identify those
 | accountEnabled |X |Defines if an account is enabled. |
 | cn |X | |
 | displayName |X | |
-| objectSID |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 |samAccountName|X| |
-| sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | usageLocation |X |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
 
@@ -49,7 +49,7 @@ In this case, start with the list of attributes in this topic and identify those
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
-| altRecipient |X | | |Requires Azure AD Connect build 1.1.552.0 or after. |
+| altRecipient |X | | |Requires Microsoft Entra Connect build 1.1.552.0 or after. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -99,7 +99,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
-| msExchBypassModerationLink | | |X |Available in Azure AD Connect version 1.1.524.0 |
+| msExchBypassModerationLink | | |X |Available in Microsoft Entra Connect version 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -124,7 +124,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchRecipientTypeDetails |X |X |X | |
 | msExchRemoteRecipientType |X | | | |
 | msExchRequireAuthToSendTo |X |X |X | |
-| msExchResourceCapacity |X | | | |
+| msExchResourceCapacity |X| | |This attribute is currently not consumed by Exchange Online. |
 | msExchResourceDisplay |X | | | |
 | msExchResourceMetaData |X | | | |
 | msExchResourceSearchProperties |X | | | |
@@ -138,7 +138,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
 | msOrg-IsOrganizational | | |X | |
-| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -151,14 +151,15 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
+| securityEnabled | | |X | |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Microsoft Entra Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Microsoft Entra Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
@@ -216,7 +217,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointLinkedBy |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
-| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -233,14 +234,15 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
+| securityEnabled | | |X | |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Microsoft Entra Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Microsoft Entra Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -279,19 +281,20 @@ In this case, start with the list of attributes in this topic and identify those
 | msRTCSIP-OwnerUrn |X | | | |
 | msRTCSIP-PrimaryUserAddress |X |X | | |
 | msRTCSIP-UserEnabled |X |X | | |
-| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Microsoft Entra Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Microsoft Entra Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -305,10 +308,11 @@ In this case, start with the list of attributes in this topic and identify those
 | displayName |X |X |X |A string that represents the name often shown as the friendly name (first name last name). |
 | mail |X |X |X |full email address. |
 | member | | |X | |
-| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
-| proxyAddresses |X |X |X |mechanical property. Used by Azure AD. Contains all secondary email addresses for the user. |
+| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
+| proxyAddresses |X |X |X |mechanical property. Used by Microsoft Entra ID. Contains all secondary email addresses for the user. |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| securityEnabled | | |X | |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |This UPN is the login ID for the user. Most often the same as [mail] value. |
 
@@ -323,10 +327,11 @@ In this case, start with the list of attributes in this topic and identify those
 | mail |X |X |X | |
 | mailnickname |X |X |X | |
 | member | | |X | |
-| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| securityEnabled | | |X | |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
@@ -348,13 +353,14 @@ In this case, start with the list of attributes in this topic and identify those
 | manager |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |
-| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
@@ -368,7 +374,7 @@ This group is a set of attributes used as the minimal attributes needed for a ge
 * Yammer (only User is consumed)
 * [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](/sharepoint/create-b2b-extranet)
 
-This group is a set of attributes that can be used if the Azure AD directory is not used to support Microsoft 365, Dynamics, or Intune. It has a small set of core attributes. Note that single sign-on or provisioning to some third-party applications requires configuring synchronization of attributes in addition to the attributes described here. Application requirements are described in the [SaaS app tutorial](../../saas-apps/tutorial-list.md) for each application.
+This group is a set of attributes that can be used if the Microsoft Entra directory is not used to support Microsoft 365, Dynamics, or Intune. It has a small set of core attributes. Note that single sign-on or provisioning to some third-party applications requires configuring synchronization of attributes in addition to the attributes described here. Application requirements are described in the [SaaS app tutorial](../../saas-apps/tutorial-list.md) for each application.
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
@@ -381,16 +387,17 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
 | member | | |X | |
-| objectSID |X | | |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
+| objectSID |X | | |mechanical property. AD user identifier used to maintain sync between Microsoft Entra ID and AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
+| sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Microsoft Entra ID. |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Windows 10
-A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../../devices/hybrid-azuread-join-plan.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+A Windows 10 domain-joined computer(device) synchronizes some attributes to Microsoft Entra ID. For more information on the scenarios, see [Connect domain-joined devices to Microsoft Entra ID for Windows 10 experiences](../../devices/hybrid-join-plan.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
 
 | Attribute Name | Device | Comment |
 | --- |:---:| --- |
@@ -413,11 +420,11 @@ These attributes for **user** are in addition to the other apps you have selecte
 | msDS-KeyCredentialLink |X |Once the user is enrolled in Windows Hello for Business. | 
 
 ## Exchange hybrid writeback
-These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
+These attributes are written back from Microsoft Entra ID to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
 | Attribute Name (On-premises AD) | Attribute Name (Connect UI) | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |---|
-| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Microsoft Entra ID. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
 | msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
@@ -425,10 +432,10 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
 | msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
 | proxyAddresses| proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
-| publicDelegates| ms-Exch-Public-Delegates  |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Microsoft Entra Connect build 1.1.552.0 or after. |
 
 ## Exchange Mail Public Folder
-These attributes are synchronized from on-premises Active Directory to Azure AD when you select to enable **Exchange Mail Public Folder**.
+These attributes are synchronized from on-premises Active Directory to Microsoft Entra ID when you select to enable **Exchange Mail Public Folder**.
 
 | Attribute Name | PublicFolder | Comment |
 | --- | :---:| --- |
@@ -440,7 +447,7 @@ These attributes are synchronized from on-premises Active Directory to Azure AD 
 | targetAddress | X |  |
 
 ## Device writeback
-Device objects are created in Active Directory. These objects can be devices joined to Azure AD or domain-joined Windows 10 computers.
+Device objects are created in Active Directory. These objects can be devices joined to Microsoft Entra ID or domain-joined Windows 10 computers.
 
 | Attribute Name | Device | Comment |
 | --- |:---:| --- |
@@ -460,11 +467,11 @@ Device objects are created in Active Directory. These objects can be devices joi
 | msDS-RegisteredOwner |X | |
 
 ## Notes
-* When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Azure AD attribute userPrincipalName.
-* Although there is no enforcement of uniqueness on the Azure AD onPremisesUserPrincipalName attribute, it is not supported to sync the same UserPrincipalName value to the Azure AD onPremisesUserPrincipalName attribute for multiple different Azure AD users.
+* When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Microsoft Entra attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Microsoft Entra attribute userPrincipalName.
+* Although there is no enforcement of uniqueness on the Microsoft Entra onPremisesUserPrincipalName attribute, it is not supported to sync the same UserPrincipalName value to the Microsoft Entra onPremisesUserPrincipalName attribute for multiple different Microsoft Entra users.
 * In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

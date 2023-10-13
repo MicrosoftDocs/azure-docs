@@ -1,8 +1,8 @@
 ---
 title: How to use live trace tool for Azure SignalR service
 description: Learn how to use live trace tool for Azure SignalR service
-author: vicancy
-ms.author: lianwei
+author: wanlwanl
+ms.author: wanl
 ms.service: signalr
 ms.topic: how-to 
 ms.date: 07/14/2022
@@ -14,9 +14,16 @@ Live trace tool is a single web application for capturing and displaying live tr
 
 > [!NOTE]
 > Note that the live traces will be counted as outbound messages.
-> Azure Active Directory access to live trace tool is not supported. You will need to enable **Access Key** in **Keys** settings.
+> Using Microsoft Entra ID to access the live trace tool is not supported. You have to enable **Access Key** in **Keys** settings.
 
 ## Launch the live trace tool
+
+> [!NOTE]
+> When enable access key, you'll use access token to authenticate live trace tool.
+> Otherwise, you'll use Microsoft Entra ID to authenticate live trace tool.
+> You can check whether you enable access key or not in your SignalR Service's Keys page in Azure portal.
+
+### Steps for access key enabled
 
 1. Go to the Azure portal and your SignalR Service page.
 1. From the menu on the left, under **Monitoring** select **Live trace settings**.
@@ -25,6 +32,31 @@ Live trace tool is a single web application for capturing and displaying live tr
 1. When updating is complete, select **Open Live Trace Tool**.
 
     :::image type="content" source="media/signalr-howto-troubleshoot-live-trace/signalr-enable-live-trace.png" alt-text="Screenshot of launching the live trace tool.":::
+
+### Steps for access key disabled
+
+#### Assign live trace tool API permission to yourself
+1. Go to the Azure portal and your SignalR Service page.
+1. Select **Access control (IAM)**.
+1. In the new page, Click **+Add**, then click **Role assignment**.
+1. In the new page, focus on **Job function roles** tab, Select **SignalR Service Owner** role, and then click **Next**.
+1. In **Members** page, click **+Select members**.
+1. In the new panel, search and select members, and then click **Select**.
+1. Click **Review + assign**, and wait for the completion notification.
+
+#### Visit live trace tool
+1. Go to the Azure portal and your SignalR Service page.
+1. From the menu on the left, under **Monitoring** select **Live trace settings**.
+1. Select **Enable Live Trace**.
+1. Select **Save** button. It will take a moment for the changes to take effect.
+1. When updating is complete, select **Open Live Trace Tool**.
+
+    :::image type="content" source="media/signalr-howto-troubleshoot-live-trace/signalr-enable-live-trace.png" alt-text="Screenshot of launching the live trace tool.":::
+
+#### Sign in with your Microsoft account
+
+1. The live trace tool will pop up a Microsoft sign in window. If no window is pop up, check and allow pop up windows in your browser.
+1. Wait for **Ready** showing in the status bar. 
 
 ## Capture live traces
 

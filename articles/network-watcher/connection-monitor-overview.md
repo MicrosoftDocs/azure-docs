@@ -2,19 +2,16 @@
 title: Connection monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher connection monitor to monitor network communication in a distributed environment.
-services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
-ms.service: network-watcher
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/04/2022
 ms.author: halkazwini
-ms.custom: mvc, engagement-fy23
-#Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
+ms.service: network-watcher
+ms.topic: concept-article
+ms.date: 10/04/2022
+
+#CustomerIntent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
 
-# Azure Network Watcher connection monitor
+# Connection monitor overview
 
 > [!IMPORTANT]
 > As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection Monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
@@ -117,8 +114,6 @@ To enable the Network Performance Monitor solution for on-premises machines, do 
 1. Select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
    After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
-
-   :::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the Network Performance Monitor solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
@@ -460,43 +455,23 @@ The migration helps produce the following results:
    
 There are several reasons to migrate from Network Performance Monitor and Connection Monitor (Classic) to Connection Monitor. The following table lists a few use cases that show how the latest Connection Monitor performs against Network Performance Monitor and Connection Monitor (Classic). 
 
- | Feature	| Network Performance Monitor | Connection Monitor (Classic) | Connection Monitor |
- | -------  | --------------------------- | -------------------------- | ------------------ | 
- | Unified experience for Azure and hybrid monitoring |	Not available |	Not available |	Available |
- | Cross-subscription, cross-region, and cross-workspace monitoring | Allows cross-subscription and cross-region monitoring, but doesn’t allow cross-workspace monitoring. |	Not available | Allows cross-subscription and cross-workspace monitoring; cross-workspaces have a regional boundary.  |
- | Centralized workspace support | 	Not available |	Not available	| Available |
- | Multiple sources can ping multiple destinations | Performance monitoring allows multiple sources to ping multiple destinations. Service connectivity monitoring allows multiple sources to ping a single service or URL. Express Route allows multiple sources to ping multiple destinations. | Not available | Available |
- | Unified topology across on-premises, internet hops, and Azure | Not available | Not available	| Available |
- | HTTP status code checks | Not available	| Not available	| Available |
- | Connectivity diagnostics | Not available | Available | Available |
- | Compound resources - Virtual networks, subnets, and on-premises custom networks | Performance monitoring supports subnets, on-premises networks, and logical network groups. Service connectivity monitoring and Express Route support only on-premises and cross-workspace monitoring. | Not available | Available |
- | Connectivity metrics and dimensions measurements |	Not available | Loss, latency, and RTT. | Available |
- | Automation – PowerShell, the Azure CLI, Terraform | Not available | Available | Available |
- | Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and Express Route do not support Linux. | Available | Available |
- | Support for public, government, Mooncake, and air-gapped cloud | Available | Available | Available|
- | | |
+| Feature	| Network Performance Monitor | Connection Monitor (Classic) | Connection Monitor |
+| -------  | --------------------------- | -------------------------- | ------------------ | 
+| Unified experience for Azure and hybrid monitoring |	Not available |	Not available |	Available |
+| Cross-subscription, cross-region, and cross-workspace monitoring | Allows cross-subscription and cross-region monitoring, but doesn’t allow cross-workspace monitoring. |	Not available | Allows cross-subscription and cross-workspace monitoring; cross-workspaces have a regional boundary.  |
+| Centralized workspace support | 	Not available |	Not available	| Available |
+| Multiple sources can ping multiple destinations | Performance monitoring allows multiple sources to ping multiple destinations. Service connectivity monitoring allows multiple sources to ping a single service or URL. Express Route allows multiple sources to ping multiple destinations. | Not available | Available |
+| Unified topology across on-premises, internet hops, and Azure | Not available | Not available	| Available |
+| HTTP status code checks | Not available	| Not available	| Available |
+| Connectivity diagnostics | Not available | Available | Available |
+| Compound resources - Virtual networks, subnets, and on-premises custom networks | Performance monitoring supports subnets, on-premises networks, and logical network groups. Service connectivity monitoring and Express Route support only on-premises and cross-workspace monitoring. | Not available | Available |
+| Connectivity metrics and dimensions measurements |	Not available | Loss, latency, and RTT. | Available |
+| Automation – PowerShell, the Azure CLI, Terraform | Not available | Available | Available |
+| Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and Express Route do not support Linux. | Available | Available |
+| Support for public, government, Mooncake, and air-gapped cloud | Available | Available | Available|
 
-
-## FAQ
-
-### Does Connection Monitor support classic VMs?
-No, Connection Monitor doesn't support classic VMs. We recommended that you migrate infrastructure as a service (IaaS) resources from classic to Azure Resource Manager because classic resources [will be deprecated](../virtual-machines/classic-vm-deprecation.md). For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
-
-### What if my topology isn't decorated or my hops have missing information?
-Topology can be decorated from non-Azure to Azure only if the destination Azure resource and the Connection Monitor resource are in the same region. 
-
-### What happens if the Connection Monitor creation fails with the following error: "We don't allow creating different endpoints for the same VM"?
-The same Azure VM can't be used with different configurations in the same connection monitor. For example, using same VM with a filter and without a filter in the same connection monitor isn't supported.
-
-### What happens if the test failure reason is "Nothing to display"?
-Issues that are displayed on the Connection Monitor dashboard are found during topology discovery or hop exploration. There can be cases where the threshold set for % loss or RTT is breached but no issues are found on hops.
-
-### When the existing Connection Monitor (Classic) is migrated to the latest Connection Monitor, what happens if the external endpoint tests are migrated with the TCP protocol only? 
-There is no protocol selection option in Connection Monitor (Classic). So a connection to external endpoints can't be specified by using the HTTP protocol in Connection Monitor (Classic). All the tests use only a TCP protocol in Connection Monitor (Classic), and that's why, during the migration, we create a TCP configuration in tests in Connection Monitor. 
-
-## Next steps
-
-Learn how to create a connection monitor by using:
+## Related content
     
-   * [The Azure portal](./connection-monitor-create-using-portal.md)  
-   * [ARMClient](./connection-monitor-create-using-template.md)
+- To learn how to create a connection monitor, see [Monitor network communication between two virtual machines using the Azure portal](monitor-vm-communication.md). 
+- To find answers to the most frequently asked questions, see [Connection monitor FAQ](frequently-asked-questions.yml#connection-monitor).
+- To learn how to migrate to Connection monitor, see [Migrate to Connection Monitor from Connection Monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md).

@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: how-to
 ms.date: 04/11/2023
-ms.custom: template-concept, ignite-2022
+ms.custom: template-concept, ignite-2022, devx-track-linux
 ---
  
 # Use sample application for guest attestation

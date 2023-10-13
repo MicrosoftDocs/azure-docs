@@ -64,26 +64,6 @@ In addition, you'll need:
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as it's required by [PowerShell DSC](/powershell/dsc/overview).
 
-# [Azure CLI](#tab/cli)
-
-In addition, you'll need:
-
-- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
-
-   | Resource type | RBAC role |
-   |--|--|
-   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
-   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
-   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
-   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-
-   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
-
-- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
-
-> [!IMPORTANT]
-> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
-
 # [Azure PowerShell](#tab/powershell)
 
 In addition, you'll need:
@@ -102,7 +82,27 @@ In addition, you'll need:
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+
+# [Azure CLI](#tab/cli)
+
+In addition, you'll need:
+
+- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role |
+   |--|--|
+   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
+   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
+   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+
+- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+> [!IMPORTANT]
+> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
 
 ---
 
@@ -129,7 +129,7 @@ Here's how to create a host pool using the Azure portal.
    | Host pool name | Enter a name for the host pool, for example *hostpool01*. |
    | Location | Select the Azure region where your host pool will be deployed. |
    | Validation environment | Select **Yes** to create a host pool that is used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
-   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *Remote App*. |   
+   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. |   
    | Host pool type | Select whether your host pool will be Personal or Pooled.<br /><br />If you select **Personal**, a new option will appear for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options will appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]
@@ -151,7 +151,7 @@ Here's how to create a host pool using the Azure portal.
    |--|--|
    | Add Azure virtual machines | Select **Yes**. This shows several new options. |
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+   | Name prefix | Enter a name for your session hosts, for example **me-id-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **me-id-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
    | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
@@ -167,7 +167,7 @@ Here's how to create a host pool using the Azure portal.
    | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **None** won't create a new NSG.<br /><br />- **Basic** will create a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
    | Public inbound ports | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend you select **No**. |
    | **Domain to join** |  |
-   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.  |
+   | Select which directory you would like to join | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the option you select.  |
    | **Virtual Machine Administrator account** |  |
    | Username | Enter a name to use as the local administrator account for the new session host VMs. |
    | Password | Enter a password for the local administrator account. |
@@ -183,7 +183,7 @@ Here's how to create a host pool using the Azure portal.
    | Parameter | Value/Description |
    |--|--|
    | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **aad-ws01**. |
+   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **Microsoft Entra ID-ws01**. |
 
    Once you've completed this tab, select **Next: Advanced**.
 
@@ -209,48 +209,6 @@ Here's how to create a host pool using the Azure portal.
 If you also added session hosts to your host pool, there's some extra configuration you may need to do, which is covered in the following sections.
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
-
-# [Azure CLI](#tab/cli)
-
-Here's how to create a host pool using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
-
-   1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
-   
-      ```azurecli
-      az desktopvirtualization hostpool create \
-          --name <Name> \
-          --resource-group <ResourceGroupName> \
-          --host-pool-type Pooled \
-          --load-balancer-type BreadthFirst \
-          --preferred-app-group-type Desktop \
-          --max-session-limit <value> \
-          --location <AzureRegion>
-      ```
-
-   1. To create a personal host pool using the *Automatic* assignment type, run the following command:
-   
-      ```azurecli
-      az desktopvirtualization hostpool create \
-          --name <Name> \
-          --resource-group <ResourceGroupName> \
-          --host-pool-type Personal \
-          --load-balancer-type Persistent \
-          --preferred-app-group-type Desktop \
-          --personal-desktop-assignment-type Automatic \
-          --location <AzureRegion>
-      ```
-
-3. You can view the properties of your new host pool by running the following command:
-
-   ```azurecli
-   az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>
-   ```
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -300,6 +258,48 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
    Get-AzWvdHostPool -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
    ```
 
+# [Azure CLI](#tab/cli)
+
+Here's how to create a host pool using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
+   
+      ```azurecli
+      az desktopvirtualization hostpool create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --host-pool-type Pooled \
+          --load-balancer-type BreadthFirst \
+          --preferred-app-group-type Desktop \
+          --max-session-limit <value> \
+          --location <AzureRegion>
+      ```
+
+   1. To create a personal host pool using the *Automatic* assignment type, run the following command:
+   
+      ```azurecli
+      az desktopvirtualization hostpool create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --host-pool-type Personal \
+          --load-balancer-type Persistent \
+          --preferred-app-group-type Desktop \
+          --personal-desktop-assignment-type Automatic \
+          --location <AzureRegion>
+      ```
+
+3. You can view the properties of your new host pool by running the following command:
+
+   ```azurecli
+   az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>
+   ```
+
 ---
 
 ## Next steps
@@ -314,7 +314,8 @@ If you didn't complete the optional sections when creating a host pool, you'll s
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
 
-# [Azure CLI](#tab/cli)
+ 
+# [Azure PowerShell](#tab/powershell)
 
 Now that you've created a host pool, you'll still need to do the following tasks:
 
@@ -323,8 +324,8 @@ Now that you've created a host pool, you'll still need to do the following tasks
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
- 
-# [Azure PowerShell](#tab/powershell)
+
+# [Azure CLI](#tab/cli)
 
 Now that you've created a host pool, you'll still need to do the following tasks:
 

@@ -78,7 +78,7 @@ Like with the [general suggestions](#suggested-tags-for-azure-virtual-desktop), 
 
 ### Use the cm-resource-parent tag to automatically group costs by host pool
 
-You can group costs by host pool by using the cm-resource-parent tag. This tag won't impact billing but will let you review tagged costs in Microsoft Cost Management without having to use filters. The key for this tag is **cm-resource-parent** and its value is the resource ID of the Azure resource you want to group costs by. For example, you can group costs by host pool by entering the host pool resource ID as the value. To learn more about how to use this tag, see [Group related resources in the cost analysis (preview)](../cost-management-billing/costs/enable-preview-features-cost-management-labs.md#group-related-resources-in-the-cost-analysis-preview).
+You can group costs by host pool by using the cm-resource-parent tag. This tag won't impact billing but will let you review tagged costs in Microsoft Cost Management without having to use filters. The key for this tag is **cm-resource-parent** and its value is the resource ID of the Azure resource you want to group costs by. For example, you can group costs by host pool by entering the host pool resource ID as the value. To learn more about how to use this tag, see [Group related resources in the cost analysis (preview)](../cost-management-billing/costs/group-filter.md#group-related-resources-in-the-resources-view).
 
 ## Suggested tags for other Azure Virtual Desktop resources
 

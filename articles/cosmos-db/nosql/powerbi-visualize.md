@@ -41,7 +41,7 @@ You can enable Azure Synapse Link on your existing Azure Cosmos DB containers an
 
 To build a Power BI report/dashboard: 
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. From the **Integrations** section, open the **Power BI** pane and select **Get started**.
 
@@ -73,7 +73,7 @@ To build a Power BI report/dashboard:
    > [!NOTE]
    >  Your Azure Cosmos DB container proprieties will be represented as columns in T-SQL views, including deep nested JSON data. This is a quick start for your BI dashboards. These views will be available in your Synapse workspace/database; you can also use these exact same views in Synapse Workspace for data exploration, data science, data engineering, etc. Please note that advanced scenarios may demand more complex views or fine tuning of these views, for better performance. For more information. see [best practices for Synapse Link when using Synapse serverless SQL pools](../../synapse-analytics/sql/resources-self-help-sql-on-demand.md#azure-cosmos-db-performance-issues) article.
     
-1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your Azure AD credentials to automatically connect to your Synapse workspace and create T-SQL views. Make sure you have "Synapse administrator" permissions to this workspace.
+1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your Microsoft Entra credentials to automatically connect to your Synapse workspace and create T-SQL views. Make sure you have "Synapse administrator" permissions to this workspace.
 
    :::image type="content" source="../media/integrated-power-bi-synapse-link/synapse-create-views.png" alt-text="Connect to Synapse Link workspace and create views." border="true" lightbox="../media/integrated-power-bi-synapse-link/synapse-create-views.png":::
 

@@ -1,8 +1,9 @@
 ---
-title: Troubleshoot the sensor
-description: Troubleshoot your sensor to eliminate any problems you might be having.
-ms.date: 03/14/2023
+title: Troubleshoot the sensor | Microsoft Defender for IoT
+description: Learn how to troubleshoot your Microsoft Defender for IoT OT sensor.
+ms.date: 09/07/2023
 ms.topic: troubleshooting
+#CustomerIntent: As a Defender for IoT sensor admin, I want to know how to troubleshoot sensor issues so that I can get it back online quickly.
 ---
 # Troubleshoot the sensor
 
@@ -19,6 +20,35 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 To perform the procedures in this article, make sure that you have:
 
 - Access to the OT network sensor as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+
+## Check sensor - cloud connectivity issues
+
+OT sensors automatically run connectivity checks to ensure that your sensor has access to all required endpoints. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page. For example:
+
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page." lightbox="media/release-notes/connectivity-error.png":::```
+
+Use the **Cloud connectivity troubleshooting** page in your OT sensor to learn more about the error that occurred and recommended mitigation actions you can take.
+
+**To troubleshoot connectivity errors**, sign into your OT sensor and do one of the following:
+
+- From the sensor's **Overview** page, select the **Troubleshoot*** link in the error at the top of the page
+- Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
+
+The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead. For example:
+
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/connectivity-troubleshooting.png" alt-text="Screenshot of the Connectivity troubleshooting pane.":::
+
+The **Cloud connectivity troubleshooting** pane covers the following types of issues:
+
+|Issue  |Description |
+|---------|---------|
+|**Errors establishing secure connections**     |   Occurs for SSL errors, which typically means that the sensor doesn't trust the certificate found. <br><br>This might occur due to an incorrect sensor time configuration, or using an SSL inspection service. SSL inspection services are often found in proxies and can lead to potential certificate errors. <br><br>For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates) and [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).|
+|**General connection errors**     | Occurs when the sensor can't connect with one or more required endpoints. <br><br>In such cases, ensure that all required endpoints are accessible from your sensor, and consider configuring more endpoints in your firewall. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).        |
+|**Unreachable DNS server errors**     |  Occurs when the sensor can't perform name resolution due to an unreachable DNS server. In such cases, verify that your sensor can access the DNS server.   For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration)  |
+|**Proxy authentication issues**     |  Occurs when a proxy demands authentication, but no credentials, or incorrect credentials, are provided. <br><br>In such cases, make sure that you've configured the proxy credentials correctly. For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
+|**Name resolution failures**     | Occurs when the sensor can't perform name resolution for a specific endpoint. <br><br>In such cases, if your DNS server is reachable, make sure that the DNS server is configured on your sensor correctly. If the configuration is correct, we recommend reaching out to your DNS administrator.   <br><br>For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
+|**Unreachable proxy server errors**     | Occurs when the sensor can't establish a connection with the proxy server. In such cases, confirm the reachability of your proxy server with your network team.    <br><br>For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
+
 
 ## Check system health
 
@@ -120,7 +150,7 @@ This procedure describes how to download a diagnostics log to send to support in
 This feature is supported for the following sensor versions:
 
 - **22.1.1** - Download a diagnostic log from the sensor console.
-- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+- **22.1.3** and higher - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -192,7 +222,7 @@ For more information, see [Data retention across Microsoft Defender for IoT](ref
 
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 
-For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+For any other issues, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## Investigate password failure at initial sign-in
 
@@ -200,7 +230,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. On the Defender for IoT sign in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
-1. Select either **CyberX** or **Support**, and copy the unique identifier.
+1. Select either **Support** or **CyberX**, and copy the unique identifier.
 
 1. Navigate to the Azure portal and select **Sites and sensors**.
 
@@ -219,7 +249,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *support*, or *cyberx* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
 ## Investigate a lack of traffic
 
@@ -279,7 +309,7 @@ To connect a sensor controlled by the management console to NTP:
 Sometimes ICS devices are configured with external IP addresses. These ICS devices aren't shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Define OT and IoT subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets).
+1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Fine tune your subnet list](how-to-control-what-traffic-is-monitored.md#fine-tune-your-subnet-list).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 

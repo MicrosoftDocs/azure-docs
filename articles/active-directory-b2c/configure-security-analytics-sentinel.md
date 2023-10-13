@@ -43,7 +43,7 @@ In this tutorial, learn how to:
 
 To define where logs and metrics for a resource are sent, 
 
-1. Enable **Diagnostic settings** in Azure AD, in your Azure AD B2C tenant.
+1. Enable **Diagnostic settings** in Microsoft Entra ID, in your Azure AD B2C tenant.
 2. Configure Azure AD B2C to send logs to Azure Monitor.
 
 Learn more, [Monitor Azure AD B2C with Azure Monitor](./azure-monitor.md).
@@ -55,7 +55,7 @@ After you configure your Azure AD B2C instance to send logs to Azure Monitor, en
    >[!IMPORTANT]
    >To enable Microsoft Sentinel, obtain Contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, use Contributor or Reader permissions on the resource group to which the workspace belongs.
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the subscription where the Log Analytics workspace is created.
 3. Search for and select **Microsoft Sentinel**.
 

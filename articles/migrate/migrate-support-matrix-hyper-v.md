@@ -72,7 +72,7 @@ Support | Details
 **Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/reference/integration-services) enabled.
 **Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some additional commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
-**Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
+**Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).<br /> <br />If using domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /><br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 **Discovery** | Software inventory is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
 
 ## SQL Server instance and database discovery requirements
@@ -107,8 +107,7 @@ The following are sample scripts for creating a login and provisioning it with t
   ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
+	  DECLARE @SID NVARCHAR(MAX) = N'';
     CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
 	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
 	IF (ISNULL(@SID,'') != '')
@@ -165,7 +164,10 @@ The following are sample scripts for creating a login and provisioning it with t
    ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
+	-- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID with SQL login. 
+	  -- After the account is created in one of the member instances, copy the SID output from the script and include 
+	  -- this value when executing against the remaining replicas.
+	  -- When the SID needs to be specified, add the value to the @SID variable definition below.
     DECLARE @SID NVARCHAR(MAX) = N'';
 	IF (@SID = N'')
 	BEGIN
@@ -174,13 +176,14 @@ The following are sample scripts for creating a login and provisioning it with t
 	END
 	ELSE
 	BEGIN
-		CREATE LOGIN [evaluator]
-			WITH PASSWORD = '<provide a strong password>'
-			, SID = @SID 
+		DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+			WITH PASSWORD = ''<provide a strong password>''
+			, SID = '+@SID 
+    EXEC SP_EXECUTESQL @SQLString
 	END
 	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'evaluator'
 	IF (ISNULL(@SID,'') != '')
-		PRINT N'Created login [evaluator] with SID = '+@SID
+		PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
 	ELSE
 		PRINT N'Login creation failed'
   GO    

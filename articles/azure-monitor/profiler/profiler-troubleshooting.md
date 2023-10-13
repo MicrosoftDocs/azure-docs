@@ -12,7 +12,7 @@ This article presents troubleshooting steps and information to enable you to use
 
 ## Are you using the appropriate Profiler endpoint?
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 |App setting    | US Government Cloud | China Cloud |
 |---------------|---------------------|-------------|

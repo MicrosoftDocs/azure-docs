@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 10/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -19,7 +19,7 @@ The Node.js client library can automatically monitor incoming and outgoing HTTP 
 You can use the TelemetryClient API to manually instrument and monitor more aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
 > [!NOTE]
-> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
+> An [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
 
 ## Get started
 
@@ -34,8 +34,8 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 
 ### <a name="resource"></a> Set up an Application Insights resource
 
-1. Sign in to the [Azure portal][portal].
-1. Create an [Application Insights resource](create-new-resource.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Create an [Application Insights resource](create-workspace-resource.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -76,7 +76,7 @@ Include the SDK in your app so that it can gather data.
 
 The SDK automatically gathers telemetry about the Node.js runtime and some common third-party modules. Use your application to generate some of this data.
 
-Then, in the [Azure portal][portal] go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
+Then, in the [Azure portal](https://portal.azure.com) go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
 
 To view the topology that's discovered for your app, you can use [Application Map](app-map.md).
 
@@ -486,5 +486,4 @@ process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
 
 <!--references-->
 
-[portal]: https://portal.azure.com/
 [FAQ]: ../faq.yml

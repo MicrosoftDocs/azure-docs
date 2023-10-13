@@ -86,6 +86,8 @@
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
+      - name: Storage IOPS
+        href: flexible-server/concepts-storage-iops.md
     - name: Networking
       items:
       - name: Networking concepts
@@ -134,12 +136,14 @@
         href: flexible-server/concepts-backup-restore.md
     - name: Security
       items:
-      - name: Azure AD Authentication
+      - name: Microsoft Entra authentication
         href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Automation tasks
+      href: flexible-server/create-automation-tasks.md
     - name: Azure Key Vault
       href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
     - name: Power Apps
@@ -288,7 +292,7 @@
         href: flexible-server/how-to-troubleshoot-cli-errors.md
     - name: Security
       items:
-      - name: Configure Azure AD Authentication
+      - name: Configure Microsoft Entra authentication
         href: flexible-server/how-to-azure-ad.md
       - name: Data encryption with Azure portal
         href: flexible-server/how-to-data-encryption-portal.md
@@ -446,7 +450,7 @@
         href: single-server/concepts-security.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
       - name: Network Security (Encryption in motion)
         items:
@@ -566,7 +570,7 @@
         displayName: private link, private endpoint
     - name: Security
       items:
-      - name: Configure Azure AD integration
+      - name: Configure Microsoft Entra integration
         href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName:  active directory
       - name: Connect with Managed identity
@@ -808,13 +812,11 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-database-mysql.html
+    href: /answers/tags/181/azure-database-mysql
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
     items:
-    - name: Product videos
-      href: videos.md
     - name: How to video series
       items:
       - name: Learn product features and benefits

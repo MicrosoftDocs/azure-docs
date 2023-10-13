@@ -4,18 +4,20 @@ description: Learn how to configure DDoS protection diagnostic alerts for Azure 
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/30/2023
+ms.date: 08/07/2023
 ms.author: abell
 ---
 
 # Configure Azure DDoS Protection diagnostic logging alerts
 
-Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks and mitigation actions. You can configure alerts for all DDoS protected public IP addresses that you have enabled diagnostic logging on.
 
-In this article, you'll learn how to configure diagnostic logging alerts through Azure Monitor and Logic App.
+In this tutorial, you learn how to:
 
+> [!div class="checklist"]
+> * Configure diagnostic logging alerts through Azure Monitor and Logic App.
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -39,7 +41,8 @@ The Azure Monitor alert rule template will run a query against the diagnostic lo
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAlert%2520-%2520DDOS%2520Mitigation%2520started%2520azure%2520monitor%2520alert%2FDDoSMitigationStarted.json)
 
 1. On the *Custom deployment* page, under *Project details*, enter the following information. 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template.":::
+
+    :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template." lightbox="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert.png":::
 
     | Setting | Value |
     |--|--|
@@ -65,7 +68,8 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAutomation%2520-%2520DDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
     
 1. On the *Custom deployment* page, under *Project details*, enter the following information. 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template.":::
+
+    :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template." lightbox="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert-logic-app.png":::
 
     | Setting | Value |
     |--|--|
@@ -84,15 +88,20 @@ You can keep your resources for the next guide. If no longer needed, delete the 
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page.":::
+    :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png":::
 
 1. Select **Alert rules**, then in the Alert rules page, select your subscription.
 
-     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page.":::
+     :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png":::
 
 1. Select the alerts created in this guide, then select **Delete**. 
 
 ## Next steps
 
-* [Test through simulations](test-through-simulations.md)
-* [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md)
+In this tutorial you learned how to configure diagnostic alerts through Azure portal.
+
+To test DDoS Protection through simulations, continue to the next guide.
+
+> [!div class="nextstepaction"]
+> [Test through simulations](test-through-simulations.md)
+> [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md)

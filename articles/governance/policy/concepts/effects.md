@@ -19,15 +19,15 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction (preview)](#denyaction-preview)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
-- [Manual (preview)](#manual-preview)
+- [Manual](#manual)
 - [Modify](#modify)
 
 ## Interchanging effects
 
-Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect **AuditIfNotExists** require other details in the policy rule that aren't required for policies with effect **Audit**. The effects also behave differently. **Audit** policies will assess a resource's compliance based on its own properties, while **AuditIfNotExists** policies will assess a resource's compliance based on a child or extension resource's properties.
+Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect **AuditIfNotExists** require other details in the policy rule that aren't required for policies with effect **Audit**. The effects also behave differently. **Audit** policies assess a resource's compliance based on its own properties, while **AuditIfNotExists** policies assess a resource's compliance based on a child or extension resource's properties.
 
 The following list is some general guidance around interchangeable effects:
 - **Audit**, **Deny**, and either **Modify** or **Append** are often interchangeable.
@@ -181,7 +181,7 @@ definitions as `constraintTemplate` is deprecated.
     template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
     passed via **values** from Azure Policy. For more information, go to [Gatekeeper constraints](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints).
 - **constraintInfo** (optional)
-  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, `kinds`, `scope`, `namespaces`, `excludedNamespaces`, or `labelSelector`.
   - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
   - **sourceType** (required)
     - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
@@ -195,17 +195,19 @@ definitions as `constraintTemplate` is deprecated.
     to limit policy evaluation to.
   - An empty or missing value causes policy evaluation to include all namespaces not
     defined in _excludedNamespaces_.
-- **excludedNamespaces** (required)
+- **excludedNamespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to exclude from policy evaluation.
-- **labelSelector** (required)
+- **labelSelector** (optional)
   - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
     allow specifying which Kubernetes resources to include for policy evaluation that matched the
     provided
     [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
+- **scope** (optional)
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -217,8 +219,7 @@ definitions as `constraintTemplate` is deprecated.
     of Kubernetes object to limit evaluation to.
   - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
+  - Defines any parameters and values to pass to the Constraint. Each value must exist and match a property in the validation openAPIV3Schema section of the Constraint template CRD.
 
 ### Audit example
 
@@ -281,6 +282,15 @@ related resources to match.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
     However, an [audit](#audit) effect should be considered instead.
+
+> [!NOTE]
+>
+> **Type** and **Name** segments can be combined to generically retrieve nested resources.
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
+> To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
+
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -471,31 +481,28 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 }
 ```
 
-## DenyAction (preview)
+## DenyAction
 
-`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect helps prevent any accidental deletion of critical resources.
+`DenyAction` is used to block requests based on intended action to resources at scale. The only supported action today is `DELETE`. This effect and action name helps prevent any accidental deletion of critical resources.
 
 ### DenyAction evaluation
 
 When a request call with an applicable action name and targeted scope is submitted, `denyAction` prevents the request from succeeding. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
 assignment.
 
-`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
-
-> [!NOTE]
-> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, `Microsoft.Resources/subscriptions` and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
 
 #### Subscription deletion
 
-Policy won't block removal of resources that happens during a subscription deletion.
+Policy doesn't block removal of resources that happens during a subscription deletion.
 
 #### Resource group deletion
 
-Policy will evaluate resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule will block a resource group deletion. Policy won't block removal of resources that don't support location and tags nor any policy with `mode:all`.
+Policy evaluates resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule block a resource group deletion. Policy doesn't block removal of resources that don't support location and tags nor any policy with `mode:all`.
 
 #### Cascade deletion
 
-Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy won't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child).
+Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy doesn't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child).
 
 [!INCLUDE [policy-denyAction](../../../../includes/azure-policy-deny-action.md)]
 
@@ -531,7 +538,7 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
       ]
    },
    "then": {
-      "effect": "DenyAction",
+      "effect": "denyAction",
       "details": {
          "actionNames": [ "delete" ],
          "cascadeBehaviors": { "resourceGroup": "deny" }
@@ -578,6 +585,15 @@ related resources to match and the template deployment to execute.
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
+
+> [!NOTE]
+>
+> **Type** and **Name** segments can be combined to generically retrieve nested resources.
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
+> To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
+
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -651,7 +667,7 @@ If not, then a deployment to enable is executed.
     "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
+    "effect": "deployIfNotExists",
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
@@ -705,16 +721,16 @@ of that policy's assignments.
 > Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
 
 An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
+When **enforcementMode** is **Disabled**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
-## Manual (preview)
+## Manual
 
-The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
+The new `manual` effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
-> During Public Preview, support for manual policy is available through various Microsoft Defender
+> Support for manual policy is available through various Microsoft Defender
 > for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
 
 Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:

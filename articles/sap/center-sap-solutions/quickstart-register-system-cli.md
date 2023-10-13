@@ -57,10 +57,13 @@ To register an existing SAP system in Azure Center for SAP solutions:
           --sap-product s4hana \ 
           --central-server-vm <Virtual Machine resource ID> \ 
           --identity "{type:UserAssigned,userAssignedIdentities:{<Managed Identity resource ID>:{}}}" \
+          --managed-rg-name "acss-C36" \
      ```
+    - **g** is used to specify the name of the existing Resource Group into which you want the Virtual Instance for SAP solutions resource to be deployed. It could be the same RG in which you have Compute, Storage resources of your SAP system or a different one. 
     - **n** parameter is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
     - **environment** parameter is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
     - **sap-product** parameter is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
+    - **managed-rg-name** parameter is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you do not specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
 
 2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
 

@@ -23,10 +23,10 @@ Once you've configured your OAuth 2.0 authorization server and configured your A
 1. Select **Authorization code** from the authorization drop-down list. 
 
     :::image type="content" source="../includes/media/api-management-test-oauth-authorization/select-authorization-code-authorization.png" alt-text="Select Authorization code authorization":::
-1. Once prompted, sign into the Azure AD tenant. 
+1. Once prompted, sign in to the Microsoft Entra tenant. 
     * If you are already signed into the account, you might not be prompted.
 
-1. After successful sign-in, an `Authorization` header is added to the request, with an access token from Azure AD. The following is an abbreviated sample token (Base64 encoded):
+1. After successful sign-in, an `Authorization` header is added to the request, with an access token from Microsoft Entra ID. The following is an abbreviated sample token (Base64 encoded):
 
    ```
    Authorization: Bearer eyJ0eXAiOi[...]3pkCfvEOyA

@@ -27,7 +27,7 @@ With the built-in **HTTP + Swagger** operation and [Azure Logic Apps](../logic-a
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
-  The examples in this topic use the [Cognitive Services Face API](../cognitive-services/face/overview.md), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
+  The examples in this topic uses [Azure AI Face](../ai-services/computer-vision/overview-identity.md), which requires an [Azure AI services resource key and region](../ai-services/multi-service-resource.md?pivots=azportal).
 
   > [!NOTE]
   > To reference a Swagger file that's unhosted or that doesn't meet the security and cross-origin requirements, 
@@ -48,7 +48,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. In the **SWAGGER ENDPOINT URL** box, enter the URL for the Swagger file that you want, and select **Next**.
 
-   Make sure to use or create your own endpoint. As an example only, these steps use the following [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific trigger:
+   Make sure to use or create your own endpoint. As an example only, these steps use the following [Azure AI Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific trigger:
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
@@ -88,7 +88,7 @@ This built-in action sends an HTTP request to the URL for the Swagger file that 
 
 1. In the **SWAGGER ENDPOINT URL** box, enter the URL for the Swagger file that you want, and select **Next**.
 
-   Make sure to use or create your own endpoint. As an example only, these steps use the following [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific action:
+   Make sure to use or create your own endpoint. As an example only, these steps use the following [Azure AI Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific action:
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 

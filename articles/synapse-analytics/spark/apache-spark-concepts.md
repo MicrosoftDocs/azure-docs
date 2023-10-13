@@ -31,7 +31,7 @@ Spark instances are created when you connect to a Spark pool, create a session, 
 
 When you submit a second job, if there's capacity in the pool, the existing Spark instance also has capacity. Then, the existing instance will process the job. Otherwise, if capacity is available at the pool level, then a new Spark instance will be created.
 
-Billing for the instances starts when the Azure VM(s) starts. Billing for the Spark pool instances stops when pool instances changes to terminating. For more details on how Azure VMs are started, de-allocated see [States and billing status of Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/states-billing)
+Billing for the instances starts when the Azure VM(s) starts. Billing for the Spark pool instances stops when pool instances change to terminating. For more information on how Azure VMs are started and deallocated, see [States and billing status of Azure Virtual Machines](/azure/virtual-machines/states-billing).
 
 ## Examples
 

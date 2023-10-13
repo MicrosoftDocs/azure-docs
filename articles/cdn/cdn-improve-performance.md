@@ -25,7 +25,7 @@ There are two ways to enable file compression:
 > Azure CDN configuration changes can take some time to propagate through the network: 
 > - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
 > - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-> - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes. 
+> - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes. 
 > 
 > If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to the POPs.
 
@@ -34,7 +34,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 ### Standard CDN profiles 
 > [!NOTE]
-> This section applies to **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Standard from Akamai** profiles.
+> This section applies to **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Standard from Akamai** profiles.
 > 
 > 
 
@@ -61,7 +61,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 ### Premium CDN profiles
 > [!NOTE]
-> This section applies only to **Azure CDN Premium from Verizon** profiles.
+> This section applies only to **Azure CDN Premium from Edgio** profiles.
 > 
 
 1. From the CDN profile page, select **Manage**.
@@ -104,9 +104,11 @@ When a request for an asset specifies gzip compression and the request results i
 
 If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the CDN POP, then response sizes greater than 8 MB aren't supported. 
 
-### Azure CDN from Verizon profiles
+<a name='azure-cdn-from-verizon-profiles'></a>
 
-For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
+### Azure CDN from Edgio profiles
+
+For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, only eligible files are compressed. To be eligible for compression, a file must:
 - Be larger than 128 bytes
 - Be smaller than 3 MB
 
@@ -115,7 +117,7 @@ These profiles support the following compression encodings:
 - DEFLATE
 - bzip2
 
-Azure CDN from Verizon doesn't support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
+Azure CDN from Edgio doesn't support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
 
 ### Azure CDN Standard from Akamai profiles
 
@@ -141,7 +143,7 @@ The following tables describe Azure CDN compression behavior for every scenario:
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |CDN transcodes between supported formats. <br/>**Azure CDN from Microsoft** doesn't support transcoding between formats and instead fetches data from origin, compresses and caches separately for the format. |
 | Compressed |Uncompressed |Compressed |CDN performs a compression. |
-| Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. <br/>Files with the `Cache-Control: no-cache` header are never compressed. |
+| Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Edgio** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. <br/>Files with the `Cache-Control: no-cache` header are never compressed. |
 | Uncompressed |Compressed |Uncompressed |CDN performs a decompression. <br/>**Azure CDN from Microsoft** doesn't support decompression and instead fetches data from origin and caches separately for uncompressed clients. |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
@@ -155,4 +157,3 @@ For endpoints enabled for Media Services CDN streaming, compression is enabled b
 
 ## See also
 * [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    
-

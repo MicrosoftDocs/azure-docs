@@ -24,7 +24,7 @@ The following sizes are not supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
@@ -104,7 +104,7 @@ The process to create a scale set with Azure Spot Virtual Machines is the same a
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --upgrade-policy-mode automatic \
     --single-placement-group false \
     --admin-username azureuser \

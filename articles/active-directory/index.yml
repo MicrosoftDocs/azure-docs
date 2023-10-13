@@ -13,20 +13,20 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 06/20/2023
+  ms.date: 10/09/2023
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure AD?
+    - title: What is Microsoft Entra ID?
       itemType: overview # controls the icon image and super-title text
-      url: ./fundamentals/active-directory-whatis.md
-    - title: What's new in Azure AD?
+      url: ./fundamentals/whatis.md
+    - title: What's new in Microsoft Entra ID?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Azure AD feature deployment guide
+    - title: Microsoft Entra feature deployment guide
       itemType: concept
-      url: ./fundamentals/active-directory-deployment-checklist-p2.md
+      url: ./fundamentals/concept-secure-remote-workers.md
     - title: Microsoft Entra
       itemType: get-started
       url: /entra
@@ -38,16 +38,16 @@ conceptualContent:
         # Card
         - title: Security and Zero Trust
           links:
-            - url: ../security/fundamentals/identity-management-overview.md
+            - url: /azure/security/fundamentals/identity-management-overview
               itemType: overview
               text: Overview
-            - url: ../security/fundamentals/identity-management-best-practices.md
+            - url: /azure/security/fundamentals/identity-management-best-practices
               itemType: how-to-guide
               text: Best practices
             - url: /security/benchmark/azure/baselines/aad-security-baseline
               itemType: reference
-              text: Security baseline for Azure AD
-            - url: ./fundamentals/security-operations-introduction.md
+              text: Security baseline for Microsoft Entra ID
+            - url: /azure/active-directory/architecture/security-operations-introduction
               itemType: concept
               text: Security operations guide
             - url: /security/zero-trust/deploy/identity
@@ -57,24 +57,24 @@ conceptualContent:
               itemType: concept
               text: Build apps with Zero Trust
         # Card
-        - title: Microsoft Learn
+        - title: Microsoft Learn training
           links:
             - url: /training/modules/describe-identity-principles-concepts/
               itemType: learn
               text: Identity concepts
             - url: /training/modules/explore-basic-services-identity-types/
               itemType: learn
-              text: Services and identity types
+              text: Function and identity types
             - url: /training/modules/create-users-and-groups-in-azure-active-directory/
               itemType: learn
               text: Create users and groups
             - url: /training/modules/allow-users-reset-their-password/
               itemType: learn
               text: Allow users to reset their password
-            - url: /training/modules/secure-access-azure-identity-services/
+            - url: /training/modules/secure-aad-users-with-mfa/
               itemType: learn
-              text: Secure access to your apps
-            - url: /training/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
+              text: Secure users with MFA
+            - url: /training/browse/?products=entra&resource_type=module
               itemType: learn
               text: See more >
         # Card
@@ -83,7 +83,7 @@ conceptualContent:
             - url: /azure/architecture/identity/identity-start-here
               itemType: get-started
               text: Get started
-            - url: ./fundamentals/active-directory-architecture.md
+            - url: /azure/active-directory/architecture/architecture
               itemType: concept
               text: Guides
             - url: /azure/architecture/reference-architectures/identity/adds-forest
@@ -121,91 +121,95 @@ additionalContent:
       items:
         # Card
         - title: Fundamentals
-          summary: Learn basic Azure Active Directory (Azure AD) concepts and processes.
-          url: ./fundamentals/index.yml
+          summary: Learn basic Microsoft Entra concepts and processes.
+          url: /azure/active-directory/fundamentals/
+        # Card
+        - title: Architecture
+          summary: Learn basic Microsoft Entra architecture.
+          url: /azure/active-directory/architecture/
         # Card
         - title: Enterprise users
-          summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.
-          url: ./enterprise-users/index.yml
+          summary: Create Microsoft Entra tenants, manage user accounts, roles, and groups, and assign app access.
+          url: /azure/active-directory/enterprise-users/
         # Card
         - title: Roles
-          summary: Manage admin permissions and apply the principle of least privilege using Azure AD role-based access control.
-          url: ./roles/index.yml
+          summary: Manage admin permissions and apply the principle of least privilege using Microsoft Entra role-based access control.
+          url: /azure/active-directory/roles/
         # Card
         - title: Privileged Identity Management (PIM)
           summary: Manage just-in-time role assignments to limit access to secure information and resources.
-          url: ./privileged-identity-management/index.yml
+          url: /azure/active-directory/privileged-identity-management/
         # Card
         - title: External partners (B2B)
           summary: Collaborate with partners using their own external identities (B2B).
-          url: ./external-identities/index-b2b.yml
+          url: /azure/active-directory/external-identities/index-b2b
         # Card
         - title: Customers (preview)
           summary: Secure and customize sign-ins for your apps with our new customer identity and access management (CIAM) solution.  
-          url: ./external-identities/customers/index.yml
+          url: /azure/active-directory/external-identities/customers/
         # Card
         - title: Consumers (B2C)
           summary: Business to consumers identity and access management for your app.   
-          url: ../active-directory-b2c/index.yml
+          url: /azure/active-directory-b2c/
         # Card
         - title: Application provisioning
-          summary: Create and manage user identities in applications by provisioning from Azure AD.
-          url: ./app-provisioning/index.yml
+          summary: Create and manage user identities in applications by provisioning from Microsoft Entra ID.
+          url: /azure/active-directory/app-provisioning/
         # Card
         - title: Hybrid identity
           summary: Create a user identity that can access both on-premises and cloud resources.
-          url: ./hybrid/index.yml
+          url: /azure/active-directory/hybrid/
         # Card
         - title: Multi-tenant organizations
           summary: Collaborate across tenants within your organization.
-          url: ./multi-tenant-organizations/index.yml
+          url: /azure/active-directory/multi-tenant-organizations/
     - title: Control access
       items:
         # Card
         - title: Conditional Access
           summary: Control access to resources by enforcing policies based on user, location, device, and more.
-          url: ./conditional-access/index.yml
+          url: /azure/active-directory/conditional-access/
         # Card
         - title: Authentication
           summary: Configure sign-in methods and security features like self-service password reset, MFA, and more.
-          url: ./authentication/index.yml
+          url: /azure/active-directory/authentication/
         # Card
         - title: Device identity
-          summary: Register and join devices to Azure AD for device management and Conditional Access.
-          url: ./devices/index.yml
+          summary: Register and join devices to Microsoft Entra ID for device management and Conditional Access.
+          url: /azure/active-directory/devices/
         # Card
         - title: Identity Protection
           summary: Automatically identify and address identity risks in your organization.
-          url: ./identity-protection/index.yml
+          url: /azure/active-directory/identity-protection/
     - title: Apps, data, and resources
       items:
         # Card
         - title: Application management
-          summary: Develop, add, or connect an app to Azure AD and manage access.
-          url: ./manage-apps/index.yml
+          summary: Develop, add, or connect an app to Microsoft Entra ID and manage access.
+          url: /azure/active-directory/manage-apps/
         # Card
         - title: Microsoft identity platform
-          summary: Build your app on the Microsoft identity platform and use Azure AD as your authentication service.
-          url: ./develop/index.yml
+          summary: Build your app on the Microsoft identity platform and use Microsoft Entra ID as your authentication service.
+          url: /azure/active-directory/develop/
         # Card
         - title: Managed identities
-          summary: Create an application identity that can connect to resources using Azure AD authentication.
-          url: ./managed-identities-azure-resources/index.yml
+          summary: Create an application identity that can connect to resources using Microsoft Entra authentication.
+          url: /azure/active-directory/managed-identities-azure-resources/
         # Card
         - title: Domain services
           summary: Move legacy apps to managed domains in the cloud while preserving user accounts, groups, and access.
-          url: ../active-directory-domain-services/index.yml
+          url: /entra/identity/domain-services/
         # Card
         - title: Third-party applications
-          summary: Integrate cloud-enabled, software as a service (SaaS) apps with Azure AD.
-          url: ./saas-apps/tutorial-list.md
+          summary: Integrate cloud-enabled, software as a service (SaaS) apps with Microsoft Entra ID.
+          url: /azure/active-directory/saas-apps/tutorial-list
     - title: Monitor and audit
       items:
         # Card
         - title: Identity governance
           summary: Protect, monitor, and audit access to critical assets throughout the identity and access lifecycles.
-          url: ./governance/index.yml
+          url: /azure/active-directory/governance/
         # Card
         - title: Reports and monitoring
           summary: Use logs and reports to determine usage of your apps and services, detect risks, and troubleshoot issues.
-          url: ./reports-monitoring/index.yml
+          url: /azure/active-directory/reports-monitoring/

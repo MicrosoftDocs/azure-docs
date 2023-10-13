@@ -63,8 +63,8 @@ The following JWT claims should be validated in the ID token after validating th
 
 ## See also
 * [ID token claims reference](id-token-claims-reference.md)
-* [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md)
-* [Optional claims](active-directory-optional-claims.md)
+* [OAuth 2.0 and OpenID Connect protocols](./v2-protocols.md)
+* [Optional claims](./optional-claims.md)
 
 ## Next steps
 

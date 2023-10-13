@@ -3,6 +3,7 @@ title: Deploy the diagnostics tool for Azure Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Azure Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
+ms.custom: has-azure-ad-ps-ref
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
@@ -24,11 +25,11 @@ Here's what the diagnostics tool for Azure Virtual Desktop can do for you:
 
 ## Prerequisites
 
-You need to create an Azure Active Directory App Registration and a Log Analytics workspace before you can deploy the Azure Resource Manager template for the tool. You or the administrator need these permissions to do that:
+You need to create a Microsoft Entra App Registration and a Log Analytics workspace before you can deploy the Azure Resource Manager template for the tool. You or the administrator need these permissions to do that:
 
 - Owner of the Azure subscription
 - Permission to create resources in your Azure subscription
-- Permission to create an Azure AD app
+- Permission to create a Microsoft Entra app
 - RDS Owner or Contributor rights
 
 You also need to install these two PowerShell modules before you get started:
@@ -38,21 +39,23 @@ You also need to install these two PowerShell modules before you get started:
 
 Make sure you have your Subscription ID ready for when you sign in.
 
-After you have everything in order, you can create the Azure AD app registration.
+After you have everything in order, you can create the Microsoft Entra app registration.
 
-## Create an Azure Active Directory app registration
+<a name='create-an-azure-active-directory-app-registration'></a>
 
-This section will show you how to use PowerShell to create the Azure Active Directory app with a service principal and get API permissions for it.
+## Create a Microsoft Entra app registration
+
+This section will show you how to use PowerShell to create the Microsoft Entra app with a service principal and get API permissions for it.
 
 >[!NOTE]
->The API permissions are Azure Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
+>The API permissions are Azure Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Microsoft Entra Application.
 
 1. Open PowerShell as an Administrator.
 2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
    ```powershell
    Login-AzAccount
    ```
-3. Sign in to Azure AD with the same account:
+3. Sign in to Microsoft Entra ID with the same account:
    ```powershell
    Connect-AzureAD
    ```
@@ -118,16 +121,16 @@ Learn more about the performance counters at [Windows and Linux performance data
 
 ## Validate the script results in the Azure portal
 
-Before you continue deploying the diagnostics tool, we recommend that you verify that your Azure Active Directory application has API permissions and your Log Analytics workspace has the preconfigured Windows performance counters.
+Before you continue deploying the diagnostics tool, we recommend that you verify that your Microsoft Entra application has API permissions and your Log Analytics workspace has the preconfigured Windows performance counters.
 
 ### Review your app registration
 
 To make sure your app registration has API permissions:
 
-1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. Go to **Azure Active Directory**.
+1. Open a browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+2. Go to **Microsoft Entra ID**.
 3. Go to **App registrations** and select **All Applications**.
-4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
+4. Look for your Microsoft Entra app registration with the same app name you entered in step 5 of [Create a Microsoft Entra app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
 5. On your Azure subscription, check that app registration has been assigned the *Contributor* role assignment.
 
 ### Review your Log Analytics workspace
@@ -188,7 +191,7 @@ To set the Redirect URI:
    > ![The redirect URI page](../media/redirect-uri-page.png)
 
 8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is `http://contoso.azurewebsites.net`).
-9. Sign in using the appropriate Azure Active Directory user account.
+9. Sign in using the appropriate Microsoft Entra user account.
 10.   Select **Accept**.
 
 ## Distribute the diagnostics tool

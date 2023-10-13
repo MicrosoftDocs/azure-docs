@@ -5,7 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.custom: devx-track-azurecli
+ms.topic: article
 ms.date: 06/07/2023
 ms.author: danlep
 ---
@@ -321,7 +322,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
         <container-name>myContainer</container-name>
     </connection-info>
     <query-request>
-        <sql-statement>SELECT * FROM c </sqlstatement>
+        <sql-statement>SELECT * FROM c </sql-statement>
     </query-request>
 </cosmosdb-data-source>
 ```

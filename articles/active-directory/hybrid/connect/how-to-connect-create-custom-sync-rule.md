@@ -1,5 +1,5 @@
 ---
-title: How to customize a synchronization rule in Azure AD Connect'
+title: How to customize a synchronization rule in Microsoft Entra Connect'
 description: Learn how to use the synchronization rule editor to edit or create a new synchronization rule.
 services: active-directory
 documentationcenter: ''
@@ -36,14 +36,14 @@ You can use the synchronization rule editor to edit or create a new synchronizat
 * To modify an **Outbound** rule, change filter from the synchronization rule editor.
 
 ## **Recommended Documents**
-* [Azure AD Connect sync: Technical Concepts](./how-to-connect-sync-technical-concepts.md)
-* [Azure AD Connect sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md)
-* [Azure AD Connect sync: Understanding Declarative Provisioning](./concept-azure-ad-connect-sync-declarative-provisioning.md)
-* [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect sync: Understanding the default configuration](./concept-azure-ad-connect-sync-default-configuration.md)
-* [Azure AD Connect sync: Understanding Users, Groups, and Contacts](./concept-azure-ad-connect-sync-user-and-contacts.md)
-* [Azure AD Connect sync: Shadow attributes](./how-to-connect-syncservice-shadow-attributes.md)
+* [Microsoft Entra Connect Sync: Technical Concepts](./how-to-connect-sync-technical-concepts.md)
+* [Microsoft Entra Connect Sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md)
+* [Microsoft Entra Connect Sync: Understanding Declarative Provisioning](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Microsoft Entra Connect Sync: Understanding Declarative Provisioning Expressions](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Microsoft Entra Connect Sync: Understanding the default configuration](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Microsoft Entra Connect Sync: Understanding Users, Groups, and Contacts](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Microsoft Entra Connect Sync: Shadow attributes](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## Next Steps
-- [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md).
 - [What is hybrid identity?](../whatis-hybrid-identity.md).

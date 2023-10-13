@@ -2,8 +2,8 @@
 title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Service (AKS)
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 07/10/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 09/12/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -22,47 +22,12 @@ Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] a
 ## Limitations
 
 * Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* Virtual nodes are not supported.
 * When encrypting ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate the key in Azure Key Vault, you need to:
 
    * Scale down the node pool count to 0
    * Rotate the key
    * Scale up the node pool to the original count.
-
-## Register customer-managed key (preview) feature
-
-To enable customer-managed key for ephemeral OS disk (preview) feature, you must register *EnableBYOKOnEphemeralOSDiskPreview* feature flag on *Microsoft.ContainerService* over the subscription. To perform the registration, run the following commands.
-
-1. Install the *aks-preview* extension:
-
-   ```azurecli-interactive
-   az extension add --name aks-preview
-   ```
-
-1. Update to the latest version of the extension released:
-
-   ```azurecli-interactive
-   az extension update --name aks-preview
-   ```
-
-1. Register the *EnableBYOKOnEphemeralOSDiskPreview* feature flag:
-
-   ```azurecli-interactive
-   az feature register --namespace "Microsoft.ContainerService" --name "EnableBYOKOnEphemeralOSDiskPreview"
-   ```
-
-   It takes a few minutes for the status to show *Registered*.
-
-1. Verify the registration status:
-
-   ```azurecli-interactive
-   az feature show --namespace "Microsoft.ContainerService" --name "EnableBYOKOnEphemeralOSDiskPreview"
-   ```
-
-1. When the status shows *Registered*, refresh the `Microsoft.ContainerService` resource provider registration:
-
-   ```azurecli-interactive
-   az provider register --namespace Microsoft.ContainerService
-   ```
 
 ## Create an Azure Key Vault instance
 

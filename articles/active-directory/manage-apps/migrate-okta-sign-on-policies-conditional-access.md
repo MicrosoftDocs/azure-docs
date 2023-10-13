@@ -1,6 +1,6 @@
 ---
-title: Tutorial to migrate Okta sign-on policies to Azure Active Directory Conditional Access
-description: Learn how to migrate Okta sign-on policies to Azure Active Directory Conditional Access.
+title: Tutorial to migrate Okta sign-on policies to Microsoft Entra Conditional Access
+description: Learn how to migrate Okta sign-on policies to Microsoft Entra Conditional Access.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -13,16 +13,16 @@ ms.subservice: app-mgmt
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access
+# Tutorial: Migrate Okta sign-on policies to Microsoft Entra Conditional Access
 
-In this tutorial, learn to migrate an organization from global or application-level sign-on policies in Okta Conditional Access in Azure Active Directory (Azure AD). Conditional Access policies secure user access in Azure AD and connected applications.
+In this tutorial, learn to migrate an organization from global or application-level sign-on policies in Okta Conditional Access in Microsoft Entra ID. Conditional Access policies secure user access in Microsoft Entra ID and connected applications.
 
 Learn more: [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 
 This tutorial assumes you have:
 
-* Office 365 tenant federated to Okta for sign-in and multi-factor authentication
-* Azure AD Connect server, or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD
+* Office 365 tenant federated to Okta for sign-in and multifactor authentication
+* Microsoft Entra Connect server, or Microsoft Entra Connect cloud provisioning agents configured for user provisioning to Microsoft Entra ID
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ See the following two sections for licensing and credentials prerequisites.
 
 ### Licensing
 
-There are licensing requirements if you switch from Okta sign-on to Conditional Access. The process requires an Azure AD Premium P1 license to enable registration for Azure AD Multi-Factor Authentication (MFA).
+There are licensing requirements if you switch from Okta sign-on to Conditional Access. The process requires a Microsoft Entra ID P1 license to enable registration for Microsoft Entra multifactor authentication.
 
-Learn more: [Assign or remove licenses in the Azure Active Directory portal](/azure/active-directory/fundamentals/license-users-groups)
+Learn more: [Assign or remove licenses in the Microsoft Entra admin center](/azure/active-directory/fundamentals/license-users-groups)
 
 ### Enterprise Administrator credentials
 
@@ -40,7 +40,7 @@ To configure the service connection point (SCP) record, ensure you have Enterpri
 
 ## Evaluate Okta sign-on policies for transition
 
-Locate and evaluate Okta sign-on policies to determine what will be transitioned to Azure AD.
+Locate and evaluate Okta sign-on policies to determine what will be transitioned to Microsoft Entra ID.
 
 1. In Okta go to **Security** > **Authentication** > **Sign On**.
 
@@ -70,25 +70,27 @@ The following screenshot is conditions and actions for the four rules, on the Si
 
 Configure Conditional Access policies to match Okta conditions. However, in some scenarios, you might need more setup:
 
-* Okta network locations to named locations in Azure AD 
+* Okta network locations to named locations in Microsoft Entra ID 
   *  [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md)
 * Okta device trust to device-based Conditional Access (two options to evaluate user devices):
-  * See the following section, **Hybrid Azure AD join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD
+  * See the following section, **Microsoft Entra hybrid join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Microsoft Entra ID
   * See the following section, **Configure device compliance**
-  * See, [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), a feature in Azure AD Connect server that synchronizes Windows devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD
+  * See, [Use Microsoft Entra hybrid join](#hybrid-azure-ad-join-configuration), a feature in Microsoft Entra Connect server that synchronizes Windows devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Microsoft Entra ID
   * See, [Enroll the device in Microsoft Intune](#configure-device-compliance) and assign a compliance policy
 
-### Hybrid Azure AD join configuration
+<a name='hybrid-azure-ad-join-configuration'></a>
 
-To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. After configuration, enroll devices.
+### Microsoft Entra hybrid join configuration
+
+To enable Microsoft Entra hybrid join on your Microsoft Entra Connect server, run the configuration wizard. After configuration, enroll devices.
 
    >[!NOTE]
-   >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
+   >Microsoft Entra hybrid join isn't supported with the Microsoft Entra Connect cloud provisioning agents.
 
-1. [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+1. [Configure Microsoft Entra hybrid join](../devices/how-to-hybrid-join.md).
 2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
 
-    ![Screenshot of the Authentication Service dropdown on the Microsoft Azure Active Directory Connect dialog.](media/migrate-okta-sign-on-policies-conditional-access/scp-configuration.png)
+    ![Screenshot of the Authentication Service dropdown on the Microsoft Entra Connect dialog.](media/migrate-okta-sign-on-policies-conditional-access/scp-configuration.png)
 
 4. Select an Okta federation provider URL.
 5. Select **Add**. 
@@ -96,11 +98,11 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
 7. Select **Next**.
 
     > [!TIP]
-    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish. Allow the legacy authentication stack for Windows clients. </br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
+    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the Microsoft Entra hybrid join process to finish. Allow the legacy authentication stack for Windows clients. <br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
 
 ### Configure device compliance
 
-Hybrid Azure AD join is a replacement for Okta device trust on Windows. Conditional Access policies recognize compliance for devices enrolled in Microsoft Intune.
+Microsoft Entra hybrid join is a replacement for Okta device trust on Windows. Conditional Access policies recognize compliance for devices enrolled in Microsoft Intune.
 
 #### Device compliance policy
 
@@ -109,41 +111,45 @@ Hybrid Azure AD join is a replacement for Okta device trust on Windows. Conditio
 
 #### Windows 10/11, iOS, iPadOS, and Android enrollment
 
-If you deployed hybrid Azure AD join, you can deploy another group policy to complete auto-enrollment of these devices in Intune.
+If you deployed Microsoft Entra hybrid join, you can deploy another group policy to complete auto-enrollment of these devices in Intune.
 
 * [Enrollment in Microsoft Intune](/mem/intune/enrollment/)
 * [Quickstart: Set up automatic enrollment for Windows 10/11 devices](/mem/intune/enrollment/quickstart-setup-auto-enrollment)
 * [Enroll Android devices](/mem/intune/enrollment/android-enroll)
 * [Enroll iOS/iPadOS devices in Intune](/mem/intune/enrollment/ios-enroll)
 
-## Configure Azure AD Multi-Factor Authentication tenant settings
+<a name='configure-azure-ad-multi-factor-authentication-tenant-settings'></a>
+
+## Configure Microsoft Entra multifactor authentication tenant settings
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Before you convert to Conditional Access, confirm the base MFA tenant settings for your organization.
 
-1. Go to the [Azure portal](https://portal.azure.com).
-2. Sign in as a Global Administrator.
-3. Select **Azure Active Directory** > **Users** > **Multi-Factor Authentication**.
-4. The legacy Azure AD Multi-Factor Authentication portal appears. Or select [Azure AD MFA portal](https://aka.ms/mfaportal).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+2. Browse to **Identity** > **Users** > **All users**.
+3. Select **Per-user MFA** on the top menu of the **Users** pane.
+4. The legacy Microsoft Entra multifactor authentication portal appears. Or select [Microsoft Entra multifactor authentication portal](https://aka.ms/mfaportal).
 
-    ![Screenshot of the multi-factor authentication screen.](media/migrate-okta-sign-on-policies-conditional-access/legacy-portal.png)
+    ![Screenshot of the multifactor authentication screen.](media/migrate-okta-sign-on-policies-conditional-access/legacy-portal.png)
 
-5. Confirm there are no users enabled for legacy MFA: On the **multi-factor authentication** menu, on **Multi-Factor Auth status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
+5. Confirm there are no users enabled for legacy MFA: On the **Multifactor authentication** menu, on **Multifactor authentication status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
 
-    ![Screenshot of the multi-factor authentication screen with the search feature highlighted.](media/migrate-okta-sign-on-policies-conditional-access/disable-user-portal.png)
+    ![Screenshot of the multifactor authentication screen with the search feature highlighted.](media/migrate-okta-sign-on-policies-conditional-access/disable-user-portal.png)
 
 6. Ensure the **Enforced** field is empty.
 7. Select the **Service settings** option. 
 8. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
 
-   ![Screenshot of the multi-factor authentication screen with service settings highlighted.](media/migrate-okta-sign-on-policies-conditional-access/app-password-selection.png)
+   ![Screenshot of the multifactor authentication screen with service settings highlighted.](media/migrate-okta-sign-on-policies-conditional-access/app-password-selection.png)
 
-9. Clear the checkboxes for **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)**.
+9. Clear the checkboxes for **Skip multifactor authentication for requests from federated users on my intranet** and **Allow users to remember multifactor authentication on devices they trust (between one to 365 days)**.
 10. Select **Save**.
 
     ![Screenshot of cleared checkboxes on the Require Trusted Devices for Access screen.](media/migrate-okta-sign-on-policies-conditional-access/uncheck-fields-legacy-portal.png)
 
     >[!NOTE]
-    >See [Optimize reauthentication prompts and understand session lifetime for Azure AD MFA](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+    >See [Optimize reauthentication prompts and understand session lifetime for Microsoft Entra multifactor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 
 ## Build a Conditional Access policy
@@ -157,18 +163,18 @@ Before you get started:
 * [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md)
 * [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
 
-1. Go to the [Azure portal](https://portal.azure.com). 
-2. On **Manage Azure Active Directory**, select **View**.
-3. Create a policy. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Browse to **Identity**.
+3. To to learn how to create a policy in Microsoft Entra ID. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 4. Create a device trust-based Conditional Access rule.
 
    ![Screenshot of entries for Require Trusted Devices for Access, under Conditional Access.](media/migrate-okta-sign-on-policies-conditional-access/test-user.png)
 
    ![Screenshot of the Keep you account secure dialog with the success message.](media/migrate-okta-sign-on-policies-conditional-access/success-test-user.png)
 
-5. After you configure the location-based policy and device trust policy, [Block legacy authentication with Azure AD with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
+5. After you configure the location-based policy and device trust policy, [Block legacy authentication with Microsoft Entra ID with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
 
-With these three Conditional Access policies, the original Okta sign-on policies experience is replicated in Azure AD. 
+With these three Conditional Access policies, the original Okta sign-on policies experience is replicated in Microsoft Entra ID. 
 
 ## Enroll pilot members in MFA
 
@@ -178,7 +184,7 @@ For individual registration, users go to [Microsoft Sign-in pane](https://aka.ms
 
 To manage registration, users go to [Microsoft My Sign-Ins | Security Info](https://aka.ms/mysecurityinfo).
 
-Learn more: [Enable combined security information registration in Azure Active Directory](../authentication/howto-registration-mfa-sspr-combined.md).
+Learn more: [Enable combined security information registration in Microsoft Entra ID](../authentication/howto-registration-mfa-sspr-combined.md).
 
    >[!NOTE]
    >If users registered, they're redirected to the **My Security** page, after they satisfy MFA.
@@ -189,7 +195,7 @@ Learn more: [Enable combined security information registration in Azure Active D
 
    ![Screenshot of policies on the Conditional Access, Policies screen.](media/migrate-okta-sign-on-policies-conditional-access/enable-test-user.png)
 
-2. On the Office 365 **Sign-In** pane, the test user John Smith is prompted to sign in with Okta MFA and Azure AD MFA.
+2. On the Office 365 **Sign-In** pane, the test user John Smith is prompted to sign in with Okta MFA and Microsoft Entra multifactor authentication.
 
    ![Screenshot of the Azure Sign-In pane.](media/migrate-okta-sign-on-policies-conditional-access/sign-in-through-okta.png)
 
@@ -206,7 +212,7 @@ Learn more: [Enable combined security information registration in Azure Active D
 
 After you conduct testing on pilot members, add the remaining organization members to Conditional Access policies, after registration.
 
-To avoid double-prompting between Azure AD MFA and Okta MFA, opt out from Okta MFA: modify sign-on policies.
+To avoid double-prompting between Microsoft Entra multifactor authentication and Okta MFA, opt out from Okta MFA: modify sign-on policies.
 
 
 1. Go to the Okta admin console
@@ -216,12 +222,12 @@ To avoid double-prompting between Azure AD MFA and Okta MFA, opt out from Okta M
    >[!NOTE]
    > Set global policies to **Inactive** if all applications from Okta are protected by application sign-on policies.
 
-4. Set the **Enforce MFA** policy to **Inactive**. You can assign the policy to a new group that doesn't include the Azure AD users.
+4. Set the **Enforce MFA** policy to **Inactive**. You can assign the policy to a new group that doesn't include the Microsoft Entra users.
 
     ![Screenshot of Global MFA Sign On Policy as Inactive.](media/migrate-okta-sign-on-policies-conditional-access/mfa-policy-inactive.png)
 
 5. On the application-level sign-on policy pane, select the **Disable Rule** option. 
-6. Select **Inactive**. You can assign the policy to a new group that doesn't include the Azure AD users.
+6. Select **Inactive**. You can assign the policy to a new group that doesn't include the Microsoft Entra users.
 7. Ensure there's at least one application-level sign-on policy enabled for the application that allows access without MFA.
 
     ![Screenshot of application access without MFA.](media/migrate-okta-sign-on-policies-conditional-access/application-access-without-mfa.png)
@@ -230,6 +236,6 @@ To avoid double-prompting between Azure AD MFA and Okta MFA, opt out from Okta M
 
 ## Next steps
 
-- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta.md)
-- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation.md)
-- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning.md)
+- [Tutorial: Migrate your applications from Okta to Microsoft Entra ID](migrate-applications-from-okta.md)
+- [Tutorial: Migrate Okta federation to Microsoft Entra ID-managed authentication](migrate-okta-federation.md)
+- [Tutorial: Migrate Okta sync provisioning to Microsoft Entra Connect-based synchronization](migrate-okta-sync-provisioning.md)

@@ -48,17 +48,19 @@ The tool repository also includes [sample code](https://github.com/Azure/iotc-mi
 
 Complete the following setup tasks to prepare for the migration:
 
-### Azure Active Directory application
+<a name='azure-active-directory-application'></a>
 
-The migrator tool requires an Azure Active Directory application registration to enable it to authenticate with your Azure subscription:
+### Microsoft Entra application
 
-1. Navigate to [Azure portal > Azure Active Directory > App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+The migrator tool requires a Microsoft Entra application registration to enable it to authenticate with your Azure subscription:
+
+1. Navigate to [Azure portal > Microsoft Entra ID > App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 
 1. Select **New Registration**.
 
 1. Enter a name such as "IoTC Migrator app".
 
-1. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 
 1. Select **Single page application (SPA)**.
 
@@ -68,7 +70,7 @@ The migrator tool requires an Azure Active Directory application registration to
 
 1. Make a note of the **Application (client) ID** and **Directory (tenant) ID** values. You use these values later to configure the migrator app:
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/azure-active-directory-app.png" alt-text="Screenshot that shows the Azure Active Directory application in the Azure portal." lightbox="media/howto-migrate-to-iot-hub/azure-active-directory-app.png":::
+    :::image type="content" source="media/howto-migrate-to-iot-hub/azure-active-directory-app.png" alt-text="Screenshot that shows the Microsoft Entra application in the Azure portal." lightbox="media/howto-migrate-to-iot-hub/azure-active-directory-app.png":::
 
 1. Navigate to the **Manifest** page in the registration and replace the contents of the `requiredResourceAccess` with the following configuration:
 
@@ -137,7 +139,7 @@ Download or clone a copy of the migrator tool to your local machine:
 git clone https://github.com/Azure/iotc-migrator.git
 ```
 
-In the root of the downloaded repository, create a *.env* file. Update the `REACT_APP_AAD_APP_CLIENT_ID`, `REACT_APP_AAD_APP_TENANT_ID`, and `REACT_APP_AAD_APP_REDIRECT_URI` values with the values from the Azure Active Directory application registration you created previously. Then save the changes:
+In the root of the downloaded repository, create a *.env* file. Update the `REACT_APP_AAD_APP_CLIENT_ID`, `REACT_APP_AAD_APP_TENANT_ID`, and `REACT_APP_AAD_APP_REDIRECT_URI` values with the values from the Microsoft Entra application registration you created previously. Then save the changes:
 
 ```txt
 PORT=3000
@@ -147,7 +149,7 @@ REACT_APP_AAD_APP_REDIRECT_URI=http://localhost:3000
 ```
 
 > [!TIP]
-> Make sure the `REACT_APP_AAD_APP_REDIRECT_URI` matches the redirect URI you used in your Azure Active Directory application registration.
+> Make sure the `REACT_APP_AAD_APP_REDIRECT_URI` matches the redirect URI you used in your Microsoft Entra application registration.
 
 In your command-line environment, navigate to the root of the `iotc-migrator` repository. Then run the following commands to install the required node.js packages and then run the tool:
 

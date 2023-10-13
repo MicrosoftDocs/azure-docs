@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 07/24/2023
 ms.author: ulrichchrist
 ---
 
@@ -33,7 +33,7 @@ To set up your SAP systems to use the SAP ODP framework, follow the guidelines t
 
 ### SAP system requirements
 
-The ODP framework is part of many SAP systems, including SAP ECC and SAP S/4HANA. It is also contained in SAP BW and SAP BW/4HANA. To ensure that your SAP releases have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
+The ODP framework is part of many SAP systems, including SAP ECC and SAP S/4HANA. It's also contained in SAP BW and SAP BW/4HANA. To ensure that your SAP releases have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
 
 - To support ODP, run your SAP systems on SAP NetWeaver 7.0 SPS 24 or later. For more information, see [Transferring Data from SAP Source Systems via ODP (Extractors)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/327833022dcf42159a5bec552663dc51.html).
 - To support SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) full extractions via ODP, run your SAP systems on NetWeaver 7.4 SPS 08 or later. To support SAP ABAP CDS delta extractions, run your SAP systems on NetWeaver 7.5 SPS 05 or later. For more information, see [Transferring Data from SAP Systems via ODP (ABAP CDS Views)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/af11a5cb6d2e4d4f90d344f58fa0fb1d.html).
@@ -52,13 +52,18 @@ Data extractions via ODP require a properly configured user on SAP systems. The 
 
 ODP offers various data extraction contexts or *source object types*. Although most data source objects are ready to extract, some require more configuration. In an SAPI context, the objects to extract are called DataSources or *extractors*. To extract DataSources, be sure to meet the following requirements:
 
-- Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources that are delivered by SAP or its partners. DataSources that are created by customers are automatically activated. If DataSources have been or are being extracted by SAP BW or BW/4HANA, the DataSources have already been activated. For more information about DataSources and their activations, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
+- Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources SAP or its partners deliver out-of-the-box. Customer-created DataSources are automatically active. If you already use a certain DataSource with SAP BW or BW/4HANA, it's already activate. For more information about DataSources and their activation, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
 
-- Make sure that DataSources are released for extraction via ODP. This requirement applies to DataSources that customers create as well as DataSources created by SAP in older releases of SAP ECC. For more information, see the following SAP support note [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584).
+- Make sure that DataSources are released for extraction via ODP. This requirement applies to DataSources that customers create and DataSources created by SAP in older releases of SAP ECC. For more information, see the following SAP support note [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584).
 
-### Set up the SAP Landscape Transformation Replication Server
+### Set up the SAP Landscape Transformation Replication Server (optional)
 
-SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ). You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
+SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ).
+
+>[!NOTE]
+   > SAP Landscape Transformation Replication Server (SLT) is only required if you want to replicate data from SAP tables with the SAP CDC connector. All other sources work out-of-the-box without SLT.
+
+You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
 
 1. Install NetWeaver 7.4 SPS 04 or later and the DMIS 2011 SP 05 add-on on your replication server. For more information, see [Transferring Data from SLT Using Operational Data Provisioning](https://help.sap.com/docs/SAP_NETWEAVER_750/ccc9cdbdc6cd4eceaf1e5485b1bf8f4b/6ca2eb9870c049159de25831d3269f3f.html).
 
@@ -87,7 +92,7 @@ To validate your SAP system configurations for ODP, you can run the RODPS_REPL_T
 The following SAP support notes resolve known issues on SAP systems:
 
 - [1660374 - To extend timeout when fetching large data sets via ODP](https://launchpad.support.sap.com/#/notes/1660374)
-- [2321589 - To resolve non-existing Business Add-In (BAdI) for RSODP_ODATA subscriber type](https://launchpad.support.sap.com/#/notes/2321589)
+- [2321589 - To resolve missing Business add-in (BAdI) implementation for RSODP_ODATA subscriber type](https://launchpad.support.sap.com/#/notes/2321589)
 - [2636663 - To resolve inconsistent database trigger status in SLT when extracting and replicating the same SAP application table](https://launchpad.support.sap.com/#/notes/2636663)
 - [3038236 - To resolve CDS view extractions that fail to populate ODQ](https://launchpad.support.sap.com/#/notes/3038236)
 - [3076927 - To remove unsupported callbacks when extracting from SAP BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/3076927)

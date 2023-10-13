@@ -85,6 +85,20 @@ Azure service: core
 > | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write | Sign or Cancel an agreement for a given marketplace virtual machine item |
 > | Microsoft.MarketplaceOrdering/operations/read | List all possible operations in the API |
 
+### Microsoft.Quota
+
+Azure service: [Azure Quotas](../../../quotas/quotas-overview.md)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Quota/register/action | Register the subscription with Microsoft.Quota Resource Provider |
+> | Microsoft.Quota/operations/read | Get the Operations supported by Microsoft.Quota |
+> | Microsoft.Quota/quotaRequests/read | Get any service limit request for the specified resource |
+> | Microsoft.Quota/quotas/read | Get the current Service limit or quota of the specified resource |
+> | Microsoft.Quota/quotas/write | Creates the service limit or quota request for the specified resource |
+> | Microsoft.Quota/usages/read | Get the usages for resource providers |
+
 ### Microsoft.ResourceHealth
 
 Azure service: [Azure Service Health](../../../service-health/index.yml)

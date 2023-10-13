@@ -25,9 +25,10 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
+* **Toll-free verification campaign brief ID**: This ID is used to identify a toll-free verification campaign brief application.
 * **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
-* **Call logs**: These logs contain detailed information that are used to troubleshoot calling and network issues.
+* **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
 
 Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
@@ -139,6 +140,12 @@ The program brief ID can be found on the [Azure portal](https://portal.azure.com
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
 
 ---
+## Access your toll-free verification campaign brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Regulatory Documents blade. 
+
+:::image type="content" source="./media/toll-free-troubleshooting.png" alt-text="Screenshot showing a toll free verification campaign brief ID.":::
+
+---
 
 ## Access your email operation ID
 When troubleshooting send email or email message status requests, you may be asked to provide an `operation ID`. This value can be accessed in the response:
@@ -157,6 +164,15 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 ```
 ---
 
+## Accessing Support Files in the Calling SDK
+
+[!INCLUDE [Public Preview](../includes/public-preview-include.md)]
+
+Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
+
+[Log File Access Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md)
+[Log File Access Tutorials](../tutorials/log-file-retrieval-tutorial.md)
+
 ## Enable and access call logs
 
 # [JavaScript](#tab/javascript)
@@ -172,18 +188,19 @@ const callClient = new CallClient({ logger });
 ```
 
 You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
-This value may be useful if you want to redirect logs to a location other than console.
-
+You can log to the browser console, a file, buffer, send to our own service, etc. If you are going to send logs over
+the network to your own service, do not send a request per log line because this will affect browser performance. Instead, accumulate logs lines and send them in batches.
 ```javascript
-// redirect log output
+// Redirect log output
 AzureLogger.log = (...args) => {
-  console.log(...args); // to console, file, buffer, REST API, etc...
+    // To console, file, buffer, REST API, etc...
+    console.log(...args); 
 };
 ```
 
 # [iOS](#tab/ios)
 
-When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+In an iOS Application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container".
 
@@ -191,7 +208,7 @@ This process gives you a `xcappdata` file. Right-click on this file and select â
 
 # [Android](#tab/android)
 
-When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+In an Android application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file is located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
@@ -199,7 +216,7 @@ On Android Studio, navigate to the Device File Explorer by selecting View > Tool
 
 ## Enable and access call logs (Windows)
 
-When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+In a Windows application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 These are accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
 1. Open a Windows Command Prompt (Windows Key + R)
@@ -209,7 +226,10 @@ These are accessed by looking at where your app is keeping its local data. There
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
-## Finding Azure Active Directory information
+
+<a name='finding-azure-active-directory-information'></a>
+
+## Finding Microsoft Entra information
 
 * **Getting Directory ID**
 * **Getting Application ID**
@@ -219,20 +239,20 @@ These are accessed by looking at where your app is keeping its local data. There
 To find your Directory (tenant) ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **Overview** page in Microsoft Entra ID, copy the Directory (tenant) ID and store it in your application code.
 
-    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+    ![Screenshot of how to copy Microsoft Entra tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
 
 ## Getting Application ID 
 To find your Application ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **App registrations** in Azure AD, select your application.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **App registrations** in Microsoft Entra ID, select your application.
 1. Copy the **Application ID** and store it in your application code.
 
-   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+   ![Screenshot of how to copy Microsoft Entra application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
 
    The directory (tenant) ID can also be found in the application overview page.
 
@@ -240,11 +260,11 @@ To find your Application ID, follow the steps listed below:
 To find your User ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **Users** in Azure AD, select your user.
-1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **Users** in Microsoft Entra ID, select your user.
+1. From **Profile** page in Microsoft Entra users, copy the **Object ID** and store it in your application code.
 
-   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+   ![Screenshot of how to copy Microsoft Entra user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Getting immutable resource ID 
 Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
@@ -395,7 +415,9 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
+
 ## Related information
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
+- Log Filename APIs for Calling SDK
 - [Metrics](metrics.md)
 - [Service limits](service-limits.md)

@@ -3,8 +3,9 @@ title: Configuration and Optimization of InfiniBand enabled H-series and N-serie
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: devx-track-linux
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 10/03/2023
 ms.reviewer: cynthn, mattmcinnes
 ms.author: mamccrea
 author: mamccrea
@@ -20,20 +21,21 @@ This article shares some guidance on configuring and optimizing the InfiniBand-e
 
 On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable RDMA.
 
+- The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers and GPU drivers.
+- The [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers and GPU drivers.
 - The [CentOS-HPC VM images](#centos-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers.
   - The CentOS-HPC version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers.
-- The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers and GPU drivers.
 
 These VM images are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
 
-- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 that come preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
+- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images), [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), or [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 that come preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
 - Add the GPU drivers through the [VM extensions](./extensions/hpccompute-gpu-linux.md).
 - Install the GPU drivers [manually](./linux/n-series-driver-setup.md).
 - Some other VM images on the Marketplace also come preinstalled with the NVIDIA GPU drivers, including some VM images from NVIDIA.
 
-Depending on the workloads' Linux distro and version needs, both the [CentOS-HPC VM images](#centos-hpc-vm-images) and [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace are the easiest way to get started with HPC and AI workloads on Azure.
+Depending on the workloads' Linux distro and version needs, [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images), [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and [CentOS-HPC VM images](#centos-hpc-vm-images) on the Marketplace are the easiest way to get started with HPC and AI workloads on Azure.
 It's also recommended to create [custom VM images](./linux/tutorial-custom-images.md) with workload specific customization and configuration for reuse.
 
 ### VM sizes supported by the HPC VM images
@@ -47,7 +49,7 @@ The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, w
 
 #### GPU driver support
 
-Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images)  and [CentOS-HPC VM images](#centos-hpc-vm-images) version 7.9 come preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
+Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images), [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and [CentOS-HPC VM images](#centos-hpc-vm-images) version 7.9 come preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
 
 The VM size support matrix for the GPU drivers in supported HPC VM images is as follows:
 
@@ -58,36 +60,9 @@ All of the VM sizes in the N-series support [Gen 2 VMs](generation-2.md), though
 
 ### SR-IOV enabled VMs
 
-#### CentOS-HPC VM images
-
-For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC VM images version 7.6 and later are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
-
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
-
-   ```output
-   "publisher": "OpenLogic",
-   "offer": "CentOS-HPC",
-   ```
-
-- Scripts used in the creation of the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
-- Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
-
-> [!NOTE]
-> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
-
-> [!NOTE]
-> SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:
-
->- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
->- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
->- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
->- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
->- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
->- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
-
 #### Ubuntu-HPC VM images
 
-For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA, NVIDIA GPU drivers, GPU compute software stack (CUDA, NCCL), and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
+For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04, 20.04, and 22.04 are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA, NVIDIA GPU drivers, GPU compute software stack (CUDA, NCCL), and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
 
 - The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
 
@@ -98,6 +73,47 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Ubun
 
 - Scripts used in the creation of the Ubuntu-HPC VM images from a base Ubuntu Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
 - Additionally, details on what's included in the Ubuntu-HPC VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+#### AlmaLinux-HPC VM images
+
+For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), AlmaLinux-HPC VM images versions 8.5, 8.6, and 8.7 are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA, NVIDIA GPU drivers, GPU compute software stack (CUDA, NCCL), and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
+
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-hpc?tab=overview).
+
+   ```output
+   "publisher": "AlmaLinux",
+   "offer": "AlmaLinux-HPC",
+   ```
+
+- Scripts used in the creation of the AlmaLinux-HPC VM images from a base AlmaLinux Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/alma).
+- Additionally, details on what's included in the AlmaLinux-HPC VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+#### CentOS-HPC VM images
+
+For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images), [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and CentOS-HPC VM images version 7.6 and later are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
+
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+
+   ```output
+   "publisher": "OpenLogic",
+   "offer": "CentOS-HPC",
+   ```
+
+- Scripts used in the creation of the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images), [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images).
+- Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images), [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+> [!NOTE]
+> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL). CentOS 7 is currently the only supported CentOS version, which will continue to receive community security patches and bug fix updates until June 2024. Therefore, we are not releasing any new CentOS HPC images to Azure marketplace. You can still use our CentOS HPC version 7.9 images, but it is suggested to consider moving to our AlmaLinux-HPC images alternatives in Azure marketplace, which have the same set of drivers installed as Ubuntu-HPC and CentOS-HPC.
+
+> [!NOTE]
+> SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:
+
+>- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+>- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+>- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+>- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+>- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+>- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 
 ### RHEL/CentOS VM images
 

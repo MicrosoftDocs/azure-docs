@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 09/26/2023
 ms.author: cherylmc
 
 ---
@@ -23,9 +23,8 @@ Point-to-site VPN can use one of the following protocols:
 
 * **IKEv2 VPN**, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
-
->[!NOTE]
->IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They aren't available for the classic deployment model.
+> [!NOTE]
+> IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They aren't available for the classic deployment model.
 >
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
@@ -38,17 +37,19 @@ When using the native Azure certificate authentication, a client certificate tha
 
 The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
 
-Azure AD  authentication allows users to connect to Azure using their Azure Active Directory credentials. Native Azure AD authentication is only supported for OpenVPN protocol and also requires the use of the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554). The supported client operation systems are Windows 10 or later and macOS.
+### Microsoft Entra authentication
 
-With native Azure AD authentication, you can use Azure AD's conditional access and Multi-Factor Authentication (MFA) features for VPN.
+Microsoft Entra authentication allows users to connect to Azure using their Microsoft Entra credentials. Native Microsoft Entra authentication is only supported for OpenVPN protocol and also requires the use of the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554). The supported client operation systems are Windows 10 or later and macOS.
 
-At a high level, you need to perform the following steps to configure Azure AD authentication:
+With native Microsoft Entra authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN.
 
-1. [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md)
+At a high level, you need to perform the following steps to configure Microsoft Entra authentication:
 
-2. [Enable Azure AD authentication on the gateway](openvpn-azure-ad-tenant.md#enable-authentication)
+1. [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md)
+
+2. [Enable Microsoft Entra authentication on the gateway](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. Download the latest version of the Azure VPN Client install files using one of the following links:
    
@@ -78,12 +79,12 @@ The client configuration requirements vary, based on the VPN client that you use
 
 ## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
+The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
+
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* For Gateway SKU recommendations, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
->[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication.
+> [!NOTE]
+> The Basic SKU has limitations and does not support IKEv2, IPv6, or RADIUS authentication. See the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article for more information.
 >
 
 ## <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?

@@ -1,5 +1,5 @@
 ---
-title: Create a lifecycle workflow - Azure AD
+title: Create a lifecycle workflow - Microsoft Entra ID
 description: This article guides you in creating a lifecycle workflow. 
 author: OWinfreyATL
 ms.author: owinfrey
@@ -19,26 +19,24 @@ Lifecycle workflows allow for tasks associated with the lifecycle process to be 
 - **Tasks**: Actions taken when a workflow is triggered.
 - **Execution conditions**: The who and when of a workflow. These conditions define which users (scope) this workflow should run against, and when (trigger) the workflow should run.
 
-You can create and customize workflows for common scenarios by using templates, or you can build a workflow from scratch without using a template. Currently, if you use the Azure portal, any workflow that you create must be based on a template. If you want to create a workflow without using a template, use Microsoft Graph.
+You can create and customize workflows for common scenarios by using templates, or you can build a workflow from scratch without using a template. Currently, if you use the Microsoft Entra admin center, any workflow that you create must be based on a template. If you want to create a workflow without using a template, use Microsoft Graph.
 
 ## Prerequisites
 
 [!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 
-## Create a lifecycle workflow by using a template in the Azure portal
+## Create a lifecycle workflow by using a template in the Microsoft Entra admin center
 
-If you're using the Azure portal to create a workflow, you can customize existing templates to meet your organization's needs. These templates include one for pre-hire common scenarios.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+If you're using the Microsoft Entra admin center to create a workflow, you can customize existing templates to meet your organization's needs. These templates include one for pre-hire common scenarios.
 
 To create a workflow based on a template:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Select **Azure Active Directory** > **Identity Governance**.
-
-1. On the left menu, select **Lifecycle Workflows**.
-
-1. Select **Workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **Create a workflow**.
 
 1. On the **Choose a workflow** page, select the workflow template that you want to use.
 

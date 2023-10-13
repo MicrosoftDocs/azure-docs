@@ -1,6 +1,6 @@
 ---
 title: Credential scanner rules
-titleSuffix: Defender for Cloud
+
 description: Learn more about the Defender for DevOps credential scanner's rules, descriptions and the supported file types in Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/31/2023
@@ -114,7 +114,7 @@ Azure SQL Connection String
 
 **Sample**: `<add key="ConnectionString" value="server=tcp:server.database.windows.net;database=database;user=user;password=ZYXWVU_2;"`
 
-Learn more about [SQL database Azure AD authentication configure](/azure/sql-database/sql-database-aad-authentication-configure).
+Learn more about [SQL database Microsoft Entra authentication configure](/azure/sql-database/sql-database-aad-authentication-configure).
 
 ### CSCAN-AZURE0030
 
@@ -254,7 +254,7 @@ Learn more about [Security claims](../notification-hubs/notification-hubs-push-n
 
 ### CSCAN-AZURE0140
 
-Azure AD Client Access Token
+Microsoft Entra Client Access Token
 
 **Sample**: `Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJS...`
 
@@ -262,15 +262,15 @@ Learn more about [Requesting an access token in Azure Active Directory B2C](../a
 
 ### CSCAN-AZURE0150
 
-Azure AD User Credentials
+Microsoft Entra user Credentials
 
 **Sample**: `username=user@tenant.onmicrosoft.com;password=ZYXWVU$1;`
 
-Learn more about [Resetting a user's password using Azure Active Directory](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md).
+Learn more about [Resetting a user's password using Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md).
 
 ### CSCAN-AZURE0151
 
-Azure AD Client Secret
+Microsoft Entra Client Secret
 
 **Sample**: `"AppId=01234567-abcd-abcd-abcd-abcdef012345;AppSecret="abc7Q~defghijklmnopqrstuvwxyz-_.~0123"` <br> `"AppId=01234567-abcd-abcd-abcd-abcdef012345;AppSecret="abc8Q~defghijklmnopqrstuvwxyz-_.~0123456"`
 
@@ -451,7 +451,7 @@ Client Secret / API Key
 
 **Sample**: `client_secret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `ida:password=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `ida:...issuer...Api...abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `Namespace...ACS...Issuer...abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `IssuerName...IssuerSecret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `App_Secret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEabcdefghijklmnopqrstuvwxyz0123456789/+ABCDE==`
 
-Learn more about [The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) and [How and why applications are added to Azure AD](../active-directory/develop/how-applications-are-added.md).
+Learn more about [The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) and [How and why applications are added to Microsoft Entra ID](../active-directory/develop/how-applications-are-added.md).
 
 ### CSCAN-GENERAL0140
 

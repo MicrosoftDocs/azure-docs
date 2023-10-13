@@ -11,9 +11,15 @@ ms.custom: has-adal-ref, ignite-2022, devx-track-dotnet, devx-track-extended-jav
 ms.reviewer: eskot
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.2
+# Azure Synapse Runtime for Apache Spark 3.2 (EOLA)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2.
+
+> [!IMPORTANT]
+> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023.
+> * End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 will be retired and disabled as of July 8, 2024. After the EOL date, the retired runtimes are unavailable for new Spark pools and existing workflows can't execute. Metadata will temporarily remain in the Synapse workspace.
+> * We recommend that you upgrade your Apache Spark 3.2 workloads to version 3.3 at your earliest convenience. 
 
 ## Component versions
 
@@ -29,6 +35,8 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Delta Lake | 1.2 |
 | Python | 3.8 |
 | R (Preview) | 4.2 | 
+
+[Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) contains the list of libraries shipped in the default Python 3.8 environment in Azure Synapse Spark.
 
 ## Scala and Java libraries
 

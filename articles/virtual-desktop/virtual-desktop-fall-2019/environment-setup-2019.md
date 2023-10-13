@@ -1,22 +1,22 @@
 ---
-title: Azure Virtual Desktop (classic) environment - Azure
-description: The basic elements of a Azure Virtual Desktop (classic) environment.
+title: Azure Virtual Desktop (classic) terminology - Azure
+description: The terminology used for basic elements of a Azure Virtual Desktop (classic) environment.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
 ---
-# Azure Virtual Desktop (classic) environment
+# Azure Virtual Desktop (classic) terminology
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../environment-setup.md).
 
-Azure Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Azure Virtual Desktop environment.
+Azure Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and applications. This topic will tell you a bit more about the general structure of the Azure Virtual Desktop environment.
 
 ## Tenants
 
-The Azure Virtual Desktop tenant is the primary interface for managing your Azure Virtual Desktop environment. Each Azure Virtual Desktop tenant must be associated with the Azure Active Directory containing the users who will sign in to the environment. From the Azure Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
+The Azure Virtual Desktop tenant is the primary interface for managing your Azure Virtual Desktop environment. Each Azure Virtual Desktop tenant must be associated with the Microsoft Entra ID containing the users who will sign in to the environment. From the Azure Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
 
 ## Host pools
 
@@ -33,10 +33,10 @@ You can set additional properties on the host pool to change its load-balancing 
 
 An application group is a logical grouping of applications installed on session hosts in the host pool. An application group can be one of two types:
 
-- RemoteApp, where users access the RemoteApps you individually select and publish to the application group
+- RemoteApp, where users access the applications you individually select and publish to the application group
 - Desktop, where users access the full desktop
 
-By default, a desktop application group (named "Desktop Application Group") is automatically created whenever you create a host pool. You can remove this application group at any time. However, you can't create another desktop application group in the host pool while a desktop application group exists. To publish RemoteApps, you must create a RemoteApp application group. You can create multiple RemoteApp application groups to accommodate different worker scenarios. Different RemoteApp application groups can also contain overlapping RemoteApps.
+By default, a desktop application group (named "Desktop Application Group") is automatically created whenever you create a host pool. You can remove this application group at any time. However, you can't create another desktop application group in the host pool while a desktop application group exists. To publish an application, you must create a RemoteApp application group. You can create multiple RemoteApp application groups to accommodate different worker scenarios. Different RemoteApp application groups can also contain overlapping applications.
 
 To publish resources to users, you must assign them to application groups. When assigning users to application groups, consider the following things:
 

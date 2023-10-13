@@ -97,23 +97,23 @@ Some quotas let you specify a quota limit that's submitted for review and either
 
 1. In the search box, enter _subscriptions_. Or if you've recently viewed your subscription, select **Subscriptions**.
 
-    :::image type="content" source="media/error-resource-quota/subscriptions.png" alt-text="Screenshot that shows how to select a subscription.":::
+    :::image type="content" source="media/error-resource-quota/subscriptions.png" alt-text="Screenshot of the Azure portal with search box and Subscriptions highlighted.":::
 
 
 1. Select the link for your subscription.
 
-    :::image type="content" source="media/error-resource-quota/select-subscription.png" alt-text="Screenshot of the link for the subscription.":::
+    :::image type="content" source="media/error-resource-quota/select-subscription.png" alt-text="Screenshot of the Azure portal subscriptions list, highlighting a specific subscription link.":::
 
 1. Select **Usage + quotas**.
 
-    :::image type="content" source="media/error-resource-quota/select-usage-quotas.png" alt-text="Screenshot of subscription's settings to select usage and quotas.":::
+    :::image type="content" source="media/error-resource-quota/select-usage-quotas.png" alt-text="Screenshot of the subscription settings page, highlighting the 'Usage + quotas' option in the menu.":::
 
 1. Select **Request increase**.
 
    From the quota list, you can also submit a support request for a quota increase. For quota's with a pencil icon, you can specify a quota limit.
 
-    :::image type="content" source="media/error-resource-quota/request-increase.png" alt-text="Screenshot of icons to submit a support request or specify a quota limit.":::
+    :::image type="content" source="media/error-resource-quota/request-increase.png" alt-text="Screenshot of the 'Usage + quotas' page, showing the 'Request increase' button and a pencil icon indicating the option to specify a quota limit.":::
 
 1. Complete the forms for the type of quota you need to increase.
 
-    :::image type="content" source="media/error-resource-quota/forms.png" alt-text="Screenshot of the form to submit a request to increase a quota.":::
+    :::image type="content" source="media/error-resource-quota/forms.png" alt-text="Screenshot of the quota increase request form, displaying various fields for users to provide details about their desired quota increase.":::

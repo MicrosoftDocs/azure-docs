@@ -184,11 +184,11 @@ To determine which SKUs are available in a **Region**, use the [portal](https://
 
 - To see other available sizes, select **See all sizes**.
 
-  :::image type="content" source="media/error-sku-not-available/create-vm.png" alt-text="Screenshot of Azure portal deployment to select a virtual machine size.":::
+  :::image type="content" source="media/error-sku-not-available/create-vm.png" alt-text="Screenshot of Azure portal deployment interface displaying options to select a virtual machine size from a drop-down menu.":::
 
 - You can filter and scroll through the available sizes. When you find the VM size you want to use, choose **Select**.
 
-  :::image type="content" source="media/error-sku-not-available/available-sizes.png" alt-text="Screenshot of Azure portal that shows available virtual machine sizes.":::
+  :::image type="content" source="media/error-sku-not-available/available-sizes.png" alt-text="Screenshot of Azure portal showing a list of available virtual machine sizes along with filtering options to narrow down the selection.":::
 
 # [REST](#tab/rest)
 

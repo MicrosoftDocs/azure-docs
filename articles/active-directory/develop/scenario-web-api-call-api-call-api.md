@@ -68,7 +68,7 @@ In this scenario, you've added the **Microsoft.Identity.Web.GraphServiceClient**
 
 #### Option 2: Call a downstream web API with the helper class
 
-In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
+In this scenario, you've added `.AddDownstreamApi()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
 ```csharp
  [Authorize]

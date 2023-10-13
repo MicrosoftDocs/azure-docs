@@ -38,6 +38,8 @@
     href: chaos-studio-faults-actions.md
   - name: Targets and capabilities
     href: chaos-studio-targets-capabilities.md
+  - name: Target selection
+    href: chaos-studio-target-selection.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
   - name: Private networking
@@ -70,8 +72,14 @@
       href: chaos-studio-tutorial-dynamic-target-portal.md
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
+  - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
+    href: chaos-studio-tutorial-aad-outage-portal.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
+  - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
+    href: chaos-studio-set-up-azure-monitor.md
+  - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
+    href: chaos-studio-set-up-app-insights.md
 - name: Reference
   items:
   - name: Fault library

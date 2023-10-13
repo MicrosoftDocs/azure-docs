@@ -1,10 +1,10 @@
 ---
 title: Overview - Azure Database for MySQL single server
 description: Learn about the Azure Database for MySQL single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
-author: savjani
+author: sudheeshgh
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 06/20/2022
@@ -63,7 +63,7 @@ Single Server uses the FIPS 140-2 validated cryptographic module for storage enc
 
 The service allows private access to the servers using [private link](concepts-data-access-security-private-link.md) and offers threat protection through the optional [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-In addition to native authentication, Single Server supports [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Azure AD authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
+In addition to native authentication, Single Server supports [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Microsoft Entra authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
 
 [Audit logging](concepts-audit-logs.md) is available to track all database level activity. 
 

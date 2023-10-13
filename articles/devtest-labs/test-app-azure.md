@@ -5,8 +5,8 @@ description: Learn how to publish an app from Visual Studio to an Azure file sha
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/22/2022
-ms.custom: engagement-fy23
+ms.date: 09/30/2023
+ms.custom: engagement-fy23, UpdateFrequency2
 ---
 
 # Publish app for testing on an Azure DevTest Labs VM

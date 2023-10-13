@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and deprovision user accounts from Azure AD to Bizagi Studio for Digital Process Automation.
+title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to automatically provision and deprovision user accounts from Microsoft Entra ID to Bizagi Studio for Digital Process Automation.
 services: active-directory
 documentationcenter: ''
 author: twimmers
@@ -19,22 +19,22 @@ ms.author: thwimmer
 
 # Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Bizagi Studio for Digital Process Automation and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured to do so, Azure AD automatically provisions and deprovisions users and groups to [Bizagi Studio for Digital Process Automation](https://www.bizagi.com/) by using the Azure AD provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Bizagi Studio for Digital Process Automation and Microsoft Entra ID to configure automatic user provisioning. When configured to do so, Microsoft Entra ID automatically provisions and deprovisions users and groups to [Bizagi Studio for Digital Process Automation](https://www.bizagi.com/) by using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Bizagi Studio for Digital Process Automation
 > * Remove users in Bizagi Studio for Digital Process Automation when they don't require access anymore
-> * Keep user attributes synchronized between Azure AD and Bizagi Studio for Digital Process Automation
+> * Keep user attributes synchronized between Microsoft Entra ID and Bizagi Studio for Digital Process Automation
 > * [Single sign-on](./bizagi-studio-for-digital-process-automation-tutorial.md) to Bizagi Studio for Digital Process Automation (recommended)
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. Examples include application administrator, cloud application administrator, application owner, or global administrator. 
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md). 
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning. Examples include application administrator, cloud application administrator, application owner, or global administrator. 
 * Bizagi Studio for Digital Process Automation version 11.2.4.2X or later.
 
 ## Plan your provisioning deployment
@@ -42,10 +42,12 @@ Follow these steps for planning:
 
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be [in scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Bizagi Studio for Digital Process Automation](../app-provisioning/customize-application-attributes.md). 
+3. Determine what data to [map between Microsoft Entra ID and Bizagi Studio for Digital Process Automation](../app-provisioning/customize-application-attributes.md). 
 
-## Configure to support provisioning with Azure AD
-To configure Bizagi Studio for Digital Process Automation to support provisioning with Azure AD, follow these steps:
+<a name='configure-to-support-provisioning-with-azure-ad'></a>
+
+## Configure to support provisioning with Microsoft Entra ID
+To configure Bizagi Studio for Digital Process Automation to support provisioning with Microsoft Entra ID, follow these steps:
 
 1. Sign in to your work portal as a user with **Admin permissions**.
 
@@ -62,13 +64,15 @@ To configure Bizagi Studio for Digital Process Automation to support provisionin
 
    ![Screenshot of Oauth, with Client Secret highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
 
-## Add the application from the Azure AD gallery
+<a name='add-the-application-from-the-azure-ad-gallery'></a>
 
-To start managing provisioning to Bizagi Studio for Digital Process Automation, add the app from the Azure AD application gallery. If you have previously set up Bizagi Studio for Digital Process Automation for single sign-on, you can use the same application. When you're initially testing the integration, however, you should create a separate app. For more information, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal.md). 
+## Add the application from the Microsoft Entra gallery
+
+To start managing provisioning to Bizagi Studio for Digital Process Automation, add the app from the Microsoft Entra application gallery. If you have previously set up Bizagi Studio for Digital Process Automation for single sign-on, you can use the same application. When you're initially testing the integration, however, you should create a separate app. For more information, see [Quickstart: Add an application to your Microsoft Entra tenant](../manage-apps/add-application-portal.md). 
 
 ## Define who is in scope for provisioning 
 
-With the Azure AD provisioning service, you can scope who is provisioned based on assignment to the application, based on attributes of the user and group, or both. If you scope based on assignment, see the steps in [Assign or unassign users, and groups, for an app using the Graph API](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you scope based solely on attributes of the user or group, you can use a scoping filter. For more information, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+With the Microsoft Entra provisioning service, you can scope who is provisioned based on assignment to the application, based on attributes of the user and group, or both. If you scope based on assignment, see the steps in [Assign or unassign users, and groups, for an app using the Graph API](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you scope based solely on attributes of the user or group, you can use a scoping filter. For more information, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 Note the following points about scoping:
 
@@ -78,15 +82,18 @@ Note the following points about scoping:
 
 ## Configure automatic user provisioning 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups. You're doing this in your test app, based on user and group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and groups. You're doing this in your test app, based on user and group assignments in Microsoft Entra ID.
 
-### Configure automatic user provisioning for Bizagi Studio for Digital Process Automation in Azure AD
+<a name='configure-automatic-user-provisioning-for-bizagi-studio-for-digital-process-automation-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications** > **All applications**.
+### Configure automatic user provisioning for Bizagi Studio for Digital Process Automation in Microsoft Entra ID
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![Screenshot of the Azure portal, with Enterprise applications and All applications highlighted.](common/enterprise-applications.png)
 
-2. In the applications list, select **Bizagi Studio for Digital Process Automation**.
+1. In the applications list, select **Bizagi Studio for Digital Process Automation**.
 
 3. Select the **Provisioning** tab.
 
@@ -103,7 +110,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
       * **Secret token:** This value is retrieved from the step discussed earlier in this article.
 
-      To ensure that Azure AD can connect to Bizagi Studio for Digital Process Automation, select **Test Connection**. If the connection fails, ensure that your Bizagi Studio for Digital Process Automation account has administrator permissions, and try again.
+      To ensure that Microsoft Entra ID can connect to Bizagi Studio for Digital Process Automation, select **Test Connection**. If the connection fails, ensure that your Bizagi Studio for Digital Process Automation account has administrator permissions, and try again.
 
    ![Screenshot of Admin Credentials, with Test Connection highlighted.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -113,9 +120,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Select **Save**.
 
-8. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Bizagi Studio for Digital Process Automation**.
+8. In the **Mappings** section, select **Synchronize Microsoft Entra users to Bizagi Studio for Digital Process Automation**.
 
-9. In the **Attribute-Mapping** section, review the user attributes that are synchronized from Azure AD to Bizagi Studio for Digital Process Automation. The attributes selected as **Matching** properties are used to match the user accounts in Bizagi Studio for Digital Process Automation for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you must ensure that the Bizagi Studio for Digital Process Automation API supports filtering users based on that attribute. Select **Save** to commit any changes.
+9. In the **Attribute-Mapping** section, review the user attributes that are synchronized from Microsoft Entra ID to Bizagi Studio for Digital Process Automation. The attributes selected as **Matching** properties are used to match the user accounts in Bizagi Studio for Digital Process Automation for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you must ensure that the Bizagi Studio for Digital Process Automation API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -138,7 +145,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. To configure scoping filters, see the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Bizagi Studio for Digital Process Automation, in the **Settings** section, change the **Provisioning Status** to **On**.
+11. To enable the Microsoft Entra provisioning service for Bizagi Studio for Digital Process Automation, in the **Settings** section, change the **Provisioning Status** to **On**.
 
 	![Screenshot of Provisioning Status toggle.](common/provisioning-toggle-on.png)
 
@@ -150,7 +157,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Save control.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
 ## Monitor your deployment
 After you've configured provisioning, use the following resources to monitor your deployment:
@@ -162,7 +169,7 @@ After you've configured provisioning, use the following resources to monitor you
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

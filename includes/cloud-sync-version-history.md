@@ -10,9 +10,36 @@ This article lists the versions and features of Azure Active Directory Connect P
 > For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ## Download link
-You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+Go to the [Azure AD Connect - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/~/GetStarted) click on the "Manage" tab to download the "Provisioning Agent".
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/cloudsyncrss` into your ![RSS feed reader icon](media/active-directory-cloud-sync-version-history/feed-icon-16x16.png) feed reader.
+
+## 1.1.1365.0
+
+Release date: September 8th, 2023
+
+### New or changed functionality
+
+- Added support for Applications Kerberos Key synchronization to Provisioning Agent
+- Added support for Web Service, Windows PowerShell and custom ECMA2 connectors
+- **Query attribute** of ECMA2Host is no longer in use and removed from the ECMA2 Configuration wizard
+- Update AADCloudSyncTools module with function to disable DirSyncConfiguration Accidental Deletion Prevention
+
+### Fixed issues
+- Fixed an issue with jobs going into quarantine if an OR name attribute value points to a non-existent object
+- Fixed an issue that caused customizations to AADConnectProvisioningAgent.exe.config to reset when the agent is updated
+- Fixed provisioning agent incorrect creds if NTLM traffic is set to 'Deny-All'
+- Fixed incorrect file path to trace log
+- Fixed an issue that caused Provisioning Agent installer crashing from duplicate schema objects
+- Update Windows Server Version check as per documented prerequisites
+- Fixed for install page links visibility in 'high contrast black' mode
+- Fixed case sensitive comparison and add logging for UPN / role id checks
+- Accessibility fixes for ECMA2 Configuration wizard
+
+
+
+
+
 
 ## 1.1.1107.0
 

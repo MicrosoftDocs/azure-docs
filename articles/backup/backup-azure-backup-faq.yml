@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: backup
-  ms.date: 06/29/2023
+  ms.date: 07/20/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -28,8 +28,8 @@ sections:
       - question: |
           How many datasources/items can be protected in a vault?
         answer: |
-          You can protect up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) in a vault.
-          For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+          Protection of up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) is the recommended limit per vault.
+          For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, we would recommend protecting up to 1100 SQL databases in it.
           
       - question: |
           How many policies can I create per vault?
@@ -77,12 +77,12 @@ sections:
           If a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-backup-glossary.md#cross-region-restore-crr) capability enabled, the data in the secondary region can't be accessed until Azure declares a disaster in the primary region. In such a scenario, the restore happens from the secondary region. When CRR is enabled, even if the primary region is up and running, you can trigger a restore in the secondary region.
           
       - question: |
-          Can I move a subscription that contains a vault to a different Azure Active Directory?
+          Can I move a subscription that contains a vault to a different Microsoft Entra ID?
         answer: |
-          Yes. To move a subscription (that contains a vault) to a different Azure Active Directory (AD), see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
+          Yes. To move a subscription (that contains a vault) to a different Microsoft Entra ID, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
           
           >[!IMPORTANT]
-          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferrable. You must recreate the permissions and roles in the new Azure AD.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
+          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferrable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
           
       - question: |
           Can I move a subscription that contains a Recovery Services Vault to a different tenant?

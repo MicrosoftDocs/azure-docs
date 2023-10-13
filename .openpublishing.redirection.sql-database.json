@@ -155,7 +155,6 @@
             "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
             "redirect_document_id": false
         },
-      
         {
             "source_path_from_root": "/articles/sql-database/sql-database-business-continuity.md",
             "redirect_url": "/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview",
@@ -1090,7 +1089,7 @@
             "source_path_from_root": "/articles/sql-database/sql-database-security-best-practice.md",
             "redirect_url": "/azure/azure-sql/database/security-best-practice",
             "redirect_document_id": false
-        },                                                                                                                      
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-security-controls.md",
             "redirect_url": "/azure/azure-sql/database/security-controls",
@@ -1700,7 +1699,7 @@
             "source_path_from_root": "/articles/sql-database/saas-dbpertenant-wingtip-app-guidance-tips.md",
             "redirect_url": "/azure/sql-database/saas-tenancy-wingtip-app-guidance-tips",
             "redirect_document_id": false
-        },      
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
             "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
@@ -2003,8 +2002,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-features-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-features",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-features"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-general-limitations.md",
@@ -2133,8 +2131,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-managed-instance",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-vnet-configuration.md",
@@ -2318,9 +2315,8 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-scalability-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-scale-resources",
-            "redirect_document_id": ""
-        },                    
+            "redirect_url": "/azure/sql-database/sql-database-scale-resources"
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-helps-secures-and-protects.md",
             "redirect_url": "/azure/sql-database/sql-database-security-overview",
@@ -2488,8 +2484,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-paas-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-technical-overview",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-technical-overview"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-threat-detection-get-started.md",
@@ -2500,7 +2495,7 @@
             "source_path_from_root": "/articles/sql-database/sql-database-threat-detection-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-threat-detection",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-troubleshoot-connection.md",
             "redirect_url": "/azure/sql-database/sql-database-troubleshoot-common-connection-issues",
@@ -2520,7 +2515,7 @@
             "source_path_from_root": "/articles/sql-database/sql-database-troubleshoot-common-connection-issues.md",
             "redirect_url": "/azure/sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-operate-query-store.md",
             "redirect_url": "/sql/relational-databases/performance/best-practice-with-the-query-store#Insight",
@@ -2540,7 +2535,7 @@
             "source_path_from_root": "/articles/sql-database/sql-database-compatibility-level-query-performance-130.md",
             "redirect_url": "/sql/t-sql/statements/alter-database-transact-sql-compatibility-level",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-implementation-gep.md",
             "redirect_url": "http://customers.microsoft.com/story/azure-gives-gep-global-reach-and-greater-efficiency",
@@ -2560,11 +2555,11 @@
             "source_path_from_root": "/articles/sql-database/sql-database-implementation-snelstart.md",
             "redirect_url": "http://customers.microsoft.com/story/with-azure-snelstart-has-rapidly-expanded-its-business-services",
             "redirect_document_id": false
-        },     
+        },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-customer-implementations.md",
             "redirect_url": "https://customers.microsoft.com",
             "redirect_document_id": false
-        }      
+        }
     ]
 }

@@ -1,8 +1,8 @@
 ---
 title: Azure Database for MySQL managing updates and upgrades
 description: Learn which versions of the MySQL server are supported in the Azure Database for MySQL service.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual

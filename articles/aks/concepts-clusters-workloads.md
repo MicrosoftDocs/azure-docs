@@ -148,7 +148,7 @@ Nodes of the same configuration are grouped together into *node pools*. A Kubern
 
 You scale or upgrade an AKS cluster against the default node pool. You can choose to scale or upgrade a specific node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
 
-For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
+For more information about how to use multiple node pools in AKS, see [Create multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
 ### Node selectors
 
@@ -200,7 +200,7 @@ Modifying any **Azure-created tags** on resources under the node resource group 
 To reduce the chance of changes in the node resource group affecting your clusters, you can enable node resource group lockdown to apply a deny assignment to your AKS resources. More information can be found in [Cluster configuration in AKS][configure-nrg].
 
 > [!WARNING]
-> If you have don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
+> If you don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
 
 ## Pods
 
@@ -329,7 +329,7 @@ Like StatefulSets, a DaemonSet is defined as part of a YAML definition using `ki
 For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
 
 > [!NOTE]
-> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
+> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-the-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
 
 ## Namespaces
 
@@ -379,7 +379,7 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [configure-nrg]: ./cluster-configuration.md#fully-managed-resource-group-preview

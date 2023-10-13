@@ -1,6 +1,6 @@
 ---
-title: Understanding Azure Virtual Desktop per-user access pricing for remote app streaming - Azure
-description: An overview of Azure Virtual Desktop licensing considerations for remote app streaming.
+title: Understanding Azure Virtual Desktop per-user access pricing for RemoteApp streaming - Azure
+description: An overview of Azure Virtual Desktop licensing considerations for RemoteApp streaming.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -11,7 +11,7 @@ manager: femila
 ---
 # Understanding licensing and per-user access pricing
 
-This article explains the licensing requirements for using Azure Virtual Desktop to stream remote applications to external users. In this article, you'll learn how licensing Azure Virtual Desktop for external users is different than for internal users, how per-user access pricing works in detail, and how to license other products you plan to use with Azure Virtual Desktop.
+This article explains the licensing requirements for using Azure Virtual Desktop to stream applications remotely to external users. In this article, you'll learn how licensing Azure Virtual Desktop for external users is different than for internal users, how per-user access pricing works in detail, and how to license other products you plan to use with Azure Virtual Desktop.
 
 ## Internal users and external users
 
@@ -54,7 +54,7 @@ Azure Virtual Desktop will issue at most one access charge for a given user in a
 Here's a summary of the two types of licenses for Azure Virtual Desktop you can choose from:
 
 - An eligible Windows or Microsoft 365 license:
-  - Grants Azure Virtual Desktop access rights for *internal users* only. It doesn't grant permission to external users, not even identities you create in your own Azure Active Directory tenant.
+  - Grants Azure Virtual Desktop access rights for *internal users* only. It doesn't grant permission to external users, not even identities you create in your own Microsoft Entra tenant.
   - Paid in advance through a subscription
   - Same cost per user each month regardless of user behavior
   - Includes entitlements to some other Microsoft products and services
@@ -67,7 +67,7 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
   - Includes use rights to leverage [FSlogix](/fslogix/overview-what-is-fslogix)
 
 > [!IMPORTANT]
-> Per-user access pricing only supports Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session. Per-user access pricing currently doesn't support Windows Server session hosts.
+> Per-user access pricing only supports Windows Enterprise and Windows Enterprise multi-session client operating systems for session hosts. Windows Server session hosts are not supported with per-user access pricing.
 
 ## Licensing other products and services for use with Azure Virtual Desktop
 

@@ -2,7 +2,7 @@
 title: Configure Azure NetApp Files for Azure Kubernetes Service
 description: Learn how to configure Azure NetApp Files for an Azure Kubernetes Service cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 05/08/2023
 ---
 
@@ -90,7 +90,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
         --resource-group $RESOURCE_GROUP \
         --vnet-name $VNET_NAME \
         --name $SUBNET_NAME \
-        --delegations "Microsoft.NetApp/volumes" \
+        --delegations "Microsoft.Netapp/volumes" \
         --address-prefixes $ADDRESS_PREFIX
     ```
 

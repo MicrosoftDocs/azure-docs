@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 10/05/2023
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 
 If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, don't provide the necessary flexibility you need, you can trade them for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
 
-Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. You can trade in up to 100 reservations as part of a savings plan purchase.
+Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. Due to technical limitations, you can only trade in up to 100 reservations at a time as part of a savings plan purchase.
 
 Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, no other reservations or prepurchase plans are eligible for trade-in.
 
@@ -29,6 +29,9 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 Although compute reservation exchanges will end on January 1, 2024, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.
 
 - You must have owner access on the Reservation Order to trade in an existing reservation. You can [Add or change users who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan).
+- To trade-in a reservation for a savings plan, you must have Azure RBAC Owner permission on the subscription you plan to use to purchase a savings plan.
+    - EA Admin write permission or Billing profile contributor and higher, which are Cost Management + Billing permissions, are supported only for direct Savings plan purchases. They can't be used for savings plans purchases as a part of a reservation trade-in.
+- The new savings plan's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new  savings plan's lifetime commitment should be $1,800 or more (paid monthly or upfront).
 - Microsoft isn't currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
 
 ## How to trade in an existing reservation

@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 layout: LandingPage
 ms.date: 10/17/2022
@@ -427,11 +427,13 @@ Our Confluence (Cloud Version) Connector is an enterprise grade indexing connect
 
 ---
 
-### Azure AD
+<a name='azure-ad'></a>
+
+### Microsoft Entra ID
 
 by [BA Insight](https://www.bainsight.com)
 
-The BA Insight Azure Active Directory Connector makes it possible to surface content from your Azure Active Directory tenancy into a single consolidated search index, along with content from other repositories, making searches such as employee look-up or expertise locator a reality.
+The BA Insight Microsoft Entra Connector makes it possible to surface content from your Microsoft Entra tenancy into a single consolidated search index, along with content from other repositories, making searches such as employee look-up or expertise locator a reality.
 
 [More details](https://www.bainsight.com/connectors/azure-active-directory-connector-for-sharepoint-azure-elasticsearch/)
 
@@ -451,11 +453,13 @@ The BA Insight Azure Active Directory Connector makes it possible to surface con
 
 ---
 
-### Azure AD
+<a name='azure-ad'></a>
+
+### Microsoft Entra ID
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Microsoft Azure Active Directory (Azure AD) and intelligently searching it with Azure Cognitive Search. It indexes objects from Azure AD via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
+Secure enterprise search connector for reliably indexing content from Microsoft Entra ID and intelligently searching it with Azure Cognitive Search. It indexes objects from Microsoft Entra ID via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
 
 [More details](https://www.raytion.com/connectors/raytion-azure-ad-connector)
 
@@ -1455,7 +1459,7 @@ The M-Files connector enables indexing of content managed by the M-Files platfor
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to make the content accessible to users via an organization's enterprise search platform, combining the connector with BA Insight's SmartHub. The BA Insight MediaPlatform PrimeTime Connector retrieves information about channels and videos from MediaPlatform PrimeTime and indexes them via Azure Cognitive Search.
+BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to make the content accessible to users via an organization's enterprise search platform, combining the connector with BA Insight's SmartHub. The BA Insight MediaPlatform PrimeTime Connector retrieves information about channels and videos from MediaPlatform PrimeTime and indexes them via an Azure Cognitive Search.
 
 [More details](https://www.bainsight.com/connectors/mediaplatform-primetime-connector-sharepoint-azure-elasticsearch/)
 

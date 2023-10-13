@@ -1,8 +1,8 @@
 ---
 title: Data encryption with customer managed keys – Azure Database for MySQL – Flexible Server
 description: Learn how data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server enables you to bring your own key (BYOK) for data protection at rest
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -27,7 +27,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL - Flexib
 -
 ## How does data encryption with a customer-managed key work?
 
-Managed identities in Azure Active Directory (Azure AD) provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Azure AD authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
+Managed identities in Microsoft Entra ID provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Microsoft Entra authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
 
 To configure the CMK for an Azure Database for MySQL flexible server, you need to link the UMI to the server and specify the Azure Key vault and key to use.
 
@@ -61,7 +61,7 @@ After logging is enabled, auditors can use Azure Monitor to review Key Vault aud
 
 Before you attempt to configure Key Vault, be sure to address the following requirements.
 
-- The Key Vault and Azure Database for MySQL - Flexible Server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
+- The Key Vault and Azure Database for MySQL - Flexible Server must belong to the same Microsoft Entra tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
 - The Key Vault and Azure Database for MySQL - Flexible Server must reside in the same region.
 - Enable the [soft-delete](../../key-vault/general/soft-delete-overview.md) feature on the key vault with a retention period set to 90 days to protect from data loss should an accidental key (or Key Vault) deletion occur. The recover and purge actions have their own permissions in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through the Azure portal or by using PowerShell or the Azure CLI.
 - Enable the [Purge Protection](../../key-vault/general/soft-delete-overview.md#purge-protection) feature on the key vault and set the retention period to 90 days. When purge protection is on, a vault or an object in the deleted state can't be purged until the retention period has passed. You can enable this feature using PowerShell or the Azure CLI, and only after you've enabled soft-delete.
@@ -106,7 +106,7 @@ It might happen that someone with sufficient access rights to Key Vault accident
 - Deleting the key
 - Deleting the key vault
 - Changing the key vault's firewall rules
-- Deleting the user managed identity used for encryption on the flexible server with a customer managed key in Azure AD
+- Deleting the user managed identity used for encryption on the flexible server with a customer managed key in Microsoft Entra ID
 
 ## Monitor the customer-managed key in Key Vault
 

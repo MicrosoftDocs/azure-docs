@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 * Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). This quickstart uses PowerShell to invoke REST API calls.
-* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
+* **Create an application in Microsoft Entra ID** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
 >[!NOTE]
 >	For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
 >	 You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
@@ -69,9 +69,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $apiVersion = "2018-06-01"
     ```
 
-## Authenticate with Azure AD
+<a name='authenticate-with-azure-ad'></a>
 
-Run the following commands to authenticate with Azure Active Directory (AAD):
+## Authenticate with Microsoft Entra ID
+
+Run the following commands to authenticate with Microsoft Entra ID:
 
 ```powershell
 $credentials = Get-Credential -UserName $appId

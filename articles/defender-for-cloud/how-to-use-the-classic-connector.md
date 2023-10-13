@@ -1,6 +1,6 @@
 ---
 title: Manage classic cloud connectors
-titleSuffix: Defender for Cloud
+
 description: Learn how to manage AWS and GCP classic connectors and remove them from your subscription.
 ms.topic: how-to
 ms.date: 06/29/2023

@@ -7,7 +7,6 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/27/2023
-ms.custom: 
 #Customer intent: As a device builder, I want to see a working IoT device sample using FreeRTOS to connect to Azure IoT Hub.  The device should be able to send telemetry and respond to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -310,26 +309,7 @@ If you experience issues building the device code, flashing the device, or conne
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
-## Clean up resources
-
-If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete the resource group and all of its resources.
-
-> [!IMPORTANT] 
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
-
-To delete a resource group by name:
-
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
-
-    ```azurecli-interactive
-    az group delete --name MyResourceGroup
-    ```
-
-1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
-
-    ```azurecli-interactive
-    az group list
-    ```
+[!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
 ## Next steps
 

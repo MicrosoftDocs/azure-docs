@@ -1,0 +1,64 @@
+- name: Immersive Reader Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Immersive Reader?
+    href: overview.md
+  - name: Language support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/immersive-reader/
+  - name: Release notes 
+    href: release-notes.md
+- name: Quickstart
+  href: ./quickstarts/client-libraries.md
+- name: How-To
+  items:
+  - name: Create an Immersive Reader resource
+    href: how-to-create-immersive-reader.md
+  - name: Launch the Immersive Reader
+    href: how-to-launch-immersive-reader.md
+  - name: Prepare HTML content
+    href: how-to-prepare-html.md
+  - name: Customize the launch button
+    href: how-to-customize-launch-button.md
+  - name: Set the cookie policy
+    href: how-to/set-cookie-policy.md
+  - name: Display math
+    href: how-to/display-math.md
+  - name: Configure Read Aloud
+    href: how-to-configure-read-aloud.md
+  - name: Configure Translation
+    href: how-to-configure-translation.md
+  - name: Use multiple Immersive Reader resources
+    href: how-to-multiple-resources.md
+  - name: Cache the authentication token
+    href: how-to-cache-token.md
+  - name: Store user preferences
+    href: how-to-store-user-preferences.md
+  - name: Enterprise readiness
+    items:
+      - name: Set up Virtual Networks
+        href: ../../ai-services/cognitive-services-virtual-networks.md?context=/azure/ai-services/immersive-reader/context/context
+      - name: Use Microsoft Entra authentication
+        href: ../../ai-services/authentication.md?context=/azure/ai-services/immersive-reader/context/context
+- name: Security Advisory
+  items:
+  - name: Update Role Assignment for Microsoft Entra authentication
+    href: security-how-to-update-role-assignment.md
+- name: Reference
+  items:
+  - name: JavaScript SDK
+    href: reference.md
+- name: Resources
+  items:
+  - name: Enterprise readiness
+    items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
+    href: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/immersive-reader/context/context
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=cognitive-services

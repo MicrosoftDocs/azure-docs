@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 09/29/2023
 ms.author: ankitadutta
 
 #Customer intent: As an Azure admin,  I want to move Azure VMs to a different Azure region.
@@ -31,8 +31,6 @@ If you want to move VMs to a different availability zone in the same region, [re
 - The subscription needs enough quota to create the source resources in the target region. If it doesn't, request additional limits. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
     
-
-
 ## Check VM requirements
 
 1. Check that the VMs you want to move are supported.
@@ -50,10 +48,8 @@ If you want to move VMs to a different availability zone in the same region, [re
 
 ## Select resources to move
 
-Select resources you want to move.
-
-- You can select any supported resource type across resource groups in the source region you select.
-- You move resources to a target region in the source region subscription. If you want to change the subscription, you can do that after the resources are moved.
+- You can select any supported resource type across resource groups in the source region you have selected.
+- You can move resources to a target region in the source region subscription. If you want to change the subscription, you can do that after the resources are moved.
 
 1. In the Azure portal, search for resource mover. Then, under **Services**, select **Azure Resource Mover**.
 
@@ -64,33 +60,31 @@ Select resources you want to move.
     ![Button to get started](./media/move-region-availability-zone/get-started.png)
 
 3. In **Move resources** > **Source + destination**, select the source subscription and region.
-4. In **Destination**, select the region to which you want to move the VMs. Then click **Next**.
+4. In **Destination**, select the region to which you want to move the VMs. Then select **Next**.
 
      ![Page to fill in source and destination subscription/region](./media/move-region-availability-zone/source-target.png)
 
-6. In **Resources to move**, click **Select resources**.
-7. In **Select resources**, select the VM. You can only add resources supported for move. Then click **Done**. In **Resources to move**, click **Next**.
+6. In **Resources to move**, select **Select resources**.
+7. In **Select resources**, select the VM. You can only add resources supported for move. Then select **Done**. In **Resources to move**, select **Next**.
 
     ![Page to select VMs to move](./media/move-region-availability-zone/select-vm.png)
 8. In **Review + Add**, check the source and destination settings.
 
     ![Page to review settings and proceed with move](./media/move-region-availability-zone/review.png)
 
-9. Click **Proceed**, to begin adding the resources.
-10. After the add process finishes successfully, click **Adding resources for move** in the notification icon.
+9. Select **Proceed**, to begin adding the resources.
+10. After the add process finishes successfully, select **Adding resources for move** in the notification icon.
 
     ![Message in notifications](./media/move-region-availability-zone/notification.png)
 
-After clicking the notification, resources appear on the **Across regions** page
-
 > [!NOTE]
-> After clicking the notification, resources appear on the **Across regions** page, in a *Prepare pending* state.
+> After selecting the notification, resources appear on the **Across regions** page, in a *Prepare pending* state.
 > - If you want to remove an resource from a move collection, the method for doing that depends on where you are in the move process. [Learn more](remove-move-resources.md).
 
 ## Resolve dependencies
 
 1. Dependencies are auto-validated at the beginning when you add the resources. In case initial auto validation does not resolves the issue, the **Validate dependencies** ribbon appears. Select the ribbon to validate manually.
-2. If dependencies are found, click **Add dependencies**. 
+2. If dependencies are found, select **Add dependencies**. 
 3. In **Add dependencies**, select the dependent resources > **Add dependencies**. Monitor progress in the notifications.
 
     ![Button to add dependencies](./media/move-region-availability-zone/add-dependencies.png)
@@ -112,7 +106,7 @@ Before you can prepare and move VMs, the source resource group must be present i
 Prepare as follows:
 
 1. In **Across regions**, select the source resource group > **Prepare**.
-2. In **Prepare resources**, click **Prepare**.
+2. In **Prepare resources**, select **Prepare**.
 
     ![Button to prepare the source resource group](./media/move-region-availability-zone/prepare-resource-group.png)
 
@@ -128,7 +122,7 @@ Prepare as follows:
 Initiate the move as follows:
 
 1. In **Across regions**, select the resource group > **Initiate Move**
-2. ln **Move Resources**, click **Initiate move**. The resource group moves into an *Initiate move in progress* state.
+2. ln **Move Resources**, select **Initiate move**. The resource group moves into an *Initiate move in progress* state.
 3. After initiating the move, the target resource group is created, based on the generated ARM template. The source resource group moves into a *Commit move pending* state.
 
 ![Status showing commit move](./media/move-region-availability-zone/commit-move-pending.png)
@@ -136,7 +130,7 @@ Initiate the move as follows:
 To commit and finish the move process:
 
 1. In **Across regions**, select the resource group > **Commit move**
-2. ln **Move Resources**, click **Commit**.
+2. ln **Move Resources**, select **Commit**.
 
 > [!NOTE]
 > After committing the move, the source resource group is in a *Delete source pending* state.
@@ -146,7 +140,7 @@ To commit and finish the move process:
 
 Before we move the rest of the resources, we'll set a target availability zone for the VM.
 
-1. In the **Across regions** page, click the link in the **Destination configuration** column of the VM you're moving.
+1. In the **Across regions** page, select the link in the **Destination configuration** column of the VM you're moving.
 
     ![VM properties](./media/move-region-availability-zone/select-vm-settings.png)
 
@@ -187,8 +181,8 @@ Now that the source resource group is moved, you can prepare to move the other r
 
 With resources prepared, you can now initiate the move. 
 
-1. In **Across regions**, select resources with state *Initiate move pending*. Then click **Initiate move**
-2. In **Move resources**, click **Initiate move**.
+1. In **Across regions**, select resources with state *Initiate move pending*. Then select **Initiate move**
+2. In **Move resources**, select **Initiate move**.
 
     ![Page to initiate move of resources](./media/move-region-availability-zone/initiate-move.png)
 
@@ -214,8 +208,8 @@ After the initial move, you can decide whether you want to commit the move, or t
 
 You can discard the move as follows:
 
-1. In **Across regions**, select resources with state *Commit move pending*, and click **Discard move**.
-2. In **Discard move**, click **Discard**.
+1. In **Across regions**, select resources with state *Commit move pending*, and select **Discard move**.
+2. In **Discard move**, select **Discard**.
 3. Track move progress in the notifications bar.
  
 
@@ -226,8 +220,8 @@ You can discard the move as follows:
 
 If you want to complete the move process, commit the move. 
 
-1. In **Across regions**, select resources with state *Commit move pending*, and click **Commit move**.
-2. In **Commit resources**, click **Commit**.
+1. In **Across regions**, select resources with state *Commit move pending*, and select **Commit move**.
+2. In **Commit resources**, select **Commit**.
 
     ![Page to commit resources to finalize move](./media/move-region-availability-zone/commit-resources.png)
 
@@ -249,7 +243,7 @@ The Mobility service isn't uninstalled automatically from VMs. Uninstall it manu
 
 After the move, you can optionally delete resources in the source region.
 
-1. In **Across Regions**, click the name of each source resource that you want to delete.
+1. In **Across Regions**, select the name of each source resource that you want to delete.
 2. In the properties page for each resource, select **Delete**.
 
 ## Delete additional resources created for move
