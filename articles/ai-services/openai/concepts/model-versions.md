@@ -27,9 +27,9 @@ When a customer deploys GPT-3.5-Turbo and GPT-4 on Azure OpenAI Service, the sta
 
 Customers can also deploy a specific version like GPT-4 0314 or GPT-4 0613 and choose an update policy, which can include the following options:
 
-1. Autoupdating when the default version changes
-2. Autoupdating when the deployment’s model version is retired
-3. No autoupdating - when the deployment’s model version is retired, the deployment stops working
+* Deployments set to **Auto-update to default** will be automatically updated to use the new default version. 
+* Deployments set to **Upgrade when expired** will be automatically updated when its current version is retired. 
+* Deployments that are set to **No Auto Upgrade** will stop working when the model is retired.
 
 ## How Azure Updates OpenAI Models
 
@@ -39,10 +39,10 @@ Azure works closely with OpenAI to release new model versions.  When a new versi
 
 As a customer of Azure OpenAI models, you might notice some changes in the model behavior and compatibility after a version upgrade.  These changes might affect your applications and workflows that rely on the models.  Here are some tips to help you prepare for version upgrades and minimize the impact:
 
-•	Read [what’s new](../whats-new.md) and [models](../concepts/models.md) to understand the changes and new features.
-•	Read the documentation on [model deployments](../how-to/create-resource.md) and [version upgrades](../concepts/model-versions.md) to understand how to work with model versions.
-•	Test your applications and workflows with the new model version after release.
-•	Update your code and configuration to use the new features and capabilities of the new model version.
+* Read [what’s new](../whats-new.md) and [models](../concepts/models.md) to understand the changes and new features.
+* Read the documentation on [model deployments](../how-to/create-resource.md) and [version upgrades](../concepts/model-versions.md) to understand how to work with model versions.
+* Test your applications and workflows with the new model version after release.
+* Update your code and configuration to use the new features and capabilities of the new model version.
 
 ## Next Steps
 
