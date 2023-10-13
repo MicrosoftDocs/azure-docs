@@ -27,11 +27,11 @@ For more information, see the below screenshots.
 
 1. Use Azure AD API call to get access token.
 
-:::image type="content" source="media/airflow-get-ip-airflow-cluster/get-access-token.png" alt-text="Screenshot showing the api used to retrieve the access token to invoke airflow apis." lightbox="media/airflow-get-ip-airflow-cluster/get-access-token.png":::
+    :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-access-token.png" alt-text="Screenshot showing the api used to retrieve the access token to invoke airflow apis." lightbox="media/airflow-get-ip-airflow-cluster/get-access-token.png":::
 
 2. Use the access token acquired as a bearer token from step 1 to invoke the Airflow API.
     
-:::image type="content" source="media/airflow-get-ip-airflow-cluster/get-dags.png" alt-text="Screenshot showing sample airflow api request using bearer token fetched in initial step." lightbox="media/airflow-get-ip-airflow-cluster/get-dags.png":::
+    :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-dags.png" alt-text="Screenshot showing sample airflow api request using bearer token fetched in initial step." lightbox="media/airflow-get-ip-airflow-cluster/get-dags.png":::
 
 ### Step 2: Retrieve the Managed Airflow cluster's IP address.
 
