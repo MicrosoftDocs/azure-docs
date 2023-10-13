@@ -56,7 +56,9 @@ openai.api_version = "2023-05-15"  # subject to change
 </tr>
 </table>
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
 
 <table>
 <tr>

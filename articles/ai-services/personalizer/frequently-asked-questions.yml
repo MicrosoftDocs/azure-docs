@@ -11,10 +11,14 @@ metadata:
 title: Personalizer frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Personalizer service.
 
-
 sections:
   - name: Single region data residency
     questions: 
+      - question: |
+          When will Personalizer be deprecated?
+        answer:  |
+          Starting on the 20th of September, 2023 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.
+
       - question: |
           How is my data replicated in a region with single region data residency? 
         answer:  |
@@ -109,7 +113,7 @@ sections:
       - question: |
           What API authentication protocols does Personalizer support?
         answer: |
-          Personalizer APIs use Azure Active Directory (Azure AD), which supports a variety of [authentication and synchronization protocols](../../active-directory/fundamentals/auth-sync-overview.md). 
+          Personalizer APIs use Microsoft Entra ID, which supports a variety of [authentication and synchronization protocols](../../active-directory/fundamentals/auth-sync-overview.md). 
       
       - question: |
           The API key for my loop has been compromised. What can I do?

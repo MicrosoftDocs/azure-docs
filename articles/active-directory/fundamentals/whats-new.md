@@ -1,6 +1,6 @@
 ---
 title: What's new? Release notes
-description: Learn what is new with Azure Active Directory; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+description: Learn what is new with Microsoft Entra ID, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: owinfreyATL
 manager: amycolannino
 featureFlags:
@@ -17,11 +17,11 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# What's new in Azure Active Directory?
+# What's new in Microsoft Entra ID?
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Active+Directory%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
-Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Microsoft Entra ID (previously known as Azure AD) receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
@@ -29,20 +29,13 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 - Deprecated functionality
 - Plans for changes
 
+> [!NOTE] 
+> If you're currently using Azure AD today or are have previously deployed Azure AD in your organizations, you can continue to use the service without interruption. All existing deployments, configurations, and integrations continue to function as they do today without any action from you.
+
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
 ## September 2023
-
-### Public Preview - Managing and Changing Passwords in My Security Info
-
-**Type:**  New feature            
-**Service category:**  My Profile/Account                              
-**Product capability:**  End User Experiences                      
-
-The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users capable of multifactor authentication (MFA) are able to update their passwords without providing their current password.
-
----
 
 ### Public Preview - Device-bound passkeys as an authentication method
 
@@ -54,16 +47,6 @@ Beginning January 2024, Microsoft Entra ID will support [device-bound passkeys](
 
 
 We'll expand the existing FIDO2 authentication methods policy and end user registration experience to support this preview release. If your organization requires or prefers FIDO2 authentication using physical security keys only, then please enforce key restrictions to only allow security key models that you accept in your FIDO2 policy. Otherwise, the new preview capabilities enable your users to register for device-bound passkeys stored on Windows, macOS, iOS, and Android. Learn more about FIDO2 key restrictions [here](../authentication/howto-authentication-passwordless-security-key.md).
-
----
-
-### General Availability - Authenticator on Android is FIPS 140 compliant
-
-**Type:**  New feature            
-**Service category:**  Microsoft Authenticator App                                  
-**Product capability:**  User Authentication                        
-
-Authenticator version and higher on Android version will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP). No changes in configuration are required in the Authenticator app or Azure portal to enable this capability. For more information, see: [Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md).
 
 ---
 
@@ -132,7 +115,7 @@ When a Conditional Access policy targets the Microsoft Admin Portals cloud app, 
 - Microsoft Intune admin center
 - Microsoft Purview compliance portal                   
 
-For more information, see: [Microsoft Admin Portals (preview)](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals-preview).
+For more information, see: [Microsoft Admin Portals](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals).
 
 ---
 

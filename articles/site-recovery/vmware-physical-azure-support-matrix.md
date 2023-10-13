@@ -48,7 +48,7 @@ The replication appliance is an on-premises machine that runs Site Recovery comp
 CPU cores | 8
 RAM | 16 GB
 Number of disks | 2 disks<br/><br/> Disks include the OS disk and data disk.
-Operating system  | Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019 with Desktop experience 
+Operating system  | Windows Server 2019 with Desktop experience 
 Operating system locale | English (en-us)
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V.
 Group policies| Don't enable these group policies: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|

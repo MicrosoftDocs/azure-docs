@@ -17,7 +17,7 @@ The following sections provide details about how to connect your BMC Helix produ
 
 Ensure that you've met the following prerequisites:
 
-* Azure Active Directory is registered.
+* Microsoft Entra ID is registered.
 * You have the supported version of BMC Helix Multi-Cloud Service Management (version 19.08 or later).
 
 ## Configure the BMC Helix connection

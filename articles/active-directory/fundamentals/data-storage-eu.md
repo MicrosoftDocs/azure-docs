@@ -17,12 +17,12 @@ ms.collection: M365-identity-device-management
 
 # Customer data storage and processing for European customers in Microsoft Entra ID
 
-Microsoft Entra stores customer data in a geographic location based on how a tenant was created and provisioned. The following list provides information about how the location is defined:
+Microsoft Entra ID stores customer data in a geographic location based on how a tenant was created and provisioned. The following list provides information about how the location is defined:
 
 * **Microsoft Entra admin center or Microsoft Entra API** - A customer selects a location from the pre-defined list.
 * **Dynamics 365 and Power Platform** - A customer provisions their tenant in a pre-defined location.
-* **EU Data Residency** - For customers who provided a location in Europe, Microsoft Entra stores most of the customer data in Europe, except where noted later in this article.
-* **EU Data Boundary** - For customers who provided a location that is within the [EU Data Boundary](/privacy/eudb/eu-data-boundary-learn#eu-data-boundary-countries-and-datacenter-locations) (members of the EU and EFTA), Microsoft Entra stores and processes most of the customer data in the EU Data Boundary, except where noted later in this article.
+* **EU Data Residency** - For customers who provided a location in Europe, Microsoft Entra ID stores most of the customer data in Europe, except where noted later in this article.
+* **EU Data Boundary** - For customers who provided a location that is within the [EU Data Boundary](/privacy/eudb/eu-data-boundary-learn#eu-data-boundary-countries-and-datacenter-locations) (members of the EU and EFTA), Microsoft Entra ID stores and processes most of the customer data in the EU Data Boundary, except where noted later in this article.
 * **Microsoft 365** - The location is based on a customer provided billing address.
 
 The following sections provide information about customer data that doesn't meet the EU Data Residency or EU Data Boundary commitments.
@@ -45,7 +45,7 @@ For some components of a service, work is in progress to be included in the EU D
 
 **EU Data Boundary:**
 
-See more information on Microsoft Entra temporary partial customer data transfers from the EU Data Boundary [Services that temporarily transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-temporary-partial-transfers.md#security-services). 
+See more information on Microsoft Entra temporary partial customer data transfers from the EU Data Boundary [Services that temporarily transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-temporary-partial-transfers#security-services). 
 
 ## Services that will permanently transfer a subset of customer data out of the EU Data Residency and EU Data Boundary 
 
@@ -57,7 +57,7 @@ Some components of a service will continue to transfer a limited amount of custo
 
 **EU Data Boundary:**
 
-See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers.md#security-services).
+See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers#security-services).
 
 ## Other considerations
 
@@ -72,11 +72,11 @@ Some services include capabilities that are optional (in some cases requiring a 
 
 **EU Data  Boundary:**
 
-See more information on optional service capabilities that transfer customer data out of the EU Data Boundary [Optional service capabilities that transfer customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-transfers-for-optional-capabilities.md#microsoft-entra-id).
+See more information on optional service capabilities that transfer customer data out of the EU Data Boundary [Optional service capabilities that transfer customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-transfers-for-optional-capabilities#microsoft-entra-id).
 
 ### Other EU Data Boundary online services
 
-Services and applications that integrate with Microsoft Entra have access to customer data. Review how each service and application stores and processes customer data, and verify that they meet your company's data handling requirements.
+Services and applications that integrate with Microsoft Entra ID have access to customer data. Review how each service and application stores and processes customer data, and verify that they meet your company's data handling requirements.
 
 ## Next steps
 

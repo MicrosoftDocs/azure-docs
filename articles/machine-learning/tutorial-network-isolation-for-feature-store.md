@@ -248,7 +248,7 @@ For this tutorial, you create three separate storage containers in the same ADLS
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=uai-fs-role-cli)]
 
-   Follow these instructions to [get the Azure AD Object ID for your user identity](/partner-center/find-ids-and-domain-names#find-the-user-object-id). Then, use your Azure AD Object ID in the following command to assign **AzureML Data Scientist** role to your user identity on the created feature store.
+   Follow these instructions to [get the Microsoft Entra Object ID for your user identity](/partner-center/find-ids-and-domain-names#find-the-user-object-id). Then, use your Microsoft Entra Object ID in the following command to assign **AzureML Data Scientist** role to your user identity on the created feature store.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=aad-fs-role-cli)]
 

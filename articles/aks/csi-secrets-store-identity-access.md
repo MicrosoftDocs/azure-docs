@@ -14,15 +14,17 @@ The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides various 
 
 The following access methods are available:
 
-- Azure Active Directory (Azure AD) workload identity
+- Microsoft Entra Workload ID
 - User-assigned managed identity
 
-## Access with an Azure AD workload identity
+<a name='access-with-an-azure-ad-workload-identity'></a>
 
-An [Azure AD workload identity][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Azure AD then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
+## Access with a Microsoft Entra Workload ID
+
+An [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. Your workload can exchange a service account token projected to its volume for a Microsoft Entra token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
 
 > [!NOTE]
-> This authentication method replaces Azure AD pod-managed identity (preview). The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> This authentication method replaces Microsoft Entra pod-managed identity (preview). The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ### Prerequisites
 
@@ -33,7 +35,7 @@ Before you begin, you must have the following prerequisites:
 - An existing AKS cluster with `--enable-oidc-issuer` and `--enable-workload-identity` enabled.
 
 > [!NOTE]
-> Azure AD workload identity is supported on both Windows and Linux clusters.
+> Microsoft Entra Workload ID is supported on both Windows and Linux clusters.
 
 ### Configure workload identity
 
@@ -73,7 +75,7 @@ Before you begin, you must have the following prerequisites:
     echo $AKS_OIDC_ISSUER
     ```
 
-5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application using the following commands. Make sure to update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+5. Establish a federated identity credential between the Microsoft Entra application and the service account issuer and subject. Get the object ID of the Microsoft Entra application using the following commands. Make sure to update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
     export SERVICE_ACCOUNT_NAME="workload-identity-sa"  # sample name; can be changed

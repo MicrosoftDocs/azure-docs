@@ -68,4 +68,4 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Micro
 
 ## Complete sample
 
-- [Simple chatroom with Microsoft Entra ID authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp-aad)
+- [Simple chatroom with Microsoft Entra authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp-aad)

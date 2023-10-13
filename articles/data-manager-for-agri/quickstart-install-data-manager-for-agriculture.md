@@ -45,7 +45,7 @@ After providing the details and accepting terms and conditions, select "review +
 :::image type="content" source="./media/resource-creation-new.png" alt-text="Screenshot showing data manager for agriculture resource creation flow on Azure portal.":::
 ## 4: Azure app registration
 
-You can access Data Manager for Agriculture resource through an app registered in Azure Active Directory. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
+You can access Data Manager for Agriculture resource through an app registered in Microsoft Entra ID. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
 
 Follow the steps provided in <a href="/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until step 8** to generate the following information:
 
@@ -99,13 +99,13 @@ This ensures that the App (registered in the previous step) has been granted acc
 
 The next step is to generate access token, which contains the security credentials required to identify the application against the Azure Role assignments done in the previous step.
 
-To access Azure Data Manager for Agriculture REST APIs with the service principal, you need to get an Azure AD access token for the service principal.
+To access Azure Data Manager for Agriculture REST APIs with the service principal, you need to get a Microsoft Entra access token for the service principal.
 
 Replace the following parameters in the request:
 
 | Parameter | Description | 
 |:---|:---|
-| Tenant ID |  Tenant ID in Azure AD generated in the app registration (step 1) |
+| Tenant ID |  Tenant ID in Microsoft Entra ID generated in the app registration (step 1) |
 | Client ID |  The application (service principal) ID of the application you registered |
 | Client Secret |  The secret generated for the application. |
 
