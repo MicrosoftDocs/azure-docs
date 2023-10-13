@@ -12,7 +12,8 @@ ms.custom: template-how-to, devx-track-azurecli
 # Introduction to the Microsoft Defender Runtime Protection Service
 
 The Microsoft Defender (MDE) Runtime Protection service provides the tools to configure and manage runtime protection on all nodes of an Undercloud cluster.
-Azure CLI was extended providing the ability to configure ***Enforcement Level*** and trigger ***MDE Scan*** on all nodes.
+
+The Azure CLI was extended in order to provide the ability to configure runtime protection ***Enforcement Level*** and the ability to trigger ***MDE Scan*** on all nodes.
 
 ## Before you begin
 
@@ -30,14 +31,16 @@ To help with configuring and triggering MDE scans, define these environment vari
 export SUBSCRIPTION_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 # RESOURCE_GROUP: Resource group of your Undercloud cluster
 export RESOURCE_GROUP="contorso-cluster-rg"
-# MANAGED_RESOURCE_GROUP: Managed resource group of your Undercloud cluster
+# MANAGED_RESOURCE_GROUP: Managed resource group managed by your Undercloud cluster
 export MANAGED_RESOURCE_GROUP="contorso-cluster-managed-rg"
 # CLUSTER_NAME: Name of your Undercloud cluster
 export CLUSTER_NAME="contoso-cluster"
 ```
 
 ## Configuring Enforcement Level
-The `az networkcloud cluster update` has been extended to allow the update of the settings for cluster runtime protection *enforcement level* by using the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"`.
+The `az networkcloud cluster update` was extended to allow the update of the settings for cluster runtime protection *enforcement level* by using the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"`.
+
+The following command configures the `enforcement level` protection on all nodes of your Undercloud cluster.
 
 ```bash
 az networkcloud cluster update \
@@ -47,7 +50,7 @@ az networkcloud cluster update \
 --runtime-protection-configuration enforcement-level="<enforcement level>"
 ```
 
-Allowed values for <enforcement level>: `Audit`, `Disabled`, `OnDemand`, `Passive`, `RealTime`. 
+Allowed values for `<enforcement level>`: `Audit`, `Disabled`, `OnDemand`, `Passive`, `RealTime`. 
 
 ## Enabling & Disabling MDE Service on All Nodes
 Before you can trigger a MDE scan on all nodes of a cluster, the MDE service needs to be enabled.
@@ -63,15 +66,15 @@ az networkcloud cluster update \
 --runtime-protection-configuration enforcement-level="<enforcement level>"
 ```
 
-where `<enforcement level>` value MUST be different from `"Disabled"`.
+where `<enforcement level>` value MUST be different from `Disabled`.
 
 > [!NOTE]
 >As you have noted, the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
 
-If you want to disable MDE service on all nodes of an Undercloud cluster, then `<enforcement level>` shall be equal to `"Disabled"`.
+If you want to disable MDE service on all nodes of an Undercloud cluster, then `<enforcement level>` shall be equal to `Disabled`.
 
 ## Triggering MDE Scan on All Nodes
-Once the MDE service is enabled on all nodes of your Undercloud cluster, you can trigger MDE scan with the following command.
+Once the MDE service is enabled on all nodes of your Undercloud cluster, you can trigger a MDE scan with the following command.
 
 ```bash
 az networkcloud cluster scan-runtime \
@@ -82,8 +85,10 @@ az networkcloud cluster scan-runtime \
 ```
 
 ## Retrieve MDE Scan Information from Each Node
+This section provides the steps to retrieve MDE scan information.
+First we need to retrieve the list of node names of your Undercloud cluster.
+The following command assigns the list of node names to an environment variable.
 
-First we need to retrieve the list of node names.
 ```bash
 nodes=$(az networkcloud baremetalmachine list \
 --subscription ${SUBSCRIPTION_ID} \
@@ -91,7 +96,8 @@ nodes=$(az networkcloud baremetalmachine list \
 | jq -r '.[].machineName')
 ```
 
-Extracting MDE agent information from each node of your Undercloud cluster
+With the list of node names, we can start the process to extract MDE agent information for each node of your Undercloud clusrter.
+The following command will prepare MDE agent information from each node.
 
 ```bash
 for node in $nodes
@@ -106,7 +112,8 @@ do
 done
 ```
 
-The results will be provided as URL for the data collected. See an example below.
+The result for the command will include an URL where you can download the detailed report of MDE scans.
+See an example below for the result for the MDE agent information.
 
 ```bash
 Extracting MDE agent information for node rack1control01
@@ -124,21 +131,29 @@ Script execution result can be found in storage account:
 ```
 
 ## Extracting MDE Scan Results
-The extraction of MDE scan requires a few manual steps.
+The extraction of MDE scan requires a few manual steps: downloading the MDE scan report and extract the scan run information, and scan detailed result report.
+This section will guide you on each of these steps.
 
 ### Download the Scan Report
-In the scan report, there is an URL that provides the detailed report.
+As indicated above the MDE agent information response provide the URL storing the detailed report data.
 
 Download the report from the returned URL (e.g., https://cm9454mpfsq9st.blob.core.windows.net/bmm-run-command-output/d8b0cbd1-33eb-4b83-b4c4-6b3f68086555-action-bmmdataextcmd.tar.gz?se=2023-10-13T20%3A53%3A41Z&sig=yQlXoiRaQo2Iryf%2FZ44oWhVR9ykqZiEZdlbVXeXHJ9I%3D&sp=r&spr=https&sr=b&st=2023-10-13T16%3A53%3A41Z&sv=2019-12-12 ), and open the file `mde-agent-information.json`.
 
-### Extracting the MDE Scans
-To retrieve the list of scans run, execute the following command.
+The `mde-agent-information.json` file contains lots of information about the scan and it can be overwhelming to analyse such long detailed report.
+This guide provides a few examples of extracting some essential information that can help you decide if you need to analyse throughly the report.
+
+### Extracting the List of MDE Scans
+The `mde-agent-information.json` file contains a very detailed scan report but you might want to focus first on a few details.
+This section details the steps to extract the list of scans run providing the information such as start and end time for each scan, threats found, state (succeeded or failed), etc.
+
+The following command extracts this simplified report.
 
 ```bash
 cat <path to>/mde-agent-information.json| jq .scanList
 ```
 
-See an example of scan run report below.
+The example below shows the extracted scan report from `mde-agent-information.json`.
+
 ```bash
 [
   {
@@ -160,7 +175,8 @@ See an example of scan run report below.
 ]
 ```
 
-You can use the command `date -d @$(echo "<UNIX timestamp>/1000" | bc) "+%Y-%m-%dT%H:%M:%S"` to convert the time in a more readable format.
+You can use the Unix `date` command to convert the time in a more readable format.
+For you convenience, see an example for converting Unix timestamp (in milliseconds) to year-month-day and hour:min:secs.
 
 For example:
 
@@ -171,13 +187,14 @@ date -d @$(echo "1697204573732/1000" | bc) "+%Y-%m-%dT%H:%M:%S"
 ```
 
 ### Extracting the MDE Scan Results
-To retrieve scan results, execute the following command.
+This section details the steps to extract the report about the list of threats identifyed during the MDE scans.
+To extract the scan result report from `mde-agent-information.json` file, execute the following command.
 
 ```bash
 cat <path to>/mde-agent-information.json| jq .threatInformation
 ```
 
-See an example of scan results report below.
+The example below shows the report of threats indetified by the scan extracted from `mde-agent-information.json` file.
 
 ```bash
 {
@@ -209,4 +226,3 @@ See an example of scan results report below.
   }
 }
 ```
-
