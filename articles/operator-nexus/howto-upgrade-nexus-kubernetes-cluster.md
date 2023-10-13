@@ -17,8 +17,8 @@ This article provides instructions on how to upgrade an Operator Nexus Kubernete
 
 * The cluster upgrade process is a scale-out approach, meaning that at least one extra node is added (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)). If there isn't sufficient capacity available, the upgrade fails to succeed.
 * When new Kubernetes versions become available, tenant clusters won't undergo automatic upgrades. Users should initiate the upgrade when all network functions in the cluster are ready to support the new Kubernetes version. For more information, see [Upgrade the cluster](#upgrade-the-cluster).
-* Operator Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Upgrading a single node pool is not supported. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
-* Any customizations made to agent nodes will be lost as the nodes undergo reimaging.
+* Operator Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Upgrading a single node pool isn't supported. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
+* Customizations made to agent nodes will be lost during cluster upgrades. It's recommended to place these customizations in `DaemonSet` rather than making manual changes to node configuration in order to preserve them after the upgrade.
 * Modifications made to core addon configurations are restored to the default addon configuration as part of the cluster upgrade process. Avoid customizing addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures.
 * When you upgrade the Operator Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is behind by more than one major version, you should perform multiple sequential upgrades.
 
