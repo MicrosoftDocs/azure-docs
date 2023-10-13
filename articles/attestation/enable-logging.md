@@ -83,7 +83,7 @@ When logging is enabled, upto three containers will be automatically created  in
 
 ### Using PowerShell
 
-With Azure PowerShell, use [Get-AzStorageBlob](../../powershell/module/az.storage/get-azstorageblob.md). To list all the blobs in this container, enter: 
+With Azure PowerShell, use [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). To list all the blobs in this container, enter: 
 
 ```powershell
 $operationalBlob= Get-AzStorageBlob -Container " insights-logs-operational" -Context $storageAccount.Context 
