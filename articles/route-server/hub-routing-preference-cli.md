@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
-ms.date: 10/12/2023
+ms.date: 10/13/2023
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As an Azure administrator, I want learn how to use routing preference setting so that I can influence route selection in Azure Route Server by using the Azure CLI.
@@ -34,7 +34,7 @@ Use [az network routeserver show](/cli/azure/network/routeserver#az-network-rout
 az network routeserver show --resource-group 'myResourceGroup' --name 'myRouteServer'
 ```
 
-In the output, you can see the current routing preference setting in front of **"HubRoutingPreference":**:
+In the output, you can see the current routing preference setting in front of **"hubRoutingPreference"**:
 
 ```output
 {
