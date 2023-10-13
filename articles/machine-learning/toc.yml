@@ -670,20 +670,20 @@
               href: ./prompt-flow/tools-reference/prompt-tool.md
             - name: Python tool
               href: ./prompt-flow/tools-reference/python-tool.md
-            - name: Azure Translator tool
-              href: ./prompt-flow/tools-reference/azure-translator-tool.md
+            - name: Embedding tool
+              href: ./prompt-flow/tools-reference/embedding-tool.md
             - name: Vector Index Lookup tool
               href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
             - name: Content Safety (text) tool
               href: ./prompt-flow/tools-reference/content-safety-text-tool.md
             - name: Faiss Index Lookup tool
               href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
-            - name: Azure Language Detector tool
-              href: ./prompt-flow/tools-reference/azure-language-detector-tool.md
             - name: Vector DB Lookup tool
               href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
+            - name: Open Source LLM tool
+              href: ./prompt-flow/tools-reference/open-source-llm-tool.md
             - name: Troubleshoot Guidance
               href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)
