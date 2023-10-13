@@ -244,7 +244,7 @@ The upstream community maintains a minor release of Kubernetes for one year from
 
 ### How does Microsoft notify me of new Nexus Kubernetes versions?
 
-The Nexus team publishes announcements with planned dates of the new Kubernetes versions in our documentation.
+This document will be updated periodically with planned dates of the new Kubernetes versions. 
 
 ### How often should I expect to upgrade Kubernetes versions to stay in support?
 
