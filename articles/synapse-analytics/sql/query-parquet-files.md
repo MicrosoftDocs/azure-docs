@@ -21,7 +21,7 @@ In this article, you'll learn how to write a query using serverless SQL pool tha
 
 ### Read parquet file
 
-The easiest way to see to the content of your `PARQUET` file is to provide file URL to `OPENROWSET` function and specify parquet `FORMAT`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+The easiest way to see to the content of your `PARQUET` file is to provide file URL to `OPENROWSET` function and specify parquet `FORMAT`. If the file is publicly available or if your Microsoft Entra identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
 
 ```sql
 select top 10 *

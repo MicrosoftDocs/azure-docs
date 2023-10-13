@@ -63,7 +63,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 ### Create a Key Vault
 When you are using a GitHub repository or an Azure DevOps repository to store your [catalog](./concept-environments-key-concepts.md#catalogs), you need an Azure Key Vault to store a personal access token (PAT) that is used to grant Azure access to your repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. This quickstart assumes you're using an RBAC Key Vault and a GitHub repository. 
 
-If you don't have an existing key vault, use the following steps to create one: [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+If you don't have an existing key vault, use the following steps to create one: [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
 ### Configure a personal access token 
 Using an authentication token like a GitHub PAT enables you to share your repository securely.  GitHub offers classic PATs, and fine-grained PATs. Fine-grained and classic PATs work with Azure Deployment Environments, but fine-grained tokens give you more granular control over the repositories to which you're allowing access.

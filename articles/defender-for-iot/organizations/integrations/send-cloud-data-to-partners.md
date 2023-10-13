@@ -24,13 +24,15 @@ Before you start, you'll need the **Microsoft Defender for IoT** data connector 
 
 Also check any prerequisites for each of the procedures linked in the steps below.
 
-## Register an application in Azure Active Directory
+<a name='register-an-application-in-azure-active-directory'></a>
 
-You'll need Azure Active Directory (Azure AD) defined as a service principal for the [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/). To do this, you'll need to create an Azure AD application with specific permissions.
+## Register an application in Microsoft Entra ID
 
-**To register an Azure AD application and define permissions**:
+You'll need Microsoft Entra ID defined as a service principal for the [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/). To do this, you'll need to create a Microsoft Entra application with specific permissions.
 
-1. In [Azure AD](../../../active-directory/index.yml), register a new application. On the **Certificates & secrets** page, add a new client secret for the service principal.
+**To register a Microsoft Entra application and define permissions**:
+
+1. In [Microsoft Entra ID](../../../active-directory/index.yml), register a new application. On the **Certificates & secrets** page, add a new client secret for the service principal.
 
     For more information, see [Register an application with the Microsoft identity platform](../../../active-directory/develop/quickstart-register-app.md)
 
@@ -64,7 +66,7 @@ Create an Azure event hub to use as a bridge between Microsoft Sentinel and your
 
 1. In your event hub namespace, select the **Access control (IAM)** page and add a new role assignment.
 
-    Select to use the **Azure Event Hubs Data Receiver** role, and add the Azure AD service principle app that you'd created [earlier](#register-an-application-in-azure-active-directory) as a member.
+    Select to use the **Azure Event Hubs Data Receiver** role, and add the Microsoft Entra service principle app that you'd created [earlier](#register-an-application-in-azure-active-directory) as a member.
 
     For more information, see: [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
 

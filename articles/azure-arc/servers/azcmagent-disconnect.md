@@ -62,7 +62,7 @@ To authenticate with a service principal, provide the service principal's applic
 
 ### Access token
 
-Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions operating on several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Azure Active Directory client.
+Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions operating on several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Microsoft Entra client.
 
 To authenticate with an access token, use the `--access-token [token]` flag.
 
@@ -70,7 +70,7 @@ To authenticate with an access token, use the `--access-token [token]` flag.
 
 `--access-token`
 
-Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
+Specifies the Microsoft Entra access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
 
 `-f`, `--force-local-only`
 
@@ -86,6 +86,6 @@ Specifies the service principal secret. Must be used with the `--service-princip
 
 `--use-device-code`
 
-Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
+Generate a Microsoft Entra device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

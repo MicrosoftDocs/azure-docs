@@ -300,6 +300,8 @@
     displayName: multiple
   - name: Conditions (if)
     href: conditional-resource-deployment.md
+  - name: Using (using)
+    href: bicep-using.md
   - name: Scopes (targetScope)
     items:
     - name: Resource group
@@ -442,6 +444,15 @@
       - name: Max variables
         displayName: linter
         href: linter-rule-max-variables.md
+      - name: Nested deployment template scoping
+        displayName: linter
+        href: linter-rule-nested-deployment-template-scoping.md
+      - name: No conflicting metadata
+        displayName: linter
+        href: linter-rule-no-conflicting-metadata.md
+      - name: No deployments resources
+        displayName: linter
+        href: linter-rule-no-deployments-resources.md
       - name: No hardcoded environment URLs
         displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md

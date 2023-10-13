@@ -94,7 +94,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 
 There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription or tenant.
 
-Each Azure Arc-enabled server is associated with an Azure Active Directory object and counts against your directory quota. See [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in an Azure AD directory.
+Each Azure Arc-enabled server is associated with a Microsoft Entra object and counts against your directory quota. See [Microsoft Entra service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in a Microsoft Entra directory.
 
 ## Azure resource providers
 

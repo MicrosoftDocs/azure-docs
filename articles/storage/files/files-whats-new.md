@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 10/13/2023
 ms.author: kendownie
 ---
 
@@ -12,6 +12,12 @@ ms.author: kendownie
 Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2023
+
+### 2023 quarter 4 (October, November, December)
+
+#### Azure Files now supports all valid Unicode characters
+
+Expanded character support will allow users to create SMB file shares with file and directory names on par with the NTFS file system for all valid Unicode characters. It also enables tools like AzCopy and Storage Mover to migrate all the files into Azure Files using the REST protocol. Expanded character support is now available in all Azure regions. For more information, [read the announcement](https://azure.microsoft.com/updates/azurefilessupportforunicodecharacters/).
 
 ### 2023 quarter 3 (July, August, September)
 

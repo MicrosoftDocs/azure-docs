@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # How-to: Create a credential entity
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 When onboarding a data feed, you should select an authentication type, some authentication types like *Azure SQL Connection String* and *Service Principal* need a credential entity to store credential-related information, in order to manage your credential in secure. This article will tell how to create a credential entity for different credential types in Metrics Advisor.
     
 
@@ -102,7 +104,7 @@ Until now, the *client ID* and *client secret* of service principal are finally 
 
 **Step 5: Create a service principal to store the key vault.** 
 
-1. Go to [Azure portal AAD (Azure Active Directory)](https://portal.azure.com/?trace=diagnostics&feature.customportal=false#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) and create a new registration.
+1. Go to [Azure portal Microsoft Entra ID](https://portal.azure.com/?trace=diagnostics&feature.customportal=false#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) and create a new registration.
 
     ![create a new registration](../media/credential-entity/create-registration.png)
 

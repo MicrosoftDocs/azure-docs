@@ -53,6 +53,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Indicator of call's state <br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️        |
 |                   | Indicate participants being muted                                                                                   | ✔️        |
 |                   | Indicate participants' reasons for terminating the call                                                             | ✔️        |
+|                   | Get associated toll and toll-free phone numbers with the meeting                                                    | ✔️        |
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️        |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️        |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️        |

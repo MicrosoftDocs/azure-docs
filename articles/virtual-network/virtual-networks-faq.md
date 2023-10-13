@@ -395,7 +395,7 @@ The following resources can use basic load balancers, which means you can't reac
 * Azure Application Gateway v1
 * Azure Service Fabric
 * Azure API Management stv1
-* Azure Active Directory Domain Services (AD DS)
+* Microsoft Entra Domain Services
 * Azure Logic Apps
 * Azure HDInsight
 * Azure Batch
