@@ -106,7 +106,11 @@ New-AzStorageMover `
 
 ### [CLI](#tab/CLI)
 
-Creates a top-level Storage Mover resource.
+Make sure that you have the most up to date version of Azure CLI. 
+
+[!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+Creates a top-level Storage Mover resource using Azure CLI. 
 
 ```bash
 az storage-mover create --name
@@ -116,7 +120,7 @@ az storage-mover create --name
                         [--tags]
 ```
 
----
+Note that `--resource-group`, `--description`, `--location`, and `--tags` are required parameters. 
 
 ---
 
