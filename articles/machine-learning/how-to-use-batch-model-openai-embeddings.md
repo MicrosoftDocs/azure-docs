@@ -9,20 +9,19 @@ ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.date: 11/04/2022
+ms.date: 11/04/2023
 ms.custom: how-to, devplatv2
-#Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Run OpenAI models in batch endpoints
+# Run OpenAI models in batch endpoints to compute embeddings
 
 [!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can deploy models to run inference over large amounts of data, including OpenAI models. In this example, you learn how to create a batch endpoint to deploy ADA-002 model from OpenAI to compute embeddings at scale but you can use the same approach for completions and chat completions models.
+Batch Endpoints can deploy models to run inference over large amounts of data, including OpenAI models. In this example, you learn how to create a batch endpoint to deploy ADA-002 model from OpenAI to compute embeddings at scale but you can use the same approach for completions and chat completions models. It uses Azure AD authentication to grant access to the Azure OpenAI resource.
 
 ## About this example
 
-In this example, we're going to compute embeddings over a dataset using ADA-002 model from OpenAI.
+In this example, we're going to compute embeddings over a dataset using ADA-002 model from OpenAI. We will register the particular model in MLflow format using the OpenAI flavor which has support to orchestrate all the calls to the OpenAI service at scale.
 
 [!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples-with-studio.md)]
 
@@ -43,7 +42,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ### Ensure you have an OpenAI deployment
 
-This examples shows how to run OpenAI models hosted in Azure OpenAI service. To successfuly do it, you need an OpenAI resource correctly deployed in Azure and a deployment for the model you want to use.
+The example shows how to run OpenAI models hosted in Azure OpenAI service. To successfully do it, you need an OpenAI resource correctly deployed in Azure and a deployment for the model you want to use.
 
 :::image type="content" source="./media/how-to-use-batch-model-openai-embeddings/aoai-deployments.png" alt-text="An screenshot showing the Azure OpenAI studio with the list of model deployments available.":::
 
@@ -65,7 +64,7 @@ openai_api_base="https://<your-azure-openai-resource-name>.openai.azure.com"
 
 ### Ensure you have a compute cluster where to deploy the endpoint
 
-Batch endpoints uses compute cluster to run the models. In this example, we use a compute cluster called **batch-cluster**. We will create the compute cluster here but you can skip this step if you already have one:
+Batch endpoints use compute cluster to run the models. In this example, we use a compute cluster called **batch-cluster**. We create the compute cluster here but you can skip this step if you already have one:
 
 # [Azure CLI](#tab/cli)
 
@@ -89,11 +88,11 @@ You can access the Azure OpenAI resource in two ways:
 
 Using Azure Active Directory is recommended because it helps you avoid managing secrets in the deployments. However, it requires extra steps to configure access to it.
 
-# [Azure AD authentication](#tab/keys)
+# [Azure AD authentication](#tab/ad)
 
 You can configure the identity of the compute to have access to the Azure OpenAI deployment to get predictions. In this way, you don't need to manage permissions for each of the users using the endpoint. To configure the identity of the compute cluster get access to the Azure OpenAI resource, follow these steps:
 
-1. Ensure or assign an identity to the compute cluster your deployment will use. In this example, we use a compute cluster called **batch-cluster** and we assign a system assigned managed identity, but you can use other alternatives.
+1. Ensure or assign an identity to the compute cluster your deployment uses. In this example, we use a compute cluster called **batch-cluster** and we assign a system assigned managed identity, but you can use other alternatives.
 
     ```azurecli
     COMPUTE_NAME="batch-cluster"
@@ -159,7 +158,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 
 ## Create a deployment for an OpenAI model
 
-1. First, let's create the endpoint that will host the model. Decide on the name of the endpoint:
+1. First, let's create the endpoint that hosts the model. Decide on the name of the endpoint:
 
     # [Azure CLI](#tab/cli)
 
@@ -194,7 +193,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=create_endpoint)]
 
-1. Our scoring script will use some specific libraries that are not part of the standard OpenAI SDK so we need to create an environment that have them. Here, we will configure an environment with a base image a conda YAML.
+1. Our scoring script uses some specific libraries that are not part of the standard OpenAI SDK so we need to create an environment that have them. Here, we configure an environment with a base image a conda YAML.
 
     # [Azure CLI](#tab/cli)
 
@@ -214,7 +213,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/openai-embeddings/environment/conda.yaml":::
 
-1. Let's create an scoring script that performs the execution. In Batch Endpoints, MLflow models don't require an scoring script. However, in this case we want to extend a bit the capabilities of batch endpoints by:
+1. Let's create a scoring script that performs the execution. In Batch Endpoints, MLflow models don't require a scoring script. However, in this case we want to extend a bit the capabilities of batch endpoints by:
 
     > [!div class="checklist"]
     > * Allowing the endpoint to read multiple data input types, including `csv`, `tsv`, `parquet`, `json`, `jsonl`, `arrow`, and `txt`.
@@ -228,19 +227,19 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 
     :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/openai-embeddings/code/batch_driver.py" :::
 
-1. One the scoring script is created, it's time to create a batch deployment for it. We will use environment variables to configure the OpenAI deployment. Particularly we use the following:
+1. One the scoring script is created, it's time to create a batch deployment for it. We use environment variables to configure the OpenAI deployment. Particularly we use the following keys:
 
     * `OPENAI_API_BASE` is the URL of the Azure OpenAI resource to use.
     * `OPENAI_API_VERSION` is the version of the API you plan to use.
     * `OPENAI_API_TYPE` is the type of API and authentication you want to use.
 
-    # [Azure AD authentication](#tab/keys)
+    # [Azure AD authentication](#tab/ad)
 
-    The environment variable `OPENAI_API_TYPE="azure_ad` instructs OpenAI to use Active Directory authentication and hence no key is required to invoke the OpenAI deployment. The identity of the cluster will be used instead.
+    The environment variable `OPENAI_API_TYPE="azure_ad` instructs OpenAI to use Active Directory authentication and hence no key is required to invoke the OpenAI deployment. The identity of the cluster is used instead.
     
     # [Access keys](#tab/keys)
 
-    To use access keys instead of Azure AD authentication we need the following environment variables:
+    To use access keys instead of Azure AD authentication, we need the following environment variables:
 
     * Use `OPENAI_API_TYPE="azure"`
     * Use `OPENAI_API_KEY="<YOUR_AZURE_OPENAI_KEY>"`
@@ -251,7 +250,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 
     __deployment.yml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/openai-embeddings/deployment.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/openai-embeddings/deployment.yml" highlight="26-28":::
 
     > [!TIP]
     > Notice the `environment_variables` section where we indicate the configuration for the OpenAI deployment. The value for `OPENAI_API_BASE` will be set later in the creation command so you don't have to edit the YAML configuration file.
@@ -327,7 +326,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=download_outputs)]
 
-1. The output predictions will look like the following. Notice that the predictions have been combined with the labels for the convenience of the reader. To know more about how to achieve this see the associated notebook.
+1. The output predictions looks like the following.
 
     ```python
     import pandas as pd 
@@ -355,3 +354,6 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
     },
     ```
     
+## Next steps
+
+* [Run OpenAI models in batch endpoints to compute completions](how-to-use-batch-model-openai-completions.md)
