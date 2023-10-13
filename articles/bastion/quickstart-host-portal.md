@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 In this quickstart, you'll learn how to deploy Azure Bastion automatically in the Azure portal using default settings and the Basic SKU. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration.
 
-The default SKU for this type of deployment is the Basic SKU. If you want to deploy using the Developer SKU instead, see [Deploy Bastion - Developer SKU](quickstart-developer-sku.md). If you want to deploy using the Standard SKU, see the [Tutorial - Deploy Bastion using specified settings](tutorial-create-host-portal.md). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+The default SKU for this type of deployment is the Basic SKU. If you want to deploy using the Developer SKU instead, see [Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md). If you want to deploy using the Standard SKU, see the [Tutorial - Deploy Bastion using specified settings](tutorial-create-host-portal.md). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
