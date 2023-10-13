@@ -11,33 +11,33 @@ ms.date: 10/02/2023
 
 # Configure Azure Private 5G Core network for accessing UE IP addresses
 
-Azure Private 5G Core (AP5GC) provides a secure and reliable network for your organization's communication needs. To access user equipment (UE) IP addresses from the data network (DN), you will need to configure appropriate firewall rules, routes, and other settings. This article will guide you through the steps and considerations required.
+Azure Private 5G Core (AP5GC) provides a secure and reliable network for your organization's communication needs. To access user equipment (UE) IP addresses from the data network (DN), you need to configure appropriate firewall rules, routes, and other settings. This article will guide you through the steps and considerations required.
 
 ## Prerequisites
 
-Before you begin, make sure you have the following:
+Before you begin, you must have:
 
-- Access to your Azure Private 5G Core via the Azure Portal.
+- Access to your Azure Private 5G Core via the Azure portal.
 - Knowledge of your organization's network topology.
 - An AP5GC with network address port translation (NAPT) disabled.  
     > [!IMPORTANT]
-    > Using a deployment where NAPT is enabled will only work if the UE initiates the contact to the server and the server is capable of differentiating UE clients using a combination of IP address and port.  
+    > Using a deployment where NAPT is enabled only works if the UE initiates the contact to the server and the server is capable of differentiating UE clients using a combination of IP address and port.  
     > If the server tries to make the initial contact or tries to contact a UE after the pinhole has timed out, the connection will fail.
-- Access to any necessary network devices for configuration (e.g. routers, firewalls, switches, proxies).
+- Access to any necessary network devices for configuration (for example, routers, firewalls, switches, proxies).
 - Ability to capture packet traces at different points in your network.
 
 ## Configure UE IP addresses access
 
-1. Determine the IP addresses of the devices that you wish to access from the data network. These IP addresses will belong the the IP pool defined during site creation.  
+1. Determine the IP addresses of the devices that you wish to access from the data network. These IP addresses belong the IP pool defined during site creation.  
 You can see the IP addresses for devices by either
     - checking [distributed tracing](distributed-tracing.md),
     - checking [packet captures of the device attaching and creating a session](data-plane-packet-capture.md),
-    - or using integrated tools for the UE (e.g. command line or UI).
+    - or using integrated tools for the UE (for example, command line or UI).
 1. Confirm that the client device you are using can reach the UE via the AP5GC N6 (in a 5G deployment) or SGi (in a 4G deployment) network.
-    - If the client is on the same subnet as the AP5GC N6/SGi interface, the client device should have a route to the UE subnet and the next hop should be to the N6/SGi IP address belonging to the data network name (DNN) assigned to the UE.
+    - If the client is on the same subnet as the AP5GC N6/SGi interface, the client device should have a route to the UE subnet, and the next hop should be to the N6/SGi IP address that belongs to the data network name (DNN) assigned to the UE.
     - Otherwise, if there is a router or firewall between the client and AP5GC, the route to the UE subnet should have the router or firewall as the next hop.
 1. Ensure the client device traffic destined to the UE reaches the AP5GC N6 network interface.
-    1. Check each firewall in between the N6 address and the client device IP address.
+    1. Check each firewall between the N6 address and the client device IP address.
     1. Ensure that the type of traffic expected between client device and UE is allowed to pass through the firewall.
     1. Repeat for TCP/UDP ports, IP addresses and protocols required.
     1. Ensure the firewall has routes to forward the traffic destined to the UE IP address to the N6 interface IP address.
@@ -48,7 +48,7 @@ You can see the IP addresses for devices by either
 
 - **UE:** A smart camera that can be accessed using HTTPS. The UE is using AP5GC to send information to an operator's managed server.
 - **Network Topology:** The N6 network has a firewall separating it from the secure corporate network and from the internet.
-- **Requirement:** From the operator's IT infrastructure be able to log in into the smart camera using HTTPS.
+- **Requirement:** From the operator's IT infrastructure be able to sign in into the smart camera using HTTPS.
 
 ### Solution
 
