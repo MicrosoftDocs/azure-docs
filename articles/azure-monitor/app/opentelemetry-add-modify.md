@@ -2292,7 +2292,7 @@ span_id = trace.get_current_span().get_span_context().span_id
 
 ---
 
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/ azure-monitor-app-insights-opentelemetry-faqs.md)]
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 
