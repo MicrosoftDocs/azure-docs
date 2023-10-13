@@ -52,7 +52,9 @@ Join Teams meeting with meeting code and passcode:
 const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>', passcode: '<PASSCODE>'});
 ```
 
-### Key things to note about joining Teams meeting with MeetingId and Passcode:
+### Join Teams meeting with meeting ID and passcode:
+
+Developers can use multiple ways to join Teams meeting. One of them is meeting ID and passcode, which allows people to join the Teams meeting they are invited to from a device or application. You always need to provide both meeting ID and passcode to join the meeting. Passcode is case sensitive.
 - Format of the meetingId  and passcode 
   * Meeting ID: 12 digits.
   * Passcode: 6 characters
