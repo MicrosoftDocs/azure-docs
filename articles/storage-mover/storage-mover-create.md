@@ -108,7 +108,7 @@ New-AzStorageMover `
 
 Make sure that you have the most up to date version of Azure CLI. 
 
-[!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 Creates a top-level Storage Mover resource using Azure CLI. 
 
