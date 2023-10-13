@@ -102,7 +102,7 @@ To create a policy for the SAP HANA database instance backup, follow these steps
       
          :::image type="content" source="./media/sap-hana-database-instances-backup/start-create-managed-identity.png" alt-text="Screenshot that shows how to create managed identity.":::
       
-      1. On the **Create User Assigned Managed Identity** page, choos the required *Subscription*, *Resource group*, *Instance region*, and add an *Instance name*.
+      1. On the **Create User Assigned Managed Identity** page, choose the required *Subscription*, *Resource group*, *Instance region*, and add an *Instance name*.
       1. Select **Review + create**.
       
          :::image type="content" source="./media/sap-hana-database-instances-backup/configure-new-managed-identity.png" alt-text="Screenshot that shows how to configure a new managed identity.":::

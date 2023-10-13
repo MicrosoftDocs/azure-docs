@@ -21,7 +21,7 @@ You can restore the HANA snapshot and storage snapshot as disks by selecting **A
 Here are the two workflows:
 
 - [Restore the entire HANA system (the system database and all tenant databases) to a single snapshot-based restore point](#restore-the-entire-system-to-a-snapshot-restore-point).
-- [Restore the system database and all tenant databases to a different log point in time over a snapshot](#restore-the-database-to-a-different-log-point-in-time-over-a-snapshot).
+- [Restore the system database and all tenant databases to a different logpoint-in-time over a snapshot](#restore-the-database-to-a-different-log-point-in-time-over-a-snapshot).
 
 >[!Note]
 >SAP HANA recommends that you recover the entire system during the snapshot restore. This means that you would also restore the system database. If the system database is restored, the users/access information is also overwritten or updated, and subsequent attempts at recovery of tenant databases might fail after the system database recovery. The two options to resolve this issue are:
@@ -80,7 +80,7 @@ To select and mount the snapshot, do the following:
    :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
 
    >[!Note]
-   >**Attach and mount only** option creates disks from the selected snapshot point and mounts to the targeted VM. After the restore is complete, use *HANA studio* to initiate the restore-from-snapshot process and complete the *system database* restore to the latest recovery point. Then run the *pre-registration script* on the target VM to reset the backup user credentials. Then proceed to complete the tenant DB restore process, to the same snapshot or log point-in-time via backing
+   >**Attach and mount only** option creates disks from the selected snapshot point and mounts to the targeted VM. After the restore is complete, use *HANA studio* to initiate the restore-from-snapshot process and complete the *system database* restore to the latest recovery point. Then run the *pre-registration script* on the target VM to reset the backup user credentials. Then proceed to complete the tenant DB restore process, to the same snapshot or logpoint-in-time via backing
 
 1. On the **Select restore point** pane, select a recovery point, and then select **OK**.
 
@@ -133,13 +133,13 @@ To restore the tenant databases using the Azure portal, follow these steps:
 
 You can also use HANA Studio to recover all tenant databases from a data snapshot. For more information, see the [HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
 
-## Restore the database to a different log point in time over a snapshot
+## Restore the database to a different logpoint-in-time over a snapshot
 
-To restore the database to a different log point in time, do the following.
+To restore the database to a different logpoint-in-time, do the following.
 
 ### Select and mount the nearest snapshot
 
-First, identify the snapshot that's nearest to the required log point in time. Then [attach and mount that snapshot](#select-and-mount-the-snapshot) to the target VM.
+First, identify the snapshot that's nearest to the required logpoint-in-time. Then [attach and mount that snapshot](#select-and-mount-the-snapshot) to the target VM.
 
 ### Restore system database
 
