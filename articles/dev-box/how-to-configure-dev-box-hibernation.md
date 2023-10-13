@@ -44,7 +44,7 @@ There are two steps in enabling hibernation; you must enable hibernation on your
 - Auto-stop schedules still shutdown the dev boxes. If you want to hibernate your dev box, you can do it through the developer portal or using the CLI.
  
   > [!NOTE]
-  > The functionality to schedule dev boxes to hibernate automatically is available in Private Preview. You can sign up for the private preview here: [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp). 
+  > The functionality to schedule dev boxes to hibernate automatically is available in preview. You can sign up for the preview here: [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp). 
 
 ### Settings not compatible with hibernation
 
