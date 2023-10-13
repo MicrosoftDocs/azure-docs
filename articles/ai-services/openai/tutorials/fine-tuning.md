@@ -4,10 +4,9 @@ titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's latest fine-tuning capabilities with gpt-3.5-turbo
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 10/13/2023
 author: mrbullwinkle 
 ms.author: mbullwin
 recommendations: false
@@ -487,10 +486,10 @@ print(r.json())
 
 You can check on your deployment progress in the Azure OpenAI Studio:
 
-:::image type="content" source="../media/tutorials/fine-tuning/status.png" alt-text="Screenshot of the initial DataFrame table results from the csv file." lightbox="../media/tutorials/fine-tuning/fine-tuning/status.png":::
+:::image type="content" source="../media/tutorials/fine-tuning/status.png" alt-text="Screenshot of the initial DataFrame table results from the csv file." lightbox="../media/tutorials/fine-tuning/status.png":::
 
 It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models. 
 
 ## Next steps
 
-- Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
+- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
