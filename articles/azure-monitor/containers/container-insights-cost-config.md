@@ -27,6 +27,9 @@ The following cluster configurations are supported for this customization:
 ## Enable cost settings
 Following are the details for using different methods to enable cost optimization settings for each supported cluster configuration. See [Data collection parameters](#data-collection-parameters) for details about the different available settings.
 
+> [!WARNING]
+> The default Container insights experience depends on all the existing data streams. Removing one or more of the default streams makes the Container insights experience unavailable, and you need to use other tools such as Grafana dashboards and log queries to analyze collected data.
+
 ## [Azure portal](#tab/portal)
 You can use the Azure portal to enable cost optimization on your existing cluster after Container insights has been enabled, or you can enable Container insights on the cluster along with cost optimization.
 
@@ -59,7 +62,7 @@ When you use the Azure portal to configure cost optimization, you can select fro
 | Syslog | 1 m | None | Enabled by default |
 
 ### Collected data
-The **Collected data** option when configuring cost optimization in the Azure portal allows you to select the tables that are collected from the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.
+The **Collected data** option in the Azure portal allows you to select the tables that are collected from the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.
 
 | Grouping | Tables | Notes |
 | --- | --- | --- |
@@ -169,7 +172,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     - Template: https://aka.ms/existingClusterOnboarding.json
     - Parameter: https://aka.ms/existingClusterParam.json
 
-1. Edit the values in the parameter file: existingClusterParam.json. See [Data collection parameters](#data-collection-parameters) for details on each setting. See below for settings unique to each cluster configuration.
+1. Edit the values in the parameter file. See [Data collection parameters](#data-collection-parameters) for details on each setting. See below for settings unique to each cluster configuration.
 
     **AKS cluster**<br>
     - For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
@@ -198,6 +201,9 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 ## Data collection parameters
 
 The following table describes the supported data collection settings and the name used for each for different onboarding options.
+
+>[!NOTE]
+>This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-agent-config.md).
 
 | Name | Description |
 |:---|:---|
@@ -256,9 +262,7 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 
 
 
-## Impact on default visualizations and existing alerts
-
-The default Container insights experience is depends on all the existing data streams. Removing one or more of the default streams makes the Container insights experience unavailable.
+## Impact on visualizations and alerts
 
 If you are currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
@@ -279,22 +283,8 @@ resources
 Reference the [Limitations](./container-insights-cost-config.md#limitations) section for information on migrating your Recommended alerts.
 
 
-
-## Data Collection Settings Updates
-
-To update your data collection Settings, modify the values in parameter files and redeploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster. Or select your new options through the Monitoring Settings in the portal.
-
-## Troubleshooting
-
-- Only clusters using [managed identity authentication](../containers/container-insights-onboard.md#authentication), are able to use this feature.
-- Missing data in your container insights charts is an expected behavior for namespace exclusion, if excluding all namespaces
-
 ## Limitations
 
 - Recommended alerts will not work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
 
-
-
->[!NOTE]
->This feature configures settings for all container insights tables (excluding ContainerLog), to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md).
