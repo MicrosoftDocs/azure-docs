@@ -444,6 +444,9 @@
       - name: Max variables
         displayName: linter
         href: linter-rule-max-variables.md
+      - name: Nested deployment template scoping
+        displayName: linter
+        href: linter-rule-nested-deployment-template-scoping.md
       - name: No conflicting metadata
         displayName: linter
         href: linter-rule-no-conflicting-metadata.md
