@@ -76,9 +76,9 @@ As you create the account, make sure to configure settings with the following va
 
 ## Step 2: Verify Azure role-based access control (Azure RBAC) role assignments
 
-For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription.
+For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Microsoft Entra user identity in the scope of the storage account, parent resource group, or subscription.
 
-For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Azure AD identity in the scope of the Gen1 account, parent resource group, or subscription.
+For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Microsoft Entra identity in the scope of the Gen1 account, parent resource group, or subscription.
 
 ## Step 3: Migrate Azure Data Lake Analytics workloads
 
@@ -224,7 +224,7 @@ The following functionality isn't supported in the compatibility layer.
 
 - Chunk-encoding for append operations.
 
-- Any API calls that use `https://management.azure.com/`  as the Azure Active Directory (Azure AD) token audience.
+- Any API calls that use `https://management.azure.com/`  as the Microsoft Entra token audience.
 
 - File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`).
 

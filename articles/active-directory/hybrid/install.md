@@ -20,13 +20,13 @@ The following document provides the steps to install either cloud sync or Micros
 
 <a name='install-the-azure-ad-connect-provisioning-agent-for-cloud-sync'></a>
 
-## Install the Microsoft Entra Connect provisioning agent for cloud sync
-Cloud sync uses the Microsoft Entra Connect provisioning agent.  Use the steps below to install it.
+## Install the Microsoft Entra Provisioning Agent for cloud sync
+Cloud sync uses the Microsoft Entra Provisioning Agent.  Use the steps below to install it.
 
 [!INCLUDE [sign in](../../../includes/cloud-sync-sign-in.md)]
  4. On the left, select **Agent**.
  5. Select **Download on-premises agent**, and select **Accept terms & download**.
- 6. Once the **Microsoft Entra Connect Provisioning Agent Package** has completed downloading, run the *AADConnectProvisioningAgentSetup.exe* installation file from your downloads folder.
+ 6. Once the **Microsoft Entra Provisioning Agent Package** has completed downloading, run the *AADConnectProvisioningAgentSetup.exe* installation file from your downloads folder.
    >[!NOTE]
    >When installing for the US Government Cloud use:  
    >*AADConnectProvisioningAgentSetup.exe ENVIRONMENTNAME=AzureUSGovernment*  
@@ -34,7 +34,7 @@ Cloud sync uses the Microsoft Entra Connect provisioning agent.  Use the steps b
 
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
  8. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
- 9. On the **Select Extension** screen, select **HR-driven provisioning (Workday and SuccessFactors) / Microsoft Entra Connect Cloud Sync** and click **Next**.
+ 9. On the **Select Extension** screen, select **HR-driven provisioning (Workday and SuccessFactors) / Microsoft Entra Cloud Sync** and click **Next**.
  10. Sign in with your Microsoft Entra Global Administrator account. 
  11. On the **Configure Service Account** screen, select a group Managed Service Account (gMSA). This account is used to run the agent service. To continue, select **Next**.
  12. On the **Connect Active Directory** screen, if your domain name appears under **Configured domains**, skip to the next step. Otherwise, type your Active Directory domain name, and select **Add directory**.  

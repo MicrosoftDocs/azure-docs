@@ -566,7 +566,7 @@ BizTalk includes [Enterprise Single Sign-On (SSO)](/biztalk/core/enterprise-sing
 
 - Managed identities
 
-  Some connectors support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for authenticating access to resources protected by Azure Active Directory (Azure AD). When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Azure AD tokens.
+  Some connectors support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for authenticating access to resources protected by Microsoft Entra ID. When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Microsoft Entra tokens.
 
 ### Application management and access management
 
@@ -837,7 +837,7 @@ For the latest information, see [Service Bus Premium and Standard messaging tier
 
 Azure API Management offers various pricing tiers so that you can choose the best tier that meets your needs. Each tier has its own capabilities and are named Consumption, Developer, Basic, Standard, and Premium.
 
-The capabilities in these tiers range from Azure AD integration, Azure virtual network support, built-in cache, self-hosted gateways, and more. For more information about these tiers and their capabilities, see [Feature-based comparison of the Azure API Management tiers](../api-management/api-management-features.md).
+The capabilities in these tiers range from Microsoft Entra integration, Azure virtual network support, built-in cache, self-hosted gateways, and more. For more information about these tiers and their capabilities, see [Feature-based comparison of the Azure API Management tiers](../api-management/api-management-features.md).
 
 ##### Azure Data Factory
 
@@ -919,7 +919,7 @@ The following table and diagram roughly show how resources, artifacts, features,
 | EDI | - BizTalk Server out-of-the-box capabilities <br>- Parties, partners, agreements, AS2, X12, EDIFACT | Azure Logic Apps and Azure Integration Account (partners, agreements, AS2, X12, EDIFACT) |
 | HL7, RosettaNet, and SWIFT | BizTalk Server accelerators for HL7, RosettaNet, and SWIFT | - Azure Logic Apps, RosettaNet and SWIFT connectors, and Azure Integration Account <br>- Azure API Management for FHIR (HL7) <br>- Azure Blueprint, which enables SWIFT CSP compliance on Azure |
 | Secrets | Enterprise Single Sign-On (SSO) | - Azure Key Vault <br>- SQL Server <br>- Application configuration |
-| Security and governance | - Enterprise Single Sign-On (SSO) <br>- SSO affiliate applications <br>- Active Directory <br>- Signing certificates <br>- IIS Security Authentication <br>- Network security | - Azure Active Directory <br>- Azure Network Security <br>- Azure role-based access control (Azure RBAC) <br>- Claims, tokens <br>- Shared Access Policies |
+| Security and governance | - Enterprise Single Sign-On (SSO) <br>- SSO affiliate applications <br>- Active Directory <br>- Signing certificates <br>- IIS Security Authentication <br>- Network security | - Microsoft Entra ID <br>- Azure Network Security <br>- Azure role-based access control (Azure RBAC) <br>- Claims, tokens <br>- Shared Access Policies |
 | Data configuration | - Config files <br>- Enterprise SSO application configuration <br>- Custom cache components <br>- Custom database <br>- Business Rules Engine <br>- Windows registry | - Azure Key Vault <br>- Azure App Configuration <br>- Azure Cosmos DB <br>- Azure Table Storage <br>- Azure Logic Apps (Standard) configuration <br>- Azure Functions configuration <br>- Azure API Management named values and backends <br>- SQL Server <br>- Custom caching <br>- Custom database |
 | Deployment | - BizTalk Server binding file | - Azure DevOps pipelines <br>- Bicep scripts <br>- Terraform |
 | Tracking | - BizTalk Server tracking capabilities (Receive ports, Send ports, pipelines, orchestrations) <br>- IIS tracking <br>- Azure API Management built-in analytics (hybrid capabilities) | - Azure Logic Apps run  history and tracked properties <br>- Azure Storage Account <br>- Azure Monitor (Application Insights) <br>- Azure API Management built-in analytics <br>- Custom solution, for example, Azure Event Hubs plus Azure Functions plus SQL Server plus Azure Data Explorer |

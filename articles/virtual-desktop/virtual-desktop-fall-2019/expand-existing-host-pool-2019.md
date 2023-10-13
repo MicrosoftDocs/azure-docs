@@ -112,7 +112,7 @@ All parameter values in this section should match what you provided when you fir
 
 1. For *Azure Virtual Desktop tenant group name*, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
 2. For *Azure Virtual Desktop tenant name*, enter the name of the tenant where you'll be creating this host pool.
-3. Specify the same credentials you used when you first created the host pool and session host VMs. If you are using a service principal, enter the ID of the Azure Active Directory instance where your service principal is located.
+3. Specify the same credentials you used when you first created the host pool and session host VMs. If you are using a service principal, enter the ID of the Microsoft Entra instance where your service principal is located.
 4. Select **Next : Review + create**.
 
 ## Run the GitHub Azure Resource Manager template

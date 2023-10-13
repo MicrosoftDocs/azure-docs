@@ -186,4 +186,4 @@ After your workspace has been created, you can still turn on or turn off system-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sync Grafana teams with Azure Active Directory groups](./how-to-sync-teams-with-azure-ad-groups.md)
+> [Sync Grafana teams with Microsoft Entra groups](./how-to-sync-teams-with-azure-ad-groups.md)

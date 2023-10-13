@@ -73,7 +73,7 @@ The below table lists some more service dependencies, where the client apps must
 
 ## Troubleshooting service dependencies
 
-The Microsoft Entra sign-ins log is a valuable source of information when troubleshooting why and how a Conditional Access policy applied in your environment. For more information about troubleshooting unexpected sign-in outcomes related to Conditional Access, see the article [Troubleshooting sign-in problems with Conditional Access](troubleshoot-conditional-access.md#service-dependencies).
+The Microsoft Entra sign-in log is a valuable source of information when troubleshooting why and how a Conditional Access policy applied in your environment. For more information about troubleshooting unexpected sign-in outcomes related to Conditional Access, see the article [Troubleshooting sign-in problems with Conditional Access](troubleshoot-conditional-access.md#service-dependencies).
 
 ## Next steps
 

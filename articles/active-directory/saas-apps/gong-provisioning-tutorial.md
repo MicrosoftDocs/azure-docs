@@ -58,7 +58,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
     1. In the **Update settings** area, define how settings can be managed for this assignment:
         * Select **Manual editing** to manage data capture and permission settings for users in this assignment in Gong. 
           After you create the assignment: if you make changes to group settings in Microsoft Entra ID, they will not be pushed to Gong. However, you can edit the group settings manually in Gong.
-        * (Recommended) Select **Automatic updates** to give Microsoft Entra ID Governance over data capture and permission settings in Gong. 
+        * (Recommended) Select **Automatic updates** to give Microsoft Entra ID control over data capture and permission settings in Gong. 
           Define data capture and permission settings in Gong only when creating an assignment. Thereafter, other changes will only be applied to users in groups with this assignment when pushed from Microsoft Entra ID.
     1. Click **ADD ASSIGNMENT**.
 1. For org's that don't have assignments (step 3), select the permission profile to apply to for automatically provisioned users.

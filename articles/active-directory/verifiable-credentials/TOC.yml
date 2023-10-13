@@ -72,6 +72,8 @@
         href: partner-gallery.md
       - name: Au10tix
         href: howto-verifiable-credentials-partner-au10tix.md
+      - name: IDEMIA
+        href: idemia.md
       - name: LexisNexis
         href: howto-verifiable-credentials-partner-lexisnexis.md
       - name: Vu

@@ -51,7 +51,7 @@ The owner is shown as unspecified when the owner wasn't found on the resource, t
 
 :::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="Screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
 
-By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
+By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Microsoft Entra ID, the owner's manager receives a weekly email showing any overdue recommendations by default.
 
 :::image type="content" source="./media/governance-rules/add-governance-rules.png" alt-text="Screenshot of fields required to add a governance rule." lightbox="media/governance-rules/add-governance-rules.png":::
 
@@ -159,7 +159,7 @@ You can see the list of owners and recommendations for the selected rules, and t
 
     - Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
 
-    - If the owner email address is found in the organizational Azure Active Directory (Azure AD), you'll see the full name and picture of the owner.
+    - If the owner email address is found in the organizational Microsoft Entra ID, you'll see the full name and picture of the owner.
 
 1. Select **View recommendations** to go to the list of recommendations associated with the owner.
 

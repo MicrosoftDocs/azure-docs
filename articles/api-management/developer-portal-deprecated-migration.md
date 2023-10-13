@@ -50,7 +50,7 @@ When you migrate from the deprecated portal, keep in mind the following changes:
 - *Issues* and *Applications* aren't supported in the new developer portal.
 - Direct integration with Facebook, Microsoft, Twitter, and Google as identity providers isn't supported in the new developer portal. You can integrate with those providers via Azure AD B2C.
 - If you use delegation, change the return URL in your applications and use the [*Get Shared Access Token* API endpoint](/rest/api/apimanagement/current-ga/user/get-shared-access-token) instead of the *Generate SSO URL* endpoint.
-- If you use Azure AD as an identity provider:
+- If you use Microsoft Entra ID as an identity provider:
 
     - Change the return URL in your application to point to the new developer portal domain.
     - Modify the suffix of the return URL in your application from `/signin-aad` to `/signin`.
