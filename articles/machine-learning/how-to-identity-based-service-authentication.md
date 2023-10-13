@@ -316,7 +316,7 @@ This authentication mode allows you to:
 > This functionality has the following limitations
 > * Feature is supported for experiments submitted via the [Azure Machine Learning CLI and Python SDK V2](concept-v2.md), but not via ML Studio.
 > * User identity and compute managed identity cannot be used for authentication within same job.
-> * For pipeline jobs, the user identity must be configured at job top level, not for individual pipeline steps.   
+> * For pipeline jobs, we recommend setting user identity at the individual step level that will be executed on a compute, rather than at the root pipeline level. ( While identity setting is supported at both root pipeline and step levels, the step level setting takes precedence if both are set. However, for pipelines containing pipeline components, identity must be on individual steps that will be executed. Identity settings at the root pipeline or pipeline component level will not function. Therefore, we suggest setting identity at the individual step level for simplicity.)
 
 The following steps outline how to set up data access with user identity for training jobs on compute clusters from CLI. 
 
