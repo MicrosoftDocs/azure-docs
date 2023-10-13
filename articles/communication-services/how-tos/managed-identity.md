@@ -40,9 +40,7 @@ To use Managed Identity with ACS, follow these steps:
 2. Select **Identity**.
 
 3. Within the **System assigned** tab, switch **Status** to **On**. Select **Save**.
-
-    ![Screenshot that shows where to switch Status to On and then select Save.](../media/managed-identity/managed-identity-system-assigned.png)
-
+    :::image type="content" source="../media/managed-identity/managed-identity-system-assigned.png" alt-text="Screenshot that shows how to enable system assigned managed identity." lightbox="../media/managed-identity/managed-identity-system-assigned.png" :::
 # [Azure CLI](#tab/cli)
 
 Run the `az communication identity assign` command to assign a system-assigned identity:
@@ -69,8 +67,7 @@ First, you need to create a user-assigned managed identity resource.
 4. Select **User assigned** > **Add**.
 
 5. Search for the identity you created earlier, select it, and select **Add**.
-
-    ![Managed identity in App Service](../media/managed-identity/managed-identity-user-assigned.png)
+ :::image type="content" source="../media/managed-identity/managed-identity-user-assigned.png" alt-text="Screenshot that shows how to enable user assigned managed identity." lightbox="../media/managed-identity/managed-identity-system-assigned.png" :::
 
 # [Azure CLI](#tab/cli)
 
