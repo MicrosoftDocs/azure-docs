@@ -13,7 +13,8 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, then select the name of your resource group.
+Use the following steps to delete the entire resource group, including the newly created service instance:
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
 
+1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.

@@ -19,11 +19,11 @@ First, prepare the Spring project to run locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-This section isn't required to prepare the jar package for deployment, the `Deploy to azure` button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
+The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
+You must use the bash script to prepare the project locally. Use the following steps to clone and run the app locally:
 
 [!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
 
@@ -31,7 +31,7 @@ Although you use the Azure portal in later steps, you must use the Bash command 
 
 Use the following steps to initialize the web application from the Azure Developer CLI templates:
 
-1. Open a terminal, create a new folder, and then change directory into it.
+1. Open a terminal, create an empty folder, and then change directory into it.
 
 1. Use the following command to initialize the project:
 
@@ -39,7 +39,7 @@ Use the following steps to initialize the web application from the Azure Develop
    azd init --template https://github.com/Azure-Samples/ASA-Samples-Web-Application
    ```
 
-   The following list describes the command interactions:
+   The following list describes the command interaction:
 
    - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
@@ -71,7 +71,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and sign in to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -83,22 +83,22 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-web-app/create-service-instance.png":::
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 
-   | Setting            | Suggested value                  | Description                                                                                                                                                                                                                                                                                        |
-   |--------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | **Subscription**   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
-   | **Resource group** | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | **Plan**           | **Basic**                        | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
-   | **Region**         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | **Zone Redundant** | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
+   | Setting            | Suggested value                   | Description                                                                                                                                                                                                                                                                                        |
+   |--------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
+   | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**           | *myasa*                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Plan**           | **Basic**                         | The pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
+   | **Region**         | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                        |
+   | **Zone Redundant** | Unchecked                         | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-basics.png":::
 
-1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
+1. Select **Review and Create** to review your selections. Then, select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-web-app/notifications.png":::
 
@@ -128,7 +128,7 @@ Use the following steps to connect your service instances:
 
    - **Service type**: **DB for PostgreSQL flexible server**
    - **Connection name**: *postgresql_e1974*
-   - **Subscription**: select your subscription.
+   - **Subscription**: Select your subscription.
    - **PostgreSQL flexible server**: *my-demo-pgsql*
    - **PostgreSQL database**: *todo*
    - **Client type**: **SpringBoot**

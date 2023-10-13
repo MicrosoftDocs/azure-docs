@@ -13,4 +13,4 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.

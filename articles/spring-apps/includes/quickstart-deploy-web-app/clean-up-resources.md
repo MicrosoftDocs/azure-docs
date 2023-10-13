@@ -23,13 +23,13 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use the following command to delete all the Azure resources used in this sample application.
+Use the following command to delete all the Azure resources used in this sample application:
 
 ```bash
 azd down
 ```
 
-The following list describes the command interactions:
+The following list describes the command interaction:
 
 - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Press <kbd>y</kbd>.
 
