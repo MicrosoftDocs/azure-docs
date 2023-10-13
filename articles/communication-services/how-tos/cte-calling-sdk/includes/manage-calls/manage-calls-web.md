@@ -70,7 +70,6 @@ Developers can use multiple ways to join Teams meeting. One of them is meeting I
   * Meeting ID and passcode are coordinates to join the meeting. Developers should treat it as secret, which should be encrypted and if stored then behind access control.
   * If the coordinates are exposed, anyone can join the meeting and ruin the experience for everyone in the meeting.
     
-- Meeting ID & passcode are not printed to the console. Hence they cannot be found in verbose client logs.
 
 - How to get meeting ID & passcode ?
      1. Graph API: Use Graph API to retrieve information about `onlineMeeting` resource and check the object in property `joinMeetingIdSettings`.
