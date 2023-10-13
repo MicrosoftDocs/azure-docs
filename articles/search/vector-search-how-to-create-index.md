@@ -20,8 +20,8 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* in a [searc
 Follow these steps to index vector data:
 
 > [!div class="checklist"]
-> + Add one or more vector fields to the index schema.
 > + Add one or more vector configurations. 
+> + Add one or more vector fields to the index schema.
 > + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), after the index schema is defined.
 
 Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
@@ -65,7 +65,7 @@ In the **2023-10-01-Preview**, you can specify either approximate or exhaustive 
 + Hierarchical Navigable Small World (HNSW)
 + Exhaustive KNN
 
-If you choose HNSW on a field, we can opt in for exhaustive KNN at query time. But the other direction won’t work: if you choose exhaustive, you can’t later request HNSW search because the extra data structures that enable approximate search don’t exist.
+If you choose HNSW on a field, you can opt in for exhaustive KNN at query time. But the other direction won’t work: if you choose exhaustive, you can’t later request HNSW search because the extra data structures that enable approximate search don’t exist.
 
 You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors. To evaluate the newest vector search behaviors, use the **2023-10-01-Preview** REST API version.
 
@@ -75,11 +75,6 @@ REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service
 
 + `vectorProfiles`
 + `exhaustiveKnn` nearest neighbors algorithm for indexing vector content
-
-In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
-
-> [!TIP]
-> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to create the index.
 
@@ -133,10 +128,10 @@ In the following REST API example, "title" and "content" contain textual content
    + Name of the configuration. The name must be unique within the index.
    + Profiles are new in this preview. They add a layer of abstraction for accommodating richer definitions. A profile is defined in `vectorSearch`, and then as a property on each vector field.
    + `"hnsw"` and `"exhaustiveKnn"` are the Approximate Nearest Neighbors (ANN) algorithms used to organize vector content during indexing.
-   + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
-   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
-   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
-   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
+   + `"m"` (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + `"efConstruction"` default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
+   + `"efSearch"` default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
+   + `"metric"` should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
 ### [**2023-07-01-Preview**](#tab/rest-add-config)
 
@@ -144,11 +139,6 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 + `vectorConfigurations`
 + `hnsw` nearest neighbor algorithm for indexing vector content
-
-In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
-
-> [!TIP]
-> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
 
@@ -200,9 +190,6 @@ In the following REST API example, "title" and "content" contain textual content
 
 ---
 
-
-
-
 ## Add a vector field to the fields collection
 
 The fields collection must include a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
@@ -223,11 +210,12 @@ In the following REST API example, "title" and "content" contain textual content
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
    + Assign the `Collection(Edm.Single)` data type.
-   + For `Collection(Edm.Single)`, the "filterable", "facetable", "sortable" attributes are "false" by default. Don't set them to "true" because those behaviors don't apply within the context of vector fields and the request will fail.
    + Provide the name of the vector search profile.
    + Provide the number of dimensions generated by the embedding model.
-   + "searchable" must be "true".
-   + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so increases storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
+   + Set attributes:
+     + "searchable" must be "true".
+     + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so increases storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
+     + "filterable", "facetable", "sortable" attributes must be "false". Don't set them to "true" because those behaviors don't apply within the context of vector fields and the request will fail.
 
 1. Add filterable fields to the collection, such as "title" with "filterable" set to true, if you want to invoke prefiltering or postfiltering on the [vector query](vector-search-how-to-query.md).
 
@@ -298,11 +286,12 @@ In the following REST API example, "title" and "content" contain textual content
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
    + Assign the `Collection(Edm.Single)` data type.
-   + For `Collection(Edm.Single)`, the "filterable", "facetable", "sortable" attributes are "false" by default. Don't set them to "true" because those behaviors don't apply within the context of vector fields and the request will fail.
    + Provide the name of the vector search algorithm configuration.
    + Provide the number of dimensions generated by the embedding model.
-   + "searchable" must be "true".
-   + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so increases storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
+   + Set attributes:
+     + "searchable" must be "true".
+     + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so increases storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
+     + "filterable", "facetable", "sortable" attributes must be "false". Don't set them to "true" because those behaviors don't apply within the context of vector fields and the request will fail.
 
 1. Add other fields that define the substance and structure of the textual content you're indexing. At a minimum, you need a document key. 
 
