@@ -1,12 +1,12 @@
 ---
-title: SSH access for Linux containers
+title: SSH access for Linux and Windows containers
 description: You can open an SSH session to a Linux or a Windows container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.  Custom Windows containers require no modifications to your custom image.
 keywords: azure app service, web app, linux, windows, oss
 author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 10/12/2023
+ms.date: 10/13/2023
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
