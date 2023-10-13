@@ -20,7 +20,7 @@ Onboarding to Azure Arc is not needed if the Windows Server machine is already r
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Modern browser (Microsoft Edge) for authentication to Microsoft Azure. Configuration of the Azure Connected Machine agent requires authentication to your Azure account, either through interactive authentication on a modern browser or device code log-in on a separate device (if the machine doesn't have a modern browser).
+* Modern browser (Microsoft Edge) for authentication to Microsoft Azure. Configuration of the Azure Connected Machine agent requires authentication to your Azure account, either through interactive authentication on a modern browser or device code login on a separate device (if the machine doesn't have a modern browser).
 
 ## Launch Azure Arc Setup and connect to Azure Arc
 
