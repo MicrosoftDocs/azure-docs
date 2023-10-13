@@ -2027,6 +2027,8 @@
         href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
+      - name: PressReader
+        href: pressreader-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
       - name: PrinterLogic
