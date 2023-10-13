@@ -29,7 +29,7 @@ If you're a cluster operator, work with application owners and developers to und
 * [Best practices for advanced scheduler features](operator-best-practices-advanced-scheduler.md)
     * Includes using taints and tolerations, node selectors and affinity, and inter-pod affinity and anti-affinity.
 * [Best practices for authentication and authorization](operator-best-practices-identity.md)
-    * Includes integration with Azure Active Directory, using Kubernetes role-based access control (Kubernetes RBAC), using Azure RBAC, and pod identities.
+    * Includes integration with Microsoft Entra ID, using Kubernetes role-based access control (Kubernetes RBAC), using Azure RBAC, and pod identities.
 
 ### Security
 

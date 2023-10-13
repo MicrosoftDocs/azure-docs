@@ -27,14 +27,14 @@ You can optionally enable one or more of the following service endpoints, which 
 |---|
 | Azure SQL |
 | Azure Storage |
-| Azure Active Directory |
+| Microsoft Entra ID |
 
 ### IP address dependencies
 
 | **Endpoint** | **Details** |
 |---|---|
 | IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are for HDInsight resource provider and should be included in the UDR to avoid asymmetric routing. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound*, then these IPs are not needed in the UDR.  |
-| AAD-DS private IPs | Only need for ESP clusters, if the VNETs are not peered.|
+| Microsoft Entra Domain Services private IPs | Only need for ESP clusters, if the VNETs are not peered.|
 
 
 ### FQDN HTTP/HTTPS dependencies

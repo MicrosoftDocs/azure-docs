@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
 ---
 
-# Introduction to Microsoft Entra Connect V2.0 
+# Introduction to Microsoft Entra Connect V2.0
 
 Microsoft Entra Connect was released several years ago.  Since this time, several of the components that Microsoft Entra Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
 
@@ -24,8 +24,8 @@ To address this issue, we've bundled as many of these newer components into a ne
 
 <a name='consider-moving-to-azure-ad-connect-cloud-sync'></a>
 
-## Consider moving to Microsoft Entra Connect cloud sync
-Microsoft Entra Connect cloud sync is the future of synchronization for Microsoft.  It replaces Microsoft Entra Connect.  
+## Consider moving to Microsoft Entra Cloud Sync
+Microsoft Entra Cloud Sync is the future of synchronization for Microsoft.  It replaces Microsoft Entra Connect.  
 
 > [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
 

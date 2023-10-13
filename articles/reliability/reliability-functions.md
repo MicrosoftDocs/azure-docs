@@ -37,16 +37,17 @@ Azure Functions supports both [zone-redundant and zonal instances](availability-
 
 Zone-redundant Premium plans are available in the following regions:
 
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
-|------------------|----------------------|---------------|--------------------|----------------|
-| Brazil South     | France Central       | Qatar Central | South Africa North | Australia East |
-| Canada Central   | Germany West Central | UAE North     |                    | Central India  |
-| Central US       | North Europe         |               |                    | China North 3  |
-| East US          | Norway East          |               |                    | East Asia      |
-| East US 2        | Sweden Central       |               |                    | Japan East     |
-| South Central US | Switzerland North    |               |                    | Southeast Asia |
-| West US 2        | UK South             |               |                    |                |
-| West US 3        | West Europe          |               |                    |                |
+| Americas         | Europe               | Middle East    | Africa             | Asia Pacific   |
+|------------------|----------------------|----------------|--------------------|----------------|
+| Brazil South     | France Central       | Israel Central | South Africa North | Australia East |
+| Canada Central   | Germany West Central | Qatar Central  |                    | Central India  |
+| Central US       | Italy North          | UAE North      |                    | China North 3  |
+| East US          | North Europe         |                |                    | East Asia      |
+| East US 2        | Norway East          |                |                    | Japan East     |
+| South Central US | Sweden Central       |                |                    | Southeast Asia |
+| West US 2        | Switzerland North    |                |                    |                |
+| West US 3        | UK South             |                |                    |                |
+|                  | West Europe          |                |                    |                |
 
 ### Prerequisites
 

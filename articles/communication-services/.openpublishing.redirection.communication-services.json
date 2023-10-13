@@ -219,6 +219,16 @@
         "source_path_from_root": "/articles/communication-services/samples/call-automation-appointment-reminder.md",
         "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/how-tos/call-automation/play-ai-action.md",
+        "redirect_url": "/azure/communication-services/how-tos/call-automation/play-action",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/how-tos/call-automation/recognize-ai-action.md",
+        "redirect_url": "/azure/communication-services/how-tos/call-automation/recognize-action",
+        "redirect_document_id": false
       }
     ]
 }

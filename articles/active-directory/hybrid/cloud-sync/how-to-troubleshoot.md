@@ -1,5 +1,5 @@
 ---
-title: Microsoft Entra Connect cloud sync troubleshooting
+title: Microsoft Entra Cloud Sync troubleshooting
 description: This article describes how to troubleshoot problems that might arise with the cloud provisioning agent.
 author: billmath
 ms.author: billmath
@@ -37,7 +37,7 @@ To verify that Azure detects the agent, and that the agent is healthy, follow th
 
 ### Verify the required open ports
 
-Verify that the Microsoft Entra Connect provisioning agent is able to communicate successfully with Azure datacenters. If there's a firewall in the path, make sure that the following ports to outbound traffic are open:
+Verify that the Microsoft Entra Provisioning Agent is able to communicate successfully with Azure datacenters. If there's a firewall in the path, make sure that the following ports to outbound traffic are open:
 
 | Port number | How it's used |
 | ----------- | ------------------------------------------------------------ |
@@ -75,7 +75,7 @@ However, during the name resolution, the CNAME records might contain DNS records
 To verify that the agent is running, follow these steps:
 
 1. On the server with the agent installed, open **Services**. Do this by going to **Start** > **Run** > **Services.msc**.
-1. Under **Services**, make sure **Microsoft Entra Connect Agent Updater** and **Microsoft Entra Connect Provisioning Agent** are there. Also confirm that their status is *Running*.
+1. Under **Services**, make sure **Microsoft Entra Connect Agent Updater** and **Microsoft Entra Provisioning Agent** are there. Also confirm that their status is *Running*.
 
    ![Screenshot of local services and their status.](media/how-to-troubleshoot/troubleshoot-1.png)
 
@@ -87,7 +87,7 @@ The following sections describe some common agent installation problems, and typ
 
 You might receive an error message that states:
 
-*Service 'Microsoft Entra Connect Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services.* 
+*Service 'Microsoft Entra Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services.* 
 
 This problem is typically caused by a group policy. The policy prevented permissions from being applied to the local NT Service sign-in account created by the installer (`NT SERVICE\AADConnectProvisioningAgent`). These permissions are required to start the service.
 
@@ -95,7 +95,7 @@ To resolve this problem, follow these steps:
 
 1. Sign in to the server with an administrator account.
 1. Open **Services** by going to **Start** > **Run** > **Services.msc**.
-1. Under **Services**, double-click **Microsoft Entra Connect Provisioning Agent**.
+1. Under **Services**, double-click **Microsoft Entra Provisioning Agent**.
 1. On the **Log On** tab, change **This account** to a domain admin. Then restart the service. 
 
    ![Screenshot that shows options available from the log on tab.](media/how-to-troubleshoot/troubleshoot-3.png)
@@ -157,6 +157,21 @@ You can filter the view to focus on specific problems, such as dates. Double-cli
 ![Screenshot that shows the provisioning logs dropdown list information.](media/how-to-troubleshoot/log-3.png)
 
 This information provides detailed steps and where the synchronization problem is occurring. In this way, you can pinpoint the exact spot of the problem.
+
+#### Microsoft Entra ID object deletion threshold
+
+If you have an implementation topology with Microsoft Entra Connect and Microsoft Entra Cloud Sync, both exporting to the same Microsoft Entra ID Tenant, or if you completely moved from using Microsoft Entra Connect to Microsoft Entra Cloud Sync, you might get the following export error message when you're deleting or moving multiple objects out of the defined scope:
+
+![Screenshot that shows the export error.](media/how-to-troubleshoot/log-4.png)
+
+This error isn't related to the [Microsoft Entra Cloud Sync accidental deletions prevention feature](../cloud-sync/how-to-accidental-deletes.md). It's triggered by the [accidental deletion prevention feature](../connect/how-to-connect-sync-feature-prevent-accidental-deletes.md) set in the Microsoft Entra ID directory from Microsoft Entra Connect.
+If you don't have a Microsoft Entra Connect server installed from which you could toggle the feature, you can use the ["AADCloudSyncTools"](../cloud-sync/reference-powershell.md) PowerShell module installed with the Microsoft Entra Cloud Sync agent to disable the setting on the tenant and allow the blocked deletions to export after confirming they are expected and should be allowed. Use the following command:
+
+```PowerShell
+Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId "340ab039-c6b1-48a5-9ba7-28fe88f83980"
+```
+
+During the next provisioning cycle, the objects that were marked for deletion should be deleted from the Azure AD directory successfully.
 
 ## Provisioning quarantined problems
 

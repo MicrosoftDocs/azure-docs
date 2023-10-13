@@ -39,7 +39,7 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 | Authenticate workload identities and tokens to access resources |  Use Microsoft Entra ID to protect resource access |  Yes|  Yes |
 | Workload identities sign-in activity and audit trail |   Monitor and track workload identity behavior  |  Yes |  Yes |
 | **Managed identities**| Use Microsoft Entra identities in Azure without handling credentials |  Yes| Yes |
-| Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Microsoft Entra ID protected resources | Yes | Yes |
+| Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Microsoft Entra protected resources | Yes | Yes |
 |  **Conditional Access**     |   |   |    
 | Conditional Access policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
 |**Lifecycle Management**|    |    |   |
@@ -82,7 +82,7 @@ suspicious changes to accounts.
 Enables delegation of reviews to the right people, focused on the most
 important privileged roles.
 
-- [App health recommendations](/azure/active-directory/reports-monitoring/howto-use-recommendations): Provides you with personalized insights with actionable guidance so you can implement best practices, improve the state of your Microsoft Entra tenant, and optimize the configurations for your scenarios.
+- [App health recommendations](/azure/active-directory/reports-monitoring/howto-use-recommendations): Provides recommendations for addressing identity hygiene gaps in your application portfolio so you can improve the security and resilience posture of a tenant. 
 
 ## What do the numbers in each category on the [Workload identities - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) mean?
 
