@@ -11,9 +11,7 @@ ms.custom: ignite-2022, devx-track-azurepowershell
 
 # Elastic SAN Preview best practices
 
-Azure Elastic SAN delivers a massively scalable, cost-effective, high-performance, and reliable block storage solution, which can connect to various Azure compute services over iSCSI protocol, enabling customers to seamlessly transition their SAN storage estate to the cloud without having to refactor their application architectures. This solution can achieve massive scale, up to millions of IOPS, double-digit GB/s of throughput, and low single-digit millisecond latencies with built-in resiliency to minimize downtime.
-
-This article provides some general guidance on client and storage side configuration for optimal performance.
+This article provides some general guidance on getting optimal performance with an environment that uses an Azure Elastic SAN.
 
 ## Virtual Machine optimizations
 
@@ -21,7 +19,7 @@ This article provides some general guidance on client and storage side configura
 
 -	For best performance, deploy your VMs and Elastic SAN in the same zone and the same region.
 -	VM storage I/O to Elastic SAN volumes uses VM network bandwidth, so traditional disk throughput limits on a VM don't apply to Elastic SAN volumes. Choose a VM that can provide sufficient bandwidth for production/VM-to-VM I/O and iSCSI I/O to attached Elastic SAN volumes. Generally, you should use Gen 5 (D / E / M series) VMs for the best performance.
--	Enable “Accelerated Networking” on the VM, during VM creation. To do it via Azure PowerShell or Azure CLI or to enable accelerate networking on existing VMs, see [Use Azure PowerShell to create a VM with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md)
+-	Enable “Accelerated Networking” on the VM, during VM creation. To do it via Azure PowerShell or Azure CLI or to enable Accelerated Networking on existing VMs, see [Use Azure PowerShell to create a VM with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md)
 
     :::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Enable Accelerated Networking during VM creation." lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png":::
 
@@ -151,6 +149,8 @@ In cluster configurations, ensure iSCSI initiator names are unique across all no
 
 Before deploying an Elastic SAN, determining the optimal size of what Elastic SAN you should deploy is necessary to achieving the right balance of performance for your workloads and cost. Use the following steps to determine the best sizing for you:
 
-With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. Add some buffer if the data was collected at a higher granularity than a minute or if any of your workloads have bottlenecks with their existing storage and have the potential for higher performance with Elastic SAN. This allows you to determine how much base capacity your Elastic SAN requires, as well as how much overhead you might want to have for periods of time where higher performance is required. The rest of your storage should use additional-capacity to save on costs.
+With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider more capacity with an Elastic SAN. 
 
-For more details on performance, see [Elastic SAN Preview and virtual machine performance](elastic-san-performance.md).
+Once the time interval has passed, you should be able to determine how much base capacity your Elastic SAN requires, and how much overhead you might want to have when higher performance is required. The rest of your storage should use additional-capacity to save on costs.
+
+For more information on performance, see [Elastic SAN Preview and virtual machine performance](elastic-san-performance.md).
