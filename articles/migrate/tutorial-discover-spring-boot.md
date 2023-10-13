@@ -65,7 +65,7 @@ After you have performed server discovery and software inventory using the Azure
     > [!Note]
     > We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](#encryption-at-rest) about encrypting data at rest in Kubernetes.
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/onboard-kubernetes-inline.png" alt-text="Screenshot displays the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/onboard-kubernetes-expanded.png":::
+    :::image type="content" source="./media/tutorial-discover-spring-boot/onboard-kubernetes-inline.png" alt-text="Screenshot displays the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/onboard-kubernetes-expanded.png":::
 
 6.	In Step 1: Set up an appliance, select **Bring your own Kubernetes cluster** - You must bring your own Kubernetes cluster running on-premises, connect it to Azure Arc and use the installer script to set up the appliance.
 
@@ -135,6 +135,8 @@ After you have saved the script on the Linux server, follow these steps:
     6. Creating the required Migrate resources.
 
 After the script is executed successfully, configure the appliance through the portal. 
+
+##### Reinstallation
 
 If you encounter any issue during script execution, you need to run the script in *delete* mode by adding the following after line #19 in the `deploy.sh` script:
 
