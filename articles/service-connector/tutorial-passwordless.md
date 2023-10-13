@@ -130,56 +130,6 @@ If your database server is in a virtual network, ensure your environment that ru
 ::: zone-end
 <a name='connect-to-database-with-azure-active-directory-authentication'></a>
 
-## Connect to database with Microsoft Entra authentication
-
-After creating the connection, you can use the connection string in your application to connect to the database with Microsoft Entra authentication. For example, you can use the following solutions to connect to the database with Microsoft Entra authentication.
-
-::: zone pivot="mysql"
-
-If your database server is in a virtual network, ensure your environment that runs the Azure CLI command can access the server in the virtual network.
-
-::: zone-end
-[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-me-id.md)]
-
-::: zone pivot="sql"
-
-If your database server disallows public access, ensure your environment that runs the Azure CLI command can access the server through the private endpoint.
-
-::: zone-end
-
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-me-id.md)]
-
-
-:::zone-end
-
-
-:::zone pivot="sql"
-
-[!INCLUDE [code sample for sql aad connection](./includes/code-sql-me-id.md)]
-
-
-:::zone-end
-
-
-## Deploy the application to an Azure hosting service
-
-Finally, deploy your application to an Azure hosting service. That source service can use managed identity to connect to the target database on Azure.
-
-### [App Service](#tab/appservice)
-
-For Azure App Service, you can deploy the application code via the `az webapp deploy` command. For more information, see [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
-
-### [Spring Apps](#tab/springapp)
-
-For Azure Spring Apps, you can deploy the application code via the `az spring app deploy` command. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md).
-
-### [Container Apps](#tab/containerapp)
-
-For Azure Container Apps, you can deploy the application code via the `az containerapp create` command. For more information, see [Quickstart: Deploy your first container app](../container-apps/get-started.md).
-
----
-
-Then you can check the log or call the application to see if it can connect to the database on Azure successfully.
 
 ## Next steps
 
