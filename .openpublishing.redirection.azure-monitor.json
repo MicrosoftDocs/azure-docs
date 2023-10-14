@@ -6366,7 +6366,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing-telemetry-correlation.md",
-            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/distributed-tracing-telemetry-correlation.md",
+            "redirect_url": "https://github.com/dotnet/docs/blob/main/docs/core/diagnostics/distributed-tracing.md",
             "redirect_document_id": false
         },
         {
