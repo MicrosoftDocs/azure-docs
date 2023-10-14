@@ -104,7 +104,7 @@ Until now, the *client ID* and *client secret* of service principal are finally 
 
 **Step 5: Create a service principal to store the key vault.** 
 
-1. Go to [Azure portal AAD (Azure Active Directory)](https://portal.azure.com/?trace=diagnostics&feature.customportal=false#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) and create a new registration.
+1. Go to [Azure portal Microsoft Entra ID](https://portal.azure.com/?trace=diagnostics&feature.customportal=false#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) and create a new registration.
 
     ![create a new registration](../media/credential-entity/create-registration.png)
 

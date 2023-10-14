@@ -49,6 +49,8 @@ landingContent:
             url: ./tutorial-migrate-physical-virtual-machines.md
           - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
             url: ./tutorial-modernize-asp-net-aks.md
+          - text: Create an Azure Spring Apps assessment
+            url: ./how-to-create-azure-spring-apps-assessment.md
 
   - title: Start deployment
     linkLists:

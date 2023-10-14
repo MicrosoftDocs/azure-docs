@@ -72,7 +72,7 @@ items:
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
       - name: All Azure AI containers
-        href: ../containers/index.yml
+        href: ../cognitive-services-container-support.md
         maintainContext: true
   - name: Reference
     items:
@@ -393,14 +393,14 @@ items:
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
       - name: All Azure AI containers
-        href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
+        href: ../cognitive-services-container-support.md?context=%2fazure%2fai-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
-    - name: Use Azure AD Authentication
+    - name: Use Microsoft Entra authentication
       href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Resources
   items: 

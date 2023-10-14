@@ -29,7 +29,7 @@ Microsoft Entra ID (previously known as Azure AD) receives improvements on an on
 - Deprecated functionality
 - Plans for changes
 
-> ![NOTE] 
+> [!NOTE] 
 > If you're currently using Azure AD today or are have previously deployed Azure AD in your organizations, you can continue to use the service without interruption. All existing deployments, configurations, and integrations continue to function as they do today without any action from you.
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
