@@ -106,7 +106,7 @@ items:
             href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
-      - name: Client-side JavaScript
+      - name: Client-side JavaScript SDK
         items:
         - name: Get Started with JavaScript SDK
           displayName: browser, client-side, JavaScript (Web) SDK Loader Script
