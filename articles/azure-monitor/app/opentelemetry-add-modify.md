@@ -924,8 +924,8 @@ input()
 ### Add custom exceptions
 
 Select instrumentation libraries automatically report exceptions to Application Insights.
-However, you may want to manually report exceptions beyond what instrumentation libraries report.
-For instance, exceptions caught by your code aren't ordinarily reported. You may wish to report them
+However, you might want to manually report exceptions beyond what instrumentation libraries report.
+For instance, exceptions caught by your code aren't ordinarily reported. You might wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
 #### [ASP.NET Core](#tab/aspnetcore)
@@ -1116,7 +1116,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ### Add custom spans
 
-You may want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
+You might want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1380,7 +1380,7 @@ Currently unavailable.
   
 ### Send custom telemetry using the Application Insights Classic API
 
-We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
+We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
