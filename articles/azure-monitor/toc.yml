@@ -199,6 +199,11 @@ items:
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
+          - name: Microsoft Entra authentication
+            href: app/azure-ad-authentication.md
+          - name: IP address collection
+            href: app/ip-collection.md
+            displayName: geolocation, IP collection, IP tracking, IP storage
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: Create a resource
@@ -356,14 +361,9 @@ items:
         href: app/resources-roles-access-control.md
       - name: Application data collection, retention, and storage
         href: app/data-retention-privacy.md
-      - name: Microsoft Entra authentication
-        href: app/azure-ad-authentication.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: IP address collection
-        href: app/ip-collection.md
-        displayName: geolocation, IP collection, IP tracking, IP storage
       - name: Separate development, test, and production
         href: app/separate-resources.md
     - name: Tutorials
