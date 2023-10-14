@@ -409,7 +409,7 @@ An inventory job can take a longer amount of time in these cases:
 
   The inventory run might take longer time to run as compared to the subsequent inventory runs.  
 
-- In inventory run is processing a large amount of data in hierarchical namespace enabled accounts
+- An inventory run is processing a large amount of data in hierarchical namespace enabled accounts
 
   An inventory job might take more than one day to complete for hierarchical namespace enabled accounts that have hundreds of millions of blobs. Sometimes the inventory job fails and doesn't create an inventory file. If a job doesn't complete successfully, check subsequent jobs to see if they're complete before contacting support.
 
