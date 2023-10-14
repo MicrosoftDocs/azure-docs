@@ -52,7 +52,7 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 ## Limitations
 
-Custom functions authoring currently isn't available in the Azure portal. However, after you deploy your functions from Visual Studio Code to Azure, follow the steps in [Call your code from a workflow](#call-code-from-workflow) from the workflow designer in the Azure portal. You can use the built-in action named **Call a local function in this logic app** to select from your deployed custom functions and run your code. Subsequent actions in your workflow can reference the outputs from these functions, as in any other workflow. You can view the built-in action's run history, inputs, and outputs.
+Custom functions authoring currently isn't available in the Azure portal. However, after you deploy your functions from Visual Studio Code to Azure, follow the steps in [Call your code from a workflow](#call-code-from-workflow) for the Azure portal. You can use the built-in action named **Call a local function in this logic app** to select from your deployed custom functions and run your code. Subsequent actions in your workflow can reference the outputs from these functions, as in any other workflow. You can view the built-in action's run history, inputs, and outputs.
 
 ## Create a code project
 
