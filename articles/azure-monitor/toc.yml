@@ -43,9 +43,9 @@ items:
       items:
       - name: Data Collection Basics
         href: app/opentelemetry-overview.md
-      - name: Autoinstrumentation
+      - name: Automatic instrumentation
         items:
-        - name: Supported Scenarios
+        - name: Autoinstrumentation supported scenarios
           href: app/codeless-overview.md
         - name: Azure VM and Virtual Machine Scale Sets
           href: app/azure-vm-vmss-apps.md
