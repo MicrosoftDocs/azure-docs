@@ -869,6 +869,8 @@
     - name: Create from an existing OS disk or VHD
       displayName: attach
       href: attach-os-disk.md
+  - name: Auto-shutdown the VM
+    href: auto-shutdown-vm.md
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
