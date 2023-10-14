@@ -210,10 +210,10 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    ```csharp
    private readonly ILogger<WeatherForecast> logger;
 
-       public WeatherForecast(ILoggerFactory loggerFactory)
-       {
-           logger = loggerFactory.CreateLogger<WeatherForecast>();
-       }
+   public WeatherForecast(ILoggerFactory loggerFactory)
+   {
+       logger = loggerFactory.CreateLogger<WeatherForecast>();
+   }
 
    [FunctionName("WeatherForecast")]
    public Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
