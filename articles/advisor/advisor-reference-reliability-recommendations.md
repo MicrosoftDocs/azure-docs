@@ -846,12 +846,6 @@ The corosync token_retransmits_before_loss_const determines how many token retra
 
 Learn more about [Database Instance - TokenRetransmitsHDB (Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads
-
-Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads.
-
-Learn more about [Database Instance - ExpectedVotesSuseHDB (Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
 ### Set the two_node parameter to 1 in the cluster cofiguration in HA enabled SAP workloads
 
 In a two node HA cluster, set the quorum parameter 'two_node' to 1 as per recommendation for SAP on Azure.
@@ -924,6 +918,12 @@ Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enabled TCP tim
 
 Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads)](/azure/load-balancer/load-balancer-custom-probe-overview).
 
+### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
+
+fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+
+Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
 
 ## Storage
 
@@ -935,19 +935,19 @@ Learn more about [Recovery Services vault - AB-SoftDeleteRsv (Enable soft delete
 
 ### Enable Cross Region Restore for your recovery Services Vault
 
-Enabling cross region restore for your geo-redundant vaults
+Enabling cross region restore for your geo-redundant vaults.
 
 Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Restore for your Recovery Services Vault)](../backup/backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ### Enable Backups on your virtual machines
 
-Enable backups for your virtual machines and secure your data
+Enable backups for your virtual machines and secure your data.
 
 Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your virtual machines)](../backup/backup-overview.md).
 
 ### Configure blob backup
 
-Configure blob backup
+Configure blob backup.
 
 Learn more about [Storage Account - ConfigureBlobBackup (Configure blob backup)](/azure/backup/blob-backup-overview).
 
@@ -1081,291 +1081,6 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 The combined bandwidth used by all the Free SKU Static Web Apps in this subscription is exceeding the monthly limit of 100GB. Consider upgrading these apps to Standard SKU to avoid throttling.
 
 Learn more about [Static Web App - StaticWebAppsUpgradeToStandardSKU (Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU.)](https://azure.microsoft.com/pricing/details/app-service/static/).
-
-
-## SAP solutions on Azure
-
-### Review SAP configuration for timeout values used with Azure NetApp Files
-
-High availability of SAP while used with Azure NetApp Files relies on setting proper timeout values to prevent disruption to your application. Review the documentation to ensure your configuration meets the timeout values as noted in the documentation.
-
-Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout values used with Azure NetApp Files)](/azure/sap/workloads/get-started).
-
-### Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads
-
-Enable HA ports in the Load balancing rules for HA set up of ASCS instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
-
-Learn more about [Central Server Instance - ASCSHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads
-
-Enable floating IP in the load balancing rules for the Azure Load Balancer for HA set up of ASCS instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
-
-Learn more about [Central Server Instance - ASCSHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads
-
-To prevent load balancer timeout, make sure that all Azure Load Balancing Rules have: 'Idle timeout (minutes)' set to the maximum value of 30 minutes. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
-
-Learn more about [Central Server Instance - ASCSHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads
-
-Enable HA ports in the Load balancing rules for HA set up of HANA DB instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
-
-Learn more about [Database Instance - DBHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads
-
-To prevent load balancer timeout, make sure that all Azure Load Balancing Rules have: 'Idle timeout (minutes)' set to the maximum value of 30 minutes. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
-
-Learn more about [Database Instance - DBHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads
-
-Enable floating IP in the load balancing rules for the Azure Load Balancer for HA set up of HANA DB instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
-
-Learn more about [Database Instance - DBHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads
-
-Disable TCP timestamps on VMs placed behind AzurEnabling TCP timestamps cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down.
-
-Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](/azure/sap/workloads/sap-hana-high-availability).
-
-### Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads
-
-Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enable TCP timestamps cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down.
-
-Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads)](/azure/load-balancer/load-balancer-custom-probe-overview).
-
-### Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with Redhat OS
-
-In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration of your SAP workload.
-
-Learn more about [Database Instance - StonithEnabledHARH (Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with Redhat OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with Redhat OS
-
-The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
-
-Learn more about [Database Instance - CorosyncTokenHARH (Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with Redhat OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads
-
-In case of a two node HA cluster, set the quorum votes to 2 as per recommendation for SAP on Azure.
-
-Learn more about [Database Instance - ExpectedVotesParamtersHARH (Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set the stonith timeout to 144 for the cluster cofiguration in HA enabled SAP workloads
-
-Set the stonith timeout to 144 for HA cluster as per recommendation for SAP on Azure.
-
-Learn more about [Database Instance - StonithTimeoutHASLE (Set the stonith timeout to 144 for the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with SUSE OS
-
-In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration.
-
-Learn more about [Database Instance - StonithEnabledHASLE (Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with SUSE OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with SUSE OS
-
-The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
-
-Learn more about [Database Instance - CorosyncTokenHASLE (Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with SUSE OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads
-
-The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for ASCS HA setup.
-
-Learn more about [Central Server Instance - ConcurrentFencingHAASCSRH (Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Ensure that stonith is enabled for the Pacemaker cofiguration in ASCS HA setup in SAP workloads
-
-In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration of your SAP workload.
-
-Learn more about [Central Server Instance - StonithEnabledHAASCSRH (Ensure that stonith is enabled for the Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads
-
-The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
-
-Learn more about [Central Server Instance - CorosyncTokenHAASCSRH (Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set parameter PREFER_SITE_TAKEOVER to 'true' in the Pacemaker cofiguration for HANA DB HA setup
-
-The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent should prefer to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
-
-Learn more about [Database Instance - PreferSiteTakeOverHARH (Set parameter PREFER_SITE_TAKEOVER to 'true' in the Pacemaker cofiguration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set the expected votes parameter to 2 in Pacemaker cofiguration in ASCS HA setup in SAP workloads
-
-In case of a two node HA cluster, set the quorum votes to 2 as per recommendation for SAP on Azure.
-
-Learn more about [Central Server Instance - ExpectedVotesHAASCSRH (Set the expected votes parameter to 2 in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Enable the 'concurrent-fencing' parameter in the Pacemaker cofiguration for HANA DB HA setup
-
-The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for HANA DB HA setup.
-
-Learn more about [Database Instance - ConcurrentFencingHARH (Enable the 'concurrent-fencing' parameter in the Pacemaker cofiguration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
-
-### Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads
-
-The corosync token_retransmits_before_loss_const determines how many token retransmits the system attempts before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for ASCS HA setup.
-
-Learn more about [Central Server Instance - TokenRestransmitsHAASCSSLE (Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads
-
-The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
-
-Learn more about [Central Server Instance - CorosyncTokenHAASCSSLE (Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the 'corosync max_messages' in Pacemaker cluster to 20 for ASCS HA setup in SAP workloads
-
-The corosync max_messages constant specifies the maximum number of messages that may be sent by one processor on receipt of the token. We recommend you set to 20 times the corosync token parameter in Pacemaker cluster configuration.
-
-Learn more about [Central Server Instance - CorosyncMaxMessagesHAASCSSLE (Set the 'corosync max_messages' in Pacemaker cluster to 20 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the 'corosync consensus' in Pacemaker cluster to 36000 for ASCS HA setup in SAP workloads
-
-The corosync parameter 'consensus' specifies in milliseconds how long to wait for consensus to be achieved before starting a new round of membership in the cluster configuration. We recommend that you set 1.2 times the corosync token in Pacemaker cluster configuration for ASCS HA setup.
-
-Learn more about [Central Server Instance - CorosyncConsensusHAASCSSLE (Set the 'corosync consensus' in Pacemaker cluster to 36000 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the expected votes parameter to 2 in the cluster cofiguration in ASCS HA setup in SAP workloads
-
-In case of a two node HA cluster, set the quorum parameter expected_votes to 2 as per recommendation for SAP on Azure.
-
-Learn more about [Central Server Instance - ExpectedVotesHAASCSSLE (Set the expected votes parameter to 2 in the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the stonith timeout to 144 for the cluster cofiguration in ASCS HA setup in SAP workloads
-
-Set the stonith timeout to 144 for HA cluster as per recommendation for SAP on Azure.
-
-Learn more about [Central Server Instance - StonithTimeOutHAASCS (Set the stonith timeout to 144 for the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set parameter PREFER_SITE_TAKEOVER to 'true' in the cluster cofiguration in HA enabled SAP workloads
-
-The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent should prefer to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
-
-Learn more about [Database Instance - PreferSiteTakeoverHDB (Set parameter PREFER_SITE_TAKEOVER to 'true' in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the two_node parameter to 1 in the cluster cofiguration in ASCS HA setup in SAP workloads
-
-In case of a two node HA cluster, set the quorum parameter 'two_node' to 1 as per recommendation for SAP on Azure.
-
-Learn more about [Central Server Instance - TwoNodesParametersHAASCSSLE (Set the two_node parameter to 1 in the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the 'corosync join' in Pacemaker cluster to 60 for ASCS HA setup in SAP workloads
-
-The corosync join timeout specifies in milliseconds how long to wait for join messages in the membership protocol. We recommend that you set 60 in Pacemaker cluster configuration for ASCS HA setup.
-
-Learn more about [Central Server Instance - CorosyncJoinHAASCSSLE (Set the 'corosync join' in Pacemaker cluster to 60 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads
-
-The corosync token_retransmits_before_loss_const determines how many token retransmits should be attempted before timeout in HA clusters.  Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
-
-Learn more about [Database Instance - TokenRetransmitsHDB (Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads
-
-Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads.
-
-Learn more about [Database Instance - ExpectedVotesSuseHDB (Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the two_node parameter to 1 in the cluster cofiguration in HA enabled SAP workloads
-
-In case of a two node HA cluster, set the quorum parameter 'two_node' to 1 as per recommendation for SAP on Azure.
-
-Learn more about [Database Instance - TwoNodeParameterSuseHDB (Set the two_node parameter to 1 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the 'corosync join' in Pacemaker cluster to 60 for HA enabled HANA DB in SAP workloads
-
-The corosync join timeout specifies in milliseconds how long to wait for join messages in the membership protocol.  We recommend that you set 60 in Pacemaker cluster configuration for HANA DB HA setup.
-
-Learn more about [Database Instance - CorosyncHDB (Set the 'corosync join' in Pacemaker cluster to 60 for HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Ensure that stonith is enabled for the cluster cofiguration in ASCS HA setup in SAP workloads
-
-In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration.
-
-Learn more about [Central Server Instance - StonithEnabledHAASCS (Ensure that stonith is enabled for the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable the 'concurrent-fencing' parameter in the cluster cofiguration in HA enabled SAP workloads
-
-The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for HANA DB HA setup.
-
-Learn more about [Database Instance - ConcurrentFencingSuseHDB (Enable the 'concurrent-fencing' parameter in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the 'corosync max_messages' in Pacemaker cluster to 20 for HA enabled HANA DB in SAP workloads
-
-The corosync max_messages constant specifies the maximum number of messages that may be sent by one processor on receipt of the token.  We recommend that you set 20 times the corosync token parameter in Pacemaker cluster configuration.
-
-Learn more about [Database Instance - CorosyncMaxMessageHDB (Set the 'corosync max_messages' in Pacemaker cluster to 20 for HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set the 'corosync consensus' in Pacemaker cluster to 36000 for HA enabled HANA DB in SAP workloads
-
-The corosync parameter 'consensus' specifies in milliseconds how long to wait for consensus to be achieved before starting a new round of membership in the cluster configuration. We recommend that you set 1.2 times the corosync token in Pacemaker cluster configuration for HANA DB HA setup.
-
-Learn more about [Database Instance - CorosyncConsensusHDB (Set the 'corosync consensus' in Pacemaker cluster to 36000 for HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads
-
-The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for ASCS HA setup.
-
-Learn more about [Central Server Instance - ConcurrentFencingHAASCSSLE (Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup
-
-stonith-timeout should be set to 900 for reliable function of the Pacemaker for ASCS HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
-
-Learn more about [Central Server Instance - StonithTimeOutHAASCSSLE (Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads
-
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster forASCS HA set up.
-
-Learn more about [Central Server Instance - SoftdogConfigHAASCSSLE (Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads
-
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. First ensure that you created the softdog configuration file, then load the softdog module in the Pacemaker configuration for ASCS HA setup.
-
-Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads
-
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster for HANA DB HA setup.
-
-Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for HANA DB HA setup
-
-stonith-timeout should be set to 900 for reliable function of the Pacemaker for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
-
-Learn more about [Database Instance - StonithTimeOutSuseHDB (Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
-
-fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for ASCS HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
-
-Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
-
-fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
-
-Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
-### Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads
-
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. First ensure that you created the softdog configuration file, then load the softdog module in the Pacemaker configuration for HANA DB HA setup.
-
-Learn more about [Database Instance - SoftdogModuleSuseHDB (Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 
 ## Next steps
