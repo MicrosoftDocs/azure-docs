@@ -117,7 +117,7 @@ Who were the founders of Microsoft?
 
 #### Example with instructions
 
-For some scenarios, you may want to give additional instructions to the model to define guardrails for what the model is able to do.
+For some scenarios, you might want to give additional instructions to the model to define guardrails for what the model is able to do.
 
 ```
 <|im_start|>system
