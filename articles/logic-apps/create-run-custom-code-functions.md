@@ -52,7 +52,7 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 ## Limitations
 
-Custom code authoring currently isn't available in the Azure portal. However, after you deploy your custom code to Azure, you can use the **Call a local function in this logic app** built-in action and deployed functions to run code and reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
+Custom code authoring currently isn't available in the Azure portal. However, after you deploy your custom code to Azure, you can use the built-in action named **Call a local function in this logic app** and deployed functions to run code. You can also reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
 
 ## Create a code project
 
@@ -70,13 +70,15 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 1. In the **Select folder** box, browse to and select the local folder that you created for your project.
 
-1. In the **Create new logic app workspace** prompt box, at the **Workspace name** prompt, provide a name for your workspace:
+1. When the **Create new logic app workspace** prompt box appears, provide a name for your workspace:
 
    :::image type="content" source="media/create-run-custom-code-functions/workspace-name.png" alt-text="Screenshot shows Visual Studio Code with prompt to enter workspace name.":::
 
    This example continues with **MyLogicAppWorkspace**.
 
-1. At the **Select a project template for your logic app workspace** prompt, select **Logic app with custom code project**.
+1. When the **Select a project template for your logic app workspace** prompt box appears, select **Logic app with custom code project**.
+
+   :::image type="content" source="media/create-run-custom-code-functions/project-template.png" alt-text="Screenshot shows Visual Studio Code with prompt to select project template for logic app workspace.":::
 
 1. Follow the subsequent prompts to provide the following example values:
 
@@ -202,6 +204,27 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    ```
 
    The function definition includes a default `Run` method that you can use to get started. This sample `Run` method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+
+   The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows, for example:
+
+   ```csharp
+   private readonly ILogger<WeatherForecast> logger;
+
+       public WeatherForecast(ILoggerFactory loggerFactory)
+       {
+           logger = loggerFactory.CreateLogger<WeatherForecast>();
+       }
+
+   [FunctionName("WeatherForecast")]
+   public Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
+   {
+
+       this.logger.LogInformation("Starting WeatherForecast with Zip Code: " + zipCode + " and Scale: " + temperatureScale);
+
+       <...>
+
+   }
+   ```
 
 1. Replace the sample function code with your own, and edit the default `Run` method for your own scenarios. Or, you can copy the function, including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function with a unique name. You can then edit the renamed function to meet your needs.
 
