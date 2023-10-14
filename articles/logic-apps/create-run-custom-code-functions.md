@@ -16,7 +16,7 @@ ms.date: 10/16/2023
 
 For integration solutions where you have to author and run .NET Framework code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
 
-- Create code that has the flexibility and control to solve your most challenging integration problems.
+- Write your own code by creating functions that have the flexibility and control to solve your most challenging integration problems.
 - Debug code locally in Visual Studio Code. Step through your code and workflows in the same debugging session.
 - Deploy code alongside your workflows. No other service plans are necessary.
 - Support BizTalk Server migration scenarios so you can lift-and shift custom .NET Framework investments from on premises to the cloud.
@@ -29,7 +29,7 @@ With the capability to write your own code, you can accomplish scenarios such as
 - Message shaping for outbound messages to another system, such as an API
 - Calculations
 
-However, custom code isn't suitable for scenarios such as the following:
+This capability isn't suitable for scenarios such as the following:
 
 - Processes that take more than 10 minutes to run
 - Large message and data transformations
@@ -44,15 +44,15 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 - Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-  - The custom code capability is currently available only in Visual Studio Code, running on a Windows operating system.
+  - The custom functions capability is currently available only in Visual Studio Code, running on a Windows operating system.
 
-  - This capability currently supports calling .NET Framework 4.7.2 assemblies. 
+  - The custom functions capability currently supports calling only .NET Framework 4.7.2 assemblies. 
 
 - A local folder to use for creating your code project
 
 ## Limitations
 
-Custom code authoring currently isn't available in the Azure portal. However, after you deploy your custom code to Azure, you can use the built-in action named **Call a local function in this logic app** and deployed functions to run code. You can also reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
+Custom functions authoring currently isn't available in the Azure portal. However, after you deploy yourfunctions from Visual Studio Code to Azure, you can open the workflow designer in the Azure portal, and add the built-in action named **Call a local function in this logic app**. YOu can then select from your deployed custom functions to run code. You can also reference function outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
 
 ## Create a code project
 
@@ -203,7 +203,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    }
    ```
 
-   The function definition includes a default `Run` method that you can use to get started. This sample `Run` method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+   The function definition includes a default `Run` method that you can use to get started. This sample `Run` method demonstrates some of the capabilities available with the custom functions feature, such as passing different inputs and outputs, including complex .NET types.
 
    The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows, for example:
 
@@ -232,7 +232,7 @@ This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom code to run. These tasks put the assemblies in the **lib\custom\net472** folder.
+After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom functions to run. These tasks put the assemblies in the **lib\custom\net472** folder.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
@@ -342,7 +342,7 @@ After you confirm that your code compiles and that your logic app project contai
 
 ## Deploy your code
 
-You can deploy your custom code in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy. For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
+You can deploy your custom functions in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy. For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
 
 ## Troubleshoot problems
 
