@@ -40,7 +40,7 @@ The following articles show you how to create a function app with a Premium plan
 
 + [Azure portal](create-premium-plan-function-app-portal.md)
 + [Azure CLI](scripts/functions-cli-create-premium-plan.md)
-+ [Azure Resource Manager template](functions-infrastructure-as-code.md#deploy-on-premium-plan)
++ [Azure Resource Manager template](functions-infrastructure-as-code.md?pivots=premium-plan)
 
 ## Eliminate cold starts
 

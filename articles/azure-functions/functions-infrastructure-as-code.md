@@ -27,7 +27,7 @@ An Azure Functions deployment typically consists of these resources:
 | An [Application Insights](#create-application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
 | A [hosting plan](#create-the-hosting-plan)| Required<sup>2</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms) |
 | A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
-:::zone-end  
+:::zone-end    
 :::zone pivot="consumption-plan"  
 | Resource  | Requirement | Syntax and properties reference |
 |------|-------|----|
@@ -48,16 +48,18 @@ An Azure Functions deployment typically consists of these resources:
 |------|-------|----|
 | A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | An [Application Insights](#create-application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
-| An [App Service Kubernetes environment](../app-service/overview-arc-integration.md#kub) | Required | [Microsoft.ExtendedLocation/customLocations](/azure/templates/microsoft.extendedlocation/customlocations) |
+| An [App Service Kubernetes environment](../app-service/overview-arc-integration.md#app-service-kubernetes-environment) | Required | [Microsoft.ExtendedLocation/customLocations](/azure/templates/microsoft.extendedlocation/customlocations) |
 | A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
-:::zone-end 
-
+:::zone-end  
 <sup>1</sup>While not required, you should configure Application Insights for your app.  
 :::zone pivot="premium-plan,dedicated-plan" 
 <sup>2</sup>An explicit hosting plan isn't required when you choose to host your function app in a [Consumption plan](./consumption-plan.md).
 :::zone-end  
+
+>[!TIP]  
+>When deploying multiple resources in a single Bicep file or ARM template, the order in which resources are created is important. This requirement is a result of dependencies between resources. For such dependencies, make sure to use the `dependsOn` element to define the dependency in the dependent resource. For more information, see either [Define the order for deploying resources in ARM templates](../azure-resource-manager/templates/resource-dependency.md) or [Resource dependencies in Bicep](../azure-resource-manager/bicep/resource-dependencies.md). 
 :::zone pivot="container-apps,azure-arc"  
-## Prerequisites
+## Prerequisites  
 :::zone-end  
 :::zone pivot="container-apps" 
 This article assumes that you have already created a managed environment in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
@@ -116,11 +118,11 @@ For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/
 
 ---
 
-You need to set the connection string of this storage account as the `AzureWebJobsStorage` app setting, which is required by Functions. The templates in this article construct this connection string value based on the created storage account. For more information, see [Application configuration](#application-configuration).  
+You need to set the connection string of this storage account as the `AzureWebJobsStorage` app setting, which Functions requires. The templates in this article construct this connection string value based on the created storage account. For more information, see [Application configuration](#application-configuration).  
 
 ### Enable storage logs
 
-Because the storage account is used for important function app data, you may want to monitor for modification of that content. To do this, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
+Because the storage account is used for important function app data, you might want to monitor for modification of that content. To do this, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
 
 #### [Bicep](#tab/bicep)
 
@@ -653,187 +655,6 @@ For a sample Bicep file/Azure Resource Manager template, see this [function app 
 :::zone pivot="premium-plan,dedicated-plan"
 Set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan. 
 ::: zone-end  
-:::zone pivot="consumption-plan,premium-plan"  
-### [Linux](#tab/linux/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: functionAppName
-  location: location
-  kind: 'functionapp,linux'
-  properties: {
-    reserved: true
-    serverFarmId: hostingPlan.id
-    siteConfig: {
-      linuxFxVersion: 'node|14'
-      appSettings: [
-        {
-          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
-          value: applicationInsights.properties.ConnectionString
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'node'
-        }
-      ]
-    }
-  }
-}
-```
-
-### [Linux](#tab/linux/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp,linux",
-    "dependsOn": [
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-    ],
-    "properties": {
-      "reserved": true,
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "siteConfig": {
-        "linuxFxVersion": "node|14",
-        "appSettings": [
-          {
-            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).ConnectionString]"
-          },
-          {
-            "name": "AzureWebJobsStorage",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~4"
-          },
-          {
-            "name": "FUNCTIONS_WORKER_RUNTIME",
-            "value": "node"
-          }
-        ]
-      }
-    }
-  }
-]
-```
-
-### [Windows](#tab/windows/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: functionAppName
-  location: location
-  kind: 'functionapp'
-  properties: {
-    serverFarmId: hostingPlan.id
-    siteConfig: {
-      appSettings: [
-        {
-          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
-          value: applicationInsights.properties.ConnectionString
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'WEBSITE_CONTENTSHARE'
-          value: toLower(functionAppName)
-        }
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'node'
-        }
-        {
-          name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~14'
-        }
-      ]
-    }
-  }
-}
-```
-
-### [Windows](#tab/windows/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp",
-    "dependsOn": [
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-    ],
-    "properties": {
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "siteConfig": {
-        "appSettings": [
-          {
-            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
-          },
-          {
-            "name": "AzureWebJobsStorage",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "WEBSITE_CONTENTSHARE",
-            "value": "[toLower(parameters('functionAppName'))]"
-          },
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~4"
-          },
-          {
-            "name": "FUNCTIONS_WORKER_RUNTIME",
-            "value": "node"
-          },
-          {
-            "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~14"
-          }
-        ]
-      }
-    }
-  }
-]
-```
-
----
-:::zone-end   
 :::zone pivot="premium-plan"  
 # [Linux](#tab/linux/bicep)
 
@@ -1211,7 +1032,7 @@ To successfully deploy your application by using Azure Resource Manager, it's im
 
 ### Zip deployment 
 
-Zip deployment is a recommended way to deploy your function app code. By default, functions that use zip deployment run in the deployment package itself. For more information, see [Zip deployment for Azure Functions](deployment-zip-push.md). When using resource deployment automation, you can reference the .zip deployment package in your Bicep or ARM template. 
+Zip deployment is a recommended way to deploy your function app code. By default, functions that use zip deployment run in the deployment package itself. For more information, including the requirements for a deployment package, see [Zip deployment for Azure Functions](deployment-zip-push.md). When using resource deployment automation, you can reference the .zip deployment package in your Bicep or ARM template. 
 :::zone-end 
 :::zone pivot="consumption-plan"  
 >[!IMPORTANT]  
@@ -1291,9 +1112,9 @@ The `packageUri` must be a location that can be accessed by Functions. Consider 
 
 ### Source control deployment 
 
-Defining a child `sourcecontrols` resource instructs Functions to try and get code from the specified `repoUrl` and `branch`. For more information, see [Continuous deployment for Azure Functions](./functions-continuous-deployment.md).
+Defining a child `sourcecontrols` resource instructs Functions to try to get code from the specified `repoUrl` and `branch`. For more information, see [Continuous deployment for Azure Functions](./functions-continuous-deployment.md).
 
-This example uses the [`PROJECT](./functions-app-settings.md#project) application setting to set the base directory in the connected repository to look for deployable code. In this case, the code is maintained in a subfolder of the `src` folder in the repository. Therefore, you must set the application setting value to `src`. If your functions are in the root of your repository. 
+This example uses the [`PROJECT](./functions-app-settings.md#project) application setting to set the base directory in the connected repository to look for deployable code. In this case, the code is maintained in a subfolder of the `src` folder in the repository. Therefore, you must set the application setting value to `src`.  
 
 ### [Bicep](#tab/bicep)
 
@@ -1312,7 +1133,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           value: '~4'
         }
         {
-          name: 'Project'
+          name: 'PROJECT'
           value: 'src'
         }
       ]
@@ -1331,7 +1152,7 @@ resource config 'Microsoft.Web/sites/config@2022-03-01' = {
     AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
     FUNCTIONS_EXTENSION_VERSION: '~4'
     FUNCTIONS_WORKER_RUNTIME: 'dotnet'
-    Project: 'src'
+    PROJECT: 'src'
   }
   dependsOn: [
     sourcecontrol
@@ -1370,7 +1191,7 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
             "value": "~4"
           },
           {
-            "name": "Project",
+            "name": "PROJECT",
             "value": "src"
           }
         ]
@@ -1390,7 +1211,7 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
       "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
       "FUNCTIONS_EXTENSION_VERSION": "~4",
       "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-      "Project": "src"
+      "PROJECT": "src"
     },
     "dependsOn": [
       "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
@@ -1416,11 +1237,41 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 
 ---
 
+### Remote builds
+
+The deployment process assumes that the .zip file that you use or a zip deplouyment contains a ready-to-run app. This means that by default no customizations are run. 
+
+However, there are scenarios that require you to rebuild your app remotly, such as when you need to pull Linux-specific packages in Python or Node.js apps that you developed on a Windows computer. In this case, you can configure Functions to perform a remote build on your code after the zip deployment. 
+
+The way that you require a remote build depends on whether your hosted operating system
+
+#### [Windows](#tab/windows)
+
+When an app is deployed to Windows, language-specific commands (like `dotnet restore` for C# apps or `npm install` for Node.js apps) are run.
+
+To enable the same build processes that you get with continuous integration, add the following to your application settings in your deployment code:
+
++ `WEBSITE_RUN_FROM_PACKAGE=0` (or remove the setting entirely)
++ `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+#### [Linux](#tab/linux)
+
+To enable the same build processes that you get with continuous integration, add the following to your application settings:
+
++ `WEBSITE_RUN_FROM_PACKAGE=0` (or remove the setting entirely)
++ `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+The `ENABLE_ORYX_BUILD` setting is set to `true` by default. If you have issues building a .NET or Java function app, instead set it to `false`. 
+
+Function apps that are built remotely on Linux can run from a package.
+
+---  
+
 :::zone-end  
 :::zone pivot="dedicated-plan,premium-plan"
 ### Container deployment
 
-If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. You also need to set [additional application settings](#application-configuration) (`DOCKER_REGISTRY_SERVER_*`)when obtaining the container from a private registry. 
+If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. You also need to set [other application settings](#application-configuration) (`DOCKER_REGISTRY_SERVER_*`)when obtaining the container from a private registry. 
 
 #### [Bicep](#tab/bicep)
 
@@ -1537,7 +1388,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ::: zone-end
 :::zone pivot="container-apps"
-When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), you must set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. You must also set the `managedEnvironmentId` site property to the fully-qualified URI of the Container Apps environment. If you are creating a `Microsoft.App/managedEnvironments` resource at the same time as the site, make sure to include this resources in the `dependsOn` collection in the site definition. 
+When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), you must set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. You must also set the `managedEnvironmentId` site property to the fully qualified URI of the Container Apps environment. If you're creating a `Microsoft.App/managedEnvironments` resource at the same time as the site, make sure to include this resource in the `dependsOn` collection in the site definition. 
 
 The definition of a containerized function app deployed from a private container registry to an existing Container Apps environment might look like this example:
 
@@ -1810,8 +1661,54 @@ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../a
 
 ---
 
->[!IMPORTANT]  
->When adding or updating application settings using Bicep or ARM templates, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. You can instead use the Azure CLI, Azure PowerShell, or the Azure portal to more easily modify application settings. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). 
+### Application setting considerations
+
+Keep these considerations in mind when working with application settings using Bicep or ARM templates:
+ 
++ You should always define your appliction settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This makes sure that the settings that you function app needs to run are available on initial startup.
++ When adding or updating application settings using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). 
++ 
+
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
+## Slot deployments
+
+Functions lets you deploy different versions of your code to unique endpoints in your function app. This makes it easier to develop, vaidate, and deploy functions updates without impacting functions running in production. Slots is a feature of Azure App Service. The number of slots available [depends on your hosting plan](./functions-scale.md#service-limits). For more information, see [Azure Functions deployment slots](functions-deployment-slots.md) functions. 
+
+A slot resource is defined in the same way as a function app resource (`Microsoft.Web/sites`), but instead you use the `Microsoft.Web/sites/slots` resource identifier. For an example deployment (in both Bicep and ARM templates) that creates both a production and a staging slot in a Premium plan, see [Azure Function App with a Deployment Slot](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-deployment-slot). 
+
+To learn about how to perform the swap by using templates, see [Automate with Resource Manager templates](../app-service/deploy-staging-slots.md#automate-with-resource-manager-templates).
+
+Keep the following considerations in mind when working with slot deployments:
+
++  Don't expliticly set the `WEBSITE_CONTENTSHARE` setting in the deployment slot definition. This setting is generated for you when the app is created in the deployment slot. 
++ When swapping slots, some application settings are (_sticky_) in that they stay with the slot and not with the code being swapped. For more information, see [Manage settings](functions-deployment-slots.md#manage-setting).
+::: zone-end  
+:::zone pivot="premium-plan,dedicated-plan" 
+## Secured deployments
+
+You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. You function app may also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md).
+
+These projects provide both Bicep and ARM template examples of how to deploy your function apps in a virtual network, including with network access restrictions:
+
+| Restricted scenario | Description |
+| ---- | ---- |
+| [Create a function app with virtual network integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration) | Your function app is created in a virtual network with full access to resources in that network. Inbound and outbound access to your function app isn't restricted. For more information, see [Virtual network integration](functions-networking-options.md#virtual-network-integration). |
+| [Create a function app that accesses a secured storage account](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-storage-private-endpoints) | Your created function app uses a secured storage account, which Functions accesses by using private endpoints. For more information, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). |
+| [Create a function app and storage account that both use private endpoints](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-private-endpoints-storage-private-endpoints) | Your created function app can only be accessed by using private endpoints, and it uses private endpoints to access storage resources. For more information, see [Private endpoints](functions-networking-options.md#private-endpoints). |
+
+### Restricted network settings
+
+You might also need to use these settings when your function app has network restrictions:
+
+| Setting | Value |  Description |
+| ---- |  ---- | ---- |
+| [`WEBSITE_CONTENTOVERVNET`](functions-app-settings.md#website_contentovervnet) | `1` | Application setting that enables your function app to scale when the storage account is restricted to a virtual network. For more information, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).|
+| [`vnetrouteallenabled`](functions-app-settings#vnetrouteallenabled) | `1` | Site setting that forces all traffic from the function app to use the virtual network. For more information, see [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). This site setting supercedes the applicaiton setting [`WEBSITE_VNET_ROUTE_ALL`](./functions-app-settings.md#website_vnet_route_all). |
+ 
+### Considerations for network restrictions
+
+If you are restricting access to the storage account through the private endpoints, you won't be able to access the storage account through the portal or any device outside the virtual network. You can give access to your secured IP address or virtual network in the storage account by [Managing the default network access rule](../storage/common/storage-network-security.md#change-the-default-network-access-rule).
+::: zone-end
 
 ## Validate your template
 
