@@ -64,7 +64,30 @@ The following section contains a more in-depth look at the full schemas of each 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
 
-## Account
+### List of entity type schemas
+
+- [Account](#account)
+- [Host](#host)
+- [IP](#ip)
+- [Malware](#malware)
+- [File](#file)
+- [Process](#process)
+- [Cloud application](#cloud-application)
+- [DNS resolution](#dns-resolution)
+- [Azure resource](#azure-resource)
+- [File hash](#file-hash)
+- [Registry key](#registry-key)
+- [Registry value](#registry-value)
+- [Security group](#security-group)
+- [URL](#url)
+- [IoT device](#iot-device)
+- [Mailbox](#mailbox)
+- [Mail cluster](#mail-cluster)
+- [Mail message](#mail-message)
+- [Submission mail](#submission-mail)
+- [Sentinel entities](#sentinel-entities)
+
+### Account
 
 *Entity name: Account*
 
@@ -116,7 +139,9 @@ The following section contains a more in-depth look at the full schemas of each 
 > - LOCALSYSTEM
 > - NETWORK SERVICE
 
-## Host
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Host
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -146,7 +171,9 @@ The following section contains a more in-depth look at the full schemas of each 
 - HostName
 - NetBiosName
 
-## IP
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### IP
 
 *Entity name: IP*
 
@@ -162,7 +189,9 @@ The following section contains a more in-depth look at the full schemas of each 
 - Address (for global IP addresses)
 - Address + AddressScope (for private/internal, non-global IP addresses)
 
-## Malware
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Malware
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -176,7 +205,9 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - Name + Category
 
-## File
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### File
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -196,7 +227,9 @@ The following section contains a more in-depth look at the full schemas of each 
 - Name + FileHash
 - Name + Directory + FileHash
 
-## Process
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Process
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -221,7 +254,9 @@ The following section contains a more in-depth look at the full schemas of each 
 - ProcessId + CreationTimeUtc + CommandLine (and no Host)
 - ProcessId + CreationTimeUtc + ImageFile (and no Host)
 
-## Cloud application
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Cloud application
 
 *Entity name: CloudApplication*
 
@@ -242,7 +277,11 @@ The following section contains a more in-depth look at the full schemas of each 
 - AppId + InstanceName
 - Name + InstanceName
 
-## DNS resolution
+[List of cloud application identifiers](#cloud-application-identifiers)
+
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### DNS resolution
 
 *Entity name: DNS*
 
@@ -260,7 +299,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Weak identifiers of a DNS entity:**
 - DomainName + HostIpAddress
 
-## Azure resource
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Azure resource
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -274,7 +315,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of an Azure resource entity:**
 - ResourceId
 
-## File hash
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### File hash
 
 *Entity name: FileHash*
 
@@ -287,7 +330,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of a file hash entity:**
 - Algorithm + Value
 
-## Registry key
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Registry key
 
 *Entity name: RegistryKey*
 
@@ -300,7 +345,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of a registry key entity:**
 - Hive + Key
 
-## Registry value
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Registry value
 
 *Entity name: RegistryValue*
 
@@ -319,7 +366,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Weak identifiers of a registry value entity:**
 - Name (without Key)
 
-## Security group
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Security group
 
 *Entity name: SecurityGroup*
 
@@ -335,7 +384,9 @@ The following section contains a more in-depth look at the full schemas of each 
 - SID
 - ObjectGuid
 
-## URL
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### URL
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -348,7 +399,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Weak identifiers of a URL entity:**
 - Url (when a relative URL)
 
-## IoT device
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### IoT device
 
 *Entity name: IoTDevice*
 
@@ -389,7 +442,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Weak identifiers of an IoT device entity:**
 - DeviceId (without IoTHub)
 
-## Mailbox
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Mailbox
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -404,7 +459,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of a mailbox entity:**
 - MailboxPrimaryAddress
 
-## Mail cluster
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Mail cluster
 
 *Entity name: MailCluster*
 
@@ -426,7 +483,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of a mail cluster entity:**
 - Query + Source
 
-## Mail message
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Mail message
 
 *Entity name: MailMessage*
 
@@ -454,7 +513,9 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of a mail message entity:**
 - NetworkMessageId + Recipient
 
-## Submission mail
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Submission mail
 
 *Entity name: SubmissionMail*
 
@@ -475,11 +536,15 @@ The following section contains a more in-depth look at the full schemas of each 
 **Strong identifiers of a SubmissionMail entity:**
 - SubmissionId, Submitter, NetworkMessageId, Recipient
 
-## Sentinel entities
+[Back to list of schema types](#list-of-entity-type-schemas)
+
+### Sentinel entities
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Entities | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
+
+[Back to list of schema types](#list-of-entity-type-schemas)
 
 ## Cloud application identifiers
 
