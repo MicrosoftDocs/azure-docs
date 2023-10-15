@@ -17,6 +17,9 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+> [!NOTE]
+> In West US2 region, during provisioning new Azure API for FHIR instance errors are reported. FHIR service team is actively investigating the issue. 
+
 ## **August 2023**
 **Decimal value precision in FHIR service is updated per FHIR specification**
 
