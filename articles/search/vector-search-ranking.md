@@ -10,54 +10,44 @@ ms.topic: conceptual
 ms.date: 10/13/2023
 ---
 
-# Relevance scoring in vector search
+# Searching and relevance in vector search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-This article is for developers who need a deeper understanding of relevance scoring for vector queries in Azure Cognitive Search.
+In vector query execution, the search engine looks for similar vectors to find the best candidates in the results. Depending on how you indexed the vector content, query execution is either exhaustive, or constrained to near neighbors for faster processing. For either type, when candidates are found, the engine invokes algorithms to score each result based on the strength of its similarity to the query. This article explains the scoring algorithms used to compute search scores for vector search in Azure Cognitive Search.
 
 ## Scoring algorithms used in vector search
 
-Azure Cognitive Search provides the following scoring algorithms for vector search:
+Scoring algorithms are exhaustive k-nearest neighbors (KNN) and Hierarchical Navigable Small World (HNSW). 
 
-| Algorithm | Usage | Range |
-|-----------|-------------|-------|
-|`exhaustiveKnn` | Calculates the distances from all data points. | Metric dependent, usually between 0.0 and 1.0 |
-| `hnsw` | Creates proximity graphs for organizing and querying vector content. | Metric dependent, usually between 0.0 and 1.0 |
+Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It finds the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations.
 
-Vector search algorithms are specified in a search index, and then specified on the field definition (also in the index):
+HNSW is an algorithm used for efficient approximate nearest neighbor (ANN) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
 
-+ [Create a vector index](vector-search-how-to-create-index.md)
+<!-- HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field. -->
 
-Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. However, there's a subset of parameters that can be modified in a [query request](vector-search-how-to-query.md).
+Both algorithms provide the following similarity metrics for scoring: 
 
-Each algorithm has different memory requirements, which affect [vector index size](vector-search-index-size.md), predicated on memory usage. When evaluating algorithms, remember:
++ `cosine`: This measures the angle between two vectors, and isn't affected by differing vector lengths.
++ `dotProduct`: This measures both the length of each of the pair of two vectors, and the angle between them. For normalized vectors, this is identical to `cosine` similarity, but slightly more performant.
++ `euclidean` (also known as `L2 norm`): This measures the length of the vector difference between two vectors.
 
-+ `hnsw`, which accesses proximity graphs stored in memory, adds overhead to vector index size.
-+ `exhaustiveKnn` doesn't load the entire vector index into memory. As such, it has no vector index size overhead, meaning it doesn't contribute to index size.
-
-<a name="eknn"></a>
-
-### Exhaustive K-Nearest Neighbors (KNN)
+<!-- ### Exhaustive K-Nearest Neighbors (KNN)
 
 Exhaustive KNN support is available through [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) and it enables users to search the entire vector space for matches that are most similar to the query. This algorithm is intended for scenarios where high recall is of utmost importance, and users are willing to accept the trade-offs in search performance. 
 
-Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It guarantees finding the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use Exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations.
+Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It guarantees finding the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use Exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations. -->
 
-### Hierarchical Navigable Small World (HNSW) 
-
-HNSW is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
-
-HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
-
-## How HNSW ranking works
+## How nearest neighbor ranking works
 
 Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
 
 For example, if a query request is about hotels, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about hotels. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
 
-### Indexing vectors with the HNSW algorithm
+When vector fields are indexed for exhaustive KNN, the query executes against "all neighbors". For fields indexed for HNSW, the search engine uses an HNSW graph to search over just the nearest neighbors.
+
+### Creating the HNSW graph
 
 The goal of indexing a new vector into an HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
 
