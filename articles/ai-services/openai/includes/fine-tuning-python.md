@@ -31,7 +31,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md) to check which regions currently support fine-tuning.
+Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
 
 ## Review the workflow for the Python SDK
 
@@ -70,9 +70,9 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Create your training and validation datasets
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. It's a best practice to have at least 50 high quality training examples. 
+The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
 
-In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large number of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs worse than expected.
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 # [babbage-002/davinci-002](#tab/completionfinetuning)
 
@@ -90,11 +90,13 @@ In addition to the JSONL format, training and validation data files must be enco
 
 Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. It's a best practice to have at least 50 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
+The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 ### OpenAI CLI data preparation tool
 
-We recommend that you use OpenAI's CLI to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+OpenAI's CLI data preparation tool was developed for the previous generation of fine-tuning models to assist with many of the data preparation steps. This tool will only work for data preparation for models that work with the completion API like `babbage-002` and `davinci-002`. The tool validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
 To install the OpenAI CLI, run the following Python command:
 
@@ -203,12 +205,9 @@ print(response)
 
 ## Deploy a customized model
 
-When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in the response body is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
-
-> [!NOTE]
-> As with all applications, Microsoft requires a review process for your custom model before it's available live.
 
 You can use either [Azure OpenAI](#deploy-fine-tuned-model) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
@@ -221,7 +220,7 @@ Unlike the previous SDK commands, deployment must be done using the control plan
 
 |variable      | Definition|
 |--------------|-----------|
-| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run `az account get-access-token`. You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
+| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
 | subscription | The subscription ID for the associated Azure OpenAI resource |
 | resource_group | The resource group name for your Azure OpenAI resource |
 | resource_name | The Azure OpenAI resource name |
@@ -233,7 +232,7 @@ import json
 import os
 import requests
 
-token= os.getenv("TEMP_AUTH_TOKEN") 
+token= os.getenv("<TOKEN>") 
 subscription = "<YOUR_SUBSCRIPTION_ID>"  
 resource_group = "<YOUR_RESOURCE_GROUP_NAME>"
 resource_name = "<YOUR_AZURE_OPENAI_RESOURCE_NAME>"
@@ -294,13 +293,29 @@ az cognitiveservices account deployment create
 
 ## Use a deployed customized model
 
-After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in Azure OpenAI Studio to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
+After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in [Azure OpenAI Studio](https://oai.azure.com) to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
 
-```bash
-curl $AZURE_OPENAI_ENDPOINT/openai/deployments/<deployment_name>/chat/completions?api-version=2023-05-15 \
-  -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
-  -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
+```python
+#Note: The openai-python library support for Azure OpenAI is in preview.
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2023-05-15"
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response)
+print(response['choices'][0]['message']['content'])
 ```
 
 ## Analyze your customized model
@@ -337,7 +352,6 @@ The result file is a CSV file that contains a header row and a row for each trai
 | `valid_loss` | The loss for the validation batch. |
 | `valid_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `validation_mean_token_accuracy` | The percentage of tokens in the validation batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
-
 
 ## Clean up your deployments, customized models, and training files
 

@@ -16,7 +16,7 @@ keywords:
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
-- An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models-preview) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
@@ -29,7 +29,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning of `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md) to check which regions currently support fine-tuning.
+Fine-tuning of `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
 
 ## Review the workflow for Azure OpenAI Studio
 
@@ -40,9 +40,9 @@ Take a moment to review the fine-tuning workflow for using Azure OpenAI Studio:
     1. [Select a base model](#select-the-base-model).
     1. [Choose your training data](#choose-your-training-data).
     1. Optionally, [choose your validation data](#choose-your-validation-data).
-    1. Optionally, [configure advanced options](#configure-advanced-options) for your fine-tune job.
+    1. Optionally, [configure advanced options](#configure-advanced-options) for your fine-tuning job.
     1. [Review your choices and train your new custom model](#review-your-choices-and-train-your-model).
-1. Check the status of your custom model.
+1. Check the status of your custom fine-tuned model.
 1. Deploy your custom model for use.
 1. Use your custom model.
 1. Optionally, analyze your custom model for performance and fit.
@@ -57,7 +57,7 @@ Different model types require a different format of training data.
 
 The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `gpt-35-turbo-0613` the fine-tuning dataset must be formatted in the conversational format that is used by the [Chat completions](../how-to/chatgpt.md) API.
 
-If you would like a step-by-step walk-through of fine-tuning a `gpt-35-turbo-0613` please refer to the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md)
+If you would like a step-by-step walk-through of fine-tuning a `gpt-35-turbo-0613` model please refer to the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md)
 
 ### Example file format
 
@@ -71,9 +71,9 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Create your training and validation datasets
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. It's a best practice to have at least 200 high quality training examples. 
+The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
 
-In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large number of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs worse than expected.
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 # [babbage-002/davinci-002](#tab/completionfinetuning)
 
@@ -85,17 +85,19 @@ The training and validation data you use **must** be formatted as a JSON Lines (
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 100 MB in size. 
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 100 MB in size.
 
 ### Create your training and validation datasets
 
 Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. It's a best practice to have at least 50 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
+The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 ### OpenAI CLI data preparation tool
 
-We recommend that you use OpenAI's CLI to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+OpenAI's CLI data preparation tool was developed for the previous generation of fine-tuning models to assist with many of the data preparation steps. This tool will only work for data preparation for models that work with the completion API like `babbage-002` and `davinci-002`. The tool validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
 To install the OpenAI CLI, run the following Python command:
 
@@ -145,7 +147,7 @@ You can create a custom model from one of the following available base models:
 - `davinci-002`
 - `gpt-35-turbo`
 
-For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md).
+For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md#fine-tuning-models-preview).
 
 :::image type="content" source="../media/fine-tuning/base-model.png" alt-text="Screenshot that shows how to select the base model in the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/base-model.png":::
 
@@ -281,7 +283,7 @@ Here are some of the tasks you can do on the **Models** pane:
 
 - Check the status of the fine-tuning job for your custom model in the **Status** column of the **Customized models** tab.
 
-- In the **Model name** column, select the model name to view more information about the custom model. You can see the status of the fine-tuning job, training results, training events, and hyperparameters used in the job. 
+- In the **Model name** column, select the model name to view more information about the custom model. You can see the status of the fine-tuning job, training results, training events, and hyperparameters used in the job.
 
 - Select **Download training file** to download the training data you used for the model.
 
@@ -312,7 +314,7 @@ You can monitor the progress of your deployment on the **Deployments** pane in A
 
 ## Use a deployed custom model
 
-After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in Azure OpenAI Studio to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
+After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in [Azure OpenAI Studio](https://oai.azure.com) to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
 
 :::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground pane in Azure OpenAI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
-ms.date: 10/13/2023
+ms.date: 10/16/2023
 author: mrbullwinkle 
 ms.author: mbullwin
 recommendations: false
@@ -37,6 +37,9 @@ In this tutorial you learn how to:
 - [Jupyter Notebooks](https://jupyter.org/)
 - An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
 - Necessary [Role-based access control permissions](../how-to/role-based-access-control.md). To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
+
+> [!IMPORTANT]
+> We strongly recommend reviewing the [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing) for fine-tuning prior to beginning this tutorial to make sure you are comfortable with the associated costs. In testing, this tutorial resulted in one training hour billed, in addition to the costs that are associated with fine-tuning inference, and the hourly hosting costs of having a fine-tuned model deployed. Once you have completed the tutorial, you should delete your fine-tuned model deployment otherwise you will continue to incur the hourly hosting cost.
 
 ## Set up
 
@@ -101,7 +104,9 @@ For this example we'll modify this slightly by changing to:
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out.
+While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 
@@ -442,7 +447,7 @@ Alternatively, you can deploy your fine-tuned model using any of the other commo
 
 |variable      | Definition|
 |--------------|-----------|
-| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run `az account get-access-token`. You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
+| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
 | subscription | The subscription ID for the associated Azure OpenAI resource |
 | resource_group | The resource group name for your Azure OpenAI resource |
 | resource_name | The Azure OpenAI resource name |
@@ -493,7 +498,32 @@ You can check on your deployment progress in the Azure OpenAI Studio:
 
 It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models.
 
-Once your deployment has successfully completed you can begin testing your fine-tuned turbo model in either the Chat Playground in the Azure OpenAI Studio, or via the chat completion API.
+## Use a deployed customized model
+
+After your fine-tuned model is deployed, you can use it like any other deployed model in either the [Chat Playground of Azure OpenAI Studio](https://oai.azure.com), or via the chat completion API. For example, you can send a chat completion call to your deployed model, as shown in the following Python example. You can continue to use the same parameters with your customized model, such as temperature and max_tokens, as you can with other deployed models.
+
+```python
+#Note: The openai-python library support for Azure OpenAI is in preview.
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2023-05-15"
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response)
+print(response['choices'][0]['message']['content'])
+```
 
 ## Delete deployment
 
@@ -506,4 +536,4 @@ You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), 
 ## Next steps
 
 - Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)
-- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md#fine-tuning-models-preview).
