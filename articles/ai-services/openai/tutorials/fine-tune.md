@@ -415,7 +415,7 @@ Elapsed time: 40 minutes 45 seconds
 Status: running
 ```
 
-It is not unexpected for training to take a few hours to complete. Once training is completed the output message will change to:
+It isn't unusual for training to take more than an hour to complete. Once training is completed the output message will change to:
 
 ```output
 Fine-tuning job ftjob-b044a9d3cf9c4228b5d393567f693b83 finished with status: succeeded
@@ -497,9 +497,9 @@ Once your deployment has successfully completed you can begin testing your fine-
 
 ## Delete deployment
 
-Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an hourly hosting cost](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/#pricing) associated with them once they are deployed. It is **strongly recommended** that once you are done with this tutorial and have tested a few chat completion calls against your fine-tuned model, that you **delete the model deployment**.
+Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an hourly hosting cost](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/#pricing) associated with them once they are deployed. It is **strongly recommended** that once you're done with this tutorial and have tested a few chat completion calls against your fine-tuned model, that you **delete the model deployment**.
 
-Deleting the deployment will not impact the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
+Deleting the deployment won't affect the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
 
 You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
 
