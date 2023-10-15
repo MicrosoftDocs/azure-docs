@@ -1808,23 +1808,6 @@
     - name: Overview
       displayName: Automatic OS image upgrade, image, upgrade, OS
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/toc.json
-    - name: Maintenance control for OS image upgrade
-      items:
-      - name: Overview
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-powershell.md
-      - name: CLI
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-cli.md
-      - name: Portal
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-portal.md
-      - name: ARM Template
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-template.md
   - name: Windows Server in-place upgrade
     href: windows-in-place-upgrade.md
   - name: Automatic VM guest patching
@@ -1874,6 +1857,23 @@
       - name: Portal
         displayName: Maintenance configurations
         href: maintenance-configurations-portal.md
+      - name: Maintenance control for OS image upgrade
+        items:
+        - name: Overview
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control.md
+        - name: PowerShell
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-powershell.md
+        - name: CLI
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-cli.md
+        - name: Portal
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-portal.md
+        - name: ARM Template
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-template.md
     - name: Scheduled events
       items:
       - name: Linux
