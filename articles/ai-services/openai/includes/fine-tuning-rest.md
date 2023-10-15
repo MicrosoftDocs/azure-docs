@@ -324,4 +324,4 @@ You can optionally delete training and validation files that you uploaded for tr
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models#fine-tuning-models-preview)
+- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models-preview)
