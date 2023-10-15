@@ -21,15 +21,19 @@ const audioConferencingFeature = call.feature(Features.TeamsMeetingAudioConferen
 ### Get the audio conferencing details of a meeting
 Use the following API, to get the audio conferencing details of a meeting
 ```js
-const details: SDK.TeamsMeetingAudioConferencingDetails = audioConferencingFeature.getTeamsMeetingAudioConferencingDetails();
-console.log(`Meeting Conference Id: ${details.phoneConferenceId}`);
-details.phoneNumbers.array.forEach(dialInPhoneNumber => {
-    if (dialInPhoneNumber.tollPhoneNumber) { 
-        console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
-    }
+try {
+     const details: SDK.TeamsMeetingAudioConferencingDetails = audioConferencingFeature.getTeamsMeetingAudioConferencingDetails();
+     console.log(`Meeting Conference Id: ${details.phoneConferenceId}`);
+     details.phoneNumbers.forEach(dialInPhoneNumber => {
+         if (dialInPhoneNumber.tollPhoneNumber) { 
+             console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
+        }
 
-    if (dialInPhoneNumber.tollFreePhoneNumber) { 
-        console.log(`Dial-In TollFree PhoneNumber: ${dialInPhoneNumber.tollFreePhoneNumber.phoneNumber}`);
-    } 
-})
+        if (dialInPhoneNumber.tollFreePhoneNumber) { 
+            console.log(`Dial-In TollFree PhoneNumber: ${dialInPhoneNumber.tollFreePhoneNumber.phoneNumber}`);
+        } 
+    })
+} catch (e) {
+    console.error(e);
+}
 ```
