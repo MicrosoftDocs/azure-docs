@@ -114,7 +114,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
    -AllocationMethod Static -Sku Standard
    ```
 
-1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using the Standard SKU by changing the -Sku value to "Standard". The Standard SKU lets you configure more Bastion features and connect to VMs using more connection types. You an also deploy Bastion using the Developer SKU. We recommend automatically deploying Bastion from the [Azure portal](quickstart-host-portal.md) if you want to deploy using the Developer SKU. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using the Standard SKU by changing the -Sku value to "Standard". The Standard SKU lets you configure more Bastion features and connect to VMs using more connection types. You can also deploy Bastion automatically using the [Developer SKU](quickstart-developer-sku.md). For more information, see [Bastion SKUs](configuration-settings.md#skus).
 
    ```azurepowershell-interactive
    New-AzBastion -ResourceGroupName "TestRG1" -Name "VNet1-bastion" `

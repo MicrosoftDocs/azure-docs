@@ -20,15 +20,15 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 ### Developer SKU (Preview)
 
-The Bastion Developer SKU is a new, lower-cost, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs and that don't need additional features or scaling. You can connect to one Azure VM at a time directly through the VM connect page.
+The Bastion Developer SKU is a new, lower-cost, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs and that don't need additional features or scaling. You can connect to one Azure VM at a time directly through the Virtual Machine connect page.
 
-The Developer SKU has different requirements and limitations than the other SKU tiers. See [Deploy Bastion using the Developer SKU](deploy-host-developer-sku.md) for more information and deployment steps.
+The Developer SKU has different requirements and limitations than the other SKU tiers. See [Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md) for more information and deployment steps.
 
 ### Specify SKU
 
 | Method | SKU Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Developer | [Quickstart](deploy-host-developer-sku.md)|
+| Azure portal | Tier - Developer | [Quickstart](quickstart-developer-sku.md)|
 | Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
 | Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
 | Azure PowerShell | Tier - Basic or Standard |[How-to](bastion-create-host-powershell.md) |

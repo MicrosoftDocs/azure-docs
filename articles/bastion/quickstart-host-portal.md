@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy Bastion with default settings'
+title: 'Quickstart: Deploy Azure Bastion automatically - Basic SKU'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Bastion with default settings from the Azure portal.
 author: cherylmc
@@ -10,9 +10,11 @@ ms.author: cherylmc
 
 ---
 
-# Quickstart: Deploy Azure Bastion with default settings
+# Quickstart: Deploy Bastion automatically - Basic SKU
 
-In this quickstart, you'll learn how to deploy Azure Bastion with default settings to your virtual network using the Azure portal. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+In this quickstart, you'll learn how to deploy Azure Bastion automatically in the Azure portal using default settings and the Basic SKU. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration.
+
+The default SKU for this type of deployment is the Basic SKU. If you want to deploy using the Developer SKU instead, see [Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md). If you want to deploy using the Standard SKU, see the [Tutorial - Deploy Bastion using specified settings](tutorial-create-host-portal.md). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
@@ -78,16 +80,14 @@ When you deploy from VM settings, Bastion is automatically configured with defau
 
 ## <a name="createvmset"></a>Deploy Bastion
 
-When you create Azure Bastion using default settings, the settings are configured for you. You can't modify or specify additional values for a default deployment. For example, the default SKU is the Basic SKU. If you want to deploy using the Developer SKU instead, use the [Deploy Bastion using the Developer SKU](deploy-host-developer-sku.md) article.
-
-After deployment completes, you can go to the bastion host **Configuration** page to select certain additional settings and features. You can also upgrade a SKU later to add more features, but you can't downgrade a SKU once Bastion is deployed. For more information, see [About configuration settings](configuration-settings.md).
+When you create Azure Bastion in the portal using **Deploy Bastion**, Azure Bastion deploys automatically using default settings and the Basic SKU. You can't modify or specify additional values for a default deployment. After deployment completes, you can go to the bastion host **Configuration** page to select certain additional settings and features. You can also upgrade a SKU later to add more features, but you can't downgrade a SKU once Bastion is deployed. For more information, see [About configuration settings](configuration-settings.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment.
 1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**.
 1. On the Bastion page, select the arrow next to **Dedicated Deployment Options** to expand the section.
 
-   :::image type="content" source="./media/quickstart-host-portal/deploy-bastion-automatically.png" alt-text="Screenshot showing how to expand Dedicated Deployent Options and Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion-automatically.png":::
+   :::image type="content" source="./media/quickstart-host-portal/deploy-bastion-automatically.png" alt-text="Screenshot showing how to expand Dedicated Deployment Options and Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion-automatically.png":::
 1. In the Create Bastion section, select **Deploy Bastion**.
 1. Bastion begins deploying. This can take around 10 minutes to complete.
 
