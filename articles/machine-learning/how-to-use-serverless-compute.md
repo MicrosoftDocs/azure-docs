@@ -82,7 +82,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
 ## Identity support and credential pass through
 
-* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Microsoft Entra ID. 
 
     # [Python SDK](#tab/python)
 

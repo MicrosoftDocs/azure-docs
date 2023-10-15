@@ -15,6 +15,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
 
 ## Client interfaces

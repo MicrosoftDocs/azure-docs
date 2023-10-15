@@ -25,11 +25,11 @@ If you're looking for the latest release notes, you can find them in the [What's
 | Planned change | Estimated date for change |
 |--|--|
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
-| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
 | [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
-| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | September 2023 |
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | November 2023 |
+| [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
@@ -43,54 +43,6 @@ The `Key Vaults should have purge protection enabled` recommendation is deprecat
 | [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md)
-
-### Changes to the Defender for DevOps recommendations environment source and resource ID
-
-**Estimated date for change: August 2023**
-
-The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
-
-Security DevOps recommendations impacted:
-
-- Code repositories should have code scanning findings resolved (preview)
-- Code repositories should have secret scanning findings resolved (preview)
-- Code repositories should have dependency vulnerability scanning findings resolved (preview)
-- Code repositories should have infrastructure as code scanning findings resolved (preview)
-- GitHub repositories should have code scanning enabled (preview)
-- GitHub repositories should have Dependabot scanning enabled (preview)
-- GitHub repositories should have secret scanning enabled (preview)
-
-The recommendation environment source will be updated from `Azure` to `AzureDevOps` or `GitHub`.
-
-The format for resource IDs will be changed from:
-
-`Microsoft.SecurityDevOps/githubConnectors/owners/repos/`
-
-To:
-
-`Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos`
-`Microsoft.Security/securityConnectors/devops/gitHubOwners/repos`
-
-As a part of the migration, source code management system specific recommendations will be created for security findings:
-
-- GitHub repositories should have code scanning findings resolved (preview)
-- GitHub repositories should have secret scanning findings resolved (preview)
-- GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
-- GitHub repositories should have infrastructure as code scanning findings resolved (preview)
-- GitHub repositories should have code scanning enabled (preview)
-- GitHub repositories should have Dependabot scanning enabled (preview)
-- GitHub repositories should have secret scanning enabled (preview)
-- Azure DevOps repositories should have code scanning findings resolved (preview)
-- Azure DevOps repositories should have secret scanning findings resolved (preview)
-- Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
-
-Customers that rely on the `resourceID` to query DevOps recommendation data will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud.
-
-Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.
-
-Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations. The template DevOps workbook is planned to be updated to reflect the new recommendations, although during the actual migration, customers might experience some errors with the workbook.
-
-The experience on the recommendations page will be impacted and require customers to query under "All recommendations" to view the new DevOps recommendations. For Azure DevOps, deprecated assessments might continue to show for a maximum of 14 days if new pipelines are not run.  Refer to [Defender for DevOps Common questions](/azure/defender-for-cloud/faq-defender-for-devops#why-don-t-i-see-recommendations-for-findings-) for details.
 
 ### Preview alerts for DNS servers to be deprecated
 
@@ -240,19 +192,31 @@ The following section describes the planned introduction of a new and improved S
 
 ### DevOps Resource Deduplication for Defender for DevOps
 
-**Estimated date for change: September 2023**
+**Estimated date for change: November 2023**
 
 To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
 
 If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
 
-Customers will have until September 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
+Customers will have until November 14, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
+
+### Changes to Attack Path's Azure Resource Graph table scheme
+
+**Estimated date for change: November 2023**
+
+The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `attackPathType` property wil be removed and additional properties will be added.
 
 ### Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
 **Estimated date for change: August 2024**
 
 The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024.](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) As a result, features of the two Defender for Cloud plans that rely on the Log Analytics agent are impacted, and they have updated strategies: [Defender for Servers](#defender-for-servers) and [Defender for SQL Server on machines](#defender-for-sql-server-on-machines).
+
+## Deprecating two security incidents 
+
+**Estimated date for change: November 2023**
+
+Following quality improvement process, the following security incidents are set to be deprecated: 'Security incident detected suspicious virtual machines activity' and 'Security incident detected on multiple machines'.
 
 ## Next steps
 

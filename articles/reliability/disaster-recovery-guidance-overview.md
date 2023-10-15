@@ -46,7 +46,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | **Products**  | 
 | --- | 
 | [Azure API Management](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-replica-set.md) |
+| [Microsoft Entra Domain Services](../active-directory-domain-services/tutorial-create-replica-set.md) |
 | [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
 | [Azure App Service](reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity)|
 | [Azure Backup](../backup/backup-overview.md) |
