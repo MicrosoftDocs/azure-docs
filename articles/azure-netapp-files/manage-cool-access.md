@@ -119,7 +119,7 @@ Standard service with cool access can be enabled during the creation of a new vo
         * `On-Read`: On reads, data is sent from the cool tier to both the performance tier and the client. 
         * `Never`: On reads, data is sent from the cool tier to only the client, without being stored in the performance tier.
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Image showing the Create a volume field. Under the basics tab, there's an option to Enable Cool Access with a checkbox selected. There's a coolness period field which accesses a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a Volume page. Under the basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
 
 1. Follow one of the following articles to complete the volume creation:   
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
@@ -135,7 +135,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
     * **Enable Cool Access**  
         This option specifies whether the volume will support cool access. 
     * **Coolness Period**  
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days. 
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days. 
     * **Cool Access Retrieval Policy**   
         This option defines how data is retrieved from the cool tier, whether it is sent to both the performance tier (Azure NetApp Files Standard service-level storage) and the client, or sent to only the client.
         * `Default`: There is no change to the retrieval behavior of cool data with this value. Data is retrieved from the cool tier on reads. 
