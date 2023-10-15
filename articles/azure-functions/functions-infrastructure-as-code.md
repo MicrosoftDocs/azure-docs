@@ -28,7 +28,7 @@ An Azure Functions deployment typically consists of these resources:
 | A [hosting plan](#create-the-hosting-plan)| Required<sup>2</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms) |
 | A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 :::zone-end    
-:::zone pivot="consumption-plan"  
+:::zone pivot="consumption-plan"   
 | Resource  | Requirement | Syntax and properties reference |
 |------|-------|----|
 | A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -122,7 +122,7 @@ You need to set the connection string of this storage account as the `AzureWebJo
 
 ### Enable storage logs
 
-Because the storage account is used for important function app data, you might want to monitor for modification of that content. To do this, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
+Because the storage account is used for important function app data, you might want to monitor for modification of that content. To monitor your storage account, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
 
 #### [Bicep](#tab/bicep)
 
@@ -1105,10 +1105,15 @@ resource functionAppName_ZipDeploy 'Microsoft.Web/sites/extensions@2021-02-01' =
 ```
 ---
 
-The `packageUri` must be a location that can be accessed by Functions. Consider using Azure blob storage with a shared access signature (SAS).
+### Zip deployment considerations
 
->[!IMPORTANT]  
->Make sure to always set all required application settings in the `appSettings` collection when adding or updating settings. Existing settings not explicitly set are removed.
+Keep the following things in mind when including zip deployment resources in your template:
+
++ The `packageUri` must be a location that can be accessed by Functions. Consider using Azure blob storage with a shared access signature (SAS). After the SAS expires, Functions can no longer access the share for deployments. When you regenerate your SAS, remember to update the `WEBSITE_RUN_FROM_PACKAGE` setting with the new URI value. 
+
++ Make sure to always set all required application settings in the `appSettings` collection when adding or updating settings. Existing settings not explicitly set are removed by the update. For more information, see [Application configuration](#application-configuration). 
+
++ Functions doesn't support Web Deploy (msdeploy) for package deployments. You must instead use zip deployment in your deployment pipelines and automation. For more information, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 ### Source control deployment 
 
@@ -1239,11 +1244,11 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 
 ### Remote builds
 
-The deployment process assumes that the .zip file that you use or a zip deplouyment contains a ready-to-run app. This means that by default no customizations are run. 
+The deployment process assumes that the .zip file that you use or a zip deployment contains a ready-to-run app. This means that by default no customizations are run. 
 
 However, there are scenarios that require you to rebuild your app remotly, such as when you need to pull Linux-specific packages in Python or Node.js apps that you developed on a Windows computer. In this case, you can configure Functions to perform a remote build on your code after the zip deployment. 
 
-The way that you require a remote build depends on whether your hosted operating system
+The way that you request a remote build depends on whether your hosted operating system
 
 #### [Windows](#tab/windows)
 
@@ -1666,9 +1671,8 @@ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../a
 Keep these considerations in mind when working with application settings using Bicep or ARM templates:
  
 + You should always define your appliction settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This makes sure that the settings that you function app needs to run are available on initial startup.
-+ When adding or updating application settings using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). 
-+ 
 
++ When adding or updating application settings using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 ## Slot deployments
 
@@ -1681,6 +1685,7 @@ To learn about how to perform the swap by using templates, see [Automate with Re
 Keep the following considerations in mind when working with slot deployments:
 
 +  Don't expliticly set the `WEBSITE_CONTENTSHARE` setting in the deployment slot definition. This setting is generated for you when the app is created in the deployment slot. 
+
 + When swapping slots, some application settings are (_sticky_) in that they stay with the slot and not with the code being swapped. For more information, see [Manage settings](functions-deployment-slots.md#manage-setting).
 ::: zone-end  
 :::zone pivot="premium-plan,dedicated-plan" 

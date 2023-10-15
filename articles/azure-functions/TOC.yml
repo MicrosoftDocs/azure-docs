@@ -297,8 +297,6 @@
         - name: Security
           href: security-concepts.md
           displayName: best practices
-        - name: Resource deployments 
-          href: deployment-best-practices.md  
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3, v4, update, upgrade
@@ -512,14 +510,9 @@
           href: deployment-zip-push.md
         - name: Run from package
           href: run-functions-from-deployment-package.md
-        - name: Resource templates 
-          items: 
-          - name: Template-based deployments
-            href: functions-infrastructure-as-code.md
-          - name: Deployment best practices
-            href: deployment-best-practices.md  
-          - name: Resource deployment FAQ 
-            href: resource-deployment-faq.md  
+        - name: Automate resource deployment
+          href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
