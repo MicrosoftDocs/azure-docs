@@ -43,6 +43,8 @@ items:
       href: ./concepts/red-teaming.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates

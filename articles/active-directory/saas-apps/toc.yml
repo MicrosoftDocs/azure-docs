@@ -474,6 +474,8 @@
         href: chronicx-tutorial.md
       - name: Chronus SAML
         href: chronus-saml-tutorial.md
+      - name: CIC - Controle Inteligente de Compensação
+        href: cic-intelligent-compensation-control-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
       - name: Circus Street
@@ -1319,6 +1321,8 @@
         href: innotas-tutorial.md
       - name: Innovation Hub
         href: innovationhub-tutorial.md
+      - name: Insider
+        href: insider-tutorial.md
       - name: Insider Track
         href: insidertrack-tutorial.md
       - name: InsideView
@@ -1647,6 +1651,8 @@
         href: maxxpoint-tutorial.md
       - name: MCM
         href: mcm-tutorial.md
+      - name: MDComune Business
+        href: mdcomune-business-tutorial.md
       - name: Menlo Security
         href: menlosecurity-tutorial.md
       - name: Meraki Dashboard
@@ -2021,6 +2027,8 @@
         href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
+      - name: PressReader
+        href: pressreader-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
       - name: PrinterLogic
@@ -2437,6 +2445,8 @@
         href: smartlpa-tutorial.md
       - name: Smartlook
         href: smartlook-tutorial.md
+      - name: Smart Map Pro
+        href: smart-map-pro-tutorial.md
       - name: SmartRecruiters
         href: smartrecruiters-tutorial.md
       - name: smartvid.io
@@ -2517,6 +2527,8 @@
         href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: Supply Chain Catalyst
+        href: supply-chain-catalyst-tutorial.md
       - name: SURFconext
         href: surfconext-tutorial.md
       - name: SURFsecureID - Azure MFA
@@ -2815,6 +2827,8 @@
         href: visitly-tutorial.md
       - name: Visma
         href: visma-tutorial.md
+      - name: Visual Paradigm Online
+        href: visual-paradigm-online-tutorial.md
       - name: VMware Horizon - Unified Access Gateway
         href: vmware-horizon-unified-access-gateway-tutorial.md
       - name: VMware Identity Service

@@ -211,6 +211,8 @@
           href: microservices-dapr-azure-resource-manager.md
         - name: Deploy a Dapr application using GitHub Actions
           href: dapr-github-actions.md
+        - name: Deploy Azure Functions with the Dapr extension
+          href: dapr-functions-extension.md
 - name: Networking, ingress, and network security
   items:
     - name: Architecture overview
