@@ -1304,6 +1304,8 @@
           href: how-to-troubleshoot-kubernetes-compute.md
         - name: Reference for configuring Kubernetes cluster
           href: reference-kubernetes.md
+        - name: Monitor Kubernetes Online Endpoint inference server logs
+          href: how-to-monitor-kubernetes-online-enpoint-inference-server-log.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md

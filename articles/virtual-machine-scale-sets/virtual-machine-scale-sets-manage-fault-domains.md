@@ -29,7 +29,6 @@ az vmss create \
   --name myScaleSet \
   --orchestration-mode Flexible \
   --image Ubuntu2204 \
-  --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --platform-fault-domain-count 3\
   --generate-ssh-keys

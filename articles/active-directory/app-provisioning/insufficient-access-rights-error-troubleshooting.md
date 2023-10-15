@@ -89,7 +89,7 @@ Expression $dsaclsCMD | Out-Null
 ```
 
 If the Cx needs more help on troubleshooting on-premises AD permissions, engage Windows Server Support team.
-This article on [AdminSDHolder issues with Azure AD Connect](https://c7solutions.com/2017/03/administrators-aadconnect-and-adminsdholder-issues) has more examples on DSACLS usage.
+This article on [AdminSDHolder issues with Microsoft Entra Connect](https://c7solutions.com/2017/03/administrators-aadconnect-and-adminsdholder-issues) has more examples on DSACLS usage.
 
 **Option 3: Assign full control to provAgentgMSA account**
 

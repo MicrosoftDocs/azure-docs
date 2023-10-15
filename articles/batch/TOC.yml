@@ -145,11 +145,11 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
-  - name: Authenticate with Azure AD
+  - name: Authenticate with Microsoft Entra ID
     items:
-    - name: Azure AD with Batch service
+    - name: Microsoft Entra ID with Batch service
       href: batch-aad-auth.md
-    - name: Azure AD with Batch Management
+    - name: Microsoft Entra ID with Batch Management
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       displayName: credential, certificate

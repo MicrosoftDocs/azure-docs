@@ -65,7 +65,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 
 ## Use the module
 
-1. Use `Connect-AzAccount` to connect to the required Azure AD tenant and Azure subscription
+1. Use `Connect-AzAccount` to connect to the required Microsoft Entra tenant and Azure subscription
 
     ```powershell
     PS C:\> Connect-AzAccount -Tenant <TenantId> -Subscription <SubscriptionId>

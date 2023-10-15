@@ -143,7 +143,7 @@ You can also check whether all the required ports are open.
      - Microsoft Entra Connect Provisioning Agent Package
 
 ## Provisioning agent history
-This article lists the versions and features of Microsoft Entra Connect Provisioning Agent that have been released. The Microsoft Entra ID team regularly updates the Provisioning Agent with new features and functionality. Please ensure that you do not use the same agent for on-premises provisioning and Cloud Sync / HR-driven provisioning.
+This article lists the versions and features of Microsoft Entra Connect Provisioning Agent that have been released. The Microsoft Entra team regularly updates the Provisioning Agent with new features and functionality. Please ensure that you do not use the same agent for on-premises provisioning and Cloud Sync / HR-driven provisioning.
 
 Microsoft provides direct support for the latest agent version and one version before.
 

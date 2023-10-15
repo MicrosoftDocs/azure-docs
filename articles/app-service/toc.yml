@@ -106,7 +106,7 @@
       href: overview-monitoring.md
     - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
-    - name: Open SSH session to Linux container
+    - name: Open SSH session to a web app in a container
       href: configure-linux-open-ssh-session.md
     - name: Monitor with Azure Monitor
       items:
@@ -255,7 +255,7 @@
         
     - name: Configure identity providers
       items:
-        - name: Use Azure AD
+        - name: Use Microsoft Entra ID
           href: configure-authentication-provider-aad.md
         - name: Use Facebook
           href: configure-authentication-provider-facebook.md

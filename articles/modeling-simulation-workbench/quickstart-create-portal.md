@@ -20,12 +20,12 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
 
 - The Azure account must have permission to manage resource providers and to manage resources for the subscription. The permission is included in the Contributor and Owner roles.
 
-- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). The following Azure AD roles include the required permissions:
+- The Azure account must have permission to manage applications in Microsoft Entra ID. The following Microsoft Entra roles include the required permissions:
   - [Application administrator](/azure/active-directory/roles/permissions-reference#application-administrator)
   - [Application developer](/azure/active-directory/roles/permissions-reference#application-developer)
   - [Cloud application administrator](/azure/active-directory/roles/permissions-reference#cloud-application-administrator)
   
-- An Azure AD tenant.
+- A Microsoft Entra tenant.
 
 ## Sign in to Azure portal
 
@@ -55,9 +55,11 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 >
 > To allow your application to continue sooner than waiting for all regions to complete, don't block the creation of resources for a resource provider in the registering state.
 
-## Create an application in Azure Active Directory
+<a name='create-an-application-in-azure-active-directory'></a>
 
-To create an application in Azure Active Directory, you first register the application and add a client secret.  Then you create a Key Vault, set up Key Vault role assignments, and add client secrets to the Key Vault.
+## Create an application in Microsoft Entra ID
+
+To create an application in Microsoft Entra ID, you first register the application and add a client secret.  Then you create a Key Vault, set up Key Vault role assignments, and add client secrets to the Key Vault.
 
 ### Register an application
 
@@ -67,7 +69,7 @@ Follow these steps to create the app registration:
 
 1. If you have access to multiple tenants, use the Directories + subscriptions** filter :::image type="content" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" alt-text="Showing filter icon."::: in the top menu to switch to the tenant in which you want to register the application.
 
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -87,7 +89,7 @@ Follow these steps to create the app registration:
 
 ### Add a client secret
 
-Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Azure AD sign-in requests directly to your organization's Azure Active Directory, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. However, if the secret does expire, your design team loses access to the chamber. To address an expired secret, you need to create a new secret and update the Azure Modeling and Simulation Workbench with the new values.
+Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Microsoft Entra sign-in requests directly to your organization's Microsoft Entra ID, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. However, if the secret does expire, your design team loses access to the chamber. To address an expired secret, you need to create a new secret and update the Azure Modeling and Simulation Workbench with the new values.
 
 1. In **App registrations**, select your application *QuickstartModSimWorkbenchApp*.
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
@@ -231,7 +233,7 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 1. Leave the **Assign access to** default **User, group, or service principal**. Select **+ Select members**. In the **Select members** blade on the left side of the screen, search for your security principal by entering a string or scrolling through the list. Select your security principal. Select **Select** to save the selections.
 
     > [!NOTE]
-    > Chamber Admins and Chamber Users *MUST* have an alias set within their Azure AD profile email field, or they can't log into the environment.
+    > Chamber Admins and Chamber Users *MUST* have an alias set within their Microsoft Entra profile email field, or they can't log into the environment.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal.":::
 
@@ -239,7 +241,9 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 
 1. Repeat steps 3-6 to assign the **Chamber User** role to other users who need to work on the chamber.
 
-## Add redirect URIs for the application in Azure Active Directory
+<a name='add-redirect-uris-for-the-application-in-azure-active-directory'></a>
+
+## Add redirect URIs for the application in Microsoft Entra ID
 
 A *redirect URI* is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
@@ -255,7 +259,7 @@ Follow these steps to get redirect URIs:
 
 Follow these steps to add redirect URIs:
 
-1. In the Azure portal, in **Azure Active Directory** > **App registrations**, select your application created in **Register an application** step.
+1. In the Azure portal, in **Microsoft Entra ID** > **App registrations**, select your application created in **Register an application** step.
 
 1. Under **Manage**, select **Authentication**.
 
@@ -265,13 +269,13 @@ Follow these steps to add redirect URIs:
 
 1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step in the Redirect URI field. Then select **Configure**.
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you configure web authentication.":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you configure web authentication.":::
 
 1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
 
 1. Paste the **Authentication reply URL** you documented in the previous step. Then select **Save**.
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you set the second Redirect URI.":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you set the second Redirect URI.":::
 
 ## Connect to chamber with remote desktop
 
