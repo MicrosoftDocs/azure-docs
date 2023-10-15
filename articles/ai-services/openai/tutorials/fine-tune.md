@@ -13,7 +13,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Fine-tuning tutorial
+# Azure OpenAI GPT 3.5 Turbo fine-tuning (preview) tutorial
 
 This tutorial walks you through fine-tuning a `gpt-35-turbo-0613` model.
 
@@ -30,7 +30,7 @@ In this tutorial you learn how to:
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
+- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. 
 - Python 3.7.1 or later version
 - The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
 - The OpenAI Python library should be at least version: `0.28.1`.
@@ -101,7 +101,7 @@ For this example we'll modify this slightly by changing to:
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples**.
+While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out.
 
 You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 
@@ -179,7 +179,9 @@ First example in validation set:
 {'role': 'assistant', 'content': "It's Canberra, not Sydney. Shocking, I know!"}
 ```
 
-If that completes successfully, you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
+In this case we only have 10 training and 10 validation examples so while this will demonstrate the basic mechanics of fine-tuning a model this in unlikely to be a large enough number of examples to produce a consistently noticable impact.
+
+Now you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
 
 ```python
 import json
@@ -435,6 +437,8 @@ fine_tuned_model = response["fine_tuned_model"]
 ## Deploy fine-tuned model
 
 Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API, which requires separate authorization, a different API path, and a different API version.
+
+Alternatively, you can deploy your fine-tuned model using any of the other common deployment methods like Azure OpenAI Studio.
 
 |variable      | Definition|
 |--------------|-----------|
