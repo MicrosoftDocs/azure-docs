@@ -183,7 +183,7 @@ items:
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
           - name: Distributed tracing and telemetry correlation
-            href: app/distributed-tracing-telemetry-correlation.md
+            href: app/distributed-trace-data.md
             displayName: correlation headers, w3c, distributed tracing, tracing
           - name: Exceptions
             href: app/asp-net-exceptions.md        

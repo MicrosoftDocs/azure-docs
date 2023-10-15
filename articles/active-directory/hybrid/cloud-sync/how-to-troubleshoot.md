@@ -164,8 +164,8 @@ If you have an implementation topology with Microsoft Entra Connect and Microsof
 
 ![Screenshot that shows the export error.](media/how-to-troubleshoot/log-4.png)
 
-This error isn't related to the [Microsoft Entra Cloud Sync accidental deletions prevention feature](../cloud-sync/how-to-accidental-deletes.md). It's triggered by the [accidental deletion prevention feature](../connect/how-to-connect-sync-feature-prevent-accidental-deletes.md) set in the Microsoft Entra ID directory from Microsoft Entra Connect.
-If you don't have a Microsoft Entra Connect server installed from which you could toggle the feature, you can use the ["AADCloudSyncTools"](../cloud-sync/reference-powershell.md) PowerShell module installed with the Microsoft Entra Cloud Sync agent to disable the setting on the tenant and allow the blocked deletions to export after confirming they are expected and should be allowed. Use the following command:
+This error isn't related to the [accidental deletions prevention feature](../cloud-sync/how-to-accidental-deletes.md) of Microsoft Entra Connect cloud sync. It's triggered by the [accidental deletion prevention feature](../connect/how-to-connect-sync-feature-prevent-accidental-deletes.md) set in the Microsoft Entra directory from Microsoft Entra Connect.
+If you don't have a Microsoft Entra Connect server installed from which you could toggle the feature, you can use the ["AADCloudSyncTools"](../cloud-sync/reference-powershell.md) PowerShell module installed with the Microsoft Entra Connect cloud sync agent to disable the setting on the tenant and allow the blocked deletions to export after confirming they are expected and should be allowed. Use the following command:
 
 ```PowerShell
 Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId "340ab039-c6b1-48a5-9ba7-28fe88f83980"
