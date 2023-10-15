@@ -59,7 +59,7 @@ Learn more about [strong and weak identifiers](entities.md#strong-and-weak-ident
 
 ## Entity type schemas
 
-The following section contains a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types&mdash;for example, the User account schema includes a link to the Host entity type, since one attribute of a user account is the host it's defined on. These externally linked entities can't be used as identifiers for the purpose of entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
+The following section contains a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types. For example, the Account schema includes a link to the Host entity type, since one attribute of a user account is the host it's defined on. These entities-as-attributes are known as "internal entities", and they can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
@@ -98,17 +98,17 @@ The following section contains a more in-depth look at the full schemas of each 
 | *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping.* |
 | NTDomain | String | The NETBIOS domain name as it appears in the alert format&mdash;domain\username. Examples: Finance, NT AUTHORITY |
 | DnsDomain | String | The fully qualified domain DNS name. Examples: finance.contoso.com |
-| UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: contoso.com |
-| Host | Entity (Host) | The host which contains the account, if it's a local account. |
+| UPNSuffix | String | The user principal name suffix for the account. In many cases the UPN Suffix is also the domain name. Examples: contoso.com |
+| Host | Entity (Host) | The host that contains the account, if it's a local account. |
 | Sid | String | The account's security identifier. |
 | AadTenantId | Guid? | The Microsoft Entra tenant ID, if known. |
 | AadUserId | Guid? | The Microsoft Entra account object ID, if known. |
 | PUID | Guid? | The Microsoft Entra Passport User ID, if known. |
-| IsDomainJoined | Bool? | Indicates whether this is a domain account. |
+| IsDomainJoined | Bool? | Indicates whether the account is a domain account. |
 | *DisplayName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping.* |
 | ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
 | CloudAppAccountId | String | The AccountID in alerts from the CloudApp provider. Refers to account IDs in third-party apps that are not supported in other Microsoft products. ***RIGHT?*** |
-| IsAnonymized | Bool? | Indicates whether this is an anonymized user name. Optional. Default value: `false`. |
+| IsAnonymized | Bool? | Indicates whether the user name is anonymized. Optional. Default value: `false`. |
 | Stream | Stream | The source of discovery logs related to the specific account. Optional. |
 
 **Strong identifiers of an account entity:**
@@ -180,7 +180,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'ip' |
-| Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6). |
+| Address | String | The IP address as string, for example. 127.0.0.1 (either in IPv4 or IPv6). |
 | AddressScope | String | Name ***(not Scope???)*** of the host, subnet, or private network for private, non-global IP addresses. Null or empty for global IP addresses (default). |
 | Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
 | Stream | Stream | The source of discovery logs related to the specific IP. Optional. |
@@ -197,7 +197,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | ----- | ---- | ----------- |
 | Type | String | 'malware' |
 | Name | String | The malware name assigned by the (detection?) vendor, such as `Win32/Toga!rfn`. |
-| Category | String | The malware category assigned by the (detection?) vendor, e.g. Trojan. |
+| Category | String | The malware category assigned by the (detection?) vendor, for example. Trojan. |
 | Files | List\<Entity (File)> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the [File](#file) entity for more details on structure. |
 | Processes | List\<Entity (Process)> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the [Process](#process) entity for more details on structure. |
 
@@ -427,7 +427,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | SerialNumber | String | The serial number of the device. |
 | Site | String | The site location of the device. |
 | Zone | String | The zone location of the device within a site. |
-| Sensor | String | The sensor the device is monitored by. |
+| Sensor | String | The sensor monitoring the device. |
 | Importance | Enum? | One of the following values:<li>Low<li>Normal<li>High |
 | PurdueLayer | String | The Purdue Layer of the device. |
 | IsProgramming | Bool? | Indicates whether the device classified as programming device. |
@@ -477,7 +477,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | Query | String | The query that was used to identify the messages of the mail cluster. |
 | QueryTime | DateTime? | The query time. |
 | MailCount | Int? | The number of mail messages that are part of the mail cluster. |
-| IsVolumeAnomaly | Bool? | Determines whether this is a volume anomaly mail cluster. |
+| IsVolumeAnomaly | Bool? | Indicates whether the mail cluster is a volume anomaly mail cluster. |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
 
 **Strong identifiers of a mail cluster entity:**
@@ -531,7 +531,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | Sender | String | The sender of the mail. |
 | SenderIp | String | The sender's IP. |
 | Subject | String | The subject of submission mail. |
-| ReportType | String | The submission type for the given instance. This maps to Junk, Phish, Malware or NotJunk. |
+| ReportType | String | The submission type for the given instance. Possible values are Junk, Phish, Malware, or NotJunk. |
 
 **Strong identifiers of a SubmissionMail entity:**
 - SubmissionId, Submitter, NetworkMessageId, Recipient
