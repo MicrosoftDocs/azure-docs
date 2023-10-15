@@ -146,7 +146,7 @@
       href: cloud-sync/how-to-gmsa-cmdlets.md
     - name: How to map usertype with cloud sync
       href: cloud-sync/how-to-map-usertype.md
-    - name: Microsoft Entra cloud sync insights workbook
+    - name: Microsoft Entra Connect cloud sync insights workbook
       href: cloud-sync/how-to-cloud-sync-workbook.md
   - name: Develop
     items:
