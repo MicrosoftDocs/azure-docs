@@ -1804,10 +1804,8 @@
     displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
-    items:
-    - name: Overview
-      displayName: Automatic OS image upgrade, image, upgrade, OS
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/toc.json
+    displayName: Automatic OS image upgrade, image, upgrade, OS
+    href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/toc.json
   - name: Windows Server in-place upgrade
     href: windows-in-place-upgrade.md
   - name: Automatic VM guest patching
