@@ -60,7 +60,7 @@ You can use [ZipDeploy ARM template extension](https://github.com/projectkudu/ku
 
 ### Example ZipDeploy ARM Template
 
-This template includes both a production and staging slot and deploys to one or the other. Typically, you would use this template to deploy to the staging slot and then [swap](/articles/app-service/deploy-staging-slots.md) to get your new zip package running on the production slot. Except in the case of the first time deployment when you would want to deploy directly to the production slot
+This template includes both a production and staging slot and deploys to one or the other. Typically, you would use this template to deploy to the staging slot and then swap to get your new zip package running on the production slot.  
 
 ```json
 {
@@ -106,6 +106,8 @@ This template includes both a production and staging slot and deploys to one or 
   ]
 }
 ```
+
+For the initial deployment, you would deploy directly to the production slot. For more information, see [Slot deployments](functions-infrastructure-as-code.md#slot-deployments).
 
 ## Run functions from the deployment package
 

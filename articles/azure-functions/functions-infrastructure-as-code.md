@@ -1686,7 +1686,7 @@ Keep the following considerations in mind when working with slot deployments:
 
 +  Don't expliticly set the `WEBSITE_CONTENTSHARE` setting in the deployment slot definition. This setting is generated for you when the app is created in the deployment slot. 
 
-+ When swapping slots, some application settings are (_sticky_) in that they stay with the slot and not with the code being swapped. For more information, see [Manage settings](functions-deployment-slots.md#manage-setting).
++ When swapping slots, some application settings are (_sticky_) in that they stay with the slot and not with the code being swapped. For more information, see [Manage settings](functions-deployment-slots.md#manage-settings).
 ::: zone-end  
 :::zone pivot="premium-plan,dedicated-plan" 
 ## Secured deployments
@@ -1708,7 +1708,7 @@ You might also need to use these settings when your function app has network res
 | Setting | Value |  Description |
 | ---- |  ---- | ---- |
 | [`WEBSITE_CONTENTOVERVNET`](functions-app-settings.md#website_contentovervnet) | `1` | Application setting that enables your function app to scale when the storage account is restricted to a virtual network. For more information, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).|
-| [`vnetrouteallenabled`](functions-app-settings#vnetrouteallenabled) | `1` | Site setting that forces all traffic from the function app to use the virtual network. For more information, see [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). This site setting supercedes the applicaiton setting [`WEBSITE_VNET_ROUTE_ALL`](./functions-app-settings.md#website_vnet_route_all). |
+| [`vnetrouteallenabled`](functions-app-settings.md#vnetrouteallenabled) | `1` | Site setting that forces all traffic from the function app to use the virtual network. For more information, see [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). This site setting supercedes the applicaiton setting [`WEBSITE_VNET_ROUTE_ALL`](./functions-app-settings.md#website_vnet_route_all). |
  
 ### Considerations for network restrictions
 
