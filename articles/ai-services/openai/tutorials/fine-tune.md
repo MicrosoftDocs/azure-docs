@@ -442,7 +442,7 @@ Alternatively, you can deploy your fine-tuned model using any of the other commo
 
 |variable      | Definition|
 |--------------|-----------|
-| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run `az account get-access-token`. You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
+| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
 | subscription | The subscription ID for the associated Azure OpenAI resource |
 | resource_group | The resource group name for your Azure OpenAI resource |
 | resource_name | The Azure OpenAI resource name |
@@ -493,7 +493,32 @@ You can check on your deployment progress in the Azure OpenAI Studio:
 
 It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models.
 
-Once your deployment has successfully completed you can begin testing your fine-tuned turbo model in either the Chat Playground in the Azure OpenAI Studio, or via the chat completion API.
+## Use a deployed customized model
+
+After your fine-tuned model is deployed, you can use it like any other deployed model in either the [Chat Playground of Azure OpenAI Studio](https://oai.azure.com), or via the chat completion API. For example, you can send a chat completion call to your deployed model, as shown in the following Python example. You can continue to use the same parameters with your customized model, such as temperature and max_tokens, as you can with other deployed models.
+
+```python
+#Note: The openai-python library support for Azure OpenAI is in preview.
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2023-05-15"
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response)
+print(response['choices'][0]['message']['content'])
+```
 
 ## Delete deployment
 
@@ -506,4 +531,4 @@ You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), 
 ## Next steps
 
 - Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)
-- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md#fine-tuning-models-preview).

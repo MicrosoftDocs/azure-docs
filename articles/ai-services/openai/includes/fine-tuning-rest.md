@@ -30,7 +30,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md) to check which regions currently support fine-tuning.
+Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
 
 ## Review the workflow for the REST API
 
@@ -93,7 +93,7 @@ The more training examples you have, the better. It's a best practice to have at
 
 ### OpenAI CLI data preparation tool
 
-We recommend that you use OpenAI's CLI to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+OpenAI's CLI data preparation tool was developed for the previous generation of fine-tuning models to assist with many of the data preparation steps. This tool will only work for data preparation for models that work with the completion API like `babbage-002` and `davinci-002`. The tool validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
 To install the OpenAI CLI, run the following Python command:
 
@@ -194,7 +194,7 @@ The following Python example shows how to use the REST API to create a model dep
 
 |variable      | Definition|
 |--------------|-----------|
-| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run `az account get-access-token`. You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
+| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
 | subscription | The subscription ID for the associated Azure OpenAI resource |
 | resource_group | The resource group name for your Azure OpenAI resource |
 | resource_name | The Azure OpenAI resource name |
@@ -219,7 +219,7 @@ curl -X POST "https://management.azure.com/subscriptions/<SUBSCRIPTION>/resource
 
 ### Deploy a model with Azure CLI
 
-The following example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about how to use the Azure CLI to deploy customized models, see [az cognitiveservices account deployment](/cli/azure/cognitiveservices/account/deployment).
+The following example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about how to use the Azure CLI to deploy customized models, see [`az cognitiveservices account deployment``](/cli/azure/cognitiveservices/account/deployment).
 
 To run this Azure CLI command in a console window, you must replace the following _\<placeholders>_ with the corresponding values for your customized model:
 
@@ -245,25 +245,13 @@ az cognitiveservices account deployment create
 
 ## Use a deployed customized model
 
-After your customized model is deployed, you can use it like any other deployed model. For example, you can send a completion call to your deployed model, as shown in the following Python example. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
+After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in [Azure OpenAI Studio](https://oai.azure.com) to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
 
-```python
-# Send a completion call to the deployed model by using the REST API.
-# Note that the form data for this REST API method is a string representation of JSON.
-start_phrase = 'When I go to the store, I want a'
-
-completion_params = {'api-version': api_version}
-completion_headers = {'api-key': api_key}
-completion_data = "{ \"prompt\": \"" + start_phrase + "\", " + \
-  "\"max_tokens\": 4 }"
-
-print('Sending a test completion job')
-r = requests.post(api_base + 'openai/deployments/' + deployment_id, 
-      params=completion_params, headers=completion_headers, data=completion_data
-    )
-
-text = (r.json())['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
-print(f'"{start_phrase} {text}"')
+```bash
+curl $AZURE_OPENAI_ENDPOINT/openai/deployments/<deployment_name>/chat/completions?api-version=2023-05-15 \
+  -H "Content-Type: application/json" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
 ```
 
 ## Analyze your customized model
@@ -304,7 +292,6 @@ You can use various methods to delete the deployment for your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)
 - The [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
-- The Python SDK
 
 ### Delete your customized model
 
