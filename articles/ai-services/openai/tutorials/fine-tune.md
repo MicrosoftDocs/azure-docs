@@ -436,9 +436,9 @@ fine_tuned_model = response["fine_tuned_model"]
 
 ## Deploy fine-tuned model
 
-Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API, which requires separate authorization, a different API path, and a different API version.
+Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP), which requires separate authorization, a different API path, and a different API version.
 
-Alternatively, you can deploy your fine-tuned model using any of the other common deployment methods like Azure OpenAI Studio.
+Alternatively, you can deploy your fine-tuned model using any of the other common deployment methods like [Azure OpenAI Studio](https://oai.azure.com/), or [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-create()).
 
 |variable      | Definition|
 |--------------|-----------|
@@ -495,6 +495,15 @@ It isn't uncommon for this process to take some time to complete when dealing wi
 
 Once your deployment has successfully completed you can begin testing your fine-tuned turbo model in either the Chat Playground in the Azure OpenAI Studio, or via the chat completion API.
 
+## Delete deployment
+
+Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an hourly hosting cost](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/#pricing) associated with them once they are deployed. It is **strongly recommended** that once you are done with this tutorial and have tested a few chat completion calls against your fine-tuned model, that you **delete the model deployment**.
+
+Deleting the deployment will not impact the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
+
+You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
+
 ## Next steps
 
+- Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)
 - Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
