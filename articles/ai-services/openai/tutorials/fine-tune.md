@@ -13,7 +13,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Fine-tuning tutorial
+# Azure OpenAI GPT 3.5 Turbo fine-tuning (preview) tutorial
 
 This tutorial walks you through fine-tuning a `gpt-35-turbo-0613` model.
 
@@ -30,7 +30,7 @@ In this tutorial you learn how to:
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
+- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. 
 - Python 3.7.1 or later version
 - The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
 - The OpenAI Python library should be at least version: `0.28.1`.
@@ -101,7 +101,7 @@ For this example we'll modify this slightly by changing to:
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples**.
+While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out.
 
 You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 
@@ -179,7 +179,9 @@ First example in validation set:
 {'role': 'assistant', 'content': "It's Canberra, not Sydney. Shocking, I know!"}
 ```
 
-If that completes successfully, you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
+In this case we only have 10 training and 10 validation examples so while this will demonstrate the basic mechanics of fine-tuning a model this in unlikely to be a large enough number of examples to produce a consistently noticeable impact.
+
+Now you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
 
 ```python
 import json
@@ -413,7 +415,7 @@ Elapsed time: 40 minutes 45 seconds
 Status: running
 ```
 
-It is not unexpected for training to take a few hours to complete. Once training is completed the output message will change to:
+It isn't unusual for training to take more than an hour to complete. Once training is completed the output message will change to:
 
 ```output
 Fine-tuning job ftjob-b044a9d3cf9c4228b5d393567f693b83 finished with status: succeeded
@@ -434,7 +436,9 @@ fine_tuned_model = response["fine_tuned_model"]
 
 ## Deploy fine-tuned model
 
-Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API, which requires separate authorization, a different API path, and a different API version.
+Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP), which requires separate authorization, a different API path, and a different API version.
+
+Alternatively, you can deploy your fine-tuned model using any of the other common deployment methods like [Azure OpenAI Studio](https://oai.azure.com/), or [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-create()).
 
 |variable      | Definition|
 |--------------|-----------|
@@ -491,6 +495,15 @@ It isn't uncommon for this process to take some time to complete when dealing wi
 
 Once your deployment has successfully completed you can begin testing your fine-tuned turbo model in either the Chat Playground in the Azure OpenAI Studio, or via the chat completion API.
 
+## Delete deployment
+
+Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an hourly hosting cost](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing) associated with them once they are deployed. It is **strongly recommended** that once you're done with this tutorial and have tested a few chat completion calls against your fine-tuned model, that you **delete the model deployment**.
+
+Deleting the deployment won't affect the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
+
+You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
+
 ## Next steps
 
+- Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)
 - Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
