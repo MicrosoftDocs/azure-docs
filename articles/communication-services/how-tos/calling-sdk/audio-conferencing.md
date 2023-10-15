@@ -15,7 +15,9 @@ ms.custom: template-how-to
 # Teams Meeting Audio Conferencing 
 In this article, you'll learn how to use implement the funtionality using Azure Communication Services Calling SDK to  retrieve Microsoft Teams meeting audio conferencing details . This functionality allows users who are already connected to a Teams Meeting to be able to get the conference ID and dial in phone number associated to the Teams Meeting
 
-# Prerequisites
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
