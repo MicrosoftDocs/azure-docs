@@ -160,13 +160,13 @@ When you create volumes in the capacity pool and start tiering data to the cool 
 
 * Assume that you create two volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
 
-    * 2.5-TiB capacity at the standard tier rate
+    * 0.5-TiB capacity at the standard tier rate
     * 1.5-TiB capacity at the cool tier rate
     * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
 
 * Assume that you create one volume with 1 TiB. The volume has 0.25 TiB of the volume capacity on the standard tier, 0.75 of the volume capacity in the cool tier. The billing calculation will be as follows: 
 
-    * 3.25 capacity at the standard tier rate
+    * 0.25 capacity at the standard tier rate
     * 0.75-TiB capacity at the cool tier rate
     * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
 
