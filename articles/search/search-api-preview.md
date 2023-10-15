@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: 
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 10/13/2023
 ---
 
 # Preview features in Azure Cognitive Search
@@ -22,6 +22,9 @@ Preview features that transition to general availability are removed from this l
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
+| [**Exhaustive  K-Nearest Neighbors (KNN)**](vector-search-ranking.md#eknn) | Vector search | Exhaustive K-Nearest Neighbors (KNN) is a new scoring algorithm for similarity search in vector space. It performs an exhaustive search for the nearest neighbors, useful for situations where high recall is more important than query performance. | Available in the 2023-10-01-Preview REST API. |
+| [**Prefilters in vector search**](vector-search-how-to-query.md) | Vector search | Evaluates filter criteria before query execution, reducing the amount of content that needs to be searched. | Available in the 2023-10-01-Preview REST API. |
+| [**2023-10-01-Preview Search REST API**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) | Vector search | New preview version of the Search REST APIs that changes the definition for [vector fields](vector-search-how-to-create-index.md) and [vector queries](vector-search-how-to-query.md). This API version introduces breaking changes from **2023-07-01-Preview**, otherwise it's inclusive of all previous preview features. If you're using earlier previews, switch to **2023-10-01-Preview** with no loss of functionality, assuming you make updates to vector code. | Public preview, [Search REST API 2023-10-01-Preview](/rest/api/searchservice/index). Announced in October 2023. |
 | [**Vector search**](vector-search-overview.md) | Vector search | Adds vector fields to a search index for similarity search scenarios over vector representations of text, image, and multilingual content. | Public preview using the [Search REST API 2023-07-01-Preview](/rest/api/searchservice/index-preview) and Azure portal. |
 | [**Search REST API 2023-07-01-Preview**](/rest/api/searchservice/index-preview) | Vector search | Modifies [Create or Update Index](/rest/api/searchservice/preview-api/create-or-update-index) to include a new data type for vector search fields. It also adds query parameters for queries composed of vector data (embeddings) | Public preview, [Search REST API 2023-07-01-Preview](/rest/api/searchservice/index-preview). Announced in June 2023.  |
 |  [**Azure Files indexer**](search-file-storage-integration.md) | Indexer data source | Adds REST API support for creating indexers for [Azure Files](https://azure.microsoft.com/services/storage/files/) | Public preview, [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview). Announced in November 2021.  |

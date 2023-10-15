@@ -1,5 +1,5 @@
 ---
-title: Microsoft Entra Connect cloud sync expressions and function reference
+title: Microsoft Entra Cloud Sync expressions and function reference
 description: reference
 services: active-directory
 author: billmath
@@ -812,4 +812,4 @@ Based on the user's first name, middle name and last name, you need to generate 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

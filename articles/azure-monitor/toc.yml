@@ -102,16 +102,12 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
-        - name: Node.js (supplemental)
-          items:
-          - name: Node.js OpenTelemetry exporter
-            href: app/opentelemetry-nodejs-exporter.md
         - name: Python (supplemental)
           items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
-          href: /azure/azure-monitor/faq#opentelemetry
+          href: app/opentelemetry-enable.md#frequently-asked-questions
       - name: Application Insights SDK (Classic API)
         items:
         - name: Client-side JavaScript
@@ -240,12 +236,6 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-      - name: Transaction search
-        href: app/diagnostic-search.md
-        items:
-        - name: Transaction diagnostics
-          href: app/transaction-diagnostics.md
-          displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
@@ -270,6 +260,8 @@ items:
           href: app/usage-heart.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
+      - name: Transaction Search and Diagnostics
+        href: app/search-and-transaction-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler
@@ -387,7 +379,7 @@ items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
       - name: Q&A forum (general questions)
-        href: /answers/topics/24223/azure-monitor
+        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
