@@ -23,8 +23,8 @@ Azure Cognitive Search provides the following scoring algorithms for vector sear
 
 | Algorithm | Usage | Range |
 |-----------|-------------|-------|
-|`exhaustiveKnn` | Calculates the distances between all pairs of data points. | Metric dependent, usually 0 < 1.00 |
-| `hnsw` | Creates proximity graphs for organizing and querying vector content. | Metric dependent, usually 0 < 1.00. |
+|`exhaustiveKnn` | Calculates the distances from all data points. | Metric dependent, usually between 0.0 and 1.0 |
+| `hnsw` | Creates proximity graphs for organizing and querying vector content. | Metric dependent, usually between 0.0 and 1.0 |
 
 Vector search algorithms are specified in a search index, and then specified on the field definition (also in the index):
 
