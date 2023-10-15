@@ -151,19 +151,20 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 ### [Enterprise plan](#tab/enterprise-plan)
 
-| Spring Boot version | Spring Cloud version       |
-|---------------------|----------------------------|
-| 3.0.x               | 2022.0.x               |
-| 2.7.x               | 2021.0.3+ aka Jubilee      |
-| 2.6.x               | 2021.0.0+ aka Jubilee      |
-| 2.5.x               | 2020.3+ aka Ilford+        |
+| Spring Boot version | Spring Cloud version       | End Commercial Support |
+|---------------------|----------------------------| --- |
+| 3.1.x               | 2022.0.3+ aka Kilburn      | 2025-08-18 |
+| 3.0.x               | 2022.0.3+ aka Kilburn      | 2025-02-24 |
+| 2.7.x               | 2021.0.3+ aka Jubilee      | 2025-08-24 |
+| 2.6.x               | 2021.0.3+ aka Jubilee      | 2024-02-24 |
 
 ### [Basic/Standard plan](#tab/basic-standard-plan)
 
-| Spring Boot version | Spring Cloud version  |
-|---------------------|-----------------------|
-| 3.0.x               | 2022.0.x          |
-| 2.7.x               | 2021.0.3+ aka Jubilee |
+| Spring Boot version | Spring Cloud version  | End of Support |
+|---------------------|-----------------------| --- |
+| 3.1.x               | 2022.0.3+ aka Kilburn | 2024-05-18 |
+| 3.0.x               | 2022.0.3+ aka Kilburn | 2023-11-24 |
+| 2.7.x               | 2021.0.3+ aka Jubilee | 2023-11-24 |
 
 ---
 
@@ -172,63 +173,7 @@ For more information, see the following pages:
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
-* [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
-
-> [!NOTE]
-> - The support for Spring Boot 3.0 is still in preview, so you shouldn't use it in production.
-
-### Dependencies for Spring Boot version 2.5/2.6/2.7
-
-For Spring Boot version 2.5, add the following dependencies to the application POM file.
-
-```xml
-<!-- Spring Boot dependencies -->
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.4.8</version>
-</parent>
-
-<!-- Spring Cloud dependencies -->
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2020.0.6</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
-For Spring Boot version 2.6/2.7, add the following dependencies to the application POM file.
-
-```xml
-<!-- Spring Boot dependencies -->
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.8</version>
-</parent>
-
-<!-- Spring Cloud dependencies -->
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.6</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
-> [!WARNING]
-> Don't specify `server.port` in your configuration. Azure Spring Apps will override this setting to a fixed port number. You must also respect this setting and not specify a server port in your code.
+* [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#overview:~:text=Adding%20Spring%20Cloud%20To%20An%20Existing%20Spring%20Boot%20Application)
 
 ## Other recommended dependencies to enable Azure Spring Apps features
 

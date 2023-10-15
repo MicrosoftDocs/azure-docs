@@ -28,7 +28,6 @@ This quickstart shows you how monitor apps running the Azure Spring Apps Enterpr
 - Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
-- [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Resources to monitor, such as the ones created in the following quickstarts:
   - [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md)
@@ -47,7 +46,9 @@ You must manually provide the Application Insights connection string to the Orde
    ```azurecli
    export INSTRUMENTATION_KEY=$(az monitor app-insights component show \
        --resource-group <resource-group-name> \
-       --app <app-insights-name> | jq -r '.connectionString')
+       --app <app-insights-name> \
+       --query "connectionString" \
+       --output tsv)
 
    az keyvault secret set \
        --vault-name <key-vault-name> \
@@ -112,10 +113,13 @@ Generate traffic in the application by moving through the application, viewing t
 ```azurecli
 export GATEWAY_URL=$(az spring gateway show \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --query "properties.url" \
+    --output tsv)
 
-cd traffic-generator
-export GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
+export GATEWAY_URL=https://${GATEWAY_URL} 
+
+./gradlew -p azure-spring-apps-enterprise/load-test/traffic-generator gatlingRun-com.vmware.acme.simulation.GuestSimulation
 ```
 
 Use the following command to get the latest 100 lines of application console logs from the Catalog Service application:

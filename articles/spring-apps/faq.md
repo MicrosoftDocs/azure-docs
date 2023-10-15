@@ -58,7 +58,7 @@ Azure Spring Apps is a regional service. All customer data in Azure Spring Apps 
 Azure Spring Apps has the following known limitations:
 
 * `spring.application.name` is overridden by the application name that's used to create each application.
-* `server.port` defaults to port 1025. If any other value is applied, it's overridden, so don't specify a server port in your code.
+* `server.port` defaults to port 1025 in Azure Spring Apps Basic/Standard plan, and 8080 in Enterprise plan. If any other value is applied, it will overridden the specified one, so avoid specifying a server port in your code. If your code sets server port explicitly rather than using `server.port`, please ensure port is 1025 or 8080 according to pricing plan of Azure Spring Apps service.
 * The Azure portal, Azure Resource Manager templates, and Terraform don't support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spring Apps, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Apps.
 
 ### What pricing plans are available?
@@ -87,27 +87,6 @@ The Enterprise plan has built-in VMware Spring Runtime Support, so you can open 
 ### I'm a Spring developer but new to Azure. What's the quickest way for me to learn how to develop an application in Azure Spring Apps?
 
 For the quickest way to get started with Azure Spring Apps, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md).
-
-::: zone pivot="programming-language-java"
-
-### Is Spring Boot 2.4.x supported?
-
-We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, include these two dependencies to enable TLS authentication between your apps and Eureka.
-
-```xml
-<dependency>
-    <groupId>com.sun.jersey</groupId>
-    <artifactId>jersey-client</artifactId>
-    <version>1.19.4</version>
-</dependency>
-<dependency>
-    <groupId>com.sun.jersey.contribs</groupId>
-    <artifactId>jersey-apache-client4</artifactId>
-    <version>1.19.4</version>
-</dependency>
-```
-
-::: zone-end
 
 ### Where can I view my Spring application logs and metrics?
 
@@ -211,10 +190,10 @@ Yes. For more information, see [Set up autoscale for applications](./how-to-setu
 
 ### How does Azure Spring Apps monitor the health status of my application?
 
-Azure Spring Apps continuously probes port 1025 for customer's applications. These probes determine whether the application container is ready to start accepting traffic and whether Azure Spring Apps needs to restart the application container. Internally, Azure Spring Apps uses Kubernetes liveness and readiness probes to achieve the status monitoring.
+Azure Spring Apps continuously probes port 1025 for customer's applications with Basic/Standard pricing plan, or port 8080 with Enterprise plan. These probes determine whether the application container is ready to start accepting traffic and whether Azure Spring Apps needs to restart the application container. Internally, Azure Spring Apps uses Kubernetes liveness and readiness probes to achieve the status monitoring.
 
 >[!NOTE]
-> Because of these probes, you currently can't launch applications in Azure Spring Apps without exposing port 1025.
+> Because of these probes, you currently can't launch applications in Azure Spring Apps without exposing port 1025 or 8080.
 
 ### Whether and when is my application restarted?
 

@@ -59,11 +59,11 @@ Generally, this happens on exception logging with deep stacktrace, especially wh
 
 ## Generate schema-compliant JSON log
 
-For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), such as [logback](http://logback.qos.ch/) and [log4j2](https://logging.apache.org/log4j/2.x/).
+For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.7.9/reference/html/features.html#features.logging.custom-log-configuration), such as [Logback](http://logback.qos.ch/) and [Log4j2](https://logging.apache.org/log4j/2.x/).
 
 ### Log with logback
 
-When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
+When using Spring Boot starters, Logback is used by default. For Logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
 
 The procedure:
 

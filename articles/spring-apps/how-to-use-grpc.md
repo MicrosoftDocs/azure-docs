@@ -70,7 +70,7 @@ Use the following steps to change `customers-service` into a gRPC server:
    </dependency>
    ```
 
-   If you don't remove this dependency, the application starts both a web server and a gRPC server. Azure Spring Apps then rewrites the server port to 1025, which prevents gRPC from being routed correctly with a static server address.
+   If you don't remove this dependency, the application starts both a web server and a gRPC server. Azure Spring Apps then rewrites the server port to 1025 for Basic/Standard plan or 8080 for Enterprise plan, which prevents gRPC from being routed correctly with a static server address.
 
 1. Add the following elements to the *pom.xml* file. These elements define the dependency and build plugins required for gRPC.
 
@@ -243,9 +243,9 @@ public class CustomersServiceImpl extends CustomersServiceGrpc.CustomersServiceI
 }
 ```
 
-## Configure the server port to 1025
+## Configure the server port
 
-Next, configure the server port to 1025 so that the ingress rule works correctly. Add the following line to the *application.properties* file in the *spring-petclinic-customers-service/src/main/resources* folder.
+Next, configure the server port to 1025 for Basic/Standard plan (8080 for Enterprise plan) to ensure the correct functioning of the ingress rule. Add the following line to the *application.properties* file in the *spring-petclinic-customers-service/src/main/resources* folder.
 
 ```properties
 grpc.server.port=1025
@@ -288,7 +288,7 @@ Set the backend protocol to use gRPC so that you can use `grpcurl` commands to t
 
 ## Call the sample application from a local environment
 
-You can use `grpcurl` to test the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. The traffic is automatically routed to port 1025 on the backend.
+You can use `grpcurl` to test the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. The traffic is automatically routed to port 1025 or 8080 on the backend.
 
 Use the following `grpcurl` commands to check the gRPC server by listing all the pet owners.
 
