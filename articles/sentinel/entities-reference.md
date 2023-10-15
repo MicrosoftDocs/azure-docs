@@ -4,11 +4,15 @@ description: This article displays the Microsoft Sentinel entity types and their
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 05/29/2023
+ms.date: 10/15/2023
 ms.custom: ignite-fall-2021
 ---
 
 # Microsoft Sentinel entity types reference
+
+This document contains two sets of information regarding entities and entity types in Microsoft Sentinel.
+- The [**Entity types and identifiers**](#entity-types-and-identifiers) table shows the different types of entities that can be used in [entity mapping](map-data-fields-to-entities.md) in both [analytics rules](detect-threats-custom.md) and [hunting](hunting.md). The table also shows, for each entity type, the different identifiers that can be used to identify an entity.
+- The [**Entity schema**](#entity-type-schemas) section shows the data structure and schema for entities in general and for each entity type in particular, including some types that are not represented in the entity mapping feature.
 
 ## Entity types and identifiers
 
@@ -20,18 +24,23 @@ Learn more about [strong and weak identifiers](entities.md#strong-and-weak-ident
 
 **Table footnotes:**
 - \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
-- \*\* These attributes are part of the entity schema, but are not listed as identifiers for entity mapping purposes.
-- \*\*\* These identifiers are considered strong only under certain conditions. See the detailed entity schemas below for specifics.
-- ***Identifier?*** These identifiers are internal entities, and while they are components of strong identifiers, they are unavailable to be used for entity mapping. ***SO WHAT SHOULD I DO WITH THEM??? -YL***
+- \*\* These identifiers are considered strong only under certain conditions. See the entity's listing in the [entity schemas section below](#entity-type-schemas) for specifics.
 
-    Answer: I'm differentiating between the two sections of this document. The **Identifiers** section will only highlight those identifiers available for entity mapping. The **Entity Schema** section will present the whole schema.
+> [!NOTE]
+> ***QUESTIONS FOR OFER:***
+>
+> - ***Identifier?*** These identifiers are internal entities, and while they are components of strong identifiers, they are unavailable to be used for entity mapping.
+> For entities that have strong identifiers that don't use internal entities, I simply removed the combinations that do contain internal entities.
+> - ***BUT ---*** in the cases below where they appear (example: DNS), there are no strong identifiers or combinations that don't contain internal entities. Does this mean that there is no possibility of using a strong identifier to map these entities? Is it therefore recommended not to do so at all?
+>
+> ***-YECHIEL***
 
 | Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
-| [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid \*\*\*<br>Name+NTDomain \*\*\*<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
+| [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*\*](#host)<br>Name+NTDomain [\*\*\*](#host)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
 | [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>*FullName \**<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
-| [**IP**](#ip) | Address<br>AddressScope | Address *(global)*<br>Address *(internal)*+AddressScope | |
-| [**URL**](#url) | Url | Url *(if absolute URL)* | Url *(if relative URL)* |
+| [**IP**](#ip) | Address<br>AddressScope | Address *(global)* [\*\*\*](#ip)<br>Address *(internal)*+AddressScope [\*\*\*](#ip) | |
+| [**URL**](#url) | Url | Url *(if absolute URL)* [\*\*\*](#url) | Url *(if relative URL)* [\*\*\*](#url) |
 | [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
 | [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name<br>AppId+InstanceName<br>Name+InstanceName | |
 | [**DNS Resolution**](#dns-resolution)<br>***WHAT DO I DO HERE?*** | DomainName | DomainName+***DnsServerIp?***+***HostIpAddress?*** | DomainName+***HostIpAddress?*** |
@@ -151,7 +160,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 **Strong identifiers of an IP entity:**
 - Address (for global IP addresses)
-- Address + AddressScope (for private, non-global IP addresses)
+- Address + AddressScope (for private/internal, non-global IP addresses)
 
 ## Malware
 
