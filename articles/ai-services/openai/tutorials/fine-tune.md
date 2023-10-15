@@ -179,7 +179,7 @@ First example in validation set:
 {'role': 'assistant', 'content': "It's Canberra, not Sydney. Shocking, I know!"}
 ```
 
-In this case we only have 10 training and 10 validation examples so while this will demonstrate the basic mechanics of fine-tuning a model this in unlikely to be a large enough number of examples to produce a consistently noticable impact.
+In this case we only have 10 training and 10 validation examples so while this will demonstrate the basic mechanics of fine-tuning a model this in unlikely to be a large enough number of examples to produce a consistently noticeable impact.
 
 Now you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
 
