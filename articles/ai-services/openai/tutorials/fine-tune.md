@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
-ms.date: 10/13/2023
+ms.date: 10/16/2023
 author: mrbullwinkle 
 ms.author: mbullwin
 recommendations: false
@@ -37,6 +37,9 @@ In this tutorial you learn how to:
 - [Jupyter Notebooks](https://jupyter.org/)
 - An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
 - Necessary [Role-based access control permissions](../how-to/role-based-access-control.md). To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
+
+> [!IMPORTANT]
+> We strongly recommend reviewing the [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing) for fine-tuning prior to beginning this tutorial to make sure you are comfortable with the associated costs. In testing, this tutorial resulted in one training hour billed, in addition to the costs that are associated with fine-tuning inference, and the hourly hosting costs of having a fine-tuned model deployed. Once you have completed the tutorial, you should delete your fine-tuned model deployment otherwise you will continue to incur the hourly hosting cost.
 
 ## Set up
 
@@ -101,7 +104,9 @@ For this example we'll modify this slightly by changing to:
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out.
+While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large number of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 

@@ -70,9 +70,9 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Create your training and validation datasets
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. It's a best practice to have at least 50 high quality training examples.
+The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
 
-In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large number of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs worse than expected.
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large number of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 # [babbage-002/davinci-002](#tab/completionfinetuning)
 
@@ -90,7 +90,9 @@ In addition to the JSONL format, training and validation data files must be enco
 
 Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. It's a best practice to have at least 50 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
+The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large number of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
 ### OpenAI CLI data preparation tool
 
