@@ -139,36 +139,14 @@ Supported versions:
 
 * Can be deployed as new Operator Nexus Kubernetes clusters.
 * Can be the target of upgrades from prior versions. Limited by normal upgrade paths.
-* Are eligible for any provided SLA or agreement for support.
 * May have extra patches or Version Bundles within the minor version.
 
-<!--
-:::image type="content" source="./media/nexus-kubernetes/nexus-kubernetes-service-version-lifecycle.png" alt-text="Diagram of the Nexus Kubernetes service and lifecycle." lightbox="./media/nexus-kubernetes/nexus-kubernetes-service-version-lifecycle.png":::
--->
+> [!NOTE]
+> In exceptional circumstances, Nexus Kubernetes service support may be terminated early or immediately if a vulnerability or security concern is identified. Microsoft will proactively notified customers if this were to occur and work to mitigate any potential issues.
 
 ### End of life (EOL)
 
 End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade is to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Platform Support` may be utilized to return to a supported version.
-
-#### Early Termination of support for a release prior to scheduled EOL
-
-As an exceptional measure, Operator Nexus Kubernetes service support for a release can be terminated early. Possible reasons include if there's a defect or discovery that presents a reputational risk to Microsoft or require Microsoft to jeopardize customers on behalf of another. Examples include, but aren't limited to:
-
-* A critical security flaw that impacts individual customers to severe risk but doesn't have cross-customer impacts, within Microsoft’s judgment.
-* A critical security flaw that jeopardizes Microsoft infrastructure
-* A critical security flaw that introduces threats across customer boundaries.
-
-Operator Nexus Kubernetes service versions that have been marked for early termination:
-
-* Shouldn't be generally available for deployment or upgrade purposes.
-* May continue running if there's acceptable risk and possible mitigation put into place in coordination with a specific customer and the customer acceptance of risk
-* May be forced to cease operation if the risk is critical or higher. For example, a version that introduces jeopardy across customer boundaries or into Azure infrastructure.
-
-At the end of the Extended Availability of the version, the machine and software images used may no longer be available for use. It's likely that a node of the cluster needing the version’s machine image doesn't have access to retrieve it. Following the end of Extended Availability, the following functions cease operation:
-
-* Deployments of Nexus Kubernetes service using that version
-* Upgrades of Nexus Kubernetes service to that version
-* Scaling requests or other agent pools for the Nexus Kubernetes service running that version
 
 ## Platform support policy
 
@@ -238,7 +216,7 @@ The upstream community maintains a minor release of Kubernetes for one year from
 
 ### How does Microsoft notify me of new Kubernetes versions?
 
-This document will be updated periodically with planned dates of the new Kubernetes versions. 
+This document is updated periodically with planned dates of the new Kubernetes versions. 
 
 ### How often should I expect to upgrade Kubernetes versions to stay in support?
 
@@ -246,11 +224,11 @@ Starting with Kubernetes 1.19, the [open source community has expanded support t
 
 ### What happens when you upgrade a Kubernetes cluster with a minor version that isn't supported?
 
-If you're on the *N-3* version or older, you are outside of the support window. When you upgrade from version N-3 to N-2, you're back within our support window. For example:
+If you're on the *N-3* version or older, you're outside of the support window. When you upgrade from version N-3 to N-2, you're back within our support window. For example:
 
 * If the oldest supported AKS version is *1.25.x* and you're on *1.24.x* or older, you're outside of support.
 * Successfully upgrading from *1.24.x* to *1.25.x* or higher brings you back within our support window.
-* "Skip-level upgrades" are not supported. In order to upgrade from *1.23.x* to *1.25.x* you must upgrade first to *1.24.x* and then to *1.25.x*.
+* "Skip-level upgrades" aren't supported. In order to upgrade from *1.23.x* to *1.25.x*, you must upgrade first to *1.24.x* and then to *1.25.x*.
 
 Downgrades aren't supported.
 
