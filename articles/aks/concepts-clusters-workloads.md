@@ -141,6 +141,9 @@ For associated best practices, see [Best practices for basic scheduler features 
 
 ### Node pools
 
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains at least one node pool. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
 > [!NOTE]
@@ -386,3 +389,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-service-level-agreement]: faq.md#does-aks-offer-a-service-level-agreement
 [aks-tags]: use-tags.md
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
+[intro-azure-linux]: ../azure-linux/intro-azure-linux.md
