@@ -51,7 +51,7 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -172,7 +172,7 @@ After the deployment finishes, access the application with the output endpoint. 
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 After the deployment finishes, use the following steps to find the application URL from the deployment outputs:
 

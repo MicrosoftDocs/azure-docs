@@ -19,7 +19,7 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 [!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
