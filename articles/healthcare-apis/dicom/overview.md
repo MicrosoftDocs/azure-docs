@@ -26,7 +26,7 @@ The DICOM service offers many benefits, including:
 
 ## Use imaging data to enable healthcare scenarios
 
-To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist securely in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
+To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist  in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
 
 FHIR&reg; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
