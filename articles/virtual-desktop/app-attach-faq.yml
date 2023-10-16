@@ -7,7 +7,7 @@ metadata:
   
   ms.service: virtual-desktop
   ms.topic: faq
-  ms.date: 06/19/2023
+  ms.date: 10/16/2023
   ms.author: helohr
   manager: femila
 title: MSIX app attach FAQ
@@ -21,16 +21,6 @@ sections:
           What's the difference between MSIX and MSIX app attach?
         answer: |
           MSIX is a packaging format for apps, while MSIX app attach is the feature that delivers MSIX packages to your deployment.
-
-      - question: |
-          Does MSIX app attach use FSLogix?
-        answer: |
-          MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are designed to work together to provide a seamless user experience.
-
-      - question: |
-          Can I use the MSIX app attach outside of Azure Virtual Desktop?
-        answer: |
-          The APIs that power MSIX app attach are available for Windows 11 and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop. However, there's no management plane for MSIX app attach outside of Azure Virtual Desktop.
 
       - question: |
           How do I get an MSIX package?
@@ -50,12 +40,17 @@ sections:
       - question: |
           Can I use MSIX app attach outside of Azure Virtual Desktop?
         answer: |
-          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
+          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
 
       - question: |
           Can I run two versions of the same application at the same time?
         answer: |
           For two versions of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
+
+      - question: |
+          Does MSIX app attach use FSLogix?
+        answer: |
+          MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are designed to work together to provide a seamless user experience.
 
       - question: |
           Should I disable automatic updating of applications when using MSIX app attach?
