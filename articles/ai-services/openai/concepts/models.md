@@ -128,7 +128,7 @@ These models can only be used with Embedding API requests.
 
 `babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
 
-`gpt-35-turbo-0613` is trained to follow instructions, but fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+`gpt-35-turbo-0613` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
 
 |  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
 |  --- | --- | --- | --- | --- |
