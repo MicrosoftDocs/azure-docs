@@ -63,7 +63,7 @@ Consider Contoso and Litware, separate organizations engaged in a multi-year joi
 
 The following diagram shows how two organizations can just-in-time collaborate by using connected organizations and entitlement management.
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/ConnectedOrganization.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/ConnectedOrganization.png" alt-text="Diagram that shows just-in-time collaboration by using connected organizations and entitlement management.":::
 
 ## Next steps
 
