@@ -279,7 +279,7 @@ You can also use the Azure CLI to get an authentication token for the managed id
 
 ## Configure compute clusters for data access
 
-Batch endpoints ensure that only authorized users are able to invoke batch deployments and generate jobs. However, depending on how the input data is configured, other credentials may be used to read the underlying data. Use the following table to understand which credentials are used:
+Batch endpoints ensure that only authorized users are able to invoke batch deployments and generate jobs. However, depending on how the input data is configured, other credentials might be used to read the underlying data. Use the following table to understand which credentials are used:
 
 | Data input type              | Credential in store             | Credentials used                                              | Access granted by |
 |------------------------------|---------------------------------|---------------------------------------------------------------|-------------------|
