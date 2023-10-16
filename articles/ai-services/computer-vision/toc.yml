@@ -306,8 +306,6 @@ items:
         href: how-to/use-headpose.md
     - name: Face recognition (limited access)
       items:
-      - name: Find similar faces
-        href: how-to/find-similar-faces.md
       - name: Specify a face recognition model version
         href: how-to/specify-recognition-model.md
       - name: Add faces to a PersonGroup
@@ -316,6 +314,8 @@ items:
         href: how-to/use-large-scale.md
       - name: Use the PersonDirectory structure (preview)
         href: how-to/use-persondirectory.md
+      - name: Find similar faces
+        href: how-to/find-similar-faces.md
       - name: Mitigate latency when using the Face service
         href: how-to/mitigate-latency.md
       - name: Migrate face data
