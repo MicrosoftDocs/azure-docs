@@ -1,6 +1,7 @@
 ---
 title: What is Azure Operator Insights?
 description: Azure Operator Insights is an Azure service for monitoring and analyzing data from multiple sources
+author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: overview 
@@ -17,11 +18,9 @@ standardized approach for acquiring and visualizing data to support end-to-end A
 
 Azure Operator Insights uses big data and AI technology to analyze large volumes of network
 telemetry gathered from multiple sources such as network functions, platforms, services, or
-applications. Azure Operator Insights supports data analysis and monitoring of operator-specific
-data by enabling data lake storage for data and analysis by AI/ML services such as the following:
+applications. Azure Operator Insights supports data analysis and monitoring by enabling data lake storage for data and analysis by AI/ML services, including:
 
 - Azure Data Lake (storage)
-- Azure ML Studio (machine learning)
 - Azure Data Explorer (analysis)
 - Microsoft Power BI (visualization)
 

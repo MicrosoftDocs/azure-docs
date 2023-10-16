@@ -19,16 +19,14 @@ In this article, you'll learn how to create an Azure Operator Insights Data Prod
 ## Prerequisites
 
 - An Azure subscription for which the user account must be assigned the Contributor role. If needed, create a [free subscription](https://azure.microsoft.com/free/) before you begin.
-
 - Access granted to Azure Operator Insights for the subscription. Apply for access by [completing this form](https://aka.ms/AAn1mi6).
-
-- An active Azure Purview account. Make note of the Purview collection ID when you [create a Purview account](https://learn.microsoft.com/en-us/purview/create-microsoft-purview-portal.md). To determine the Purview collection ID, select your collection and the collection ID is the five digits following `?collection=` in the URL.
+- An active Azure Purview account. Make note of the Purview collection ID when you [create a Purview account](../purview/create-microsoft-purview-portal.md). To determine the Purview collection ID, select your collection and the collection ID is the five digits following `?collection=` in the URL.
 
 For CMK-based data encryption or Purview, you must set up Azure Key Vault and UAMI as prerequisites.
 
 ### Set up Azure Key Vault
 
-1. [Create an Azure Key Vault resource](https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
+1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
 1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource.
 1. Navigate to the object and select **Keys**. Select **Generate/Import**.
 1. Enter a name for the key and leave the defaults for the remaining settings. Select **Create**.
@@ -37,7 +35,7 @@ For CMK-based data encryption or Purview, you must set up Azure Key Vault and UA
 
 ### Set up user-assigned managed identity
 
-1. [Create a user-assigned managed identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) using Microsoft Entra for CMK-based encryption. The Data Product also uses the UAMI to interact with the Microsoft Purview account.
+1. [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) using Microsoft Entra for CMK-based encryption. The Data Product also uses the UAMI to interact with the Microsoft Purview account.
 1. Assign the appropriate Azure roles (RBAC) on the Key Vault by navigating to the Azure Key Vault resource that you created and assign the UAMI resource the Key Vault Administrator role.
 
 ## Create an Azure Operator Insights Data Product resource in the Azure portal
@@ -77,7 +75,7 @@ To download the sample MCC EDR data to the ingestion endpoint.
 1. You must use tools such as Azure Data Explorer to download the sample data, including the dashboard JSON files, from `https://bugbashsamplefiles.blob.core.windows.net/samplefiles?sp=rle&st=2023-10-13T11:47:35Z&se=2023-11-30T19:47:35Z&spr=https&sv=2022-11-02&sr=c&sig=v7%2Bww1hrSv1%2Fksy%2BK1RH3pITYKt%2F7n21JJ%2FASN7L8wQ%3D`.
 
     You cannot select this URL to download.
-1. Use AzCopy to copy the sample data to the ingestion endpoint. [Download AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy) and install it on the local machine. You can get the ingestion endpoint from the Data Product Overview page.
+1. Use AzCopy to copy the sample data to the ingestion endpoint. [Download AzCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy) and install it on the local machine. You can get the ingestion endpoint from the Data Product Overview page.
 1. Run the following command to copy the sample data to the ingestion endpoint:
 
     `azcopy cp "<source-path>" "<destination-path> --recursive`
