@@ -8,7 +8,7 @@ ms.date: 10/16/2023
 
 # Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight
 
-Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature. Iterate through combinations of algorithms and feature selections automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. This allows users to run AutoML experiments while sharing the compute with their other big data workloads.
+Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature. Iterate through combinations of algorithms and feature selections automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. It allows users to run AutoML experiments while sharing the compute with their other big data workloads.
 
 ## Install Azure Machine Learning on an HDInsight cluster
 
