@@ -10,9 +10,9 @@ ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
 ---
 
-# Data refernce of Azure Attestation logs
+# Data reference of Azure Attestation logs
 
-See [Monitor Azure Attestation](monitor-logs.md) for details on collecting and analyzing monitoring data for Azure Attestation.
+The section below provides reference to the details of Azure Attestation logs. See [Monitor Azure Attestation](monitor-logs.md) for details on collecting and analyzing monitoring data for Azure Attestation.
 
 ## Resource logs 
 
