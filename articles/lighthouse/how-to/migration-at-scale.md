@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage Azure Migrate projects at scale with Azure Lighthouse
 
-This topic provides an overview of how [Azure Lighthouse](../overview.md) can help you use [Azure Migrate](../../migrate/migrate-services-overview.md) in a scalable way across multiple Azure Active Directory (Azure AD) tenants.
+This topic provides an overview of how [Azure Lighthouse](../overview.md) can help you use [Azure Migrate](../../migrate/migrate-services-overview.md) in a scalable way across multiple Microsoft Entra tenants.
 
 Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 

@@ -15,6 +15,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # List blob containers with .NET
 
+[!INCLUDE [storage-dev-guide-selector-list-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-container.md)]
+
 When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## Prerequisites

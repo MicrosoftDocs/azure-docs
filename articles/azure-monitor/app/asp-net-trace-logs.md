@@ -172,7 +172,7 @@ Now you can easily filter out in **Transaction Search** all the messages of a pa
 
 The Azure Monitor Log Handler allows you to export Python logs to Azure Monitor.
 
-Instrument your application with the [OpenCensus Python SDK](./opencensus-python.md) for Azure Monitor.
+Instrument your application with the [OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor.
 
 This example shows how to send a warning level log to Azure Monitor.
 
@@ -247,12 +247,12 @@ Perhaps your application sends voluminous amounts of data and you're using the A
 ## <a name="add"></a>Next steps
 
 * [Diagnose failures and exceptions in ASP.NET](asp-net-exceptions.md)
-* [Learn more about Transaction Search](diagnostic-search.md)
+* [Learn more about Transaction Search](search-and-transaction-diagnostics.md?tabs=transaction-search)
 * [Set up availability and responsiveness tests](availability-overview.md)
 
 <!--Link references-->
 
 [availability]: ./availability-overview.md
-[diagnostic]: ./diagnostic-search.md
+[diagnostic]: ./search-and-transaction-diagnostics.md?tabs=transaction-search
 [exceptions]: asp-net-exceptions.md
 [start]: ./app-insights-overview.md

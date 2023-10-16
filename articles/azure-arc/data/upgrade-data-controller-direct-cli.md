@@ -4,7 +4,7 @@ description: Article describes how to upgrade a directly connected Azure Arc dat
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.custom:
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

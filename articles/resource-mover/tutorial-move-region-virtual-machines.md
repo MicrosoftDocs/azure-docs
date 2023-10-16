@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 02/10/2023
+ms.date: 10/12/2023
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -100,7 +100,7 @@ To select the resources you want to move, follow these steps:
 
 To resolve dependencies before the move, follow these steps:
 
-1. Dependencies are automatically validated in the background when you add the resources. If  you still see the **Validate dependencies** option, select it to trigger the validation manually.
+1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
 2. If dependencies are found, select **Add dependencies** to add them. 
 3. On **Add dependencies**, retain the default **Show all dependencies** option. 
 
@@ -111,45 +111,13 @@ To resolve dependencies before the move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-dependencies.png" alt-text="Screenshot displays add dependencies page." lightbox="./media/tutorial-move-region-virtual-machines/add-dependencies.png":::
 
-4. Dependencies are automatically validated in the background once you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation. 
+4. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.  
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png" alt-text="Screenshot displays page to add additional dependencies." lightbox="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png":::
 
-
-## Move the source resource group 
-
-Before you can prepare and move the VMs, the VM resource group must be present in the target region. 
-
-### Prepare to move the source resource group
-
-During the Prepare process, Resource Mover generates Azure Resource Manager (ARM) templates using the resource group settings. Resources inside the resource group aren't affected.
-
-**To prepare to move a source resource group, follow these steps:**
-
-1. On the **Across regions** pane, select the source resource group > **Prepare**.
-2. On **Prepare resources** pane, select **Prepare** to start the process.
-
-    :::image type="content" source="./media/tutorial-move-region-virtual-machines/prepare-resource-group.png" alt-text="Screenshot displays Prepare resource group." lightbox="./media/tutorial-move-region-virtual-machines/prepare-resource-group.png":::
-
 > [!NOTE]
-> After preparing the resource group, it's in the *Initiate move pending* state. 
-
-### Move the source resource group
-
-**To start the move, follows these steps:**
-
-1. On the **Across regions** pane, select the resource group > **Initiate Move**.
-2. On the **Move Resources** pane, select **Initiate move**. The resource group moves into an *Initiate move in progress* state.
-3. After initiating the move, the target resource group is created, based on the generated ARM template. The source resource group moves into a *Commit move pending* state.
-
-    :::image type="content" source="./media/tutorial-move-region-virtual-machines/commit-move-pending.png" alt-text="Screenshot displays select the initiate move button." lightbox="./media/tutorial-move-region-virtual-machines/commit-move-pending.png":::
-
-**To commit and finish the move process:**
-
-1. On the **Across regions** pane, select the resource group > **Commit move**.
-2. On the **Move Resources** pane select **Commit**.
-
-> [!NOTE]
-> After committing the move, the source resource group is in a *Delete source pending* state.
+> The default name for the resource group follows `<sourceRGName-targetRegion>` convention. If you want to use an existing resource group name, you can find the option to choose the target resource group in the **Edit** section.
+> <br>
+> :::image type="content" source="./media/tutorial-move-region-virtual-machines/target-region.png" alt-text="Screenshot displays add target resource group." :::
 
 ## Prepare resources to move
 

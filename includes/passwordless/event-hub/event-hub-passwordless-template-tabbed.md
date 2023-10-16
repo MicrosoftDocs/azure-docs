@@ -11,7 +11,7 @@ ms.custom: include file
 ---
 
 This quick start shows you two ways of connecting to Azure Event Hubs: 
-- Passwordless (Azure Active Directory authentication)
+- Passwordless (Microsoft Entra authentication)
 - Connection string
 
 The first option shows you how to use your security principal in Azure **Active Directory and role-based access control (RBAC)** to connect to an Event Hubs namespace. You don't need to worry about having hard-coded connection strings in your code or in a configuration file or in a secure storage like Azure Key Vault. 
@@ -20,7 +20,9 @@ The second option shows you how to use a **connection string** to connect to an 
 
 ## [Passwordless](#tab/passwordless)
 
-### Assign roles to your Azure AD user
+<a name='assign-roles-to-your-azure-ad-user'></a>
+
+### Assign roles to your Microsoft Entra user
 
 [!INCLUDE [event-hub-assign-roles](event-hub-assign-roles.md)]
 
@@ -33,7 +35,7 @@ You can authorize access to the service bus namespace using the following steps:
 
     :::image type="content" source="../../../articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing a button to sign in to Azure using Visual Studio.":::
 
-1. Sign-in using the Azure AD account you assigned a role to previously.
+1. Sign-in using the Microsoft Entra account you assigned a role to previously.
 
     :::image type="content" source="../../../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 

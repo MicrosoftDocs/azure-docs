@@ -91,6 +91,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
     .getCallMedia() 
     .startRecognizing(targetParticipant, recognizeOptions); 
 ```
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices (Public Preview)
 ``` javascript
@@ -115,7 +116,9 @@ const recognizeOptions: CallMediaRecognizeChoiceOptions = {
     initialSilenceTimeoutInSeconds: 30, 
     playPrompt: playSource, 
     operationContext: "AppointmentReminderMenu", 
-    kind: "callMediaRecognizeChoiceOptions" 
+    kind: "callMediaRecognizeChoiceOptions",
+    //Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
 }; 
 
 await callAutomationClient.getCallConnection(callConnectionId) 
@@ -132,7 +135,9 @@ const recognizeOptions: CallMediaRecognizeSpeechOptions = {
     endSilenceTimeoutInSeconds: 1, 
     playPrompt: playSource, 
     operationContext: "OpenQuestionSpeech", 
-    kind: "callMediaRecognizeSpeechOptions" 
+    kind: "callMediaRecognizeSpeechOptions",
+    //Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
 }; 
 
 await callAutomationClient.getCallConnection(callConnectionId) 
@@ -153,7 +158,9 @@ const recognizeOptions: CallMediaRecognizeSpeechOrDtmfOptions = {
     initialSilenceTimeoutInSeconds: 30, 
     interruptPrompt: true, 
     operationContext: "OpenQuestionSpeechOrDtmf", 
-    kind: "callMediaRecognizeSpeechOrDtmfOptions" 
+    kind: "callMediaRecognizeSpeechOrDtmfOptions",
+    //Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
 }; 
 
 await callAutomationClient.getCallConnection(callConnectionId) 

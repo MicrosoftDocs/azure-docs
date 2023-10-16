@@ -239,7 +239,7 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: Redeploy or reset a lab VM
+    - name: Redeploy or reimage a lab VM
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 

@@ -116,43 +116,11 @@ You can configure your cloud deployment using YAML. Take a look at the sample YA
 
 __tfserving-endpoint.yml__
 
-```yml
-$schema: https://azuremlsdk2.blob.core.windows.net/latest/managedOnlineEndpoint.schema.json
-name: tfserving-endpoint
-auth_mode: aml_token
-```
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving/half-plus-two/tfserving-endpoint.yml":::
 
 __tfserving-deployment.yml__
 
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: tfserving-deployment
-endpoint_name: tfserving-endpoint
-model:
-  name: tfserving-mounted
-  version: {{MODEL_VERSION}}
-  path: ./half_plus_two
-environment_variables:
-  MODEL_BASE_PATH: /var/azureml-app/azureml-models/tfserving-mounted/{{MODEL_VERSION}}
-  MODEL_NAME: half_plus_two
-environment:
-  #name: tfserving
-  #version: 1
-  image: docker.io/tensorflow/serving:latest
-  inference_config:
-    liveness_route:
-      port: 8501
-      path: /v1/models/half_plus_two
-    readiness_route:
-      port: 8501
-      path: /v1/models/half_plus_two
-    scoring_route:
-      port: 8501
-      path: /v1/models/half_plus_two:predict
-instance_type: Standard_DS3_v2
-instance_count: 1
-```
-
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container//tfserving/half-plus-two/tfserving-deployment.yml":::
 
 # [Python SDK](#tab/python)
 

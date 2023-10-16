@@ -102,9 +102,9 @@ sections:
           To know about tenant details, open the vault credential file downloaded from Recovery Services vault and refer to the value of the `<AadTenantId>` attribute.
 
       - question: |
-          What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?
+          What is the impact on MARS Agent backups of transferring the vault subscription to a different Microsoft Entra directory?
         answer: |
-          The change of Azure AD directory will have no impact on MARS Agent backups. 
+          The change of Microsoft Entra directory will have no impact on MARS Agent backups. 
 
       - question: |
           What happens if the expected Weekly, Monthly, or Yearly backup fails?

@@ -211,7 +211,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
         --vnet-subnet-id "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.Network/virtualNetworks/${SECOND_VNET}/subnets/${MEMBER_3_SUBNET}"
     ```
 
-    We created the third cluster in a different region above to demonstrate that fleet can support joining clusters from different regions. Fleet also supports joining clusters from different subscriptions. The only requirement for AKS clusters being joined to fleet as members is that they all need to be a part of the same Azure AD tenant.
+    We created the third cluster in a different region above to demonstrate that fleet can support joining clusters from different regions. Fleet also supports joining clusters from different subscriptions. The only requirement for AKS clusters being joined to fleet as members is that they all need to be a part of the same Microsoft Entra tenant.
 
 1. Set the following environment variables for members:
 

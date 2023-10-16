@@ -40,16 +40,18 @@ Learn more:
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## Multi-Factor Authentication
+<a name='multi-factor-authentication'></a>
 
-Azure Active Directory Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
+## Multifactor authentication
 
-Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options (phone call, text message, or mobile app notification or verification code) and third-party OATH tokens.
+Microsoft Entra multifactor authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
+
+Multifactor authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options (phone call, text message, or mobile app notification or verification code) and third-party OATH tokens.
 
 Learn more:
 
-* [Multi-Factor Authentication](../../active-directory/authentication/overview-authentication.md#azure-ad-multi-factor-authentication)
-* [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Multifactor authentication](../../active-directory/authentication/overview-authentication.md#azure-ad-multi-factor-authentication)
+* [How Microsoft Entra multifactor authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## ExpressRoute
 
@@ -76,20 +78,20 @@ Learn more:
 
 ## Privileged Identity Management
 
-Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations give them permanent privileged access in Azure Active Directory (Azure AD).
+Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations give them permanent privileged access in Microsoft Entra ID.
 
-This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their privileged access. Additionally, if a user account with privileged access is compromised, that one breach can affect an organization's overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk by lowering the exposure time of privileges and increasing visibility into usage.  
+This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their privileged access. Additionally, if a user account with privileged access is compromised, that one breach can affect an organization's overall cloud security. Microsoft Entra Privileged Identity Management helps to resolve this risk by lowering the exposure time of privileges and increasing visibility into usage.  
 
-Privileged Identity Management introduces the concept of a temporary admin for a role or “just in time” administrator access. This kind of admin is a user who needs to complete an activation process for that assigned role. The activation process changes the assignment of the user to a role in Azure AD from inactive to active, for a specified time period.
+Privileged Identity Management introduces the concept of a temporary admin for a role or “just in time” administrator access. This kind of admin is a user who needs to complete an activation process for that assigned role. The activation process changes the assignment of the user to a role in Microsoft Entra ID from inactive to active, for a specified time period.
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+* [Microsoft Entra Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Start using Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## Identity Protection
 
-Azure AD Identity Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like:
+Microsoft Entra ID Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like:
 
 * Brute-force attacks.
 * Leaked credentials.
@@ -99,7 +101,7 @@ By providing notifications and recommended remediation, Identity Protection help
 
 Learn more:
 
-* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/concept-identity-protection-security-overview.md)
+* [Microsoft Entra ID Protection](../../active-directory/identity-protection/concept-identity-protection-security-overview.md)
 
 ## Defender for Cloud
 

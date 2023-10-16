@@ -26,7 +26,7 @@ Development with Azure Machine Learning often involves web-based development env
 * [Cross site scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 
     * __DOM injection__: This type of attack can modify the UI displayed in the browser. For example, by changing how the run button behaves in a Jupyter Notebook.
-    * __Access token/cookies__: XSS attacks can also access local storage and browser cookies. Your Azure Active Directory (Azure AD) authentication token is stored in local storage. An XSS attack could use this token to make API calls on your behalf, and then send the data to an external system or API.
+    * __Access token/cookies__: XSS attacks can also access local storage and browser cookies. Your Microsoft Entra authentication token is stored in local storage. An XSS attack could use this token to make API calls on your behalf, and then send the data to an external system or API.
 
 * [Cross site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf): This attack may replace the URL of an image or link with the URL of a malicious script or API. When the image is loaded, or link clicked, a call is made to the URL.
 

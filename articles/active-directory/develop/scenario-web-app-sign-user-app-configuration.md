@@ -199,7 +199,7 @@ The *.env* file should never be checked into source control, since it contains s
 
 ## Initialization code
 
-The initialization code differences are platform dependant. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Microsoft Entra v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform. 
+The initialization code differences are platform dependant. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Azure AD v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform. 
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -215,7 +215,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 >          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 > ```
 >
-> This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create a Microsoft Entra v1.0 application. This article explains how to create a Microsoft identity platform (Microsoft Entra v2.0) application which replaces that code.
+> This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure Active Directory v1.0 application. This article explains how to create a Microsoft identity platform v2.0 application which replaces that code.
 
 1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it's present.
 

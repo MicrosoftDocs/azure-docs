@@ -3,6 +3,7 @@ title: Move Azure single instance Virtual Machines from regional to zonal availa
 description: Move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region using PowerShell and CLI.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 09/25/2023
 ms.author: ankitadutta

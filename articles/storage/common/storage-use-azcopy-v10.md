@@ -51,19 +51,21 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ## Authorize AzCopy
 
-You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
+You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
 Use this table as a guide:
 
 | Storage type | Currently supported method of authorization |
 |--|--|
-|**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
+|**Blob storage** | Microsoft Entra ID & SAS |
+|**Blob storage (hierarchical   namespace)** | Microsoft Entra ID & SAS |
 |**File storage** | SAS only |
 
-#### Option 1: Use Azure Active Directory
+<a name='option-1-use-azure-active-directory'></a>
 
-This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
+#### Option 1: Use Microsoft Entra ID
+
+This option is available for blob Storage only. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
 
 #### Option 2: Use a SAS token
 
@@ -125,7 +127,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
 |[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
 |[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
-|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
+|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Microsoft Entra ID to access Azure Storage resources.|
 |[azcopy login status](storage-ref-azcopy-login-status.md)|Lists the entities in a given resource.|
 |[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|

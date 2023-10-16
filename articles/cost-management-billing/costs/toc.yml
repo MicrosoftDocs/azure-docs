@@ -19,6 +19,8 @@
     items:
     - name: Cost Management best practices
       href: cost-mgt-best-practices.md
+    - name: AI-powered Cost Management
+      href: ai-powered-cost-management.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
