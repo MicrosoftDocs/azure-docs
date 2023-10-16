@@ -12,6 +12,10 @@ ms.service: azure-operator-service-manager
 
 This quickstart contains the prerequisite tasks for Operator and Containerized Network Function (CNF). While it's possible to automate these tasks within your NSD (Network Service Definition), in this quickstart, the actions are performed manually.
 
+## Permissions
+
+In order to complete the prerequisites for Operator and Virtual Network Function (VNF), you need an Azure subscription where you have the Contributor or Owner role (in order to create a Resource Group). You also need the ability to attain the Owner or User Access Administrator role over this new Resource Group.
+
 ## Deploy prerequisites for Virtual Machine (VM)
 
 1. Follow the actions to [Create resource groups](../azure-resource-manager/management/manage-resource-groups-cli.md) for the prerequisites in the same region as your Publisher resources.

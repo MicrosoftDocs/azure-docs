@@ -15,6 +15,7 @@ In this how-to guide you learn how to create a Site Network Service (SNS) using 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription.
+- A Resource Group over which you have the Contributor role.
 - You have completed [Create a site in Azure Operator Service Manager](how-to-create-site.md).
 - The Network Service Design (NSD) you plan to use is published within the same tenant where you intend to deploy the Site Network Service (SNS).
 - Collaboration has taken place with the Network Services Design Version (NSDV) designed to identify the required details that must be included in the Configuration Group Value (CGVs) for this specific Site Network Service (SNS).

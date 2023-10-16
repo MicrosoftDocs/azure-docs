@@ -15,6 +15,11 @@ ms.service: azure-operator-service-manager
 > [!NOTE]
 > The tasks presented in this article may require some time to complete.
 
+## Permissions
+
+In order to complete these prerequisites for Operator and Containerized Network Function, you 
+need an Azure subscription where you have the Contributor role (in order to create a Resource Group), or you need an existing Resource Group where you have the Contributor Role. 
+
 ## Set environment variables
 
 Adapt the environment variable settings and references as needed for your particular environment. For example, in Windows PowerShell, you would set the environment variables as follows:
@@ -25,13 +30,13 @@ $env:ARC_RG=<my rg>
 
 To use an environment variable, you would reference it as `$env:ARC_RG`.
 
-```powershell
+```bash
 export resourceGroup=<replace with resourcegroup name>
 export location=<region>
 export clusterName=<replace with clustername>
 export customlocationId=${clusterName}-custom-location
 export extensionId=${clusterName}-extension
-``````
+```
 
 ## Create Resource Group
 
@@ -85,7 +90,7 @@ az connectedk8s connect --name ${clusterName} -g ${resourceGroup} --location $lo
 Create an extension:
 
 ```azurecli
-az k8s-extension create -g ${ARC_RG} --cluster-name ${ARC_CLUSTER} --cluster-type connectedClusters --name networkfunction-operator --extension-type microsoft.azure.hybridnetwork --release-train preview --scope cluster
+az k8s-extension create -g ${resourceGroup} --cluster-name ${clusterName} --cluster-type connectedClusters --name networkfunction-operator --extension-type microsoft.azure.hybridnetwork --release-train preview --scope cluster
 export ConnectedClusterResourceId=`az connectedk8s show -g ${resourceGroup} -n ${clusterName} --query id -o tsv`
 export ClusterExtensionResourceId=`az k8s-extension show -g ${resourceGroup} -c ${clusterName} --cluster-type connectedClusters --name ${extensionId} --query id -o tsv`
 ``````
@@ -102,7 +107,7 @@ az customlocation create -g ${resourceGroup} -n ${customlocationId} --namespace 
 
 Retrieve the Custom location value. You need this information to fill in the Configuration Group values for your Site Network Service (SNS).
 
-Search for the name of the Custom location (ARC_LOCATION) in the Azure portal, then select Properties. Locate the full Resource ID under the Essentials information area and look for field name ID. The following image provides an example of where the Resource ID information is located.
+Search for the name of the Custom location (customLocationId) in the Azure portal, then select Properties. Locate the full Resource ID under the Essentials information area and look for field name ID. The following image provides an example of where the Resource ID information is located.
 
 :::image type="content" source="media/retrieve-azure-arc-custom-location-value.png" alt-text="Screenshot showing the search field and Properties  information.":::
 

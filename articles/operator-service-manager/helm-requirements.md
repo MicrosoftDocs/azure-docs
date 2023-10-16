@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 Helm is a package manager for Kubernetes that helps you manage Kubernetes applications. Helm packages are called charts, and they consist of a few YAML configuration files and some templates that are rendered into Kubernetes manifest files. Charts are reusable by anyone for any environment, which reduces complexity and duplicates. 
 
 ## Registry URL path and imagepullsecrets requirements
-When developing a helm package, it's common to keep the container registry server URL in the values. Keeping the container registry server URL in the values is useful for moving artifacts between each environment container registry. The Network Function Manager (NFM) contains features to inject container registry server location and imagepullsecrets into the helm values during NF deployment. An imagePullSecret is an authorization token, also known as a secret, that stores Docker credentials that are used for accessing a registry. For example, if you need to deploy an application via Kubernetes deployment, you can define a deployment like the following example: 
+When developing a helm package, it's common to keep the container registry server URL in the values. Keeping the container registry server URL in the values is useful for moving artifacts between each environment container registry. Azure Operator Service Manager (AOSM) uses the Network Function Manager (NFM) service to deploy Containerized Network Function (CNF). The Network Function Manager (NFM) contains features to inject container registry server location and imagepullsecrets into the helm values during Network Function (NF) deployment. An imagePullSecret is an authorization token, also known as a secret, that stores Docker credentials that are used for accessing a registry. For example, if you need to deploy an application via Kubernetes deployment, you can define a deployment like the following example: 
 
 ```json
 apiVersion: apps/v1 
@@ -117,6 +117,7 @@ Users should avoid using references to an external registry. For example, if dep
 
 ## Recommendations
 Splitting the Custom Resource Definitions (CRDs) declaration and usage plus using manual validations are recommended practices. Each is described in the following sections.
+
 ### Split CRD declaration and usage 
 We recommend splitting the declaration and usage of CRDs into separate helm charts to support
 updates. For detailed information see: [method-2-separate-charts](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#method-2-separate-charts)
@@ -133,4 +134,24 @@ OR
 ```shell
  helm install --set "global.imagePullSecrets[0].name=<secretName>" --set "global.registry.url=<registryURL>" <release-name> <chart-name> --dry-run
  kubectl create secret <secretName> regcred --docker-server=<registryURL> --dockerusername=<regusername> --docker-password=<regpassword>
+```
+### Static image repository and tags
+Each helm chart should contain static image repository and tags. Users should set the image repository and tag to static values. The static values can be set by:
+- By hard-coding them in the image line or,
+- Setting the Values in values.yaml and not exposing these values in the Network Function Design Version (NFDV). 
+
+A Network Function Design Version (NFDV) should map to a static set of helm charts and images. The charts and images are only updated by publishing a new Network Function Design Version (NFDV).
+
+```json
+ image: "{{ .Values.global.registryPath }}/contosoapp:1.14.2“
+```
+or
+
+```json
+ image: "{{ .Values.global.registryPath }}/{{ .Values.image.repository }}:{{ .Values.image.tag}}“
+ 
+YAML values.yaml
+image:
+  repository: contosoapp
+  tag: 1.14.2
 ```
