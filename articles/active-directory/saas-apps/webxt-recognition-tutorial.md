@@ -79,7 +79,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     `https://webxtrecognition.<DOMAIN>.com/<INSTANCE>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [WebXT Recognition support team](mailto:anmarie.brewers@biworldwide.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [WebXT Recognition support team](mailto:webxtrecognition@biworldwide.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
 1. WebXT Recognition application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -127,11 +127,11 @@ In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by 
 
 ## Configure WebXT Recognition SSO
 
-To configure single sign-on on **WebXT Recognition** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Microsoft Entra admin center to [WebXT Recognition support team](mailto:anmarie.brewers@biworldwide.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **WebXT Recognition** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Microsoft Entra admin center to [WebXT Recognition support team](mailto:webxtrecognition@biworldwide.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create WebXT Recognition test user
 
-In this section, you create a user called B.Simon in WebXT Recognition. Work with [WebXT Recognition support team](mailto:anmarie.brewers@biworldwide.com) to add the users in the WebXT Recognition platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in WebXT Recognition. Work with [WebXT Recognition support team](mailto:webxtrecognition@biworldwide.com) to add the users in the WebXT Recognition platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
