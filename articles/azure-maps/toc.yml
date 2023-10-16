@@ -137,6 +137,8 @@ items:
       href: how-to-view-api-usage.md
   - name: Creator Indoor Maps
     items:
+    - name: Create indoor map with the onboarding tool
+      href: creator-onboarding-tool.md
     - name: Manage Creator
       href: how-to-manage-creator.md
     - name: Drawing package guide
