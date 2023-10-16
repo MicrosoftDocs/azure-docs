@@ -75,9 +75,9 @@ The Microsoft Entra Verified ID service enables you to issue and revoke VCs base
 
 ### Trust System
 
-![ION](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
+![Trust System](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
 
-Microsoft Entra Verified ID currently supports two trust system. One is the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is [DID Web](https://w3c-ccg.github.io/did-method-web/), where the DID document is hosted on the issuers webserver.
+Microsoft Entra Verified ID currently supports Web as trust system [DID Web](https://w3c-ccg.github.io/did-method-web/), where the DID document is hosted on the issuers webserver.
 
 ### Microsoft Authenticator application
 
@@ -93,7 +93,7 @@ Your issuance solution includes a web front end where users request a VC, an ide
 
 A web front end serves issuance requests to the subject’s wallet by generating deep links or QR codes. Based on the configuration of the contract, other components might be required to satisfy the requirements to create a VC.
 
-These services provide supporting roles that don't necessarily need to integrate with ION or Microsoft Entra Verified ID issuance service. This layer typically includes:
+These services provide supporting roles that don't necessarily need to integrate with Microsoft Entra Verified ID issuance service. This layer typically includes:
 
 * **OpenID Connect (OIDC)-compliant service or services** are used to obtain id_tokens needed to issue the VC. Existing identity systems such as Microsoft Entra ID or Azure AD B2C can provide the OIDC-compliant service, as can custom solutions such as Identity Server.
 

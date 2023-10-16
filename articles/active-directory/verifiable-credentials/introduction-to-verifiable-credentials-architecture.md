@@ -74,8 +74,6 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
  “A ***decentralized identifier*** is a  portable URI-based identifier, also known as a DID, associated with an entity. These identifiers are often used in a verifiable credential and are associated with subjects, issuers, and verifiers.”.
 
-* In the preceding diagram, the public keys of the actor’s DIDs are made available via trust system (Web or ION).
-
  “A ***decentralized identifier document***, also referred to as a ***DID document***, is a document that is accessible using a verifiable data registry and contains information related to a specific decentralized identifier, such as the associated repository and public key information.” 
 
 * In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with the DID (also known as linked domains).
@@ -85,8 +83,6 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 A ***trust system*** is the foundation in establishing trust between decentralized systems. It can be a distributed ledger or it can be something centralized, such as [DID Web](https://w3c-ccg.github.io/did-method-web/). 
 
  “A ***distributed ledger*** is a non-centralized system for recording events. These systems establish sufficient confidence for participants to rely upon the data recorded by others to make operational decisions. They typically use distributed databases where different nodes use a consensus protocol to confirm the ordering of cryptographically signed transactions. The linking of digitally signed transactions over time often makes the history of the ledger effectively immutable.”
-
-* The Microsoft solution uses the ***Identity Overlay Network (ION)*** to provide decentralized public key infrastructure (PKI) capability. As an alternative to ION, Microsoft also offers DID Web as the trust system.
 
 ### Combining centralized and decentralized identity architectures
 

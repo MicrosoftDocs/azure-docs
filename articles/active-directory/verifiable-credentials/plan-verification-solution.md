@@ -23,7 +23,7 @@ If you haven’t already, we suggest you review the [Microsoft Entra Verified ID
 
 ## Scope of guidance
 
-This content covers the technical aspects of planning for a verifiable credential (VC) verification solution using Microsoft products and services. The solution interfaces with a trust system, where currently supported trust systems are Identity Overlay Network (ION) or DID Web. ION acts as the decentralized public key infrastructure (DPKI) while DID Web is a centralized public key infrastructure. 
+This content covers the technical aspects of planning for a verifiable credential verification solution using Microsoft products and services. The solution interfaces with a trust system, where currently DID Web is supported. DID Web is a centralized public key infrastructure.
 
 Supporting technologies that aren't specific to verification solutions are out of scope. For example, websites are used in a verifiable credential verification solution but planning a website deployment isn't covered in detail.
 
@@ -38,7 +38,7 @@ As part of your plan for a verification solution, you must enable the interactio
 
 ### Microsoft Entra Verified ID service
 
-In the context of a verifier solution, the Microsoft Entra Verified ID service is the interface between the Microsoft components of the solution and the trust system. The service provisions the key set to Key Vault, provisions the decentralized identifier (DID). In the case of ION, the service writes the DID document to the distributed ledger, where it can be used by subjects and issuers. 
+In the context of a verifier solution, the Microsoft Entra Verified ID service is the interface between the Microsoft components of the solution and the trust system. The service provisions the key set to Key Vault, provisions the decentralized identifier (DID).
 
 <a name='azure-active-directory-tenant-'></a>
 
@@ -63,7 +63,7 @@ Application programming interfaces (APIs) provide developers a method to abstrac
 
 ![Diagram of the components of a verification solution with the trust system highlighted.](./media/plan-verification-solution/plan-verification-solution-ion.png)
 
-Microsoft Entra Verified ID currently supports two trust system. One is [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/)that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is [DID Web](https://w3c-ccg.github.io/did-method-web/), where the DID document is hosted on the issuers webserver.
+Microsoft Entra Verified ID currently supports [DID Web](https://w3c-ccg.github.io/did-method-web/) as a trust system, where the DID document is hosted on the issuers webserver.
 
 ### Microsoft Authenticator application
 

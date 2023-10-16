@@ -49,8 +49,6 @@ There are multiple ways of offering a recovery mechanism to users, each with the
 
 We implement [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Microsoft Entra Verified ID has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
 
-<a name='why-does-the-entra-verified-id-support-ion-as-its-did-method-and-therefore-bitcoin-to-provide-decentralized-public-key-infrastructure'></a>
-
 ### Why does the Microsoft Entra Verified ID support ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
 Microsoft now offers two different trust systems, Web and ION. You may choose to use either one of them during tenant onboarding. ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.

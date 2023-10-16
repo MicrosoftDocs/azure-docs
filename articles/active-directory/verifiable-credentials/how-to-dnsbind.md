@@ -124,14 +124,7 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ## How do you update the linked domain on your DID?
 
-If your trust system is Web, then updating your linked domain isn't supported. You have to opt-out and re-onboard. If your trust system is ION, you can update the linked domain via redoing the **Verify domain ownership** step. It might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published. 
-
-### How do I know when the linked domain update has successfully completed?
-
-If the trust system is ION, once the domain changes are published to ION, the domain section inside the Microsoft Entra Verified ID service displays Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
-
->[!IMPORTANT]
-> No changes to your domain are possible while publishing is in progress.
+With the Web trust system, updating your linked domain isn't supported. You have to opt-out and re-onboard.
 
 ## Linked Domain domain made easy for developers
 

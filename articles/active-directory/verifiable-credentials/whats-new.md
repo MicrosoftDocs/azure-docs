@@ -20,6 +20,12 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## October 2023
+
+- [Quick Verified ID setup](verifiable-credentials-configure-tenant-quick.md) introduced as preview which enables an admin to onboard a Microsoft Entra tenant with just one click of a button.
+- [MyAccount available now to simplify issuance of Workplace Credentials](verifiable-credentials-configure-tenant-quick.md#MyAccount-available-now-to-simplify-issuance-of-Workplace-Credentials)
+- [Manual Verified ID setup](verifiable-credentials-configure-tenant.md) still available as an option to `Quick Verified ID setup`.
+
 ## September 2023
 
 Verified ID is retiring old Request Service API endpoints that were available before Verified ID was General Available. These APIs should not have been used since GA in August 2022, but if they are used in your app, you need to migrate. The API endpoints being retired are:
@@ -34,11 +40,11 @@ POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/is
 The first API was for creating an issuance or presentation request. The second API was for retrieving a request and the last two APIs was for a wallet completing issuance or presentation. The API endpoints to use since preview are the following.
 
 ```http
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/createPresentationRequest
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/createIssuanceRequest
-GET https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/presentationRequests/:requestId
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/completeIssuance
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/verifyPresentation
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/createPresentationRequest
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/createIssuanceRequest
+GET https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/presentationRequests/:requestId
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/completeIssuance
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/verifyPresentation
 ```
 
 Please note that the `/request` API is split into two depending on if you are creating an issuance or presentation request.
