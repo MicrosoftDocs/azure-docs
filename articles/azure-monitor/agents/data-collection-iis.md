@@ -158,8 +158,8 @@ The data collection rule will have a section similar to the following. The `logD
 ```
 
 This directory should correspond to the location of the IIS logs on the agent machine.
-
-:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of IIS log files on agent machine.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of IIS log files on agent machine." border="false":::
 
 ### Verify that the IIS logs are W3C formatted
 Open IIS Manager and verify that the logs are being written in W3C format.
@@ -167,8 +167,8 @@ Open IIS Manager and verify that the logs are being written in W3C format.
 :::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
 
 Open the IIS log file on the agent machine to verify that logs are in W3C format.
-
-:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format." border="false":::
 
 
 ## Next steps
