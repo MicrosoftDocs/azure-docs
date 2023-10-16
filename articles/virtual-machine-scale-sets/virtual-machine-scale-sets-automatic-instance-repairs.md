@@ -195,31 +195,30 @@ You can modify the automatic repairs policy of an existing scale set through the
 > [!NOTE]
 > Enable the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) on your Virtual Machine Scale Sets before you start the next steps.
 
-1. Go to an existing Virtual Machine Scale Set.
-2. Under **Settings** in the menu on the left, select **Health and repair**.
-3. Enable the **Monitor application health** option.
+- Go to an existing Virtual Machine Scale Set.0
+- Under **Settings** in the menu on the left, select **Health and repair**.
+- Enable the **Monitor application health** option.
 
 If you're monitoring your scale set by using the Application Health extension:
 
-4. Choose **Application Health extension** from the Application Health monitor dropdown list.
-5. From the **Protocol** dropdown list, choose the network protocol used by your application to report health. Select the appropriate protocol based on your application requirements. Protocol options are **HTTP, HTTPS**, or **TCP**.
-6. In the **Port number** configuration box, type the network port used to monitor application health.
-7. For **Path**, provide the application endpoint path (for example, "/") used to report application health.
+- Choose **Application Health extension** from the Application Health monitor dropdown list.
+- From the **Protocol** dropdown list, choose the network protocol used by your application to report health. Select the appropriate protocol based on your application requirements. Protocol options are **HTTP, HTTPS**, or **TCP**.
+- In the **Port number** configuration box, type the network port used to monitor application health.
+- For **Path**, provide the application endpoint path (for example, "/") used to report application health.
 
-> [!NOTE]
-> The Application Health extension will ping this path inside each virtual machine in the scale set to get application health status for each instance. If you're using [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) and the endpoint responds with a status 200 (OK), then the instance is marked as "Healthy". In all the other cases (including if the endpoint is unreachable), the instance is marked "Unhealthy". For more health state options, explore [Rich Health States](./virtual-machine-scale-sets-health-extension.md#binary-versus-rich-health-states).
+   > [!NOTE]
+   > The Application Health extension will ping this path inside each virtual machine in the scale set to get application health status for each instance. If you're using [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) and the endpoint responds with a status 200 (OK), then the instance is marked as "Healthy". In all the other cases (including if the endpoint is unreachable), the instance is marked "Unhealthy". For more health state options, explore [Rich Health States](./virtual-machine-scale-sets-health-extension.md#binary-versus-rich-health-states).
 
 If you're monitoring your scale set using SLB Health probes:
 
-8. Choose **Load balancer probe** from the Application Health monitor dropdown list.
-9. For the Load Balancer health probe, select an existing health probe or create a new health probe for monitoring.
+- Choose **Load balancer probe** from the Application Health monitor dropdown list.- For the Load Balancer health probe, select an existing health probe or create a new health probe for monitoring.
 
 To enable automatic repairs:
 
-10. Locate the **Automatic repair policy** section.
-11. Turn **On** the **Automatic repairs** option.
-12. In **Grace period (min)**, specify the grace period in minutes. Allowed values are between 10 and 90 minutes.
-6. When you're done, select **Save**.
+- Locate the **Automatic repair policy** section.
+- Turn **On** the **Automatic repairs** option.
+- In **Grace period (min)**, specify the grace period in minutes. Allowed values are between 10 and 90 minutes.
+- When you're done, select **Save**.
 
 ### [REST API](#tab/rest-api-2)
 
