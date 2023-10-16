@@ -6,7 +6,7 @@ ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 07/19/2022
+ms.date: 10/16/2023
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
