@@ -237,5 +237,6 @@ Learn more about Azure Data Factory pipelines:
 * [Pipelines and activities in Azure Data Factory](../../data-factory/concepts-pipelines-activities.md)
 
 * [How to use Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook)
+
   
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
