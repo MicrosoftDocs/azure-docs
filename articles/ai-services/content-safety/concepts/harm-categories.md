@@ -37,7 +37,7 @@ Every harm category the service applies also comes with a severity level rating.
 
 | 4 Severity Levels          |8 Severity Levels          | Label |
 | --------                 | ----------- |
-|Severity Level 0 – Safe   | Severity Level 0 and 1 – Safe   |Content may be related to violence, self-harm, sexual or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts which are appropriate for most audiences.  |
+|Severity Level 0 – Safe   | Severity Level 0 and 1 – Safe   |Content might be related to violence, self-harm, sexual or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts which are appropriate for most audiences.  |
 |Severity Level 2 – Low    | Severity Level 2 and 3 – Low   |Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (e.g., gaming, literature) and depictions at low intensity.        |
 |Severity Level 4 – Medium| Severity Level 4 and 5 – Medium   |Content that uses offensive, insulting, mocking, intimidating, or demeaning language towards specific identity groups, includes depictions of seeking and executing harmful instructions, fantasies, glorification, promotion of harm at medium intensity.      |
 |Severity Level 6 – High   | Severity Level 6-7 – High   |Content that displays explicit and severe harmful instructions, actions, damage, or abuse, includes endorsement, glorification, promotion of severe harmful acts, extreme or illegal forms of harm, radicalization, and non-consensual power exchange or abuse.        |
