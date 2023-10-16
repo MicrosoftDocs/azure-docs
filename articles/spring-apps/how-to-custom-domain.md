@@ -241,9 +241,47 @@ You may choose to enable or disable certificate auto sync feature during importi
 
 You may also enable or disable this feature for a certificate that has already been imported to Azure Spring Apps.
 
-![image-20230918143313014](../MSFT/Azure-Spring-Cloud-Wiki/.attachments/image-20230918143313014.png)
+#### [Azure portal](#tab/Azure-portal)
 
-az spring certificate update --name MyCertName **--enable-auto-sync true** --service MyCluster --resource-group MyResourceGroup
+use the following steps to grant access using the Azure portal:
+
+1. Go to your key vault instance.
+1. In the navigation pane, select **Access policies**.
+1. On the upper menu, select **Create**.
+1. Fill in the info, and select **Add** button, then **Create** access police.
+
+| Secret permission | Certificate permission | Select principal                     |
+|-------------------|------------------------|--------------------------------------|
+| Get, List         | Get, List              | Azure Spring Apps Domain-Management  |
+
+   > [!NOTE]
+   > If you don't find the "Azure Spring Apps Domain-Management", search for "Azure Spring Cloud Domain-Management".
+
+   :::image type="content" source="./media/how-to-custom-domain/edit-auto-sync.png" alt-text="Screenshot of toggle certificate auto sync." lightbox="./media/how-to-custom-domain/edit-auto-sync.png":::
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to enable certificate auto sync for an imported certificate:
+
+```azurecli
+az spring certificate update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <cert-name> \
+    **--enable-auto-sync true**
+```
+
+Use the following command to disable certificate auto sync for an imported certificate:
+
+```azurecli
+az spring certificate update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <cert-name> \
+    **--enable-auto-sync false**
+```
+
+---
 
 ## Add Custom Domain
 
