@@ -232,6 +232,7 @@ export const clicktoCallSetupContainerStyles = (theme: Theme): IStackStyles => {
       position: "absolute",
       overflow: "hidden",
       cursor: "pointer",
+      background: theme.palette.white
     },
   };
 };

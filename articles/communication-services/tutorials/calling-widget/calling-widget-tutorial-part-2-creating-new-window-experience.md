@@ -79,7 +79,7 @@ export const NewWindowCallScreen = (props: {
       adapter.dispose();
       window.close();
     });
-    adapter.joinCall(true);
+    adapter.joinCall({cameraOn: false, microphoneOn: true});
     return new Promise((resolve, reject) => resolve(adapter));
   };
 
@@ -141,6 +141,7 @@ import { useRef } from 'react';
 ```ts
     
     const [userDisplayName, setUserDisplayName] = useState<string>();
+    // put this between these two state variables we added earlier
     const newWindowRef = useRef<Window | null>(null);
     const [useVideo, setUseVideo] = useState<boolean>(false);
     
@@ -150,7 +151,7 @@ Next we create a handler that we pass to our widget that creates a new window th
 
 `CallingWidgetScreen.tsx`
 ```ts
-    
+    // add this just before the React template
     const startNewWindow = useCallback(() => {
         const startNewSessionString = 'newSession=true';
         newWindowRef.current = window.open(
@@ -168,7 +169,7 @@ Next we add a `useEffect` hook that is creating an event handler listening for n
 
 `CallingWidgetScreen.tsx`
 ```ts
-    
+    // add this just before the React template
     useEffect(() => {
         window.addEventListener('message', (event) => {
             if (event.origin !== window.origin) {
@@ -200,6 +201,7 @@ Finally on this screen, let's add the `startNewWindow` handler to the widget so 
     
     <Stack horizontal tokens={{ childrenGap: '1.5rem' }} style={{ overflow: 'hidden', margin: 'auto' }}>
         <CallingWidgetComponent
+            // we want to replace the empty function we had here like so
             onRenderStartCall={startNewWindow}
             onRenderLogo={() => {
                 return (
@@ -263,13 +265,12 @@ First thing we want to do is update `App.tsx` to use that new utility function t
 `App.tsx`
 ```ts
 // you will need to add these imports
-import { useMemo } from 'react';
 import { AdapterArgs, getStartSessionFromURL } from './utils/AppUtils';
 
 ```
 
 ```ts
-
+  // add this after your identity information
   const startSession = useMemo(() => {
     return getStartSessionFromURL();
   }, []);
@@ -280,10 +281,7 @@ Following this, we want to add some state to make sure that we're tracking the n
 
 `App.tsx`
 ```ts
-/**
-   * Properties needed to start an Azure Communication Services CallAdapter. When these are set the app will go to the Call screen for the
-   * click to call scenario. Call screen should create the credential that will be used in the call for the user.
-   */
+  // add this after our page state variable
   const [adapterArgs, setAdapterArgs] = useState<AdapterArgs | undefined>();
   const [useVideo, setUseVideo] = useState<boolean>(false);
 ```
@@ -292,11 +290,12 @@ We now want to add an event listener to `App.tsx` to listen for post messages. I
 
 `App.tsx`
 ```ts
+// add these imports if you haven't already
 import { CallAdapterLocator } from "@azure/communication-react";
 import { CommunicationIdentifier } from '@azure/communication-common';
 ```
 ```ts
-
+  // add this after our startSession handler
   useEffect(() => {
     window.addEventListener('message', (event) => {
       if (event.origin !== window.location.origin) {
@@ -304,7 +303,6 @@ import { CommunicationIdentifier } from '@azure/communication-common';
       }
 
       if ((event.data as AdapterArgs).userId && (event.data as AdapterArgs).displayName !== '') {
-        console.log(event.data);
         setAdapterArgs({
           userId: (event.data as AdapterArgs).userId as CommunicationUserIdentifier,
           displayName: (event.data as AdapterArgs).displayName,
@@ -324,7 +322,7 @@ Next, we want to add two more `useEffect` hooks to `App.tsx`. These two hooks wi
 
 `App.tsx`
 ```ts
-
+  // add these before the React template
   useEffect(() => {
     if (startSession) {
       console.log('asking for args');
@@ -353,7 +351,7 @@ import { NewWindowCallScreen } from './views/NewWindowCallScreen';
 ```
 
 ```ts
-
+  // replace the switch statement that hodls the react template with this
   switch (page) {
     case 'calling-widget': {
       if (!token || !userId || !locator || startSession !== false) {
@@ -364,7 +362,7 @@ import { NewWindowCallScreen } from './views/NewWindowCallScreen';
         )
         
       }
-      return <CallingWidgetScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
+      return <CallingWidgetScreen token={token} userId={userId} callLocator={locator} />;
     }
     case 'new-window-call': {
       if (!adapterArgs) {

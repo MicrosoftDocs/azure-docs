@@ -67,7 +67,7 @@ Then you need to update the dependency array in the `package.json` to include so
 ```json
 "@azure/communication-calling": "1.16.3-beta.1",
 "@azure/communication-chat": "1.4.0-beta.1",
-"@azure/communication-react": "1.8.0-beta.1",
+"@azure/communication-react": "1.9.0-beta.1",
 "@azure/communication-calling-effects": "1.0.0-beta.2",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
@@ -147,7 +147,7 @@ function App() {
       return (
         <Stack verticalAlign='center' style={{ height: "100%", width: "100%" }}>
           <Spinner
-            label={"Getting user credentials from server"}
+            label={"Please enter your identification to start application"}
             ariaLive="assertive"
             labelPosition="top"
           />
