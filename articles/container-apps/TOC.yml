@@ -114,7 +114,7 @@
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md
-- name: Logs & monitoring
+- name: Observability
   items:
     - name: Overview
       href: observability.md
