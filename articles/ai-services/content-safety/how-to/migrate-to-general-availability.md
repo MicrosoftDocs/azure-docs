@@ -107,7 +107,7 @@ The **addOrUpdateBlocklistItems** API call:
 }
 ```
 
-The **blocklistItems** API call (list all block list items):
+The **blocklistItems** API call (list all blocklist items):
 ```json
 {
   "values": [
