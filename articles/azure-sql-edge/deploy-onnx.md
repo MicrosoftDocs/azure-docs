@@ -25,7 +25,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 - If you're using Azure SQL Edge, and you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge using the Azure portal](deploy-portal.md).
 
-- Install [Azure Data Studio](/azure-data-studio/download).
+- Install [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 
 - Install Python packages needed for this quickstart:
 

@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Azure Data Studio dashboards
 
-[Azure Data Studio](/azure-data-studio/what-is) provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called **dashboards** and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
+[Azure Data Studio](/azure-data-studio/what-is-azure-data-studio) provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called **dashboards** and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
 
 ## Connect to a data controller
 
