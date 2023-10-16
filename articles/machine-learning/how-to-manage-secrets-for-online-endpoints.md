@@ -1,5 +1,5 @@
 ---
-title: Manage secrets for online endpoints for inference
+title: Manage secrets in an online deployment for inferencing
 titleSuffix: Azure Machine Learning
 description: Learn to . #Required; Keep the description within 100- and 165-characters including spaces.
 services: machine-learning
@@ -14,11 +14,11 @@ ms.topic: how-to
 ms.custom: how-to, ignite-2023, sdkv2
 ---
 
-# Deploy and score a machine learning model by using an online endpoint
+# Manage secrets in an online deployment for inferencing
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn to deploy your model to an online endpoint for use in real-time inferencing. You'll begin by deploying a model on your local machine to debug any errors. Then, you'll deploy and test the model in Azure. You'll also learn to view the deployment logs and monitor the service-level agreement (SLA). By the end of this article, you'll have a scalable HTTPS/REST endpoint that you can use for real-time inference.
+In this article, you'll learn to ...
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
 
