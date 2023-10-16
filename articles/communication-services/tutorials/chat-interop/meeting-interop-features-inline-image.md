@@ -22,13 +22,21 @@ Inline images are images that are copied and pasted directly into the send box o
 The Chat SDK for JavaScript provides `previewUrl` and `url` for each inline image. Note that some GIF images fetched from `previewUrl` might not be animated, and a static preview image may be returned instead. Developers are expected to use the `url` if the intention is to fetch animated images only.
 
 
-::: zone pivot="platform-javascript" [!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)] ::: zone-end
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)] 
+::: zone-end
 
-::: zone pivot="programming-language-python" [!INCLUDE [Teams Inline Image Interop with Python SDK](./includes/meeting-interop-features-inline-image-python.md)] ::: zone-end
+::: zone pivot="programming-language-python" 
+[!INCLUDE [Teams Inline Image Interop with Python SDK](./includes/meeting-interop-features-inline-image-python.md)] 
+::: zone-end
 
-::: zone pivot="programming-language-java" [!INCLUDE [Teams Inline Image Interop with Java SDK](./includes/meeting-interop-features-inline-image-java.md)] ::: zone-end
+::: zone pivot="programming-language-java" 
+[!INCLUDE [Teams Inline Image Interop with Java SDK](./includes/meeting-interop-features-inline-image-java.md)] 
+::: zone-end
 
-::: zone pivot="programming-language-csharp" [!INCLUDE [Teams Inline Image Interop with C# SDK](./includes/meeting-interop-features-inline-image-csharp.md)] ::: zone-end
+::: zone pivot="programming-language-csharp" 
+[!INCLUDE [Teams Inline Image Interop with C# SDK](./includes/meeting-interop-features-inline-image-csharp.md)] 
+::: zone-end
 
 
 ## Next steps
