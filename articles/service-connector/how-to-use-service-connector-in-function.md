@@ -9,22 +9,22 @@ ms.author: honc
 ---
 # How Service Connector helps Azure Functions connect to services
 
-Azure Functions is one of Service Connector supported compute services. Bindings is the recommended way by Azure Functions to talk to other services, although you can also work with client SDKs. This article aims to help you understand
+Azure Functions is one of the compute services supported by Service Connector. We recommend using bindings to connect Azure Functions with other services, although you can also use client SDKs. This article aims to help you understand:
 
-* What's the relationship between Service Connector and Function Bindings?
-* How Service Connector helps Functions connect to services in both Bindings and SDK scenarios?
-* What are the responsibilities of Service Connector and Users respectively in these scenarios?
+* The relationship between Service Connector and Functions bindings.
+* The process used by Service Connector to connect Functions to other Azure services using bindings or the SDK.
+* The responsibilities carried by Service Connector and the users respectively in each scenario.
 
 ## Prerequisites
 
-* This guide assumes that you already know the [basics concepts of Service Connector](concept-service-connector-internals.md).
-* This guide assumes you know [Functions developer guide](../azure-functions/functions-reference.md) and [how to connect to services in Functions](../azure-functions/add-bindings-existing-function.md).
+* This guide assumes that you already know the [basic concepts of Service Connector](concept-service-connector-internals.md).
+* This guide assumes you know the concepts presented in the [Azure Functions developer guide](../azure-functions/functions-reference.md) and [how to connect a function to Azure services](../azure-functions/add-bindings-existing-function.md).
 
-## Service Connector and Function Bindings
+## Service Connector and Azure Functions bindings
 
-### Function Bindings
+### Bindings in Azure Functions
 
-Bindings is an Azure Functions concept that helps to make it easier for users to connect to services without having to work with client SDKs in function codes.
+A binding is a concept used by Azure Functions, aiming to provide a simple way of connecting functions to services without having to work with client SDKs in function codes.
 
 Binding can support inputs, outputs, and triggers. Bindings let you configure the connection to services so that the Functions host can handle the data access for you. For more information, see [Azure Functions triggers and bindings concepts](../azure-functions/functions-triggers-bindings.md).
 
@@ -32,25 +32,25 @@ Function binding supports both secret/connection string and identity based authe
 
 ### Service Connector
 
-Service Connector is an Azure service that helps developers easily connect compute service to target backing services. Azure Functions is one of the [Service Connector supported compute services](./overview.md#what-services-are-supported-in-service-connector).
+Service Connector is an Azure service that helps developers easily connect compute services to target backing services. Azure Functions is one of the [compute services supported by Service Connector](./overview.md#what-services-are-supported-in-service-connector).
 
-Compared to function binding, which is more like a logically abstracted concept, Service Connector is an Azure service that you can directly operate on. It provides APIs for the whole lifecycle of a connection, like `create`, `delete`, `validate` health and `list configurations`.
+Compared to a function binding, which is more like a logically abstracted concept, Service Connector is an Azure service that you can directly operate on. It provides APIs for the whole lifecycle of a connection, like `create`, `delete`, `validate` health and `list configurations`.
 
 Service Connector also supports both secret/connection string and identity based authentication types.
 
-### Connection in Binding
+### Connection in an Azure Functions binding
 
-The `connection` concept in Function Binding is a property defined in binding file (usually the  `function.json` file) in your function folder. It defines the App Setting name or prefix that will be used by binding runtime to authenticate to target services.
+In Functions bindings, `connection` is a property defined in a binding file (usually the  `function.json` file) in your function folder. It defines the app settings name or prefix that will be used by the binding runtime to authenticate to target services.
 
 ### Connection in Service Connector
 
-The `connection` concept in Service Connector refers to a specific Azure resource that belongs to Service Connector service.
+A `connection` in Service Connector refers to a specific Azure resource that belongs to Service Connector.
 
-In Service Connector, the corresponding concept for `connection` in binding is `configuration name`, which refers to the App Setting key names that Service Connect help save into the compute services' configurations.
+The `connection` used by Azure Functions bindings corresponds to the `configuration name` used by Service Connector. The configuration name refers to the app setting key names that Service Connect saves into the compute services' configurations.
 
-## Connecting to services with Service Connector in Functions
+## Connecting Azure Functions to other cloud services using Service Connector
 
-Service Connector saves users' efforts connecting to services in Azure Functions both in bindings and SDK scenarios. It takes over cloud resource configurations like App Settings, network, identity and permission assignment, so that users can focus on function business logics. The following sections describe how Service Connector help simplify function connection with different connection mechanisms and authentication types.
+Service Connector reduces the amount of efforts needed to connect Azure Functions to cloud services using bindings or SDKs. It takes over cloud resource configurations like App Settings, network, identity and permission assignment, so that users can focus on function business logics. The following sections describe how Service Connector helps simplify function connections with different connection mechanisms and authentication methods.
 
 ### Binding
 
