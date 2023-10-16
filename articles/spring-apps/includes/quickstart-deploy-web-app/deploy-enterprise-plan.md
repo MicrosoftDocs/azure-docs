@@ -20,7 +20,7 @@ Use the following steps to clone and run the app locally.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
 
 ### [Azure CLI](#tab/Azure-CLI)
 
