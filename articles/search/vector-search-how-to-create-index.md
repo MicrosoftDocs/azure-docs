@@ -200,7 +200,7 @@ You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs 
 
 ### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
-In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic ranking, while "titleVector" and "contentVector" contain vector data.
 
 > [!TIP]
 > Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`
