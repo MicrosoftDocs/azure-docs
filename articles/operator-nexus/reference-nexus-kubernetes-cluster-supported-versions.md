@@ -204,7 +204,7 @@ Azure Kubernetes Service (AKS) provides a Long Term Support (LTS) version of Kub
 
 |   | Community Support  |Long Term Support   |
 |---|---|---|
-| **When to use** | When you can keep up with upstream Kubernetes releases | When you need control over when to migrate from one version to another  |
+| **When to use** | When you can keep up with upstream Kubernetes releases | Scenarios where your applications are not compatible with the changes introduced in newer Kubernetes versions, and you cannot transition to a continuous release cycle due to technical constraints or other factors  |
 |  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
 
 The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
