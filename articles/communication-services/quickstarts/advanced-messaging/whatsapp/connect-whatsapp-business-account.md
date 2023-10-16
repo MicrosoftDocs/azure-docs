@@ -26,9 +26,9 @@ Get started with the Azure Communication Services Advanced Messaging, which exte
 - [Set-up Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
 - [Set-up Event subscription for SMS received and SMS delivery events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
 - [Facebook login account](https://www.facebook.com/index.php)
-- Phone number using [Azure Communication Service Phonenumber](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) **or** bring your own phone number with the given capabilities:
+- Phone number using [Azure Communication Services phone number](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) **or** bring your own phone number with the given capabilities:
     -  Able to send and receive SMS messages.
-    -  Phonenumber isn't associated with a WhatsApp Business Account.
+    -  Phone number isn't associated with a WhatsApp Business Account.
    
 -  [Active Meta Business Account](https://www.facebook.com/business/tools/meta-business-suite)
 
@@ -41,6 +41,9 @@ Get started with the Azure Communication Services Advanced Messaging, which exte
 ## Select WhatsApp business profile
 
 1. Now that you have selected Meta Business Account, you need to **create/select** a WhatsApp Business profile. Fill out the required information.
+
+> [!NOTE]
+> A WhatsApp Business Account can only be registered with Advanced Messaging one time. You cannot select a WhatsApp Business Account that is already registered.
 
 :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows WhatsApp Business account details.":::
 
