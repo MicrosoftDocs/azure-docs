@@ -13,6 +13,13 @@ ms.custom: references_regions
 
 Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB Azure file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
 ## Support
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
@@ -90,7 +97,7 @@ If your mount failed, it's possible that your private endpoint wasn't set up cor
 Customers using NFS Azure file shares can now create, list, and delete snapshots of NFS Azure file shares. This allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
 
 > [!NOTE]
-> This preview only supports management APIs (`AzRmStorageShare`), not data plane APIs (`AzStorageShare`).
+> This preview only supports management APIs (`AzRmStorageShare`), not data plane APIs (`AzStorageShare`). Azure Backup isn't currently supported for NFS file shares.
 
 ### Regional availability for NFS Azure file share snapshots
 
@@ -173,7 +180,7 @@ az storage share delete --account-name <storage-account-name> --name <file-share
 
 To mount the NFS Azure file share to a Linux VM (NFS client) and restore files from a snapshot, follow these steps.
 
-1. Run the following command in a console:
+1. Run the following command in a console. See [Mount options](#mount-options) for other recommended mount options. To improve copy performance, mount the snapshot with [nconnect](nfs-performance.md#nconnect) to use multiple TCP channels.
    
    ```bash
    sudo mount -o vers=4,minorversion=1,proto=tcp,sec=sys $server:/nfs4account/share /media/nfs
@@ -197,7 +204,7 @@ To mount the NFS Azure file share to a Linux VM (NFS client) and restore files f
    cd <snapshot-name>
    ```
    
-1. List the contents of the directory to view a list of files and directories to be recovered.
+1. List the contents of the directory to view a list of files and directories that can be recovered.
    
    ```bash
    ls
