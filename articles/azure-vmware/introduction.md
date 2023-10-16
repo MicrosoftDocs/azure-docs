@@ -15,7 +15,7 @@ Azure VMware Solution is a VMware validated solution with ongoing validation and
 
 The diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud.
 
-:::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false":::
+:::image type="content" source="media/introduction/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false":::
 
 ## AV36P and AV52 node sizes available in Azure VMware Solution
 
@@ -58,27 +58,25 @@ See the following prerequisites for AV64 cluster deployment.
 
 ### Supportability for customer scenarios
 
-**Customer with existing Azure VMware Solution private cloud**
+**Customer with existing Azure VMware Solution private cloud**:
 When a customer has a deployed Azure VMware Solution private cloud, they can scale the private cloud by adding a separate AV64 vCenter node cluster to that private cloud. In this scenario, customers should use the following steps: 
 
 1. Get an AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with the minimum of three nodes. Add other details on the Azure VMware Solution private cloud that you plan to extend using AV64.
 2. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
 
-**Customer plans to create a new Azure VMware Solution private cloud**
-When a customer wants a new Azure VMware Solution private cloud that can use AV64 SKU but only for expansion. In this case, the customer meets the prerequisite of having an Azure VMware Solution private cloud built with AV36, AV36P, or AV52 SKU. The customer needs to buy a minimum of three nodes of AV36, AV36P, or AV52 SKU before expanding using AV64. For this scenario, use the following steps:
+**Customer plans to create a new Azure VMware Solution private cloud**: When a customer wants a new Azure VMware Solution private cloud that can use AV64 SKU but only for expansion. In this case, the customer meets the prerequisite of having an Azure VMware Solution private cloud built with AV36, AV36P, or AV52 SKU. The customer needs to buy a minimum of three nodes of AV36, AV36P, or AV52 SKU before expanding using AV64. For this scenario, use the following steps:
 
 1. Get AV36, AV36P, AV52 and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each. 
 2. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU. 
 3. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
 
-**Azure VMware Solution stretched cluster private cloud**
-The AV64 SKU isn't supported with Azure VMware Solution stretched cluster private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched cluster private cloud. 
+**Azure VMware Solution stretched cluster private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched cluster private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched cluster private cloud. 
 
 ## AV64 Cluster vSAN fault domain (FD) design and recommendations 
 
 The traditional Azure VMware Solution host clusters don't have explicit vSAN FD configuration. The reasoning is the host allocation logic ensures, within clusters, that no two hosts reside in the same physical fault domain within an Azure region. This feature inherently brings resilience and high availability for storage, which the vSAN FD configuration is supposed to bring. More information on vSAN FD can be found in the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan.doc/GUID-8491C4B0-6F94-4023-8C7A-FD7B40D0368D.html). 
 
-The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures five vSAN fault domains for AV64 clusters, and hosts are balanced evenly across these five FDs, as users scale up the hosts in a cluster from three node to 16 nodes. 
+The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures five vSAN fault domains for AV64 clusters, and hosts are balanced evenly across these five FDs, as users scale up the hosts in a cluster from three nodes to 16 nodes. 
 
 ### Cluster size recommendation
 
@@ -95,20 +93,32 @@ The following three scenarios show examples of instances that would normally err
 1. When removing a host creates a vSAN FD imbalance with a difference of hosts between most and least populated FD to be more than one.
 	In the following example users, need to remove one of the hosts from FD 1 before removing hosts from other FDs.
 
-	img<remove-host-scenario-1.png>
+	 :::image type="content" source="media/introduction/remove-host-scenario-1.png" alt-text="Diagram showing how users need to remove one of the hosts from FD 1 before removing hosts from other FDs." border="false":::
 
 2. When multiple host removal requests are made at the same time and certain host removals create an imbalance. In this scenario, the Azure VMware Solution control plane removes only hosts, which don't create imbalance.
 	In the following example users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower. 
 
-	img<remove-host-scenario-2.png>
+     :::image type="content" source="media/introduction/remove-host-scenario-2.png" alt-text="Diagram showing how users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower." border="false":::
 
 3. When a selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five FDs and, while adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all five FDs evenly.
 	In the following example users can remove one of the hosts from FD 1, but not from FD 2 or 3.
 
-	img<remove-host-scenario-3.png>
+	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false":::
 
 **Identify the host that can be removed without causing a vSAN FD imbalance**
 A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without impacting the vSAN FD balance and avoid any errors in the removal operation. 
+
+### AV64 Supported RAID Configuration 
+
+This table provides the list of RAID configuration supported and host requirements in AV64 cluster. 
+
+|RAID configuration 	|Failures to tolerate (FTT) |	Minimum hosts required |
+|-------------------|--------------------------|------------------------|
+|RAID-1 (Mirroring) Default setting.| 	1 |	3 |
+|RAID-5 (Erasure Coding) |	1 |	4 |
+|RAID-1 (Mirroring) |	2 |	5 |
+ 
+
 
 ## Networking
 
@@ -158,7 +168,7 @@ Azure VMware Solution implements a shared responsibility model that defines dist
 
 The shared responsibility matrix table outlines the main tasks that customers and Microsoft each handle in deploying and managing both the private cloud and customer application workloads.
 
-:::image type="content" source="media/azure-introduction-shared-responsibility-matrix.png" alt-text="Screenshot of the high-level shared responsibility matrix for Azure VMware Solution." lightbox="media/azure-introduction-shared-responsibility-matrix.png":::
+:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Screenshot of the high-level shared responsibility matrix for Azure VMware Solution." lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
 
 The following table provides a detailed list of roles and responsibilities between the customer and Microsoft, which encompasses the most frequent tasks and definitions. For further questions, contact Microsoft.
 
