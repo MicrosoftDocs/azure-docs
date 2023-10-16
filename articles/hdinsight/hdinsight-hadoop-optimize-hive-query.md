@@ -25,7 +25,7 @@ For more information on running Hive queries on various HDInsight cluster types,
 
 ## Scale out worker nodes
 
-Increasing the number of worker nodes in an HDInsight cluster allows the work to use more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
+Increasing the number of worker nodes in an HDInsight cluster allows the work to use more mappers and reducers to be run in parallel. There are two ways you can increase out scale in HDInsight:
 
 * When you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   
@@ -48,7 +48,7 @@ Tez is faster because:
 * **Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine**. The DAG requires each set of mappers to be followed by one set of reducers. This requirement causes multiple MapReduce jobs to be spun off for each Hive query. Tez doesn't have such constraint and can process complex DAG as one job minimizing job startup overhead.
 * **Avoids unnecessary writes**. Multiple jobs are used to process the same Hive query in the MapReduce engine. The output of each MapReduce job is written to HDFS for intermediate data. Since Tez minimizes number of jobs for each Hive query, it's able to avoid unnecessary writes.
 * **Minimizes start-up delays**. Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.
-* **Reuses containers**. Whenever possible Tez will reuse containers to ensure that latency from starting up containers is reduced.
+* **Reuses containers**. Whenever possible Tez reuse containers to ensure that latency from starting up containers is reduced.
 * **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
 
 For more information on these concepts, see [Apache TEZ](https://tez.apache.org/).
@@ -63,7 +63,7 @@ set hive.execution.engine=tez;
 
 I/O operations are the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
 
-Hive partitioning is implemented by reorganizing the raw data into new directories. Each partition has its own file directory. The partitioning is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
+Hive partitioning is implemented by reorganizing the raw data into new directories. Each partition has its own file directory. The user defines the partitioning. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
 :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png" alt-text="HDInsight Apache Hive partitioning":::
 
