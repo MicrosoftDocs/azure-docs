@@ -90,7 +90,8 @@ existing resources.
 After completing validation of your new policy definition with both existing resources and new or
 updated resource requests, you begin the process of implementing the policy. It's recommended to
 create the policy assignment for the new policy definition to a subset of all resources first, such
-as a resource group. You may do this using the [resourceSelectors](./assignment-structure.md#resource-selectors-preview) property within the policy assignment to filter by resource locations or resource type. After validating initial deployment, extend the scope of the policy to broader
+as a resource group. You can further filter by resource type or location using the [resourceSelectors](./assignment-structure.md#resource-selectors-preview) property within the policy assignment.After validating initial deployment, extend the scope of the policy to broader
+as a resource group. After validating initial deployment, extend the scope of the policy to broader
 and broader levels, such as subscriptions and management groups or more locations and resource types. This expansion is achieved by
 removing the assignment and creating a new one at the target scopes until it's assigned to the full
 scope of resources intended to be covered by your new policy definition.

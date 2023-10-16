@@ -109,7 +109,7 @@ expected.
 
 ## Steps for safe deployment of Azure Policy assignments with modify or deployIfNotExists effects
 
-The steps for policies using the `modify` or `deployIfNotExists` effects are similar as steps previously explained with the additional action of using _enforcement mode_ and triggering a remediation task.
+The steps for policies using the `modify` or `deployIfNotExists` effects are similar to steps previously explained with the additional action of using _enforcement mode_ and triggering a remediation task.
 Review the following flowchart with modified steps 5-9:
 
 :::image type="content" source="../media/policy-safe-deployment-practices/safe-deployment-practices-flowchart-2.png" alt-text="Flowchart showing steps 5 through 9 in the Azure Policy safe deployment practices workflow." border="true":::
@@ -141,8 +141,8 @@ validate that the compliance result is as expected.
     - If compliance results are as expected, the pipeline should continue
     - If compliance results aren't as expected, the pipeline should fail and you should start debugging
     
-    For example, you can configure the compliance check by using other tools within
-    your particular continuous integration/continuous deployment (CI/CD) pipeline.
+    You can configure the compliance check by using other tools within
+    your continuous integration/continuous deployment (CI/CD) pipeline.
     
     At each rollout stage, the application health checks should confirm the stability of the service
     and impact of the policy. If the results aren't as expected due to application configuration,
@@ -150,7 +150,7 @@ validate that the compliance result is as expected.
 
     You may also [trigger remediation tasks](../how-to/remediate-resources.md) to remediate existing non-compliant resources. Ensure the remediation tasks are bringing resources into compliance as expected.
 
-3. Repeat by expanding the resource selector property values to include the next rings'
+3. Repeat by expanding the resource selector property values to include the next ring's
 locations and validating the expected compliance results and application health. Example selector with an added location value:
 
     ```json
