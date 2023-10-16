@@ -4,9 +4,8 @@ description: Elastic SAN best practices
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 10/16/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell
 ---
 
 # Elastic SAN Preview best practices
@@ -107,35 +106,6 @@ In cluster configurations, make iSCSI initiator names unique across all nodes th
 
 Update /etc/iscsi/iscsid.conf file with the following values:
 
-```
-# Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB
-node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144
-
-# Set maximum SCSI payload that the initiator negotiates with the target to 256 KB
-node.session.iscsi.MaxBurstLength = 262144
-
-# Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256 KB
-node.session.iscsi.FirstBurstLength = 262144
-
-# Set maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB
-node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
-
-# Disable R2T flow control
-node.session.iscsi.InitialR2T = No
-
-# Enable immediate data
-node.session.iscsi.ImmediateData = Yes
-
-# Set timeout value for WMI requests to 15 seconds
-node.conn[0].timeo.login_timeout = 15
-node.conn[0].timeo.logout_timeout = 15
-
-# Enable CRC digest checking for header and data
-node.conn[0].iscsi.HeaderDigest = CRC32C
-node.conn[0].iscsi.DataDigest = CRC32C
-```
-
-
 |Description  |Value  |
 |---------|---------|
 |# Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB     |node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144         |
@@ -156,8 +126,6 @@ In cluster configurations, ensure iSCSI initiator names are unique across all no
 
 Before deploying an Elastic SAN, determining the optimal size of what Elastic SAN you should deploy is necessary to achieving the right balance of performance for your workloads and cost. Use the following steps to determine the best sizing for you:
 
-With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider more capacity with an Elastic SAN. 
-
-Once the time interval has passed, you should be able to determine how much base capacity your Elastic SAN requires, and how much overhead you might want to have when higher performance is required. The rest of your storage should use additional-capacity to save on costs.
+With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider adding more base capacity to your Elastic SAN deployment. The rest of your Elastic SAN's storage should use additional-capacity, to save on cost.
 
 For more information on performance, see [Elastic SAN Preview and virtual machine performance](elastic-san-performance.md).
