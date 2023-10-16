@@ -172,10 +172,10 @@ Parquet `DataWriteableWriter` relies on `NanoTimeUtils` to convert a timestamp o
 
 1. If the results cache can be used for this query
     1. The query is `FetchTask` reading from the cached results directory. 
-    1. No cluster tasks is required.
+    1. No cluster tasks are required.
 1. If the results cache can't be used, run the cluster tasks as normal
     1. Check if the query results that have been computed are eligible to add to the results cache.
-    1. If results can be cached, the temporary results generated for the query is saved to the results cache. Steps may need to perform here to ensure the query results directory isn't deleted by query clean-up.
+    1. If results can be cached, the temporary results generated for the query are saved to the results cache. Steps may need to perform here to ensure the query results directory isn't deleted by query clean-up.
 
 ## SQL features
 
