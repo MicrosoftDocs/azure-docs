@@ -4,13 +4,12 @@ summary: "Azure Database Migration Service enables seamless migrations from mult
 metadata: 
   description: "Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service."
   keywords: azure database migration services, dms service, azure data migration, data migration service, database migration service
-  author: HJToland3
-  ms.author: jtoland
-  ms.date: 12/19/2019
+  author: croblesm
+  ms.author: roblescarlos
+  ms.date: 01/25/2022
   ms.service: dms
   ms.topic: landing-page
-  ms.custom: seo-azure-migrate
-
+  ms.custom: seo-azure-migrate, ignite-2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent: 
@@ -27,57 +26,60 @@ landingContent:
             url: migration-using-azure-data-studio.md
           - text: Get Azure recommendation for migration using Azure Data Studio
             url: ads-sku-recommend.md
+          - text: Migrate databases at scale using automation
+            url: migration-dms-powershell-cli.md
           - text: Database migration scenario status
             url: resource-scenario-status.md
-          - text: Overview of prerequisites
-            url: pre-reqs.md
       - linkListType: quickstart
         links:
-          - text: Create service – Portal
-            url: quickstart-create-data-migration-service-portal.md
-          - text: Create service in hybrid mode – Portal
-            url: quickstart-create-data-migration-service-hybrid-portal.md
-      - linkListType: reference
-        links:
-          - text: Known issues - Using hybrid mode
-            url: known-issues-dms-hybrid-mode.md
+          - text: SQL Server migration one-click PoC
+            url: http://aka.ms/SQLMigrationPoC
       - linkListType: video
         links:            
           - text: Introduction to Azure Data Migration Service
             url: https://www.microsoft.com/videoplayer/embed/RE2IqVu
-          - text: Use the Database Migration Guide
-            url: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
-          - text: The migration process and recommended tools/services
-            url: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
-          - text: Address prerequisites and create an Azure Data Migration Service instance
-            url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
+          - text: Cloud Migration Strategies and Phases in Migration Journey
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=migrating-to-sql-cloud-migration-strategies-and-phases-in-migration-journey-ep-1
+          - text: Discover and Assess SQL Server Data Estate Migrating to Azure SQL
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=migrating-to-sql-discover-and-assess-sql-server-data-estate-migrating-to-azure-sql-ep2
+          - text: Get Started with the New Database Migration Guides to Migrate Your Databases to Azure
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=get-started-with-the-new-database-migration-guides-to-migrate-your-databases-to-azure
+          
       - linkListType: whats-new
         links:
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
 # Card 2
-  - title: Migrate SQL Server to Azure SQL Database
+  - title: Migrate SQL Server to Azure SQL
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Migrate to Azure SQL Database
-            url: tutorial-sql-server-to-azure-sql.md
-          - text: Migrate to Azure SQL Managed Instance (online) using Azure Data Studio
+          - text: Migrate to Azure SQL Database (offline)
+            url: tutorial-sql-server-azure-sql-database-offline.md
+          - text: Migrate to Azure SQL Managed Instance (online)
             url: tutorial-sql-server-managed-instance-online-ads.md
-          - text: Migrate to SQL Managed Instance (offline) using Azure Data Studio
+          - text: Migrate to SQL Managed Instance (offline)
             url: tutorial-sql-server-managed-instance-offline-ads.md
+          - text: Migrate to SQL Server on Azure Virtual Machines (online)
+            url: tutorial-sql-server-to-virtual-machine-online-ads.md
+          - text: Migrate to SQL Server on Azure Virtual Machines (offline)
+            url: tutorial-sql-server-to-virtual-machine-offline-ads.md
       - linkListType: reference
         links:
-          - text: Known issues - Online migration to SQL Managed Instance
-            url: known-issues-azure-sql-db-managed-instance-online.md
-          - text: Network topologies for SQL Managed Instance migrations
-            url: resource-network-topologies.md
-          - text: Custom roles for online migrations from SQL Server to SQL Managed Instance
-            url: resource-custom-roles-sql-db-managed-instance.md            
+          - text: Known issues, limitations, and troubleshooting
+            url: known-issues-azure-sql-migration-azure-data-studio.md
+          - text: Custom roles for migrations from SQL Server to Azure SQL Database
+            url: resource-custom-roles-sql-database-ads.md
+          - text: Custom roles for migrations from SQL Server to Azure SQL Managed Instance
+            url: resource-custom-roles-sql-db-managed-instance-ads.md
+          - text: Custom roles for migrations from SQL Server to SQL Server on Azure VMs
+            url: resource-custom-roles-sql-db-virtual-machine-ads.md
       - linkListType: video
         links:
-          - text: Migrate SQL Server 2008 to SQL Managed Instance
-            url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
+          - text: How to migrate SQL Server to Azure SQL Database offline using Azure Data Studio
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=how-to-migrate-sql-server-to-azure-sql-database-offline-using-azure-data-studio-data-exposed
+          - text: Assess, get recommendations, & migrate SQL Server to Azure using Azure Data Studio 
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio
 # Card 3
   - title: Migrate open-source databases to Azure
     linkLists:
@@ -91,13 +93,17 @@ landingContent:
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
           - text: Migrate between Azure DB for PostgreSQL instances online via the portal
             url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
+          - text: Migrate Azure Database for MySQL - Single Server to Flexible Server - online
+            url: tutorial-mysql-azure-single-to-flex-online-portal.md
+          - text: Migrate Azure Database for MySQL - Single Server to Flexible Server - offline
+            url: tutorial-mysql-azure-single-to-flex-offline-portal.md
           - text: Migrate to Azure DB for MySQL - offline
             url: tutorial-mysql-azure-mysql-offline-portal.md
           - text: Migrate RDS MySQL to Azure DB for MySQL - offline
             url: tutorial-mysql-azure-mysql-offline-portal.md
-          - text: Migrate to Azure Cosmos DB Mongo API - online
+          - text: Migrate to Azure Cosmos DB for MongoDB` - online
             url: tutorial-mongodb-cosmos-db-online.md
-          - text: Migrate to Azure Cosmos DB Mongo API - offline
+          - text: Migrate to Azure Cosmos DB for MongoDB- offline
             url: tutorial-mongodb-cosmos-db.md
       - linkListType: reference
         links:
@@ -109,22 +115,26 @@ landingContent:
         links:
           - text: Migrate PostgreSQL to Azure DB for PostgreSQL - Single server
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
-          - text: Migrate to Azure Cosmos DB Mongo API
+          - text: Migrate to Azure Cosmos DB for MongoDB
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
 # Card 4
   - title: Tools and guidance
     linkLists:
       - linkListType: reference
         links:
-          - text: Services and tools by data migration scenario
+          - text: Services and tools available for data migration scenarios
             url: dms-tools-matrix.md
-          - text: Database Migration Guide
-            url: https://datamigration.microsoft.com/
-          - text: Data Migration Assistant
-            url: /sql/dma/dma-overview
+          - text: Azure Database Migration Guide
+            url: /data-migration/
+          - text: Azure SQL Migration extension for Azure Data Studio
+            url: /sql/azure-data-studio/extensions/azure-sql-migration-extension
+          - text: Azure Migrate
+            url: ../migrate/migrate-services-overview.md
+          - text: SQL Database Projects
+            url: /sql/azure-data-studio/extensions/sql-database-project-extension
+          - text: Database Schema Conversion Toolkit (Oracle to Microsoft SQL)
+            url: /sql/azure-data-studio/extensions/dsct/database-schema-conversion-toolkit
+          - text: Database Migration Assessment for Oracle
+            url: /sql/azure-data-studio/extensions/database-migration-assessment-for-oracle-extension
           - text: SQL Server Migration Assistant
             url: /sql/ssma/sql-server-migration-assistant
-          - text: Database Experimentation Assistant
-            url: /sql/dea/database-experimentation-assistant-overview
-          - text: Data Access Migration Toolkit
-            url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit

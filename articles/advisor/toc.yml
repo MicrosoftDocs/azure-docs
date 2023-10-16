@@ -14,13 +14,14 @@
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: advisor-alerts-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
 - name: Concepts
   items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
   - name: Recommendations
     items:
     - name: Cost
@@ -31,16 +32,30 @@
       href: advisor-reference-performance-recommendations.md
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
+    - name: Security
+      href: ../defender-for-cloud/recommendations-reference.md
+    - name: Sovereign clouds
+      href: advisor-sovereign-clouds.md
 - name: Samples 
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
 - name: How-to guides
   items:
-  - name: Security
-    href: advisor-security-recommendations.md
-  - name: Optimize costs
+  - name: Optimize virtual machine spend by resizing or shutting down underutilized instances
     href: advisor-cost-recommendations.md
+  - name: Optimize your Azure costs using the cost optimization workbook 
+    href: advisor-cost-optimization-workbook.md
+  - name: Improve security
+    href: advisor-security-recommendations.md
+  - name: Improve reliability  
+    href: advisor-how-to-improve-reliability.md
+  - name: Plan migration of workloads impacted by services retirement
+    href: advisor-how-to-plan-migration-workloads-service-retirement.md
+  - name: Improve the performance of highly used VMs
+    href: advisor-how-to-performance-resize-high-usage-vm-recommendations.md
+  - name: Use tags to filter recommendations and score
+    href: advisor-tag-filtering.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions
@@ -57,10 +72,12 @@
     href: azure-advisor-score.md
 - name: Reference
   items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-advisor-security-baseline?toc=/azure/advisor/toc.json
   - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
-    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
+    href: /azure/azure-sql/database/database-advisor-implement-performance-recommendations
   - name: App Service
     href: ../app-service/app-service-best-practices.md
   - name: REST API
@@ -86,4 +103,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Code samples
-    href: /samples/browse/?products=azure
+    href: /samples/browse/?products=azure   

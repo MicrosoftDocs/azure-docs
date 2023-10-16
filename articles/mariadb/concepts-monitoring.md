@@ -1,22 +1,27 @@
 ---
 title: Monitoring - Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/21/2020
+ms.date: 06/24/2022
 ---
 # Monitoring in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
+
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 
 For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
 ### List of metrics
+
 These metrics are available for Azure Database for MariaDB:
 
 |Metric|Metric Display Name|Unit|Description|

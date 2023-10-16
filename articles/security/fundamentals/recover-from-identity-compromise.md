@@ -1,25 +1,25 @@
 ---
+
 title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
-description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, and Azure Active Directory, and Microsoft Defender for Cloud, and Microsoft recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
-services: sentinel
+description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, Microsoft Entra ID, Microsoft Defender for Cloud, and Microsoft Defender for IoT and Microsoft recommendations to secure your system against systemic-identity compromises.
+services: security
 documentationcenter: na
 author: batamig
-manager: rkarlin
+manager: raynew
 editor: ''
 
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: security
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 01/15/2023
 ms.author: bagol
 
 ---
 
 # Recovering from systemic identity compromise
 
-This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Nobelium](https://aka.ms/solorigate) attack of December 2020.
+This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization.
 
 The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
 
@@ -57,7 +57,6 @@ Responding to systemic identity compromises should include the steps shown in th
 |**Investigate your environment**   | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. [Identify your indications of compromise](#identify-indications-of-compromise), and then look for initial access points and persistence. At the same time, start [establishing continuous monitoring operations](#establish-continuous-monitoring) during your recovery efforts.        |
 |**Improve security posture**     | [Enable security features and capabilities](#improve-security-posture) following best practice recommendations for improved system security moving forward.  <br><br>Make sure to continue your [continuous monitoring](#establish-continuous-monitoring) efforts as time goes on and the security landscape changes.    |
 |**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again and have refreshed your system's security posture, make sure to [remediate or block](#remediate-and-retain-administrative-control) all possible persistence techniques and new initial access exploits.       |
-|     |         |
 
 ## Establish secure communications
 
@@ -88,14 +87,17 @@ Check for updates in the following Microsoft security products, and implement an
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Defender for Cloud Apps ](/cloud-app-security/)
+- [Microsoft Defender for IoT](../../defender-for-iot/organizations/index.yml)
 
 Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
 
 Therefore, we recommend also taking the following actions:
 
-- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
+- Make sure that you've applied the [Microsoft cloud security benchmark](/security/benchmark/azure), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
 
-- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft 365 data connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
+- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
+
+- Make sure that any extended detection and response tools, such as [Microsoft Defender for IoT](../../defender-for-iot/organizations/how-to-work-with-threat-intelligence-packages.md), are using the most recent threat intelligence data.
 
 For more information, see Microsoft's security documentation:
 
@@ -128,7 +130,7 @@ Microsoft's security services provide extensive resources for detailed investiga
 Investigate and review cloud environment logs  for suspicious actions and attacker indications of compromise. For example, check the following logs:
 
 - [Unified Audit Logs (UAL)](/powershell/module/exchange/search-unifiedauditlog)
-- [Azure Active Directory (Azure AD) logs](../../active-directory/reports-monitoring/overview-monitoring.md)
+- [Microsoft Entra logs](../../active-directory/reports-monitoring/overview-monitoring.md)
 - [Microsoft Exchange on-premises logs](/exchange/mail-flow/transport-logs/transport-logs)
 - VPN logs, such as from [VPN Gateway](../../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 - Engineering system logs
@@ -151,11 +153,10 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 |Environment  |Description  |
 |---------|---------|
 |**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions<br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
-|**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
+|**All on-premises environments**     |       - Review privileged access on-premises and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
 |**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  - Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
 |**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- Power Apps <br>- Microsoft OneDrive for Business          |
 | **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options. <br>- Review ApplicationImpersonation rights and reduce any use of legacy authentication as much as possible. <br>- Validate that MFA is enforced and that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
-|     |         |
 
 ## Establish continuous monitoring
 
@@ -171,10 +172,20 @@ For example, Microsoft security services may have specific resources and guidanc
 
 Microsoft Sentinel has many built-in resources to help in your investigation, such as hunting workbooks and analytics rules that can help detect attacks in relevant areas of your environment.
 
-For more information, see:
+Use Microsoft Sentinel's content hub to install extended security solutions and data connectors that stream content from other services in your environment. For more information, see:
 
 - [Visualize and analyze your environment](../../sentinel/get-visibility.md)
-- [Detect threats out of the box](../../sentinel/detect-threats-built-in.md).
+- [Detect threats out of the box](../../sentinel/detect-threats-built-in.md)
+- [Discover and deploy out-of-the-box solutions](../../sentinel/sentinel-solutions-deploy.md)
+
+### Monitoring with Microsoft Defender for IoT
+
+If your environment also includes Operational Technology (OT) resources, you may have devices that use specialized protocols, which prioritize operational challenges over security.
+
+Deploy Microsoft Defender for IoT to monitor and secure those devices, especially any that aren't protected by traditional security monitoring systems. Install Defender for IoT network sensors at specific points of interest in your environment to detect threats in ongoing network activity using agentless monitoring and dynamic threat intelligence.
+
+For more information, see [Get started with OT network security monitoring](../../defender-for-iot/organizations/getting-started.md).
+
 
 ### Monitoring with Microsoft 365 Defender
 
@@ -187,24 +198,25 @@ For more information, see:
 - [Track and respond to emerging threats with threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics)
 - [Understand the analyst report in threat analytics](/microsoft-365/security/defender/threat-analytics-analyst-reports)
 
-### Monitoring with Azure Active Directory
+<a name='monitoring-with-azure-active-directory'></a>
 
-Azure Active Directory sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Azure Active Directory area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
+### Monitoring with Microsoft Entra ID
+
+Microsoft Entra sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Microsoft Entra area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
 
 For example, search or filter the results for when the **MFA results** field has a value of **MFA requirement satisfied by claim in the token**. If your organization uses ADFS and the claims logged are not included in the ADFS configuration, these claims may indicate attacker activity.
 
 Search or filter your results further to exclude extra noise. For example, you may want to include results only from federated domains. If you find suspicious sign-ins, drill down even further based on IP addresses, user accounts, and so on.
 
-The following table describes more methods for using Azure Active directory logs in your investigation:
+The following table describes more methods for using Microsoft Entra logs in your investigation:
 
 |Method  |Description  |
 |---------|---------|
-|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md) so that all authentication events are visible in Azure AD. |
-|**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
+|**Analyze risky sign-in events**     |  Microsoft Entra ID and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md) so that all authentication events are visible in Microsoft Entra ID. |
+|**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Microsoft Entra audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Microsoft Entra audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
-|**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
-|**Detect non-interactive sign-ins to service principals**     | The Azure Active Directory sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
-|     |         |
+|**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft Purview Audit (Premium) features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
+|**Detect non-interactive sign-ins to service principals**     | The Microsoft Entra sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
 
 
 ## Improve security posture
@@ -223,7 +235,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Sentinel](../../sentinel/overview.md).
+- **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](../../defender-for-iot/organizations/index.yml).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
@@ -233,17 +245,9 @@ We recommend the following actions to ensure identity-related security posture:
 
 - **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your identity architecture.
 
-- **[Consider migrating to Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)** for your authentication policy.
+- **[Consider migrating to Microsoft Entra Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)** for your authentication policy.
 
-- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](../../active-directory/conditional-access/block-legacy-authentication.md).
-
-    > [!NOTE]
-    > The Exchange Team is planning to [disable Basic Authentication for the EAS, EWS, POP, IMAP, and RPS protocols](https://developer.microsoft.com/en-us/office/blogs/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) in the second half of 2021.
-    >
-    > As a point of clarity, Security Defaults and Authentication Policies are separate but provide complementary features.
-    >
-    > We recommend that customers use Authentication Policies to turn off Basic Authentication for a subset of Exchange Online protocols or to gradually turn off Basic Authentication across a large organization.
-    >
+- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Microsoft Entra ID with Conditional Access](../../active-directory/conditional-access/block-legacy-authentication.md).
 
 - **Treat your ADFS infrastructure and AD Connect infrastructure as a Tier 0 asset**.
 
@@ -259,13 +263,7 @@ We recommend the following actions to ensure identity-related security posture:
 
 - If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group-Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
 
-- **Ensure Verbose logging is enabled on your ADFS systems**. For example, run the following commands:
-
-    ```powershell
-    Set-AdfsProperties -AuditLevel verbose
-    Restart-Service -Name adfssrv
-    Auditpol.exe /set /subcategory:”Application Generated” /failure:enable /success:enable
-    ```
+- **Ensure Verbose logging is enabled on your ADFS systems**.
 
 ## Remediate and retain administrative control
 
@@ -297,96 +295,16 @@ If your organization decides *not* to [remove trust](#remove-trust-on-your-curre
 
 Rotating the token-signing certificate a single time still allows the previous token-signing certificate to work. Continuing to allow previous certificates to work is a built-in functionality for normal certificate rotations, which permits a grace period for organizations to update any relying party trusts before the certificate expires.
 
-If there was an attack, you don't want the attacker to retain access at all. Make sure to use the following steps to ensure that the attacker doesn't maintain the ability to forge tokens for your domain.
+If there was an attack, you don't want the attacker to retain access at all. Make sure that the attacker doesn't retain the ability to forge tokens for your domain.
 
-> [!CAUTION]
-> The last step in this procedure logs users out of their phones, current webmail sessions, and any other items that are using the associated tokens and refresh tokens.
->
+For more information, see:
 
-> [!TIP]
-> Performing these steps in your ADFS environment creates both a primary and secondary certificate, and automatically promotes the secondary certificate to primary after a default period of 5 days.
->
-> If you have Relying Party Trusts, this may have effects 5 days after the initial ADFS environment change, and should be accounted for in your plan. You can also resolve this by replacing the primary certificate a third time, using the **Urgent** flag again, and removing the secondary certificate or turning off automatic certificate rotation.
->
-
-**To fully rotate the token-signing certificate, and prevent new token forging by an attacker**
-
-1. Check to make sure that your **AutoCertificateRollover** parameter is set to **True**:
-
-    ``` powershell
-    Get-AdfsProperties | FL AutoCert*, Certificate*
-    ```
-    If **AutoCertificateRollover** isn't set to **True**, set the value as follows:
-
-    ``` powershell
-    Set-ADFSProperties -AutoCertificateRollover $true
-    ```
-
-1. Connect to the Microsoft Online Service:
-
-    ``` powershell
-    Connect-MsolService
-    ```
-
-1. Run the following command and make a note of your on-premises and cloud token signing certificate thumbprint and expiration dates:
-
-    ``` powershell
-    Get-MsolFederationProperty -DomainName <domain>
-    ```
-
-    For example:
-
-    ```powershell
-    ...
-    [Not Before]
-        12/9/2020 7:57:13 PM
-
-    [Not After]
-        12/9/2021 7:57:13 PM
-
-    [Thumbprint]
-        3UD1JG5MEFHSBW7HEPF6D98EI8AHNTY22XPQWJFK6
-    ```
-
-1. Replace the primary token signing certificate using the **Urgent** switch. This command causes ADFS to replace the primary certificate immediately, without making it a secondary certificate:
-
-    ```powershell
-    Update-AdfsCertificate -CertificateType Token-Signing -Urgent
-    ```
-
-1. Create a secondary Token Signing certificate, without the **Urgent** switch. This command allows for two on-premises token signing certificates before synching with Azure Cloud.
-
-    ```powershell
-    Update-AdfsCertificate -CertificateType Token-Signing
-    ```
-
-1. Update the cloud environment with both the primary and secondary certificates on-premises to immediately remove the cloud published token signing certificate.
-
-    ```powershell
-    Update-MsolFederatedDomain -DomainName <domain>
-    ```
-
-    > [!IMPORTANT]
-    > If this step is not performed using this method, the old token signing certificate may still be able to authenticate users.
-
-1. To ensure that these steps have been performed correctly, verify that the certificate displayed before in step 3 is now removed:
-
-    ```powershell
-    Get-MsolFederationProperty -DomainName <domain>
-    ```
-
-1. Revoke your refresh tokens via PowerShell, to prevent access with the old tokens. 
-
-    For more information, see:
-
-    - [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-    - [Revoke-AzureADUserAllRefreshToken PowerShell docs](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
-
+- [Revoke user access in Microsoft Entra ID](../../active-directory/enterprise-users/users-revoke-access.md)
 
 
 ### Replace your ADFS servers
 
-If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, you'll need to remove the existing ADFS from your environment, and then build a new one. 
+If, instead of rotating your SAML token-signing certificate, you decide to replace the ADFS servers with clean systems, you'll need to remove the existing ADFS from your environment, and then build a new one. 
 
 For more information, see [Remove a configuration](../../active-directory/cloud-sync/how-to-configure.md#remove-a-configuration). 
 
@@ -397,11 +315,10 @@ In addition to the recommendations listed earlier in this article, we also recom
 |Activity  |Description  |
 |---------|---------|
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](../../active-directory/roles/security-emergency-access.md) and reduce the number of break-glass accounts to the absolute minimum required.    |
-|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
+|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premises accounts that are synced or federated to Microsoft Entra ID.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
 |**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
-|     |         |
 
 ### On-premises remediation activities
 
@@ -415,7 +332,6 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Reset the krbtgt account**     | Reset the **krbtgt** account twice using the [New-KrbtgtKeys](https://github.com/microsoft/New-KrbtgtKeys.ps1/blob/master/New-KrbtgtKeys.ps1) script. <br><br>**Note**: If you are using Read-Only Domain Controllers, you will need to run the script separately for Read-Write Domain Controllers and for Read-Only Domain Controllers.        |
 |**Schedule a system restart**     |   After you validate that no persistence mechanisms created by the attacker exist or remain on your system, schedule a system restart to assist with removing memory-resident malware. |
 |**Reset the DSRM password**     |  Reset each domain controller’s DSRM (Directory Services Restore Mode) password to something unique and complex.       |
-|     |         |
 
 ### Remediate or block persistence discovered during investigation
 
@@ -437,12 +353,11 @@ In addition to the recommended actions listed above, we recommend that you consi
 
     For more information, see:
 
-    - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-    - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
+    - [Revoke user access in an emergency in Microsoft Entra ID](../../active-directory/enterprise-users/users-revoke-access.md)
 
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft 365 compliance center, and Office 365 Security & Compliance Center by selecting the **Help** (**?**) button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft Purview compliance portal, and Office 365 Security & Compliance Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 

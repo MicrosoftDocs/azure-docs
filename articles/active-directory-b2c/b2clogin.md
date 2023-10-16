@@ -9,60 +9,56 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 05/21/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C
 
-When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) application, you need to specify a redirect URL. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* for all new applications, and migrate existing applications from *login.microsoftonline.com* to *b2clogin.com*.
+When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) applications, you need to specify the endpoints of the Azure AD B2C identity provider. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* or a [custom domain](./custom-domain.md) for all applications.
 
 ## What endpoints does this apply to
-The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
-These endpoints may look like:
-- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter, which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
-- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
+Old endpoints may look like:
+- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize<b>?p=\<policy-name\></b></code>
 
-Alternatively, the `<policy-name>` may be passed as a query parameter:
-- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
-- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
+A corresponding updated endpoint would look like:
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
 
-> [!IMPORTANT]
-> Endpoints that use the 'policy' parameter must be updated as well as [identity provider redirect URLs](#change-identity-provider-redirect-urls).
+With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated endpoint would look like:
 
-Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, *which don't contain a policy parameter*. __These endpoints are not affected__.
+- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
 
-## Benefits of b2clogin.com
+## Endpoints that are not affected
 
-When you use *b2clogin.com* as your redirect URL:
+Some customers use the shared capabilities of Microsoft Entra enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md#code-discussion) of the Azure AD B2C tenant.
 
-* Space consumed in the cookie header by Microsoft services is reduced.
-* Your redirect URLs no longer need to include a reference to Microsoft.
-* [JavaScript client-side code](javascript-and-page-layout.md) is supported in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
+All endpoints, which don't contain a policy parameter aren't affected by the change. They're accessed only with the Microsoft Entra ID's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Microsoft identity platform:
+
+```http
+https://login.microsoftonline.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token
+```
 
 ## Overview of required changes
 
-There are several modifications you might need to make to migrate your applications to *b2clogin.com*:
+There are several modifications you might need to make to migrate your applications from *login.microsoftonline.com* using Azure AD B2C endpoints:
 
-* Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
-* Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references. This may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
+* Change the redirect URL in your identity provider's applications to reference *b2clogin.com*, or custom domain. For more information, follow the [change identity provider redirect URLs](#change-identity-provider-redirect-urls) guidance.
+* Update your Azure AD B2C applications to use *b2clogin.com*, or custom domain in their user flow and token endpoint references. The change may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
 * Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](customize-ui-with-html.md).
-
-An old endpoint may look like:
-- <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>
-
-A corresponding updated endpoint would look like:
-- <code><b>https://\<tenant-name\>.b2clogin.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>
 
 
 ## Change identity provider redirect URLs
 
-On each identity provider's website in which you've created an application, change all trusted URLs to redirect to `your-tenant-name.b2clogin.com` instead of *login.microsoftonline.com*.
+On each identity provider's website in which you've created an application, change all trusted URLs to redirect to `your-tenant-name.b2clogin.com`, or a custom domain instead of *login.microsoftonline.com*.
 
-There are two formats you can use for your b2clogin.com redirect URLs. The first provides the benefit of not having "Microsoft" appear anywhere in the URL by using the Tenant ID (a GUID) in place of your tenant domain name:
+There are two formats you can use for your b2clogin.com redirect URLs. The first provides the benefit of not having "Microsoft" appear anywhere in the URL by using the Tenant ID (a GUID) in place of your tenant domain name. Note, the `authresp` endpoint may not contain a policy name.
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
@@ -101,7 +97,7 @@ For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migr
 
 ### MSAL.NET ValidateAuthority property
 
-If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` is not required for MSAL.NET v3 and above.
+If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` isn't required for MSAL.NET v3 and above.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication

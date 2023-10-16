@@ -1,11 +1,11 @@
 ---
-title: Bulk upload to add or create members of a group - Azure Active Directory | Microsoft Docs
-description: Add group members in bulk in the Azure Active Directory admin center. 
+title: Bulk upload to add or create members of a group
+description: Add group members in bulk in the Azure portal. 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 09/02/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 04/24/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -15,13 +15,13 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk add group members in Azure Active Directory
+# Bulk add group members in Microsoft Entra ID
 
-Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
+You can add multiple members to a group by using a comma-separated values (CSV) file to bulk import group members in the portal for Microsoft Entra ID, part of Microsoft Entra.
 
 ## Understand the CSV template
 
-Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
+Download and fill in the bulk upload CSV template to successfully add Microsoft Entra group members in bulk. Your CSV template might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-import-members/template-with-callouts.png)
 
@@ -37,16 +37,22 @@ The rows in a downloaded CSV template are as follows:
 
 - The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - The required columns are listed first.
-- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- We don't recommend adding new columns to the template. Any other columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 - Add at least two users' UPNs or object IDs to successfully upload the file.
 
 ## To bulk import group members
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk import members of groups they own.
-1. In Azure AD, select **Groups** > **All groups**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+   >[!NOTE]
+   >Group owners can also bulk import members of groups they own.
+1. Select **Groups** > **All groups**.
 1. Open the group to which you're adding members and then select **Members**.
-1. On the **Members** page, select **Import members**.
+1. On the **Members** page, select **bulk operations** and then choose **Import members**.
 1. On the **Bulk import group members** page, select **Download** to get the CSV file template with required group member properties.
 
     ![The Import Members command is on the profile page for the group](./media/groups-bulk-import-members/import-panel.png)

@@ -1,26 +1,26 @@
 ---
 title: Use managed identities to access Azure SQL Database or Azure Synapse Analytics - Azure Stream Analytics
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure SQL Database or Azure Synapse Analytics output.
-author: enkrumah
-ms.author: ebnkruma
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 01/31/2023
 ---
 
-# Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job (Preview)
+# Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job
 
 Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database and Azure Synapse Analytics output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.
 
-A managed identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource. This article shows you how to enable Managed Identity for an Azure SQL Database or an Azure Synapse Analytics output(s) of a Stream Analytics job through the Azure portal.
+A managed identity is a managed application registered in Microsoft Entra ID that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource. This article shows you how to enable Managed Identity for an Azure SQL Database or an Azure Synapse Analytics output(s) of a Stream Analytics job through the Azure portal.
 
 ## Overview
 
 This article shows you the steps needed to connect your Stream Analytics job to your Azure SQL Database or Azure Synapse Analytics SQL pool using Managed Identity authentication mode.
 
-- You first create a system-assigned managed identity for your Stream Analytics job. This is your job’s identity in Azure Active Directory.
+- You first create a system-assigned managed identity for your Stream Analytics job. This is your job’s identity in Microsoft Entra ID.
 
-- Add an Active Directory admin to your SQL server or Synapse workspace, which enables Azure AD (Managed Identity) authentication for that resource.
+- Add an Active Directory admin to your SQL server or Synapse workspace, which enables Microsoft Entra ID (Managed Identity) authentication for that resource.
 
 - Next, create a contained user representing the Stream Analytics job's identity in the database. Whenever the Stream Analytics job interacts with your SQL DB or Synapse SQL DB resource, this is the identity it will refer to for checking what permissions your Stream Analytics job has.
 
@@ -62,9 +62,11 @@ First, you create a managed identity for your Azure Stream Analytics job.
 
    ![Select system-assigned managed identity](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
-   A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
+   A service principal for the Stream Analytics job's identity is created in Microsoft Entra ID. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
 
-1. When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
+1. You can also switch to [user-assigned managed identities](stream-analytics-user-assigned-managed-identity-overview.md). 
+ 
+3. When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
 
    ![Object ID shown as Principal ID](./media/sql-db-output-managed-identity/principal-id.png)
 
@@ -84,17 +86,17 @@ After you've created a managed identity, you select an Active Directory admin.
 
    ![Add Active Directory admin](./media/sql-db-output-managed-identity/add-admin.png)
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Grayed out users or groups can't be selected as they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+   The Active Directory admin page shows all members and groups of your Active Directory. Grayed out users or groups can't be selected as they're not supported as Microsoft Entra administrators. See the list of supported admins in the **Microsoft Entra features and Limitations** section of [Use Microsoft Entra authentication for authentication with SQL Database or Azure Synapse](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.
 
 ## Create a contained database user
 
-Next, you create a contained database user in your Azure SQL or Azure Synapse database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the primary database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job.
+Next, you create a contained database user in your Azure SQL or Azure Synapse database that is mapped to the Microsoft Entra identity. The contained database user doesn't have a login for the primary database, but it maps to an identity in the directory that is associated with the database. The Microsoft Entra identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job.
 
-For more information, review the following article for background on Azure AD integration: [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](../azure-sql/database/authentication-mfa-ssms-overview.md)
+For more information, review the following article for background on Microsoft Entra integration: [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/azure-sql/database/authentication-mfa-ssms-overview)
 
-1. Connect to your Azure SQL or Azure Synapse database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication.
+1. Connect to your Azure SQL or Azure Synapse database using SQL Server Management Studio. The **User name** is a Microsoft Entra user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Microsoft Entra ID – Universal with MFA** authentication.
 
    ![Connect to SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
@@ -127,7 +129,7 @@ For more information, review the following article for background on Azure AD in
    WHERE type_desc = 'EXTERNAL_USER'
    ```
 
-1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network"/”Firewalls” page in Azure portal again, and enable "Allow Azure services and resources to access this server/workspace."
+1. For Microsoft's Microsoft Entra ID to verify if the Stream Analytics job has access to the SQL Database, we need to give Microsoft Entra permission to communicate with the database. To do this, go to the "Firewalls and virtual network"/”Firewalls” page in Azure portal again, and enable "Allow Azure services and resources to access this server/workspace."
 
    ![Firewall and virtual network](./media/sql-db-output-managed-identity/allow-access.png)
 
@@ -208,6 +210,17 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 1. After clicking **Save**, a connection test to your resource should automatically trigger. Once that successfully completes, you are now ready to proceed with using Managed Identity for your Azure Synapse Analytics resource with Stream Analytics.
 
 ---
+
+## Additional Steps with User-Assigned Managed Identity
+
+Repeat the steps if you selected user-assigned managed identity to connect ASA to Synapse:
+1. Create a contained database user. Replace ASA_Job_Name with User-Assigned Managed Identity. See the example below.
+   ```sql
+   CREATE USER [User-Assigned Managed Identit] FROM EXTERNAL PROVIDER;
+   ```
+2. Grant permissions to the User-Assigned Managed Identity. Replace ASA_Job_Name with User-Assigned Managed Identity.
+
+For more details, please refer to the sections above.
 
 ## Remove Managed Identity
 

@@ -6,9 +6,9 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 
@@ -22,7 +22,7 @@ In this article, you learn how to:
 * Create an application gateway
 * Create backend listeners
 * Create routing rules
-* Create virtual machine scale sets with the backend pools
+* Create Virtual Machine Scale Sets with the backend pools
 * Create a CNAME record in your domain
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
@@ -31,7 +31,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -88,7 +88,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 10
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
@@ -153,7 +154,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener contosoListener \
   --rule-type Basic \
-  --address-pool contosoPool
+  --address-pool contosoPool \
+  --priority 200
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -161,7 +163,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener fabrikamListener \
   --rule-type Basic \
-  --address-pool fabrikamPool
+  --address-pool fabrikamPool \
+  --priority 100
 
 az network application-gateway rule delete \
   --gateway-name myAppGateway \
@@ -174,27 +177,27 @@ In order to ensure that more specific rules are processed first, use the rule pr
 ```azurecli-interactive
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name wccontosoRule \
+  --name contosoRule \
   --resource-group myResourceGroupAG \
-  --http-listener wccontosoListener \
+  --http-listener contosoListener \
   --rule-type Basic \
   --priority 200 \
-  --address-pool wccontosoPool
+  --address-pool contosoPool
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name shopcontosoRule \
+  --name fabrikamRule \
   --resource-group myResourceGroupAG \
-  --http-listener shopcontosoListener \
+  --http-listener fabrikamListener \
   --rule-type Basic \
   --priority 100 \
-  --address-pool shopcontosoPool
+  --address-pool fabrikamPool
 
 ```
 
-## Create virtual machine scale sets
+## Create Virtual Machine Scale Sets
 
-In this example, you create three virtual machine scale sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
+In this example, you create three Virtual Machine Scale Sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -212,13 +215,13 @@ for i in `seq 1 2`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password Azure123456! \
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --vm-sku Standard_DS2 \
+    --vm-sku Standard_D1_v2 \
     --upgrade-policy-mode Automatic \
     --app-gateway myAppGateway \
     --backend-pool-name $poolName

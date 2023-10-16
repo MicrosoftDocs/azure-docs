@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 07/19/2021
-ms.custom: devx-track-js
+ms.date: 08/20/2022
+ms.custom:
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -79,8 +79,8 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
+| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app workflow by calling [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) to subscribe and unsubscribe. | 
 ||| 
 
 ## Triggers - Detailed reference
@@ -89,7 +89,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 ### APIConnection trigger  
 
-This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
+This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -186,7 +186,7 @@ This trigger definition checks for email every day inside the inbox for a work o
 
 ### ApiConnectionWebhook trigger
 
-This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
+This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -676,23 +676,24 @@ this expression as your condition:
 
 <a name="split-on-debatch"></a>
 
-## Trigger multiple runs
+## Trigger multiple runs on an array
 
-If your trigger returns an array for your logic app to process, sometimes a "for each" loop might take too long to process each array item. Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. Debatching splits up the array items and starts a new workflow instance that runs for each array item. This approach is useful, for example, when you want to poll an endpoint that might return multiple new items between polling intervals. For the maximum number of array items that **SplitOn** can process in a single logic app run, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+If your trigger receives an array for your workflow to process, sometimes a "for each" loop might take too long to process each array item. Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. Debatching splits up the array items and starts a new workflow instance that runs for each array item. This approach is useful, for example, when you want to poll an endpoint that might return multiple new items between polling intervals.
 
-> [!NOTE]
-> You can't use **SplitOn** with a synchronous response pattern. Any workflow that uses **SplitOn** and includes a response action 
-> runs asynchronously and immediately sends a `202 ACCEPTED` response.
->
-> When trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 
-> is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
- 
-If your trigger's Swagger file describes a payload that is an array, the **SplitOn** property is automatically added to your trigger. Otherwise, add this property inside the response payload that has 
+If your trigger's Swagger file describes a payload that's an array, the **SplitOn** property is automatically added to your trigger. Otherwise, add this property inside the response payload that has 
 the array you want to debatch.
+
+Before you use the SplitOn capability, review the following considerations:
+
+- If trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
+
+- You can't use the SplitOn capability with a synchronous response pattern. Any workflow that uses the **SplitOn** property and includes a response action runs asynchronously and immediately sends a `202 ACCEPTED` response.
+
+- For the maximum number of array items that **SplitOn** can process in a single workflow run, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 *Example*
 
-Suppose you have an API that returns this response: 
+Suppose you have an HTTP trigger that calls an API and receives this response: 
   
 ```json
 {
@@ -710,7 +711,7 @@ Suppose you have an API that returns this response:
 }
 ```
 
-Your logic app only needs the content from the array in `Rows`, so you can create a trigger like this example:
+Your workflow needs only the content from the array in `Rows`, so you can create a trigger like this example:
 
 ``` json
 "HTTP_Debatch": {
@@ -841,8 +842,8 @@ Here are some commonly used action types:
 
 | Action type | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/introduction.md). | 
 ||| 
 
 <a name="control-workflow-actions"></a>
@@ -866,7 +867,7 @@ These actions help you control workflow execution and include other actions. Fro
 
 ### APIConnection action
 
-This action sends an HTTP request to a [Microsoft-managed API](../connectors/apis-list.md) and requires information about the API and parameters plus a reference to a valid connection. 
+This action sends an HTTP request to a [Microsoft-managed API](../connectors/introduction.md) and requires information about the API and parameters plus a reference to a valid connection. 
 
 ``` json
 "<action-name>": {
@@ -937,7 +938,7 @@ This definition describes the **Send an email** action for Office 365 Outlook co
 
 ### APIConnectionWebhook action
 
-This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, 
+This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, 
 and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
@@ -1029,7 +1030,7 @@ This action definition merges `abcdefg ` with a trailing space and the value `12
 },
 ```
 
-Here is the output that this action creates:
+Here's the output that this action creates:
 
 `abcdefg 1234`
 
@@ -1045,7 +1046,7 @@ This action definition merges a string variable that contains `abcdefg` and an i
 },
 ```
 
-Here is the output that this action creates:
+Here's the output that this action creates:
 
 `"abcdefg1234"`
 
@@ -1053,7 +1054,7 @@ Here is the output that this action creates:
 
 ### Execute JavaScript Code action
 
-This action runs a JavaScript code snippet and returns the results through a `Result` token that later actions can reference.
+This action runs a JavaScript code snippet and returns the results through a token that subsequent actions in the workflow can reference.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1061,7 +1062,7 @@ This action runs a JavaScript code snippet and returns the results through a `Re
    "inputs": {
       "code": "<JavaScript-code-snippet>",
       "explicitDependencies": {
-         "actions": [ <previous-actions> ],
+         "actions": [ <preceding-actions> ],
          "includeTrigger": true
       }
    },
@@ -1073,26 +1074,23 @@ This action runs a JavaScript code snippet and returns the results through a `Re
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Run code snippets in workflows](logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the outputs from the trigger and any preceding actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results using the workflowContext object](logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
 
 *Required in some cases*
 
-The `explicitDependencies` attribute specifies that you want to explicitly 
-include results from the trigger, previous actions, or both as dependencies 
-for your code snippet. For more information about adding these dependencies, see 
-[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+The `explicitDependencies` attribute specifies that you want to explicitly include results from the trigger, previous actions, or both as dependencies for your code snippet. For more information about adding these dependencies, see [Add dependencies as parameters to an Inline Code action](logic-apps-add-run-inline-code.md#add-parameters). 
 
 For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | String array | An array with your specified action names. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
+| <*preceding-actions*> | String array | An array with the action names in JSON format as dependencies. Make sure to use the action names that appear in your workflow definition where action names use underscores (**_**), not spaces (**" "**). |
 ||||
 
 *Example 1*
 
-This action runs code that gets your logic app's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+This action runs code that gets your logic app workflow's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1106,26 +1104,24 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app workflow that triggers when a new email arrives in an Outlook account. The workflow also uses the Office 365 Outlook **Send approval email** action that forwards the content from the received email along with a request for approval.
 
-The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
+The code extracts the email addresses from the email message's `Body` property, and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the **Send approval email** action as a dependency in the `actions` object inside the `explicitDependencies` object.
 
 ```json
 "Execute_JavaScript_Code": {
    "type": "JavaScriptCode",
    "inputs": {
-      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "code": "var myResult = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email.outputs.body.SelectedOption;\r\n\r\nreturn email.match(myResult) + \" - \" + reply;\r\n;",
       "explicitDependencies": {
          "actions": [
-            "Send_approval_email_"
+            "Send_approval_email"
          ]
       }
    },
    "runAfter": {}
 }
 ```
-
-
 
 <a name="function-action"></a>
 
@@ -1153,7 +1149,7 @@ This action calls a previously created [Azure function](../azure-functions/funct
 
 | Value | Type | Description | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here is the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
+| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here's the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | String | The HTTP method to use for calling the function: "GET", "PUT", "POST", "PATCH", or "DELETE" <p>If not specified, the default is the "POST" method. | 
 ||||
 
@@ -1569,7 +1565,7 @@ This action definition creates a JSON object array from an integer array. The ac
 },
 ```
 
-Here is the array that this action creates:
+Here's the array that this action creates:
 
 `[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
 
@@ -1676,7 +1672,7 @@ This action definition creates a CSV table from the "myItemArray" variable. The 
 }
 ```
 
-Here is the CSV table that this action creates: 
+Here's the CSV table that this action creates: 
 
 ```
 ID,Product_Name 
@@ -1699,7 +1695,7 @@ This action definition creates an HTML table from the "myItemArray" variable. Th
 }
 ```
 
-Here is the HTML table that this action creates: 
+Here's the HTML table that this action creates: 
 
 <table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
@@ -1728,7 +1724,7 @@ This action definition creates an HTML table from the "myItemArray" variable. Ho
 },
 ```
 
-Here is the HTML table that this action creates: 
+Here's the HTML table that this action creates: 
 
 <table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
@@ -1905,7 +1901,6 @@ The Logic Apps engine checks access to the trigger you want to call, so make sur
 | <*trigger-name*> | String | The name for the trigger in the nested logic app you want to call | 
 | <*Azure-subscription-ID*> | String | The Azure subscription ID for the nested logic app |
 | <*Azure-resource-group*> | String | The Azure resource group name for the nested logic app |
-| <*nested-logic-app-name*> | String | The name for the logic app you want to call |
 ||||
 
 *Optional*
@@ -2407,7 +2402,7 @@ You can change the default behavior for triggers and actions with the `operation
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
-| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
+| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable OAuth with Microsoft Entra ID](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
 | `SuppressWorkflowHeaders` | String | Don't send `x-ms-*` metadata headers in outbound requests. By default, the Azure Logic Apps service includes extra metadata headers with the `x-ms-` prefix in the header name as part of outbound requests. However, some legacy services won't accept requests with extra unknown headers, resulting in failed requests. | Actions: <p>[HTTP](#http-action), <br>[Function](#function-action), <br>APIManagement | 
@@ -2422,9 +2417,11 @@ By default, logic app workflow instances all run at the same time (concurrently 
 
 When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel.
 
-Here are some considerations to review before you enable concurrency on a trigger:
+Before you enable concurrency on a trigger, review the following considerations:
 
 * You can't disable concurrency after you enable the concurrency control.
+
+* If the maximum number of concurrent trigger runs reaches the maximum degree of parallelism, subsequent trigger runs might experience throttling or "429 - Too many requests" errors. If you set up a [retry policy that handles 429 errors](handle-throttling-problems-429-errors.md), the trigger might experience a cycle of retry and throttling behavior that causes long delays in processing new trigger requests.
 
 * When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
@@ -2447,7 +2444,7 @@ Here are some considerations to review before you enable concurrency on a trigge
 
   * To work around this possibility, add a timeout to any action that might hold up these runs. If you're working in the code editor, see [Change asynchronous duration](#asynchronous-limits). Otherwise, if you're using the designer, follow these steps:
 
-    1. In your logic app, on the action where you want to add a timeout, in the upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
+    1. In your logic app workflow, select the action where you want to add a timeout. In the action's upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
 
        ![Open action settings](./media/logic-apps-workflow-actions-triggers/action-settings.png)
 
@@ -2505,7 +2502,7 @@ To change the default limit, you can use either the code view editor or Logic Ap
 
 In the underlying "for each" definition, add or update the `runtimeConfiguration.concurrency.repetitions` property, which can have a value that ranges from `1` and `50`.
 
-Here is an example that limits concurrent runs to 10 iterations:
+Here's an example that limits concurrent runs to 10 iterations:
 
 ```json
 "For_each" {

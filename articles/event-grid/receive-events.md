@@ -2,9 +2,9 @@
 title: Receive events from Azure Event Grid to an HTTP endpoint
 description: Describes how to validate an HTTP endpoint, then receive and deserialize Events from Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 11/14/2022
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Receive events to an HTTP endpoint
@@ -26,9 +26,9 @@ SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#
 
 ## Endpoint validation
 
-The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](webhook-event-delivery.md). If you're using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you. If you use a third-party API service (like [Zapier](https://zapier.com/home) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL in the `validationUrl` property and send a GET request either through a REST client or your web browser.
+The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](webhook-event-delivery.md). If you're using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you. If you use a third-party API service (like [Zapier](https://zapier.com/) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL in the `validationUrl` property and send a GET request either through a REST client or your web browser.
 
-In C#, the `ParseMany()` method is used to deserialize a `BinaryData` instance containing 1 or more events into an array of `EventGridEvent`. If you knew ahead of time that your are deserializing only a single event, you could use the `Parse` method instead.
+In C#, the `ParseMany()` method is used to deserialize a `BinaryData` instance containing 1 or more events into an array of `EventGridEvent`. If you knew ahead of time that you are deserializing only a single event, you could use the `Parse` method instead.
 
 To programmatically echo the validation code, use the following code.
 
@@ -69,11 +69,11 @@ namespace Function1
                     {
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
-
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
+
                         return new OkObjectResult(responseData);
                     }
                 }
@@ -123,7 +123,7 @@ Test the validation response function by pasting the sample event into the test 
 }]
 ```
 
-When you click Run, the Output should be 200 OK and `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
+When you select Run, the Output should be 200 OK and `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
 
 :::image type="content" source="./media/receive-events/validation-request.png" alt-text="Validation request":::
 
@@ -171,7 +171,7 @@ namespace Function1
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
 
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
@@ -219,7 +219,7 @@ module.exports = function (context, req) {
 
 ### Test Blob Created event handling
 
-Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
+Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-events) into the test field and running:
 
 ```json
 [{
@@ -249,9 +249,15 @@ Test the new functionality of the function by putting a [Blob storage event](./e
 
 You should see the blob URL output in the function log:
 
-![Output log](./media/receive-events/blob-event-response.png)
+```
+2022-11-14T22:40:45.978 [Information] Executing 'Function1' (Reason='This function was programmatically called via the host APIs.', Id=8429137d-9245-438c-8206-f9e85ef5dd61)
+2022-11-14T22:40:46.012 [Information] C# HTTP trigger function processed a request.
+2022-11-14T22:40:46.017 [Information] Received events: [{"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount","subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt","eventType": "Microsoft.Storage.BlobCreated","eventTime": "2017-06-26T18:41:00.9584103Z","id": "831e1650-001e-001b-66ab-eeb76e069631","data": {"api": "PutBlockList","clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760","requestId": "831e1650-001e-001b-66ab-eeb76e000000","eTag": "0x8D4BCC2E4835CD0","contentType": "text/plain","contentLength": 524288,"blobType": "BlockBlob","url": "https://example.blob.core.windows.net/testcontainer/testfile.txt","sequencer": "00000000000004420000000000028963","storageDiagnostics": {"batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"}},"dataVersion": "","metadataVersion": "1"}]
+2022-11-14T22:40:46.335 [Information] Got BlobCreated event data, blob URI https://example.blob.core.windows.net/testcontainer/testfile.txt
+2022-11-14T22:40:46.346 [Information] Executed 'Function1' (Succeeded, Id=8429137d-9245-438c-8206-f9e85ef5dd61, Duration=387ms)
+```
 
-You can also test by creating a Blob storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
+You can also test by creating a Blob storage account or General Purpose V2 (GPv2) Storage account, [adding an event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
 
 ![Function URL](./media/receive-events/function-url.png)
 
@@ -299,7 +305,7 @@ namespace Function1
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
 
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
@@ -376,7 +382,7 @@ Finally, test that your function can now handle your custom event type:
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
 
-[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
+[!INCLUDE [message-headers](./includes/message-headers.md)]
 
 ## Next steps
 

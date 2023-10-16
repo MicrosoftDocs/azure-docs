@@ -1,35 +1,129 @@
 ---
 title: 'Tutorial: Deploy a Python Django or Flask web app with PostgreSQL'
 description: Create a Python Django or Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django or Flask framework and the app is hosted on Azure App Service on Linux.
-author: jess-johnson-msft
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 03/09/2022
-ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22]
+ms.date: 10/31/2023
+ms.author: msangapu
+author: msangapu-msft
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed, AppServiceConnectivity
+zone_pivot_groups: app-service-portal-azd
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. The Python app is hosted in a fully managed **[Azure App Service](./overview.md#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
+### [Flask](#tab/flask)
 
-:::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
+> [!TIP]
+> With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
+>
+> ```bash
+> azd auth login
+> azd init --template msdocs-flask-postgresql-sample-app
+> azd up
+> ```
+
+### [Django](#tab/django)
+
+> [!TIP]
+> With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
+>
+> ```bash
+> azd auth login
+> azd init --template msdocs-django-postgresql-sample-app
+> azd up
+> ```
+
+-----
+
+::: zone pivot="azure-portal"  
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
+
+:::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
 **To complete this tutorial, you'll need:**
 
-* An Azure account with an active subscription exists. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* Knowledge of Python with Flask development or [Python with Django development](/learn/paths/django-create-data-driven-websites/)
-* [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
-* [PostgreSQL](https://www.postgresql.org/download/) installed locally.
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
 
-## 1 - Sample application
+## Sample application
 
-Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. Download or clone one of the sample applications to your local workstation.
+Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. To deploy them without running them locally, skip this part. 
+
+To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, download or clone the app and go to the application folder:
 
 ### [Flask](#tab/flask)
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+git clone git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+cd msdocs-flask-postgresql-sample-app
+```
+
+### [Django](#tab/django)
+
+```bash
+git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
+cd msdocs-django-postgresql-sample-app
+```
+
+-----
+
+Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+
+```
+DBNAME=<database name>
+DBHOST=<database-hostname>
+DBUSER=<db-user-name>
+DBPASS=<db-password>
+```
+
+Create a SECRET_KEY value for your app by running the following command at a terminal prompt: `python -c 'import secrets; print(secrets.token_hex())'`.
+
+Set the returned value as the value of `SECRET_KEY` in the .env file.
+
+```
+SECRET_KEY=<secret-key>
+```
+
+Create a virtual environment for the app:
+
+[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the sample application with the following commands:
+
+### [Flask](#tab/flask)
+
+```bash
+# Run database migration
+flask db upgrade
+# Run the app at http://127.0.0.1:5000
+flask run
+```
+
+### [Django](#tab/django)
+
+```bash
+# Run database migration
+python manage.py migrate
+# Run the app at http://127.0.0.1:8000
+python manage.py runserver
+```
+
+-----
+
+## 1. Create App Service and PostgreSQL
+
+
+### [Flask](#tab/flask)
+
+```bash
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
 ```
 
 ### [Django](#tab/django)
@@ -38,417 +132,675 @@ git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
 git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
 ```
 
----
+-----
 
-To run the application locally, navigate into the application folder:
+
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
+
+* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Region** to run the app physically in the world.
+* The **Runtime stack** for the app. It's where you select the version of Python to use for your app.
+* The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
+* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the Azure portal:
+        1. Enter "web app database" in the search bar at the top of the Azure portal.
+        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
+        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
+        1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
+        1. *Region* &rarr; Any Azure region near you.
+        1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        1. *Runtime stack* &rarr; **Python 3.10**.
+        1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
+        1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. Select **Review + create**.
+        1. After validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        - **Resource group** &rarr; The container for all the created resources.
+        - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+        - **App Service** &rarr; Represents your app and runs in the App Service plan.
+        - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
+        - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
+        - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png":::
+    :::column-end:::
+:::row-end:::
+
+## 2. Verify connection settings
+
+The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](../key-vault/certificates/quick-create-python.md).
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page, in the left menu, select Configuration.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. That will be injected into the runtime environment as an environment variable.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to see the autogenerated connection string." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** In a terminal or command prompt, run the following Python script to generate a unique secret: `python -c 'import secrets; print(secrets.token_hex())'`. Copy the output value to use in the next step.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:** In the **Application settings** tab of the **Configuration** page, select **New application setting**. Name the setting `SECRET_KEY`. Paste the value from the previous value. Select **OK**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the SECRET_KEY app setting in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** Select **Save**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png" alt-text="A screenshot showing how to save the SECRET_KEY app setting in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png":::
+    :::column-end:::
+:::row-end:::
+
+
+Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
+
+
+## 3. Deploy sample code
+
+In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action.
 
 ### [Flask](#tab/flask)
 
-```bash
-cd msdocs-flask-postgresql-sample-app
-```
+:::row:::
+    :::column span="2":::
+        **Step 1:** In a new browser window:
+        1. Sign in to your GitHub account.
+        1. Navigate to [https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app).
+        1. Select **Fork**.
+        1. Select **Create fork**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-1.png" alt-text="A screenshot showing how to create a fork of the sample GitHub repository (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-2.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** In Visual Studio Code in the browser, open *azureproject/production.py* in the explorer.
+        See the environment variables being used in the production environment, including the app settings that you saw in the configuration page.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-3.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:** Back in the App Service page, in the left menu, select **Deployment Center**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-4.png" alt-text="A screenshot showing how to open the deployment center in App Service (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-4.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** In the Deployment Center page:
+        1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
+        1. Sign in to your GitHub account and follow the prompt to authorize Azure.
+        1. In **Organization**, select your account.
+        1. In **Repository**, select **msdocs-flask-postgresql-sample-app**.
+        1. In **Branch**, select **main**.
+        1. Keep the default option selected to **Add a workflow**.
+        1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-5.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-5.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6:** In the Deployment Center page:
+        1. Select **Logs**. A deployment run is already started.
+        1. In the log item for the deployment run, select **Build/Deploy Logs**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-6.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-7.png" alt-text="A screenshot showing a GitHub run in progress (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-flask-7.png":::
+    :::column-end:::
+:::row-end:::
 
 ### [Django](#tab/django)
 
-```bash
-cd msdocs-django-postgresql-sample-app
-```
+:::row:::
+    :::column span="2":::
+        **Step 1:** In a new browser window:
+        1. Sign in to your GitHub account.
+        1. Navigate to [https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app).
+        1. Select **Fork**.
+        1. Select **Create fork**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-1.png" alt-text="A screenshot showing how to create a fork of the sample GitHub repository (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-2.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** In Visual Studio Code in the browser, open *azureproject/production.py* in the explorer.
+        See the environment variables being used in the production environment, including the app settings that you saw in the configuration page.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-3.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:** Back in the App Service page, in the left menu, select **Deployment Center**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-4.png" alt-text="A screenshot showing how to open the deployment center in App Service (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-4.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** In the Deployment Center page:
+        1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
+        1. Sign in to your GitHub account and follow the prompt to authorize Azure.
+        1. In **Organization**, select your account.
+        1. In **Repository**, select **msdocs-django-postgresql-sample-app**.
+        1. In **Branch**, select **main**.
+        1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-5.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-5.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6:** In the Deployment Center page:
+        1. Select **Logs**. A deployment run is already started.
+        1. In the log item for the deployment run, select **Build/Deploy Logs**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-6.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-7.png" alt-text="A screenshot showing a GitHub run in progress (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-deploy-sample-code-django-7.png":::
+    :::column-end:::
+:::row-end:::
 
----
+-----
 
-Create a virtual environment for the app:
+Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
 
-[!INCLUDE [Virtual environment setup](<./includes/tutorial-python-postgresql-app/virtual-environment-setup.md>)]
 
-Install the dependencies:
-
-```Console
-pip install -r requirements.txt
-```
-
-> [!NOTE]
-> If you are following along with this tutorial with your own app, look at the *requirements.txt* file description in each project's *README.md* file ([Flask](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md), [Django](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/README.md)) to see what packages you'll need.
-
-Set environment variables to specify how to connect to a local PostgreSQL instance.
-
-This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
-
-For Django, you can use SQLite locally instead of PostgreSQL by following the instructions in the comments of the [*settings.py*](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/azureproject/settings.py) file.
-
-Create the `restaurant` and `review` database tables:
+## 4. Generate database schema
 
 ### [Flask](#tab/flask)
 
-```Console
-flask db init
-flask db migrate -m "initial migration"
-```
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** Back in the App Service page, in the left menu, select **SSH**. 
+        1. Select **Go**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
+    :::column-end:::
+:::row-end:::
 
 ### [Django](#tab/django)
 
-```Console
-python manage.py migrate
-```
-
----
-
-Run the app:
-
-### [Flask](#tab/flask)
-
-```Console
-flask run
-```
-
-### [Django](#tab/django)
-
-```Console
-python manage.py runserver
-```
-
----
-
-### [Flask](#tab/flask)
-
-In a web browser, go to the sample application at `http://localhost:5000` and add some restaurants and restaurant reviews to see how the app works.
-
-:::image type="content" source="./media/tutorial-python-postgresql-app/run-flask-postgresql-app-localhost.png" alt-text="A screenshot of the Flask web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
-
-
-### [Django](#tab/django)
-
-In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
-
-:::image type="content" source="./media/tutorial-python-postgresql-app/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
-
----
-
-> [!TIP]
-> With Django, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 2 - Create a web app in Azure
-
-To host your application in Azure, you need to create Azure App Service web app.
-### [Azure portal](#tab/azure-portal)
-
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resource.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location of the Create button on the App Services page in the Azure portal](<./includes/tutorial-python-postgresql-app/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-2.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing how to fill out the form to create a new App Service in the Azure portal](<./includes/tutorial-python-postgresql-app/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-3-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-3.png" alt-text="A screenshot showing how to fill out the form to create a new App Service in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing how to select the basic App Service plan in the Azure portal](<./includes/tutorial-python-postgresql-app/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-4-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-4.png" alt-text="A screenshot showing how to select the basic App Service plan in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location of the Review plus Create button in the Azure portal](<./includes/tutorial-python-postgresql-app/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-5-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-azure-portal-5.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure portal." ::: |
-
-### [VS Code](#tab/vscode-aztools)
-
-To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-1.png" alt-text="A screenshot showing how to find the VS Code Azure extension in VS Code." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-2.png" alt-text="A screenshot showing how to create a new web app in VS Code." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-3-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-3.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to name a new web app." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-4a-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-4a.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to create a new resource group." ::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-4b-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-4b.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to name a new resource group." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-5.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-5-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-5.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to set the runtime stack of a web app in Azure." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-6.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-6-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-6.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to set location for new web app resource in Azure." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-7.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-7a-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-7a.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to create a new App Service plan in Azure." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-7b-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-7b.png" alt-text="A screenshot showing how to use the search box in the top tool bar in VS Code to name a new App Service plan in Azure." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-8.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-8-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-8.png" alt-text="A screenshot showing how to use the search box in the top tool bar in VS Code to select a pricing tier for a web app in Azure." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-9.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-9-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-9.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to skip configuring Application Insights for a web app in Azure." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10a-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10a.png" alt-text="A screenshot showing deployment with Visual Studio Code and View Output Button." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10b-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10b.png" alt-text="A screenshot showing deployment with Visual Studio Code and how to view App Service in Azure portal." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10c-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-app-service-visual-studio-code-10c.png" alt-text="A screenshot showing the default App Service web page when no app has been deployed." :::  |
-
-### [Azure CLI](#tab/azure-cli)
-
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
-
-[!INCLUDE [Create app service with CLI](<./includes/tutorial-python-postgresql-app/create-app-service-cli.md>)]
-
-----
-
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 3 - Create the PostgreSQL database in Azure
-
-You can create a PostgreSQL database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
-
-### [Azure portal](#tab/azure-portal)
-
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find Postgres Services in Azure](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Postgres Services in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location of the Create button on the Azure Database for PostgreSQL servers page in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-2.png" alt-text="A screenshot showing the location of the Create button on the Azure Database for PostgreSQL servers page in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location of the Create button on the Azure Database for PostgreSQL Flexible server deployment option page in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-3-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-3.png" alt-text="A screenshot showing the location of the Create Flexible Server button on the Azure Database for PostgreSQL deployment option page in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing how to fill out the form to create a new Azure Database for PostgreSQL Flexible server in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-4.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-4-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-4.png" alt-text="A screenshot showing how to fill out the form to create a new Azure Database for PostgreSQL in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing how to select and configure the compute and storage for PostgreSQL Flexible server in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-5.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-5-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-5.png" alt-text="A screenshot showing how to select and configure the basic database service plan in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing creating administrator account information for the PostgreSQL Flexible server in in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-6.png" alt-text="Creating administrator account information for the PostgreSQL Flexible server in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing adding current IP as a firewall rule for the PostgreSQL Flexible server in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-7.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-7-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-azure-portal-7.png" alt-text="A screenshot showing adding current IP as a firewall rule for the PostgreSQL Flexible server in the Azure portal." ::: |
-
-[!INCLUDE [A screenshot showing creating the restaurant database in the Azure Cloud Shell](<./includes/tutorial-python-postgresql-app/create-postgres-service-azure-portal-8.md>)]
-
-### [VS Code](#tab/vscode-aztools)
-
-Follow these steps to create your Azure Database for PostgreSQL resource using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) in Visual Studio Code.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Open Azure Extension - Database in VS Code](<./includes/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-1.png" alt-text="A screenshot showing how to open Azure Extension for Database in VS Code." ::: |
-| [!INCLUDE [Create database server in VS Code](<./includes/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-2-240px.png" alt-text="A screenshot showing how create a database server in VSCode." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-2.png"::: |
-| [!INCLUDE [Azure portal - create new resource](<./includes/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-3-240px.png" alt-text="A screenshot how to create a new resource in VS Code." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-3.png"::: |
-| [!INCLUDE [Azure portal - create new resource](<./includes/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4a-240px.png" alt-text="A screenshot showing how to create a new resource in the VS Code - server name." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4a.png"::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4b-240px.png" alt-text="A screenshot showing how to create a new resource in VS Code - SKU." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4b.png"::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4c-240px.png" alt-text="A screenshot showing how to create a new resource in VS Code - admin account name." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4c.png"::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4d-240px.png" alt-text="A screenshot showing how to create a new resource in VS Code - admin account password." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4d.png"::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4e-240px.png" alt-text="A screenshot showing how to create a new resource in VS Code - resource group." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4e.png"::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4f-240px.png" alt-text="A screenshot showing how to create a new resource in VS Code - location." lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-4f.png":::|
-| [!INCLUDE [Configure access for the database in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5a-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5a.png" alt-text="A screenshot showing how to configure access for a database by configuring a firewall rule in VS Code." ::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5b-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5b.png" alt-text="A screenshot showing how to select the correct PostgreSQL server to add a firewall rule in VS Code." ::: :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5c-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-5c.png" alt-text="A screenshot showing a dialog box asking to add firewall rule for local IP address in VS Code." :::|
-| [!INCLUDE [Create a new Azure resource in the Azure portal](<./includes/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-6.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-6-240px.png" lightbox="./media/tutorial-python-postgresql-app/create-postgres-service-visual-studio-code-6.png" alt-text="A screenshot showing how to create a PostgreSQL database server in VS Code." ::: |
-
-### [Azure CLI](#tab/azure-cli)
-
-Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
-
-[!INCLUDE [Create postgres service with CLI](<./includes/tutorial-python-postgresql-app/create-postgres-service-cli.md>)]
-
-----
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 4 - Allow web app to access the database
-
-After the Azure Database for PostgreSQL server is created, configure access to the server from the web app by adding a firewall rule. This can be done through the Azure portal or the Azure CLI. 
-
-If you're working in VS Code, right-click the database server and select **Open in Portal** to go to the Azure portal. Or, go to the [Azure Cloud Shell](https://shell.azure.com) and run the Azure CLI commands.
-### [Azure portal](#tab/azure-portal-access)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/tutorial-python-postgresql-app/add-access-to-postgres-from-web-app-portal-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/add-access-to-postgres-from-web-app-portal-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/add-access-to-postgres-from-web-app-portal-1.png" alt-text="A screenshot showing how to add access from other Azure services to a PostgreSQL database in the Azure portal." ::: |
-
-### [Azure CLI](#tab/azure-cli-access)
-
-[!INCLUDE [Allow access from web app to postgres service with CLI](<./includes/tutorial-python-postgresql-app/add-access-to-postgres-from-web-app-cli.md>)]
-
-----
-
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 5 - Connect the web app to the database
-
-With the web app and PostgreSQL database created, the next step is to connect the web app to the PostgreSQL database in Azure.
-
-The web app code uses database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` to connect to the PostgresSQL server.
-
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Azure portal connect app to postgres step 1](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings in the Azure portal." ::: |
-| [!INCLUDE [Azure portal connect app to postgres step 2](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings in the Azure portal." ::: |
-
-### [VS Code](#tab/vscode-aztools)
-
-To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [VS Code connect app to postgres step 1](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-azure-extension-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-azure-extension.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
-| [!INCLUDE [VS Code connect app to postgres step 2](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-create-setting-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-create-setting.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." ::: |
-| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-a-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-a.png" alt-text="A screenshot showing adding setting name for app service to connect to PostgreSQL database in VS Code." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-b-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-b.png" alt-text="A screenshot showing adding setting value for app service to connect to PostgreSQL database in VS Code." ::: |
-
-### [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [Connect web app to postgres service with CLI](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-cli.md>)]
-
-----
-
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-> [!NOTE]
-> If you want to try an alternative approach to connect your app to the Postgres database in Azure, see the [Service Connector version](../service-connector/tutorial-django-webapp-postgres-cli.md) of this tutorial. Service Connector is a new Azure service that is currently in public preview. [Section 4.2](../service-connector/tutorial-django-webapp-postgres-cli.md#42-configure-environment-variables-to-connect-the-database) of that tutorial introduces a simplified process for creating the connection.
-
-## 6 - Deploy your application code to Azure
-
-Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
-
-### [Deploy using VS Code](#tab/vscode-aztools-deploy)
-
-To deploy a web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [VS Code deploy step 1](<./includes/tutorial-python-postgresql-app/deploy-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-azure-extension-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-azure-extension.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
-| [!INCLUDE [VS Code deploy step 2](<./includes/tutorial-python-postgresql-app/deploy-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-1.png" alt-text="A screenshot showing how to deploy a web app in VS Code." ::: |
-| [!INCLUDE [VS Code deploy step 3](<./includes/tutorial-python-postgresql-app/deploy-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-2.png" alt-text="A screenshot showing how to deploy a web app in VS Code: selecting the code to deploy." ::: :::image type="content" source="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-3-240px.png" lightbox="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-3.png" alt-text="A screenshot showing how to deploy a web app in VS Code: a dialog box to confirm deployment." ::: |
-| [!INCLUDE [VS Code deploy step 4](<./includes/tutorial-python-postgresql-app/deploy-visual-studio-code-4.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-4-240px.png" lightbox="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-4.png" alt-text="A screenshot showing how to deploy a web app in VS Code: a dialog box to choose to always deploy to the app service." ::: |
-| [!INCLUDE [VS Code deploy step 5](<./includes/tutorial-python-postgresql-app/deploy-visual-studio-code-5.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-5-240px.png" lightbox="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-5.png" alt-text="A screenshot showing how to deploy a web app in VS Code: a dialog box with choice to browse to website." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-6-240px.png" lightbox="./media/tutorial-python-postgresql-app/deploy-web-app-visual-studio-code-6.png" alt-text="A screenshot showing how to deploy a web app in VS Code: a dialog box with choice to view deployment details." ::: |
-
-### [Deploy using Local Git](#tab/local-git-deploy)
-
-[!INCLUDE [Deploy Local Git](<./includes/tutorial-python-postgresql-app/deploy-local-git.md>)]
-
-### [Deploy using a ZIP file](#tab/zip-deploy)
-
-[!INCLUDE [Deploy using ZIP file](<./includes/tutorial-python-postgresql-app/deploy-zip-file.md>)]
-
-----
-
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 7 - Migrate app database
-
-With the code deployed and the database in place, the app is almost ready to use. First, you need to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
-
-**Step 1.** Create SSH session and connect to web app server.
-
-### [Azure portal](#tab/azure-portal)
-
-Navigate to page for the App Service instance in the Azure portal.
-
-1. Select **SSH**, under **Development Tools** on the left side
-2. Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
-
-### [VS Code](#tab/vscode-aztools)
-
-In VS Code, you can use the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which must be installed and be signed into Azure from VS Code.
-
-In the **App Service** section of the Azure Tools extension:
-
-1. Locate your web app and right-click to bring up the context menu.
-2. Select **SSH into Web App** to open an SSH terminal window.
-
-### [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [Deploy local git with CLI](<./includes/tutorial-python-postgresql-app/migrate-app-database-cli.md>)]
-
----
-
-> [!NOTE]
-> If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
-
-**Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**):
-
-### [Flask](#tab/flask)
-
-When you deploy the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following command:
-
-```bash
-# Create database tables
-flask db init
-```
-
-### [Django](#tab/django)
-
-```bash
-# Create database tables
-python manage.py migrate
-```
-
----
-
-If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command can't communicate with the database.
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Django database migrations](https://docs.djangoproject.com/en/4.1/topics/migrations/) is in an SSH session with the App Service container. 
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** Back in the App Service page, in the left menu, select **SSH**. 
+        1. Select **Go**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the SSH terminal, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
+    :::column-end:::
+:::row-end:::
 
 > [!TIP]
 > In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
+-----
 
-## 8 - Browse to the app
+## 5. Browse to the app
 
-Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page:
+        1. From the left menu, select **Overview**.
+        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** Add a few restaurants to the list.
+        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+    :::column-end:::
+:::row-end:::
 
-When you see your sample web app, it's running in a Linux container in App Service using a built-in image **Congratulations!** You've deployed your Python app to App Service.
-
-### [Flask](#tab/flask)
-
-:::image type="content" source="./media/tutorial-python-postgresql-app/run-flask-postgresql-app-production.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
-
-### [Django](#tab/django)
-
-:::image type="content" source="./media/tutorial-python-postgresql-app/run-django-postgresql-app-production.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
-
----
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 9 - Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
+:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="39-43" highlight="3":::
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
----
+-----
 
-You can access the console logs generated from inside the container that hosts the app on Azure.
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page:
+        1. From the left menu, select **App Service logs**.
+        1. Under **Application logging**, select **File System**.
+        1. In the top menu, select **Save**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-2.png":::
+    :::column-end:::
+:::row-end:::
 
-### [Azure portal](#tab/azure-portal)
+Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/tutorial-python-postgresql-app/stream-logs-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/stream-logs-azure-portal-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/stream-logs-azure-portal-1.png" alt-text="A screenshot showing how to set application logging in the Azure portal." ::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/tutorial-python-postgresql-app/stream-logs-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/stream-logs-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/stream-logs-azure-portal-2.png" alt-text="A screenshot showing how to stream logs in the Azure portal." ::: |
+## 7. Clean up resources
 
-### [VS Code](#tab/vscode-aztools)
+When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/tutorial-python-postgresql-app/stream-logs-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/stream-logs-visual-studio-code-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/stream-logs-visual-studio-code-1.png" alt-text="A screenshot showing how to set application logging in VS Code." ::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/tutorial-python-postgresql-app/stream-logs-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/stream-logs-visual-studio-code-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/stream-logs-visual-studio-code-2.png" alt-text="A screenshot showing VS Code output window." ::: |
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the search bar at the top of the Azure portal:
+        1. Enter the resource group name.
+        1. Select the resource group.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-1.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the resource group page, select **Delete resource group**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** 
+        1. Enter the resource group name to confirm your deletion.
+        1. Select **Delete**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-3.png"::::
+    :::column-end:::
+:::row-end:::
+::: zone-end
 
-### [Azure CLI](#tab/azure-cli)
+::: zone pivot="azure-developer-cli"
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
-[!INCLUDE [Stream logs CLI](<./includes/tutorial-python-postgresql-app/stream-logs-cli.md>)]
+:::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
-----
+**To complete this tutorial, you'll need:**
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* [Git](https://git-scm.com/downloads) installed locally.
+* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed locally.
+* Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/).
 
-## Clean up resources
+> [!NOTE]
+> If you want, you can follow the steps using the [Azure Cloud Shell](https://shell.azure.com). It has all tools you need to follow this tutorial. 
 
-You can leave the app and database running as long as you want for further development work and skip ahead to [Next steps](#next-steps).
+## Sample application
 
-However, when you're finished with the sample app, you can remove all of the resources for the app from Azure to ensure you don't incur other charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+A sample Python application using the Flask framework is provided to help you follow along with this tutorial. To deploy it without running it locally, skip this part. 
 
-### [Azure portal](#tab/azure-portal)
+> [!NOTE]
+> To run the sample application locally, you need [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 
-Follow these steps while signed-in to the Azure portal to delete a resource group.
+Clone the sample repository's `starter-no-infra` branch and change to the repository root.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-1.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-3.md>)] | |
+```bash
+git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+cd msdocs-flask-postgresql-sample-app
+```
 
+Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the values of `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-### [VS Code](#tab/vscode-aztools)
+```
+DBNAME=<database name>
+DBHOST=<database-hostname>
+DBUSER=<db-user-name>
+DBPASS=<db-password>
+```
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/tutorial-python-postgresql-app/remove-resource-group-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/remove-resource-group-visual-studio-code-1-240px.png" lightbox="./media/tutorial-python-postgresql-app/remove-resource-group-visual-studio-code-1.png" alt-text="A screenshot showing how to delete a resource group in VS Code." ::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/tutorial-python-postgresql-app/remove-resource-group-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/remove-resource-group-visual-studio-code-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/remove-resource-group-visual-studio-code-2.png" alt-text="A screenshot showing how to finish deleting a resource in VS Code." ::: |
+Create a virtual environment for the app.
 
-### [Azure CLI](#tab/azure-cli)
+[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
 
-[!INCLUDE [Stream logs CLI](<./includes/tutorial-python-postgresql-app/clean-up-resources-cli.md>)]
+Run the sample.
 
-----
+```bash
+# Install dependencies
+pip install -r requirements.txt
+# Run database migrations
+flask db upgrade
+# Run the app at http://127.0.0.1:5000
+flask run
+```
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
+## 1. Create Azure resources and deploy a sample app
+
+In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL.
+
+1. If you haven't already, clone the sample repository's `starter-no-infra` branch in a local terminal.
+
+    ```bash
+    git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+    cd msdocs-flask-postgresql-sample-app
+    ```
+
+    This cloned branch is your starting point. It contains a simple data-drive Flask application.
+
+1. From the repository root, run `azd init`.
+
+    ```bash
+    azd init --template python-app-service-postgresql-infra
+    ```
+
+    This azd template contains files (*azure.yaml* and the *infra* directory) that will generate a secure-by-default architecture with the following Azure resources:
+
+    - **Resource group** &rarr; The container for all the created resources.
+    - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *B1* tier is specified.
+    - **App Service** &rarr; Represents your app and runs in the App Service plan.
+    - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
+    - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
+    - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
+    - **Log Analytics workspace** &rarr; Acts as the target container for your app to ship its logs, where you can also query the logs.
+
+1. When prompted, give the following answers:
+    
+    |Question  |Answer  |
+    |---------|---------|
+    |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
+    |What would you like to do with these files?     | **Keep my existing files unchanged**        |
+    |Enter a new environment name     | Type a unique name. The azd template uses this name as part of the DNS name of your web app in Azure (`<app-name>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
+
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in. The `azd up` command will also prompt you to select the desired subscription and location to deploy to. 
+
+    ```bash
+    azd up
+    ```  
+
+    The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    
+## 2. Use the database connection string
+
+The azd template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
+
+1. In the azd output, find the app settings and find the `AZURE_POSTGRESQL_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
+
+    <pre>
+    App Service app has the following settings:
+    
+            - AZURE_POSTGRESQL_CONNECTIONSTRING
+            - FLASK_DEBUG
+            - SCM_DO_BUILD_DURING_DEPLOYMENT
+            - SECRET_KEY
+    </pre>
+
+1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure, and you can use it in your code to connect to it. Open *azureproject/production.py*, uncomment the following lines, and save the file:
+
+    ```python
+    conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+    conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
+    
+    DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
+        dbuser=conn_str_params['user'],
+        dbpass=conn_str_params['password'],
+        dbhost=conn_str_params['host'],
+        dbname=conn_str_params['dbname']
+    )
+    ```
+
+    Your application code is now configured to connect to the PostgreSQL database in Azure. If you want, open `app.py` and see how the `DATABASE_URI` environment variable is used.
+
+2. In the terminal, run `azd deploy`
+ 
+    ```bash
+    azd deploy
+    ```
+
+## 4. Generate database schema
+
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container.
+
+1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+
+    <pre>
+    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    </pre>
+
+1. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
+
+    > [!NOTE]
+    > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+    >
+    
+## 5. Browse to the app
+
+1. In the azd output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
+
+    <pre>
+    Deploying services (azd deploy)
+    
+      (✓) Done: Deploying service web
+      - Endpoint: https://&lt;app-name>.azurewebsites.net/
+    </pre>
+
+2. Add a few restaurants to the list.
+
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+
+    Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
+
+## 6. Stream diagnostic logs
+
+Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) as well as [shipping them to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+
+The sample app includes `print()` statements to demonstrate this capability as shown in the following snippet.
+
+:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
+
+- In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
+
+    <pre>
+    Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+    </pre>
+
+Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
+
+## 7. Clean up resources
+
+To delete all Azure resources in the current deployment environment, run `azd down`.
+
+```bash
+azd down
+```
+::: zone-end
+
+## Troubleshooting
+
+Listed below are issues you might encounter while trying to work through this tutorial and steps to resolve them.
+
+#### I can't connect to the SSH session
+
+If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_CONNECTIONSTRING'`, it might mean that the environment variable is missing (you might have removed the app setting).
+
+#### I get an error when running database migrations
+
+If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_CONNECTIONSTRING`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
+
+## Frequently asked questions
+
+- [How much does this setup cost?](#how-much-does-this-setup-cost)
+- [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+- [How is the Django sample configured to run on Azure App Service?](#how-is-the-django-sample-configured-to-run-on-azure-app-service)
+
+#### How much does this setup cost?
+
+Pricing for the created resources is as follows:
+
+- The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
+- The PostgreSQL flexible server is created in the lowest burstable tier **Standard_B1ms**, with the minimum storage size, which can be scaled up or down. See [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+- The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+- The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
+
+#### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
+
+- For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
+- To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+- You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
+
+#### How does local app development work with GitHub Actions?
+
+Using the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates and push to GitHub. For example:
+
+```terminal
+git add .
+git commit -m "<some-message>"
+git push origin main
+```
+
+#### How is the Django sample configured to run on Azure App Service?
+
+> [!NOTE]
+> If you are following along with this tutorial with your own app, look at the *requirements.txt* file description in each project's *README.md* file ([Flask](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md), [Django](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/README.md)) to see what packages you'll need.
+
+The [Django sample application](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app) configures settings in the *azureproject/production.py* file so that it can run in Azure App Service. These changes are common to deploying Django to production, and not specific to App Service.
+
+- Django validates the HTTP_HOST header in incoming requests. The sample code uses the [`WEBSITE_HOSTNAME` environment variable in App Service](reference-app-settings.md#app-environment) to add the app's domain name to Django's [ALLOWED_HOSTS](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts) setting.
+
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6-8" highlight="3":::
+
+- Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/4.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/) to enable serving the files. The WhiteNoise package was already installed with requirements.txt, and its middleware is added to the list.
+
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-16" highlight="14":::
+
+    Then the static file settings are configured according to the Django documentation.
+
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="25-26":::
+
+For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
+  
 
 ## Next steps
 
-Learn how to map a custom DNS name to your app:
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Learn how App Service runs a Python app:
 

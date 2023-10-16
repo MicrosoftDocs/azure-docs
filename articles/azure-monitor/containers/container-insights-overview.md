@@ -1,67 +1,64 @@
 ---
-title: Overview of Container insights | Microsoft Docs
-description: This article describes Container insights that monitors AKS Container Insights solution and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
+title: Overview of Container insights in Azure Monitor
+description: This article describes Container insights, which monitors the AKS Container insights solution, and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 ms.topic: conceptual
-ms.date: 09/08/2020
-
+ms.custom: references_regions, ignite-2022
+ms.date: 08/14/2023
+ms.reviewer: viviandiec
 ---
 
 # Container insights overview
 
-Container insights is a feature designed to monitor the performance of container workloads deployed to:
+Container insights is a feature of Azure Monitor that monitors the performance and health of container workloads deployed to [Azure](../../aks/intro-kubernetes.md) or that are managed by [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). It collects memory and processor metrics from controllers, nodes, and containers in addition to gathering container logs. You can analyze the collected data for the different components in your cluster with a collection of [views](container-insights-analyze.md) and pre-built [workbooks](container-insights-reports.md).
 
-- Managed Kubernetes clusters hosted on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
-- Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine)
-- [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
-- [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
-
-Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Docker, Moby, and any CRI compatible runtime such as CRI-O and ContainerD.
-
-Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
-
-Container insights gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. Metrics are written to the metrics store and log data is written to the logs store associated with your [Log Analytics](../logs/log-query-overview.md) workspace.
-
-![Container insights architecture](./media/container-insights-overview/azmon-containers-architecture-01.png)
-
-## What does Container insights provide?
-
-Container insights delivers a comprehensive monitoring experience using different features of Azure Monitor. These features enable you to understand the performance and health of your Kubernetes cluster running Linux and Windows Server 2019 operating system, and the container workloads. With Container insights you can:
-
-* Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
-* Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.
-* Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance.
-* Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
-* Understand the behavior of the cluster under average and heaviest loads. This knowledge can help you identify capacity needs and determine the maximum load that the cluster can sustain.
-* Configure alerts to proactively notify you or record it when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
-* Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes using [queries](container-insights-log-query.md) to create custom alerts, dashboards, and perform detailed analysis.
-* Monitor container workloads [deployed to AKS Engine](https://github.com/Azure/aks-engine) on-premises and [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
-* Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
-
-    >[!NOTE]
-    >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
-    >
-
-* Monitor container workloads [deployed to Azure Arc-enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md).
-
-The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
-
-- Windows doesn't have a Memory RSS metric, and as a result it isn't available for Windows node and containers. The [Working Set](/windows/win32/memory/working-set) metric is available.
-- Disk storage capacity information isn't available for Windows nodes.
-- Only pod environments are monitored, not Docker environments.
-- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation doesn't apply to Linux containers.
-
-Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Container insights.
+The following video provides an intermediate-level deep dive to help you learn about monitoring your AKS cluster with Container insights. The video refers to *Azure Monitor for Containers*, which is the previous name for *Container insights*.
 
 > [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
-## How do I access this feature?
+## Features of Container insights
 
-You can access Container insights two ways, from Azure Monitor or directly from the selected AKS cluster. From Azure Monitor, you have a global perspective of all the containers deployed, which are monitored and which are not, allowing you to search and filter across your subscriptions and resource groups, and then drill into Container insights from the selected container.  Otherwise, you can access the feature directly from a selected AKS container from the AKS page.
+Container insights includes the following features to provide to understand the performance and health of your Kubernetes cluster and container workloads:
 
-![Overview of methods to access Container insights](./media/container-insights-overview/azmon-containers-experience.png)
+- Identify resource bottlenecks by identifying containers running on each node and their processor and memory utilization.
+- Identify processor and memory utilization of container groups and their containers hosted in container instances.
+- View the controller's or pod's overall performance by identifying where the container resides in a controller or a pod.
+- Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
+- Identify capacity needs and determine the maximum load that the cluster can sustain by understanding the behavior of the cluster under average and heaviest loads.
+- Access live container logs and metrics generated by the container engine to help with troubleshooting issues in real time.
+- Configure alerts to proactively notify you or record when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
+
+
+## Access Container insights
+
+Access Container insights in the Azure portal from **Containers** in the **Monitor** menu or directly from the selected AKS cluster by selecting **Insights**. The Azure Monitor menu gives you the global perspective of all the containers that are deployed and monitored. This information allows you to search and filter across your subscriptions and resource groups. You can then drill into Container insights from the selected container. Access Container insights for a particular AKS container directly from the AKS page.
+
+:::image type="content" source="media/container-insights-overview/azmon-containers-experience.png" lightbox="media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights." border="false":::
+
+## Data collected
+Container insights sends data to [Logs](../logs/data-platform-logs.md) and [Metrics](../essentials/data-platform-metrics.md) where you can analyze it using different features of Azure Monitor. It works with other Azure services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Managed Grafana](../../managed-grafana/overview.md) for complete monitoring of your Kubernetes cluster and your container workloads. For more information on these other services, see [Monitoring data](../../aks/monitor-aks.md#monitoring-data).
+
+:::image type="content" source="../../aks/media/monitor-aks/aks-monitor-data.png" lightbox="../../aks/media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services.":::
+
+
+## Supported configurations
+Container insights supports the following configurations:
+
+- [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
+- [Azure Container Instances](../../container-instances/container-instances-overview.md).
+- Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises.
+- [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md).
+- AKS for ARM64 nodes.
+
+Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Moby and any CRI-compatible runtime such as CRI-O and ContainerD. Docker is no longer supported as a container runtime as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
+
+>[!NOTE]
+> Container insights support for Windows Server 2022 operating system is in public preview.
+
+
 
 ## Next steps
 
-To begin monitoring your Kubernetes cluster, review [How to enable Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.
+To begin monitoring your Kubernetes cluster, review [Enable Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.
+
+<!-- LINKS - external -->
+[aks-release-notes]: https://github.com/Azure/AKS/releases

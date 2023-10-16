@@ -1,0 +1,289 @@
+{
+  "redirections": [
+    {
+        "source_path_from_root": "/articles/api-management/powershell-samples.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-add-user-and-get-subscription-key.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-create-apim-service.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-backup-restore-apim-service.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-scale-and-addregion-apim-service.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-setup-custom-domain.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-import-api-and-add-to-product.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-secure-backend-with-mutual-certificate-authentication.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-setup-rate-limit-policy.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/authorize-request-using-external-authorizer.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/add-correlation-id.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/authorize-request-based-on-jwt-claims.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/cache-response.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/filter-ip-addresses-when-using-appgw.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/filter-response-content.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/generate-shared-access-signature.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/get-x-csrf-token-from-sap-gateway.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/index.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/log-errors-to-stackify.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/route-requests-based-on-size.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/send-request-context-info-to-backend-service.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/set-cache-duration.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/set-header-to-enable-backend-to-construct-urls.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/use-oauth2-for-authorization.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-access-restriction-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#access-restriction-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-advanced-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#advanced-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-authentication-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#authentication-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-caching-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#caching-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-cross-domain-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#cross-domain-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-dapr-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#dapr-integration-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/graphql-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#graphql-api-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-transformation-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#transformation-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
+        "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
+        "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/zone-redundancy.md",
+        "redirect_url": "/azure/availability-zones/migrate-api-mgt",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/developer-portal-implement-widgets.md",
+        "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/import-api-app-as-api.md",
+        "redirect_url": "/azure/api-management/import-app-service-as-api",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-product.md",
+        "redirect_url": "/azure/api-management/api-management-howto-add-products",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#graphql-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-policy-reference.md",
+        "redirect_url": "/azure/api-management/api-management-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
+        "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
+        "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-get-started.md",
+        "redirect_url": "/azure/api-management/import-and-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-create-apis.md",
+        "redirect_url": "/azure/api-management/import-and-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-import-api.md",
+        "redirect_url": "/azure/api-management/import-and-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-add-operations.md",
+        "redirect_url": "/azure/api-management/mock-api-responses",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policy-samples.md",
+        "redirect_url": "/azure/api-management/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-security-attributes.md",
+        "redirect_url": "/azure/api-management/security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-security-controls.md",
+        "redirect_url": "/azure/api-management/security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-product-with-rules.md",
+        "redirect_url": "/azure/api-management/transform-api",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
+        "redirect_url": "/azure/api-management/export-api-power-platform",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/service-fabric/service-fabric-api-management-quick-start.md",
+        "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-api-management-certs.md",
+        "redirect_url": "/previous-versions/azure/azure-api-management-certs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/validation-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#validation-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-how-to.md",
+        "redirect_url": "/azure/api-management/authorizations-how-to-github",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-reference.md",
+        "redirect_url": "/azure/api-management/authorizations-configure-common-providers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policies/use-google-as-oauth-token-provider.md",
+        "redirect_url": "/azure/api-management/policies",
+        "redirect_document_id": false
+    }
+  ]
+}

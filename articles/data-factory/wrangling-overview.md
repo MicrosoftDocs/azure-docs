@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/10/2023
 ---
 
 # What is data wrangling?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Organizations need to the ability to explore their critical business data for data preparation and wrangling in order to provide accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.
+Organizations need to have the ability to explore their critical business data for data preparation and wrangling in order to provide accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.
 
 Data Factory empowers you with code-free data preparation at cloud scale iteratively using Power Query. Data Factory integrates with [Power Query Online](/power-query/) and makes Power Query M functions available as a pipeline activity.
 

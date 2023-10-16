@@ -1,18 +1,17 @@
 ---
 title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster'
-description: This tutorial demonstrates applying configurations on an Azure Arc-enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc-enabled Kubernetes article. 
-author: csand-msft
-ms.author: csand
-ms.service: azure-arc
+description: This tutorial demonstrates applying configurations on an Azure Arc-enabled Kubernetes cluster.
 ms.topic: tutorial 
-ms.date: 03/02/2021
+ms.date: 05/08/2023
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster 
 
-> [!NOTE]
-> This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).
+> [!IMPORTANT]
+> This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).  We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
+>
+> Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 In this tutorial, you will apply configurations using GitOps on an Azure Arc-enabled Kubernetes cluster. You'll learn how to:
 
@@ -36,8 +35,6 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc-ena
 
     >[!TIP]
     > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
-
-- If your Git repository is located outside the firewall and git protocol is being used with the configuration repository parameter, then TCP on port 9418 (`git://:9418`) needs to be enabled for egress access on firewall.
 
 ## Create a configuration
 
@@ -100,7 +97,7 @@ Use the Azure CLI extension for `k8s-configuration` to link a connected cluster 
 
 | Parameter | Format |
 | ------------- | ------------- |
-| `--repository-url` | http[s]://server/repo[.git] or git://server/repo[.git]
+| `--repository-url` | http[s]://server/repo[.git]
 
 ### Use a private Git repository with SSH and Flux-created keys
 

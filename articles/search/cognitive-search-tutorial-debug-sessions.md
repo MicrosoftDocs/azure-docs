@@ -1,28 +1,23 @@
 ---
 title: 'Tutorial: Debug skillsets'
 titleSuffix: Azure Cognitive Search
-description: Debug sessions (preview) is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
-
+description: Debug Sessions is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/31/2021
+ms.date: 10/09/2023
 ---
 
 # Tutorial: Debug a skillset using Debug Sessions
 
 Skillsets coordinate a series of actions that analyze or transform content, where the output of one skill becomes the input of another. When inputs depend on outputs, mistakes in skillset definitions and field associations can result in missed operations and data.
 
-**Debug sessions** in the Azure portal provides a holistic visualization of a skillset. Using this tool, you can drill down to specific steps to easily see where an action might be falling down.
+**Debug sessions** is a tool in the Azure portal provides a holistic visualization of a skillset. Using this tool, you can drill down to specific steps to easily see where an action might be falling down.
 
-In this article, you'll use **Debug sessions** to find and fix missing inputs and outputs. The tutorial is all-inclusive. It provides sample data, a Postman collection that creates objects, and instructions for debugging problems in the skillset.
-
-> [!Important]
-> Debug sessions is a preview feature provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+In this article, use **Debug sessions** to find and fix missing inputs and outputs. The tutorial is all-inclusive. It provides sample data, a Postman collection that creates objects, and instructions for debugging problems in the skillset.
 
 ## Prerequisites
 
@@ -34,12 +29,12 @@ Before you begin, have the following prerequisites in place:
 
 + Azure Storage account with [Blob storage](../storage/blobs/index.yml), used for hosting sample data, and for persisting cached data created during a debug session.
 
-+ [Postman desktop app](https://www.getpostman.com/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) to create objects using the REST APIs.
++ [Postman app](https://www.postman.com/downloads/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) to create objects using the REST APIs.
 
 + [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19).
 
 > [!NOTE]
-> This tutorial also uses [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Cognitive Services resource.
+> This tutorial also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Azure AI services resource.
 
 ## Set up your data
 
@@ -63,7 +58,7 @@ This section creates the sample data set in Azure Blob Storage so that the index
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -73,24 +68,26 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Create data source, skillset, index, and indexer
 
-In this section, Postman and a provided collection are used to create the Cognitive Search data source, skillset, index, and indexer. If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
+In this section, you will import a Postman collection containing a "buggy" workflow that you will fix in this tutorial. 
 
-You will need the [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) created for this tutorial to complete this task. 
+1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
 
-1. Start Postman and import the "DebugSessions.postman_collection.json" collection. Under **Files** > **New**, select the collection.
+1. Under **Files** > **New**, select the collection.
 
 1. After the collection is imported, expand the actions list (...).
 
-1. Select  **Edit** to set variables used in each request, and then **Save**.
+1. Select  **Edit** to set variables used in each request.
 
    | Current value | Description |
    |---------------|-------------|
-   | searchService | The name of your search service (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "mydemo". |
+   | searchService | The name of your search service (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is `mydemo`). |
    | apiKey | The primary or secondary key obtained from the **Keys** page of your search service. |
    | storageConnectionString | The connection string obtained from the **Access Keys** page of your Azure Storage account. |
    | containerName | The name of the container you created for the sample data. |
 
-1. Verify that the collection you imported contains four REST calls, used to create objects in this tutorial.
+1. **Save** your changes. The requests fail unless you save the variables.
+
+1. You should see four REST calls in the collection.
 
    + CreateDataSource adds `clinical-trials-ds`
    + CreateSkillset adds `clinical-trials-ss`
@@ -127,13 +124,15 @@ Another way to investigate errors and warnings is through the Azure portal.
 
 ## Start your debug session
 
-1. From the search service **Overview** page, click the **Debug sessions** tab.
+1. From the search service left-navigation pane, under **Search management**, select **Debug sessions**.
 
-1. Select **+ New Debug Session**.
+1. Select **+ Add Debug Session**.
 
 1. Give the session a name. 
 
-1. Connect the session to your storage account. 
+1. Connect the session to your storage account. Create a container named "debug sessions". You can use this container repeatedly to store all of your debug session data.
+
+1. If you configured a trusted connection between search and storage, select the user-managed identity or system identity for the connection. Otherwise, use the default (None).
 
 1. In Indexer template, provide the indexer name. The indexer has references to the data source, the skillset, and index.
 
@@ -157,7 +156,7 @@ Notice that the **Errors/Warnings** tab will provide a much smaller list than th
 
 Select **Errors/Warnings** to review the notifications. You should see four:
 
-+ "Could not execute skill because one or more skill input was invalid. Required skill input is missing. Name: 'text', Source: '/document/content'."
++ "Could not execute skill because one or more skill inputs were invalid. Required skill input is missing. Name: 'text', Source: '/document/content'."
 
 + "Could not map output field 'locations' to search index. Check the 'outputFieldMappings' property of your indexer.
 Missing value '/document/merged_content/locations'."
@@ -165,16 +164,16 @@ Missing value '/document/merged_content/locations'."
 + "Could not map output field 'organizations' to search index. Check the 'outputFieldMappings' property of your indexer.
 Missing value '/document/merged_content/organizations'."
 
-+ "Skill executed but may have unexpected results because one or more skill input was invalid.
++ "Skill executed but may have unexpected results because one or more skill inputs were invalid.
 Optional skill input is missing. Name: 'languageCode', Source: '/document/languageCode'. Expression language parsing issues: Missing value '/document/languageCode'."
 
-Many skills have a "languageCode" parameter. By inspecting the operation, you can see that this language code input is missing from the `EntityRecognitionSkillV3.#1`, which is the same Entity Recognition skill that is having trouble with 'locations' and 'organizations' output. 
+Many skills have a "languageCode" parameter. By inspecting the operation, you can see that this language code input is missing from the `EntityRecognitionSkill.#1`, which is the same Entity Recognition skill that is having trouble with 'locations' and 'organizations' output. 
 
 Because all four notifications are about this skill, your next step is to debug this skill. If possible, start by solving input issues first before moving on to output issues.
 
 ## Fix missing skill input values
 
-In the **Errors/Warnings** tab, there are two missing inputs for an operation labeled `EntityRecognitionSkillV3.#1`. The detail of the first error explains that a required input for 'text' is missing. The second indicates a problem with an input value "/document/languageCode".
+In the **Errors/Warnings** tab, there are two missing inputs for an operation labeled `EntityRecognitionSkill.#1`. The detail of the first error explains that a required input for 'text' is missing. The second indicates a problem with an input value "/document/languageCode".
 
 1. In **AI Enrichments** >  **Skill Graph**, select the skill labeled **#1** to display its details in the right pane.
 
@@ -196,7 +195,14 @@ In the **Errors/Warnings** tab, there are two missing inputs for an operation la
 
 1. Switch to **Skill JSON Editor**.
 
-1. Change `/document/content` to `/document/merged_content`.
+1. At line 16, under "inputs", change `/document/content` to `/document/merged_content`.
+
+   ```json
+    {
+      "name": "text",
+      "source": "/document/merged_content"
+    },
+   ```
 
 1. Select **Save** in the Skill Details pane.
 
@@ -210,7 +216,7 @@ In the **Errors/Warnings** tab, there are two missing inputs for an operation la
 
 1. Select the **Executions** tab and locate the input for "languageCode".
 
-1. Select the **</>** symbol to pop open the Expression Evaluator. Notice the confirmation that the "languageCode" property is not a valid input.
+1. Select the **</>** symbol to pop open the Expression Evaluator. Notice the confirmation that the "languageCode" property isn't a valid input.
 
    :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Screenshot of Expression Evaluator for the language input." border="true":::
 
@@ -224,15 +230,15 @@ There are two ways to research this error. The first is to look at where the inp
 
 1. Still in the **Enriched Data Structure**, open the Expression Evaluator **</>** for the "language" node and copy the expression `/document/language`.
 
-1. In the right pane, select **Skill Settings** for the #1 skill and open the Expression Evaluator **</>** for the input "languageCode."
+1. In the right pane, select **Skill Settings** for the #1 skill and open the Expression Evaluator **</>** for the input "languageCode".
 
 1. Paste the new value, `/document/language` into the Expression box and click **Evaluate**. It should display the correct input "en".
 
 1. Select **Save**.
 
-1. Select **Run**. 
+1. Select **Run**.
 
-After the debug session execution completes, check the Errors/Warnings tab and it will show that all of the input warnings are gone. There now remains just the two warnings about output fields for organizations and locations.
+After the debug session execution completes, check the Errors/Warnings tab and it will show that all of the input warnings are gone. There now remain just the two warnings about output fields for organizations and locations.
 
 ## Fix missing skill output values
 
@@ -270,19 +276,21 @@ Alternatively, if you aren't ready to commit changes, you can save the debug ses
 
 1. Select **OK** to confirm that you wish to update your skillset.
 
-1. Close Debug session and select the **Indexers** tab.
+1. Close Debug session and open **Indexers** from the left navigation pane.
 
-1. Open your 'clinical-trials-idxr'.
+1. Select 'clinical-trials-idxr'.
 
 1. Select **Reset**.
 
-1. Select **Run**. Select **OK** to confirm.
+1. Select **Run**.
+
+1. Select **Refresh** to show the status of the reset and run commands.
 
 When the indexer has finished running, there should be a green checkmark and the word Success next to the time stamp for the latest run in the **Execution history** tab. To ensure that the changes have been applied:
 
-1. In the search Overview page, select the **Index** tab.
+1. In the left navigation pane, open **Indexes**.
 
-1. Open the 'clinical-trials' index and in the Search explorer tab, enter this query string: `$select=metadata_storage_path, organizations, locations&$count=true` to return fields for specific documents (identified by the unique `metadata_storage_path` field).
+1. Select 'clinical-trials' index and in the Search explorer tab, enter this query string: `$select=metadata_storage_path, organizations, locations&$count=true` to return fields for specific documents (identified by the unique `metadata_storage_path` field).
 
 1. Select **Search**.
 
@@ -294,7 +302,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

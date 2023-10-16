@@ -4,16 +4,16 @@ description: "This article provides troubleshooting guidance for SSIS package ex
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: faq
-ms.author: sawinark
-author: swinarko
-ms.reviewer: sawinark
+ms.author: chugu
+author: chugugrace
+ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 02/21/2022
+ms.date: 08/10/2023
 ---
 
 # Troubleshoot package execution in the SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
   
 This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
   
@@ -96,12 +96,12 @@ This error occurs when package execution can't find a file in the local disk in 
 ### Error message: "The database 'SSISDB' has reached its size quota "
 
 A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
-* Consider increasing the DTU of your database. You can find details in [SQL Database limits for a logical server](../azure-sql/database/resource-limits-logical-server.md).
+* Consider increasing the DTU of your database. You can find details in [SQL Database limits for a logical server](/azure/azure-sql/database/resource-limits-logical-server).
 * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### Error message: "The request limit for the database is ... and has been reached. "
 
-If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for a logical server](../azure-sql/database/resource-limits-logical-server.md).
+If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for a logical server](/azure/azure-sql/database/resource-limits-logical-server).
 
 ### Error message: "SSIS Operation failed with unexpected operation status: ... "
 
@@ -122,7 +122,7 @@ This error occurs when the SSIS integration runtime can't access the storage con
 
 ### Error message: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; Exception has been thrown by the target of an invocation "
 
-One potential cause is that the username or password with Azure AD Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
+One potential cause is that the username or password with Microsoft Entra multifactor authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
 
 1. Prepare a service principal as described in [Automation with service principals](../analysis-services/analysis-services-service-principal.md).
 2. In the Connection Manager, configure **Use a specific user name and password:** set **app:*&lt;AppID&gt;*@*&lt;TenantID&gt;*** as the username and clientSecret as the password. Here is an example of a correctly formatted user name:
@@ -174,6 +174,10 @@ Check if security policies are correctly assigned to the account running self-ho
 
 Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
           
+
+### Error message: "Timeout when reading from staging"
+
+This error occurs when SSIS-IR with SHIR as a data proxy can't read data from staging blob successfully. Usually, it is due to that SHIR has failed to transfer on-premises data to the staging blob. Then SSIS-IR's attempt to read staging data fails with timeout error. You need to check SHIR logs in C:\ProgramData\SSISTelemetry folder for runtime logs and C:\ProgramData\SSISTelemetry\ExecutionLog folder for execution logs to further investigate why data hasn't been uploaded to staging blob successfully by SHIR.
 
 ### Multiple Package executions are triggered unexpectedly
 

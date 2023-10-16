@@ -10,11 +10,19 @@ ms.custom: ignite-fall-2021
 
 # Get CEF-formatted logs from your device or appliance into Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Many networking and security devices and appliances send their system logs over the Syslog protocol in a specialized format known as Common Event Format (CEF). This format includes more information than the standard Syslog format, and it presents the information in a parsed key-value arrangement. The Log Analytics Agent accepts CEF logs and formats them especially for use with Microsoft Sentinel, before forwarding them on to your Microsoft Sentinel workspace.
+
+Learn how to [collect Syslog with the AMA](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+
+> [!IMPORTANT]
+>
+> Upcoming changes:
+> - On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. 
+>    - Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.
+>    - Data that has been streamed and ingested before the change will still be available in its former columns and formats. Old columns will therefore remain in the schema.
+> - On **31 August, 2024**, the [Log Analytics agent will be retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start [planning your migration to the AMA](ama-migrate.md). Review the [options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md).
 
 This article describes the process of using CEF-formatted logs to connect your data sources. For information about data connectors that use this method, see [Microsoft Sentinel data connectors reference](data-connectors-reference.md).
 

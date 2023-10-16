@@ -3,15 +3,15 @@ title: Set sign-in with SAML identity provider options
 titleSuffix: Azure Active Directory B2C
 description: Configure sign-in SAML identity provider (IdP) options in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 03/20/2023
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -19,7 +19,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure SAML identity provider options with Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article describes the configuration options that are available when enabling sign-in with a SAML identity provider.
+Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article describes how to parse the security assertions, and the configuration options that are available when enabling sign-in with a SAML identity provider.
+
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -31,21 +32,22 @@ Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 iden
 
 ::: zone pivot="b2c-custom-policy"
 
+
 ## Claims mapping
 
 The **OutputClaims** element contains a list of claims returned by the SAML identity provider. You need to map the name of the claim defined in your policy to the name defined in the identity provider. Check your identity provider for the list of  claims (assertions). You can also check the content of the SAML response your identity provider returns. For more information, see [Debug the SAML messages](#debug-saml-protocol). To add a claim, first [define a claim](claimsschema.md), then add the claim to the output claims collection.
 
-You can also include claims that aren't returned by the identity provider, as long as you set the `DefaultValue` attribute. The default value can be static or dynamic, using [context claims](#enable-use-of-context-claims).
+You can also include claims that not return by the identity provider, as long as you set the `DefaultValue` attribute. The default value can be static or dynamic, using [context claims](#enable-use-of-context-claims).
 
 The output claim element contains the following attributes:
 
 - **ClaimTypeReferenceId** is the reference to a claim type. 
 - **PartnerClaimType** is the name of the property that appears SAML assertion. 
-- **DefaultValue** is a predefined default value. If the claim is empty, the default value will be used. You can also use a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the correlation ID, or the user IP address.
+- **DefaultValue** is a predefined default value. If the claim is empty, the default value is used. You can also use a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the correlation ID, or the user IP address.
 
 ### Subject name
 
-To read the SAML assertion **NameId** in the **Subject** as a normalized claim, set the claim **PartnerClaimType** to the value of the `SPNameQualifier` attribute. If the `SPNameQualifier`attribute is not presented, set the claim **PartnerClaimType** to value of the `NameQualifier` attribute.
+To read the SAML assertion **NameId** in the **Subject** as a normalized claim, set the claim **PartnerClaimType** to the value of the `SPNameQualifier` attribute. If the `SPNameQualifier`attribute isn't presented, set the claim **PartnerClaimType** to value of the `NameQualifier` attribute.
 
 SAML assertion:
 
@@ -65,14 +67,14 @@ Output claim:
 <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
 ```
 
-If both `SPNameQualifier` or `NameQualifier` attributes are not presented in the SAML assertion, set the claim **PartnerClaimType** to `assertionSubjectName`. Make sure the **NameId** is the first value in assertion XML. When you define more than one assertion, Azure AD B2C picks the subject value from the last assertion.
+If both `SPNameQualifier` or `NameQualifier` attributes aren't presented in the SAML assertion, set the claim **PartnerClaimType** to `assertionSubjectName`. Make sure the **NameId** is the first value in assertion XML. When you define more than one assertion, Azure AD B2C picks the subject value from the last assertion.
 
 
 ## Configure SAML protocol bindings
 
 The SAML requests are sent to the identity provider as specified in the identity provider's metadata `SingleSignOnService` element. Most of the identity providers' authorization requests are carried directly in the URL query string of an HTTP GET request (as the messages are relatively short). Refer to your identity provider documentation for how to configure the bindings for both SAML requests.
 
-The following is an example of an Azure AD metadata single sign-on service with two bindings. The `HTTP-Redirect` takes precedence over the `HTTP-POST` because it appears first in the SAML identity provider metadata.
+The following XML is an example of a Microsoft Entra metadata single sign-on service with two bindings. The `HTTP-Redirect` takes precedence over the `HTTP-POST` because it appears first in the SAML identity provider metadata.
 
 ```xml
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -84,9 +86,9 @@ The following is an example of an Azure AD metadata single sign-on service with 
 
 ### Assertion consumer service
 
-The Assertion Consumer Service (or ACS) is where the identity provider SAML responses can be sent and received by Azure AD B2C. SAML responses are transmitted to Azure AD B2C via HTTP POST binding. The ACS location points to your relying party's base policy. For example, if the relying policy is *B2C_1A_signup_signin*, the ACS is the base policy of the *B2C_1A_signup_signin*, such as *B2C_1A_TrustFrameworkBase*.
+The Assertion Consumer Service (or ACS) is where the identity provider SAML responses are sent and received by Azure AD B2C. SAML responses are transmitted to Azure AD B2C via HTTP POST binding. The ACS location points to your relying party's base policy. For example, if the relying policy is *B2C_1A_signup_signin*, the ACS is the base policy of the *B2C_1A_signup_signin*, such as *B2C_1A_TrustFrameworkBase*.
 
-The following is an example of an Azure AD B2C policy metadata assertion consumer service element. 
+The following XML is an example of an Azure AD B2C policy metadata assertion consumer service element. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -116,7 +118,7 @@ Azure AD B2C uses `Sha1` to sign the SAML request. Use the **XmlSignatureAlgorit
 
 ### Include key info
 
-When the identity provider indicates that Azure AD B2C binding is set to `HTTP-POST`, Azure AD B2C includes the signature and the algorithm in the body of the SAML request. You can also configure Azure AD to include the public key of the certificate when the binding is set to `HTTP-POST`. Use the **IncludeKeyInfo** metadata to `true`, or `false`. In the following example, Azure AD will not include the public key of the certificate.
+When the identity provider indicates that Azure AD B2C binding is set to `HTTP-POST`, Azure AD B2C includes the signature and the algorithm in the body of the SAML request. You can also configure Microsoft Entra ID to include the public key of the certificate when the binding is set to `HTTP-POST`. Use the **IncludeKeyInfo** metadata to `true`, or `false`. In the following example, Microsoft Entra ID doesn't include the public key of the certificate.
 
 ```xml
 <Metadata>
@@ -167,7 +169,7 @@ You can use [context claims](claim-resolver-overview.md), such as `{OIDC:LoginHi
 
 ### Name ID policy format
 
-By default, the SAML authorization request specifies the `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` policy. This indicates that any type of identifier supported by the identity provider for the requested subject can be used.
+By default, the SAML authorization request specifies the `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` policy. This name ID indicates that any type of identifier supported by the identity provider for the requested subject can be used.
 
 To change this behavior, refer to your identity provider’s documentation for guidance about which name ID policies are supported. Then add the `NameIdPolicyFormat` metadata in the corresponding policy format. For example:
 
@@ -220,7 +222,7 @@ The following example demonstrates an authorization request with **AllowCreate**
 
 You can force the external SAML IDP to prompt the user for authentication by passing the `ForceAuthN` property in the SAML authentication request. Your identity provider must also support this property.
 
-The `ForceAuthN` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthN value to `false`. If the session is then reset (for example by using the `prompt=login` in OIDC) then the ForceAuthN value will be set to `true`. Setting the metadata item as shown below will force the value for all requests to the external IDP.
+The `ForceAuthN` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthN value to `false`. If the session is then reset (for example by using the `prompt=login` in OIDC), then the `ForceAuthN` value is set to `true`. Setting the `ForceAuthN` metadata to `true` forces the value for all requests to the external IDP.
 
 The following example shows the `ForceAuthN` property set to `true`:
 
@@ -244,7 +246,7 @@ The following example shows the `ForceAuthN` property in an authorization reques
 
 ### Provider name
 
-You can optionally include the `ProviderName` attribute in the SAML authorization request. Set the metadata item as shown below to include the provider name for all requests to the external SAML IDP. The following example shows the `ProviderName` property set to `Contoso app`:
+You can optionally include the `ProviderName` attribute in the SAML authorization request. Set the `ProviderName` metadata to include the provider name for all requests to the external SAML IDP. The following example shows the `ProviderName` property set to `Contoso app`:
 
 ```xml
 <Metadata>
@@ -294,7 +296,7 @@ The following SAML authorization request contains the authentication context cla
 
 ## Include custom data in the authorization request
 
-You can optionally include protocol message extension elements that are agreed to by both Azure AD BC and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
+You can optionally include protocol message extension elements that are agreed to by both Azure AD B2C and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
 
 The following example illustrates the use of extension data:
 
@@ -310,9 +312,9 @@ The following example illustrates the use of extension data:
 ```
 
 > [!NOTE]
-> Per the SAML specification, the extension data must be namespace-qualified XML (for example, 'urn:ext:custom' shown in the sample above), and it must not be one of the SAML-specific namespaces.
+> Per the SAML specification, the extension data must be namespace-qualified XML (for example, 'urn:ext:custom' shown in the sample), and it must not be one of the SAML-specific namespaces.
 
-When using the SAML protocol message extension, the SAML response will look like the following example:
+With the SAML protocol message extension, the SAML response looks like the following example:
 
 ```xml
 <samlp:AuthnRequest ... >
@@ -328,7 +330,7 @@ When using the SAML protocol message extension, the SAML response will look like
 
 ## Require signed SAML responses
 
-Azure AD B2C requires all incoming assertions to be signed. You can remove this requirement by setting the **WantsSignedAssertions** to `false`. The identity provider shouldn’t sign the assertions in this case, but even if it does, Azure AD B2C won’t validate the signature.
+Azure AD B2C requires all incoming assertions to be signed. You can remove this requirement by setting the **WantsSignedAssertions** to `false`. The identity provider shouldn’t sign the assertions in this case, but even if it does, Azure AD B2C doesn't validate the signature.
 
 The **WantsSignedAssertions** metadata controls the SAML metadata flag **WantAssertionsSigned**, which is included in the metadata of the Azure AD B2C technical profile that is shared with the identity provider.
 
@@ -336,7 +338,7 @@ The **WantsSignedAssertions** metadata controls the SAML metadata flag **WantAss
 <SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
-If you disable the assertions validation, you might also want to disable the response message signature validation. Set the **ResponsesSigned** metadata to `false`. The identity provider shouldn’t sign the SAML response message in this case, but even if it does, Azure AD B2C won’t validate the signature.
+If you disable the assertions validation, you might also want to disable the response message signature validation. Set the **ResponsesSigned** metadata to `false`. The identity provider shouldn’t sign the SAML response message in this case, but even if it does, Azure AD B2C doesn't validate the signature.
 
 The following example removes both the message and the assertion signature:
 
@@ -396,7 +398,7 @@ To encrypt the SAML response assertion:
 
 ## Enable use of context claims
 
-In the input and output claims collection, you can include claims that aren't returned by the identity provider as long as you set the `DefaultValue` attribute. You can also use [context claims](claim-resolver-overview.md) to be included in the technical profile. To use a context claim:
+In the input and output claims collection, you can include claims that not return by the identity provider as long as you set the `DefaultValue` attribute. You can also use [context claims](claim-resolver-overview.md) to be included in the technical profile. To use a context claim:
 
 1. Add a claim type to the [ClaimsSchema](claimsschema.md) element within [BuildingBlocks](buildingblocks.md).
 2. Add an output claim to the input or output collection. In the following example, the first claim sets the value of the identity provider. The second claim uses the user IP address [context claims](claim-resolver-overview.md).
@@ -421,14 +423,124 @@ Upon an application sign-out request, Azure AD B2C attempts to sign out from you
 
 ## Debug SAML protocol
 
-To help configure and debug federation with a SAML identity provider, you can use a browser extension for the SAML protocol, such as [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for FireFox, or [Edge or IE Developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
+To help configure and debug federation with a SAML identity provider, you can use a browser extension for the SAML protocol, such as [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for FireFox, or [Microsoft Edge or IE Developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
 
 Using these tools, you can check the integration between Azure AD B2C and your SAML identity provider. For example:
 
-* Check if the SAML request contains a signature and determine what algorithm is used to sign in the authorization request.
-* Get the claims (assertions) under the `AttributeStatement` section.
-* Check if the identity provider returns an error message.
-* Check if the assertion section is encrypted.
+- Check if the SAML request contains a signature and determine what algorithm is used to sign in the authorization request.
+- Get the claims (assertions) under the `AttributeStatement` section.
+- Check if the identity provider returns an error message.
+- Check if the assertion section is encrypted.
+
+## SAML request and response samples
+
+Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider and a service provider. When Azure AD B2C federates with a SAML identity provider, it acts as a **service provider** initiating a SAML request to the SAML **identity provider**, and waiting for a SAML response.
+
+A success SAML response contains security **assertions** which are statements that made by the external SAML identity providers. Azure AD B2C parses and [maps the assertions](#claims-mapping) into claims.
+
+### Authorization request
+
+To request a user authentication, Azure AD B2C sends an `AuthnRequest` element to the external SAML identity provider. A sample SAML 2.0 `AuthnRequest` could look like the following example:
+
+```xml
+<samlp:AuthnRequest 
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+    ID="_11111111-0000-0000-0000-000000000000" 
+    Version="2.0" 
+    IssueInstant="2023-03-20T07:10:00.0000000Z" 
+    Destination="https://fabrikam.com/saml2" 
+    ForceAuthn="false" 
+    IsPassive="false" 
+    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" 
+    AssertionConsumerServiceURL="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" 
+    ProviderName="https://fabrikam.com" 
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer 
+        Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+    </saml:Issuer>
+</samlp:AuthnRequest>
+```
+
+### Response
+
+When a requested sign-on completes successfully, the external SAML identity provider posts a response to Azure AD B2C [assertion consumer service](#assertion-consumer-service) endpoint. A response to a successful sign-on attempt looks like the following sample:
+
+```xml
+<samlp:Response 
+    ID="_98765432-0000-0000-0000-000000000000" 
+    Version="2.0" 
+    IssueInstant="2023-03-20T07:11:30.0000000Z" 
+    Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" 
+    InResponseTo="_11111111-0000-0000-0000-000000000000" 
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <Issuer 
+        xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://fabrikam.com/
+    </Issuer>
+    <samlp:Status>
+        <samlp:StatusCode 
+            Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+    </samlp:Status>
+    <Assertion 
+        ID="_55555555-0000-0000-0000-000000000000" 
+        IssueInstant="2023-03-20T07:40:45.505Z" 
+        Version="2.0" 
+        xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+        <Issuer>https://fabrikam.com/</Issuer>
+        <Signature 
+            xmlns="http://www.w3.org/2000/09/xmldsig#">
+            ...
+        </Signature>
+        <Subject>
+            <NameID 
+                Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">ABCDEFG
+            </NameID>
+            ...
+        </Subject>
+        <AttributeStatement>
+            <Attribute Name="uid">
+                <AttributeValue>12345</AttributeValue>
+            </Attribute>
+            <Attribute Name="displayname">
+                <AttributeValue>David</AttributeValue>
+            </Attribute>
+            <Attribute Name="email">
+                <AttributeValue>david@contoso.com</AttributeValue>
+            </Attribute>
+            ....
+        </AttributeStatement>
+        <AuthnStatement 
+            AuthnInstant="2023-03-20T07:40:45.505Z" 
+            SessionIndex="_55555555-0000-0000-0000-000000000000">
+            <AuthnContext>
+                <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+            </AuthnContext>
+        </AuthnStatement>
+    </Assertion>
+</samlp:Response>
+```
+
+### Logout request
+
+Upon an application sign-out request, Azure AD B2C attempts to sign out from your SAML identity provider. Azure AD B2C sends a `LogoutRequest` message to the external IDP to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.
+
+The value of the `NameID` element matches the `NameID` of the user that is being signed out. The `SessionIndex` element matches the `SessionIndex` attribute of `AuthnStatement` in the sign-in SAML response.
+
+```xml
+<samlp:LogoutRequest 
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    ID="_22222222-0000-0000-0000-000000000000" 
+    Version="2.0" 
+    IssueInstant="2023-03-20T08:21:07.3679354Z" 
+    Destination="https://fabrikam.com/saml2/logout" 
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer 
+        Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+    </saml:Issuer>
+    <saml:NameID>ABCDEFG</saml:NameID>
+    <samlp:SessionIndex>_55555555-0000-0000-0000-000000000000</samlp:SessionIndex>
+</samlp:LogoutRequest>
+```
 
 ## Next steps
 

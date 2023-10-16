@@ -1,20 +1,15 @@
 ---
-title: Integrate Microsoft Sentinel and Microsoft Purview  | Microsoft Docs
-description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Purview to enable data sensitivity insights, create rules to monitor when classifications have been detected, and get an overview about data found by Microsoft Purview, and where sensitive data resides in your organization.
-author: batamig
-ms.topic: tutorial
-ms.date: 02/08/2022
-ms.author: bagol
+title: Integrate Microsoft Sentinel and Microsoft Purview
+description: This article describes how to use the **Microsoft Sentinel** data connector and solution for **Microsoft Purview** to enable data sensitivity insights, create rules to monitor when classifications have been detected, and get an overview about data found by Microsoft Purview, and where sensitive data resides in your organization.
+author: limwainstein
+ms.topic: how-to
+ms.date: 04/25/2023
+ms.author: lwainstein
 ---
 
-# Tutorial: Integrate Microsoft Sentinel and Microsoft Purview (Public Preview)
+# Integrate Microsoft Sentinel and Microsoft Purview (Public Preview)
 
-> [!IMPORTANT]
->
-> The *Microsoft Purview* solution is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
-[Microsoft Purview](../purview/index.yml) provides organizations with visibility into where sensitive information is stored, helping prioritize at-risk data for protection.
+Microsoft Purview provides organizations with visibility into where sensitive information is stored, helping prioritize at-risk data for protection. For more information, see the [Microsoft Purview data governance documentation](../purview/index.yml)
 
 Integrate Microsoft Purview with Microsoft Sentinel to help narrow down the high volume of incidents and threats surfaced in Microsoft Sentinel, and understand the most critical areas to start.
 
@@ -22,7 +17,12 @@ Start by ingesting your Microsoft Purview logs into Microsoft Sentinel through a
 
 Customize the Microsoft Purview workbook and analytics rules to best suit the needs of your organization, and combine Microsoft Purview logs with data ingested from other sources to create enriched insights within Microsoft Sentinel.
 
-In this tutorial, you:
+> [!IMPORTANT]
+>
+> The *Microsoft Purview* solution is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+In this article, you:
 
 > [!div class="checklist"]
 >
@@ -34,7 +34,7 @@ In this tutorial, you:
 
 Before you start, make sure you have both a [Microsoft Sentinel workspace](quickstart-onboard.md) and [Microsoft Purview](../purview/create-catalog-portal.md) onboarded, and that your user has the following roles:
 
-- **An Microsoft Purview account [Owner](../role-based-access-control/built-in-roles.md) or [Contributor](../role-based-access-control/built-in-roles.md) role**, to set up diagnostic settings and configure the data connector.
+- **A Microsoft Purview account [Owner](../role-based-access-control/built-in-roles.md) or [Contributor](../role-based-access-control/built-in-roles.md) role**, to set up diagnostic settings and configure the data connector.
 
 - **A [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role**, with write permissions to enable data connector, view the workbook, and create analytic rules.
 
@@ -80,7 +80,7 @@ Diagnostics settings send log events only after a full scan is run, or when a ch
 
 1. Select **Save**.
 
-For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections).
+For more information, see [Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections](connect-services-diagnostic-setting-based.md).
 
 **To run a Microsoft Purview scan and view data in Microsoft Sentinel**:
 
@@ -146,7 +146,7 @@ In Microsoft Sentinel, under **Threat management**, select **Workbooks** > **My 
 
 The Microsoft Purview workbook displays the following tabs:
 
-- **Overview**: Displays the regions and resources types where the data is located.
+- **Overview**: Displays the regions and resource types where the data is located.
 - **Classifications**: Displays assets that contain specified classifications, like Credit Card Numbers.
 - **Sensitivity labels**: Displays the assets that have confidential labels, and the assets that currently have no labels.
 

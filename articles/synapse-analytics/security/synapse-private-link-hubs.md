@@ -1,12 +1,12 @@
 ---
 title: Connect to a Synapse Studio using private links
 description: This article will teach you how to connect to your Azure Synapse Studio using private links
-author: nanditavalsan 
+author: WilliamDAssafMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security 
 ms.date: 12/01/2020 
-ms.author: NanditaV
+ms.author: wiassaf
 ms.reviewer: sngun
 ---
 
@@ -20,9 +20,11 @@ You can securely connect  to Azure Synapse Studio from your Azure virtual networ
 There are two steps to connect to Synapse Studio using private links. First, you must create a private link hubs resource. Second, you must create a private endpoint from your Azure virtual network to this private link hub. You can then use private endpoints to securely communicate with Synapse Studio. You must integrate the private endpoints with your DNS solution, either your on-premises solution or Azure Private DNS. 
 
 ## Azure Private Links Hubs and Azure Synapse Studio
-You can use a single Azure Synapse private link hub resource to privately connect to all your Azure Synapse Analytics workspaces using Azure Synapse Studio. The workspaces do not have to be in the same region as the Azure Synapse Private link hub. The Azure Synapse Private link hub resource can also be used for connections to Synapse workspaces in different subscriptions or Azure AD tenants.
+You can use a single Azure Synapse private link hub resource to privately connect to all your Azure Synapse Analytics workspaces using Azure Synapse Studio. The workspaces do not have to be in the same region as the Azure Synapse Private link hub. The Azure Synapse Private link hub resource can also be used for connections to Synapse workspaces in different subscriptions or Microsoft Entra tenants.
 
-You can create your private link hub by searching for *Synapse private link hubs* in the Azure portal and selecting **Azure Synapse Analytics (private link hubs)** from Services. Follow the steps in the guide for how to [connect to workspace resources from a restricted network](./how-to-connect-to-workspace-from-restricted-network.md) for details.
+You can create your private link hub by searching for *Synapse private link hubs* in the Azure portal and selecting **Azure Synapse Analytics (private link hubs)** from Services. Follow the steps in the guide for how to [connect to workspace resources from a restricted network](./how-to-connect-to-workspace-from-restricted-network.md) for details. Certain URLs must be accessible from the client browser after enabling Azure Synapse private link hub. For more information, see [Connect to workspace resources from a restricted network](how-to-connect-to-workspace-from-restricted-network.md).
+
+
 
 >[!NOTE]
 >Private link hubs are intended for securely loading the static content Synapse Studio over private links. You must create **separate, private endpoints** to the  resources you wish to connect to within the workspace, such as provisioned/dedicated SQL pools, or Spark pools. 
@@ -51,4 +53,3 @@ Learn more about [Managed private endpoints](./synapse-workspace-managed-private
 [Create Managed private endpoints to your data sources](./how-to-create-managed-private-endpoints.md)
 
 [Connect to Synapse workspace using private endpoints](./how-to-connect-to-workspace-with-private-links.md)
-

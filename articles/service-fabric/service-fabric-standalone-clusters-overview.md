@@ -2,7 +2,11 @@
 title: Standalone Service Fabric clusters overview 
 description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Overview of Service Fabric Standalone clusters
@@ -34,7 +38,7 @@ For more information, read [Node-to-node security](service-fabric-cluster-securi
 
 Client-to-node security authenticates clients and helps secure communication between a client and individual nodes in the cluster. This type of security helps ensure that only authorized users can access the cluster and the applications that are deployed on the cluster. Clients are uniquely identified through either their X.509 certificate security credentials. Any number of optional client certificates can be used to authenticate admin or user clients with the cluster.
 
-In addition to client certificates, Azure Active Directory can also be configured to authenticate clients with the cluster.
+In addition to client certificates, Microsoft Entra ID can also be configured to authenticate clients with the cluster.
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 

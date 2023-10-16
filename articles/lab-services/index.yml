@@ -3,16 +3,16 @@ title: Azure Lab Services documentation # < 60 chars
 summary: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud. # < 160 chars
 
 metadata:
-  title: Azure Lab Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Lab Services documentation
+  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud.
   services: lab-services
-  ms.service: lab-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: lab-services
   ms.subservice: 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: j-martens #Required; your GitHub user alias, with correct capitalization.
-  ms.author: jmartens #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/15/2021 #Required; mm/dd/yyyy format.
+  author: ntrogh
+  ms.author: nicktrog
+  ms.date: 10/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,53 +24,59 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Lab Services 
+          - text: What is Azure Lab Services? 
             url: lab-services-overview.md                       
           - text: What's new in Lab Services?
             url: lab-services-whats-new.md
           - text: Lab Services concepts
             url: classroom-labs-concepts.md
   # Card
-  - title: Lab plans (Administrators)
+  - title: Lab plans
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Create a lab plan      
-          url: tutorial-setup-lab-plan.md
+        - text: Set up resources for creating labs
+          url: quick-create-resources.md
     - linkListType: how-to-guide
       links:
-        - text: Add a Lab Creator
+        - text: Add a lab Creator
           url: add-lab-creator.md
         - text: Configure auto-shutdown
           url: how-to-configure-auto-shutdown-lab-plans.md
         - text: Connect to a virtual network
           url: how-to-connect-vnet-injection.md
         
-  - title: Create & manage labs (Educators)
+  - title: Create & manage labs
     linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Create and connect to a lab
+          url: quick-create-connect-lab.md
     - linkListType: tutorial
       links:
-        - text: Create your lab
+        - text: Set up a lab for classroom training
           url: tutorial-setup-lab.md
+        - text: Create a lab in Teams or Canvas
+          url: tutorial-setup-lab-teams-canvas.md
     - linkListType: how-to-guide
       links:
-        - text: Manage labs
+        - text: Manage a lab
           url: how-to-manage-lab-plans.md
-        - text: Customize & publish templates
-          url: how-to-create-manage-template.md
-        - text: Manage the virtual machine pool 
-          url: how-to-set-virtual-machine-passwords.md
         - text: Add and manage lab users
           url: how-to-configure-student-usage.md
         - text: Create and manage schedules
           url: how-to-create-schedules.md
+        - text: Manage the virtual machine pool 
+          url: how-to-set-virtual-machine-passwords.md
+        - text: Customize & publish templates
+          url: how-to-create-manage-template.md
           
-  - title: Access labs (Students)
+  - title: Access labs
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Access a lab
-            url: tutorial-connect-lab-virtual-machine.md
+            url: how-to-access-lab-virtual-machine.md
           - text: Connect to a lab VM
             url: connect-virtual-machine.md
           - text: Set or reset passwords

@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 08/20/2022
 ms.custom: ignite-fall-2021
 ---
 
 # Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps (preview)
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -99,7 +101,7 @@ The following table describes some reasons why you might want to use SQL:
 
 1. Set up permissions for your SQL server.
 
-   Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Azure Active Directory (Azure AD) and managed identities is not available.
+   Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Microsoft Entra ID and managed identities is not available.
 
    You must use an identity that has permissions to create and manage workflow-related artifacts in the target SQL database. For example, an administrator has all the required permissions to create and manage these artifacts. The following list describes the artifacts that the single-tenant Azure Logic Apps runtime tries to create using the SQL connection string that you provide. Make sure that the identity used in the SQL connection string has the necessary permissions to create the following artifacts:
 
@@ -115,13 +117,13 @@ The following table describes some reasons why you might want to use SQL:
 
    - If you're using Azure SQL database, complete the following requirements:
 
-     - For local development and testing, explicitly allow connections from your local computer's IP address. You can [set your IP firewall rules in Azure SQL Server](../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules).
+     - For local development and testing, explicitly allow connections from your local computer's IP address. You can [set your IP firewall rules in Azure SQL Server](/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules).
 
-     - In the [Azure portal](https://portal.azure.com), permit your logic app resource to access the SQL database with a provided connection string by [allowing Azure services](../azure-sql/database/network-access-controls-overview.md#allow-azure-services).
+     - In the [Azure portal](https://portal.azure.com), permit your logic app resource to access the SQL database with a provided connection string by [allowing Azure services](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services).
 
-     - Set up any other [SQL database network access controls](../azure-sql/database/network-access-controls-overview.md) as necessary for your scenario.
+     - Set up any other [SQL database network access controls](/azure/azure-sql/database/network-access-controls-overview) as necessary for your scenario.
 
-   - If you're using Azure SQL Managed Instance, allow Azure services (`logicapp`) to [connect to your SQL database through secured public endpoints](../azure-sql/managed-instance/public-endpoint-overview.md).
+   - If you're using Azure SQL Managed Instance, allow Azure services (`logicapp`) to [connect to your SQL database through secured public endpoints](/azure/azure-sql/managed-instance/public-endpoint-overview).
 
 <a name="set-up-sql-logic-app-creation-azure-portal"></a>
 

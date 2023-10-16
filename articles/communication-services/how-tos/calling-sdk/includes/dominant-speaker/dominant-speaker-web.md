@@ -33,7 +33,7 @@ const dominantSpeakersChangedHandler = () => {
     // Get the most up to date list of dominant speakers
     let dominantSpeakers = callDominantSpeakersApi.dominantSpeakers;
 };
-callDominantSpeakersApi.api(Features.CallDominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
+callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 ``` 
 #### Handle the Dominant Speaker's video streams
 

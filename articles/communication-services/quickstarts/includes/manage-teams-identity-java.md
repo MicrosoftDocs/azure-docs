@@ -17,6 +17,9 @@ ms.author: gistefan
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
+## Final code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ManageTeamsIdentityMobileAndDesktop).
+
 ## Set up
 
 ### Create a new Java application
@@ -38,7 +41,7 @@ Open the `pom.xml` file in your text editor. Add the following dependency elemen
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-communication-identity</artifactId>
-        <version>1.2.0-beta.1</version>
+        <version>[1.2.0,)</version>
     </dependency>
     <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -62,17 +65,17 @@ Use the following code to begin:
 ```java
 package com.communication.quickstart;
 
-import com.azure.communication.common.*;
-import com.azure.communication.identity.*;
-import com.azure.communication.identity.models.*;
-import com.azure.core.credential.*;
+import com.azure.communication.identity.CommunicationIdentityClient;
+import com.azure.communication.identity.CommunicationIdentityClientBuilder;
+import com.azure.communication.identity.models.GetTokenForTeamsUserOptions;
+import com.azure.core.credential.AccessToken;
 import com.microsoft.aad.msal4j.IAuthenticationResult;
 import com.microsoft.aad.msal4j.InteractiveRequestParameters;
 import com.microsoft.aad.msal4j.PublicClientApplication;
 
-import java.io.IOException;
-import java.time.*;
-import java.util.*;
+import java.net.URI;
+import java.util.HashSet;
+import java.util.Set;
 
 public class App
 {
@@ -84,14 +87,19 @@ public class App
 }
 ```
 
-### Step 1: Receive the Azure Active Directory user token via the MSAL library
+<a name='step-1-receive-the-azure-active-directory-user-token-and-object-id-via-the-msal-library'></a>
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
+### Step 1: Receive the Microsoft Entra user token and object ID via the MSAL library
+
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). It's essential to configure the MSAL client with the correct authority, based on the `tenantId` variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
 
 ```java
+// You need to provide your Azure AD client ID and tenant ID
 String appId = "<contoso_application_id>";
-String authority = "https://login.microsoftonline.com/<contoso_tenant_id>";
+String tenantId = "<contoso_tenant_id>";
+String authority = "https://login.microsoftonline.com/" + tenantId;
 
+// Create an instance of PublicClientApplication
 PublicClientApplication pca = PublicClientApplication.builder(appId)
         .authority(authority)
         .build();
@@ -99,13 +107,20 @@ PublicClientApplication pca = PublicClientApplication.builder(appId)
 String redirectUri = "http://localhost";
 Set<String> scope = new HashSet<String>();
 scope.add("https://auth.msft.communication.azure.com/Teams.ManageCalls");
+scope.add("https://auth.msft.communication.azure.com/Teams.ManageChats");
 
+// Create an instance of InteractiveRequestParameters for acquiring the AAD token and object ID of a Teams user
 InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .builder(new URI(redirectUri))
                     .scopes(scope)
                     .build();
 
+// Retrieve the AAD token and object ID of a Teams user
 IAuthenticationResult result = pca.acquireToken(parameters).get();
+String teamsUserAadToken = result.accessToken();
+String[] accountIds = result.account().homeAccountId().split("\\.");
+String userObjectId = accountIds[0];
+System.out.println("Teams token: " + teamsUserAadToken);
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -118,23 +133,28 @@ Add the following code to the `main` method:
 //You can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
 
+// Instantiate the identity client
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .buildClient();
 ```
 
-### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+<a name='step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token'></a>
+
+### Step 3: Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
 
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```java
-var accessToken = communicationIdentityClient.getTokenForTeamsUser(result.accessToken());
+// Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+GetTokenForTeamsUserOptions options = new GetTokenForTeamsUserOptions(teamsUserAadToken, appId, userObjectId);
+var accessToken = communicationIdentityClient.getTokenForTeamsUser(options);
 System.out.println("Token: " + accessToken.getToken());
 ```
 
 ## Run the code
 
-Navigate to the directory containing the `pom.xml` file and compile the project by using the following `mvn` command.
+Navigate to the directory containing the `pom.xml` file and compile the project by using the `mvn compile` command.
 
 Then, build the package.
 

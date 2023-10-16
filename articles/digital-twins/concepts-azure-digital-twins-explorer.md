@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins Explorer
+title: Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
-description: Learn about the capabilities and purpose of Azure Digital Twins Explorer and when it can be a useful tool for visualizing digital models, twins, and graphs.
+description: Learn about the capabilities and purpose of Azure Digital Twins Explorer (preview) and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/28/2022
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,12 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins Explorer (preview)
 
-This article contains information about the Azure Digital Twins Explorer, including its use cases and an overview of its features. For detailed steps on using each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+This article contains information about the Azure Digital Twins Explorer, including its use cases and an overview of its features. For detailed steps on using each feature, see [Use Azure Digital Twins Explorer (preview)](how-to-use-azure-digital-twins-explorer.md).
 
 *Azure Digital Twins Explorer* is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). 
-
->[!NOTE]
->This tool is currently in public preview.
 
 Here's a view of the explorer window, showing models and twins that have been populated for a sample graph:
 
@@ -63,13 +60,15 @@ The sections of the explorer are as follows:
 
 For detailed instructions on how to use each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+
 ## How to contribute
 
 Azure Digital Twins Explorer is an open-source tool that welcomes contributions to the code and documentation. The hosted application is deployed regularly from a source code repository in GitHub.
 
 To view the source code for the tool and read detailed instructions on how to contribute to the code, visit its GitHub repository: [digital-twins-explorer](https://github.com/Azure-Samples/digital-twins-explorer).
 
-To view instructions for contributing to this documentation, visit the [Microsoft Docs contributor guide](/contribute/).
+To view instructions for contributing to this documentation, review our [contributor guide](/contribute/).
 
 ## Other considerations
 

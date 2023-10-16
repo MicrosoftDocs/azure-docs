@@ -1,12 +1,11 @@
 ---
 title: Add a heat map layer to a map | Microsoft Azure Maps
-description: Learn how to create a heat map. See how to use the Azure Maps Web SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 10/06/2021
+description: Learn how to create a heat map and customize heat map layers using the Azure Maps Web SDK.
+author: sinnypan
+ms.author: sipa
+ms.date: 06/06/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
 ---
 
 # Add a heat map layer to a map
@@ -26,7 +25,7 @@ You can use heat maps in many different scenarios, including:
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
 
 ## Add a heat map layer
 
@@ -49,12 +48,13 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 }), 'labels');
 ```
 
-Here's the complete running code sample of the preceding code.
+The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map from a data set of point features. For the source code for this sample, see [Simple Heat Map Layer source code].
 
-<br/>
+:::image type="content" source="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" alt-text="Screenshot showing a map displaying a heat map.":::
 
-<iframe height='500' scrolling='no' title='Simple Heat Map Layer' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Simple Heat Map Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+------------------------------------------------------>
 
 ## Customize the heat map layer
 
@@ -78,12 +78,13 @@ The previous example customized the heat map by setting the radius and opacity o
   However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose each data point represents an earthquake. The magnitude value has been an important metric for each earthquake data point. Earthquakes happen all the time, but most have a low magnitude, and aren't noticed. Use the magnitude value in an expression to assign the weight to each data point. By using the magnitude value to assign the weight, you get a better representation of the significance of earthquakes within the heat map.
 - `source` and `source-layer`: Enable you to update the data source.
 
-Here's a tool to test out the different heat map layer options.
+The [Heat Map Layer Options] sample shows how the different options of the heat map layer that affects rendering. For the source code for this sample, see [Heat Map Layer Options source code].
 
-<br/>
+:::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map, and a panel with editable settings that show how the different options of the heat map layer affect rendering.":::
 
-<iframe height='700' scrolling='no' title='Heat Map Layer Options' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Heat Map Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result]
+------------------------------------------------------>
 
 ## Consistent zoomable heat map
 
@@ -93,14 +94,15 @@ Use a `zoom` expression to scale the radius for each zoom level, such that each 
 
 Scaling the radius so that it doubles with each zoom level creates a heat map that looks consistent on all zoom levels. To apply this scaling, use `zoom` with a base 2 `exponential interpolation` expression, with the pixel radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `2 * Math.pow(2, minZoom - maxZoom)` as shown in the following sample. Zoom the map to see how the heat map scales with the zoom level.
 
-<br/>
+The [Consistent zoomable Heat Map] sample shows how to create a heat map where the radius of each data point covers the same physical area on the ground, creating a more consistent user experience when zooming the map. The heat map in this sample scales consistently between zoom levels 10 and 22. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Doubling the radius with each zoom level creates a heat map that looks consistent across all zoom levels. For the source code for this sample, see [Consistent zoomable Heat Map source code].
 
-<iframe height="500" scrolling="no" title="Consistent zoomable heat map" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zoomable heat map</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+:::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map that uses a zoom expression that scales the radius for each zoom level.":::
 
-The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters` which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.
+<!------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true]
+------------------------------------------------------>
+
+The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters`, which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.
 
 ```json
 [
@@ -140,3 +142,11 @@ For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
+[Simple Heat Map Layer]: https://samples.azuremaps.com/heat-map-layer/simple-heat-map-layer
+[Heat Map Layer Options]: https://samples.azuremaps.com/heat-map-layer/heat-map-layer-options
+[Consistent zoomable Heat Map]: https://samples.azuremaps.com/heat-map-layer/consistent-zoomable-heat-map
+
+[Simple Heat Map Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Simple%20Heat%20Map%20Layer/Simple%20Heat%20Map%20Layer.html
+[Heat Map Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Heat%20Map%20Layer%20Options/Heat%20Map%20Layer%20Options.html
+[Consistent zoomable Heat Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Consistent%20zoomable%20Heat%20Map/Consistent%20zoomable%20Heat%20Map.html

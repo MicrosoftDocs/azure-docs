@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 07/20/2023
 ---
 
 # Parameterizing mapping data flows
@@ -105,6 +105,9 @@ A common pattern is to pass in a column name as a parameter value. If the column
 For example, if you wanted to map a string column based upon a parameter `columnName`, you can add a derived column transformation equal to `toString(byName($columnName))`.
 
 :::image type="content" source="media/data-flow/parameterize-column-name.png" alt-text="Passing in a column name as a parameter":::
+
+> [!NOTE]
+> In data flow expressions, string interpolation (substituting variables inside of the string) is not supported. Instead, concatenate the expression into string values. For example, `'string part 1' + $variable + 'string part 2'`
 
 ## Next steps
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)

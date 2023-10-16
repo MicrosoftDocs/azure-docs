@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 02/07/2022
+ms.date: 04/11/2023
 ms.author: lle
 ---
 
@@ -56,6 +56,19 @@ The problem is usually caused by one of the following factors:
 
 If none of the preceding methods works, contact Microsoft for help.
 
+### Deleted or rejected private end point still shows Aprroved in ADF
+
+#### Symptoms
+
+You created managed private endpoint from ADF and obtained an approved private endpoint. But, after deleting or rejecting the private endpoint later, the managed private endpoint in ADF still persists to exist and shows "Approved".
+
+#### Cause 
+
+Currently, ADF stops pulling private end point status after it is approved. Hence the status shown in ADF is stale.
+
+##### Resolution
+
+You should delete the managed private end point in ADF once existing private endpoints are rejected/deleted from source/sink datasets. 
 
 ### Invalid or empty authentication key issue after public network access is disabled
 
@@ -105,7 +118,7 @@ To resolve the issue, do the following:
 
 You're unable to register the IR authentication key on the self-hosted VM because the private link is enabled. You receive the following error message:
 
-"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection."
+"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn't access the public network thereby not able to reach out to the cloud to make the successful connection."
 
 #### Cause
 
@@ -154,21 +167,21 @@ Try to enable public network access on the user interface, as shown in the follo
 
 ---
 
-### Service private DNS zone overrides Azure Resource Manager DNS resolution causing ‘Not found’ error
+### Service private DNS zone overrides Azure Resource Manager DNS resolution causing 'Not found' error
 
 #### Cause
-Both Azure Resource Manager and the service are using the same private zone creating a potential conflict on customer’s private DNS with a scenario where the Azure Resource Manager records will not be found.
+Both Azure Resource Manager and the service are using the same private zone creating a potential conflict on customer's private DNS with a scenario where the Azure Resource Manager records will not be found.
 
-#### Solution
+#### Resolution
 1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/private-dns-zones.png" alt-text="Screenshot of finding Private DNS zones.":::
 2. Check if there is an A record **adf**.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/a-record.png" alt-text="Screenshot of A record.":::
-3.	Go to **Virtual network links**, delete all records.
+3.    Go to **Virtual network links**, delete all records.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/virtual-network-link.png" alt-text="Screenshot of virtual network link.":::
-4.	Navigate to your service in Azure portal and recreate the private endpoint for the portal.
+4.    Navigate to your service in Azure portal and recreate the private endpoint for the portal.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/create-private-endpoint.png" alt-text="Screenshot of recreating private endpoint.":::
-5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
+5.    Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/check-dns-record.png" alt-text="Screenshot of new DNS record.":::
 
 ### Connection error in public endpoint
@@ -181,14 +194,14 @@ For example: The Azure Blob Storage sink was using Azure IR (public, not Managed
 
 `
 <LogProperties><Text>Invoke callback url with req:
-"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+"ErrorCode=AzureBlobFailedToCreateContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
 `
 
 #### Cause
 
-The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network).
 
-#### Solution
+#### Resolution
 
 - Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
 - If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, the service may still use the Managed VNet IR if the Managed VNet IR is still there.
@@ -202,7 +215,7 @@ The service may still use Managed VNet IR, but you could encounter such error be
 
 If you are performing any operations related to CMK, you should complete all operations related to the service first, and then external operations (like Managed Identities or Key Vault operations). For example, if you  want to delete all resources, you need to delete the service instance first, and then delete the key vault.  If you delete the key vault first, this error will occur since the service can't read the required objects anymore, and it won't be able to validate if deletion is possible or not. 
 
-#### Solution
+#### Resolution
 
 There are three possible ways to solve the issue. They are as follows:
 
@@ -211,7 +224,7 @@ You can reassign access to the following permissions: **Get, Unwrap Key, and Wra
  
 * Customer deleted Key Vault / CMK before deleting the service. 
 CMK in the service should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 * User Assigned Managed Identity (UA-MI) was deleted before the service. 
 You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
@@ -244,7 +257,7 @@ The self-hosted IR can't be shared across tenants.
 For more help with troubleshooting, try the following resources:
 
 *  [Private Link for Data Factory](data-factory-private-link.md)
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

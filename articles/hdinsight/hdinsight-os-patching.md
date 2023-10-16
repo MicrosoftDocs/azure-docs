@@ -4,7 +4,7 @@ description: Learn how to configure OS patching schedule for Linux-based HDInsig
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/30/2021
+ms.date: 02/01/2023
 ---
 
 # Configure the OS patching schedule for Linux-based HDInsight clusters
@@ -19,6 +19,9 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 
 > [!NOTE]  
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
+> 
+> If you are using a firewall for network restriction, the below URL needs to be in allow list. 
+> * http://security.ubuntu.com/ubuntu
 
 ## Preparation
 

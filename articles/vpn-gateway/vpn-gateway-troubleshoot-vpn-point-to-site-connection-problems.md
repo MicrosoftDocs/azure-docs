@@ -2,11 +2,10 @@
 title: 'Troubleshoot Azure point-to-site connection problems'
 titleSuffix: Azure VPN Gateway
 description: Learn to troubleshoot and solve common point-to-site connection problems and other virtual private network errors and issues.
-services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 03/26/2020
+ms.date: 02/13/2023
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -61,7 +60,7 @@ When you try and connect to an Azure virtual network gateway using IKEv2 on Wind
 
 IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP.
 
-To prepare Windows 10 or Server 2016 for IKEv2:
+To prepare Windows 10 ,  or Server 2016 for IKEv2:
 
 1. Install the update.
 
@@ -311,7 +310,7 @@ This error occurs if the RADIUS server that you used for authenticating VPN clie
 
 ### Solution
 
-Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure AD Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## "Error 405" when you download root certificate from VPN Gateway
 

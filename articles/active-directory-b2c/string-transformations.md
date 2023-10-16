@@ -171,7 +171,7 @@ Determines whether one string claim is equal to another. The result is a new boo
 | InputClaim | inputClaim1 | string | First claim type, which is to be compared. |
 | InputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
+| InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of CompareClaims
@@ -186,7 +186,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
   </InputClaims>
   <InputParameters>
     <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
-    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="SameEmailAddress" TransformationClaimType="outputClaim" />
@@ -212,7 +212,7 @@ Determines whether a claim value is equal to the input parameter value. Check ou
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
+| InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of CompareClaimToValue
@@ -227,7 +227,7 @@ Use this claims transformation to check if a claim is equal to a value you speci
   <InputParameters>
     <InputParameter Id="compareTo" DataType="string" Value="V1" />
     <InputParameter Id="operator" DataType="string" Value="not equal" />
-    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="outputClaim" />
@@ -408,7 +408,7 @@ Formats multiple claims according to a provided localized format string. This tr
 | OutputClaim | outputClaim | string | The claim that is produced after this claims transformation has been invoked. |
 
 > [!NOTE]
-> String format maximum allowed size is 4000.
+> There is no limit to the number of input claims that you can specify, but the maximum length of the formatted string is 4000.
 
 To use the FormatLocalizedString claims transformation:
 
@@ -864,7 +864,7 @@ Checks whether the provided phone number is valid, based on phone number regular
   </InputClaims>
   <InputParameters>
     <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
-    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Phone" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="iPhone" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
@@ -1062,7 +1062,7 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
 | InputParameter | length | int | The number of characters in the substring. |
-| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+| OutputClaim | outputClaim | string | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
 ### Example of StringSubstring
 
@@ -1145,7 +1145,7 @@ Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/c
 
 ### Example of StringJoin
 
-The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
+The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in an Azure AD B2C user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
 
 ```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -1177,6 +1177,9 @@ Returns a string array that contains the substrings in this instance that are de
 | InputClaim | inputClaim | string | A string claim type that contains the sub strings to split. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
+
+> [!NOTE]
+> Any existing elements in the `OutputClaim` stringCollection will be removed.
 
 ### Example of StringSplit
 

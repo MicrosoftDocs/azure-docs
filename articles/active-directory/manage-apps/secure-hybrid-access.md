@@ -1,7 +1,6 @@
 ---
-title: Secure hybrid access
-description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
-titleSuffix: Azure AD
+title: Secure hybrid access, protect legacy apps with Microsoft Entra ID
+description: Find partner solutions to integrate your legacy on-premises, public cloud, or private cloud applications with Microsoft Entra ID.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -9,60 +8,86 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 8/17/2021
+ms.date: 01/17/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
-# Secure hybrid access: Secure legacy apps with Azure Active Directory
+# Secure hybrid access: Protect legacy apps with Microsoft Entra ID
 
-You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
+In this article, learn to protect your on-premises and cloud legacy authentication applications by connecting them to Microsoft Entra ID.
 
-- [Azure AD Application Proxy](#secure-hybrid-access-through-azure-ad-application-proxy)
-
-- [Secure hybrid access partners](#secure-hybrid-access-through-azure-ad-partner-integrations)
-
-You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](../conditional-access/overview.md) and [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](what-is-single-sign-on.md) and [multifactor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to secure your on-premises legacy applications.
-
-## Secure hybrid access through Azure AD Application Proxy
+* **[Application Proxy](#secure-hybrid-access-with-application-proxy)**:
+  * [Remote access to on-premises applications through Microsoft Entra application proxy](../app-proxy/application-proxy.md)
+  * Protect users, apps, and data in the cloud and on-premises 
+  * [Use it to publish on-premises web applications externally](../app-proxy/what-is-application-proxy.md)
   
-Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy-add-on-premises-application.md) to your on-premises web applications. Your users don’t need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](../app-proxy/application-proxy-config-sso-how-to.md#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) deployment as a next step.
+* **[Secure hybrid access through Microsoft Entra partner integrations](#partner-integrations-for-apps-on-premises-and-legacy-authentication)**:
 
-## Secure hybrid access through Azure AD partner integrations  
+  * [Pre-built solutions](#secure-hybrid-access-through-azure-ad-partner-integrations)
+  * [Apply Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies)
+ 
+In addition to Application Proxy, you can strengthen your security posture with [Microsoft Entra Conditional Access](../conditional-access/overview.md) and [Identity Protection](../identity-protection/overview-identity-protection.md). 
 
-In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
+<a name='single-sign-on-and-multi-factor-authentication'></a>
 
-![Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD.](./media/secure-hybrid-access/secure-hybrid-access.png)
+## Single sign-on and multifactor authentication
 
-The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
+With Microsoft Entra ID as an identity provider (IdP), you can use modern authentication and authorization methods like [single sign-on (SSO)](what-is-single-sign-on.md) and [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md) to secure legacy, on-premises applications.
 
-- [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md)
+## Secure hybrid access with Application Proxy
 
-- [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)  
+Use Application Proxy to protect users, apps, and data in the cloud, and on premises. Use this tool for secure remote access to on-premises web applications. Users don’t need to use a virtual private network (VPN); they connect to applications from devices with SSO. 
 
-- [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
+Learn more:
 
-- [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
+* [Remote access to on-premises applications through Microsoft Entra application proxy](../app-proxy/application-proxy.md)
+* [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md)
+* [How to configure SSO to an Application Proxy application](../app-proxy/application-proxy-config-sso-how-to.md)
+* [Using Microsoft Entra application proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
-- [F5 BIG-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
+### Application publishing and access management
 
-- [Kemp](../saas-apps/kemp-tutorial.md)
+Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Help improve your cloud access management without requiring modification to your on-premises applications. Plan an [Microsoft Entra application proxy deployment](../app-proxy/application-proxy-deployment-plan.md).
 
-- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
+## Partner integrations for apps: on-premises and legacy authentication
 
-- [Silverfort Authentication Platform](../manage-apps/silverfort-azure-ad-integration.md)
+Microsoft partners with various companies that deliver pre-built solutions for on-premises applications, and applications that use legacy authentication. The following diagram illustrates a user flow from sign-in to secure access to apps and data.
 
-- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
+   ![Diagram of secure hybrid access integrations and Application Proxy providing user access.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
+<a name='secure-hybrid-access-through-azure-ad-partner-integrations'></a>
 
-- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+<a name='secure-hybrid-access-through-microsoft-entra-partner-integrations'></a>
 
-- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+### Secure hybrid access through Microsoft Entra ID partner integrations
 
-- [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 
-- [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
+The following partners offer solutions to support [Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies). Use the tables in the following sections to learn about the partners and Microsoft Entra integration documentation.
 
-- [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+|Partner|Integration documentation|
+|---|---|
+|Akamai Technologies|[Tutorial: Microsoft Entra SSO integration with Akamai](../saas-apps/akamai-tutorial.md)|
+|Citrix Systems, Inc.|[Tutorial: Microsoft Entra SSO integration with Citrix ADC SAML Connector for Microsoft Entra ID (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)|
+|Cloudflare, Inc.|[Tutorial: Configure Cloudflare with Microsoft Entra ID for secure hybrid access](cloudflare-integration.md)|
+|Datawiza|[Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Datawiza](./datawiza-configure-sha.md)|
+|F5, Inc.|[Integrate F5 BIG-IP with Microsoft Entra ID](f5-integration.md)</br>[Tutorial: Configure F5 BIG-IP SSL-VPN for Microsoft Entra SSO](f5-passwordless-vpn.md)|
+|Progress Software Corporation, Progress Kemp|[Tutorial: Microsoft Entra SSO integration with Kemp LoadMaster Microsoft Entra integration](../saas-apps/kemp-tutorial.md)|
+|Perimeter 81 Ltd.|[Tutorial: Microsoft Entra SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)|
+|Silverfort|[Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Silverfort](silverfort-integration.md)|
+|Strata Identity, Inc.|[Integrate Microsoft Entra SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)|
 
-- [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)
+#### Partners with pre-built solutions and integration documentation
+
+|Partner|Integration documentation|
+|---|---|
+|Amazon Web Service, Inc.|[Tutorial: Microsoft Entra SSO integration with AWS ClientVPN](../saas-apps/aws-clientvpn-tutorial.md)|
+|Check Point Software Technologies Ltd.|[Tutorial: Microsoft Entra single SSO integration with Check Point Remote Secure Access VPN](../saas-apps/check-point-remote-access-vpn-tutorial.md)|
+|Cisco Systems, Inc.|[Tutorial: Microsoft Entra SSO integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)|
+|Fortinet, Inc.|[Tutorial: Microsoft Entra SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)|
+|Palo Alto Networks|[Tutorial: Microsoft Entra SSO integration with Palo Alto Networks Admin UI](../saas-apps/paloaltoadmin-tutorial.md)|
+|Pulse Secure|[Tutorial: Microsoft Entra SSO integration with Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Microsoft Entra SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)|
+|Zscaler, Inc.|[Tutorial: Integrate Zscaler Private Access with Microsoft Entra ID](../saas-apps/zscalerprivateaccess-tutorial.md)|
+
+## Next steps 
+Select a partner in the tables mentioned to learn how to integrate their solution with Microsoft Entra ID.

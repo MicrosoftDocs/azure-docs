@@ -2,9 +2,9 @@
 title: HBv3-series - Azure Virtual Machines
 description: Specifications for the HBv3-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ---
 
@@ -12,13 +12,13 @@ ms.reviewer: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-HBv3-series VMs are optimized for HPC applications such as fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation. HBv3 VMs feature up to 120 AMD EPYC™ 7V73X (Milan-X) CPU cores, 448 GB of RAM, and no hyperthreading. HBv3-series VMs also provide 350 GB/sec of memory bandwidth (amplified up to 630 GB/s), up to 96 MB of L3 cache per core (1.536 GB total per VM), up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.5 GHz. 
+HBv3-series VMs are optimized for HPC applications such as fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation. HBv3 VMs feature up to 120 AMD EPYC™ 7V73X (Milan-X) CPU cores, 448 GB of RAM, and no simultaneous multithreading. HBv3-series VMs also provide 350 GB/sec of memory bandwidth (amplified up to 630 GB/s), up to 96 MB of L3 cache per core (1.536 GB total per VM), up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.5 GHz. 
 
 All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. The HDR InfiniBand fabric also supports Adaptive Routing and the Dynamic Connected Transport (DCT, in additional to standard RC and UD transports). These features enhance application performance, scalability, and consistency, and their usage is strongly recommended.
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
+[Ultra Disks](disks-types.md#ultra-disks): Not supported<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
@@ -35,11 +35,11 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 |Standard_HB120-16rs_v3 |16  |AMD EPYC 7V73X |448 |350 |1.9 |3.0 |3.5 |200 |All |2 * 960 |32 |8 |
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hbv3-series-overview.md)
-- Supported [software stack](./workloads/hpc/hbv3-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv3-performance.md) of the HBv3-series VM
+- [Architecture and VM topology](hbv3-series-overview.md)
+- Supported [software stack](hbv3-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hbv3-performance.md) of the HBv3-series VM
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

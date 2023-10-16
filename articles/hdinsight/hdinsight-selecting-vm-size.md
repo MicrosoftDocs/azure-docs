@@ -5,7 +5,7 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 05/03/2023
 ---
 # Selecting the right VM size for your Azure HDInsight cluster
 
@@ -31,7 +31,7 @@ Virtual machine families in Azure are optimized to suit different use cases. In 
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Entry-level](../virtual-machines/sizes-general.md)          | A, Av2  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They are economical and provide a low-cost option to get started with Azure. |
+| [Entry-level](../virtual-machines/sizes-general.md)          | Av2  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They are economical and provide a low-cost option to get started with Azure. |
 | [General purpose](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
 | [Compute optimized](../virtual-machines/sizes-compute.md)        | F           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
 | [Memory optimized](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
@@ -51,8 +51,7 @@ The following table describes the cluster types and node types, which can be cre
 | Kafka | All | F4 and above | no | no |
 | HBase | All | F4 and above | no | no |
 | LLAP | disabled | no | no | no |
-| Storm | disabled | no | no | no |
-| ML Service | HDI 3.6 ONLY | F4 and above | no | no |
+
 
 To see the specifications of each F-series SKU, see [F-series VM sizes](https://azure.microsoft.com/blog/f-series-vm-size/).
 

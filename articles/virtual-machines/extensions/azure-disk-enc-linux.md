@@ -28,17 +28,19 @@ For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../l
 ## Extension Schema
 
 There are two versions of extension schema for Azure Disk Encryption (ADE):
-- v1.1 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.
-- v0.1 - An older schema that requires Azure Active Directory (AAD) properties.
+- v1.1 - A newer recommended schema that does not use Microsoft Entra properties.
+- v0.1 - An older schema that requires Microsoft Entra properties.
 
 To select a target schema, the `typeHandlerVersion` property must be set equal to version of schema you want to use.
 
-### Schema v1.1: No AAD (recommended)
+<a name='schema-v11-no-azure-ad-recommended'></a>
 
-The v1.1 schema is recommended and does not require Azure Active Directory (AAD) properties.
+### Schema v1.1: No Microsoft Entra ID (recommended)
+
+The v1.1 schema is recommended and does not require Microsoft Entra properties.
 
 > [!NOTE]
-> The `DiskFormatQuery` parameter is deprecated. Its functionity has been replaced by the EncryptFormatAll option instead, which is the recommended way to format data disks at time of encryption.
+> The `DiskFormatQuery` parameter is deprecated. Its functionality has been replaced by the EncryptFormatAll option instead, which is the recommended way to format data disks at time of encryption.
 
 ```json
 {
@@ -67,7 +69,9 @@ The v1.1 schema is recommended and does not require Azure Active Directory (AAD)
 ```
 
 
-### Schema v0.1: with AAD
+<a name='schema-v01-with-azure-ad'></a>
+
+### Schema v0.1: with Microsoft Entra ID
 
 The 0.1 schema requires `AADClientID` and either `AADClientSecret` or `AADClientCertificate`.
 
@@ -163,7 +167,7 @@ For an example of template deployment based on schema v1.1, see the Azure Quicks
 For an example of template deployment based on schema v0.1, see the Azure Quickstart Template [encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm).
 
 >[!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM.
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM.
 > - When encrypting Linux OS volumes, the VM should be considered unavailable. We strongly recommend to avoid SSH logins while the encryption is in progress to avoid issues blocking any open files that will need to be accessed during the encryption process. To check progress, use the [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet or the [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI command. This process can be expected to take a few hours for a 30GB OS volume, plus additional time for encrypting data volumes. Data volume encryption time will be proportional to the size and quantity of the data volumes; the `encrypt format all` option is faster than in-place encryption, but will result in the loss of all data on the disks.
 > - Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.
 
@@ -185,4 +189,4 @@ Alternatively, you can file an Azure support incident. Go to [Azure support](htt
 ## Next steps
 
 * For more information about VM extensions, see [Virtual machine extensions and features for Linux](features-linux.md).
-* For more information about Azure Disk Encryption for Linux, see [Linux virtual machines](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines).
+* For more information about Azure Disk Encryption for Linux, see [Linux virtual machines](../../virtual-machines/linux/disk-encryption-overview.md).

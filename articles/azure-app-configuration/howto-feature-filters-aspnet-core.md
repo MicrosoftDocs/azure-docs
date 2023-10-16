@@ -5,8 +5,8 @@ description: Learn how to use feature filters to enable conditional feature flag
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.topic: conceptual
 ms.date: 3/9/2020
 ---
@@ -22,7 +22,7 @@ The `Microsoft.FeatureManagement` library includes three feature filters:
 - `TimeWindowFilter` enables the feature flag during a specified window of time.
 - `TargetingFilter` enables the feature flag for specified users and groups.
 
-You can also create your own feature filter that implements the [Microsoft.FeatureManagement.IFeatureFilter interface](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
+You can also create your own feature filter that implements the Microsoft.FeatureManagement.IFeatureFilter interface.
 
 ## Registering a feature filter
 

@@ -1,38 +1,38 @@
 ---
-title: Create simpler and faster rules for dynamic groups - Azure AD | Microsoft Docs
+title: Create simpler and faster rules for dynamic groups
 description: How to optimize your membership rules to automatically populate groups.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/29/2022
-ms.author: curtand
+ms.date: 06/23/2022
+ms.author: barclayn
 ms.reviewer: jordandahl
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
 
-# Create simpler, more efficient rules for dynamic groups in Azure Active Directory
+# Create simpler, more efficient rules for dynamic groups in Microsoft Entra ID
 
-The team for Azure Active Directory (Azure AD) sees numerous incidents related to dynamic groups and the processing time for their membership rules. This article contains the methods by which our engineering team helps customers to simplify their membership rules. Simpler and more efficient rules result in better dynamic group processing times. When writing membership rules for dynamic groups, these are steps you can take to ensure the rules are as efficient as possible. 
+The team for Microsoft Entra ID, part of Microsoft Entra, receives reports of incidents related to dynamic groups and the processing time for their membership rules. This article uses that reported information to present the most common methods by which our engineering team helps customers to simplify their membership rules. Simpler and more efficient rules result in better dynamic group processing times. When writing membership rules for dynamic groups, follow these steps to ensure that your rules are as efficient as possible.
 
 
 ## Minimize use of MATCH
 
-Minimize the usage of the 'match' operator in rules as much as possible. Instead, explore if it's possible to use the `contains`, `startswith`, or `-eq` operators. Considering using other properties that allow you to write rules to select the users you want to be in the group without using the `-match` operator. For example, if you want a rule for the group for all users whose city is Lagos, then instead of using rules like:
+Minimize the usage of the `match` operator in rules as much as possible. Instead, explore if it's possible to use the `contains`, `startswith`, or `-eq` operators. Considering using other properties that allow you to write rules to select the users you want to be in the group without using the `-match` operator. For example, if you want a rule for the group for all users whose city is Lagos, then instead of using rules like:
 
 - `user.city -match "ago"`
 - `user.city -match ".*?ago.*"`
 
 It's better to use rules like:
 
-- `user.city -contains "ago,"`
-- `user.city -startswith "Lag,"` 
+- `user.city -contains "ago"`
+- `user.city -startswith "Lag"` 
 
 Or, best of all:
 
@@ -77,4 +77,3 @@ It's better to use a rule like this:
 ## Next steps
 
 - [Create a dynamic group](groups-dynamic-membership.md)
-

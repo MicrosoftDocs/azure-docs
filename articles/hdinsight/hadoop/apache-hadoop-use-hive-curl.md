@@ -4,7 +4,7 @@ description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight usi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/06/2020
+ms.date: 09/14/2023
 ---
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
@@ -37,7 +37,7 @@ Preserve your credentials to avoid reentering them for each example.  The cluste
 Edit the script below by replacing `PASSWORD` with your actual password.  Then enter the command.
 
 ```bash
-export password='PASSWORD'
+export PASSWORD='PASSWORD'
 ```  
 
 **B. PowerShell**
@@ -54,8 +54,8 @@ The actual casing of the cluster name may be different than you expect, dependin
 Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN isn't case-sensitive.)
 
 ```bash
-export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-echo $clusterName
+export CLUSTER_NAME=$(curl -u admin:$PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+echo $CLUSTER_NAME
 ```  
 
 ```powershell
@@ -73,7 +73,7 @@ $clusterName
 1. To verify that you can connect to your HDInsight cluster, use one of the following commands:
 
     ```bash
-    curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/status
+    curl -u admin:$PASSWORD -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/status
     ```
 
     ```powershell
@@ -97,7 +97,7 @@ $clusterName
 1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path, `/status`, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
     ```bash
-    curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
+    curl -u admin:$PASSWORD -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
     ```powershell
@@ -116,8 +116,8 @@ $clusterName
 1. Use the following to create a table named **log4jLogs**:
 
     ```bash
-    jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
-    echo $jobid
+    JOB_ID=$(curl -s -u admin:$PASSWORD -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/hive | jq -r .id)
+    echo $JOB_ID
     ```
 
     ```powershell
@@ -159,7 +159,7 @@ $clusterName
 1. To check the status of the job, use the following command:
 
     ```bash
-    curl -u admin:$password -d user.name=admin -G https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
+    curl -u admin:$PASSWORD -d user.name=admin -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
     ```
 
     ```powershell

@@ -1,13 +1,13 @@
 ---
-title: Administrator guide (deprecated) | Microsoft Docs
+title: Administrator guide using lab accounts | Microsoft Docs
 description: This guide helps administrators who create and manage lab accounts by using Azure Lab Services.
 ms.topic: how-to
 ms.date: 10/20/2020
 ---
 
-# Azure Lab Services - Administrator guide (deprecated)
+# Azure Lab Services - Administrator guide when using lab accounts
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+[!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab account for their school. After they've set up a lab account, administrators or educators create the labs that are contained within the account. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
@@ -26,7 +26,7 @@ Your university might have one or more Azure subscriptions. You use subscription
 The relationship between a lab account and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab account.
-- You can grant users in the subscription's Azure Active Directory (Azure AD) tenant access to Azure Lab Services. You can add a user as a lab account Owner or Contributor, or as a Lab Creator or lab Owner.
+- You can grant users in the subscription's Microsoft Entra tenant access to Azure Lab Services. You can add a user as a lab account Owner or Contributor, or as a Lab Creator or lab Owner.
 
 Labs and their virtual machines (VMs) are managed and hosted for you within a subscription that's owned by Azure Lab Services.
 
@@ -52,7 +52,7 @@ The following list highlights scenarios where more than one lab account might be
 
   When you set up a lab account, you set policies that apply to *all* labs under the lab account, such as:
   - The Azure virtual network with shared resources that the lab can access. For example, you might have a set of labs that need access to a shared data set within a virtual network.
-  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Azure Marketplace image.
+  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) Azure Marketplace image.
 
     If each of your labs has unique policy requirements, it might be beneficial to create separate lab accounts for managing each lab separately.
 
@@ -252,7 +252,7 @@ If your school needs to do content filtering, contact us via the [Azure Lab Serv
 
 ## Endpoint management
 
-Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
+Many endpoint management tools, such as [Microsoft Configuration Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
 
 With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
 

@@ -1,10 +1,13 @@
 ---
 title: Azure Service Fabric security best practices
 description: Best practices and design considerations for keeping Azure Service Fabric clusters and applications secure.
-author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: ignite-2022
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Service Fabric security 
@@ -122,8 +125,8 @@ To [set up an encryption certificate and encrypt secrets on Linux clusters](./se
 Generate a self-signed certificate for encrypting your secrets:
 
 ```bash
-user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
-user@linux:~$ cat TestCert.prv >> TestCert.pem
+openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
+cat TestCert.prv >> TestCert.pem
 ```
 
 Use the instructions in [Deploy Key Vault certificates to Service Fabric cluster virtual machine scale sets](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) to your Service Fabric Cluster's Virtual Machine Scale Sets.
@@ -131,14 +134,32 @@ Use the instructions in [Deploy Key Vault certificates to Service Fabric cluster
 Encrypt your secret using the following commands, and then update your Service Fabric Application Manifest with the encrypted value:
 
 ```bash
-user@linux:$ echo "Hello World!" > plaintext.txt
-user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
-user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
+echo "Hello World!" > plaintext.txt
+iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
 After encrypting your protected values, [specify encrypted secrets in Service Fabric Application](./service-fabric-application-secret-management.md#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](./service-fabric-application-secret-management.md#decrypt-encrypted-secrets-from-service-code).
 
-## Include certificate in Service Fabric applications
+## Include endpoint certificate in Service Fabric applications
+
+To configure your application endpoint certificate, include the certificate by adding a **EndpointCertificate** element along with the **User** element for the principal account to the application manifest. By default the principal account is NetworkService. This will provide management of the application certificate private key ACL for the provided principal.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Principals>
+    <Users>
+      <User Name="Service1" AccountType="NetworkService" />
+    </Users>
+  </Principals>
+  <Certificates>
+    <EndpointCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
+## Include secret certificate in Service Fabric applications
 
 To give your application access to secrets, include the certificate by adding a **SecretsCertificate** element to the application manifest.
 
@@ -146,7 +167,7 @@ To give your application access to secrets, include the certificate by adding a 
 <ApplicationManifest … >
   ...
   <Certificates>
-    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
   </Certificates>
 </ApplicationManifest>
 ```
@@ -154,7 +175,7 @@ To give your application access to secrets, include the certificate by adding a 
 
 To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
-To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 
 To enable system assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set, declare the following `"Microsoft.Compute/virtualMachinesScaleSets"` property:
@@ -181,23 +202,23 @@ Before your Service Fabric application can make use of a managed identity, permi
 The following commands grant access to an Azure Resource:
 
 ```bash
-principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGroups/<YOUR RG>/providers/Microsoft.Compute/virtualMachineScaleSets/<YOUR SCALE SET> --api-version 2018-06-01 | python -c "import sys, json; print(json.load(sys.stdin)['identity']['principalId'])")
+PRINCIPAL_ID=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGroups/<YOUR RG>/providers/Microsoft.Compute/virtualMachineScaleSets/<YOUR SCALE SET> --api-version 2018-06-01 | python -c "import sys, json; print(json.load(sys.stdin)['identity']['principalId'])")
 
-az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
+az role assignment create --assignee $PRINCIPAL_ID --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
 In your Service Fabric application code, [obtain an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) for Azure Resource Manager by making a REST all similar to the following:
 
 ```bash
-access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
+ACCESS_TOKEN=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
 
 ```
 
 Your Service Fabric app can then use the access token to authenticate to Azure Resources that support Active Directory.
-The following example shows how to do this for Cosmos DB resource:
+The following example shows how to do this for a Azure Cosmos DB resource:
 
 ```bash
-cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
+COSMOS_DB_PASSWORD=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $ACCESS_TOKEN" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
 ## Windows security baselines
 [We recommend that you implement an industry-standard configuration that is broadly known and well-tested, such as Microsoft security baselines, as opposed to creating a baseline yourself](/windows/security/threat-protection/windows-security-baselines); an option for provisioning these on your Virtual Machine Scale Sets is to use Azure Desired State Configuration (DSC) extension handler, to configure the VMs as they come online, so they are running the production software.
@@ -221,7 +242,7 @@ Customers should configure their Azure-hosted workloads and on-premises applicat
 
 ## Windows Defender 
 
-By default, Windows Defender antivirus is installed on Windows Server 2016. For details, see [Windows Defender Antivirus on Windows Server 2016](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). The user interface is installed by default on some SKUs, but is not required. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, declare the following Virtual Machine Scale Set Extension Resource Manager template properties to exclude your Service Fabric cluster from scans:
+By default, Windows Defender antivirus is installed on Windows Server 2016. For details, see [Windows Defender Antivirus on Windows Server 2016](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows). The user interface is installed by default on some SKUs, but is not required. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, declare the following Virtual Machine Scale Set Extension Resource Manager template properties to exclude your Service Fabric cluster from scans:
 
 
 ```json
@@ -235,7 +256,7 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
             "AntimalwareEnabled": "true",
             "Exclusions": {
                 "Paths": "[concat(parameters('svcFabData'), ';', parameters('svcFabLogs'), ';', parameters('svcFabRuntime'))]",
-                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe;FabricBRS.exe;BackupCopier.exe"
             },
             "RealtimeProtectionEnabled": "true",
             "ScheduledScanSettings": {

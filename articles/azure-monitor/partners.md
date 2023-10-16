@@ -4,12 +4,15 @@ description: Learn about partners for Azure Monitor and how you can access docum
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 02/17/2023
+ms.reviewer: robb
 ---
 
 # Azure Monitor partner integrations
 
 The following partner products integrate with Azure Monitor. They're listed in alphabetical order. 
+
+This article is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate other appropropriate partners. 
 
 ## AIMS
 
@@ -55,7 +58,7 @@ Customers can deploy the BMC Helix platform with the cloud deployment of their c
 
 ## Botmetric
 
-See the [Botmetric introduction for Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/).
+See the [Botmetric introduction for Azure](https://nutanix.medium.com/announcing-botmetric-cost-governance-beta-in-microsoft-azure-ee6b361c303e).
 
 ## Circonus
 
@@ -63,7 +66,7 @@ See the [Botmetric introduction for Azure](https://www.botmetric.com/blog/announ
 
 Circonus provides a platform for machine data intelligence that can handle billions of metric streams in real time to drive business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure resource utilization, application performance, and operational health.
 
-For more information, see the [Circonus documentation](https://docs.circonus.com/circonus/agents/cloud-agent/azure/).
+For more information, see the [Circonus documentation](https://docs.circonus.com/circonus3/integrations/agents/circonus-cloud-agent/#azure).
 
 ## CloudHealth
 
@@ -105,20 +108,32 @@ For documentation on the integration, see [Datadog integration with Azure](../pa
 
 ![Dynatrace logo.](./media/partners/dynatrace.png)
 
-Dynatrace simplifies cloud complexity and is a single source of truth for your cloud platforms. It allows you to monitor the health of your entire Azure applications and infrastructure.
+Dynatrace partners with Microsoft to help the world’s largest organizations tame hybrid, multicloud complexity and accelerate digital transformation. Beyond the integrations built by Dynatrace that enable monitoring of specific Azure services and the ability to purchase the Dynatrace Software Intelligence Platform through the [Microsoft Azure Marketplace](https://www.dynatrace.com/news/press-release/dynatrace-expands-strategic-collaboration-with-microsoft/), Dynatrace also deeply integrates with Microsoft Azure as a native solution. Azure Native Dynatrace Service provides all the unique capabilities of the [Dynatrace Software Intelligence Platform on Microsoft Azure with native integration into the Azure Portal](https://www.dynatrace.com/news/press-release/dynatrace-platform-available-on-microsoft-azure/). The Dynatrace Software Intelligence Platform provides several purpose-built [integrations for monitoring Microsoft Azure](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services) resources and services.  Some examples include: 
 
-Dynatrace integrates with Application Insights in Azure Monitor by enriching the data and extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API management services, and more. Dynatrace supports more than 80 Azure Monitor services that span application workloads, microservices workloads, and infrastructure-related services. 
+-	VM Extension for Azure Virtual Machines
+- Extension for Azure App services for Windows, Linux and containers
+- VM Extension for Azure Virtual Machine Scale Set (VMSS) 
+- Azure Site-Extension on Azure Functions 
+- Monitoring of Azure Kubernetes Service 
+- Dynatrace OpenTelemetry Instrumentation of Azure Functions
+- Azure Spring Apps integration
+- Dynatrace Azure Monitor Integration 
 
-Get automated, AI-assisted observability across Azure environments:
+Dynatrace SaaS is hosted on Microsoft Azure and available in several Azure regions. For an overview of the currently supported Azure regions please see the [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/data-privacy-and-security/data-security/data-security-controls#data-storage).
 
-- Full stack observability in minutes with everything in context, including metrics, logs, and traces
-- Auto-discovery, continuous dependency mapping, and instant answers to automate monitoring of Azure cloud services like Azure App Service, Azure Kubernetes Service (AKS), HDInsight, and many more
-- Continuous analysis of billions of dependencies by Davis, Dynatrace's AI, to provide precise root causes
-- Single source of truth for teams to collaborate and innovate, wherever they reside
-- Acceleration of Azure cloud migrations
+Furthermore, Dynatrace is also available as a native solution integrated into Microsoft Azure. The [Azure Native Dynatrace Service](https://www.dynatrace.com/news/blog/using-dynatrace-on-microsoft-azure/) is available via the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview&exp=ubp8)
 
-For more information, see the [Dynatrace documentation](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/).
+The Azure Native Dynatrace Service gives Microsoft Azure customers a seamless experience for Dynatrace automatic and intelligent observability and runtime application security in and from Azure. The benefits of this native integration include:
 
+- Integrated onboarding: You can provision Dynatrace and manage the integration through the Azure Marketplace and Portal. The seamless onboarding experience sets up Dynatrace automatically. 
+- Single sign-on: You can easily enable SSO through Microsoft Entra ID. 
+- Metrics and logs: You can enable the collection of metrics and logs for Virtual Machine (VM) and App Services resources by installing Dynatrace OneAgent on those resources. Furthermore, you can activate the sending of Azure [subscription activity logs](./essentials/activity-log-schema.md) and [resource logs](./essentials/resource-logs-categories.md) to Dynatrace.
+- OneAgent deployment: You can install or uninstall Dynatrace OneAgents on single or multiple virtual machines and Azure App Services directly from your Azure Portal.
+- Manage Dynatrace within Azure portal: Within your Azure Portal, you can verify which resources are sending Azure metrics and logs to Dynatrace and make instant changes as needed.
+- Deeper Azure CLI integration: You can easily manage Dynatrace resources from the Azure CLI to further extend deployments of those resources with ARM templates or other third-party IAAC platforms, such as Terraform.
+- Azure Monitor metrics collection: The collection of Azure Monitor metrics from your Azure subscription can be activated with one click with no need for configuration or hosting of infrastructure/components. This includes Azure services such as App Services & Functions, Azure Databases, Azure Load Balancers, Azure Storage, and many more (see the complete list of services). Monitoring with the Azure Native Dynatrace Service is set up in the background and activated from the Azure console in a second.
+
+For more information and documentation on the native integration of Dynatrace in Azure, see our [documentation](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration) or directly have a look at the [Azure marketplace listing](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview&exp=ubp8)
 
 ## Elastic
 
@@ -136,7 +151,7 @@ Grafana is an open-source application that enables you to visualize metric data 
 
 ## InfluxData
 
-![InfluxData logo.](./media/partners/Influxdata.png)
+![InfluxData logo.](./media/partners/influxdata.png)
 
 InfluxData is the creator of InfluxDB, the open-source time series database. Its technology is purpose built to handle the massive volumes of time-stamped data produced by Internet of Things (IoT) devices, applications, networks, containers, and computers. 
 
@@ -148,7 +163,7 @@ InfluxData is on a mission to help developers and organizations, such as IBM, Vi
 
 ![LogicMonitor logo.](./media/partners/logicmonitor.png)
 
-LogicMonitor is an SaaS-based performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. 
+LogicMonitor is a SaaS-based performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. 
 
 LM Cloud's comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources—all from a single platform. Automated resource discovery, built-in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
@@ -161,6 +176,26 @@ For more information, see the [LogicMonitor documentation](https://www.logicmoni
 LogRhythm, a leader in next-generation security information and event management (SIEM), empowers organizations on six continents to measurably reduce risk by rapidly detecting, responding to, and neutralizing cyberthreats. LogRhythm's Threat Lifecycle Management (TLM) workflow is the foundation for security operations centers. It helps customers secure their cloud, physical, and virtual infrastructures for IT and OT environments. 
 
 If you're a LogRhythm customer and are ready to start your Azure journey, you'll need to install and configure the LogRhythm Open Collector and Azure Event Hubs integration. For more information, see the [documentation on configuring Azure Monitor and the Open Collector](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+## Logz.io
+
+![Logz.io logo](./media/partners/logzio.png)
+
+Logz.io delivers the observability that today’s developers need to continuously innovate and optimize their modern applications. As a massively scalable, analytics-driven cloud native platform, Logz.io specifically provides DevOps teams with the visibility and data needed to address their most complex, microservices-driven Azure applications.
+
+As modern cloud environments generate overwhelming data volumes, Logz.io makes it easy to organize observability data into dedicated environments for every team, while identifying and eliminating noisy data that clutters the critical data. The result is a more secure, cost efficient, and productive way to implement cross-organizational observability.
+
+Logz.io provides you with seamless experience to provision Logz.io accounts and configure Azure resources to send logs to Logz.io from Azure portal through its direct integration with Azure.  
+
+With the integration you can 
+-	Provision a new Logz.io account from Azure client interfaces like Azure Portal Azure PowerShell and SDK
+-	Configure your Azure resources to send logs to Logz.io—a fully managed setup with no infrastructure for customers to set up and operate
+-	Seamlessly send logs and metrics to Logz.io. Without the integration, you had to set up event hubs and write Azure Functions to receive logs from Azure Monitor and send them to Logz.io.
+-	Easily install the Logz.io agent on virtual machines hosts through a single-click
+-	Streamline single-sign on (SSO) to Logz.io. Previously, a separate sign-on from the Logz.io was required.
+-	Get unified billing of Logz.io SaaS through Azure subscription invoicing
+
+The Logz.io integration with Azure is available in Azure Marketplace 
 
 ## Microfocus
 
@@ -192,9 +227,36 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ## New Relic
 
-![New Relic logo.](./media/partners/newrelic.png)
+![New Relic logo.](./media/partners/newrelic-logo.png)
 
-See the [New Relic documentation](https://newrelic.com/solutions/partners/azure).
+Microsoft and New Relic have teamed up to provide the [Azure Native New Relic Service](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview), where the New Relic observability platform is hosted on Azure. You can subscribe to the New Relic service to collect, alert on, and analyze telemetry data for your applications and infrastructure, and with this offering, your telemetry data will be stored in Azure. In addition, you can allocate your multi-year committed Azure spend towards the New Relic service.
+
+Overview of the Azure Native New Relic Service:
+
+**Built on Azure**
+
+- The New Relic platform is hosted on Microsoft Azure.
+- Your telemetry data remains in Azure.
+
+**Rapid Onboarding**
+
+- Onboard with New Relic easily with the natively-integrated service built on Azure.
+- Automatically monitor Azure subscription activity and resource logs.
+- Automatically monitor Azure metrics.
+- Use a single experience to deploy and manage the New Relic agents on virtual machines and app services.
+- Deploy the New Relic infrastructure agent via Site Extensions.
+- Deploy .NET and Java language agents via App Service Extensions.
+- Manage Azure services observability in the Azure Portal.
+
+**Marketplace Advantages**
+
+- Get a single bill for all the resources that you consume on Azure, including New Relic.
+- Retire Microsoft Azure Consumption Commitment (MACC) spend.
+- Set up a free account or purchase New Relic through the Azure Marketplace.
+
+**Next steps**
+
+Learn more about [how to monitor Azure](https://newrelic.com/solutions/partners/azure) using the New Relic platform, the [New Relic Azure Monitor integration](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/), and the [Azure Native New Relic Service](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/).
 
 ## OpsGenie
 
@@ -341,7 +403,7 @@ For more information, see the [SquaredUp website](https://squaredup.com/).
 
 ## Sumo Logic
 
-![Sumo Logic logo.](./media/partners/SumoLogic.png)
+![Sumo Logic logo.](./media/partners/sumologic.png)
 
 Sumo Logic is a secure, cloud-native analytics service for machine data. It delivers real-time, continuous intelligence from structured, semistructured, and unstructured data across the entire application lifecycle and stack. 
 
@@ -351,13 +413,23 @@ For more information, see the [Sumo Logic documentation](https://www.sumologic.c
 
 ## Turbonomic
 
-![Turbonomic logo.](./media/partners/Turbonomic.png)
+![Turbonomic logo.](./media/partners/turbonomic.png)
 
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate. Applications constantly get the resources they require to deliver their SLA, and nothing more, across compute, storage, and network for the IaaS and PaaS layer. 
 
 Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on time and within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 For more information, see the [Turbonomic introduction](https://turbonomic.com/).
+
+## Zenduty
+
+![Zenduty logo.](./media/partners/zenduty.png)
+
+Zenduty is a novel collaborative incident management platform that provides end-to-end incident alerting, on-call management, and response orchestration, which gives teams greater control and automation over the incident management lifecycle. Zenduty is ideal for always-on services, helping teams orchestrate incident response for creating better user experiences and brand value and centralizing all incoming alerts through predefined notification rules to ensure that the right people are notified at the right time.
+
+Zenduty provides your NOC, SRE, and application engineers with detailed context around the Azure Monitor alert along with playbooks and a complete incident command framework to triage, remediate, and resolve incidents with speed.
+
+For more information, see the [Zenduty documentation](https://docs.zenduty.com/docs/microsoftazure).
 
 ## Partner tools with Event Hubs integration
 
@@ -367,7 +439,7 @@ If you use Azure Monitor to route monitoring data to an event hub, you can easil
 |:---|:---| :---|
 |  IBM QRadar | No | The Microsoft Azure DSM and the Microsoft Azure Event Hubs protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure at [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | No | The [Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open-source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance (because, for example, you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector by using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS). Azure Function For Splunk is triggered by new messages in the event hub. |
-| Sumo Logic | No | Instructions for setting up Sumo Logic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| Sumo Logic | No | Instructions for setting up Sumo Logic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/docs/integrations/microsoft-azure/audit/#collecting-logs-for-the-azure-audit-app-from-event-hub). |
 | ArcSight | No | The ArcSight smart connector for Azure Event Hubs is available as part of the [ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available on the [LogRhythm website](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 

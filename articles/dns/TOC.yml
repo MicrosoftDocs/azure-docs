@@ -6,6 +6,8 @@
     href: dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
+  - name: What is Azure DNS Private Resolver?
+    href: dns-private-resolver-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -23,6 +25,8 @@
     - name: Create a public zone - ARM Template
       displayName: Resource Manager
       href: dns-get-started-template.md
+    - name: Create a public zone - Terraform
+      href: dns-get-started-terraform.md
   - name: Private DNS
     items:
     - name: Create a private zone - portal
@@ -31,34 +35,42 @@
       href: private-dns-getstarted-cli.md
     - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
+  - name: Private resolver
+    items:
+    - name: Create a private resolver - portal
+      href: dns-private-resolver-get-started-portal.md
+    - name: Create a private resolver - PowerShell
+      href: dns-private-resolver-get-started-powershell.md
+    - name: Create a private resolver - Bicep
+      href: dns-private-resolver-get-started-bicep.md
+    - name: Create a private resolver - ARM Template
+      href: dns-private-resolver-get-started-template.md
 - name: Tutorials
   items:
   - name: Public DNS
     items:
     - name: Host your domain in Azure DNS
       href: dns-delegate-domain-azure-dns.md
+    - name: Create child DNS zones
+      href: tutorial-public-dns-zones-child.md    
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
-    - name: Creating a new Child DNS zone
-      href: tutorial-public-dns-zones-child.md
-    - name: Alias records for Traffic Manager
-      href: tutorial-alias-tm.md
-    - name: Alias records for Public IP addresses
-      href: tutorial-alias-pip.md
-    - name: Alias records for zone records
+    - name: Create alias records for zone records
       href: tutorial-alias-rr.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
+    - name: Create alias records for public IP addresses
+      href: tutorial-alias-pip.md
+    - name: Create alias records for Traffic Manager
+      href: tutorial-alias-tm.md
+  - name: Private Resolver
     items:
-    - name: Find unhealthy DNS records
-      href: ./scripts/find-unhealthy-dns-records.md
+    - name: Set up DNS failover using private resolvers
+      href: tutorial-dns-private-resolver-failover.md
 - name: Concepts
   items:
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/dns-security-baseline?toc=/azure/dns/TOC.json
+      href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
     items:
     - name: Zones and records
@@ -77,8 +89,10 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md?toc=%2fazure%2fdns%2ftoc.json
   - name: Private DNS
     items:
-    - name: Private DNS zone
+    - name: What is an Azure Private DNS zone?
       href: private-dns-privatednszone.md
+    - name: Private DNS records
+      href: dns-private-records.md
     - name: Virtual network links
       href: private-dns-virtual-network-links.md
     - name: Autoregistration
@@ -87,8 +101,19 @@
       href: private-dns-scenarios.md
     - name: DNS resolution in virtual networks
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
+    - name: Private DNS resiliency
+      href: private-dns-resiliency.md
     - name: FAQ
       href: dns-faq-private.yml
+  - name: Private Resolver
+    items:
+    - name: Endpoints and rulesets
+      href: private-resolver-endpoints-rulesets.md
+    - name: Private resolver architecture
+      href: private-resolver-architecture.md
+    - name: Resiliency in Azure DNS Private Resolver
+      href: private-resolver-reliability.md
+
 - name: How-to guides
   items:
   - name: Public DNS
@@ -139,6 +164,10 @@
       href: dns-protect-private-zones-recordsets.md
     - name: Import and export a DNS zone file
       href: private-dns-import-export.md
+  - name: Private Resolver
+    items:
+    - name: Resolve Azure and on-premises domains
+      href: private-resolver-hybrid-dns.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -174,9 +203,40 @@
     - name: Azure PowerShell
       href: /powershell/module/az.PrivateDns
     - name: .NET
-      href: /dotnet/api/overview/azure/privatedns/management
+      href: /dotnet/api/overview/azure/resourcemanager.privatedns-readme
     - name: REST
       href: /rest/api/dns/privatedns/privatezones
+  - name: Private resolver
+    items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.dnsresolver
+    - name: Azure CLI
+      href: /cli/azure/dns-resolver
+    - name: .NET
+      href: /dotnet/api/azure.resourcemanager.dnsresolver
+    - name: Java
+      href: /java/api/com.azure.resourcemanager.dnsresolver
+    - name: Python
+      href: https://pypi.org/project/azure-mgmt-dnsresolver
+    - name: REST
+      href: /rest/api/dns/dnsresolver/dns-resolvers
+    - name: Typescript/Javascript
+      href: https://www.npmjs.com/package/@azure/arm-dnsresolver
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
+    - name: Resource Manager template
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver
+    - name: Terraform
+      items:
+      - name: Manages a private DNS resolver
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver
+      - name: Manages a private DNS resolver inbound endpoint
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_inbound_endpoint
+      - name: Manages a private DNS resolver outbound endpoint
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_outbound_endpoint
+      - name: Manages a private DNS resolver DNS forwarding ruleset
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_dns_forwarding_ruleset
+
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -184,7 +244,7 @@
   - name: Feature requests
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c429912-8326-ec11-b6e6-000d3a4f0789
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-virtual-network.html
+    href: /answers/tags/143/azure-virtual-network
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 11/17/2022
 ms.author: helohr
 manager: femila
 ---
@@ -14,6 +14,9 @@ manager: femila
 # Enroll your subscription in per-user access pricing
 
 Before external users can connect to your deployment, you need to enroll your subscription in per-user access pricing. Per-user access pricing entitles users outside of your organization to access apps and desktops in your subscription using identities that you provide and manage. Your enrolled subscription will be charged each month based on the number of distinct users that connect to Azure Virtual Desktop resources.
+
+> [!IMPORTANT]
+> Per-user access pricing with Azure Virtual Desktop doesn't currently support Citrix DaaS and VMware Horizon Cloud.
 
 >[!NOTE]
 >Take care not to confuse external *users* with external *identities*. Azure Virtual Desktop doesn't currently support external identities, including guest accounts or business-to-business (B2B) identities. Whether you're serving internal users or external users with Azure Virtual Desktop, you'll need to create and manage identities for those users yourself. Per-user access pricing is not a way to enable guest user accounts with Azure Virtual Desktop. For more information, see [Understanding licensing and per-user access pricing](licensing.md).

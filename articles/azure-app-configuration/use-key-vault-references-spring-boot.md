@@ -3,7 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in a Java
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from a Java Spring Boot app
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: mrm9084
 editor: ''
 
 ms.assetid: 
@@ -11,10 +11,9 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/11/2020
-ms.author: alkemper
-ms.custom: mvc, devx-track-java, devx-track-azurecli
-
+ms.date: 05/02/2022
+ms.author: mametcal
+ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
 ---
 # Tutorial: Use Key Vault references in a Java Spring app
@@ -40,7 +39,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault
@@ -156,11 +155,29 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint of your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal. Restart the command prompt to allow the change to take effect.
 
-1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
+1. Open your configuration file in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
 
-    ```properties
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
-    ```
+### [yaml](#tab/yaml)
+
+```yaml
+spring:
+    cloud:
+        azure:
+            appconfiguration:
+                stores:
+                    - endpoint: ${APP_CONFIGURATION_ENDPOINT}
+```
+
+### [properties](#tab/properties)
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+```
+
+---
+
+> [!NOTE]
+> You can also use the [Spring Cloud Azure global configurations](/azure/developer/java/spring-framework/authentication) to connect to Key Vault.
 
 1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
 
@@ -185,60 +202,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     }
     ```
 
-1. Create a new file called *AzureCredentials.java* and add the code below.
-
-    ```java
-    package com.example.demo;
-
-    import com.azure.core.credential.TokenCredential;
-    import com.azure.identity.EnvironmentCredentialBuilder;
-    import com.azure.spring.cloud.config.AppConfigurationCredentialProvider;
-    import com.azure.spring.cloud.config.KeyVaultCredentialProvider;
-
-    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
-
-        @Override
-        public TokenCredential getKeyVaultCredential(String uri) {
-            return getCredential();
-        }
-
-        @Override
-        public TokenCredential getAppConfigCredential(String uri) {
-            return getCredential();
-        }
-
-        private TokenCredential getCredential() {
-            return new EnvironmentCredentialBuilder().build();
-        }
-
-    }
-    ```
-
-1. Create a new file called *AppConfiguration.java*. And add the code below.
-
-    ```java
-    package com.example.demo;
-
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation.Configuration;
-
-    @Configuration
-    public class AppConfiguration {
-
-        @Bean
-        public AzureCredentials azureCredentials() {
-            return new AzureCredentials();
-        }
-    }
-    ```
-
-1. Create a new file in your resources META-INF directory called *spring.factories* and add the code below.
-
-    ```factories
-    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.demo.AppConfiguration
-    ```
-
 1. Build your Spring Boot application with Maven and run it, for example:
 
     ```shell
@@ -260,7 +223,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./quickstart-feature-flag-spring-boot.md)

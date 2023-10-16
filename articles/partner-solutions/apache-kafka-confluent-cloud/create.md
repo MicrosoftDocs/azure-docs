@@ -1,14 +1,16 @@
 ---
-title: Create Apache Kafka for Confluent Cloud through Azure portal - Azure partner solutions
+title: Create Apache Kafka for Confluent Cloud through Azure portal
 description: This article describes how to use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
 ms.topic: quickstart
 ms.date: 12/14/2021
+author: flang-msft
+ms.author: franlanglois
 ms.custom: mode-ui
 ---
 
-# QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure portal
+# QuickStart: Get started with Apache Kafka on Confluent Cloud - Azure portal
 
-In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
+In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka on Confluent Cloud.
 
 ## Prerequisites
 
@@ -17,7 +19,7 @@ In this quickstart, you'll use the Azure portal to create an instance of Apache 
 
 ## Find offer
 
-Use the Azure portal to find the Apache Kafka for Confluent Cloud application.
+Use the Azure portal to find the Apache Kafka on Confluent Cloud application.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -63,7 +65,7 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
     | **Subscription** | From the drop-down menu, select the Azure subscription to deploy to. You must have _Owner_ or _Contributor_ access. |
     | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     | **Confluent organization name** | To create a new Confluent organization, select **Create a new organization** and provide a name for the Confluent organization. To link to an existing Confluent organization, select **Link Subscription to an existing organization** option. Select the option **Link to an existing organization**. Sign in to your Confluent account, and select the existing organization. |
-    | **Region** | From the drop-down menu, select one of these regions: <br/><br/> Australia East, Canada Central, Central US, East US, East US 2, France Central, North Europe, Southeast Asia, UK South, West Central US, West Europe, West US 2 |
+    | **Region** | From the drop-down menu, select one of these regions: Australia East, Canada Central, Central US, East US, East US 2, France Central, North Europe, Southeast Asia, UK South, West Central US, West Europe, West US 2 |
     | **Plan** | Select **Pay as you go** or **Commitment**. |
     | **Billing term** | Prefilled based on the selected billing plan. |
     | **Price** | Prefilled based on the selected Confluent plan. |
@@ -82,5 +84,13 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage the Confluent Cloud resource](manage.md)
+   > [!div class="nextstepaction"]
+   > [Manage the Confluent Cloud resource](manage.md)
+
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+   > [!div class="nextstepaction"]
+   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+   > [!div class="nextstepaction"]
+   > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

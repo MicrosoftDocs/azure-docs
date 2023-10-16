@@ -1,21 +1,23 @@
 ---
 title: Disaster recovery for Azure API for FHIR
 description: In this article, you'll learn how to enable disaster recovery features for Azure API for FHIR.
-author: dougseven
+author: outinyman
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/15/2022
-ms.author: dseven
+ms.date: 9/27/2023
+ms.author: ounyman
 ---
 
 # Disaster recovery for Azure API for FHIR
 
-The Azure API for FHIR® is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR.
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR. 
 
 The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
- ## How to enable DR 
+## How to enable DR 
   
 To enable the DR feature, create a one-time support ticket. You can choose an Azure paired region or another region where the Azure API for FHIR is supported. The Microsoft support team will enable the DR feature based on the support priority.
 
@@ -29,34 +31,33 @@ The DR process involves the following steps:
 
 ### Data replication in the secondary region
 
-By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
+By default, Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
 It's worth noting that the throughput RU/s must have the same values in the primary and secondary regions.
 
-[ ![Azure Traffic Manager.](media/disaster-recovery/azure-traffic-manager.png) ](media/disaster-recovery/azure-traffic-manager.png#lightbox)
+[![Diagram that shows Azure Traffic Manager.](media/disaster-recovery/azure-traffic-manager.png)](media/disaster-recovery/azure-traffic-manager.png#lightbox)
 
 ### Automatic failover
 
 During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the same service endpoint is used. The service is expected to resume in one hour or less, and potential data loss is up to 15 minutes' worth of data. Other configuration changes may be required. For more information, see [Configuration changes in DR](#configuration-changes-in-dr).
 
-[ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
+[![Diagram that shows failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png)](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
 ### Affected region recovery
 
 After the affected region recovers, it's automatically available as a secondary region and data replication restarts. You can start the data recovery process or wait until the failback step is completed.
 
-[ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
+[![Diagram that shows replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png)](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
 When the compute has failed back to the recovered region and the data hasn't, there may be potential network latencies. The main reason is that the compute and the data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
 
-[ ![Network latency.](media/disaster-recovery/network-latency.png) ](media/disaster-recovery/network-latency.png#lightbox)
-
+[![Diagram that shows network latency.](media/disaster-recovery/network-latency.png)](media/disaster-recovery/network-latency.png#lightbox)
 
 ### Manual failback
 
 The compute fails back automatically to the recovered region. The data is switched back to the recovered region manually by the Microsoft support team using the script. 
 
-[ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
+[![Diagram that shows failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png)](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
 
 ## Configuration changes in DR
 
@@ -85,20 +86,13 @@ The private link feature should continue to work during a regional outage and af
 
 ### CMK
 
-Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).  
+Your access to Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).  
 
 ### $export
 
 The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md). 
 
 Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](../fhir/export-data.md).
-
-### IoMT FHIR Connector
-
-Any existing connection won't function until the failed region is restored. You can create a new connection once the failover has completed and your FHIR server is accessible. This new connection will continue to function when failback occurs.
-
-> [!NOTE]
-> IoMT Connector is a preview feature and does not provide support for disaster recovery. 
 
 ## How to test DR
 
@@ -108,18 +102,17 @@ Consider the following steps for DR test.
 
 * Prepare a test environment with test data. It's recommended that you use a service instance with small amounts of data to reduce the time to replicate the data.
  
-* Create a support ticket and provide your Azure subscription and the service name for the Azure API for FHIR for your test environment.
+* Create a support ticket and provide your Azure subscription, preferred Azure region for the failover, and the service name for the Azure API for FHIR for your test environment.
 
 * Come up with a test plan, as you would with any DR test.
  
-* The Microsoft support team enables the DR feature and confirms that the failover has taken place.
+* The Microsoft support team enables the DR feature and confirms that the preferred failover region by the customer has been added
 
 * Conduct your DR test and record the testing results, which it should include any data loss and network latency issues. 
 
 * For failback, notify the Microsoft support team to complete the failback step.
  
 * (Optional) Share any feedback with the Microsoft support team.
-
 
 > [!NOTE]
 > The DR test will double the cost of your test environment during the test. No extra cost will incur after the DR test is completed and the DR feature is disabled.
@@ -131,10 +124,11 @@ The disaster recovery feature incurs extra costs because data of the compute and
 > [!NOTE]
 > The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/pricing/details/health-data-services), 1.0.
 
-
 ## Next steps
 
-In this article, you've learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see:
+In this article, you've learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see
 
->[!div class="nextstepaction"]
->[FHIR supported features](fhir-features-supported.md)
+> [!div class="nextstepaction"]
+> [FHIR supported features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

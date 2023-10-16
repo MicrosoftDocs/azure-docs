@@ -1,17 +1,18 @@
 ---
-title: Azure Pipelines task for Azure Database for MySQL Flexible Server 
-description: Enable  Azure Database for MySQL Flexible Server CLI  task for using with Azure Pipelines
-ms.topic: how-to
+title: Azure Pipelines task for Azure Database for MySQL - Flexible Server 
+description: Enable Azure Database for MySQL - Flexible Server CLI task for using with Azure Pipelines.
 ms.service: mysql
-ms.custom: seodec18, devx-track-azurecli
+ms.subservice: flexible-server
+ms.topic: how-to
 ms.author: sumuth
 author: mksuni
-ms.date: 08/09/2021
+ms.custom: seodec18
+ms.date: 08/09/2021 
 ---
 
-# Azure Pipelines for Azure Database for MySQL Flexible Server
+# Azure Pipelines for Azure Database for MySQL - Flexible Server
 
-You can automatically deploy your database updates to Azure Database for MySQL Flexible Server after every successful build with **Azure Pipelines**.  You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
+You can automatically deploy your database updates to an Azure Database for MySQL flexible server after every successful build with **Azure Pipelines**. You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
 
 ## Prerequisites
 
@@ -21,8 +22,8 @@ You can automatically deploy your database updates to Azure Database for MySQL F
 - Microsoft hosted agents have Azure CLI pre-installed. However if you are using private agents, [install Azure CLI](/cli/azure/install-azure-cli) on the computer(s) that run the build and release agent. If an agent is already running on the machine on which the Azure CLI is installed, restart the agent to ensure all the relevant stage variables are updated.
   
 This quickstart uses the resources created in either of these guides as a starting point:
-- Create an Azure Database for MySQL Flexible Server using [Azure portal](./quickstart-create-server-portal.md) or  [Azure CLI](./quickstart-create-server-cli.md)
 
+- Create an Azure Database for MySQL flexible server using [Azure portal](./quickstart-create-server-portal.md) or [Azure CLI](./quickstart-create-server-cli.md)
 
 ## Use SQL file
 
@@ -79,7 +80,7 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 | :------------------- | :-------------------|
 | azureSubscription| (Required) Provide the Azure Resource Manager subscription for the deployment. This parameter is shown only when the selected task version is 0.* as Azure CLI task v1.0 supports only Azure Resource Manager subscriptions. |
 |scriptType| (Required) Provide the type of script. Supported scripts are PowerShell, PowerShell Core, Bat, Shell, and script. When running on a **Linux agent**, select one of the following: ```bash``` or  ```pscore``` . When running **Windows agent**, select one of the following: ```batch```,```ps``` and ```pscore```. |
-|sriptLocation| (Required) Provide the path to script, for example real file path or use ```Inline script``` when providing the scripts inline. The default value is ```scriptPath```. |
+|scriptLocation| (Required) Provide the path to script, for example real file path or use ```Inline script``` when providing the scripts inline. The default value is ```scriptPath```. |
 |scriptPath| (Required) Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows-based agent else <code>.ps1 </code> or <code>.sh </code> when using linux-based agent) or a path relative to the default working directory. |
 |inlineScript|(Required) You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux-based agents. For batch files use the prefix \"call\" before every Azure command. You can also pass predefined and custom variables to this script using arguments. <br/>Example for PowerShell/PowerShellCore/shell:``` az --version az account show``` <br/>Example for batch: ``` call az --version call az account show```. |
 | arguments| (Optional) Provide all the arguments passed to the script. For examples ```-SERVERNAME mydemoserver```. |
@@ -98,4 +99,3 @@ Here are some related tasks to deploy to Azure.
 
 - [Azure Resource Group Deployment](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
 - [Azure Web App Deployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)
-

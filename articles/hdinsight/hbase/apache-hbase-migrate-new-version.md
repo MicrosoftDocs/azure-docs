@@ -4,7 +4,7 @@ description: Learn how to migrate Apache HBase clusters in Azure HDInsight to a 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/06/2021
+ms.date: 09/19/2023
 ---
 
 # Migrate an Apache HBase cluster to a new version
@@ -39,7 +39,7 @@ For more information about HDInsight versions and compatibility, see [Azure HDIn
 
 ## Apache HBase cluster migration overview
 
-To upgrade your Apache HBase cluster on Azure HDInsight, you complete the following basic steps. For detailed instructions, see the detailed steps and commands.
+To upgrade your Apache HBase cluster on Azure HDInsight, complete the following basic steps. For detailed instructions, see the detailed steps and commands, or use the scripts from the section [Migrate HBase using scripts](#migrate-hbase-using-scripts) for automated migration.
 
 Prepare the source cluster:
 1. Stop data ingestion.
@@ -205,6 +205,32 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
 1. Verify HBase consistency and simple Data Definition Language (DDL) and Data Manipulation Language (DML) operations.
    
 1. If the destination cluster is satisfactory, delete the source cluster.
+
+## Migrate HBase using scripts
+
+1. Execute the script [migrate-hbase-source.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-source.sh) on the source cluster and [migrate-hbase-dest.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-dest.sh) on the destination cluster. Use the following instructions to execute these scripts.
+   > [!NOTE]  
+   > These scripts don't copy the HBase old WALs as part of the migration; therefore, the scripts are not to be used on clusters that have either HBase Backup or Replication feature enabled.
+
+2. On source cluster
+   ```bash
+   sudo bash migrate-hbase-source.sh
+   ```
+   
+3. On destination cluster
+   ```bash
+   sudo bash migrate-hbase-dest.sh  -f <src_default_Fs>
+   ```
+   
+Mandatory argument for the above command:
+   
+```
+   -f, --src-fs
+   The fs.defaultFS of the source cluster
+   For example:
+   -f wasb://anynamehbase0316encoder-2021-03-17t01-07-55-935z@anynamehbase0hdistorage.blob.core.windows.net
+```
+  
 
 ## Next steps
 

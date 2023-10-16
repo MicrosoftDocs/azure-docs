@@ -6,7 +6,7 @@ ms.author: cbroad
 ms.service: certification
 ms.topic: how-to 
 ms.date: 01/28/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # How to test IoT Plug and Play devices
@@ -42,12 +42,12 @@ To meet the certification requirements, your device must:
 
 ## Test with the Azure IoT Extension CLI
 
-The [Azure IoT CLI extension](/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
+The [Azure IoT CLI extension](/cli/azure/iot/product?view=azure-cli-latest&preserve-view=true) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
 
 The following steps show you how to prepare for and run the certification tests using the CLI:
 
 ### Install the Azure IoT extension for the Azure CLI
-Install the [Azure CLI](/cli/azure/install-azure-cli) and review the installation instructions to set up the [Azure CLI](/cli/azure/iot?view=azure-cli-latest) in your environment.
+Install the [Azure CLI](/cli/azure/install-azure-cli) and review the installation instructions to set up the [Azure CLI](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) in your environment.
 
 To install the Azure IoT Extension, run the following command:
 
@@ -55,7 +55,7 @@ To install the Azure IoT Extension, run the following command:
 az extension add --name azure-iot
 ```
 
-To learn more, see [Azure CLI for Azure IoT](/cli/azure/iot/product?view=azure-cli-latest).
+To learn more, see [Azure CLI for Azure IoT](/cli/azure/iot/product?view=azure-cli-latest&preserve-view=true).
 
 ### Create a new product test
 
@@ -125,32 +125,36 @@ az iot product test task create --type QueueTestRun --test-id [YourTestId] --wai
 Example test run output
 
 ```json
-      "validationTasks": [
-        {
-          "componentName": "Default component",
-          "endTime": "2020-08-25T05:18:49.5224772+00:00",
-          "interfaceId": "dtmi:com:example:TemperatureController;1",
-          "logs": [
-            {
-              "message": "Waiting for telemetry from the device",
-              "time": "2020-08-25T05:18:37.3862586+00:00"
-            },
-            {
-              "message": "Validating PnP properties",
-              "time": "2020-08-25T05:18:37.3875168+00:00"
-            },
-            {
-              "message": "Validating PnP commands",
-              "time": "2020-08-25T05:18:37.3894343+00:00"
-            },
-            {
-              "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
-              "time": "2020-08-25T05:18:37.4205985+00:00"
-            },
-            {
-              "message": "PnP interface properties validation passed",
-              "time": "2020-08-25T05:18:37.4206964+00:00"
-            },
+"validationTasks": [
+  {
+    "componentName": "Default component",
+    "endTime": "2020-08-25T05:18:49.5224772+00:00",
+    "interfaceId": "dtmi:com:example:TemperatureController;1",
+    "logs": [
+      {
+        "message": "Waiting for telemetry from the device",
+        "time": "2020-08-25T05:18:37.3862586+00:00"
+      },
+      {
+        "message": "Validating PnP properties",
+        "time": "2020-08-25T05:18:37.3875168+00:00"
+      },
+      {
+        "message": "Validating PnP commands",
+        "time": "2020-08-25T05:18:37.3894343+00:00"
+      },
+      {
+        "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
+        "time": "2020-08-25T05:18:37.4205985+00:00"
+      },
+      {
+        "message": "PnP interface properties validation passed",
+        "time": "2020-08-25T05:18:37.4206964+00:00"
+      },
+      ...
+    ]
+  }
+]
 ```
 
 ## Test using the Azure Certified Device portal
@@ -159,7 +163,7 @@ The following steps show you how to use the [Azure Certified Device portal](http
 
 ### Onboarding
 
-To use the [certification portal](https://certify.azure.com), you must use an Azure Active Directory from your work or school tenant.
+To use the [certification portal](https://certify.azure.com), you must use a Microsoft Entra ID from your work or school tenant.
 
 To publish the models to the Azure IoT Public Model Repository, your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 

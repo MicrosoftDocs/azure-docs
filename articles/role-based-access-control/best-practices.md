@@ -3,11 +3,11 @@ title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/15/2021
+ms.date: 06/28/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.
@@ -33,15 +33,17 @@ For information about how to assign roles, see [Assign Azure roles using the Azu
 
 You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Microsoft Defender for Cloud. For other identity and access recommendations in Defender for Cloud, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
 
-## Use Azure AD Privileged Identity Management
+<a name='use-azure-ad-privileged-identity-management'></a>
 
-To protect privileged accounts from malicious cyber-attacks, you can use Azure Active Directory Privileged Identity Management (PIM) to lower the exposure time of privileges and increase your visibility into their use through reports and alerts. PIM helps protect privileged accounts by providing just-in-time privileged access to Azure AD and Azure resources. Access can be time bound after which privileges are revoked automatically. 
+## Use Microsoft Entra Privileged Identity Management
 
-For more information, see [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
+To protect privileged accounts from malicious cyber-attacks, you can use Microsoft Entra Privileged Identity Management (PIM) to lower the exposure time of privileges and increase your visibility into their use through reports and alerts. PIM helps protect privileged accounts by providing just-in-time privileged access to Microsoft Entra ID and Azure resources. Access can be time bound after which privileges are revoked automatically. 
+
+For more information, see [What is Microsoft Entra Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
 
 ## Assign roles to groups, not users
 
-To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of role assignments per subscription](troubleshooting.md#azure-role-assignments-limit).
+To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
 ## Assign roles using the unique role ID instead of the role name
 
@@ -53,6 +55,10 @@ There are a couple of times when a role name might change, for example:
 Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
 
 For more information, see [Assign a role using the unique role ID and Azure PowerShell](role-assignments-powershell.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope) and [Assign a role using the unique role ID and Azure CLI](role-assignments-cli.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope).
+
+## Avoid using a wildcard when creating custom roles
+
+When creating custom roles, you can use the wildcard (`*`) character to define permissions. It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard. For more information, see [Azure custom roles](custom-roles.md#wildcard-permissions).
 
 ## Next steps
 

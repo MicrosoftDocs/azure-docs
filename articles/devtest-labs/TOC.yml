@@ -14,6 +14,8 @@
   - name: Create a lab - ARM template
     displayName: Resource Manager
     href: create-lab-windows-vm-template.md
+  - name: Create a lab - Terraform
+    href: quickstarts/create-lab-windows-vm-terraform.md
   - name: Create a lab - PowerShell with REST API
     href: quickstarts/create-lab-rest.md
 - name: Tutorials
@@ -223,27 +225,15 @@
     href: report-usage-across-multiple-labs-subscriptions.md
   - name: DevTest Labs in the enterprise
     items:
-    - name: DevTest Labs at enterprise scale
-      href: devtest-lab-guidance-prescriptive-adoption.md
     - name: Reference architecture
       href: devtest-lab-reference-architecture.md
     - name: Deliver proof of concept
       href: deliver-proof-concept.md
     - name: Scale up your DevTest Labs deployment
       href: devtest-lab-guidance-scale.md
-    - name: Orchestrate the implementation
-      href: devtest-lab-guidance-orchestrate-implementation.md
-    - name: Governance
-      items:
-      - name: Resources
-        href: devtest-lab-guidance-governance-resources.md
-      - name: Cost and ownership
-        href: devtest-lab-guidance-governance-cost-ownership.md
-      - name: Policy and compliance
-        href: devtest-lab-guidance-governance-policy-compliance.md
-      - name: Application migration and integration
-        href: devtest-lab-guidance-governance-application-migration-integration.md
-  - name: Set up an app for testing
+    - name: Governance of DevTest Labs
+      href: devtest-lab-guidance-governance-resources.md
+  - name: Publish an app for testing
     href: test-app-azure.md
   - name: Troubleshoot
     items:
@@ -251,6 +241,8 @@
       href: troubleshoot-vm-environment-creation-failures.md
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Troubleshoot VM deployment failures
+      href: troubleshoot-vm-deployment-failures.md  
   - name: Monitor
     items:
     - name: View activity logs
@@ -277,7 +269,5 @@
     href: https://azure.microsoft.com/updates/?product=devtest-lab
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-  - name: Microsoft Q&A page
-    href: /answers/topics/azure-devtestlabs.html
-  - name: Frequently asked questions
-    href: devtest-lab-faq.yml
+  - name: DevTest Labs Developer Community
+    href: https://aka.ms/dtl/communityforum  

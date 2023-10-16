@@ -1,9 +1,9 @@
 ---
-title: Manage devices individually in your Azure IoT Central application | Microsoft Docs
+title: Manage devices individually in your application
 description: Learn how to manage devices individually in your Azure IoT Central application. Monitor, manage, create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 02/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -20,7 +20,9 @@ This article describes how you manage devices in your Azure IoT Central applicat
 - Keep your device metadata up to date by changing the values stored in the device properties from your views.
 - Control the behavior of your devices by updating a setting on a specific device from your views.
 
-To learn how to manage custom groups of devices, see [Tutorial: Use device groups to analyze device telemetry](tutorial-use-device-groups.md).
+To learn how to manage devices in bulk, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+
+To learn how to manage devices by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-devices-with-rest-api.md)
 
 ## View your devices
 
@@ -30,9 +32,11 @@ To view an individual device:
 
 1. Choose a device template.
 
-1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template. Choose an individual device to see the device details page for that device:
+1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template:
 
-    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing device list.":::
+    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot that shows the list of Thermostat devices." lightbox="media/howto-manage-devices-individually/device-list.png":::
+
+    Choose an individual device to see the device details page for that device.
 
     > [!TIP]
     > You can use the filter tool on this page to view devices in a specific organization.
@@ -47,28 +51,38 @@ The following video walks you through monitoring device connectivity status:
 
 ### Device status values
 
-When a device connects to your IoT Central application, its device status changes as follows:
+Every device has a single status value in the UI. The device status can be one of:
 
-1. The device status is first **Registered**. This status means the device is created in IoT Central, and has a device ID. A device is registered when:
-    - A new real device is added on the **Devices** page.
-    - A set of devices is added using **Import** on the **Devices** page.
+- The device status is first **Registered**. This status means the device is created in IoT Central, and has a device ID. A device is registered when:
 
-1. The device status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device uses DPS to automatically retrieve a connection string from the IoT Hub used by your IoT Central application. The device can now connect to IoT Central and start sending data.
+  - A new real device is added on the **Devices** page.
+  - A set of devices is added using **Import** on the **Devices** page.
 
-1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
+- The device status changes to **Provisioned** when a registered device completes the provisioning step by using DPS. To complete the provisioning process, the device needs the *Device ID* that was used to register the device, either a SAS key or X.509 certificate, and the *ID scope*. After provisioning, the device can connect to your IoT Central application and start sending data.
 
-1. If the device status is **Waiting for Approval**, it means the **Auto approve** option is disabled. An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials will have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
+- Blocked devices have a status of **Blocked**. An operator can block and unblock devices. When a device is blocked, it can't send data to your IoT Central application. An operator must unblock the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
 
-1. If the device status is **Unassigned**, it means the device connecting to IoT Central isn't assigned to a device template. This situation typically happens in the following scenarios:
+- If the device status is **Waiting for Approval**, it means the **Auto approve** option is disabled on the **Device connection groups** page. An operator must explicitly approve a device before it can be provisioned and sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
 
-    - A set of devices is added using **Import** on the **Devices** page without specifying the device template.
-    - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
+The following table shows how the status value for a device in the UI maps to the values used by the REST API to interact with devices:
 
-    An operator can assign a device to a device template from the **Devices** page using the **Migrate** button.
+| UI Device status | Notes | REST API Get |
+| ---------------- | ----- | ------------ |
+| Waiting for approval | The auto-approve option is disabled in the device connection group and the device was not added through the UI. <br/> A user must manually approve the device through the UI before it can be used. | `Provisioned: false` <br/> `Enabled: false` |
+| Registered | A device has been approved either automatically or manually. | `Provisioned: false` <br/> `Enabled: true` |
+| Provisioned | The device has been provisioned and can connect to your IoT Central application. | `Provisioned: true` <br/> `Enabled: true` |
+| Blocked | The device is not allowed to connect to your IoT Central application. You can block a device that is in any of the other states. | `Provisioned:` depends on `Waiting for approval`/`Registered`/`Provisioned status` <br/> `Enabled: false` |
+
+A device can also have a status of **Unassigned**. This status isn't shown in the **Device status** field in the UI, it is shown in the **Device template** field in the UI. However, you can filter the device list for devices with the **Unassigned** status. If the device status is **Unassigned**, the device connecting to IoT Central isn't assigned to a device template. This situation typically happens in the following scenarios:
+
+- A set of devices is added using **Import** on the **Devices** page without specifying the device template.
+- A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
+
+An operator can assign a device to a device template from the **Devices** page by using the **Migrate** button.
 
 ### Device connection status
 
-When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events for the device are generated. These events are not sent by the device, they are generated internally by IoT Central.
+When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events for the device are generated. These events aren't sent by the device, they're generated internally by IoT Central.
 
 The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute.
 
@@ -78,7 +92,7 @@ Watch the following video to learn more about how to monitor device connection s
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
-You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-a-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
+You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connection-state-events).
 
 ## Add a device
 
@@ -103,6 +117,25 @@ To add a device to your Azure IoT Central application:
 
 1. This device now appears in your device list for this template. Select the device to see the device details page that contains all views for the device.
 
+## Get device connection information
+
+When a device provisions and connects to IoT Central, it needs connection information from your IoT Central application:
+
+- The *ID Scope* that identifies the application to DPS.
+- The *Device ID* that was used to register the device.
+- Either a SAS key or X.509 certificate.
+
+To find these values:
+
+1. Choose **Devices** on the left pane.
+
+1. Click on the device in the device list to see the device details.
+
+1. Select **Connect** to view the connection information. The QR code encodes a JSON document that includes the **ID Scope**, **Device ID**, and **Primary key** derived from the default **SAS-IoT-Devices** device connection group.
+
+> [!NOTE]
+> If the authentication type is **Shared access signature**, the keys displayed are derived from the default **SAS-IoT-Devices** device connection group.
+
 ## Change organization
 
 To move a device to a different organization, you must have access to both the source and destination organizations. To move a device:
@@ -111,11 +144,11 @@ To move a device to a different organization, you must have access to both the s
 
 1. Select the device to move in the device list.
 
-1. Select **Manage Device** and **Organization** from the drop down menu.
+1. Select **Manage Device** and **Organization** from the drop-down menu.
 
 1. Select the new organization for the device:
 
-    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to a new organization.":::
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to another organization." lightbox="media/howto-manage-devices-individually/change-device-organization.png":::
 
 1. Select **Save**.
 
@@ -125,17 +158,13 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Choose **Devices** on the left pane.
 
-1. On the left panel, choose **All devices**:
+1. On the left panel, choose **All devices**.
 
-    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices-1.png" alt-text="Screenshot showing unassigned devices.":::
-
-1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassigned** for any of your devices.
-
-1. Select the devices you want to assign to a template.
+1. Select the **unassigned** devices you want to assign to a template:
 
 1. Select **Migrate**:
 
-    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices-2.png" alt-text="Screenshot showing how to assign a device.":::
+    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices.png" alt-text="Screenshot showing how to assign a device to a device template." lightbox="media/howto-manage-devices-individually/unassociated-devices.png":::
 
 1. Choose the template from the list of available templates and select **Migrate**.
 

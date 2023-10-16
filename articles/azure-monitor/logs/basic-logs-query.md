@@ -1,19 +1,23 @@
 ---
-title: Query data from Basic Logs in Azure Monitor (Preview)
+title: Query data from Basic Logs in Azure Monitor 
 description: Create a log query using tables configured for Basic logs in Azure Monitor.
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 01/27/2022
-
+ms.date: 10/01/2022
 ---
 
-# Query Basic Logs in Azure Monitor (Preview)
+# Query Basic Logs in Azure Monitor
 Basic Logs tables reduce the cost of ingesting high-volume verbose logs and let you query the data they store using a limited set of log queries. This article explains how to query data from Basic Logs tables. 
 
-For more information, see [Azure log data plans](log-analytics-workspace-overview.md#log-data-plans-preview) and [Configure a table for Basic Logs](basic-logs-configure.md). 
+For more information, see [Set a table's log data plan](basic-logs-configure.md). 
 
 
 > [!NOTE]
-> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs. 
+> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs.
+
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Limitations
 Queries with Basic Logs are subject to the following limitations:
@@ -42,8 +46,7 @@ Queries with Basic Logs must use a workspace for the scope. You can't run querie
 You can run two concurrent queries per user. 
 
 ### Purge
-You can’t [purge personal data](personal-data-mgmt.md#how-to-export-and-delete-private-data) from Basic Logs tables. 
-
+You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic Logs tables. 
 
 ## Run a query on a Basic Logs table
 Creating a query using Basic Logs is the same as any other query in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
@@ -81,21 +84,20 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 
 ```json
 {
-    "query": "ContainerLog | where LogEntry has \"some value\"\n",
+    "query": "ContainerLogV2 | where Computer ==  \"some value\"\n",
 }
 ```
 
+
 ---
 ## Pricing model
-The charge for a query on Basic Logs is based on the amount of data the query scans, not just the amount of data the query returns. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. Calculation is based on chunks of up to one day of data. 
+The charge for a query on Basic Logs is based on the amount of data the query scans, which is influenced by the size of the table and the query's time range. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]
-> During the preview period, there is no cost for log queries on Basic Logs.
 
 ## Next steps
 
-- [Learn more about Basic Logs and the different log plans.](log-analytics-workspace-overview.md#log-data-plans-preview)
-- [Configure a table for Basic Logs.](basic-logs-configure.md)
-- [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times.](search-jobs.md)
+- [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
+- [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times](search-jobs.md).
+

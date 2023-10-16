@@ -3,12 +3,12 @@ title: Approach and process for adopting Azure Data Catalog
 description: This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project.
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 12/14/2022
 ---
 
 # Approach and process for adopting Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 This article helps you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
 
@@ -98,8 +98,8 @@ Your first pilot project should have a few individuals who produce data and cons
 
 One of the business problems that **Azure Data Catalog** solves is to connect **Data Producers** to **Data Consumers**. It does so by serving as a central repository for information about enterprise data sources. David registers Adventure Works and SQL Server data sources in Data Catalog. Using crowdsourcing any user who discovers this data source can share her opinions on the data, in addition to using the data they've discovered. For example, Nancy discovers the data sources by searching the catalog, and shares her specialized knowledge about the data.  Now, others in the organization benefit from shared knowledge by searching the data catalog.
 
-* To learn more about registering data sources, see [Register data sources](data-catalog-get-started.md).
-* To learn more about discovering data sources, see [Search data sources](data-catalog-get-started.md).
+* To learn more about registering data sources, see [Register data sources](data-catalog-how-to-register.md).
+* To learn more about discovering data sources, see [Search data sources](data-catalog-how-to-discover.md).
 
 ### Start small and focused
 
@@ -140,9 +140,9 @@ Before your pilot team jumps into using Data Catalog, schedule a kick-off meetin
 
 ### Set expectations
 
-Setting expectations and goals helps business users focus on specific deliverables. To keep the project on track, assign regular (for example: daily or weekly based on the scope and duration of the pilot) homework assignments. One of the most valuable capabilities of Data Catalog is crowdsourcing data assets so that business users can benefit from knowledge of enterprise data. A great homework assignment is for each pilot team member to register or annotate at least one data source they've used. See [Register a data source](data-catalog-get-started.md) and [How to annotate data sources](data-catalog-get-started.md).
+Setting expectations and goals helps business users focus on specific deliverables. To keep the project on track, assign regular (for example: daily or weekly based on the scope and duration of the pilot) homework assignments. One of the most valuable capabilities of Data Catalog is crowdsourcing data assets so that business users can benefit from knowledge of enterprise data. A great homework assignment is for each pilot team member to register or annotate at least one data source they've used. See [Register a data source](data-catalog-how-to-register.md) and [How to annotate data sources](data-catalog-how-to-annotate.md).
 
-Meet with the team on a regular schedule to review some of the annotations. Good annotations about data sources are at the heart of a successful Data Catalog adoption because they provide meaningful data source insights in a central location. Without good annotations, knowledge about data sources remains scattered throughout the enterprise. See [How to annotate data sources](data-catalog-get-started.md).
+Meet with the team on a regular schedule to review some of the annotations. Good annotations about data sources are at the heart of a successful Data Catalog adoption because they provide meaningful data source insights in a central location. Without good annotations, knowledge about data sources remains scattered throughout the enterprise. See [How to annotate data sources](data-catalog-how-to-annotate.md).
 
 And, the ultimate test of the project is whether users can discover and understand the data sources they need to use. Pilot users should regularly test the catalog to ensure that the data sources they use for their day to day work are relevant. When a required data source is missing or not properly annotated, this should serve as a reminder to register more data sources or to provide more annotations. This practice doesn't only add value to the pilot effort but also builds effective habits that carry over to other teams after the pilot is complete.
 

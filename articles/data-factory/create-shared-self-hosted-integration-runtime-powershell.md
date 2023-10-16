@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 01/26/2022
+ms.date: 08/10/2023
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -22,7 +22,7 @@ You can reuse an existing self-hosted integration runtime infrastructure that yo
 
 To see an introduction and demonstration of this feature, watch the following 12-minute video:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### Terminology
 
@@ -62,7 +62,7 @@ To create a shared self-hosted IR using Azure PowerShell, you can take following
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
-- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
+- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
 
 > [!NOTE]  
 > For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on  [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -241,9 +241,9 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 * To grant permission, you need the Owner role or the inherited Owner role in the data factory where the shared IR exists.
 
-* The sharing feature works only for data factories within the same Azure AD tenant.
+* The sharing feature works only for data factories within the same Microsoft Entra tenant.
 
-* For Azure AD [guest users](../active-directory/governance/manage-guest-access-with-access-reviews.md), the search functionality in the UI, which lists all data factories by using a search keyword, doesn't work. But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
+* For Microsoft Entra ID [guest users](../active-directory/governance/manage-guest-access-with-access-reviews.md), the search functionality in the UI, which lists all data factories by using a search keyword, doesn't work. But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
 
   > [!NOTE]
   > This feature is available only in Data Factory V2.

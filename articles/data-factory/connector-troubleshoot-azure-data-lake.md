@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 11/08/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -50,7 +50,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     `Failed to get access token by using service principal.  
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.`
 
-- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
+- **Cause**: When the Service Token Server (STS) that's owned by Microsoft Entra ID is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
 
@@ -67,6 +67,8 @@ This article provides suggestions to troubleshoot common problems with the Azure
   | If Azure Data Lake Storage Gen2 throws error indicating some operation failed.| Check the detailed error message thrown by Azure Data Lake Storage Gen2. If the error is a transient failure, retry the operation. For further help, contact Azure Storage support, and provide the request ID in error message. |
   | If the error message contains the string "Forbidden", the service principal or managed identity you use might not have sufficient permission to access Azure Data Lake Storage Gen2. | To troubleshoot this error, see [Copy and transform data in Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md#service-principal-authentication). |
   | If the error message contains the string "InternalServerError", the error is returned by Azure Data Lake Storage Gen2. | The error might be caused by a transient failure. If so, retry the operation. If the issue persists, contact Azure Storage support and provide the request ID from the error message. |
+  | If the error message is `Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host`, your integration runtime has a network issue in connecting to Azure Data Lake Storage Gen2. | In the firewall rule setting of Azure Data Lake Storage Gen2, make sure Azure Data Factory IP addresses are in the allowed list. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md). |
+  | If the error message is `This endpoint does not support BlobStorageEvents or SoftDelete`, you are using an Azure Data Lake Storage Gen2 linked service to connect to an Azure Blob Storage account that enables Blob storage events or soft delete. | Try the following options：<br>1. If you still want to use an Azure Data Lake Storage Gen2 linked service, upgrade your Azure Blob Storage to Azure Data Lake Storage Gen2. For more information, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md).<br>2. Switch your linked service to Azure Blob Storage.<br>3. Disable Blob storage events or soft delete in your Azure Blob Storage account. |
 
 ### Request to Azure Data Lake Storage Gen2 account caused a timeout error
 
@@ -106,12 +108,35 @@ This article provides suggestions to troubleshoot common problems with the Azure
     1. The file name contains `_metadata`.
     2. The file name starts with `.` (dot).
 
+### Error code: ADLSGen2ForbiddenError
+
+- **Message**: `ADLS Gen2 failed for forbidden: Storage operation % on % get failed with 'Operation returned an invalid status code 'Forbidden'.`
+
+- **Cause**: There are two possible causes:
+
+    1. The integration runtime is blocked by network access in Azure storage account firewall settings.
+    2. The service principal or managed identity doesn’t have enough permission to access the data.
+
+- **Recommendation**:
+
+    1. Check your Azure storage account network settings to see whether the public network access is disabled. If disabled, use a managed virtual network integration runtime  and create a private endpoint  to access. For more information, see [Managed virtual network](managed-virtual-network-private-endpoint.md) and [Build a copy pipeline using managed VNet and private endpoints](tutorial-copy-data-portal-private.md).
+
+    1. If you have enabled selected virtual networks and IP addresses in your Azure storage account network setting:
+
+        1. It's possible because some IP address ranges of your integration runtime are not allowed by your storage account firewall settings. Add the Azure integration runtime IP addresses or the self-hosted integration runtime IP address to your storage account firewall. For Azure integration runtime IP addresses, see  [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md), and to learn how to add IP ranges in the storage account firewall,   see [Managing IP network rules](../storage/common/storage-network-security.md#managing-ip-network-rules).
+
+        1. If you allow trusted Azure services to access this storage account in the firewall, you must use [managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) in copy activity.
+
+         For more information about the Azure storage account firewalls settings, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
+
+    1. If you use service principal or managed identity authentication, grant service principal or managed identity appropriate permissions to do copy. For source, at least the **Storage Blob Data Reader** role. For sink, at least the **Storage Blob Data Contributor** role. For more information, see [Copy and transform data in Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#service-principal-authentication).
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

@@ -1,32 +1,31 @@
 ---
-title: Upgrading Azure MFA Server - Azure Active Directory
+title: Upgrading Azure MFA Server
 description: Steps and guidance to upgrade the Azure Multi-Factor Authentication Server to a newer version. 
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/12/2018
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: michmcla
+manager: amycolannino
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
 # Upgrade to the latest Azure Multi-Factor Authentication Server
 
-This article walks you through the process of upgrading Azure Multi-Factor Authentication (MFA) Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
+This article walks you through the process of upgrading Azure Multi-Factor Authentication Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
 
 If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
->
-> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
->
-> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
+
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
+
 
 Upgrade steps at a glance:
 
@@ -99,7 +98,7 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 
    If an error occurs stating, "Microsoft Visual C++ 2015 Redistributable Update 1 or higher is required," download and install the latest update package from the [Microsoft Download Center](https://www.microsoft.com/download/). Install both the x86 and x64 versions.
 
-3. Go to **AD FS** > **Authentication Policies** > **Edit Global MultiFactor Authentication Policy**. Uncheck **WindowsAzureMultiFactorAuthentication** or **AzureMFAServerAuthentication** (depending on the current version installed).
+3. Go to **AD FS** > **Authentication Policies** > **Edit Global multifactor authentication Policy**. Uncheck **WindowsAzureMultiFactorAuthentication** or **AzureMFAServerAuthentication** (depending on the current version installed).
 
    Once this step is complete, two-step verification through MFA Server is not available in this AD FS cluster until you complete step 8.
 
@@ -107,13 +106,13 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 5. Register the new AD FS adapter by running the Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell script. This applies to all servers in the same AD FS cluster since there is a central configuration.
 6. Restart the AD FS service on each server removed from the AD FS farm.
 7. Add the updated servers back to the AD FS farm and remove the other servers from the farm.
-8. Go to **AD FS** > **Authentication Policies** > **Edit Global MultiFactor Authentication Policy**. Check **AzureMfaServerAuthentication**.
+8. Go to **AD FS** > **Authentication Policies** > **Edit Global multifactor authentication Policy**. Check **AzureMfaServerAuthentication**.
 9. Repeat step 2 to update the servers now removed from the AD FS farm and restart the AD FS service on those servers.
 10. Add those servers back into the AD FS farm.
 
 ## Next steps
 
-* Get examples of [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md)
+* Get examples of [Advanced scenarios with Microsoft Entra multifactor authentication and third-party VPNs](howto-mfaserver-nps-vpn.md)
 
 * [Synchronize MFA Server with Windows Server Active Directory](howto-mfaserver-dir-ad.md)
 

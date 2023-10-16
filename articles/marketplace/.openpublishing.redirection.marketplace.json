@@ -141,10 +141,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/saas-go-live.md",
+            "redirect_url": "/azure/marketplace/test-publish-saas-offer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/create-saas-dev-test-offer.md",
             "redirect_url": "/azure/marketplace/plan-saas-dev-test-offer",
             "redirect_document_id": false
-        },   
+        },
         {
             "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -1204,7 +1209,7 @@
             "source_path_from_root": "/articles/marketplace/support-azure-marketplace.md",
             "redirect_url": "/azure/marketplace/support",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
@@ -1440,7 +1445,6 @@
             "redirect_url": "/partner-center/co-sell-status",
             "redirect_document_id": false
         },
-
         {
             "source_path_from_root": "/articles/marketplace/consulting-services.md",
             "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
@@ -1615,7 +1619,7 @@
             "source_path_from_root": "/articles/marketplace/marketplace-solution-templates.md",
             "redirect_url": "/azure/marketplace/plan-azure-app-solution-template",
             "redirect_document_id": true
-        },                
+        },
         {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
             "redirect_url": "/partner-center/co-sell-overview",
@@ -1660,7 +1664,7 @@
             "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -2009,6 +2013,1446 @@
         {
             "source_path_from_root": "/articles/marketplace/toc_old.md",
             "redirect_url": "/azure/marketplace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/office-store-index.yml",
+            "redirect_url": "/azure/marketplace/why-publish",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/company-work-accounts.md",
+            "redirect_url": "/partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/sell-from-countries.md",
+            "redirect_url": "/azure/marketplace/supported-countries-regions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md",
+            "redirect_url": "/azure/marketplace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/add-in-submission-guide.md",
+            "redirect_url": "/partner-center/marketplace/add-in-submission-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/add-manage-users.md",
+            "redirect_url": "/partner-center/marketplace/add-manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/add-publishers.md",
+            "redirect_url": "/partner-center/marketplace/add-publishers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-delete-report-queries.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-delete-report-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-delete-report.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-delete-report",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-get-all-datasets.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-get-all-datasets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-get-report-queries.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-get-report-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-get-report.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-get-report",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-pause-report-executions.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-pause-report-executions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-resume-report-executions.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-resume-report-executions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-try-report-queries.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-try-report-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-api-update-report.md",
+            "redirect_url": "/partner-center/marketplace/analytics-api-update-report",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-available-apis.md",
+            "redirect_url": "/partner-center/marketplace/analytics-available-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-custom-query-specification.md",
+            "redirect_url": "/partner-center/marketplace/analytics-custom-query-specification",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-get-started.md",
+            "redirect_url": "/partner-center/marketplace/analytics-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-make-your-first-api-call.md",
+            "redirect_url": "/partner-center/marketplace/analytics-make-your-first-api-call",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-prerequisites.md",
+            "redirect_url": "/partner-center/marketplace/analytics-prerequisites",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-programmatic-access.md",
+            "redirect_url": "/partner-center/marketplace/analytics-programmatic-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-programmatic-faq.md",
+            "redirect_url": "/partner-center/marketplace/analytics-programmatic-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-sample-application.md",
+            "redirect_url": "/partner-center/marketplace/analytics-sample-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-sample-queries.md",
+            "redirect_url": "/partner-center/marketplace/analytics-sample-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-system-queries.md",
+            "redirect_url": "/partner-center/marketplace/analytics-system-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics.md",
+            "redirect_url": "/partner-center/marketplace/analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/anomaly-detection.md",
+            "redirect_url": "/partner-center/marketplace/anomaly-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-ad-free-or-trial-landing-page.md",
+            "redirect_url": "/partner-center/marketplace/azure-ad-free-or-trial-landing-page",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-ad-saas.md",
+            "redirect_url": "/partner-center/marketplace/azure-ad-saas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-ad-transactable-saas-landing-page.md",
+            "redirect_url": "/partner-center/marketplace/azure-ad-transactable-saas-landing-page",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-apis.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-managed.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-managed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-marketing.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-marketing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-metered-billing.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-metered-billing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-plans.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-preview.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-preview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-properties.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-review-feedback.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-review-feedback",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-solution.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-app-test-publish.md",
+            "redirect_url": "/partner-center/marketplace/azure-app-test-publish",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-consumption-commitment-enrollment.md",
+            "redirect_url": "/partner-center/marketplace/azure-consumption-commitment-enrollment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-plan-availability.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-plan-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-plan-listing.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-plan-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-plan-overview.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-plan-setup.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-plan-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-plan-technical-configuration-kubernetes.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-plan-technical-configuration-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-plan-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-plan-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-preview-audience.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-preview-audience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-properties.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-technical-assets-kubernetes.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-technical-assets-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-technical-assets.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-technical-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-troubleshoot.md",
+            "redirect_url": "/partner-center/marketplace/azure-container-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-partner-customer-usage-attribution.md",
+            "redirect_url": "/partner-center/marketplace/azure-partner-customer-usage-attribution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-private-plan-troubleshooting.md",
+            "redirect_url": "/partner-center/marketplace/azure-private-plan-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-resource-manager-test-drive.md",
+            "redirect_url": "/partner-center/marketplace/azure-resource-manager-test-drive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-get-sas-uri.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-get-sas-uri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-image-test.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-image-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-listing.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-manage.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-overview.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-pricing-and-availability.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-pricing-and-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-reorder-plans.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-reorder-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-setup.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-plan-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-plan-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-preview-audience.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-preview-audience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-pricing.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-pricing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-properties.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-resell-csp.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-resell-csp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-test-drive.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-test-drive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-use-approved-base.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-use-approved-base",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-use-own-image.md",
+            "redirect_url": "/partner-center/marketplace/azure-vm-use-own-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/business-applications-isv-program.md",
+            "redirect_url": "/partner-center/marketplace/business-applications-isv-program",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/categories.md",
+            "redirect_url": "/partner-center/marketplace/categories",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/checklist.md",
+            "redirect_url": "/partner-center/marketplace/checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-cancel-operations.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-cancel-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-concurrency-control.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-concurrency-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-considerations.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-creating-offer.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-creating-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-go-live.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-go-live",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-overview.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-prerequisites.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-prerequisites",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-publish-offer.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-publish-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-retrieve-offer-status.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-retrieve-offer-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-retrieve-offers.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-retrieve-offers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-retrieve-operations.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-retrieve-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-retrieve-specific-offer.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-retrieve-specific-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-setting-price.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-setting-price",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-api-troubleshooting-authentication-errors.md",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-api-troubleshooting-authentication-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-solution-providers.md",
+            "redirect_url": "/partner-center/marketplace/cloud-solution-providers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/co-sell-solution-migration.md",
+            "redirect_url": "/partner-center/marketplace/co-sell-solution-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/craft-effective-appsource-store-images.md",
+            "redirect_url": "/partner-center/marketplace/craft-effective-appsource-store-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-account.md",
+            "redirect_url": "/partner-center/marketplace/create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-consulting-service-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/create-consulting-service-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-consulting-service-offer-properties.md",
+            "redirect_url": "/partner-center/marketplace/create-consulting-service-offer-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-consulting-service-offer.md",
+            "redirect_url": "/partner-center/marketplace/create-consulting-service-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-consulting-service-pricing-availability.md",
+            "redirect_url": "/partner-center/marketplace/create-consulting-service-pricing-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-effective-office-store-listings.md",
+            "redirect_url": "/partner-center/marketplace/create-effective-office-store-listings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-managed-service-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/create-managed-service-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-managed-service-offer-plans.md",
+            "redirect_url": "/partner-center/marketplace/create-managed-service-offer-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-managed-service-offer-preview.md",
+            "redirect_url": "/partner-center/marketplace/create-managed-service-offer-preview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-managed-service-offer-properties.md",
+            "redirect_url": "/partner-center/marketplace/create-managed-service-offer-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-managed-service-offer.md",
+            "redirect_url": "/partner-center/marketplace/create-managed-service-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer-marketing.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer-marketing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer-plans.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer-preview.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer-preview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer-properties.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer-technical.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer-technical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-new-saas-offer.md",
+            "redirect_url": "/partner-center/marketplace/create-new-saas-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-or-update-client-ids-and-secrets.md",
+            "redirect_url": "/partner-center/marketplace/create-or-update-client-ids-and-secrets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/customer-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/customer-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/customer-retention-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/customer-retention-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/deprecate-vm.md",
+            "redirect_url": "/partner-center/marketplace/deprecate-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/determine-your-listing-type.md",
+            "redirect_url": "/partner-center/marketplace/determine-your-listing-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/downloads-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/downloads-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-business-central-availability.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-business-central-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-business-central-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-business-central-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-business-central-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-business-central-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-business-central-properties.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-business-central-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-business-central-supplemental-content.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-business-central-supplemental-content",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-business-central-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-business-central-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-availability.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-plans.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-properties.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-supplemental-content.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-supplemental-content",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-customer-engage-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-availability.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-properties.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-supplemental-content.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-supplemental-content",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-operations-validation.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-operations-validation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/dynamics-365-review-publish.md",
+            "redirect_url": "/partner-center/marketplace/dynamics-365-review-publish",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/find-office-guid.md",
+            "redirect_url": "/partner-center/marketplace/find-office-guid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/find-tenant-object-id.md",
+            "redirect_url": "/partner-center/marketplace/find-tenant-object-id",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/gtm-how-to-get-featured.md",
+            "redirect_url": "/partner-center/marketplace/gtm-how-to-get-featured",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/gtm-marketing-best-practices.md",
+            "redirect_url": "/partner-center/marketplace/gtm-marketing-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/gtm-offer-listing-best-practices.md",
+            "redirect_url": "/partner-center/marketplace/gtm-offer-listing-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/gtm-your-marketplace-benefits.md",
+            "redirect_url": "/partner-center/marketplace/gtm-your-marketplace-benefits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/insights-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/insights-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/integrated-solutions-for-publishers.md",
+            "redirect_url": "/partner-center/marketplace/integrated-solutions-for-publishers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-checklist.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-plan-availability.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-plan-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-plan-listing.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-plan-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-plan-overview.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-plan-setup.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-plan-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-plan-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-plan-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-preview-audience.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-preview-audience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-properties.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/iot-edge-technical-asset.md",
+            "redirect_url": "/partner-center/marketplace/iot-edge-technical-asset",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-app-license-management.md",
+            "redirect_url": "/partner-center/marketplace/isv-app-license-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-app-license-power-bi-visual.md",
+            "redirect_url": "/partner-center/marketplace/isv-app-license-power-bi-visual",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-app-license.md",
+            "redirect_url": "/partner-center/marketplace/isv-app-license",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-csp-reseller.md",
+            "redirect_url": "/partner-center/marketplace/isv-csp-reseller",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-customer.md",
+            "redirect_url": "/partner-center/marketplace/isv-customer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/license-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/license-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/manage-aad-apps.md",
+            "redirect_url": "/partner-center/marketplace/manage-aad-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/manage-account-settings-and-profile.md",
+            "redirect_url": "/partner-center/marketplace/manage-account-settings-and-profile",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/manage-account.md",
+            "redirect_url": "/partner-center/marketplace/manage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/manage-groups.md",
+            "redirect_url": "/partner-center/marketplace/manage-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/manage-solution-names.md",
+            "redirect_url": "/partner-center/marketplace/manage-solution-names",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/manage-tenants.md",
+            "redirect_url": "/partner-center/marketplace/manage-tenants",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-apis-guide.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-apis-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-categories-industries.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-categories-industries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-commercial-transaction-capabilities-and-considerations.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-containers.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-criteria-content-validation.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-criteria-content-validation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-dynamics-365.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-dynamics-365",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-geo-availability-currencies.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-geo-availability-currencies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-iot-edge.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-metering-service-apis.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-metering-service-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-metering-service-authentication.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-metering-service-authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-power-bi-visual.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-power-bi-visual",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-power-bi.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-power-bi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-rewards.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-rewards",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-virtual-machines.md",
+            "redirect_url": "/partner-center/marketplace/marketplace-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/monetize-addins-through-microsoft-commercial-marketplace.md",
+            "redirect_url": "/partner-center/marketplace/monetize-addins-through-microsoft-commercial-marketplace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/open-a-developer-account.md",
+            "redirect_url": "/partner-center/marketplace/open-a-developer-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/optimize-for-store-discovery.md",
+            "redirect_url": "/partner-center/marketplace/optimize-for-store-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/orders-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/orders-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/overview.md",
+            "redirect_url": "/partner-center/marketplace/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-azure-app-managed-app.md",
+            "redirect_url": "/partner-center/marketplace/plan-azure-app-managed-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-azure-app-solution-template.md",
+            "redirect_url": "/partner-center/marketplace/plan-azure-app-solution-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-azure-application-offer.md",
+            "redirect_url": "/partner-center/marketplace/plan-azure-application-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-consulting-service-offer.md",
+            "redirect_url": "/partner-center/marketplace/plan-consulting-service-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-managed-service-offer.md",
+            "redirect_url": "/partner-center/marketplace/plan-managed-service-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-saas-dev-test-offer.md",
+            "redirect_url": "/partner-center/marketplace/plan-saas-dev-test-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plan-saas-offer.md",
+            "redirect_url": "/partner-center/marketplace/plan-saas-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/plans-pricing.md",
+            "redirect_url": "/partner-center/marketplace/plans-pricing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/policies-terms.md",
+            "redirect_url": "/partner-center/marketplace/policies-terms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-app-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-app-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-app-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-app-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-app-properties.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-app-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-app-supplemental-content.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-app-supplemental-content",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-app-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-app-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-availability.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-manage-names.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-manage-names",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-offer-listing.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-offer-setup.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-plans.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-properties.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/preferred-solution.md",
+            "redirect_url": "/partner-center/marketplace/preferred-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/prepare-localized-solutions.md",
+            "redirect_url": "/partner-center/marketplace/prepare-localized-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/price-changes.md",
+            "redirect_url": "/partner-center/marketplace/price-changes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/private-offers-api.md",
+            "redirect_url": "/partner-center/marketplace/private-offers-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/private-plans.md",
+            "redirect_url": "/partner-center/marketplace/private-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/product-ingestion-api.md",
+            "redirect_url": "/partner-center/marketplace/product-ingestion-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/promote-your-office-store-solution.md",
+            "redirect_url": "/partner-center/marketplace/promote-your-office-store-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/publisher-guide-by-offer-type.md",
+            "redirect_url": "/partner-center/marketplace/publisher-guide-by-offer-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/quality-of-service-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/quality-of-service-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/ratings-reviews.md",
+            "redirect_url": "/partner-center/marketplace/ratings-reviews",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/reserve-solution-name.md",
+            "redirect_url": "/partner-center/marketplace/reserve-solution-name",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/revenue-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/revenue-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/review-publish-offer.md",
+            "redirect_url": "/partner-center/marketplace/review-publish-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/standard-contract.md",
+            "redirect_url": "/partner-center/marketplace/standard-contract",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/submission-api-onboard.md",
+            "redirect_url": "/partner-center/marketplace/submission-api-onboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/submission-api-overview.md",
+            "redirect_url": "/partner-center/marketplace/submission-api-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/submit-legal-notice.md",
+            "redirect_url": "/partner-center/marketplace/submit-legal-notice",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md",
+            "redirect_url": "/partner-center/marketplace/submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/submit-to-appsource-via-partner-center.md",
+            "redirect_url": "/partner-center/marketplace/submit-to-appsource-via-partner-center",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/summary-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/summary-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/support.md",
+            "redirect_url": "/partner-center/marketplace/support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/supported-countries-regions.md",
+            "redirect_url": "/partner-center/marketplace/supported-countries-regions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/supported-html-tags.md",
+            "redirect_url": "/partner-center/marketplace/supported-html-tags",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/switch-accounts.md",
+            "redirect_url": "/partner-center/marketplace/switch-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/teams-apps-usage.md",
+            "redirect_url": "/partner-center/marketplace/teams-apps-usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-drive-azure-subscription-setup.md",
+            "redirect_url": "/partner-center/marketplace/test-drive-azure-subscription-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-drive-hosted-detailed-config.md",
+            "redirect_url": "/partner-center/marketplace/test-drive-hosted-detailed-config",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-drive-technical-configuration.md",
+            "redirect_url": "/partner-center/marketplace/test-drive-technical-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-publish-saas-offer.md",
+            "redirect_url": "/partner-center/marketplace/test-publish-saas-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-saas-overview.md",
+            "redirect_url": "/partner-center/marketplace/test-saas-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-saas-plan.md",
+            "redirect_url": "/partner-center/marketplace/test-saas-plan",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-saas-preview-offer.md",
+            "redirect_url": "/partner-center/marketplace/test-saas-preview-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/test-saas-unsubscribe.md",
+            "redirect_url": "/partner-center/marketplace/test-saas-unsubscribe",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/update-existing-offer.md",
+            "redirect_url": "/partner-center/marketplace/update-existing-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/update-marketplace-owner.md",
+            "redirect_url": "/partner-center/marketplace/update-marketplace-owner",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/usage-dashboard.md",
+            "redirect_url": "/partner-center/marketplace/usage-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/user-roles.md",
+            "redirect_url": "/partner-center/marketplace/user-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/view-acquisitions-report.md",
+            "redirect_url": "/partner-center/marketplace/view-acquisitions-report",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/view-usage-report.md",
+            "redirect_url": "/partner-center/marketplace/view-usage-report",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/what-is-new.md",
+            "redirect_url": "/partner-center/marketplace/what-is-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/what-is-test-drive.md",
+            "redirect_url": "/partner-center/marketplace/what-is-test-drive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/why-publish.md",
+            "redirect_url": "/partner-center/marketplace/why-publish",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/analytics-faq.yml",
+            "redirect_url": "/partner-center/marketplace/analytics-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/appsource-submission-faq.yml",
+            "redirect_url": "/partner-center/marketplace/appsource-submission-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-container-certification-faq.yml",
+            "redirect_url": "/partner-center/marketplace/azure-container-certification-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-certification-faq.yml",
+            "redirect_url": "/partner-center/marketplace/azure-vm-certification-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-faq.yml",
+            "redirect_url": "/partner-center/marketplace/azure-vm-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/cloud-partner-portal-migration-faq.yml",
+            "redirect_url": "/partner-center/marketplace/cloud-partner-portal-migration-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/index.yml",
+            "redirect_url": "/partner-center/marketplace/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-csp-faq.yml",
+            "redirect_url": "/partner-center/marketplace/isv-csp-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/isv-customer-faq.yml",
+            "redirect_url": "/partner-center/marketplace/isv-customer-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/lead-management-faq.yml",
+            "redirect_url": "/partner-center/marketplace/lead-management-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-faq-publisher-guide.yml",
+            "redirect_url": "/partner-center/marketplace/marketplace-faq-publisher-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-metering-service-apis-faq.yml",
+            "redirect_url": "/partner-center/marketplace/marketplace-metering-service-apis-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-faq.yml",
+            "redirect_url": "/partner-center/marketplace/partner-center-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/power-bi-visual-faq.yml",
+            "redirect_url": "/partner-center/marketplace/power-bi-visual-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/price-changes-faq.yml",
+            "redirect_url": "/partner-center/marketplace/price-changes-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/anomaly-detection-service-for-metered-billing.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/anomaly-detection-service-for-metered-billing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-api-v1.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-api-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-apis.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-webhook.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-registration.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/pc-saas-registration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/saas-metered-billing.md",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/saas-metered-billing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/saas-fulfillment-apis-faq.yml",
+            "redirect_url": "/partner-center/marketplace/partner-center-portal/saas-fulfillment-apis-faq",
             "redirect_document_id": false
         }
     ]

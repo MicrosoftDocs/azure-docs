@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 07/29/2021
+ms.topic: how-to
+ms.date: 03/23/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -21,7 +21,7 @@ Use this article with the related article titled [Configure authentication in a 
 
 ## Prerequisites
 
-Review the prerequisites and integration steps in the [Configure authentication in a sample Angular single-page application](configure-authentication-sample-angular-spa-app.md) article.
+Complete the steps in the [Configure authentication in a sample Angular single-page application](configure-authentication-sample-angular-spa-app.md) article.
 
 ## Create an Angular app project
 
@@ -61,7 +61,7 @@ The sample code consists of the following components:
 |---------|---------|---------|
 | auth-config.ts| Constants | This configuration file contains information about your Azure AD B2C identity provider and the web API service. The Angular app uses this information to establish a trust relationship with Azure AD B2C, sign in and sign out the user, acquire tokens, and validate the tokens. |
 | app.module.ts| [Angular module](https://angular.io/guide/architecture-modules)| This component describes how the application parts fit together. This is the root module that's used to bootstrap and open the application. In this walkthrough, you add some components to the *app.module.ts* module, and you start the MSAL library with the MSAL configuration object.  |
-| app-routing.module.ts | [Angular routing module](https://angular.io/tutorial/toh-pt5) | This component enables navigation by interpreting a browser URL and loading the corresponding component. In this walkthrough, you add some components to the routing module, and you protect components with [MSAL Guard](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/msal-guard.md). Only authorized users can access the protected components.   |
+| app-routing.module.ts | [Angular routing module](https://angular.io/tutorial/tour-of-heroes/toh-pt5) | This component enables navigation by interpreting a browser URL and loading the corresponding component. In this walkthrough, you add some components to the routing module, and you protect components with [MSAL Guard](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/msal-guard.md). Only authorized users can access the protected components.   |
 | app.component.* | [Angular component](https://angular.io/guide/architecture-components) | The `ng new` command created an Angular project with a root component. In this walkthrough, you change the *app* component to host the top navigation bar. The navigation bar contains various buttons, including sign-in and sign-out buttons. The `app.component.ts` class handles the sign-in and sign-out events.  |
 | home.component.* | [Angular component](https://angular.io/guide/architecture-components)|In this walkthrough, you add the *home* component to render the home page for anonymous access. This component demonstrates how to check whether a user has signed in.  |
 | profile.component.* | [Angular component](https://angular.io/guide/architecture-components) | In this walkthrough, you add the *profile* component to learn how to read the ID token claims. |
@@ -107,7 +107,7 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn,
+         authority: b2cPolicies.authorities.signUpSignIn.authority,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },
@@ -139,7 +139,7 @@ export const loginRequest = {
 
 ## Start the authentication libraries
 
-Public client applications are not trusted to safely keep application secrets, so they don't have client secrets. In the *src/app* folder, open *app.module.ts* and make the following changes:
+Public client applications aren't trusted to safely keep application secrets, so they don't have client secrets. In the *src/app* folder, open *app.module.ts* and make the following changes:
 
 1. Import the MSAL Angular and MSAL Browser libraries.
 1. Import the Azure AD B2C configuration module.
@@ -296,7 +296,7 @@ export class AppRoutingModule { }
 In this section, you add the sign-in and sign-out buttons to the *app* component. In the *src/app* folder, open the *app.component.ts* file and make the following changes:
 
 1. Import the required components.
-1. Change the class to implement the [OnInit method](https://angular.io/api/core/OnInit). The `OnInit` method subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/events.md) `inProgress$` observable event. Use this event to know the status of user interactions, particularly to check that interactions are completed. 
+1. Change the class to implement the [OnInit method](https://angular.io/api/core/OnInit). The `OnInit` method subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/events.md) `inProgress$` observable event. Use this event to know the status of user interactions, particularly to check that interactions are completed. 
 
    Before interactions with the MSAL account object, check that the `InteractionStatus` property returns `InteractionStatus.None`. The `subscribe` event calls the `setLoginDisplay` method to check if the user is authenticated.
 1. Add class variables.
@@ -407,7 +407,7 @@ Optionally, update the *app.component.css* file with the following CSS snippet:
 
 ## Handle the app redirects 
 
-When you're using redirects with MSAL, you must add the [app-redirect](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/redirects.md) directive to *index.html*. In the *src* folder, edit *index.html* as shown in the following code snippet:
+When you're using redirects with MSAL, you must add the [app-redirect](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/redirects.md) directive to *index.html*. In the *src* folder, edit *index.html* as shown in the following code snippet:
 
 ```html
 <!doctype html>
@@ -449,7 +449,7 @@ The *home.component* file demonstrates how to check if the user is authenticated
 
 The code:
 
-1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/events.md) `msalSubject$` and `inProgress$` observable events. 
+1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/events.md) `msalSubject$` and `inProgress$` observable events. 
 1. Ensures that the `msalSubject$` event writes the authentication result to the browser console.
 1. Ensures that the `inProgress$` event checks if a user is authenticated. The `getAllAccounts()` method returns one or more objects.
 
@@ -514,7 +514,7 @@ The *profile.component* file demonstrates how to access the user's ID token clai
 The code:
 
 1. Imports the required components.
-1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/events.md) `inProgress$` observable event. The event loads the account and reads the ID token claims.
+1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/events.md) `inProgress$` observable event. The event loads the account and reads the ID token claims.
 1. Ensures that the `checkAndSetActiveAccount` method checks and sets the active account. This action is common when the app interacts with multiple Azure AD B2C user flows or custom policies.
 1. Ensures that the `getClaims` method gets the ID token claims from the active MSAL account object. The method then adds the claims to the `dataSource` array. The array is rendered to the user with the component's template binding.
 
@@ -616,13 +616,13 @@ In the *src/app/profile* folder, update *profile.component.html* with the follow
 
 ## Call a web API
 
-To call a [token-based authorization web API](enable-authentication-web-api.md), the app needs to have a valid access token. The [MsalInterceptor](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/msal-interceptor.md) provider automatically acquires tokens for outgoing requests that use the Angular [HttpClient](https://angular.io/api/common/http/HttpClient) class to known protected resources.
+To call a [token-based authorization web API](enable-authentication-web-api.md), the app needs to have a valid access token. The [MsalInterceptor](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/msal-interceptor.md) provider automatically acquires tokens for outgoing requests that use the Angular [HttpClient](https://angular.io/api/common/http/HttpClient) class to known protected resources.
 
 > [!IMPORTANT]
 > The MSAL initialization method (in the `app.module.ts` class) maps protected resources, such as web APIs, with the required app scopes by using the `protectedResourceMap` object. If your code needs to call another web API, add the web API URI and the web API HTTP method, with the corresponding scopes, to the `protectedResourceMap` object. For more information, see [Protected Resource Map](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/master/lib/msal-angular/docs/v2-docs/msal-interceptor.md#protected-resource-map).
 
 
-When the [HttpClient](https://angular.io/api/common/http/HttpClient)  object calls a web API, the [MsalInterceptor](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/msal-interceptor.md) provider takes the following steps:
+When the [HttpClient](https://angular.io/api/common/http/HttpClient)  object calls a web API, the [MsalInterceptor](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/msal-interceptor.md) provider takes the following steps:
 
 1. Acquires an access token with the required permissions (scopes) for the web API endpoint. 
 1. Passes the access token as a bearer token in the authorization header of the HTTP request by using this format:
@@ -635,7 +635,7 @@ The *webapi.component* file demonstrates how to call a web API. In the *src/app/
 
 The code:
 
-1. Uses the Angular [HttpClient](https://angular.io/guide/http) class to call the web API.
+1. Uses the Angular [HttpClient](https://angular.io/guide/understanding-communicating-with-http) class to call the web API.
 1. Reads the `auth-config` class's `protectedResources.todoListApi.endpoint` element. This element specifies the web API URI. Based on the web API URI, the MSAL interceptor acquires an access token with the corresponding scopes. 
 1. Gets the profile from the web API and sets the `profile` class variable.
 

@@ -1,24 +1,19 @@
 ---
 title: 'How to: Provision an Azure Fluid Relay service'
 description: How to provision an Azure Fluid Relay service using the Azure portal
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
-ms.date: 10/05/2021
+ms.date: 01/18/2023
 ms.topic: article
 ms.service: azure-fluid
+ms.custom: references_regions
 ---
 
 # How to: Provision an Azure Fluid Relay service
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-Before you can connect your app to an Azure Fluid Relay server, you must provision an Azure Fluid Relay server resource on your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
+Before you can connect your app to an Azure Fluid Relay, you must provision an Azure Fluid Relay server resource in your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
 ## Prerequisites
 
-To create an Azure Fluid Relay service, you must have an Azure account. If you don't have an account, you can [try Azure for free](https://azure.com/free).
+To create an Azure Fluid Relay resource, you must have an Azure account. If you don't have an account, you can [try Azure for free](https://azure.com/free).
 
 ## Create a resource group
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. To create a resource group:
@@ -28,7 +23,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 
     :::image type="content" source="../images/add-resource-group.png" alt-text="A screenshot of the Resource Groups page on the Azure portal.":::
 
-3. For Subscription, select the name of the Azure subscription in which you want to create the resource group.
+3. For Subscription, select the name of the Azure subscription in which you want to create the [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). For more information about subscriptions, see [Describe core Azure architectural components](/training/modules/azure-architecture-fundamentals).
 
     :::image type="content" source="../images/create-resource-group.png" alt-text="A screenshot of the Create Resource Group page on the Azure portal.":::
 
@@ -57,9 +52,6 @@ Each Azure Fluid Relay server resource provides a tenant for you to use in your 
     2. Select the resource group you created in the previous step.
     3. Enter a name for the Fluid Relay resource.
     4. Select a location for the namespace.
-    
-    > [!NOTE]
-    > During the public preview, the only West US 2, West Europe, and SoutheastAsia regions are supported
 
 5. Click the **Review + Create** button at the bottom of the page.
 
@@ -76,4 +68,4 @@ Each Azure Fluid Relay server resource provides a tenant for you to use in your 
     :::image type="content" source="../images/resource-details.png" alt-text="A screenshot of an example details page for a deployed Fluid Relay resource.":::
 
 ## Next steps
-You just created a resource group and a provisioned an Azure Fluid Relay resource in that group. Next, you can [connect to your Azure Fluid Relay service in your app](../quickstarts/quickstart-dice-roll.md).
+You just created a resource group and a provisioned an Azure Fluid Relay resource in that group. Next, you can [connect to your Azure Fluid Relay service in your app](../how-tos/connect-fluid-azure-service.md).

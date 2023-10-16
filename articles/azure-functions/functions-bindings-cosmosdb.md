@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 ms.topic: reference
 ms.date: 11/21/2017
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-csharp, seodec18"
+ms.custom: devx-track-csharp, seodec18, ignite-2022
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -13,15 +13,17 @@ ms.custom: "devx-track-csharp, seodec18"
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 > [!NOTE]
 > This article is for Azure Functions 1.x. For information about how to use these bindings in Functions 2.x and higher, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
->This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
+>This binding was originally named DocumentDB. In Azure Functions version 1.x, only the trigger was renamed Azure Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
 > [!NOTE]
-> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md), [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md), [Azure Cosmos DB for Apache Gremlin](../cosmos-db/graph-introduction.md), and [Azure Cosmos DB for Table](../cosmos-db/table-introduction.md).
 
 ## Packages - Functions 1.x
 
@@ -37,7 +39,7 @@ The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
+The following example shows an [in-process C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -68,45 +70,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "type": "cosmosDBTrigger",
-    "name": "documents",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "<connection-app-setting>",
-    "databaseName": "Tasks",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": true
-}
-```
-
-Here's the C# script code:
-
-```cs
-    #r "Microsoft.Azure.Documents.Client"
-    
-    using System;
-    using Microsoft.Azure.Documents;
-    using System.Collections.Generic;
-    
-
-    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
-    {
-        log.Info("Documents modified " + documents.Count);
-        log.Info("First document Id " + documents[0].Id);
-    }
-```
-
 # [JavaScript](#tab/javascript)
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -137,7 +103,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
+For [in-process C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Trigger - configuration](#trigger---configuration). Here's a `CosmosDBTrigger` attribute example in a method signature:
 
@@ -153,10 +119,6 @@ The attribute's constructor takes the database name and collection name. For inf
 ```
 
 For a complete example, see [Trigger - C# example](#trigger).
-
-# [C# Script](#tab/csharp-script)
-
-Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
@@ -197,7 +159,7 @@ The following table explains the binding configuration properties that you set i
 The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
 >[!IMPORTANT]
-> If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#trigger---configuration).
+> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#trigger---configuration).
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
 
@@ -515,364 +477,6 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-This section contains the following examples:
-
-* [Queue trigger, look up ID from string](#queue-trigger-look-up-id-from-string-c-script)
-* [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c-script)
-* [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-c-script)
-* [HTTP trigger, get multiple docs, using SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [HTTP trigger, get multiple docs, using DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
-
-The HTTP trigger examples refer to a simple `ToDoItem` type:
-
-```cs
-namespace CosmosDBSamplesV1
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
-
-<a id="queue-trigger-look-up-id-from-string-c-script"></a>
-
-### Queue trigger, look up ID from string
-
-The following example shows a Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "inputDocument",
-    "type": "documentDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger}",
-    "partitionKey": "{partition key value}",
-    "connection": "MyAccount_COSMOSDB",
-    "direction": "in"
-}
-```
-
-The [configuration](#input---configuration) section explains these properties.
-
-Here's the C# script code:
-
-```cs
-    using System;
-
-    // Change input document contents using Azure Cosmos DB input binding
-    public static void Run(string myQueueItem, dynamic inputDocument)
-    {
-        inputDocument.text = "This has changed.";
-    }
-```
-
-<a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
-
-### Queue trigger, get multiple docs, using SqlQuery
-
-The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
-
-The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "documents",
-    "type": "documentdb",
-    "direction": "in",
-    "databaseName": "MyDb",
-    "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
-    "connection": "CosmosDBConnection"
-}
-```
-
-The [configuration](#input---configuration) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-    public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
-    {
-        foreach (var doc in documents)
-        {
-            // operate on each document
-        }
-    }
-
-    public class QueuePayload
-    {
-        public string departmentId { get; set; }
-    }
-```
-
-<a id="http-trigger-look-up-id-from-query-string-c-script"></a>
-
-### HTTP trigger, look up ID from query string
-
-The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "documentDB",
-      "name": "toDoItem",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connection": "CosmosDBConnection",
-      "direction": "in",
-      "Id": "{Query.id}"
-    }
-  ],
-  "disabled": true
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System.Net;
-
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-
-    if (toDoItem == null)
-    {
-        log.Info($"ToDo item not found");
-    }
-    else
-    {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
-    }
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a id="http-trigger-look-up-id-from-route-data-c-script"></a>
-
-### HTTP trigger, look up ID from route data
-
-The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route":"todoitems/{id}"
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "documentDB",
-      "name": "toDoItem",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connection": "CosmosDBConnection",
-      "direction": "in",
-      "Id": "{id}"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System.Net;
-
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-
-    if (toDoItem == null)
-    {
-        log.Info($"ToDo item not found");
-    }
-    else
-    {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
-    }
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
-
-### HTTP trigger, get multiple docs, using SqlQuery
-
-The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "documentDB",
-      "name": "toDoItems",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connection": "CosmosDBConnection",
-      "direction": "in",
-      "sqlQuery": "SELECT top 2 * FROM c order by c._ts desc"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System.Net;
-
-public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-
-    foreach (ToDoItem toDoItem in toDoItems)
-    {
-        log.Info(toDoItem.Description);
-    }
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
-
-### HTTP trigger, get multiple docs, using DocumentClient
-
-The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "documentDB",
-      "name": "client",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connection": "CosmosDBConnection",
-      "direction": "inout"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-#r "Microsoft.Azure.Documents.Client"
-
-using System.Net;
-using Microsoft.Azure.Documents.Client;
-using Microsoft.Azure.Documents.Linq;
-
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-
-    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
-    string searchterm = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
-        .Value;
-
-    if (searchterm == null)
-    {
-        return req.CreateResponse(HttpStatusCode.NotFound);
-    }
-
-    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
-    IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
-        .Where(p => p.Description.Contains(searchterm))
-        .AsDocumentQuery();
-
-    while (query.HasMoreResults)
-    {
-        foreach (ToDoItem result in await query.ExecuteNextAsync())
-        {
-            log.Info(result.Description);
-        }
-    }
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
 # [JavaScript](#tab/javascript)
 
 This section contains the following examples:
@@ -887,7 +491,7 @@ This section contains the following examples:
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows a Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -1081,13 +685,9 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
+In [in-process C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration).
-
-# [C# Script](#tab/csharp-script)
-
-Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
@@ -1116,10 +716,6 @@ The following table explains the binding configuration properties that you set i
 ## Input - usage
 
 # [C#](#tab/csharp)
-
-When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
-
-# [C# Script](#tab/csharp-script)
 
 When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
 
@@ -1221,134 +817,6 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-This section contains the following examples:
-
-* Queue trigger, write one doc
-* Queue trigger, write docs using `IAsyncCollector`
-
-### Queue trigger, write one doc
-
-The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-The function creates Azure Cosmos DB documents in the following format for each record:
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "documentDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-
-The [configuration](#output---configuration) section explains these properties.
-
-Here's the C# script code:
-
-```cs
-    #r "Newtonsoft.Json"
-
-    using Microsoft.Azure.WebJobs.Host;
-    using Newtonsoft.Json.Linq;
-
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-        dynamic employee = JObject.Parse(myQueueItem);
-
-        employeeDocument = new {
-            id = employee.name + "-" + employee.employeeId,
-            name = employee.name,
-            employeeId = employee.employeeId,
-            address = employee.address
-        };
-    }
-```
-
-### Queue trigger, write docs using IAsyncCollector
-
-To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
-
-This example refers to a simple `ToDoItem` type:
-
-```cs
-namespace CosmosDBSamplesV1
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
-
-Here's the function.json file:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "toDoItemsIn",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "todoqueueforwritemulti",
-      "connection": "AzureWebJobsStorage"
-    },
-    {
-      "type": "documentDB",
-      "name": "toDoItemsOut",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connection": "CosmosDBConnection",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System;
-
-public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
-
-    foreach (ToDoItem toDoItem in toDoItemsIn)
-    {
-        log.Info($"Description={toDoItem.Description}");
-        await toDoItemsOut.AddAsync(toDoItem);
-    }
-}
-```
-
 # [JavaScript](#tab/javascript)
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
@@ -1408,7 +876,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
+In [in-process C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `DocumentDB` attribute example in a method signature:
 
@@ -1423,10 +891,6 @@ The attribute's constructor takes the database name and collection name. For inf
 ```
 
 For a complete example, see [Output](#output).
-
-# [C# Script](#tab/csharp-script)
-
-Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
@@ -1463,14 +927,14 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| Azure Cosmos DB | [HTTP status codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## Next steps
 
-* [Learn more about serverless database computing with Cosmos DB](../cosmos-db/serverless-computing-database.md)
-* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+* [Learn more about serverless database computing with Azure Cosmos DB](../cosmos-db/serverless-computing-database.md)
+* [Learn more about Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]
-> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+> [Go to a quickstart that uses an Azure Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
 --->

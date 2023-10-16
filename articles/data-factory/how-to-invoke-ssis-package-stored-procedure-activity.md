@@ -1,83 +1,56 @@
 ---
 title: Run SSIS package with Stored Procedure Activity - Azure 
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Stored Procedure Activity.
-author: swinarko
+author: chugugrace
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: sawinark 
+ms.date: 07/20/2023
+ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
 # Run an SSIS package with the Stored Procedure activity
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run an SSIS package in an Azure Data Factory pipeline pr Synapse Pipelines by using a Stored Procedure activity. 
 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses Azure SQL Database to host the SSIS catalog. You can also use Azure SQL Managed Instance.
+The walk through in this article uses Azure SQL Database to host the SSIS catalog. You can also use Azure SQL Managed Instance.
 
-## Create an Azure-SSIS integration runtime
-Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](./tutorial-deploy-ssis-packages-azure.md).
+### Data Factory
+You will need an instance of Azure Data Factory to implement this walk through. If you do not have one already provisioned, you can follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md).
 
-## Data Factory UI (Azure portal)
-In this section, you use Data Factory UI to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.
+### Azure-SSIS integration runtime
+Finally, you will also require an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](./tutorial-deploy-ssis-packages-azure.md).
 
-### Create a data factory
-First step is to create a data factory by using the Azure portal. 
+## Create a pipeline with stored procedure activity
 
-1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. Navigate to the [Azure portal](https://portal.azure.com). 
-3. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
-   
-   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png" alt-text="New->DataFactory":::
-2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
-      
-     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png" alt-text="New data factory page":::
- 
-   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
-  
-     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png" alt-text="Name not available - error":::
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
-     
-   - Select **Use existing**, and select an existing resource group from the drop-down list. 
-   - Select **Create new**, and enter the name of a resource group.   
-         
-     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
-4. Select **V2** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported by Data Factory are shown in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+In this step, you use the Data Factory UI to create a pipeline.  If you have not navigated to the Azure Data Factory Studio already, open your data factory in the Azure Portal and click the **Open Azure Data Factory Studio** button to open it.
 
-     :::image type="content" source="media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png" alt-text="deploying data factory tile":::
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-   
-     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Data factory home page":::
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) application in a separate tab. 
+:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
 
-### Create a pipeline with stored procedure activity
-In this step, you use the Data Factory UI to create a pipeline. You add a stored procedure activity to the pipeline and configure it to run the SSIS package by using the sp_executesql stored procedure. 
+Next, you will add a stored procedure activity to a new pipeline and configure it to run the SSIS package by using the sp_executesql stored procedure. 
 
 1. In the home page, click **Orchestrate**: 
 
-    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/orchestrate-button.png" alt-text="Screenshot that shows the Orchestrate button on the Azure Data Factory home page.":::
 
-2. In the **Activities** toolbox, expand **General**, and drag-drop **Stored Procedure** activity to the pipeline designer surface. 
+2. In the **Activities** toolbox, search for **Stored procedure**, and drag-drop a **Stored procedure** activity to the pipeline designer surface. 
 
     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png" alt-text="Drag-and-drop stored procedure activity":::
-3. In the properties window for the stored procedure activity, switch to the **SQL Account** tab, and click **+ New**. You create a connection to the database in Azure SQL Database that hosts the SSIS Catalog (SSIDB database). 
+
+3. Select the **Stored procedure** activity you just added to the designer surface, and then the **Settings** tab, and click **+ New** beside the **Linked service**. You create a connection to the database in Azure SQL Database that hosts the SSIS Catalog (SSIDB database). 
    
     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png" alt-text="New linked service button":::
+
 4. In the **New Linked Service** window, do the following steps: 
 
     1. Select **Azure SQL Database** for **Type**.
-    2. Select the **Default** Azure Integration Runtime to connect to the Azure SQL Database that hosts the `SSISDB` database.
+    2. Select the **Default** AutoResolveIntegrationRuntime to connect to the Azure SQL Database that hosts the `SSISDB` database.
     3. Select the Azure SQL Database that hosts the SSISDB database for the **Server name** field.
     4. Select **SSISDB** for **Database name**.
     5. For **User name**, enter the name of user who has access to the database.
@@ -86,7 +59,8 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
     8. Save the linked service by clicking the **Save** button. 
 
         :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png" alt-text="Screenshot that shows the process for adding a new linked service.":::
-5. In the properties window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
+
+5. Back in the properties window on the **Settings** tab, complete the following steps: 
 
     1. Select **Edit**. 
     2. For the **Stored procedure name** field, Enter `sp_executesql`. 
@@ -102,6 +76,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
         ```
 
         :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png" alt-text="Azure SQL Database linked service":::
+
 6. To validate the pipeline configuration, click **Validate** on the toolbar. To close the **Pipeline Validation Report**, click **>>**.
 
     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png" alt-text="Validate pipeline":::
@@ -119,11 +94,11 @@ In this section, you trigger a pipeline run and then monitor it.
 2. In the **Pipeline Run** window, select **Finish**. 
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
-    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Pipeline runs":::
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Screenshot that shows pipeline runs":::
 
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (stored procedure activity).
 
-    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png" alt-text="Activity runs":::
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png" alt-text="Screenshot that shows activity runs":::
 
 4. You can run the following **query** against the SSISDB database in SQL Database to verify that the package executed. 
 
@@ -143,7 +118,7 @@ In this section, you trigger a pipeline run and then monitor it.
 
 In this section, you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package. 
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps). 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). 
 
 ### Create a data factory
 You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package. 

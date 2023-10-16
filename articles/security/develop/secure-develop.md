@@ -2,9 +2,9 @@
 title: Develop secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the implementation and verification phases of your web application project.
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 ms.author: terrylan
-ms.date: 03/21/2021
+ms.date: 08/30/2023
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -26,7 +26,7 @@ The following SDL phases are covered in this article:
 
 ## Implementation
 
-The focus of the implementation phase is to establish best practices for early prevention and to detect and remove security issues from the code. Assume that your application will be used in ways that you didn't intend it to be used. This helps you guard against accidental or intentional misuse of your application.
+The focus of the implementation phase is to establish best practices for early prevention and to detect and remove security issues from the code. Assume that your application is used in ways that you didn't intend it to be used. This helps you guard against accidental or intentional misuse of your application.
 
 ### Perform code reviews
 
@@ -34,7 +34,7 @@ Before you check in code, conduct code reviews to increase overall code quality 
 
 ### Perform static code analysis
 
-[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in nonrunning code. Static code analysis uses techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offers [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) that perform static code analysis and assist with code reviews.
 
@@ -62,7 +62,7 @@ Any output that you present either visually or within a document should always b
 
 Escaping makes sure that everything is displayed as *output.* Escaping also lets the interpreter know that the data isn't intended to be executed, and this prevents attacks from working. This is another common attack technique called *cross-site scripting* (XSS).
 
-If you are using a web framework from a third party, you can verify your options for output encoding on websites by using the [OWASP XSS prevention cheat sheet](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
+If you're using a web framework from a third party, you can verify your options for output encoding on websites by using the [OWASP XSS prevention cheat sheet](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
 
 ### Use parameterized queries when you contact the database
 
@@ -77,7 +77,7 @@ See [removing standard server headers on Azure websites](https://azure.microsoft
 
 ### Segregate your production data
 
-Your production data, or "real" data, should not be used for development, testing, or any other purpose than what the business intended. A masked ([anonymized](https://en.wikipedia.org/wiki/Data_anonymization)) dataset should be used for all development and testing.
+Your production data, or "real" data, shouldn't be used for development, testing, or any other purpose than what the business intended. A masked ([anonymized](https://en.wikipedia.org/wiki/Data_anonymization)) dataset should be used for all development and testing.
 
 This means fewer people have access to your real data, which reduces your attack surface. It also means fewer employees see personal data, which eliminates a potential breach in confidentiality.
 
@@ -96,13 +96,13 @@ If the application must autogenerate passwords, ensure that the generated passwo
 
 If your application allows [file uploads](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
 
-Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Microsoft Defender Antivirus in Windows](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](../../security-center/security-center-partner-integration.md) for ease of deployment and built-in detections (alerts and incidents).
 
 ### Don't cache sensitive content
 
-Don't cache sensitive content on the browser. Browsers can store information for caching and history. Cached files are stored in a folder like the Temporary Internet Files folder, in the case of Internet Explorer. When these pages are referred to again, the browser displays the pages from its cache. If sensitive information (address, credit card details, Social security number, username) is displayed to the user, the information might be stored in the browser's cache and be retrievable by examining the browser's cache or by simply pressing the browser's **Back** button.
+Don't cache sensitive content on the browser. Browsers can store information for caching and history. Cached files are stored in a folder like the Temporary Internet Files folder, in the case of Internet Explorer. When these pages are referred to again, the browser displays the pages from its cache. If sensitive information (address, credit card details, Social security number, username) is displayed to the user, the information might be stored in the browser's cache and be retrievable by examining the browser's cache or by pressing the browser's **Back** button.
 
 ## Verification
 
@@ -110,28 +110,19 @@ The verification phase involves a comprehensive effort to ensure that the code m
 
 ### Find and fix vulnerabilities in your application dependencies
 
-You scan your application and its dependent libraries to identify any known vulnerable components. Products that are available to perform this scan include [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/), and [Black Duck](https://www.blackducksoftware.com/).
-
-Vulnerability scanning powered by [Tinfoil Security](https://www.tinfoilsecurity.com/) is available for Azure App Service Web Apps. [Tinfoil Security scanning through App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) offers developers and administrators a fast, integrated, and economical means of discovering and addressing vulnerabilities before a malicious actor can take advantage of them.
-
-> [!NOTE]
-> You can also [integrate Tinfoil Security with Azure AD](../../active-directory/saas-apps/tinfoil-security-tutorial.md). Integrating Tinfoil Security with Azure AD provides you with the
-following benefits:
->  - In Azure AD, you can control who has access to Tinfoil Security.
->  - Your users can be automatically signed in to Tinfoil Security (single sign-on) by using their Azure AD accounts.
->  - You can manage your accounts in a single, central location, the Azure portal.
+You scan your application and its dependent libraries to identify any known vulnerable components. Products that are available to perform this scan include [OWASP Dependency Check](https://owasp.org/www-project-dependency-check/),[Snyk](https://snyk.io/), and [Black Duck](https://www.blackducksoftware.com/).
 
 ### Test your application in an operating state
 
-Dynamic application security testing (DAST) is a process of testing an application in an operating state to find security vulnerabilities. DAST tools analyze programs while they are executing to find security vulnerabilities such as memory corruption, insecure server configuration, cross-site scripting, user privilege issues, SQL injection, and other critical security concerns.
+Dynamic application security testing (DAST) is a process of testing an application in an operating state to find security vulnerabilities. DAST tools analyze programs while they're executing to find security vulnerabilities such as memory corruption, insecure server configuration, cross-site scripting, user privilege issues, SQL injection, and other critical security concerns.
 
-DAST is different from static application security testing (SAST). SAST tools analyze source code or compiled versions of code when the code is not executing in order to find security flaws.
+DAST is different from static application security testing (SAST). SAST tools analyze source code or compiled versions of code when the code isn't executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional (a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
 ### Perform fuzz testing
 
-In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), you induce program failure by deliberately introducing malformed or random data to an application. Inducing program failure helps reveal potential security issues before the application is released.
+In [fuzz testing](https://www.microsoft.com/security/blog/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), you induce program failure by deliberately introducing malformed or random data to an application. Inducing program failure helps reveal potential security issues before the application is released.
 
 [Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
 
@@ -139,7 +130,7 @@ In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 
 Reviewing the attack surface after code completion helps ensure that any design or implementation changes to an application or system has been considered. It helps ensure that any new attack vectors that were created as a result of the changes, including threat models, has been reviewed and mitigated.
 
-You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Attack Surface Detector](https://owasp.org/www-project-attack-surface-detector/), [Arachni](http://arachni-scanner.com/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### Perform security penetration testing
 
@@ -147,7 +138,7 @@ Ensuring that your application is secure is as important as testing any other fu
 
 ### Run security verification tests
 
-[Secure DevOps Kit for Azure](https://github.com/azsk/AzTS-docs/#readme) (AzSK) contains SVTs for multiple services of the Azure platform. You run these SVTs periodically to ensure that your Azure subscription and the different resources that comprise your application are in a secure state. You can also automate these tests by using the continuous integration/continuous deployment (CI/CD) extensions feature of AzSK, which makes SVTs available as a Visual Studio extension.
+[Azure Tenant Security Solution (AzTS)](https://github.com/azsk/AzTS-docs/#readme) from the Secure DevOps Kit for Azure (AzSK) contains SVTs for multiple services of the Azure platform. You run these SVTs periodically to ensure that your Azure subscription and the different resources that comprise your application are in a secure state. You can also automate these tests by using the continuous integration/continuous deployment (CI/CD) extensions feature of AzSK, which makes SVTs available as a Visual Studio extension.
 
 ## Next steps
 

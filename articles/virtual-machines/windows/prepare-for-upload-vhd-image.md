@@ -1,20 +1,19 @@
 ---
 title: Prepare a Windows VHD to upload to Azure
-description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
+description: Learn how to prepare and generalize a Windows VHD or VHDX to upload it to Azure.
 author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
-ms.subservice: disks
-ms.collection: windows
-ms.workload: infrastructure-services
+ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 08/04/2022
 ms.author: genli
+ms.custom: engagement-fy23
 ---
 
 # Prepare a Windows VHD or VHDX to upload to Azure
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in
@@ -115,6 +114,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
 
    ```powershell
    powercfg.exe /setactive SCHEME_MIN
+   powercfg /setacvalueindex SCHEME_CURRENT SUB_VIDEO VIDEOIDLE 0
    ```
 
 1. Make sure the environmental variables **TEMP** and **TMP** are set to their default values:
@@ -126,7 +126,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
 1. For VMs with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure the latest Hyper-V Integration Component Services are installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
 
 > [!NOTE]
-> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
+> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premises VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
 
 ## Check the Windows services
 
@@ -150,7 +150,7 @@ Make sure the following settings are configured correctly for remote access:
 
 > [!NOTE]
 > If you receive an error message when running
-> `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>`,
+> `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name <string> -Value <object>`,
 > you can safely ignore it. It means the domain isn't setting that configuration through a Group
 > Policy Object.
 
@@ -240,13 +240,15 @@ Make sure the following settings are configured correctly for remote access:
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
+   
+> [!NOTE]
+> When this command runs, it enables the appropriate firewall rules automatically.
 
 1. Enable the following firewall rules to allow the RDP traffic:
 
    ```powershell
-   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
+   Get-NetFirewallRule -DisplayGroup 'Remote Desktop' | Set-NetFirewallRule -Enabled True
    ```
 
 1. Enable the rule for file and printer sharing so the VM can respond to ping requests inside the
@@ -262,8 +264,11 @@ Make sure the following settings are configured correctly for remote access:
    New-NetFirewallRule -DisplayName AzurePlatform -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
    New-NetFirewallRule -DisplayName AzurePlatform -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
    ```
+  
+ > [!IMPORTANT]
+ > 168.63.129.16 is a special public IP address that is owned by Microsoft for Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-1. If the VM is part of a domain, check the following Azure AD policies to make sure the previous
+1. If the VM is part of a domain, check the following Microsoft Entra policies to make sure the previous
    settings aren't reverted.
 
     |                 Goal                 |                                                                         Policy                                                                          |                  Value                  |
@@ -340,7 +345,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
    ```powershell
    netstat.exe -anob
    ```
-   
+
    The following is an example.
 
    ```powershell
@@ -369,7 +374,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment`
 
-1. Check the following Azure AD policies to make sure they're not blocking RDP access:
+1. Check the following Microsoft Entra policies to make sure they're not blocking RDP access:
 
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights
       Assignment\Deny access to this computer from the network`
@@ -377,7 +382,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights
       Assignment\Deny log on through Remote Desktop Services`
 
-1. Check the following Azure AD policy to make sure they're not removing any of the required access
+1. Check the following Microsoft Entra policy to make sure they're not removing any of the required access
    accounts:
 
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this computer from the network`
@@ -488,7 +493,7 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 ### Generalize a VHD
 
 >[!NOTE]
-> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions 
+> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions
 > before running the sysprep.
 
 >[!NOTE]
@@ -524,7 +529,7 @@ generalized disk, see
 ## Convert the virtual disk to a fixed size VHD
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 Use one of the methods in this section to convert and resize your virtual disk to the required format for Azure:
 
@@ -538,7 +543,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 1. Resize the virtual disk to meet Azure requirements:
 
    1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB, you'll need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD. To verify the size you can use the PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) cmdlet to show "Size", which must be a multiple of 1 MiB in Azure, and "FileSize", which will be equal to "Size" plus 512 bytes for the VHD footer.
-   
+
       ```powershell
       $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
       $vhd.Size % 1MB
@@ -546,12 +551,12 @@ Use one of the methods in this section to convert and resize your virtual disk t
       $vhd.FileSize - $vhd.Size
       512
       ```
-   
-   1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB), 
+
+   1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB),
    1. The maximum size for a data disk is 32,767 GiB (32 TiB).
 
 > [!NOTE]
-> - If you are preparing a Windows OS disk after you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM and continue with the sections in this article to finish preparing it for uploading.  
+> - If you are preparing a Windows OS disk after you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM and continue with the sections in this article to finish preparing it for uploading.
 > - If you are preparing a data disk you may stop with this section and proceed to uploading your disk.
 
 ### Use Hyper-V Manager to convert the disk
@@ -571,7 +576,7 @@ You can convert a virtual disk using the [Convert-VHD](/powershell/module/hyper-
 cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 The following example converts the disk from VHDX to VHD. It also converts the disk from a
 dynamically expanding disk to a fixed-size disk.
@@ -587,7 +592,7 @@ disk.
 ### Use Hyper-V Manager to resize the disk
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer
    list, select **Action** > **Edit Disk**.
@@ -599,7 +604,7 @@ disk.
 ### Use PowerShell to resize the disk
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
 cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
@@ -641,6 +646,18 @@ configured them.
   - We recommend disabling script blockers that might be provided by antivirus software. They might
     interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM
     from your image.
+
+> [!TIP]
+> **Optional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
+>
+> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Where D: is the mounted VHD's path.
+>
+> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 ## Next steps
 

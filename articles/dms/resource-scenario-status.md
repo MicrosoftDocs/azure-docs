@@ -1,95 +1,104 @@
-﻿---
-title: Database migration scenario status
+---
+title: Supported database migration scenarios
 titleSuffix: Azure Database Migration Service
-description: Learn about the status of the migration scenarios supported by Azure Database Migration Service.
-services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: craigg
-ms.reviewer: craigg
+description: Learn which migration scenarios are currently supported for Azure Database Migration Service and their availability status.
+author: croblesm
+ms.author: roblescarlos
+ms.reviewer: randolphwest
+ms.date: 04/27/2022
 ms.service: dms
-ms.workload: data-services
-ms.custom: mvc
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.custom:
+  - mvc
+  - sql-migration-content
 ---
 
-# Status of migration scenarios supported by Azure Database Migration Service
+# Azure Database Migration Service supported scenarios
 
-Azure Database Migration Service is designed to support different migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies migration scenarios currently supported by Azure Database Migration Service and the status (private preview, public preview, or general availability) for each scenario.
+Azure Database Migration Service supports a mix of database migration scenarios (source and target pairs) for both offline (one-time) and online (continuous sync) database migrations. New scenarios are added over time to extend Database Migration Service scenario coverage. This article is updated over time to list the migration scenarios that are currently supported by Database Migration Service and their availability status, preview or generally available.
 
-## Offline versus online migrations
+## Offline vs. online migration
 
-With Azure Database Migration Service, you can do an offline or an online migration. With *offline* migrations, application downtime begins at the same time that the migration starts. To limit downtime to the time required to cut over to the new environment when the migration completes, use an *online* migration. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, do an online migration.
+In Database Migration Service, you can migrate your databases offline or while they're online. In an *offline* migration, application downtime starts when the migration starts. To limit downtime to the time it takes you to cut over to the new environment after the migration, use an *online* migration. We recommend that you test an offline migration to determine whether the downtime is acceptable. If the expected downtime isn't acceptable, do an online migration.
 
 ## Migration scenario status
 
-The status of migration scenarios supported by Azure Database Migration Service varies with time. Generally, scenarios are first released in **private preview**. After private preview, the scenario status changes to **public preview**. Azure Database Migration Service users can try out migration scenarios in public preview directly from the user interface. No sign-up is required.  However, migration scenarios in public preview may not be available in all regions and may undergo additional changes before final release. After public preview, the scenario status changes to **generally availability**. General availability (GA) is the final release status, and the functionality is complete and accessible to all users.
+The status of migration scenarios that are supported by Database Migration Service varies over time. Generally, scenarios are first released in *preview*. In preview, Database Migration Service users can try out migration scenarios directly in the UI. No sign-up is required. Migration scenarios that have a preview release status might not be available in all regions, and they might be revised before final release.
 
-## Migration scenario support
+After preview, the scenario status changes to *general availability* (GA). GA is the final release status. Scenarios that have a status of GA have complete functionality and are accessible to all users.
 
-The following tables show which migration scenarios are supported when using Azure Database Migration Service.
+## Supported migration scenarios
 
-> [!NOTE]
-> If a scenario listed as supported below does not appear within the user interface, please contact the [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com) alias for additional information.
+The tables in the following sections show the status of specific migration scenarios that are supported in Database Migration Service.
+
+> [!NOTE]  
+> If a supported scenario doesn't appear in the UI, contact [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com) for information.
 
 ### Offline (one-time) migration support
 
-The following table shows Azure Database Migration Service support for offline migrations.
+The following table describes the current status of Database Migration Service support for *offline* migrations:
 
-| Target  | Source | Support | Status |
+| Target | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
-|   | Oracle | X |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
-|   | Oracle | X |   |
-| **Azure SQL VM** | SQL Server | ✔ | GA |
-|   | Oracle | X |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL - Single Server** | MySQL | ✔ | GA  |
-|   | RDS MySQL | ✔ | GA  |
-|   | Azure DB for MySQL* | ✔ | GA  |
-| **Azure DB for MySQL - Flexible Server** | MySQL | ✔ | GA  |
-|   | RDS MySQL | ✔ | GA  |
-|   | Azure DB for MySQL* | ✔ | GA  |
-| **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
-|  | RDS PostgreSQL | X |   |
-| **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | X |
-|  | RDS PostgreSQL | X |   |
-| **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
-|  | RDS PostgreSQL | X |   |
+| **Azure SQL Database** | SQL Server <sup>1</sup> | Yes | GA |
+| | Amazon RDS SQL Server | Yes | GA |
+| | Oracle | No | |
+| **Azure SQL Database Managed Instance** | SQL Server <sup>1</sup> | Yes | GA |
+| | Amazon RDS SQL Server | Yes | GA |
+| | Oracle | No | |
+| **Azure SQL VM** | SQL Server <sup>1</sup> | Yes | GA |
+| | Amazon RDS SQL Server | Yes | GA |
+| | Oracle | No | |
+| **Azure Cosmos DB** | MongoDB | Yes | GA |
+| **Azure Database for MySQL - Single Server** | MySQL | Yes | GA |
+| | Amazon RDS MySQL | Yes | GA |
+| | Azure Database for MySQL <sup>2</sup> | Yes | GA |
+| **Azure Database for MySQL - Flexible Server** | MySQL | Yes | GA |
+| | Amazon RDS MySQL | Yes | GA |
+| | Azure Database for MySQL <sup>2</sup> | Yes | GA |
+| **Azure Database for PostgreSQL - Single Server** | PostgreSQL | No |
+| | Amazon RDS PostgreSQL | No | |
+| **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | No |
+| | Amazon RDS PostgreSQL | No | |
+| **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | No |
+| | Amazon RDS PostgreSQL | No | |
+
+<sup>1</sup> Offline migrations through the Azure SQL Migration extension for Azure Data Studio are supported for Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure SQL Database. For more information, see [Migrate databases by using the Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md).
+
+<sup>2</sup> If your source database is already in an Azure platform as a service (PaaS) like Azure Database for MySQL or Azure Database for PostgreSQL, choose the corresponding engine when you create your migration activity. For example, if you're migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server, choose MySQL as the source engine when you create your scenario. If you're migrating from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine when you create your scenario.
 
 ### Online (continuous sync) migration support
 
-The following table shows Azure Database Migration Service support for online migrations.
+The following table describes the current status of Database Migration Service support for *online* migrations:
 
-| Target  | Source | Support | Status |
+| Target | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | X |  |
-|   | RDS SQL | X |  |
-|   | Oracle | X |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
-|   | Oracle | X |  |
-| **Azure SQL VM** | SQL Server | X |   |
-|   | Oracle  | X |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | X |  |
-|   | RDS MySQL | X |  |
-| **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
-|   | Azure DB for PostgreSQL - Single server* | ✔ | GA |
-|   | RDS PostgreSQL | ✔ | GA |
-| **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | ✔ | GA |
-|   | Azure DB for PostgreSQL - Single server* | ✔ | GA |
-|   | RDS PostgreSQL | ✔ | GA |
-| **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
-|   | RDS PostgreSQL | ✔ | GA |
+| **Azure SQL Database** | SQL Server <sup>1</sup>| No | |
+| | Amazon RDS SQL | No | |
+| | Oracle | No | |
+| **Azure SQL Database MI** | SQL Server <sup>1</sup>| Yes | GA |
+| | Amazon RDS SQL | Yes | GA |
+| | Oracle | No | |
+| **Azure SQL VM** | SQL Server <sup>1</sup>| Yes | GA |
+| | Amazon RDS SQL | Yes | GA|
+| | Oracle | No | |
+| **Azure Cosmos DB** | MongoDB | Yes | GA |
+| **Azure Database for MySQL - Flexible Server** | Azure Database for MySQL - Single Server | Yes | GA |
+| | MySQL | Yes  | GA |
+| | Amazon RDS MySQL | Yes  | GA |
+| **Azure Database for PostgreSQL - Single Server** | PostgreSQL | Yes | GA |
+| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | Yes | GA |
+| | Amazon RDS PostgreSQL | Yes | GA |
+| **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | Yes | GA |
+| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | Yes | GA |
+| | Amazon RDS PostgreSQL | Yes | GA |
+| **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | Yes | GA |
+| | Amazon RDS PostgreSQL | Yes | GA |
 
-> [!NOTE]
-> If your source database is already in Azure PaaS (EG: Azure DB for MySQL or Azure DB for PostgreSQL), choose the corresponding engine when creating your migration activity. For example, if you are migrating from Azure DB for MySQL - Single Server to Azure DB for MySQL - Flexible Server, choose MySQL as the source engine during scenario creation. If you are migrating from Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine during scenario creation. 
+<sup>1</sup> Online migrations (minimal downtime) through the Azure SQL Migration extension for Azure Data Studio are supported for Azure SQL Managed Instance and SQL Server on Azure Virtual Machines targets. For more information, see [Migrate databases by using the Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md).
+
+<sup>2</sup> If your source database is already in an Azure PaaS like Azure Database for MySQL or Azure Database for PostgreSQL, choose the corresponding engine when you create your migration activity. For example, if you're migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server, choose MySQL as the source engine when you create the scenario. If you're migrating from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine when you create the scenario.
 
 ## Next steps
 
-For an overview of Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md).
+- Learn more about [Azure Database Migration Service](dms-overview.md) and region availability.

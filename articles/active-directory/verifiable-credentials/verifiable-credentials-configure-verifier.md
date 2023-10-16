@@ -1,20 +1,22 @@
 ---
-title: Tutorial - Configure Azure AD Verifiable Credentials verifier (preview)
+title: Tutorial - Configure Microsoft Entra Verified ID verifier
 description: In this tutorial, you learn how to configure your tenant to verify credentials.
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 08/16/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
 
-# Configure Azure AD Verifiable Credentials verifier (preview)
+# Configure Microsoft Entra Verified ID verifier
 
-In [Issue Azure AD Verifiable Credentials from an application (preview)](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
+In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Microsoft Entra tenant. In a real-world scenario, where the issuer and verifier are separate organizations, the verifier uses *their own* Microsoft Entra tenant to perform the verification of the credential that was issued by the other organization. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
 
 As a verifier, you unlock privileges to subjects that possess verified credential expert cards. In this tutorial, you run a sample application from your local computer that asks you to present a verified credential expert card, and then verifies it.
 
@@ -23,32 +25,32 @@ In this article, you learn how to:
 > [!div class="checklist"]
 >
 > - Download the sample application code to your local computer
-> - Set up Azure AD Verifiable Credentials on your Azure AD tenant
+> - Set up Microsoft Entra Verified ID on your Microsoft Entra tenant
 > - Gather credentials and environment details to set up your sample application, and update the sample application with your verified credential expert card details
 > - Run the sample application and initiate a verifiable credential issuance process
 
 ## Prerequisites
 
-- [Set up a tenant for Azure AD Verifiable Credentials](verifiable-credentials-configure-tenant.md).
+- [Set up a tenant for Microsoft Entra Verified ID](verifiable-credentials-configure-tenant.md).
 - If you want to clone the repository that hosts the sample app, install [Git](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- [ngrok](https://ngrok.com/) (free).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-cannot-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
-  - Android version 6.2108.5654 or later installed.
-  - iOS version 6.5.82 or later installed.
+  - Android version 6.2206.3973 or later installed.
+  - iOS version 6.6.2 or later installed.
 
 ## Gather tenant details to set up your sample application
 
-Now that you've set up your Azure AD Verifiable Credentials service, you're going to gather some information about your environment and the verifiable credentials you set. You use these pieces of information when you set up your sample application.
+Now that you've set up your Microsoft Entra Verified ID service, you're going to gather some information about your environment and the verifiable credentials you set. You use these pieces of information when you set up your sample application.
 
-1. From **Verifiable credentials (Preview)**, select **Organization settings**.
+1. From **Verified ID**, select **Organization settings**.
 1. Copy the **Tenant identifier** value, and record it for later.
 1. Copy the **Decentralized identifier** value, and record it for later.
 
 The following screenshot demonstrates how to copy the required values:
 
-![Screenshot that demonstrates how to copy the required values from Azure AD Verifiable Credentials.](media/verifiable-credentials-configure-verifier/tenant-settings.png)
+![Screenshot that demonstrates how to copy the required values from Microsoft Entra Verified ID.](media/verifiable-credentials-configure-verifier/tenant-settings.png)
 
 ## Download the sample code
 
@@ -62,7 +64,7 @@ git clone git@github.com:Azure-Samples/active-directory-verifiable-credentials-d
 
 Create a client secret for the registered application you created. The sample application uses the client secret to prove its identity when it requests tokens.
 
-1. In Azure AD, go to **App registrations**.
+1. In Microsoft Entra ID, go to **App registrations**.
 
 1. Select the **verifiable-credentials-app** application you created earlier.
 
@@ -80,7 +82,7 @@ Create a client secret for the registered application you created. The sample ap
 
     1. Under **Expires**, select a duration for which the secret is valid (for example, six months). Then select **Add**.
 
-    1. Record the secret's **Value**. You'll use this value for configuration in a later step. The secret’s value will not be displayed again, and is not retrievable by any other means, so you should record it as soon as it is visible.
+    1. Record the secret's **Value**. This value is needed in a later step. The secret’s value won't be displayed again, and isn't retrievable by **any** other means, so you should record it once it's visible.
 
 At this point, you should have all the required information that you need to set up your sample application.
 
@@ -90,7 +92,7 @@ Now make modifications to the sample app's issuer code to update it with your ve
 
 1. In the *active-directory-verifiable-credentials-dotnet-main* directory, open **Visual Studio Code**. Select the project inside the *1. asp-net-core-api-idtokenhint* directory.
 
-1. Under the project root folder, open the *appsettings.json* file. This file contains information about your credentials in Azure AD Verifiable Credentials. Update the following properties with the information that you have previously recorded during the earlier steps.
+1. Under the project root folder, open the *appsettings.json* file. This file contains information about your credentials in Microsoft Entra Verified ID environment. Update the following properties with the information that you collected during earlier steps.
 
     1. **Tenant ID**: Your tenant ID
     1. **Client ID**: Your client ID
@@ -106,14 +108,14 @@ The following JSON demonstrates a complete *appsettings.json* file:
 {
 
  "AppSettings": {
-   "Endpoint": "https://beta.did.msidentity.com/v1.0/{0}/verifiablecredentials/request",
-   "VCServiceScope": "bbb94529-53a3-4be5-a069-7eaf2712b826/.default",
+   "Endpoint": "https://verifiedid.did.msidentity.com/v1.0",
+   "VCServiceScope": "3db474b9-6a0c-4840-96ac-1fceb342124f/.default",
    "Instance": "https://login.microsoftonline.com/{0}",
    "TenantId": "987654321-0000-0000-0000-000000000000",
    "ClientId": "555555555-0000-0000-0000-000000000000",
    "ClientSecret": "123456789012345678901234567890",
    "VerifierAuthority": "did:ion:EiDJzvzaBMb_EWTWUFEasKzL2nL-BJPhQTzYWjA_rRz3hQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJzaWdfMmNhMzY2YmUiLCJwdWJsaWNLZXlKd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwia3R5IjoiRUMiLCJ4IjoiZDhqYmduRkRGRElzR1ZBTWx5aDR1b2RwOGV4Q2dpV3dWUGhqM0N...",
-   "CredentialManifest": " https://beta.did.msidentity.com/v1.0/987654321-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+   "CredentialManifest": " https://verifiedid.did.msidentity.com/v1.0/987654321-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
  }
 }
 ```
@@ -125,14 +127,15 @@ Now you are ready to present and verify your first verified credential expert ca
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or from the command shell, run the following commands:
 
     ```bash
-    cd active-directory-verifiable-credentials-dotnet/1. asp-net-core-api-idtokenhint  dotnet build "asp-net-core-api-idtokenhint.csproj" -c Debug -o .\bin\Debug\netcoreapp3.1  
+    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint
+    dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\bin\Debug\netcoreapp3.1  
     dotnet run
     ```
 
-1. In another terminal, run the following command. This command runs the [ngrok](https://ngrok.com/) to set up a URL on 3000 and make it publicly available on the internet.
+1. In another terminal, run the following command. This command runs the [ngrok](https://ngrok.com/) to set up a URL on 5000 and make it publicly available on the internet.
 
     ```bash
-    ngrok http 3000 
+    ngrok http 5000 
     ```
     
     >[!NOTE]

@@ -1,22 +1,22 @@
 ---
-title: App permissions for custom roles in Azure Active Directory | Microsoft Docs
-description: Preview enterprise app permissions for custom Azure AD roles in the Azure portal, PowerShell, or Graph API.
+title: App permissions for custom roles in Microsoft Entra ID
+description: Preview enterprise app permissions for custom Microsoft Entra roles in the Microsoft Entra admin center, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ---
 
-# Enterprise application permissions for custom roles in Azure Active Directory
+# Enterprise application permissions for custom roles in Microsoft Entra ID
 
-This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
+This article contains the currently available enterprise application permissions for custom role definitions in Microsoft Entra ID. In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
 
 ## License requirements
 
@@ -34,7 +34,7 @@ To delegate the assignment of user and groups that can access SAML based single 
 
 #### Creating gallery applications
 
-To delegate the creation of Azure AD Gallery applications such as ServiceNow, F5, Salesforce, among others. Permissions required:
+To delegate the creation of Microsoft Entra Gallery applications such as ServiceNow, F5, Salesforce, among others. Permissions required:
 
 - microsoft.directory/applicationTemplates/instantiate
 
@@ -167,19 +167,19 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
-> | microsoft.directory/applicationPolicies/allProperties/read | Read all properties on application policies |
-> | microsoft.directory/applicationPolicies/allProperties/update | Update all properties on application policies |
+> | microsoft.directory/applicationPolicies/allProperties/read | Read all properties (including privileged properties) on application policies |
+> | microsoft.directory/applicationPolicies/allProperties/update | Update all properties (including privileged properties) on application policies |
 > | microsoft.directory/applicationPolicies/basic/update | Update standard properties of application policies |
 > | microsoft.directory/applicationPolicies/create | Create application policies |
-> | microsoft.directory/applicationPolicies/createAsOwner | Create application policies. Creator is added as the first owner |
+> | microsoft.directory/applicationPolicies/createAsOwner | Create application policies, and creator is added as the first owner |
 > | microsoft.directory/applicationPolicies/delete | Delete application policies |
 > | microsoft.directory/applicationPolicies/owners/read | Read owners on application policies |
 > | microsoft.directory/applicationPolicies/owners/update | Update the owner property of application policies |
 > | microsoft.directory/applicationPolicies/policyAppliedTo/read | Read application policies applied to objects list |
 > | microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies |
-> | microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory |
-> | microsoft.directory/servicePrincipals/allProperties/read | Read all properties on servicePrincipals |
-> | microsoft.directory/servicePrincipals/allProperties/update | Update all properties on servicePrincipals |
+> | microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete service principals, and read and update all properties |
+> | microsoft.directory/servicePrincipals/allProperties/read | Read all properties (including privileged properties) on servicePrincipals |
+> | microsoft.directory/servicePrincipals/allProperties/update | Update all properties (including privileged properties) on servicePrincipals |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read service principal role assignments |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/appRoleAssignments/read | Read role assignments assigned to service principals |
@@ -187,30 +187,30 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
 > | microsoft.directory/servicePrincipals/create | Create service principals |
-> | microsoft.directory/servicePrincipals/createAsOwner | Create service principals. Creator is added as the first owner |
-> | microsoft.directory/servicePrincipals/credentials/update | Update credentials properties on service principals |
+> | microsoft.directory/servicePrincipals/createAsOwner | Create service principals, with creator as the first owner |
+> | microsoft.directory/servicePrincipals/credentials/update | Update credentials of service principals |
 > | microsoft.directory/servicePrincipals/delete | Delete service principals |
 > | microsoft.directory/servicePrincipals/disable | Disable service principals |
 > | microsoft.directory/servicePrincipals/enable | Enable service principals |
 > | microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Manage password single sign-on credentials on service principals |
 > | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Read delegated permission grants on service principals |
-> | microsoft.directory/servicePrincipals/owners/read | Read owners on service principals |
-> | microsoft.directory/servicePrincipals/owners/update | Update owners on service principals |
+> | microsoft.directory/servicePrincipals/owners/read | Read owners of service principals |
+> | microsoft.directory/servicePrincipals/owners/update | Update owners of service principals |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
-> | microsoft.directory/servicePrincipals/policies/read | Read policies on service principals |
-> | microsoft.directory/servicePrincipals/policies/update | Update policies on service principals |
-> | microsoft.directory/servicePrincipals/standard/read | Read standard properties of service principals |
+> | microsoft.directory/servicePrincipals/policies/read | Read policies of service principals |
+> | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
+> | microsoft.directory/servicePrincipals/standard/read | Read basic properties of service principals |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
-> | microsoft.directory/servicePrincipals/tag/update | Update tags property on service principals |
+> | microsoft.directory/servicePrincipals/tag/update | Update the tag property for service principals |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
-> | microsoft.directory/auditLogs/allProperties/read | Read audit logs |
-> | microsoft.directory/signInReports/allProperties/read | Read sign-in reports |
-> | microsoft.directory/applications/applicationProxy/read | Read all application proxy properties of all types of applications |
-> | microsoft.directory/applications/applicationProxy/update | Update all application proxy properties of all types of applications |
-> | microsoft.directory/applications/applicationProxyAuthentication/update | Update application proxy authentication properties of all types of applications |
-> | microsoft.directory/applications/applicationProxyUrlSettings/update | Update application proxy internal and external URLs of all types of applications |
-> | microsoft.directory/applications/applicationProxySslCertificate/update | Update application proxy custom domains of all types of applications |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
+> | microsoft.directory/applications/applicationProxy/read | Read all application proxy properties |
+> | microsoft.directory/applications/applicationProxy/update | Update all application proxy properties |
+> | microsoft.directory/applications/applicationProxyAuthentication/update | Update authentication on all types of applications |
+> | microsoft.directory/applications/applicationProxyUrlSettings/update | Update URL settings for application proxy |
+> | microsoft.directory/applications/applicationProxySslCertificate/update | Update SSL certificate settings for application proxy |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/connectorGroups/create | Create application proxy connector groups |
 > | microsoft.directory/connectorGroups/delete | Delete application proxy connector groups |
@@ -218,12 +218,12 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 > | microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups |
 > | microsoft.directory/connectors/create | Create application proxy connectors |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
-> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Manage all aspects of job synchronization for service principal resources |
-> | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with service principals |
-> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Manage all aspects of schema synchronization for service principal resources |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 
 ## Next steps
 
-- [Create custom roles using the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
 - [List role assignments](view-assignments.md)

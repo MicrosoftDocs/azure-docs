@@ -3,11 +3,11 @@ title: Azure Data Catalog developer samples
 description: This article provides an overview of the available developer samples for the Data Catalog REST API.
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 12/14/2022
 ---
 # Azure Data Catalog developer samples
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 Get started developing Azure Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate, and search data assets programmatically.
 
@@ -15,7 +15,7 @@ Get started developing Azure Data Catalog apps using the Data Catalog REST API. 
 
 * [Get started with Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   
-   The get started sample shows you how to authenticate with Azure AD to Register, Search, and Delete a data asset using the Data Catalog REST API.
+   The get started sample shows you how to authenticate with Microsoft Entra ID to Register, Search, and Delete a data asset using the Data Catalog REST API.
 
 * [Get started with Azure Data Catalog using Service Principal](https://github.com/Azure-Samples/data-catalog-dotnet-service-principal-get-started/)
 

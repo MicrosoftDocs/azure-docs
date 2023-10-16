@@ -1,10 +1,12 @@
 ---
 title: Common questions about Azure VM disaster recovery with Azure Site Recovery
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
-author: sideeksh
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 07/25/2021
+ms.date: 10/06/2023
 ms.topic: conceptual
+ms.service: site-recovery
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
@@ -46,17 +48,19 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 - Site Recovery supports ADE for Azure VMs running Windows.
 - Site Recovery supports:
-    - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
-    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Windows Azure VMs must have managed disks.
-    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). about the extension schemas.
+    - ADE version 0.1, which has a schema that requires Microsoft Entra ID.
+    - ADE version 1.1, which doesn't require Microsoft Entra ID. For version 1.1, Microsoft Azure VMs must have managed disks.
+    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
+See the [support matrix](azure-to-azure-support-matrix.md#replicated-machines---storage) for information about support for other encryption features.
+
 ### Can I select an automation account from a different resource group?
 
-When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
+When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure Automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
-Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates).
+Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates) about enabling automatic updates.
 
 ### If I use a customer automation account that's not in the vault resource group, can I delete the default runbook?
 
@@ -64,7 +68,7 @@ Yes, you can delete it if you don't need it.
 
 ### Can I replicate VMs to another subscription?
 
-Yes, you can replicate Azure VMs to any subscription within the same Azure AD tenant. When you enable disaster recovery for VMs, by default the target subscription shown is that of the source VM. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
+Yes, you can replicate Azure VMs to any subscription within the same Microsoft Entra tenant. When you enable disaster recovery for VMs, by default the target subscription shown is that of the source VM. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
 
 ### Can I replicate VMs in an availability zone to another region?
 
@@ -80,7 +84,7 @@ Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to
 
 ### Can I exclude disks from replication?
 
-Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md).
+Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md) about excluding disks.
 
 ### Can I replicate new disks added to replicated VMs?
 
@@ -94,11 +98,11 @@ Site Recovery doesn't support "hot remove" of disks from a replicated VM. If you
 
 ### How often can I replicate to Azure?
 
-Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about how replication works.
+Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about the replication process.
 
-### Can I replicate virtual machines within a region?
+### Can I replicate non-zoned virtual machines within a region?
 
-You can't use Site Recovery to replicate disks within a region.
+You can't use Site Recovery to replicate non-zoned virtual machines within a region. But you can replicate zoned machines to a different zone in the same region.
 
 ### Can I replicate VM instances to any Azure region?
 
@@ -112,7 +116,7 @@ No, but VMs need access to Site Recovery URLs and IP ranges. [Learn more](./azur
 
 Yes, you can replicate the app, and keep the disaster recovery configuration in a separate resource group.
 
-For example, if the apps has three tiers (application/database/web) in different resource groups, you need to enable replication three times, to protect all tiers. Site Recovery replicates the three tiers into three different resource groups.
+For example, if the apps have three tiers (application/database/web) in different resource groups, you need to enable replication three times, to protect all tiers. Site Recovery replicates the three tiers into three different resource groups.
 
 ### Can I move storage accounts across resource groups?
 
@@ -124,10 +128,10 @@ No, this is unsupported. If you accidentally move storage accounts to a differen
 
 A replication policy defines the retention history of recovery points, and the frequency of app-consistent snapshots.  Site Recovery creates a default replication policy as follows:
 
-- Retain recovery points for 1 day.
+- Retain recovery points for one day.
 - App-consistent snapshots are disabled and are not created by default.
 
-[Learn more](azure-to-azure-how-to-enable-replication.md#customize-target-resources) about replication settings.
+[Learn more](azure-to-azure-how-to-enable-replication.md) about replication settings.
 
 ### What's a crash-consistent recovery point?
 
@@ -169,7 +173,7 @@ So, for the recent two hours, you can choose from 24 crash-consistent points, an
 
 ### How far back can I recover?
 
-The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
+The oldest recovery point that you can use is 15 days with Managed disk and three days with Unmanaged disk.
 
 ### How does the pruning of recovery points happen?
 
@@ -180,7 +184,7 @@ Crash-consistent recovery points are generated in every five minutes. App-consis
 |0 day|No recovery point saved. You can failover only to the latest point|
 |1 day|One recovery point saved per hour beyond the last two hours|
 |2 - 7 days|One recovery point saved per two hours beyond the last two hours|
-|8 - 15 days|One recovery point saved per two hours beyond the last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
+|8 - 15 days|One recovery point saved per two hours beyond the last two hours for seven days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
 
 
 
@@ -198,7 +202,7 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional two days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from one day to three days, Site Recovery saves recovery points for an additional two days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for one day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ## Multi-VM consistency
 
@@ -215,7 +219,7 @@ Multi-VM consistency ensures that recovery points are consistent across replicat
 
 No. When you enable multi-VM consistency, it infers that an app has a dependency on all VMs in the replication group, and single VM failover isn't allowed.
 
-### How many VM can I replicate together in a group?
+### How many VMs can I replicate together in a group?
 
 You can replicate 16 VMs together in a replication group.
 
@@ -256,11 +260,7 @@ Site Recovery tries to provide the IP address at the time of failover. If anothe
 
 ### What's the *Latest* recovery point?
 
-The *Latest (lowest RPO)* recovery point option does the following:
-
-1. It first processes all the data that has been sent to Site Recovery.
-2. After the service processes the data, it creates a recovery point for each VM, before failing over to the VM. This option provides the lowest recovery point objective (RPO).
-3. The VM created after failover has all the data replicated to Site Recovery, from when the failover was triggered.
+The *Latest (lowest RPO)* recovery point option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. It initially attempts to process and apply all data sent to Site Recovery service in the target location and create a recovery point using the processed data. However, if at the time failover was triggered, there is no data uploaded to Site Recovery service waiting to be processed, Azure Site Recovery will not perform any processing and hence, won't create a new recovery point. In this scenario, it will instead failover using the previously processed recovery point only.
 
 ### Do *latest* recovery points impact failover RTO?
 
@@ -270,7 +270,7 @@ Yes. Site Recovery processes all pending data before failing over, so this optio
 
 The *Latest processed* option does the following:
 
-1. It fails over all VMs to the latest recovery point processed by Site Recovery . This option provides a low RTO, because no time is spent processing unprocessed data.
+1. It fails over all VMs to the latest recovery point processed by Site Recovery. This option provides a low RTO, because no time is spent processing unprocessed data.
 
 ### What if there's an unexpected outage in the primary region?
 
@@ -293,7 +293,7 @@ A [recovery plan](site-recovery-create-recovery-plans.md) in Site Recovery orche
 
 ### How does sequencing work?
 
-In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups fails over one at one time, so that VMs that are part of the same group fail over together. [Learn more](recovery-plan-overview.md#model-apps).
+In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups failover one at a time, so that VMs that are part of the same group failover together. [Learn more](recovery-plan-overview.md#model-apps).
 
 ### How can I find the RTO of a recovery plan?
 
@@ -313,7 +313,7 @@ No. When you fail over VMs from one region to another, the VMs start up in the t
 
 ### When I reprotect, is all data replicated from the secondary region to primary?
 
-It depends.If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to   what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
+It depends. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### How long does it take fail back?
 
@@ -331,7 +331,7 @@ Yes, you can create a Capacity Reservation for your VM SKU in the disaster recov
 
 ### Why should I reserve capacity using Capacity Reservation at the destination location?
 
-While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-ca.pacity-reservations-docs)  
+While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-capacity-reservations-docs)  
 
 ### Does Site Recovery work with reserved instances?
 

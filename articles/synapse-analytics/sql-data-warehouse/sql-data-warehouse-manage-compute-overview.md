@@ -1,15 +1,15 @@
 ---
 title: Manage compute resource for for dedicated SQL pool (formerly SQL DW)
 description: Learn about performance scale out capabilities for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. Scale out by adjusting DWUs, or lower costs by pausing the dedicated SQL pool (formerly SQL DW).
-author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 11/12/2019
-ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # Manage compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

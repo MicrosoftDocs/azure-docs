@@ -2,20 +2,23 @@
 author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/14/2022
+ms.date: 11/11/2022
 ms.author: mahender
 ---
 
 > [!NOTE]
-> Blob Storage, Queue Storage, and Table Storage now use separate extensions and are referenced individually. For example, to use both Blob Storage and Queue Storage triggers and bindings in your .NET isolated-process app, you should add the following packages to your project:
+>  Azure Blobs, Azure Queues, and Azure Tables now use separate extensions and are referenced individually. For example, to use the triggers and bindings for all three services in your .NET isolated-process app, you should add the following packages to your project:
 >
 > - [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs]
 > - [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues]
+> - [Microsoft.Azure.Functions.Worker.Extensions.Tables]
 >
-> The Table API extension doesn't currently support isolated process. If your app needs to use Azure Tables, you must use [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the packages for Blob Storage and Queue Storage only. When referencing these newer split packages, make sure you aren't also referencing an older version of the combined storage package, which would cause conflicts between the two definitions of the same bindings.
+> Previously, the extensions shipped together as [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the split packages for blobs and queues only. When upgrading your package references from older versions, you may therefore need to additionally reference the new [Microsoft.Azure.Functions.Worker.Extensions.Tables] NuGet package. Also, when referencing these newer split packages, make sure you are not referencing an older version of the combined storage package, as this will result in conflicts from two definitions of the same bindings. 
 
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues
+[Microsoft.Azure.Functions.Worker.Extensions.Tables]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Tables
+
 
 [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/4.0.4
 [5.x version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/5.0.0

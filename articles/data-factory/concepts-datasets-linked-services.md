@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/28/2022
+ms.date: 02/08/2023
 ---
 
 # Datasets in Azure Data Factory and Azure Synapse Analytics

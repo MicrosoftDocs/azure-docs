@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ---
 
 # Transform data by running a Jar activity in Azure Databricks
@@ -19,7 +19,7 @@ The Azure Databricks Jar Activity in a [pipeline](concepts-pipelines-activities.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## Add a Jar activity for Azure Databricks to a pipeline with UI
 

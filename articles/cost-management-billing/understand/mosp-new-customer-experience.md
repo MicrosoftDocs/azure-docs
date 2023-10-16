@@ -2,11 +2,11 @@
 title: Get started with your updated Azure billing account
 description: Get started with your updated Azure billing account to understand changes in the new billing and cost management experience
 author: bandersmsft
-ms.reviewer: amberbhargava
+ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -64,7 +64,7 @@ Your new experience includes the following cost management and billing capabilit
 4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.  
     :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot that shows the list of Azure subscriptions." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
 5. Pick a billing profile that you want to use. 
-6. Select a subscription that is not linked to the billing profile that you chose in step 5. Click on ellipsis (three dots) for the subscription. Select **Change invoice section**.  
+6. Select a subscription that is not linked to the billing profile that you chose in step 5. Select the ellipsis (three dots) for the subscription. Select **Change invoice section**.  
     :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Screenshot that shows where to find the option to change invoice section." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
 7. Select the billing profile that you chose in step #5.  
     :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Screenshot that shows how to change invoice section." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
@@ -161,7 +161,7 @@ For example, if your billing period was November 24 to December 23 for your old 
 
 #### Budgets
 
-You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md).
+You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage budgets](../costs/tutorial-acm-create-budgets.md).
 
 #### Exports
 
@@ -198,15 +198,15 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
 - You have access to perform billing administration through one of your other emails. 
 
-    This typically happens when you get an email asking you to accept the terms of the Microsoft Customer Agreement. You click on the link and you see an error message - `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Verify that you're signed in with the email address that has permission to perform billing administration.
+    This typically happens when you get an email asking you to accept the terms of the Microsoft Customer Agreement. You select the link and you see an error message - `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Verify that you're signed in with the email address that has permission to perform billing administration.
 
 - You have access to the invoice through a different identity. 
 
     Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to perform billing administration. If they sign in with the identity that doesn't have permission, they would not be able to accept the terms. Verify that you're using the correct identity to sign in.
 
-- You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
+- You have signed in to the incorrect Microsoft Entra tenant. 
 
-    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
+    Your billing account is associated with a Microsoft Entra tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Microsoft Entra tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
 
     1. Select your email from the top right of the page.
 

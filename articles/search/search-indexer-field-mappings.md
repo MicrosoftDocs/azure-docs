@@ -1,5 +1,5 @@
 ---
-title: Field mappings in indexers
+title: Map fields in indexers
 titleSuffix: Azure Cognitive Search
 description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
@@ -9,50 +9,70 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 09/14/2022
 ---
 
 # Field mappings and transformations using Azure Cognitive Search indexers
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When using Azure Cognitive Search indexers, the indexer will automatically map fields in a data source to fields in a target index, assuming field names and types are compatible. When input data doesn't quite match the schema of your target index, you can define *field mappings* to specifically set the data path.
+When an [Azure Cognitive Search indexer](search-indexer-overview.md) loads a search index, it determines the data path through source-to-destination field mappings. Implicit field mappings are internal and occur when field names and data types are compatible between the source and destination. 
 
-Field mappings address the following scenarios:
+If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. Field mappings can also be used to introduce light-weight data conversion, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 
-+ Mismatched field names. Suppose your data source has a field named `_id`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively rename a field.
+Field mappings apply to:
 
-+ One field to many fields. You can populate several fields in the index from the same data source data. For example, you might want to apply different analyzers to each field.
++ Physical data structures on both sides of the data stream (between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing skill-enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
 
-+ Many fields to one field. You want to populate an index field with data from more than one data source, and the data sources each use different field names.
++ Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-+ Base64 encoding or decoding of data. Field mappings support several [**mapping functions**](#mappingFunctions), including functions for Base64 encoding and decoding.
-
-+ Splitting strings or recasting a JSON array into a string collection. Field mapping functions provide this capability.
-
-Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](../data-factory/index.yml).
++ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. A target field can't be a complex type.
 
 > [!NOTE]
-> Field mappings apply to search indexes only. For indexers that also create [knowledge stores](knowledge-store-concept-intro.md), data shapes and projections determine field associations, and any field mappings and output field mappings in the indexer are ignored.
+> If you're working with complex data (nested or hierarchical structures), and you'd like to mirror that data structure in your search index, your search index must match the source structure exactly (same field names, levels, and types) so that the default mappings will work. Optionally, you might want just a few nodes in the complex structure. To get individual nodes, you can flatten incoming data into a string collection (see  [outputFieldMappings](cognitive-search-output-field-mapping.md#flatten-complex-structures-into-a-string-collection) for this workaround).
 
-## Set up field mappings
+## Supported scenarios
 
-A field mapping consists of three parts:
+| Use-case | Description |
+|----------|-------------|
+| Name discrepancy | Suppose your data source has a field named `_city`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively map "_city" to "city". </p>If your indexing requirements include retrieving content from multiple data sources, where field names vary among the sources, you could use a field mapping to clarify the path.|
+| Type discrepancy | Supposed you want a source integer field to be of type `Edm.String` so that it's searchable in the search index. Because the types are different, you'll need to define a field mapping in order for the data path to succeed. Note that Cognitive Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index.|
+| One-to-many data paths | You can populate multiple fields in the index with content from the same source field. For example, you might want to apply different analyzers to each field to support different use cases in your client app.|
+| Encoding and decoding | You can apply [mapping functions](#mappingFunctions) to support Base64 encoding or decoding of data during indexing. |
+| Split strings or recast arrays into collections | You can apply [mapping functions](#mappingFunctions) to split a string that includes a delimiter, or to send a JSON array to a search field of type `Collection(Edm.String)`.
 
-+ "sourceFieldName", which represents a field in your data source. This property is required.
-+ An optional "targetFieldName", representing a field in your search index. If omitted, the value of "sourceFieldName" is used for the target.
-+ An optional "mappingFunction", which can transform your data using one of several [predefined functions](#mappingFunctions). This can be applied on both input and output field mappings.
+## Define a field mapping
 
-Field mappings are added to the "fieldMappings" array of the indexer definition.
+Field mappings are added to the "fieldMappings" array of an indexer definition. A field mapping consists of three parts.
+
+```json
+"fieldMappings": [
+  {
+    "sourceFieldName": "_city",
+    "targetFieldName": "city",
+    "mappingFunction": null
+  }
+],
+```
+
+| Property | Description |
+|----------|-------------|
+| sourceFieldName | Required. Represents a field in your data source. |
+| targetFieldName | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
+| mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
+
+Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
 
 > [!NOTE]
-> If no field mappings are present, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping overrides these default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
+> If no field mappings are present, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping overrides the default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
 
-## Map fields using REST
+You can use the REST API or an Azure SDK to define field mappings.
 
-You can add field mappings when creating a new indexer using the [Create Indexer](/rest/api/searchservice/create-Indexer) API request. You can manage the field mappings of an existing indexer using the [Update Indexer](/rest/api/searchservice/update-indexer) API request.
+### [**REST APIs**](#tab/rest)
 
-For example, here's how to map a source field to a target field with a different name:
+Use [Create Indexer (REST)](/rest/api/searchservice/create-Indexer) or [Update Indexer (REST)](/rest/api/searchservice/update-indexer), any API version.
+
+This example handles a field name discrepancy.
 
 ```JSON
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
@@ -61,11 +81,11 @@ api-key: [admin key]
 {
     "dataSourceName" : "mydatasource",
     "targetIndexName" : "myindex",
-    "fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ]
+    "fieldMappings" : [ { "sourceFieldName" : "_city", "targetFieldName" : "city" } ]
 }
 ```
 
-A source field can be referenced in multiple field mappings. The following example shows how to "fork" a field, copying the same source field to two different index fields:
+This example maps a single source field to multiple target fields ("one-to-many" mappings). You can "fork" a field, copying the same source field content to two different index fields that will be analyzed or attributed differently in the index.
 
 ```JSON
 
@@ -75,17 +95,11 @@ A source field can be referenced in multiple field mappings. The following examp
 ]
 ```
 
-> [!NOTE]
-> Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
->
+### [**.NET SDK (C#)**](#tab/csharp)
 
-## Map fields using .NET
+In the Azure SDK for .NET, use the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class that provides "SourceFieldName" and "TargetFieldName" properties and an optional "MappingFunction" reference.
 
-You can define field mappings in the .NET SDK using the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class, which has the properties "SourceFieldName" and "TargetFieldName", and an optional "MappingFunction" reference.
-
-You can specify field mappings when constructing the indexer, or later by directly setting [SearchIndexer.FieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.fieldmappings).
-
-The following C# example sets the field mappings when constructing an indexer.
+Specify field mappings when constructing the indexer, or later by directly setting [SearchIndexer.FieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.fieldmappings). The following C# example sets the field mappings when constructing an indexer.
 
 ```csharp
 var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
@@ -95,7 +109,7 @@ var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.
     Parameters = parameters,
     FieldMappings =
     {
-        new FieldMapping("_id") {TargetFieldName = "HotelId", FieldMappingFunction.Base64Encode()},
+        new FieldMapping("_hotelId") {TargetFieldName = "HotelId", FieldMappingFunction.Base64Encode()},
         new FieldMapping("Amenities") {TargetFieldName = "Tags"}
     }
 };
@@ -103,9 +117,11 @@ var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.
 await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
+---
+
 <a name="mappingFunctions"></a>
 
-## Field mapping functions
+## Mapping functions and examples
 
 A field mapping function transforms the contents of a field before it's stored in the index. The following mapping functions are currently supported:
 
@@ -150,7 +166,7 @@ A document key (both before and after conversion) can't be longer than 1,024 cha
 
 #### Example: Make a base-encoded field "searchable"
 
-There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an un-encoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
+There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an unencoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
 
 ```http
 PUT /indexers/blob-indexer?api-version=2020-06-30
@@ -213,7 +229,7 @@ Your source data might contain Base64-encoded strings, such as blob metadata str
 
 If you don't include a parameters property, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-Azure Cognitive Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
+Azure Cognitive Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more information, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64details"></a>
 
@@ -226,11 +242,11 @@ If the `useHttpServerUtilityUrlTokenEncode` or `useHttpServerUtilityUrlTokenDeco
 > [!WARNING]
 > If `base64Encode` is used to produce key values, `useHttpServerUtilityUrlTokenEncode` must be set to true. Only URL-safe base64 encoding can be used for key values. See [Naming rules](/rest/api/searchservice/naming-rules) for the full set of restrictions on characters in key values.
 
-The .NET libraries in Azure Cognitive Search assume the full .NET Framework, which provides built-in encoding. The `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` options leverage this built-in functionality. If you are using .NET Core or another framework, we recommend setting those options to `false` and calling your framework's encoding and decoding functions directly.
+The .NET libraries in Azure Cognitive Search assume the full .NET Framework, which provides built-in encoding. The `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` options apply this built-in functionality. If you're using .NET Core or another framework, we recommend setting those options to `false` and calling your framework's encoding and decoding functions directly.
 
-The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 functions, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
+The following table compares different base64 encodings of the string `00>00?00`. To determine the required processing (if any) for your base64 functions, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
 
-| Encoding | Base64 encode output | Additional processing after library encoding | Additional processing before library decoding |
+| Encoding | Base64 encode output | Extra processing after library encoding | Extra processing before library decoding |
 | --- | --- | --- | --- |
 | Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding | Use standard base64 characters and add padding |
 | Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters | Use standard base64 characters |
@@ -274,7 +290,7 @@ Your data source contains a `PersonName` field, and you want to index it as two 
 
 Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index.
 
-For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white`, and `blue`. For input values that cannot be parsed as JSON string arrays, an error is returned.
+For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white`, and `blue`. For input values that can't be parsed as JSON string arrays, an error is returned.
 
 #### Example - populate collection from relational data
 
@@ -292,7 +308,7 @@ Azure SQL Database doesn't have a built-in data type that naturally maps to `Col
 
 ### urlEncode function
 
-This function can be used to encode a string so that it is "URL safe". When used with a string that contains characters that are not allowed in a URL, this function will convert those "unsafe" characters into character-entity equivalents. This function uses the UTF-8 encoding format.
+This function can be used to encode a string so that it is "URL safe". When used with a string that contains characters that aren't allowed in a URL, this function will convert those "unsafe" characters into character-entity equivalents. This function uses the UTF-8 encoding format.
 
 #### Example - document key lookup
 
@@ -321,9 +337,9 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
 
 ### Example - decode blob metadata
 
- Some Azure storage clients automatically URL-encode blob metadata if it contains non-ASCII characters. However, if you want to make such metadata searchable (as plain text), you can use the `urlDecode` function to turn the encoded data back into regular strings when populating your search index.
+Some Azure storage clients automatically URL-encode blob metadata if it contains non-ASCII characters. However, if you want to make such metadata searchable (as plain text), you can use the `urlDecode` function to turn the encoded data back into regular strings when populating your search index.
 
- ```JSON
+```json
 "fieldMappings" : [
   {
     "sourceFieldName" : "UrlEncodedMetadata",
@@ -332,17 +348,17 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
       "name" : "urlDecode"
     }
   }]
- ```
+```
  
- <a name="fixedLengthEncodeFunction"></a>
- 
+<a name="fixedLengthEncodeFunction"></a>
+
 ### fixedLengthEncode function
  
  This function converts a string of any length to a fixed-length string.
- 
+
 ### Example - map document keys that are too long
- 
-When facing errors complaining about document key being longer than 1024 characters, this function can be applied to reduce the length of the document key.
+
+When errors occur that are related to document key length exceeding 1024 characters, this function can be applied to reduce the length of the document key.
 
  ```JSON
 
@@ -355,3 +371,8 @@ When facing errors complaining about document key being longer than 1024 charact
     }
   }]
  ```
+
+## See also
+
++ [Supported data types in Cognitive Search](/rest/api/searchservice/supported-data-types)
++ [SQL data type map](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types)

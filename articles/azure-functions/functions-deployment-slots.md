@@ -1,10 +1,8 @@
 ---
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
-author: ggailey777
 ms.topic: conceptual
 ms.date: 03/02/2022
-ms.author: glenga
 ---
 # Azure Functions deployment slots
 
@@ -12,8 +10,8 @@ Azure Functions deployment slots allow your function app to run different instan
 
 The following reflect how functions are affected by swapping slots:
 
-- Traffic redirection is seamless; no requests are dropped because of a swap.
-- If a function is running during a swap, execution continues and the next triggers are routed to the swapped app instance.
+- Traffic redirection is seamless; no requests are dropped because of a swap. This seamless behavior is a result of the next function triggers being routed to the swapped slot.
+- Currently executing function are terminated during the swap. Please review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
 
 ## Why use slots?
 
@@ -22,6 +20,7 @@ There are a number of advantages to using deployment slots. The following scenar
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
 - **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment, which reduces the cold start for newly deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
+- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. This is the recommended way to upgrade between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime upgrade](migrate-version-3-version-4.md#minimum-downtime-upgrade). 
 
 ## Swap operations
 
@@ -52,30 +51,29 @@ Some configuration settings are slot-specific. The following lists detail which 
 
 **Slot-specific settings**:
 
-* Publishing endpoints
-* Custom domain names
-* Non-public certificates and TLS/SSL settings
-* Scale settings
-* WebJobs schedulers
-* IP restrictions
-* Always On
-* Diagnostic settings
-* Cross-origin resource sharing (CORS)
+- Publishing endpoints
+- Custom domain names
+- Non-public certificates and TLS/SSL settings
+- Scale settings
+- IP restrictions
+- Always On
+- Diagnostic settings
+- Cross-origin resource sharing (CORS)
+- Private endpoints
 
 **Non slot-specific settings**:
 
-* General settings, such as framework version, 32/64-bit, web sockets
-* App settings (can be configured to stick to a slot)
-* Connection strings (can be configured to stick to a slot)
-* Handler mappings
-* Public certificates
-* WebJobs content
-* Hybrid connections *
-* Virtual network integration *
-* Service endpoints *
-* Azure Content Delivery Network *
+- General settings, such as framework version, 32/64-bit, web sockets
+- App settings (can be configured to stick to a slot)
+- Connection strings (can be configured to stick to a slot)
+- Handler mappings
+- Public certificates
+- Hybrid connections *
+- Virtual network integration *
+- Service endpoints *
+- Azure Content Delivery Network *
 
-Features marked with an asterisk (*) are planned to be unswapped. 
+Features marked with an asterisk (*) are planned to be unswapped.
 
 > [!NOTE]
 > Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
@@ -140,7 +138,7 @@ You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot#az-funct
     :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot that shows the 'Deployment slot' page with the 'Add Slot' action selected." border="true":::
 
 1. Verify the configuration settings for your swap and select **Swap**
-    
+
     :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Swap the deployment slot." border="true":::
 
 The operation may take a moment while the swap operation is executing.
@@ -207,6 +205,7 @@ Azure Functions deployment slots have the following considerations:
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under other plans. For details, see [Service limits](functions-scale.md#service-limits).
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - When slots are enabled, your function app is set to read-only mode in the portal.
+- Use function app names shorter than 32 characters. Names longer than 32 characters are at risk of causing [host ID collisions](storage-considerations.md#host-id-considerations).
 
 ## Next steps
 

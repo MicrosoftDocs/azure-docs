@@ -2,8 +2,6 @@
 title: Template artifact reference
 description: Provides an example of the deployment template artifact for Azure Managed Applications.
 ms.topic: conceptual
-ms.author: lazinnat
-author: lazinnat
 ms.date: 07/11/2019
 ---
 

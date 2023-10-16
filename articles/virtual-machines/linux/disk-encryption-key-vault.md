@@ -7,9 +7,8 @@ ms.subservice: disks
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 08/06/2019
-
-ms.custom: seodec18, devx-track-azurecli
+ms.date: 01/04/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption
@@ -20,7 +19,7 @@ Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption
 
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md) for details.
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-key-vault-aad.md) for details.
 
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
 
@@ -40,7 +39,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com). 
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az PowerShell module module](/powershell/azure/), or the [Azure portal](https://portal.azure.com). 
 
 While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation; see [Azure Disk Encryption for Linux: Install tools](disk-encryption-linux.md#install-tools-and-connect-to-azure) for details.
 

@@ -3,18 +3,18 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/10/2021
+ms.date: 08/01/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Management of Azure Automation data
 
 This article contains several topics explaining how data is protected and secured in an Azure Automation environment.
 
-## TLS 1.2 for Azure Automation
+## TLS 1.2 or higher for Azure Automation
 
-To insure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
+To ensure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2 or higher. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
 
 * Webhook calls
 
@@ -24,7 +24,54 @@ To insure the security of data in transit to Azure Automation, we strongly encou
 
 Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. We do not recommend explicitly setting your agent to only use TLS 1.2 unless its necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
 
-For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
+For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](../azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
+
+### Upgrade TLS protocol for Hybrid Workers and Webhook calls
+
+From **30 October 2023**, all agent-based and extension-based User Hybrid Runbook Workers using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation and all jobs running or scheduled on these machines would fail. 
+
+Ensure that the Webhook calls that trigger runbooks navigate on TLS 1.2 or higher. Ensure to make registry changes so that Agent and Extension based workers negotiate only on TLS 1.2 and higher protocols. Learn how to [disable TLS 1.0/1.1 protocols on Windows Hybrid Worker and enable TLS 1.2 or above](/system-center/scom/plan-security-tls12-config#configure-windows-operating-system-to-only-use-tls-12-protocol) on Windows machine. 
+
+For Linux Hybrid Workers, run the following Python script to upgrade to the latest TLS protocol.
+
+```python
+import os
+
+# Path to the OpenSSL configuration file as per Linux distro
+openssl_conf_path = "/etc/ssl/openssl.cnf"
+
+# Open the configuration file for reading
+with open(openssl_conf_path, "r") as f:
+    openssl_conf = f.read()
+
+# Check if a default TLS version is already defined
+if "DEFAULT@SECLEVEL" in openssl_conf:
+    # Update the default TLS version to TLS 1.2
+    openssl_conf = openssl_conf.replace("CipherString = DEFAULT@SECLEVEL", "CipherString = DEFAULT@SECLEVEL:TLSv1.2")
+
+    # Open the configuration file for writing and write the updated version
+    with open(openssl_conf_path, "w") as f:
+        f.write(openssl_conf)
+
+    # Restart any services that use OpenSSL to ensure that the new settings are applied
+    os.system("systemctl restart apache2")
+    print("Default TLS version has been updated to TLS 1.2.")
+else:
+    # Add the default TLS version to the configuration file
+    openssl_conf += """
+    Options = PrioritizeChaCha,EnableMiddleboxCompat
+    CipherString = DEFAULT@SECLEVEL:TLSv1.2
+    MinProtocol = TLSv1.2
+    """
+
+    # Open the configuration file for writing and write the updated version
+    with open(openssl_conf_path, "w") as f:
+        f.write(openssl_conf)
+
+    # Restart any services that use OpenSSL to ensure that the new settings are applied
+    os.system("systemctl restart apache2")
+    print("Default TLS version has been added as TLS 1.2.")
+```
 
 ### Platform-specific guidance
 
@@ -56,11 +103,11 @@ The following table summarizes the retention policy for different resources.
 
 ## Data backup
 
-When you delete an Automation account in Azure, all objects in the account are deleted. The objects include runbooks, modules, configurations, settings, jobs, and assets. They can't be recovered after the account is deleted. You can use the following information to back up the contents of your Automation account before deleting it.
+When you delete an Automation account in Azure, all objects in the account are deleted. The objects include runbooks, modules, configurations, settings, jobs, and assets. You can [recover](delete-account.md#restore-a-deleted-automation-account) a deleted Automation account within 30 days. You can also use the following information to back up the contents of your Automation account before deleting it:
 
 ### Runbooks
 
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### Integration modules
 
@@ -76,27 +123,13 @@ You can't retrieve the values for encrypted variables or the password fields of 
 
 You can export your DSC configurations to script files using either the Azure portal or the [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
 
-## Geo-replication in Azure Automation
+## Data residency
 
-Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+You specify a region during the creation of an Azure Automation account. Service data such as assets, configuration, logs are stored in that region and may transit or be processed in other regions within the same geography. These global endpoints are necessary to provide end-users with a high-performance, low-latency experience regardless of location. Only for the Brazil South (Sao Paulo State) region of Brazil geography, Southeast Asia region (Singapore) and East Asia region (Hongkong) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
 
-The backup created by the Automation geo-replication service is a complete copy of Automation assets, configurations, and the like. This backup can be used if the primary region goes down and loses data. In the unlikely event that data for a primary region is lost, Microsoft attempts to recover it.
-
-> [!NOTE]
-> Azure Automation stores customer data in the region selected by the customer. For the purpose of BCDR, for all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region). Only for the Brazil South (Sao Paulo State) region of Brazil geography and Southeast Asia region (Singapore) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
-
-The Automation geo-replication service isn't accessible directly to external customers if there is a regional failure. If you want to maintain Automation configuration and runbooks during regional failures:
-
-1. Select a secondary region to pair with the geographical region of your primary Automation account.
-
-2. Create an Automation account in the secondary region.
-
-3. In the primary account, export your runbooks as script files.
-
-4. Import the runbooks to your Automation account in the secondary region.
 
 ## Next steps
 
+* To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
 * To learn more about secure assets in Azure Automation, see [Encryption of secure assets in Azure Automation](automation-secure-asset-encryption.md).
-
-* To find out more about geo-replication, see [Creating and using active geo-replication](../azure-sql/database/active-geo-replication-overview.md).
+* To find out more about geo-replication, see [Creating and using active geo-replication](/azure/azure-sql/database/active-geo-replication-overview).

@@ -1,31 +1,30 @@
 ---
-title: Deploy an AutoML model with an online endpoint (preview)
+title: Deploy an AutoML model with an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your AutoML model as a web service that's automatically managed by Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: ssambare
-ms.reviewer: larryfr
-author: shivanissambare
-ms.date: 03/31/2022
+ms.subservice: inferencing
+author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
+ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022, devx-track-python
 ms.devlang: azurecli
 ---
 
-# How to deploy an AutoML model to an online endpoint (preview)
+# How to deploy an AutoML model to an online endpoint
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see [What is automated machine learning (AutoML)?](concept-automated-ml.md).
+In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online (real-time inference) endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see [What is automated machine learning (AutoML)?](concept-automated-ml.md).
 
 In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
 
 - Azure Machine Learning studio
-- Azure Machine Learning CLI (v2))
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+- Azure Machine Learning CLI v2
+- Azure Machine Learning Python SDK v2
 
 ## Prerequisites
 
@@ -40,7 +39,7 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 1. Choose the Models tab
 1. Select the model you want to deploy 
 1. Once you select a model, the Deploy button will light up with a drop-down menu
-1. Select *Deploy to real-time endpoint (preview)* option
+1. Select *Deploy to real-time endpoint* option
 
    :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" lightbox="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
 
@@ -50,7 +49,7 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 
    :::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" lightbox="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
 
-5. Complete the wizard to deploy the model to a real-time endpoint
+5. Complete the wizard to deploy the model to an online endpoint
 
  :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.png" lightbox="media/how-to-deploy-automl-endpoint/complete-wizard.png"  alt-text="Screenshot showing the review-and-create page":::
 
@@ -90,9 +89,9 @@ To deploy using these files, you can use either the studio or the Azure CLI.
 1. Complete all the steps in wizard to create an online endpoint and deployment
 
  
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ## Configure the CLI 
 
@@ -146,22 +145,152 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 
     > [!NOTE]
-    > For a full description of the YAML, see [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md).
+    > For a full description of the YAML, see [Online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
 1. From the command line, run: 
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     ```azurecli
     az ml online-endpoint create -f automl_endpoint.yml
     az ml online-deployment create -f automl_deployment.yml
     ```
     
----
+After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
-After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+## Configure the Python SDK
+
+If you haven't installed Python SDK v2 yet, please install with this command:
+
+```azurecli
+pip install azure-ai-ml azure-identity
+```
+
+For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).
+
+## Put the scoring file in its own directory
+
+Create a directory called `src/` and place the scoring file you downloaded into it. This directory is uploaded to Azure and contains all the source code necessary to do inference. For an AutoML model, there's just the single scoring file. 
+
+## Connect to Azure Machine Learning workspace
+
+1. Import the required libraries:
+
+    ```python
+    # import required libraries
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        ManagedOnlineEndpoint,
+        ManagedOnlineDeployment,
+        Model,
+        Environment,
+        CodeConfiguration,
+    )
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Configure workspace details and get a handle to the workspace:
+
+    ```python
+    # enter details of your Azure Machine Learning workspace
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
+    ```
+
+    ```python
+    # get a handle to the workspace
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    ```
+
+## Create the endpoint and deployment
+
+Next, we'll create the managed online endpoints and deployments.
+
+1. Configure online endpoint:
+
+    > [!TIP]
+    > * `name`: The name of the endpoint. It must be unique in the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+    > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+
+
+    ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
+
+    online_endpoint_name = "endpoint-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=online_endpoint_name,
+        description="this is a sample online endpoint",
+        auth_mode="key",
+    )
+    ```
+
+1. Create the endpoint:
+
+    Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+
+    ```python
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+1. Configure online deployment:
+
+    A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+
+    ```python
+    model = Model(path="./src/model.pkl")
+    env = Environment(
+        conda_file="./src/conda_env_v_1_0_0.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    )
+
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=online_endpoint_name,
+        model=model,
+        environment=env,
+        code_configuration=CodeConfiguration(
+            code="./src", scoring_script="scoring_file_v_2_0_0.py"
+        ),
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+    )
+    ```
+
+    In the above example, we assume the files you downloaded from the AutoML Models page are in the `src` directory. You can modify the parameters in the code to suit your situation.
+    
+    | Parameter | Change to |
+    | --- | --- |
+    | `model:path` | The path to the `model.pkl` file you downloaded. |
+    | `code_configuration:code:path` | The directory in which you placed the scoring file. | 
+    | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`). |
+    | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
+
+1. Create the deployment:
+
+    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+
+    ```python
+    ml_client.begin_create_or_update(blue_deployment)
+    ```
+
+After you create a deployment, you can score it as described in [Test the endpoint with sample data](how-to-deploy-managed-online-endpoint-sdk-v2.md#test-the-endpoint-with-sample-data).
+
+You can learn to deploy to managed online endpoints with SDK more in [Deploy machine learning models to managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+
+---
 
 ## Next steps
 
 - [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)

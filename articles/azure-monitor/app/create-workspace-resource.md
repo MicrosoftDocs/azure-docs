@@ -2,84 +2,85 @@
 title: Create a new Azure Monitor Application Insights workspace-based resource
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
-ms.date: 10/06/2020 
+ms.date: 04/12/2023
+ms.reviewer: cogoodson
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Workspace-based Application Insights resources
 
-Workspace-based resources support full integration between Application Insights and Log Analytics. You can now choose to send your Application Insights telemetry to a common Log Analytics workspace, which allows you full access to all the features of Log Analytics while keeping application, infrastructure, and platform logs in a single consolidated location.
+[Azure Monitor](../overview.md) [Application Insights](app-insights-overview.md#application-insights-overview) workspace-based resources integrate [Application Insights](app-insights-overview.md#application-insights-overview) and [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor).
 
-This also allows for common Azure role-based access control (Azure RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
+With workspace-based resources, [Application Insights](app-insights-overview.md#application-insights-overview) sends telemetry to a common [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor) workspace, providing full access to all the features of [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor) while keeping your application, infrastructure, and platform logs in a single consolidated location. This integration allows for common [Azure role-based access control](../roles-permissions-security.md) across your resources and eliminates the need for cross-app/workspace queries.
 
 > [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more](../logs/cost-logs.md) about billing for workspace-based Application Insights resources.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
+> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. To learn more about billing for workspace-based Application Insights resources, see [Azure Monitor Logs pricing details](../logs/cost-logs.md).
 
 ## New capabilities
 
-Workspace-based Application Insights allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
+With workspace-based Application Insights, you can take advantage of the latest capabilities of Azure Monitor and Log Analytics. For example:
 
-* [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys to which only you have access.
-* [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
-* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-* [Commitment Tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the Pay-As-You-Go price. 
-* Faster data ingestion via Log Analytics streaming ingestion.
+* [Customer-managed key](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys to which only you have access.
+* [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure platform as a service (PaaS) services to your virtual network by using private endpoints.
+* [Bring your own storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) allows you to control this data associated with Application Insights [Profiler](../profiler/profiler-overview.md) and [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md).
+    * Encryption-at-rest policy
+    * Lifetime management policy
+    * Network access
+* [Commitment tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the pay-as-you-go price.
+* Log Analytics streaming ingests data faster.
 
-## Create workspace-based resource
+## Create a workspace-based resource
 
-Sign in to the [Azure portal](https://portal.azure.com), and create an Application Insights resource:
+Sign in to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
 > [!div class="mx-imgBorder"]
-> ![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
+> :::image type="content" source="./media/create-workspace-resource/create-workspace-based.png" lightbox="./media/create-workspace-resource/create-workspace-based.png" alt-text="Screenshot that shows a workspace-based Application Insights resource.":::
 
-If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
+If you don't have an existing Log Analytics workspace, see the [Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
 
-**Workspace-based resources are currently available in all commercial regions and Azure Government**
+*Workspace-based resources are currently available in all commercial regions and Azure Government. Having Application Insights and Log Analytics in two different regions can impact latency and reduce overall reliability of the monitoring solution. *
 
-Once your resource is created, you will see the corresponding workspace info in the **Overview** pane:
+After you create your resource, you'll see corresponding workspace information in the **Overview** pane.
 
-![Workspace Name](./media/create-workspace-resource/workspace-name.png)
+:::image type="content" source="./media/create-workspace-resource/workspace-name.png" lightbox="./media/create-workspace-resource/workspace-name.png" alt-text="Screenshot that shows a workspace name.":::
 
-Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
+Select the blue link text to go to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. Selecting **Logs (Analytics)** from within the Application Insights panes will give you access to the classic Application Insights query experience.
+> We still provide full backward compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts. To query or view the [new workspace-based table structure or schema](convert-classic-resource.md#workspace-based-resource-changes), you must first go to your Log Analytics workspace. Select **Logs (Analytics)** in the **Application Insights** panes for access to the classic Application Insights query experience.
 
 ## Copy the connection string
 
-The [connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+The [connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. You can also use it to modify the endpoints your resource uses as a destination for your telemetry. You must copy the connection string and add it to your application's code or to an environment variable.
 
-## Monitoring configuration
+## Configure monitoring
 
-Once a workspace-based Application Insights resource has been created, configuring monitoring is relatively straightforward.
+After you've created a workspace-based Application Insights resource, you configure monitoring.
 
 ### Code-based application monitoring
 
-For code-based application monitoring, you would just install the appropriate Application Insights SDK and point it to the instrumentation key or connection string to your newly created resource.  
+For code-based application monitoring, you install the appropriate Application Insights SDK and point the connection string to your newly created resource.
 
-For detailed documentation on setting up an Application Insights SDK for code-based monitoring consult the language/framework specific documentation:
+For information on how to set up an Application Insights SDK for code-based monitoring, see the following documentation specific to the language or framework:
 
 - [ASP.NET](./asp-net.md)
 - [ASP.NET Core](./asp-net-core.md)
-- [Background tasks & modern console applications (.NET/.NET Core)](./worker-service.md)
-- [Classic console applications (.NET)](./console.md) 
-- [Java](./java-in-process-agent.md)
+- [Background tasks and modern console applications (.NET/.NET Core)](./worker-service.md)
+- [Classic console applications (.NET)](./console.md)
+- [Java](./opentelemetry-enable.md?tabs=java)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
-- [Python](./opencensus-python.md)
+- [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
 ### Codeless monitoring and Visual Studio resource creation
 
-For codeless monitoring of services like Azure Functions and Azure App Services, you will also need to first create your workspace-based Application Insights resource and then point to that resource during the monitoring configuration phase.
+For codeless monitoring of services like Azure Functions and Azure App Services, you first create your workspace-based Application Insights resource. Then you point to that resource when you configure monitoring.
 
-While these services offer the option to create a new Application Insights resource within their own resource creation process, resources created via these UI options are currently restricted to the classic Application Insights experience.
+These services offer the option to create a new Application Insights resource within their own resource creation process. But resources created via these UI options are currently restricted to the classic Application Insights experience.
 
-The same applies to the Application Insights resource creation experience in Visual Studio for ASP.NET and ASP.NET Core. You must select an existing workspace-based resource from with the Visual Studio monitoring enablement UI. Selecting create new resource from within Visual Studio will limit you to creating a classic Application Insights resource.
+The same restriction applies to the Application Insights resource creation experience in Visual Studio for ASP.NET and ASP.NET Core. You must select an existing workspace-based resource in the Visual Studio UI where you enable monitoring. Selecting **Create new resource** in Visual Studio limits you to creating a classic Application Insights resource.
 
-## Creating a resource automatically
+## Create a resource automatically
 
 ### Azure CLI
 
@@ -89,9 +90,9 @@ To access the preview Application Insights Azure CLI commands, you first need to
  az extension add -n application-insights
 ```
 
-If you don't run the `az extension add` command, you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+If you don't run the `az extension add` command, you see an error message that states `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'`.
 
-Now you can run the following to create your Application Insights resource:
+Now you can run the following code to create your Application Insights resource:
 
 ```azurecli
 az monitor app-insights component create --app
@@ -112,13 +113,48 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command, see the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
 
 ### Azure PowerShell
 
-The `New-AzApplicationInsights` PowerShell command does not currently support creating a workspace-based Application Insights resource. To create a workspace-based resource with PowerShell, you can use the Azure Resource Manager templates below and deploy with PowerShell.
+Create a new workspace-based Application Insights resource.
+
+```powershell
+New-AzApplicationInsights -Name <String> -ResourceGroupName <String> -Location <String> -WorkspaceResourceId <String>
+   [-SubscriptionId <String>]
+   [-ApplicationType <ApplicationType>]
+   [-DisableIPMasking]
+   [-DisableLocalAuth]
+   [-Etag <String>]
+   [-FlowType <FlowType>]
+   [-ForceCustomerStorageForProfiler]
+   [-HockeyAppId <String>]
+   [-ImmediatePurgeDataOn30Day]
+   [-IngestionMode <IngestionMode>]
+   [-Kind <String>]
+   [-PublicNetworkAccessForIngestion <PublicNetworkAccessType>]
+   [-PublicNetworkAccessForQuery <PublicNetworkAccessType>]
+   [-RequestSource <RequestSource>]
+   [-RetentionInDays <Int32>]
+   [-SamplingPercentage <Double>]
+   [-Tag <Hashtable>]
+   [-DefaultProfile <PSObject>]
+   [-Confirm]
+   [-WhatIf]
+   [<CommonParameters>]
+```
+
+#### Example
+
+```powershell
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus -WorkspaceResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
+```
+
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the connection string, see the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### Azure Resource Manager templates
+
+ To create a workspace-based resource, use the following Azure Resource Manager templates and deploy them with PowerShell.
 
 #### Template file
 
@@ -165,6 +201,10 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
 }
 ```
 
+> [!NOTE]
+> For more information on resource properties, see [Property values](/azure/templates/microsoft.insights/components?tabs=bicep#property-values).
+> `Flow_Type` and `Request_Source` aren't used but are included in this sample for completeness.
+
 #### Parameters file
 
 ```json
@@ -195,20 +235,21 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
 
 ```
 
-## Modifying the associated workspace
+## Modify the associated workspace
 
-Once a workspace-based Application Insights resource has been created, you can modify the associated Log Analytics Workspace.
+After you've created a workspace-based Application Insights resource, you can modify the associated Log Analytics workspace.
 
-From within the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**
+In the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**.
 
 ## Export telemetry
 
-The legacy continuous export functionality is not supported for workspace-based resources. Instead, select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub.
+The legacy continuous export functionality isn't supported for workspace-based resources. Instead, select **Diagnostic settings** > **Add diagnostic setting** in your Application Insights resource. You can select all tables, or a subset of tables, to archive to a storage account. You can also stream to an Azure event hub.
 
 > [!NOTE]
-> There are currently no additional charges for the telemetry export. Pricing information for this feature will be available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Prior to the start of billing, notifications will be sent. Should you choose to continue using telemetry export after the notice period, you will be billed at the applicable rate. 
+> Diagnostic settings export might increase costs. For more information, see [Export telemetry from Application Insights](export-telemetry.md#diagnostic-settings-based-export).
+> For pricing information for this feature, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Prior to the start of billing, notifications will be sent. If you continue to use telemetry export after the notice period, you'll be billed at the applicable rate.
 
 ## Next steps
 
 * [Explore metrics](../essentials/metrics-charts.md)
-* [Write Analytics queries](../logs/log-query-overview.md)
+* [Write Log Analytics queries](../logs/log-query-overview.md)

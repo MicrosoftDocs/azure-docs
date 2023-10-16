@@ -1,10 +1,9 @@
 ---
 title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.custom: devx-track-bicep
+ms.date: 07/07/2023
 ---
 
 # String functions for Bicep
@@ -142,21 +141,60 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-Instead of using the concat function, use string interpolation.
+`concat(arg1, arg2, arg3, ...)`
+
+Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array. To improve readability, use [string interpolation](./data-types.md#strings) instead of the `concat()` function. However, in some cases such as string replacement in [multi-line strings](../bicep/data-types.md#multi-line-strings), you may need to fall back on using the `concat()` function or the [`replace()` function](#replace).
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |string or array |The first string or array for concatenation. |
+| more arguments |No |string or array |More strings or arrays in sequential order for concatenation. |
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
+
+### Return value
+
+A string or array of concatenated values.
+
+### Examples
+
+The following example shows a comparison between using interpolation and using the `concat()` function. The two outputs return the same value.
 
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+```
+
+The outputs from the preceding example with the default value are:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
+| interpolationOutput | String | prefixAnd5yj4yjf5mbg72 |
+
+Interpolation is not currently supported in multi-line strings. The following example shows a comparison between using interpolation and using the `concat()` function.
+
+```bicep
+var blocked = 'BLOCKED'
+
+output concatOutput string = concat('''interpolation
+is ''', blocked)
+output interpolationOutput string = '''interpolation
+is ${blocked}'''
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
-
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+| concatOutput | String | interpolation\nis BLOCKED |
+| interpolationOutput | String | interpolation\nis ${blocked} |
 
 ## contains
 
@@ -184,9 +222,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -440,15 +478,19 @@ The following example shows how to use the format function.
 param greeting string = 'Hello'
 param name string = 'User'
 param numberToFormat int = 8175133
+param objectToFormat object = { prop: 'value' }
 
 output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
+output formatObject string = format('objectToFormat: {0}', objectToFormat)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+| formatTest | String | `Hello, User. Formatted number: 8,175,133` |
+| formatObject | String | `objectToFormat: {'prop':'value'}` |
 
 ## guid
 
@@ -497,6 +539,8 @@ Unique scoped to deployment for a resource group
 ```bicep
 guid(resourceGroup().id, deployment().name)
 ```
+
+The `guid` function implements the algorithm from [RFC 4122 §4.3](https://www.ietf.org/rfc/rfc4122.txt). The original source can be found in [GuidUtility](https://github.com/LogosBible/Logos.Utility/blob/e7fc45123da090b8cf34da194a1161ed6a34d20d/src/Logos.Utility/GuidUtility.cs) with some modifications.
 
 ### Return value
 
@@ -552,6 +596,49 @@ The output from the preceding example with the default values is:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray | Yes |An array of string. |An array of strings to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+
+```bicep
+var arrayString = [
+  'one'
+  'two'
+  'three'
+]
+
+output firstOutput string = join(arrayString, ',')
+output secondOutput string = join(arrayString, ';')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
+
+This function requires **Bicep version 0.8.2 or later**.
 
 <a id="json"></a>
 
@@ -674,10 +761,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -977,6 +1064,8 @@ The output from the preceding example with the default values is:
 `string(valueToConvert)`
 
 Converts the specified value to a string.
+Strings are returned as-is. Other types are converted to their equivalent JSON representation.
+If you need to convert a string to JSON, i.e. quote/escape it, you can use `substring(string([value]), 1, length(string([value]) - 2)`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -996,28 +1085,34 @@ The following example shows how to convert different types of values to strings:
 
 ```bicep
 param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
+  valueA: 10
+  valueB: 'Example Text'
 }
 param testArray array = [
-  'a'
-  'b'
-  'c'
+  '\'a\''
+  '"b"'
+  '\\c\\'
 ]
 param testInt int = 5
+param testString string = 'foo " \' \\'
 
 output objectOutput string = string(testObject)
 output arrayOutput string = string(testArray)
 output intOutput string = string(testInt)
+output stringOutput string = string(testString)
+output stringEscapedOutput string = substring(string([testString]), 1, length(string([testString])) - 2)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | String | `{"valueA":10,"valueB":"Example Text"}` |
+| arrayOutput | String | `["'a'","\"b\"","\\c\\"]` |
+| intOutput | String | `5` |
+| stringOutput | String | `foo " ' \` |
+| stringEscapedOutput | String | `"foo \" ' \\"` |
 
 ## substring
 

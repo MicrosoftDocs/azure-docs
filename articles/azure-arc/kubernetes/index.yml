@@ -5,11 +5,9 @@ summary: Learn how to manage Kubernetes clusters with Azure Arc
 metadata:
   title: Azure Arc-enabled Kubernetes
   description: Learn about how to manage on-premises machines in Azure
-  author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 03/02/2021
-  ms.author: shasb
 
 landingContent:
   - title: About Azure Arc-enabled Kubernetes
@@ -39,6 +37,10 @@ landingContent:
         links:
           - text: Connect a cluster to Azure Arc
             url: quickstart-connect-cluster.md
+      - linkListType: learn
+        links:
+          - text: Module - Intro to Azure Arc-enabled Kubernetes
+            url: /training/modules/intro-to-arc-enabled-kubernetes
 
   - title: Deploy configurations using GitOps
     linkLists:
@@ -48,7 +50,14 @@ landingContent:
             url: tutorial-use-gitops-flux2.md
           - text: Implement CI/CD with GitOps (Flux v2)
             url: tutorial-gitops-flux2-ci-cd.md
-
+ 
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart for Azure Arc-enabled Kubernetes
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+  
   - title: Manage your cluster
     linkLists:
       - linkListType: how-to-guide
@@ -63,13 +72,6 @@ landingContent:
             url: tutorial-arc-enabled-open-service-mesh.md
           - text: Access secrets from Azure Key Vault
             url: tutorial-akv-secrets-provider.md
- 
-  - title: Proof of concept
-    linkLists:
-     - linkListType: sample
-       links:
-          - text: Jumpstart
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
   
   - title: Reference architecture
     linkLists:
@@ -77,3 +79,14 @@ landingContent:
         links:
           - text: Manage deployments and configurations for hybrid Kubernetes clusters
             url: /azure/architecture/hybrid/arc-hybrid-kubernetes
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: https://aka.ms/ArcLZAcceleratorReady
+
+  - title: API reference
+    linkLists:
+      - linkListType: reference
+        links:
+         - text: Azure CLI
+           url: /cli/azure/connectedk8s
+         - text: Azure PowerShell
+           url: /powershell/module/az.connectedkubernetes#connected-kubernetes

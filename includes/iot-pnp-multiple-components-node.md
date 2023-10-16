@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
@@ -43,25 +43,25 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 You use the device SDK to build the included sample code. The application you build simulates a Plug and Play device with multiple components that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, go to the folder of your cloned repository and navigate to the */azure-iot-sdk-node/device/samples/pnp* folder. Then run the following command to install the required libraries:
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the */azure-iot-sdk-node/device/samples/javascript* folder. Then run the following command to install the required libraries:
 
 ```cmd/sh
 npm install
 ```
 
-This will install the relevant npm files required to run the samples in the folder.
+This command installs the relevant npm files required to run the samples in the folder.
 
 ## Review the code
 
-Navigate to the *azure-iot-sdk-node\device\samples\javascript* folder.
+Navigate to the *azure-iot-sdk-node/device/samples/javascript* folder.
 
-The *azure-iot-sdk-node\device\samples\javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
+The *azure-iot-sdk-node/device/samples/javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
 
-The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
-Open the *pnpTemperatureController.js* file in a code editor of your choice. The sample code shows how to:
+Open the *pnp_temperature_controller.js* file in a code editor of your choice. The sample code shows how to:
 
-- Define the `modelId` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the [temperature controller DTDL model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+- Define the `modelId` that's the DTMI for the device you're implementing. This DTMI is user-defined and must match the DTMI of the [temperature controller DTDL model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
 - Implement the components defined in the temperature controller DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. In this sample, the two interfaces are:
 
@@ -70,7 +70,7 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
 
 - Define component names. This sample has two thermostats and one device information component.
 
-- Define command name. These are the commands the device responds to.
+- Define command names for the commands the device responds to.
 
 - Define the `serialNumber` constant. The `serialNumber` is fixed any given device.
 
@@ -109,7 +109,7 @@ To learn more about the sample configuration, see the [sample readme](https://gi
 
 Now that you've seen the code, use the following command to run the sample:
 
-```cmd\sh
+```cmd/sh
 node pnp_temperature_controller.js
 ```
 

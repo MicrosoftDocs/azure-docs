@@ -1,8 +1,8 @@
 ---
 title: Connectivity using SCRAM in Azure Database for PostgreSQL - Flexible Server
 description: Instructions and information on how to configure and connect using SCRAM in Azure Database for PostgreSQL - Flexible Server.
-author: sr-msft 
-ms.author: srranga
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # SCRAM authentication in Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Salted Challenge Response Authentication Mechanism (SCRAM) is a password-based mutual authentication protocol. It is a challenge-response scheme that adds several levels of security and prevents password sniffing on untrusted connections. SCRAM supports storing passwords on the server in a cryptographically hashed form which provides advanced security. 
 
@@ -81,7 +81,7 @@ To access the PostgreSQL database server using SCRAM method of authentication, y
 8. You can then connect from the client that supports SCRAM authentication to your server.
 
 > [!Note] 
-> SCRAM authentication is not supported when connected to the built-in managed [PgBouncer](concepts-pgbouncer.md).
+> SCRAM authentication is also supported when connected to the built-in managed [PgBouncer](concepts-pgbouncer.md). Above tutorial is valid for setting up connectivity using SCRAM authentication via built-in PgBouncer feature. 
 
 ## Next steps
 - [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).

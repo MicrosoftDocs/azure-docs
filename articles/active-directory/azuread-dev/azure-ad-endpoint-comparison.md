@@ -1,5 +1,5 @@
 ---
-title: Why update to Microsoft identity platform (v2.0) | Azure
+title: Why update to Microsoft identity platform (v2.0)
 description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Azure Active Directory (Azure AD) v1.0 endpoint, and learn the benefits of updating to v2.0.
 services: active-directory
 author: rwike77
@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/09/2022
 ms.author: ryanwi
-ms.reviewer: marsma, ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
@@ -25,8 +25,8 @@ When developing a new application, it's important to know the differences betwee
 ![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-signin.svg)
 
 * The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
-* The Microsoft identity platform endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
-* Both endpoints also accept sign-ins of *[guest users](../external-identities/what-is-b2b.md)* of an Azure AD directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* The Microsoft identity platform endpoint allows work and school accounts from Microsoft Entra ID and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
+* Both endpoints also accept sign-ins of *[guest users](../external-identities/what-is-b2b.md)* of a Microsoft Entra directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
 The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](/graph/api/user-list-messages), the same code can access the email for both personal and work and school accounts.
 
@@ -44,7 +44,7 @@ The permissions set directly on the application registration are **static**. Whi
 
 * The app needs to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
 
-With the Microsoft identity platform endpoint, you can ignore the static permissions defined in the app registration information in the Azure portal and request permissions incrementally instead, which means asking for a bare minimum set of permissions upfront and growing more over time as the customer uses additional app features. To do so, you can specify the scopes your app needs at any time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information. If the user hasn't yet consented to new scopes added to the request, they'll be prompted to consent only to the new permissions. To learn more, see [permissions, consent, and scopes](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+With the Microsoft identity platform endpoint, you can ignore the static permissions defined in the app registration information in the Azure portal and request permissions incrementally instead, which means asking for a bare minimum set of permissions upfront and growing more over time as the customer uses additional app features. To do so, you can specify the scopes your app needs at any time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information. If the user hasn't yet consented to new scopes added to the request, they'll be prompted to consent only to the new permissions. To learn more, see [permissions, consent, and scopes](../develop/permissions-consent-overview.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. You can also front load your consent experience and ask for all permissions in one initial authorization request. If your app requires a large number of permissions, you can gather those permissions from the user incrementally as they try to use certain features of the app over time.
 
@@ -89,7 +89,7 @@ Apps using the Microsoft identity platform endpoint may require the use of a new
 
 If your app doesn't request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the OAuth 2.0 authorization code flow, you'll only receive back an access token from the `/token` endpoint. That access token remains valid for a short period of time (typically one hour), but will eventually expire. At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization code. During this redirect, the user may or may not need to enter their credentials again or reconsent to permissions, depending on the type of app.
 
-To learn more about OAuth 2.0, `refresh_tokens`, and `access_tokens`, check out the [Microsoft identity platform protocol reference](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+To learn more about OAuth 2.0, `refresh_tokens`, and `access_tokens`, check out the [Microsoft identity platform protocol reference](../develop/v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ### OpenID, profile, and email
 
@@ -100,11 +100,11 @@ The information that the `openid` scope affords your app access to is now restri
 * The `email` scope allows your app access to the user's primary email address through the `email` claim in the id_token, assuming the user has an addressable email address.
 * The `profile` scope affords your app access to all other basic information about the user, such as their name, preferred username, object ID, and so on, in the id_token.
 
-These scopes allow you to code your app in a minimal-disclosure fashion so you can only ask the user for the set of information that your app needs to do its job. For more information on these scopes, see [the Microsoft identity platform scope reference](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+These scopes allow you to code your app in a minimal-disclosure fashion so you can only ask the user for the set of information that your app needs to do its job. For more information on these scopes, see [the Microsoft identity platform scope reference](../develop/permissions-consent-overview.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## Token claims
 
-The Microsoft identity platform endpoint issues a smaller set of claims in its tokens by default to keep payloads small. If you have apps and services that have a dependency on a particular claim in a v1.0 token that is no longer provided by default in a Microsoft identity platform token, consider using the [optional claims](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) feature to include that claim.
+The Microsoft identity platform endpoint issues a smaller set of claims in its tokens by default to keep payloads small. If you have apps and services that have a dependency on a particular claim in a v1.0 token that is no longer provided by default in a Microsoft identity platform token, consider using the [optional claims](../develop/optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) feature to include that claim.
 
 > [!IMPORTANT]
 > v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoint to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will receive a token in the v1.0 format.
@@ -124,7 +124,7 @@ The Microsoft identity platform endpoint will evolve to eliminate the restrictio
 
 ### Restrictions on app registrations
 
-For each app that you want to integrate with the Microsoft identity platform endpoint, you can create an app registration in the new [**App registrations** experience](https://aka.ms/appregistrations) in the Azure portal. Existing Microsoft account apps aren't compatible with the portal, but all Azure AD apps are, regardless of where or when they were registered.
+For each app that you want to integrate with the Microsoft identity platform endpoint, you can create an app registration in the new [**App registrations** experience](https://aka.ms/appregistrations) in the Azure portal. Existing Microsoft account apps aren't compatible with the portal, but all Microsoft Entra apps are, regardless of where or when they were registered.
 
 App registrations that support work and school accounts and personal accounts have the following caveats:
 
@@ -144,7 +144,7 @@ Currently, library support for the Microsoft identity platform endpoint is limit
 
 * If you're building a web application, you can safely use the generally available server-side middleware to do sign-in and token validation. These include the OWIN OpenID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see the [Microsoft identity platform getting started](../develop/v2-overview.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#getting-started) section.
 * If you're building a desktop or mobile application, you can use one of the Microsoft Authentication Libraries (MSAL). These libraries are generally available or in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
-* For platforms not covered by Microsoft libraries, you can integrate with the Microsoft identity platform endpoint by directly sending and receiving protocol messages in your application code. The OpenID Connect and OAuth protocols [are explicitly documented](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to help you do such an integration.
+* For platforms not covered by Microsoft libraries, you can integrate with the Microsoft identity platform endpoint by directly sending and receiving protocol messages in your application code. The OpenID Connect and OAuth protocols [are explicitly documented](../develop/v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to help you do such an integration.
 * Finally, you can use open-source OpenID Connect and OAuth libraries to integrate with the Microsoft identity platform endpoint. The Microsoft identity platform endpoint should be compatible with many open-source protocol libraries without changes. The availability of these kinds of libraries varies by language and platform. The [OpenID Connect](https://openid.net/connect/) and [OAuth 2.0](https://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Microsoft identity platform and authentication libraries](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json), and the list of open-source client libraries and samples that have been tested with the Microsoft identity platform endpoint.
 * For reference, the `.well-known` endpoint for the Microsoft identity platform common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Replace `common` with your tenant ID to get data specific to your tenant.
 
@@ -156,11 +156,11 @@ The Microsoft identity platform endpoint does not support SAML or WS-Federation;
 * The `scope` parameter is now supported in place of the `resource` parameter.
 * Many responses have been modified to make them more compliant with the OAuth 2.0 specification, for example, correctly returning `expires_in` as an int instead of a string.
 
-To better understand the scope of protocol functionality supported in the Microsoft identity platform endpoint, see [OpenID Connect and OAuth 2.0 protocol reference](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+To better understand the scope of protocol functionality supported in the Microsoft identity platform endpoint, see [OpenID Connect and OAuth 2.0 protocol reference](../develop/v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 #### SAML usage
 
-If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](../develop/active-directory-saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
+If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Microsoft Entra tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](../develop/saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
 
 ## Next steps
 

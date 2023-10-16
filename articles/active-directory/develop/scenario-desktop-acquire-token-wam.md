@@ -1,181 +1,185 @@
 ---
-title: Acquire a token to call a web API using web account manager (desktop app) | Azure
-titleSuffix: Microsoft identity platform
-description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using web account manager
+title: Acquire a token to call a web API by using Web Account Manager (desktop app)
+description: Learn how to build a desktop app that calls web APIs to acquire a token for the app by using Web Account Manager.
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
-ms.author: sahmalik
-ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
+ms.date: 12/14/2022
+ms.author: dmwendia
+ms.custom: aaddev
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
-# Desktop app that calls web APIs: Acquire a token using WAM
+# Desktop app that calls web APIs: Acquire a token by using WAM
 
-MSAL is able to call Web Account Manager, a Windows 10 component that ships with the OS. This component acts as an authentication broker and users of your app benefit from integration with accounts known from Windows, such as the account you signed-in with in your Windows session.
-
-## Availability
-
-MSAL 4.25+ supports WAM on UWP, .NET Classic, .NET Core 3.1, and .NET 5.
-
-For .NET Classic and .NET Core 3.1, WAM functionality is fully supported but you have to add a reference to [Microsoft.Identity.Client.Desktop](https://www.nuget.org/packages/Microsoft.Identity.Client.Desktop/) package, alongside MSAL, and instead of `WithBroker()`, call `.WithWindowsBroker()`.
-
-For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM is not available.
+The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a Windows 10+ component that acts as an authentication broker.
 
 ## WAM value proposition
 
-Using an authentication broker such as WAM has numerous benefits.
+Using an authentication broker such as WAM has numerous benefits:
 
-- Enhanced security (your app does not have to manage the powerful refresh token)
-- Better support for Windows Hello, Conditional Access and FIDO keys
-- Integration with Windows' "Email and Accounts" view
-- Better Single Sign-On (users don't have to reenter passwords)
-- Most bug fixes and enhancements will be shipped with Windows
+- Enhanced security. See [Token protection](/azure/active-directory/conditional-access/concept-token-protection).
+- Support for Windows Hello, Conditional Access, and FIDO keys.
+- Integration with the Windows **Email & accounts** view.
+- Fast single sign-on.
+- Ability to sign in silently with the current Windows account.
+- Bug fixes and enhancements shipped with Windows.
 
 ## WAM limitations
 
-- B2C and ADFS authorities are not supported. MSAL will fallback to a browser.
-- Available on Win10+ and Win Server 2019+. On Mac, Linux and earlier Windows MSAL will fallback to a browser.
-- Not available on Xbox.
+- WAM is available on Windows 10 and later, and on Windows Server 2019 and later. On Mac, Linux, and earlier versions of Windows, MSAL automatically falls back to a browser.
+- Azure Active Directory B2C (Azure AD B2C) and Active Directory Federation Services (AD FS) authorities aren't supported. MSAL falls back to a browser.
+
+## WAM integration package
+
+Most apps need to reference the `Microsoft.Identity.Client.Broker` package to use this integration. .NET MAUI apps don't have to do this, because the functionality is inside MSAL when the target is `net6-windows` and later.
 
 ## WAM calling pattern
 
-You can use the following pattern to use WAM.
+You can use the following pattern for WAM:
 
 ```csharp
-// 1. Configuration - read below about redirect URI
-var pca = PublicClientApplicationBuilder.Create("client_id")
-              .WithBroker()
-              .Build();
+    // 1. Configuration - read below about redirect URI
+    var pca = PublicClientApplicationBuilder.Create("client_id")
+                    .WithBroker(new BrokerOptions(BrokerOptions.OperatingSystems.Windows))
+                    .Build();
 
-// Add a token cache, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
+    // Add a token cache; see https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
 
-// 2. GetAccounts
-var accounts = await pca.GetAccountsAsync();
-var accountToLogin = // choose an account, or null, or use PublicClientApplication.OperatingSystemAccount for the default OS account
+    // 2. Find an account for silent login
 
-try
-{
-    // 3. AcquireTokenSilent 
-    var authResult = await pca.AcquireTokenSilent(new[] { "User.Read" }, accountToLogin)
-                              .ExecuteAsync();
-}
-catch (MsalUiRequiredException) // no change in the pattern
-{
-    // 4. Specific: Switch to the UI thread for next call . Not required for console apps.
-    await SwitchToUiThreadAsync(); // not actual code, this is different on each platform / tech
+    // Is there an account in the cache?
+    IAccount accountToLogin = (await pca.GetAccountsAsync()).FirstOrDefault();
+    if (accountToLogin == null)
+    {
+        // 3. No account in the cache; try to log in with the OS account
+        accountToLogin = PublicClientApplication.OperatingSystemAccount;
+    }
 
-    // 5. AcquireTokenInteractive
-    var authResult = await pca.AcquireTokenInteractive(new[] { "User.Read" })
-                              .WithAccount(accountToLogin)  // this already exists in MSAL, but it is more important for WAM
-                              .WithParentActivityOrWindow(myWindowHandle) // to be able to parent WAM's windows to your app (optional, but highly recommended; not needed on UWP)
-                              .ExecuteAsync();
-}
+    try
+    {
+        // 4. Silent authentication 
+        var authResult = await pca.AcquireTokenSilent(new[] { "User.Read" }, accountToLogin)
+                                    .ExecuteAsync();
+    }
+    // Cannot log in silently - most likely Azure AD would show a consent dialog or the user needs to re-enter credentials
+    catch (MsalUiRequiredException) 
+    {
+        // 5. Interactive authentication
+        var authResult = await pca.AcquireTokenInteractive(new[] { "User.Read" })
+                                    .WithAccount(accountToLogin)
+                                    // This is mandatory so that WAM is correctly parented to your app; read on for more guidance
+                                    .WithParentActivityOrWindow(myWindowHandle) 
+                                    .ExecuteAsync();
+                                    
+        // Consider allowing the user to re-authenticate with a different account, by calling AcquireTokenInteractive again                                  
+    }
 ```
 
-Call `.WithBroker(true)`. If a broker is not present (e.g. Win8.1, Mac, or Linux), then MSAL will fallback to a browser! Redirect URI rules apply to the browser.
+If a broker isn't present (for example, Windows 8.1, Mac, or Linux), MSAL falls back to a browser, where redirect URI rules apply.
 
-## Redirect URI
+### Redirect URI
 
-WAM redirect URIs do not need to be configured in MSAL, but they must be configured in the app registration.
-
-### Win32 (.NET framework / .NET 5)
+You don't need to configure WAM redirect URIs in MSAL, but you do need to configure them in the app registration:
 
 ```
 ms-appx-web://microsoft.aad.brokerplugin/{client_id}
 ```
 
-### UWP
+### Token cache persistence
+
+It's important to persist the MSAL token cache because MSAL continues to store ID tokens and account metadata there. For more information, see [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop).
+
+### Account for silent login
+
+To find an account for silent login, we recommend this pattern:
+
+- If the user previously logged in, use that account. If not, use `PublicClientApplication.OperatingSystemAccount` for the current Windows account.
+- Allow the user to change to a different account by logging in interactively.
+
+## Parent window handles
+
+You must configure MSAL with the window that the interactive experience should be parented to, by using `WithParentActivityOrWindow` APIs.
+
+### UI applications
+
+For UI apps like Windows Forms (WinForms), Windows Presentation Foundation (WPF), or Windows UI Library version 3 (WinUI3), see [Retrieve a window handle](/windows/apps/develop/ui-input/retrieve-hwnd).
+
+### Console applications
+
+For console applications, the configuration is more involved because of the terminal window and its tabs. Use the following code:
+
 ```csharp
-            // returns smth like S-1-15-2-2601115387-131721061-1180486061-1362788748-631273777-3164314714-2766189824
-            string sid = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().Host.ToUpper();
+enum GetAncestorFlags
+{   
+    GetParent = 1,
+    GetRoot = 2,
+    /// <summary>
+    /// Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent.
+    /// </summary>
+    GetRootOwner = 3
+}
 
-            // the redirect uri you need to register
-            string redirectUri = $"ms-appx-web://microsoft.aad.brokerplugin/{sid}";
-```
+/// <summary>
+/// Retrieves the handle to the ancestor of the specified window.
+/// </summary>
+/// <param name="hwnd">A handle to the window whose ancestor will be retrieved.
+/// If this parameter is the desktop window, the function returns NULL. </param>
+/// <param name="flags">The ancestor to be retrieved.</param>
+/// <returns>The return value is the handle to the ancestor window.</returns>
+[DllImport("user32.dll", ExactSpelling = true)]
+static extern IntPtr GetAncestor(IntPtr hwnd, GetAncestorFlags flags);
 
-## Token cache persistence
+[DllImport("kernel32.dll")]
+static extern IntPtr GetConsoleWindow();
 
-It's important to persist MSAL's token cache because MSAL needs to save internal WAM account IDs there. Without it, restarting the app means that `GetAccounts` API will miss some of the accounts. Note that on UWP, MSAL knows where to save the token cache.
-
-## GetAccounts
-
-`GetAccounts` returns accounts of users who have previously logged in interactively into the app.
-
-In addition to this, WAM can list the OS-wide Work and School accounts configured in Windows (for Win32 apps but not for UWP apps). To opt-into this feature, set `ListWindowsWorkAndSchoolAccounts` in `WindowsBrokerOptions` to **true**. You can enable it as below.
-
-```csharp
-.WithWindowsBrokerOptions(new WindowsBrokerOptions()
+// This is your window handle!
+public IntPtr GetConsoleOrTerminalWindow()
 {
-    // GetAccounts will return Work and School accounts from Windows
-    ListWindowsWorkAndSchoolAccounts = true,
-
-    // Legacy support for 1st party apps only
-    MsaPassthrough = true
-})
+   IntPtr consoleHandle = GetConsoleWindow();
+   IntPtr handle = GetAncestor(consoleHandle, GetAncestorFlags.GetRootOwner );
+  
+   return handle;
+}
 ```
-
->[!NOTE]
-> Microsoft (i.e. outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
-
-Applications cannot remove accounts from Windows! 
-
-## RemoveAsync
-
-- Removes all account information from MSAL's token cache (this includes MSA - i.e. personal accounts - account info and other account information copied by MSAL into its cache).
-- Removes app-only (not OS-wide) accounts.
-
->[!NOTE]
-> Apps cannot remove OS accounts. Only users can do that. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled - the same OS account will still be returned.
-
-## Other considerations
-
-- WAM's interactive operations require being on the UI thread. MSAL throws a meaningful exception when not on UI thread. This does NOT apply to console apps.
-- `WithAccount` provides an accelerated authentication experience if the MSAL account was originally obtained via WAM, or, WAM can find a work and school account in Windows.
-- WAM is not able to pre-populate the username field with a login hint, unless a Work and School account with the same username is found in Windows.
-- If WAM is unable to offer an accelerated authentication experience, it will show an account picker. Users can add new accounts.
-
-!["WAM account picker"](media/scenario-desktop-acquire-token-wam/wam-account-picker.png)
-
-- New accounts are automatically remembered by Windows. Work and School have the option of joining the organization's directory or opting out completely, in which case the account will not appear under "Email & Accounts". Microsoft accounts are automatically added to Windows. Apps cannot list these accounts programmatically (but only through the Account Picker).
 
 ## Troubleshooting
 
-### "Either the user cancelled the authentication or the WAM Account Picker crashed because the app is running in an elevated process" error message
-
-When an app that uses MSAL is run as an elevated process, some of these calls within WAM may fail due to different process security levels. Internally MSAL.NET uses native Windows methods ([COM](/windows/win32/com/the-component-object-model)) to integrate with WAM. Starting with version 4.32.0, MSAL will display a descriptive error message when it detects that the app process is elevated and WAM returned no accounts.
-
-One solution is to not run the app as elevated, if possible. Another solution is for the app developer to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this solution is not guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. See issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560) for additional information.
-
 ### "WAM Account Picker did not return an account" error message
 
-This message indicates that either the application user closed the dialog that displays accounts, or the dialog itself crashed. A crash might occur if AccountsControl, a Windows control, is registered incorrectly in Windows. To resolve this issue: 
+The "WAM Account Picker did not return an account" message indicates that either the application user closed the dialog that displays accounts, or the dialog itself crashed. A crash might occur if `AccountsControl`, a Windows control, is registered incorrectly in Windows. To resolve this problem:
 
-1. In the taskbar, right-click **Start**, and then select **Windows PowerShell (Admin)**.
-1. If you're prompted by a User Account Control (UAC) dialog, select **Yes** to start PowerShell.
+1. On the taskbar, right-click **Start**, and then select **Windows PowerShell (Admin)**.
+1. If you're prompted by a User Account Control dialog, select **Yes** to start PowerShell.
 1. Copy and then run the following script:
 
    ```powershell
    if (-not (Get-AppxPackage Microsoft.AccountsControl)) { Add-AppxPackage -Register "$env:windir\SystemApps\Microsoft.AccountsControl_cw5n1h2txyewy\AppxManifest.xml" -DisableDevelopmentMode -ForceApplicationShutdown } Get-AppxPackage Microsoft.AccountsControl
    ```
 
-### Connection issues
+### "MsalClientException: ErrorCode: wam_runtime_init_failed" error message during a single file deployment
 
-The application user sees an error message similar to "Please check your connection and try again". If this issue occurs regularly, see the [troubleshooting guide for Office](/office365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses WAM.
+You might see the following error when packaging your application into a [single file bundle](/dotnet/core/deploying/single-file/overview):
+
+```
+MsalClientException: wam_runtime_init_failed: The type initializer for 'Microsoft.Identity.Client.NativeInterop.API' threw an exception. See https://aka.ms/msal-net-wam#troubleshooting
+```
+
+This error indicates that the native binaries from [Microsoft.Identity.Client.NativeInterop](https://www.nuget.org/packages/Microsoft.Identity.Client.NativeInterop/) were not packaged into the single file bundle. To embed those files for extraction and get one output file, set the property `IncludeNativeLibrariesForSelfExtract` to `true`. [Read more about how to package native binaries into a single file](/dotnet/core/deploying/single-file/overview?tabs=cli#native-libraries).
+
+### Connection problems
+
+If the application user regularly sees an error message that's similar to "Please check your connection and try again," see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016). That troubleshooting guide also uses the broker.
 
 ## Sample
 
-[WPF sample that uses WAM](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2)
+You can find a WPF sample that uses WAM [on GitHub](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2).
 
-[UWP sample that uses WAM, along Xamarin](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/2-With-broker)
-
----
 ## Next steps
 
 Move on to the next article in this scenario,

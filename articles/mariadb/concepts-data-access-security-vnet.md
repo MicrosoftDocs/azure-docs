@@ -1,14 +1,16 @@
 ---
 title: VNet service endpoints - Azure Database for MariaDB
 description: 'Describes how VNet service endpoints work for your Azure Database for MariaDB server.'
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 7/17/2020
+ms.date: 06/24/2022
 ---
 
 # Use Virtual Network service endpoints and rules for Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for MariaDB server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for MariaDB server.
 
@@ -38,9 +40,6 @@ A virtual network rule tells your Azure Database for MariaDB server to accept co
 
 
 
-
-
-
 <a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## Benefits of a virtual network rule
@@ -58,7 +57,6 @@ The Azure Database for MariaDB firewall allows you to specify IP address ranges 
 You can salvage the IP option by obtaining a *static* IP address for your VM. For details, see [Configure private IP addresses for a virtual machine by using the Azure portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
-
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -91,7 +89,7 @@ You have the option of using [Azure role-based access control (Azure RBAC)][rbac
 
 > [!NOTE]
 > In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
-> - Both subscriptions must be in the same Azure Active Directory tenant.
+> - Both subscriptions must be in the same Microsoft Entra tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
 > - Make sure that both the subscription have the **Microsoft.Sql** and **Microsoft.DBforMariaDB** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
@@ -130,13 +128,15 @@ Merely setting a VNet firewall rule does not help secure the server to the VNet.
 You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
 
 ## Related articles
+
 - [Azure virtual networks][vm-virtual-network-overview]
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
 
 ## Next steps
+
 For articles on creating VNet rules, see:
 - [Create and manage Azure Database for MariaDB VNet rules using the Azure portal](howto-manage-vnet-portal.md)
- 
+
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->

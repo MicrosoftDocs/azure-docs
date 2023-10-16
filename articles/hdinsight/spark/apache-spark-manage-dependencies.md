@@ -1,14 +1,13 @@
 ---
 title: Manage Spark application dependencies on Azure HDInsight
 description: This article provides an introduction of how to manage Spark dependencies in HDInsight Spark cluster for PySpark and Scala applications.
-author: yanancai
-ms.author: yanacai
+author: apurbasroy
+ms.author: apsinhar
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, ignite-2022, devx-track-python
 ms.topic: how-to
-ms.date: 09/09/2020
-
-# Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
+ms.date: 10/18/2022
+#Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
 ---
 
 # Manage Spark application dependencies
@@ -40,9 +39,9 @@ You'll use the `%%configure` magic to configure the notebook to use an external 
 
 After locating the package from Maven Repository, gather the values for **GroupId**, **ArtifactId**, and **Version**. Concatenate the three values, separated by a colon (**:**).
 
-   :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="Concatenate package schema" border="true":::kage schema" border="true":::
+   :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="Concatenate package schema" border="true":::
 
-Make sure the values you gather match your cluster. In this case, we're using Spark Cosmos DB connector package for Scala 2.11 and Spark 2.3 for HDInsight 3.6 Spark cluster. If you are not sure, run `scala.util.Properties.versionString` in code cell on Spark kernel to get cluster Scala version. Run `sc.version` to get cluster Spark version.
+Make sure the values you gather match your cluster. In this case, we're using Spark Azure Cosmos DB connector package for Scala 2.11 and Spark 2.3 for HDInsight 3.6 Spark cluster. If you are not sure, run `scala.util.Properties.versionString` in code cell on Spark kernel to get cluster Scala version. Run `sc.version` to get cluster Spark version.
 
 ```
 %%configure { "conf": {"spark.jars.packages": "com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.3.3" }}

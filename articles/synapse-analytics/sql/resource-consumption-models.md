@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: sngun    
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Synapse SQL resource consumption
@@ -74,7 +74,7 @@ As you increase data warehouse units, you're linearly increasing computing resou
 
 #### Capacity limits
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../azure-sql/database/service-tiers-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](/azure/azure-sql/database/service-tiers-dtu) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context#workload-management).
 
 ### Assess the number of data warehouse units you need
 
@@ -169,7 +169,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/?view=azps-6.1.0&preserve-view=true).
+For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/).
 
 ### Check status of DWU changes
 

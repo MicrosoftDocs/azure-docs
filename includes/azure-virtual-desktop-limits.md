@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 01/25/2021
 author: thhickli
 ms.author: thhickli
-ms.service: azure-virtual-desktop
+ms.service: virtual-desktop
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
 
 The following table describes the maximum limits for Azure Virtual Desktop.
 
-| **Azure Virtual Desktop Object**                    | **Parent Container Object**                     | **Service Limit**   |
+| **Azure Virtual Desktop Object**                    | **Per Parent Container Object**                     | **Service Limit**   |
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
-| Workspace                                           | Azure Active Directory Tenant                   | 1300 |
+| Workspace                                           | Microsoft Entra tenant                   | 1300 |
 | HostPool                                            | Workspace                                       | 400 |
-| Application group                                   | HostPool                                        | 500<sup>1</sup>  |
+| Application group                                   | Microsoft Entra tenant                   | 500<sup>1</sup>  |
 | RemoteApp                                           | Application group                               | 500 |
 | Role Assignment                                     | Any Azure Virtual Desktop Object                | 200 |
 | Session Host                                        | HostPool                                        | 10,000 |

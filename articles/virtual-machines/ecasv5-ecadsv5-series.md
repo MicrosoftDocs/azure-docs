@@ -1,23 +1,19 @@
 ---
-title: Azure ECasv5 and ECadsv5-series (preview)
+title: Azure ECasv5 and ECadsv5-series
 description: Specifications for Azure Confidential Computing's ECasv5 and ECadsv5-series  confidential virtual machines. 
 author: runcai
 ms.author: runcai
 ms.reviewer: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual 
 ms.date: 11/15/2021
 
 ---
 
-# ECasv5 and ECadsv5-series (preview)
+# ECasv5 and ECadsv5-series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
-
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The ECasv5-series and ECadsv5-series are [confidential VMs](../confidential-computing/confidential-vm-overview.md) for use in Confidential Computing. 
 
@@ -80,27 +76,27 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 - [Premium Storage](premium-storage-performance.md)
 - [Premium Storage caching](premium-storage-performance.md)
 - [VM Generation 2](generation-2.md)
+- [Ephemeral OS Disks](ephemeral-os-disks.md)
 
 *Unsupported* features in DCasv5-series VMs:
 
 - [Live Migration](maintenance-and-updates.md)
 - [Memory Preserving Updates](maintenance-and-updates.md)
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
-- [Ephemeral OS Disks](ephemeral-os-disks.md)
 
 ### ECadsv5-series products
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|
-| Standard_E2ads_v5  | 2  | 16  | 75   | 4  | 9000 / 125    | 3750/82      | 2 |
-| Standard_E4ads_v5  | 4  | 32  | 150  | 8  | 19000 / 250   | 6400/144     | 2 |
-| Standard_E8ads_v5  | 8  | 64  | 300  | 16 | 38000 / 500   | 12800/200    | 4 |
-| Standard_E16ads_v5 | 16 | 128 | 600  | 32 | 75000 / 1000  | 25600/384    | 4 |
-| Standard_E20ads_v5 | 20 | 160 | 750  | 32 | 94000 / 1250  | 32000/480    | 8 |
-| Standard_E32ads_v5 | 32 | 256 | 1200 | 32 | 150000 / 2000 | 51200/768    | 8 |
-| Standard_E48ads_v5 | 48 | 384 | 1800 | 32 | 225000 / 3000 | 76800/1152   | 8 |
-| Standard_E64ads_v5 | 64 | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200   | 8 |
-| Standard_E96ads_v5 | 96 | 672 | 3600 | 32 | 450000 / 4000 | 80000/1600   | 8 |
+| Standard_EC2ads_v5  | 2  | 16  | 75   | 4  | 9000 / 125    | 3750/82      | 2 |
+| Standard_EC4ads_v5  | 4  | 32  | 150  | 8  | 19000 / 250   | 6400/144     | 2 |
+| Standard_EC8ads_v5  | 8  | 64  | 300  | 16 | 38000 / 500   | 12800/200    | 4 |
+| Standard_EC16ads_v5 | 16 | 128 | 600  | 32 | 75000 / 1000  | 25600/384    | 4 |
+| Standard_EC20ads_v5 | 20 | 160 | 750  | 32 | 94000 / 1250  | 32000/480    | 8 |
+| Standard_EC32ads_v5 | 32 | 256 | 1200 | 32 | 150000 / 2000 | 51200/768    | 8 |
+| Standard_EC48ads_v5 | 48 | 384 | 1800 | 32 | 225000 / 3000 | 76800/1152   | 8 |
+| Standard_EC64ads_v5 | 64 | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200   | 8 |
+| Standard_EC96ads_v5 | 96 | 672 | 3600 | 32 | 450000 / 4000 | 80000/1600   | 8 |
 
 > [!NOTE]
 > To achieve these IOPs, use [Gen2 VMs](generation-2.md).

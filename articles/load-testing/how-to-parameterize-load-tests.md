@@ -6,13 +6,13 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 03/22/2022
+ms.date: 01/15/2023
 ms.topic: how-to
 ---
 
 # Create configurable load tests with secrets and environment variables
 
-Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing Preview, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
+Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
 
 The Azure Load Testing service supports two types of parameters:
 
@@ -20,14 +20,11 @@ The Azure Load Testing service supports two types of parameters:
 
 - **Environment variables**: Contain non-sensitive information and are available as environment variables in the load test engine. For example, environment variables make the application endpoint URL configurable. For more information, see [Configure load tests with environment variables](#envvars).
 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 
-- An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).  
+- An Azure load testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
 ## <a name="secrets"></a> Configure load tests with secrets
 
@@ -51,6 +48,9 @@ You'll also need to grant Azure Load Testing access to your Azure key vault to r
 > If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
 
 1. [Add the secret value to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
+
+    > [!IMPORTANT]
+    > If you restricted access to your Azure key vault by a firewall or virtual networking, follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
 
 1. Retrieve the key vault **secret identifier** for your secret. You'll use this secret identifier to configure your load test.
 
@@ -323,4 +323,4 @@ The values of the parameters aren't stored when they're passed from the CI/CD wo
 
 - For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

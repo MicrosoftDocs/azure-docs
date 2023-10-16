@@ -1,20 +1,19 @@
 ---
-title: "Tutorial: Migrate Azure DB for PostgreSQL to Azure DB for PostgreSQL online via the Azure portal"
+title: "Tutorial: Migrate Azure Database for PostgreSQL to Azure Database for PostgreSQL online via the Azure portal"
 titleSuffix: Azure Database Migration Service
-description: Learn to perform an online migration from one Azure DB for PostgreSQL to another Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
-services: dms
-author: rothja
-ms.author: jroth
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: tutorial
+description: Learn to perform an online migration from one Azure Database for PostgreSQL to another Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
+author: apduvuri
+ms.author: adityaduvuri
+ms.reviewer: randolphwest
 ms.date: 07/21/2020
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
-# Tutorial: Migrate/Upgrade Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server  online using DMS via the Azure portal
+# Tutorial: Migrate/Upgrade Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Single Server  online using DMS via the Azure portal
 
 You can use Azure Database Migration Service to migrate the databases from an [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server) instance to same or different version of Azure Database for PostgreSQL - Single Server instance or Azure Database for PostgreSQL - Flexible Server with minimal downtime. In this tutorial, you migrate the **DVD Rental** sample database from an Azure Database for PostgreSQL v10 to Azure Database for PostgreSQL - Single Server by using the online migration activity in Azure Database Migration Service.
 
@@ -50,9 +49,9 @@ To complete this tutorial, you need to:
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
 * Ensure that the Network Security Group (NSG) rules for your virtual network don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for PostgreSQL source to allow Azure Database Migration Service to access to the source databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for PostgreSQL target to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
-* [Enable logical replication](../postgresql/concepts-logical.md) in the Azure DB for PostgreSQL source. 
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) for Azure Database for PostgreSQL source to allow Azure Database Migration Service to access to the source databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) for Azure Database for PostgreSQL target to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* [Enable logical replication](../postgresql/concepts-logical.md) in the Azure Database for PostgreSQL source. 
 * Set the following Server parameters in the Azure Database for PostgreSQL instance being used as a source:
 
   * max_replication_slots = [number of slots], recommend setting to **ten slots**
@@ -71,13 +70,13 @@ To complete all the database objects like table schemas, indexes and stored proc
 1. Use pg_dump -s command to create a schema dump file for a database.
 
     ```
-    pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
+    pg_dump -O -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
     For example, to create a schema dump file for the **dvdrental** database:
 
     ```
-    pg_dump -o -h mypgserver-source.postgres.database.azure.com -U pguser@mypgserver-source -d dvdrental -s -O -x > dvdrentalSchema.sql
+    pg_dump -O -h mypgserver-source.postgres.database.azure.com -U pguser@mypgserver-source -d dvdrental -s -x > dvdrentalSchema.sql
     ```
 
     For more information about using the pg_dump utility, see the examples in the [pg-dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html#PG-DUMP-EXAMPLES) tutorial.
@@ -195,13 +194,13 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 * Select **Run migration**.
 
-The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**. You may encounter the following error when upgrading from Azure DB for PostgreSQL 9.5 or 9.6:
+The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**. You may encounter the following error when upgrading from Azure Database for PostgreSQL 9.5 or 9.6:
 
 **A scenario reported an unknown error. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"**
 
 This is because the PostgreSQL does not have appropriate privileges to create required logical replication artifacts. To enable required privileges, you can do the following:
 
-1. Open "Connection security" settings for the source Azure DB for PostgreSQL server you are trying to migrate/upgrade from.
+1. Open "Connection security" settings for the source Azure Database for PostgreSQL server you are trying to migrate/upgrade from.
 2. Add a new firewall rule with a name ending with "_replrule" and add the IP address from the error message to the start IP and End IP fields. For the above error example -
 > Firewall rule name = sr_replrule;
 > Start IP = 40.121.141.121;

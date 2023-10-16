@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 12/13/2022
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -17,7 +17,9 @@ Connection strings, environment variables, and other application settings are de
 
 ## Get started in the Azure portal
 
-1. To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+1. To begin, sign in to the [Azure portal] using your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
 
 2. Under **Settings** in the left pane, select **Configuration**.
 
@@ -33,7 +35,7 @@ These settings are stored encrypted. To learn more, see [Application settings se
 
 Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 To find the application settings, see [Get started in the Azure portal](#get-started-in-the-azure-portal). 
 
@@ -42,7 +44,7 @@ To add a setting in the portal, select **New application setting** and add the n
 
 ![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command returns the existing application settings, as in the following example:
 
@@ -60,7 +62,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 The [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet returns the existing application settings, as in the following example: 
 
@@ -82,6 +84,47 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-develop-local.md#local-settings-file).
 
+## FTPS deployment settings
+
+Azure Functions supports deploying project code to your function app by using FTPS. Because this deployment method requires you to [sync triggers](functions-deployment-technologies.md#trigger-syncing), it's not recommended. To securely transfer project files, always use FTPS and not FTP.
+
+You can get the credentials required for FTPS deployment using one of these methods:
+
+### [Portal](#tab/portal)
+
+You can get the FTPS publishing credentials in the Azure portal by downloading the publishing profile for your function app. 
+
+> [!IMPORTANT]
+> The publishing profile contains important security credentials. You should always secure the downloaded file on your local computer.  
+
+[!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
+
+3. In the file, locate the `publishProfile` element with the attribute `publishMethod="FTP"`. In this element, the `publishUrl`, `userName`, and `userPWD` attributes contain the target URL and credentials for FTPS publishing.   
+
+### [Azure CLI](#tab/azure-cli)
+
+Run this Azure CLI command that returns the FTPS credentials from the publishing profile.
+
+```azurecli
+az functionapp deployment list-publishing-profiles --name <APP_NAME> --resource-group <GROUP_NAME> --query "[?publishMethod=='FTP'].{URL:publishUrl, username:userName, password:userPWD}" -o table
+```
+
+In this example, replace `<APP_NAME>` with your function app name and `<GROUP_NAME>` with the resource group. The returned `URL`, `username`, and `password` columns contain the target URL and credentials for FTPS publishing.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Run this Azure PowerShell command that returns the FTPS credentials from the publishing profile.
+
+```azurepowershell
+$profile = [xml](Get-AzWebAppPublishingProfile -ResourceGroupName "<GROUP_NAME>" -Name "<APP_NAME>" -Format "Ftp") 
+$profile.publishData.publishProfile | Where-Object -Property publishMethod -eq Ftp | Select-Object -Property @{Name="URL"; Expression = {$_.publishUrl}}, 
+@{Name="username"; Expression = {$_.userName}}, @{Name="password"; Expression = {$_.userPWD}} | Format-Table
+```
+
+In this example, replace `<APP_NAME>` with your function app name and `<GROUP_NAME>` with the resource group. The returned `URL`, `username`, and `password` columns contain the target URL and credentials for FTPS publishing.
+
+---
+
 ## Hosting plan type
 
 When you create a function app, you also create a hosting plan in which the app runs. A plan can have one or more function apps. The functionality, scaling, and pricing of your functions depend on the type of plan. To learn more, see [Azure Functions hosting options](functions-scale.md).
@@ -96,13 +139,13 @@ The following values indicate the plan type:
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
 | [Dedicated (App Service)](dedicated-plan.md) | Various | Various |
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 To determine the type of plan used by your function app, see **App Service plan** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). To see the pricing tier, select the name of the **App Service Plan**, and then select **Properties** from the left pane.
 
 ![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Run the following Azure CLI command to get your hosting plan type:
 
@@ -133,9 +176,18 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ## Plan migration
 
-You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. The specific commands depend on the direction of the migration. Direct migration to a Dedicated (App Service) plan isn't currently supported.
+You can use either the Azure portal or Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
 
-This migration isn't supported on Linux.
++ Direct migration to a Dedicated (App Service) plan isn't currently supported.
++ Migration isn't supported on Linux. 
++ The source plan and the target plan must be in the same resource group and geographical region. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
++ The specific CLI commands depend on the direction of the migration.
++ Downtime in your function executions occurs as the function app is migrated between plans.
++ State and other app-specific content is maintained, since the same Azure Files share is used by the app both before and after migration.
+
+### Migration in the portal
+
+In the Azure portal, navigate to your Consumption or Premium plan app and choose **Change App Service plan** under **App Service plan**. Select the other **Plan type**, create a new App Service plan of the new type, and select **OK**. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 
 ### Consumption to Premium
 
@@ -189,7 +241,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Note that if the plan isn't deleted, you'll still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -246,6 +298,35 @@ $path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/
 In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. 
 
 ---
+
+## Manually install extensions
+
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](functions-bindings-register.md#extension-bundles). If you must manually install extensions you can do this by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
+
+This same process works for any other file you need to add to your app. 
+
+> [!IMPORTANT]
+> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](./functions-core-tools-reference.md#func-extensions-install) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
+
+The Functions editor built into the Azure portal lets you update your function code and configuration (function.json) files directly in the portal. 
+
+1. Select your function app, then under **Functions** select **Functions**.
+1. Choose your function and select **Code + test** under **Developer**.
+1. Choose your file to edit and select **Save** when you're done.
+
+Files in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the [Advanced Tools (Kudu)](#kudu).
+
+1. Select your function app, then under **Development tools** select **Advanced tools** > **Go**.
+1. If prompted, sign-in to the SCM site with your Azure credentials.
+1. From the **Debug console** menu, choose **CMD**.
+1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
+1. Name the file, such as `extensions.csproj` and press Enter.
+1. Select the edit button next to the new file, add or update code in the file, and select **Save**. 
+1. For a project file like extensions.csproj, run the following command to rebuild the extensions project:
+
+    ```bash
+    dotnet build extensions.csproj
+    ```
 
 ## Platform features
 
@@ -324,7 +405,7 @@ Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-
 
 ![Configure authentication for a function app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Azure Active Directory authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. For details on configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md). 
+When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. For details on configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md). 
 
 
 ## Next steps

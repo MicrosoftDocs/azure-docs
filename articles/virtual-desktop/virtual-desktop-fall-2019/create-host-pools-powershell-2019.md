@@ -3,7 +3,7 @@ title: Create Azure Virtual Desktop (classic) host pool PowerShell - Azure
 description: How to create a host pool in Azure Virtual Desktop (classic) with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -12,7 +12,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../create-host-pools-powershell.md).
 
-Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop.
 
 ## Use your PowerShell client to create a host pool
 
@@ -36,13 +36,13 @@ Run the next cmdlet to create a registration token to authorize a session host t
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
-After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
+After that, run this cmdlet to add Microsoft Entra users to the default desktop application group for the host pool.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
+The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the application group. If you want to add multiple users to the application group, rerun the cmdlet with the appropriate user principal names.
 
 Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Azure Virtual Desktop host pool](#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
 
@@ -60,16 +60,13 @@ You can create a virtual machine in multiple ways:
 - [Create a virtual machine from a managed image](../../virtual-machines/windows/create-vm-generalized-managed.md)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
->[!NOTE]
->If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Azure Virtual Desktop](deploy-windows-7-virtual-machine.md).
-
-After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
+After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#manually-apply-a-windows-license-to-a-windows-client-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
 
 ## Prepare the virtual machines for Azure Virtual Desktop agent installations
 
 You need to do the following things to prepare your virtual machines before you can install the Azure Virtual Desktop agents and register the virtual machines to your Azure Virtual Desktop host pool:
 
-- You must domain-join the machine. This allows incoming Azure Virtual Desktop users to be mapped from their Azure Active Directory account to their Active Directory account and be successfully allowed access to the virtual machine.
+- You must domain-join the machine. This allows incoming Azure Virtual Desktop users to be mapped from their Microsoft Entra account to their Active Directory account and be successfully allowed access to the virtual machine.
 - You must install the Remote Desktop Session Host (RDSH) role if the virtual machine is running a Windows Server OS. The RDSH role allows the Azure Virtual Desktop agents to install properly.
 
 To successfully domain-join, do the following things on each virtual machine:
@@ -81,7 +78,7 @@ To successfully domain-join, do the following things on each virtual machine:
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+    > If you're joining your VMs to a Microsoft Entra Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## Register the virtual machines to the Azure Virtual Desktop host pool
 
@@ -104,7 +101,7 @@ To register the Azure Virtual Desktop agents, do the following on each virtual m
 
 ## Next steps
 
-Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage app groups tutorial.
+Now that you've made a host pool, you can populate it with applications. To learn more about how to manage applications in Azure Virtual Desktop, see the Manage application groups tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](../manage-app-groups.md)
+> [Manage application groups tutorial](../manage-app-groups.md)

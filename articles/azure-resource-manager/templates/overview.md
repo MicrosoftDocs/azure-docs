@@ -2,14 +2,15 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.custom: devx-track-arm-template
+ms.date: 06/23/2023
 ---
 
 # What are ARM templates?
 
 With the move to the cloud, many teams have adopted agile development methods. These teams iterate quickly. They need to repeatedly deploy their solutions to the cloud, and know their infrastructure is in a reliable state. As infrastructure has become part of the iterative process, the division between operations and development has disappeared. Teams need to manage infrastructure and application code through a unified process.
 
-To meet these challenges, you can automate deployments and use the practice of infrastructure as code. In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like application code, you store the infrastructure code in a source repository and version it. Any one on your team can run the code and deploy similar environments.
+To meet these challenges, you can automate deployments and use the practice of infrastructure as code. In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like application code, you store the infrastructure code in a source repository and version it. Anyone on your team can run the code and deploy similar environments.
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
@@ -18,7 +19,7 @@ To implement infrastructure as code for your Azure solutions, use Azure Resource
 
 To learn about how you can get started with ARM templates, see the following video.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 
@@ -30,7 +31,7 @@ If you're trying to decide between using ARM templates and one of the other infr
 
 * **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel so your deployments finish faster than serial deployments. You deploy the template through one command, rather than through multiple imperative commands.
 
-   ![Template deployment comparison](./media/overview/template-processing.png)
+   :::image type="content" source="./media/overview/template-processing.png" alt-text="Diagram that shows the difference between imperative and declarative deployment.":::
 
 * **Modular files**: You can break your templates into smaller, reusable components and link them together at deployment time. You can also nest one template inside another template.
 
@@ -46,7 +47,7 @@ If you're trying to decide between using ARM templates and one of the other infr
 
 * **Tracked deployments**: In the Azure portal, you can review the deployment history and get information about the template deployment. You can see the template that was deployed, the parameter values passed in, and any output values. Other infrastructure as code services aren't tracked through the portal.
 
-   ![Deployment history](./media/overview/deployment-history.png)
+   :::image type="content" source="./media/overview/deployment-history.png" alt-text="Screenshot of the Azure portal showing deployment history.":::
 
 * **Policy as code**: [Azure Policy](../../governance/policy/overview.md) is a policy as code framework to automate governance. If you're using Azure policies, policy remediation is done on non-compliant resources when deployed through templates.
 
@@ -82,15 +83,14 @@ When you deploy a template, Resource Manager converts the template into REST API
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-04-01",
+    "apiVersion": "2022-09-01",
     "name": "mystorageaccount",
-    "location": "westus",
+    "location": "centralus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "StorageV2",
-    "properties": {}
-  }
+    "kind": "StorageV2"
+  },
 ]
 ```
 
@@ -98,10 +98,10 @@ It converts the definition to the following REST API operation, which is sent to
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2022-09-01
 REQUEST BODY
 {
-  "location": "westus",
+  "location": "centralus",
   "sku": {
     "name": "Standard_LRS"
   },
@@ -125,15 +125,15 @@ To deploy a template, use any of the following options:
 
 How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
 
-![three tier template](./media/overview/3-tier-template.png)
+:::image type="content" source="./media/overview/3-tier-template.png" alt-text="Diagram that shows a three-tier application deployment using a single template.":::
 
 But, you don't have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a main template that links all the required templates. The following image shows how to deploy a three tier solution through a parent template that includes three nested templates.
 
-![nested tier template](./media/overview/nested-tiers-template.png)
+:::image type="content" source="./media/overview/nested-tiers-template.png" alt-text="Diagram that shows a three-tier application deployment using nested templates.":::
 
 If you envision your tiers having separate lifecycles, you can deploy your three tiers to separate resource groups. Notice the resources can still be linked to resources in other resource groups.
 
-![tier template](./media/overview/tier-templates.png)
+:::image type="content" source="./media/overview/tier-templates.png" alt-text="Diagram that shows a three-tier application deployment with separate resource groups.":::
 
 For information about nested templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
 
@@ -146,7 +146,7 @@ This approach means you can safely share templates that meet your organization's
 ## Next steps
 
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
-* To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+* To learn about ARM templates through a guided set of Learn modules, see [Deploy and manage resources in Azure by using ARM templates](/training/paths/deploy-manage-resource-manager-templates/).
 * For information about the properties in template files, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](quickstart-create-templates-use-the-portal.md).
 * For answers to common questions, see [Frequently asked questions about ARM templates](./frequently-asked-questions.yml).

@@ -1,34 +1,47 @@
 ---
 title: Create an indexer
 titleSuffix: Azure Cognitive Search
-description: Set properties on an indexer to determine data origin and destinations. You can set parameters to modify runtime behaviors.
+description: Configure an indexer to automate data import and indexing from Azure data sources into a search index in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom: 
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 10/05/2023
 ---
 
-# Creating indexers in Azure Cognitive Search
+# Create an indexer in Azure Cognitive Search
 
-A search indexer connects to an external data source, retrieves and processes data, and then passes it to the search engine for indexing. Indexers support two workflows:
+Use an indexer to automate data import and indexing in Azure Cognitive Search. An indexer is a named object on a search service that connects to an external Azure data source, reads data, and passes it to a search engine for indexing. Using indexers significantly reduces the quantity and complexity of the code you need to write if you're using a supported data source. 
 
-+ Text-based indexing, extracting strings and metadata for full text search scenarios.
+Indexers support two workflows:
 
-+ [AI-enriched indexing](cognitive-search-concept-intro.md), applying integrated machine learning and AI models to analyze content that isn't otherwise searchable, such as images and large undifferentiated text.
++ Text-based indexing, extract strings and metadata from textual content for full text search scenarios.
 
-Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the basics of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
++ Skills-based indexing, using built-in or custom skills that add integrated machine learning for analysis over images and large undifferentiated content, extracting or inferring text and structure. Skill-based indexing enables search over content that isn't otherwise easily full text searchable. To learn more, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
 
-## Indexer definitions
+This article focuses on the basic steps of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
 
-When you create an indexer, the definition will adhere to one of two patterns: text-based indexing or AI enrichment with skills. The only difference is that an indexer that invokes AI enrichment has more definitions.
+## Prerequisites
 
-### Indexer definition for full text search
++ A [supported data source](search-indexer-overview.md#supported-data-sources) that contains the content you want to ingest.
 
-Full text search is the primary use case for indexers, and for this workflow, an indexer will look like this example.
++ An [indexer data source](#prepare-a-data-source) that sets up a connection to external data.
+
++ A [search index](search-how-to-create-search-index.md) that can accept incoming data.
+
++ Be under the [maximum limits](search-limits-quotas-capacity.md#indexer-limits) for your service tier. The Free tier allows three objects of each type and 1-3 minutes of indexer processing, or 3-10 if there's a skillset.
+
+## Indexer patterns
+
+When you create an indexer, the definition is one of two patterns: text-based indexing or AI enrichment with skills. The patterns are the same, except that skills-based indexing has more definitions.
+
+### Indexer example for text-based indexing
+
+Text-based indexing for full text search is the primary use case for indexers, and for this workflow, an indexer looks like this example.
 
 ```json
 {
@@ -52,23 +65,23 @@ Full text search is the primary use case for indexers, and for this workflow, an
 
 Indexers have the following requirements:
 
-+ A "name" property that uniquely identifies the indexer in the indexer collection.
-+ A "dataSourceName" property that points to a data source object. It specifies a connection to external data.
-+ A "targetIndexName" property that points to the destination search index.
++ A `"name"` property that uniquely identifies the indexer in the indexer collection.
++ A `"dataSourceName"` property that points to a data source object. It specifies a connection to external data.
++ A `"targetIndexName"` property that points to the destination search index.
 
-Parameters are optional and modify run time behaviors, such as how many errors to accept before failing the entire job. The parameters above are available for all indexers and are documented in the [REST API reference](/rest/api/searchservice/create-indexer#request-body). 
+Other parameters are optional and modify run time behaviors, such as how many errors to accept before failing the entire job. Required parameters are specified in all indexers and are documented in the [REST API reference](/rest/api/searchservice/create-indexer#request-body). 
 
-Source-specific indexers for blobs, SQL, and Cosmos DB provide extra "configuration" parameters for source-specific behaviors. For example, if the source is Blob Storage, you can set a parameter that filters on file extensions: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }`.
+Data source-specific indexers for blobs, SQL, and Azure Cosmos DB provide extra `"configuration"` parameters for source-specific behaviors. For example, if the source is Blob Storage, you can set a parameter that filters on file extensions: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }`. If the source is Azure SQL, you can set a query time out parameter.
 
-[Field mappings](search-indexer-field-mappings.md) are used to explicitly map source-to-destination fields if those fields differ by name or type. 
+[Field mappings](search-indexer-field-mappings.md) are used to explicitly map source-to-destination fields if there are discrepancies by name or type between a field in the data source and a field in the search index.
 
-An indexer will run immediately when you create it on the search service. If you don't want indexer execution, set "disabled" to true. 
+By default, an indexer runs immediately when you create it on the search service. If you don't want indexer execution, set `"disabled"` to true when creating the indexer.
 
 You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [encryption key](search-security-manage-encryption-keys.md) for supplemental encryption of the indexer definition.
 
-### Indexer definition for AI enrichment
+### Indexer example for skills-based indexing
 
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A few other required and similarly named properties are added for context.
+Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters for apply, but the following extra properties are specific to AI enrichment: `"skillSetName"`, `"cache"`, `"outputFieldMappings"`. 
 
 ```json
 {
@@ -86,17 +99,7 @@ Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of t
 }
 ```
 
-AI enrichment is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
-
-## Prerequisites
-
-+ Identify a [supported data source](search-indexer-overview.md#supported-data-sources) that contains the content you want to ingest.
-
-+ [Create an indexer data source](#prepare-a-data-source) that sets up a connection to external data.
-
-+ [Create a search index](search-how-to-create-search-index.md) that can accept incoming data.
-
-+ Be under the [maximum limits](search-limits-quotas-capacity.md#indexer-limits) for your service tier. The Free tier allows three objects of each type and 1-3 minutes of indexer processing or 3-10 if there's a skillset.
+AI enrichment is its own subject area and is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
 
 ## Prepare external data
 
@@ -105,10 +108,10 @@ Indexers work with data sets. When you run an indexer, it connects to your data 
 | Source data | Tasks |
 |-------------|-------|
 | JSON documents | Make sure the structure or shape of incoming data corresponds to the schema of your search index. Most search indexes are fairly flat, where the fields collection consists of fields at the same level. However, hierarchical or nested structures are possible through [complex fields and collections](search-howto-complex-data-types.md). |
-| Relational | You'll need to provide it as a flattened row set, where each row becomes a full or partial search document in the index. </p> To flatten relational data into a row set, you should create a SQL view, or build a query that returns parent and child records in the same row. For example, the built-in hotels sample dataset is an SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. </p> You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is just one example; you can find other approaches that will produce the same result. |
+| Relational | Provide it as a flattened row set, where each row becomes a full or partial search document in the index. </p> To flatten relational data into a row set, you should create a SQL view, or build a query that returns parent and child records in the same row. For example, the built-in hotels sample dataset is an SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. </p> You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is just one example; you can find other approaches that produce the same result. |
 | Files | An indexer generally creates one search document for each file, where the search document consists of fields for content and metadata. Depending on the file type, the indexer can sometimes [parse one file into multiple search documents](search-howto-index-one-to-many-blobs.md). For example, in a CSV file, each row can become a standalone search document. |
 
-Remember that you'll only need to pull in searchable and filterable data:
+Remember that you only need to pull in searchable and filterable data:
 
 + Searchable data is text.
 + Filterable data is alphanumeric.
@@ -129,6 +132,8 @@ Indexers require a data source that specifies the type, container, and connectio
    + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
    + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
+1. If the data source is a database, such as Azure SQL or Cosmos DB, enable change tracking. Azure Storage has built-in change tracking through the `LastModified` property on every blob, file, and table. The above links for the various data sources explain which change tracking methods are supported by indexers.
+
 ## Prepare an index
 
 Indexers also require a search index. Recall that indexers pass data off to the search engine for indexing. Just as indexers have properties that determine execution behavior, an index schema has properties that profoundly affect how strings are indexed (only strings are analyzed and tokenized). 
@@ -137,7 +142,7 @@ Indexers also require a search index. Recall that indexers pass data off to the 
 
 1. Set up the fields collection and field attributes. 
 
-   Fields are the only receptors of external content. Depending on how the fields are attributed in the schema, the values for each field will be analyzed, tokenized, or stored as verbatim strings for filters, fuzzy search, and typeahead queries.
+   Fields are the only receptors of external content. Depending on how the fields are attributed in the schema, the values for each field are analyzed, tokenized, or stored as verbatim strings for filters, fuzzy search, and typeahead queries.
 
    Indexers can automatically map source fields to target index fields when the names and types are equivalent. If a field can't be implicitly mapped, remember that you can [define an explicit field mapping](search-indexer-field-mappings.md) that tells the indexer how to route the content.
 
@@ -147,15 +152,15 @@ During indexing, an indexer only checks field names and types. There's no valida
 
 ## Create an indexer
 
-When you're ready to create an indexer on a remote search service, you'll need a search client. A search client can be the Azure portal, Postman or another REST client, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create an indexer on a remote search service, you need a search client. A search client can be the Azure portal, Postman or another REST client, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the search service Overview page, choose from two options: 
 
-   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require a predefined data source and index.
 
    + **New Indexer**, a visual editor for specifying an indexer definition. 
 
@@ -165,7 +170,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 ### [**REST**](#tab/indexer-rest)
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
+The Postman app can function as an indexer client. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
 
 ```http
 POST /indexers?api-version=[api-version]
@@ -182,12 +187,7 @@ POST /indexers?api-version=[api-version]
 }
 ```
 
-There are numerous tutorials and examples that demonstrate REST clients for creating objects.  Start with either of these articles to learn about each client:
-
-+ [Create a search index using REST and Postman](search-get-started-rest.md)
-+ [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
-
-Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operations) for help with formulating indexer requests.
+There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Create a search index using REST and Postman](search-get-started-rest.md) can get you started.
 
 ### [**.NET SDK**](#tab/indexer-csharp)
 
@@ -204,7 +204,7 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 
 ## Run the indexer
 
-By default, an indexer runs immediately when you create it on the search service. You can override this behavior by setting "disabled" to true in the indexer definition. Indexer execution is the moment of truth where you'll find out if there are problems with connections, field mappings, or skillset construction. 
+By default, an indexer runs immediately when you create it on the search service. You can override this behavior by setting `"disabled"` to true in the indexer definition. Indexer execution is the moment of truth where you find out if there are problems with connections, field mappings, or skillset construction. 
 
 There are several ways to run an indexer:
 
@@ -228,13 +228,19 @@ If your data source supports change detection, an indexer can detect underlying 
 
 Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
 
-+ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically.. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer can use this information to determine which documents to update in the index.
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index. For more information about deletion detection, see [Delete detection using indexers for Azure Storage in Azure Cognitive Search](search-howto-index-changed-deleted-blobs.md).
 
-+ Azure SQL and Cosmos DB provide optional change detection features in their platforms. You can specify the change detection policy in your data source definition.
++ Cloud database technologies provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You need to specify in the data source definition which policy is used:
 
-For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
+  + [Azure SQL (change detection)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#indexing-new-changed-and-deleted-rows)
+  + [Azure DB for MySQL (change detection)](search-howto-index-mysql.md#indexing-new-and-changed-rows)
+  + [Azure Cosmos DB for NoSQL (change detection)](search-howto-index-cosmosdb.md#indexing-new-and-changed-documents)
+  + [Azure Cosmos DB for MongoDB (change detection)](search-howto-index-cosmosdb-mongodb.md#indexing-new-and-changed-documents)
+  + [Azure CosmosDB for Apache Gremlin (change detection)](search-howto-index-cosmosdb-gremlin.md#indexing-new-and-changed-documents)
 
-If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
+Indexers keep track of the last document it processed from the data source through an internal *high water mark*. The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
+
+If you need to clear the high water mark to reindex in full, you can use [Reset Indexer](/rest/api/searchservice/reset-indexer). For more selective reindexing, use [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
 ## Next steps
 

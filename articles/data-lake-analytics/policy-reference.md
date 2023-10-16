@@ -1,14 +1,14 @@
 ---
 title: Built-in policy definitions for Azure Data Lake Analytics
 description: Lists Azure Policy built-in policy definitions for Azure Data Lake Analytics. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/08/2022
+ms.date: 10/10/2023
 ms.topic: reference
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Data Lake Analytics
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Data Lake Analytics. For additional Azure Policy built-ins for other services,

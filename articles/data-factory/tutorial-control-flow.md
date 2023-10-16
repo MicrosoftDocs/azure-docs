@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 08/11/2023
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
@@ -40,13 +40,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. To install this tool, see [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. You use the database as a sink data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database. You use the database as a sink data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 * Visual Studio. This article uses Visual Studio 2019.
 * Azure .NET SDK. Download and install the [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
 For a list of Azure regions in which Data Factory is currently available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores and computes can be in other regions. The stores include Azure Storage and Azure SQL Database. The computes include HDInsight, which Data Factory uses.
 
-Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Assign the application to the **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
+Create an application as described in [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Assign the application to the **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
 
 ### Create a blob table
 
@@ -296,11 +296,11 @@ In your C# project, create a class named `EmailRequest`. This class defines what
 
 ## Create email workflow endpoints
 
-To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic Apps workflow, see [How to create a Logic App](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+To trigger sending an email, you use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For more information, see [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ### Success email workflow
 
-In the [Azure portal](https://portal.azure.com), create a Logic Apps workflow named *CopySuccessEmail*. Define the workflow trigger as `When an HTTP request is received`. For your request trigger, fill in the `Request Body JSON Schema` with the following JSON:
+In the [Azure portal](https://portal.azure.com), create a logic app workflow named `CopySuccessEmail`. Add the Request trigger named **When an HTTP request is received**. In the Request trigger, fill in the **Request Body JSON schema** box with the following JSON:
 
 ```json
 {
@@ -328,17 +328,17 @@ Your workflow looks something like the following example:
 
 This JSON content aligns with the `EmailRequest` class you created in the previous section.
 
-Add an action of `Office 365 Outlook – Send an email`. For the **Send an email** action, customize how you wish to format the email, using the properties passed in the request **Body** JSON schema. Here's an example:
+Add the **Office 365 Outlook** action named **Send an email**. For this action, customize how you wish to format the email, using the properties passed in the request **Body** JSON schema. Here's an example:
 
-:::image type="content" source="media/tutorial-control-flow/customize-send-email-action.png" alt-text="Logic app designer - send email action":::
+:::image type="content" source="media/tutorial-control-flow/customize-send-email-action.png" alt-text="Workflow designer with the action named Send an email.":::
 
 After you save the workflow, copy and save the **HTTP POST URL** value from the trigger.
 
 ## Fail email workflow
 
-Clone **CopySuccessEmail** as another Logic Apps workflow named *CopyFailEmail*. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
+Clone the `CopySuccessEmail` logic app workflow to a new workflow named `CopyFailEmail`. In the Request trigger, the **Request Body JSON schema** is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
-:::image type="content" source="media/tutorial-control-flow/fail-email-workflow.png" alt-text="Logic app designer - fail email workflow":::
+:::image type="content" source="media/tutorial-control-flow/fail-email-workflow.png" alt-text="Workflow designer and the fail email workflow.":::
 
 After you save the workflow, copy and save the **HTTP POST URL** value from the trigger.
 

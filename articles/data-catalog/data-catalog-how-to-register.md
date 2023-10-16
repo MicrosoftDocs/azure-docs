@@ -3,12 +3,12 @@ title: Register data sources in Azure Data Catalog
 description: This article highlights how to register data sources in Azure Data Catalog, including the metadata fields extracted during registration.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 12/12/2022
 ---
 
 # Register data sources in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 
@@ -20,7 +20,7 @@ Registration is the process of extracting metadata from the data source and copy
 
 To register a data source, follow these steps:
 1. In the Azure Data Catalog portal, start the Data Catalog data source registration tool. 
-2. Sign in with your work or school account with the same Azure Active Directory credentials that you use to sign in to the portal.
+2. Sign in with your work or school account with the same Microsoft Entra credentials that you use to sign in to the portal.
 3. Select the data source you want to register.
 
 For more step-by-step details, see the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial.

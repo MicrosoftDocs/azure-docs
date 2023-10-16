@@ -2,7 +2,9 @@
 title: Firewall access rules
 description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to REST API and data endpoint domain names or service-specific IP address ranges.
 ms.topic: article
-ms.date: 05/18/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Configure rules to access an Azure container registry behind a firewall
@@ -17,6 +19,8 @@ To pull or push images or other artifacts to an Azure container registry, a clie
 
 * **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server name of the registry. Example: `myregistry.azurecr.io`
 
+  * **Registry REST API endpoint for certificates** - Azure container registry uses a wildcard SSL certificate for all subdomains. When connecting to the Azure container registry using SSL, the client must be able to download the certificate for the TLS handshake. In such cases, `azurecr.io` must also be accessible.
+
 * **Storage (data) endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure Storage accounts on behalf of each registry to manage the data for container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
 
 If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with the data endpoint in a specific region or in multiple replicated regions.
@@ -28,6 +32,15 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), a c
 > [!NOTE]
 > Azure Container Registry is introducing [dedicated data endpoints](#enable-dedicated-data-endpoints), allowing you to tightly scope client firewall rules for your registry storage. Optionally enable data endpoints in all regions where the registry is located or replicated, using the form `<registry-name>.<region>.data.azurecr.io`.
 
+ ## About Registry FQDN's
+
+Registry has two FQDN's, the **login url** and the **data endpoint**.
+
+* Both the **login url** and the **data endpoint** are accessible from within the virtual network, using private IP's by enabling a private link.
+* A registry that does not use data endpoints would have to access the data from an endpoint of the form `*.blob.core.windows.net` and does not provide the isolation required when configuring firewall rules. 
+* A registry with a private link enabled gets the dedicated data endpoint automatically.
+* A dedicated data endpoint is created per region for a registry.
+* Login url remains the same irrespective of whether data endpoint is enabled or disabled.
 ## Allow access by IP address range
 
 If your organization has policies to allow access only to specific IP addresses or address ranges, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
@@ -172,7 +185,7 @@ After you set up dedicated data endpoints for your registry, you can enable clie
 
 ## Configure client firewall rules for MCR
 
-If you need to access Microsoft Container Registry (MCR) from behind a firewall, see the guidance to configure [MCR client firewall rules](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR is the primary registry for all Microsoft-published docker images, such as Windows Server images.
+If you need to access Microsoft Container Registry (MCR) from behind a firewall, see the guidance to configure [MCR client firewall rules](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md). MCR is the primary registry for all Microsoft-published docker images, such as Windows Server images.
 
 ## Next steps
 

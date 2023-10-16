@@ -1,21 +1,22 @@
 ---
-title: Application Proxy cookie settings - Azure Active Directory
-description:  Azure Active Directory (Azure AD) has access and session cookies for accessing on-premises applications through Application Proxy. In this article, you'll find out how to use and configure the cookie settings. 
+title: Application Proxy cookie settings
+description:  Microsoft Entra ID has access and session cookies for accessing on-premises applications through Application Proxy. In this article, you'll find out how to use and configure the cookie settings. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Cookie settings for accessing on-premises applications in Azure Active Directory
+# Cookie settings for accessing on-premises applications in Microsoft Entra ID
 
-Azure Active Directory (Azure AD) has access and session cookies for accessing on-premises applications through Application Proxy. Find out how to use the Application Proxy cookie settings. 
+Microsoft Entra ID has access and session cookies for accessing on-premises applications through Application Proxy. Find out how to use the Application Proxy cookie settings. 
 
 ## What are the cookie settings?
 
@@ -24,7 +25,7 @@ Azure Active Directory (Azure AD) has access and session cookies for accessing o
 | Cookie setting | Default | Description | Recommendations |
 | -------------- | ------- | ----------- | --------------- |
 | Use HTTP-Only Cookie | **No** | **Yes** allows Application Proxy to include the HTTPOnly flag in HTTP response headers. This flag provides additional security benefits, for example, it prevents client-side scripting (CSS) from copying or modifying the cookies.<br></br><br></br>Before we supported the HTTP-Only setting, Application Proxy encrypted and transmitted cookies over a secured TLS channel to protect against modification. | Use **Yes** because of the additional security benefits.<br></br><br></br>Use **No** for clients or user agents that do require access to the session cookie. For example, use **No** for an RDP or MTSC client that connects to  a Remote Desktop Gateway server through Application Proxy.|
-| Use Secure Cookie | **No** | **Yes** allows Application Proxy to include the Secure flag in HTTP response headers. Secure Cookies enhances security by transmitting cookies over a TLS secured channel such as HTTPS. This prevents cookies from being observed by unauthorized parties due to the transmission of the cookie in clear text. | Use **Yes** because of the additional security benefits.|
+| Use Secure Cookie | **Yes** | **Yes** allows Application Proxy to include the Secure flag in HTTP response headers. Secure Cookies enhances security by transmitting cookies over a TLS secured channel such as HTTPS. This prevents cookies from being observed by unauthorized parties due to the transmission of the cookie in clear text. | Use **Yes** because of the additional security benefits.|
 | Use Persistent Cookie | **No** | **Yes** allows Application Proxy to set its access cookies to not expire when the web browser is closed. The persistence lasts until the access token expires, or until the user manually deletes the persistent cookies. | Use **No** because of the security risk associated with keeping users authenticated.<br></br><br></br>We suggest only using **Yes** for older applications that can't share cookies between processes. It's better to update your application to handle sharing cookies between processes instead of using persistent cookies. For example, you might need persistent cookies to allow a user to open Office documents in explorer view from a SharePoint site. Without persistent cookies, this operation might fail if the access cookies aren't shared between the browser, the explorer process, and the Office process. |
 
 ## SameSite Cookies
@@ -39,13 +40,14 @@ Additionally, if your back-end application has cookies that need to be available
 
 
 
-## Set the cookie settings - Azure portal
-To set the cookie settings using the Azure portal:
+## Set the cookie settings - Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications**.
-3. Select the application for which you want to enable a cookie setting.
-4. Click **Application Proxy**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+To set the cookie settings using the Microsoft Entra admin center:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 5. Under **Additional Settings**, set the cookie setting to **Yes** or **No**.
 6. Click **Save** to apply your changes. 
 

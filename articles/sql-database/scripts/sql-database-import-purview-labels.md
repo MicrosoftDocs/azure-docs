@@ -14,15 +14,14 @@ ms.date: 02/17/2021
 ---
 
 # Classify your Azure SQL data using Microsoft Purview labels
-[!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
 
 This document describes how to add Microsoft Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
 
 ## Create an application
 
-1. From the Azure portal, open your **Azure Active Directory**.
+1. From the Azure portal, open your **Microsoft Entra ID**.
 2. Under **Manage**, select **App registration**.
-3. Create a new Azure Active Directory app by selecting **New Application**.
+3. Create a new Microsoft Entra app by selecting **New Application**.
 4. Enter a name for your application, and select **Register**.
 5. After your application is created, open **Certificates & secrets** under **Manager**.
 6. Create a new client secret by selecting on **New client secret** under **Client secrets**.

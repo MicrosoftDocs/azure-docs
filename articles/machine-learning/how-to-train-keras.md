@@ -1,24 +1,26 @@
 ---
-title: Train deep learning Keras models
+title: Train deep learning Keras models (SDK v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning.
+description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning SDK (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: minxia
-author: mx-iao
-ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.subservice: training
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 10/05/2022
 ms.topic: how-to
-
-#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv2, event-tier1-build-2022
+#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train Keras models at scale with Azure Machine Learning
 
-In this article, learn how to run your Keras training scripts with Azure Machine Learning.
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-The example code in this article shows you how to train and register a Keras classification model built using the TensorFlow backend with Azure Machine Learning. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
+In this article, learn how to run your Keras training scripts using the Azure Machine Learning Python SDK v2.
+
+The example code in this article uses Azure Machine Learning to train, register, and deploy a Keras model built using the TensorFlow backend. The model, a deep neural network (DNN) built with the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview), classifies handwritten digits from the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
 Keras is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With Azure Machine Learning, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
@@ -29,218 +31,272 @@ Whether you're developing a Keras model from the ground-up or you're bringing an
 
 ## Prerequisites
 
-Run this code on either of these environments:
+To benefit from this article, you'll need to:
 
-- Azure Machine Learning compute instance - no downloads or installation necessary
+- Access an Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
+- Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
+    - Azure Machine Learning compute instance—no downloads or installation necessary
+        - Complete [Create resources to get started](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > python > jobs > single-step > tensorflow > train-hyperparameter-tune-deploy-with-keras**.
+    - Your Jupyter notebook server
+        - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
+- Download the training scripts [keras_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/src/keras_mnist.py) and [utils.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/src/utils.py).
 
-     - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras** folder.
+You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page.
 
- - Your own Jupyter Notebook server
+[!INCLUDE [gpu quota](includes/machine-learning-gpu-quota-prereq.md)]
 
-    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` and `utils.py`
+## Set up the job
 
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+This section sets up the job for training by loading the required Python packages, connecting to a workspace, creating a compute resource to run a command job, and creating an environment to run the job.
 
-## Set up the experiment
+### Connect to the workspace
 
-This section sets up the training experiment by loading the required Python packages, initializing a workspace, creating the FileDataset for the input training data, creating the compute target, and defining the training environment.
+First, you'll need to connect to your Azure Machine Learning workspace. The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-### Import packages
+We're using `DefaultAzureCredential` to get access to the workspace. This credential should be capable of handling most Azure SDK authentication scenarios.
 
-First, import the necessary Python libraries.
+If `DefaultAzureCredential` doesn't work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
 
-```Python
-import os
-import azureml
-from azureml.core import Experiment
-from azureml.core import Environment
-from azureml.core import Workspace, Run
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-```
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=credential)]
 
-### Initialize a workspace
-
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
-
-Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
-
-```Python
-ws = Workspace.from_config()
-```
-
-### Create a file dataset
-
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](./how-to-create-register-datasets.md) guide on the `Dataset` package for more information.
+If you prefer to use a browser to sign in and authenticate, you should uncomment the following code and use it instead.
 
 ```python
-from azureml.core.dataset import Dataset
+# Handle to the workspace
+# from azure.ai.ml import MLClient
 
-web_paths = [
-            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
-            ]
-dataset = Dataset.File.from_files(path=web_paths)
+# Authentication package
+# from azure.identity import InteractiveBrowserCredential
+# credential = InteractiveBrowserCredential()
 ```
 
-You can use the `register()` method to register the data set to your workspace so they can be shared with others, reused across various experiments, and referred to by name in your training script.
+Next, get a handle to the workspace by providing your Subscription ID, Resource Group name, and workspace name. To find these parameters:
 
-```python
-dataset = dataset.register(workspace=ws,
-                           name='mnist-dataset',
-                           description='training and test dataset',
-                           create_new_version=True)
-```
+1. Look for your workspace name in the upper-right corner of the Azure Machine Learning studio toolbar.
+2. Select your workspace name to show your Resource Group and Subscription ID.
+3. Copy the values for Resource Group and Subscription ID into the code.
 
-### Create a compute target
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=ml_client)]
 
-Create a compute target for your training job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+The result of running this script is a workspace handle that you'll use to manage other resources and jobs.
 
-```Python
-cluster_name = "gpu-cluster"
+> [!NOTE]
+> - Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
 
-try:
-    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
-    print('Found existing compute target')
-except ComputeTargetException:
-    print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6',
-                                                           max_nodes=4)
+### Create a compute resource to run the job
 
-    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+Azure Machine Learning needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-```
+In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a *STANDARD_NC6* model and create an Azure Machine Learning compute.
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=cpu_compute_target)]
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+### Create a job environment
 
-### Define your environment
+To run an Azure Machine Learning job, you'll need an environment. An Azure Machine Learning [environment](concept-environments.md) encapsulates the dependencies (such as software runtime and libraries) needed to run your machine learning training script on your compute resource. This environment is similar to a Python environment on your local machine.
 
-Define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies.
+Azure Machine Learning allows you to either use a curated (or ready-made) environment or create a custom environment using a Docker image or a Conda configuration. In this article, you'll create a custom Conda environment for your jobs, using a Conda YAML file.
 
-First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
+#### Create a custom environment
 
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - tensorflow-gpu==2.0.0
-  - keras<=2.3.1
-  - matplotlib
-```
+To create your custom environment, you'll define your Conda dependencies in a YAML file. First, create a directory for storing the file. In this example, we've named the directory `dependencies`.
 
-Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=dependencies_folder)]
+Then, create the file in the dependencies directory. In this example, we've named the file `conda.yml`.
 
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=conda_file)]
 
-```python
-keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
+The specification contains some usual packages (such as numpy and pip) that you'll use in your job.
 
-# Specify a GPU base image
-keras_env.docker.enabled = True
-keras_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu18.04'
-```
+Next, use the YAML file to create and register this custom environment in your workspace. The environment will be packaged into a Docker container at runtime.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=custom_environment)]
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
-## Configure and submit your training run
+## Configure and submit your training job
 
-### Create a ScriptRunConfig
-First get the data from the workspace datastore using the `Dataset` class.
+In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
 
-```python
-dataset = Dataset.get_by_name(ws, 'mnist-dataset')
+### Obtain the training data
+You'll use data from the Modified National Institute of Standards and Technology (MNIST) database of handwritten digits. This data is sourced from Yan LeCun's website and stored in an Azure storage account.
 
-# list the files referenced by mnist-dataset
-dataset.to_path()
-```
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=data_url)]
 
-Create a ScriptRunConfig object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on.
+For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
 
-Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script, for the `--data-folder` argument. Azure ML will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
+### Prepare the training script
 
-```python
-from azureml.core import ScriptRunConfig
+In this article, we've provided the training script *keras_mnist.py*. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
 
-args = ['--data-folder', dataset.as_mount(),
-        '--batch-size', 50,
-        '--first-layer-neurons', 300,
-        '--second-layer-neurons', 100,
-        '--learning-rate', 0.001]
+The provided training script does the following:
+ - handles the data preprocessing, splitting the data into test and train data;
+ - trains a model, using the data; and
+ - returns the output model.
 
-src = ScriptRunConfig(source_directory=script_folder,
-                      script='keras_mnist.py',
-                      arguments=args,
-                      compute_target=compute_target,
-                      environment=keras_env)
-```
+During the pipeline run, you'll use MLFlow to log the parameters and metrics. To learn how to enable MLFlow tracking, see [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
 
-For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
+In the training script `keras_mnist.py`, we create a simple deep neural network (DNN). This DNN has:
+
+- An input layer with 28 * 28 = 784 neurons. Each neuron represents an image pixel.
+- Two hidden layers. The first hidden layer has 300 neurons and the second hidden layer has 100 neurons.
+- An output layer with 10 neurons. Each neuron represents a targeted label from 0 to 9.
+
+:::image type="content" source="media/how-to-train-tensorflow/neural-network.png" alt-text="Diagram showing a deep neural network with 784 neurons at the input layer, two hidden layers, and 10 neurons at the output layer.":::
+
+### Build the training job
+
+Now that you have all the assets required to run your job, it's time to build it using the Azure Machine Learning Python SDK v2. For this example, we'll be creating a `command`.
+
+An Azure Machine Learning `command` is a resource that specifies all the details needed to execute your training code in the cloud. These details include the inputs and outputs, type of hardware to use, software to install, and how to run your code. The `command` contains information to execute a single command.
+
+
+#### Configure the command
+
+You'll use the general purpose `command` to run the training script and perform your desired tasks. Create a `Command` object to specify the configuration details of your training job.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=job)]
+
+- The inputs for this command include the data location, batch size, number of neurons in the first and second layer, and learning rate. Notice that we've passed in the web path directly as an input.
+
+- For the parameter values:
+    - provide the compute cluster `gpu_compute_target = "gpu-cluster"` that you created for running this command;
+    - provide the custom environment `keras-env` that you created for running the Azure Machine Learning job;
+    - configure the command line action itself—in this case, the command is `python keras_mnist.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
+    - configure metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
+ 
+- In this example, you'll use the `UserIdentity` to run the command. Using a user identity means that the command will use your identity to run the job and access the data from the blob.
+
+### Submit the job
+
+It's now time to submit the job to run in Azure Machine Learning. This time, you'll use `create_or_update` on `ml_client.jobs`.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=create_job)]
+
+Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in Azure Machine Learning studio.
 
 > [!WARNING]
-> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
 
-### Submit your run
+### What happens during job execution
+As the job is executed, it goes through the following stages:
 
-The [Run object](/python/api/azureml-core/azureml.core.run%28class%29) provides the interface to the run history while the job is running and after it has completed.
+- **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the job history and can be viewed to monitor progress. If a curated environment is specified, the cached image backing that curated environment will be used.
 
-```Python
-run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)
-run.wait_for_completion(show_output=True)
-```
+- **Scaling**: The cluster attempts to scale up if it requires more nodes to execute the run than are currently available.
 
-### What happens during run execution
-As the run is executed, it goes through the following stages:
+- **Running**: All scripts in the script folder *src* are uploaded to the compute target, data stores are mounted or copied, and the script is executed. Outputs from *stdout* and the *./logs* folder are streamed to the job history and can be used to monitor the job.
 
-- **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress. If a curated environment is specified instead, the cached image backing that curated environment will be used.
+## Tune model hyperparameters
 
-- **Scaling**: The cluster attempts to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
+You've trained the model with one set of parameters, let's now see if you can further improve the accuracy of your model. You can tune and optimize your model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
 
-- **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the `script` is executed. Outputs from stdout and the **./logs** folder are streamed to the run history and can be used to monitor the run.
+To tune the model's hyperparameters, define the parameter space in which to search during training. You'll do this by replacing some of the parameters (`batch_size`, `first_layer_neurons`, `second_layer_neurons`, and `learning_rate`) passed to the training job with special inputs from the `azure.ml.sweep` package.
 
-- **Post-Processing**: The **./outputs** folder of the run is copied over to the run history.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=job_for_sweep)]
 
-## Register the model
+Then, you'll configure sweep on the command job, using some sweep-specific parameters, such as the primary metric to watch and the sampling algorithm to use.
 
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+In the following code, we use random sampling to try different configuration sets of hyperparameters in an attempt to maximize our primary metric, `validation_acc`.
 
-```Python
-model = run.register_model(model_name='keras-mnist', model_path='outputs/model')
-```
+We also define an early termination policy—the `BanditPolicy`. This policy operates by checking the job every two iterations. If the primary metric, `validation_acc`, falls outside the top ten percent range, Azure Machine Learning will terminate the job. This saves the model from continuing to explore hyperparameters that show no promise of helping to reach the target metric.
 
-> [!TIP]
-> The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=sweep_job)]
 
-You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `keras_mnist.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from the run history.
+Now, you can submit this job as before. This time, you'll be running a sweep job that sweeps over your train job.
 
-```Python
-# Create a model folder in the current directory
-os.makedirs('./model', exist_ok=True)
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=create_sweep_job)]
 
-for f in run.get_file_names():
-    if f.startswith('outputs/model'):
-        output_file_path = os.path.join('./model', f.split('/')[-1])
-        print('Downloading from {} to {} ...'.format(f, output_file_path))
-        run.download_file(name=f, output_file_path=output_file_path)
-```
+You can monitor the job by using the studio user interface link that is presented during the job run.
+
+## Find and register the best model
+
+Once all the runs complete, you can find the run that produced the model with the highest accuracy.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=model)]
+
+You can then register this model.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=register_model)]
+
+
+## Deploy the model as an online endpoint
+
+After you've registered your model, you can deploy it as an [online endpoint](concept-endpoints.md)—that is, as a web service in the Azure cloud.
+
+To deploy a machine learning service, you'll typically need:
+- The model assets that you want to deploy. These assets include the model's file and metadata that you already registered in your training job.
+- Some code to run as a service. The code executes the model on a given input request (an entry script). This entry script receives data submitted to a deployed web service and passes it to the model. After the model processes the data, the script returns the model's response to the client. The script is specific to your model and must understand the data that the model expects and returns. When you use an MLFlow model, Azure Machine Learning automatically creates this script for you.
+
+For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+
+### Create a new online endpoint
+
+As a first step to deploying your model, you need to create your online endpoint. The endpoint name must be unique in the entire Azure region. For this article, you'll create a unique name using a universally unique identifier (UUID).
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=online_endpoint_name)]
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=endpoint)]
+
+Once you've created the endpoint, you can retrieve it as follows:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=get_endpoint)]
+
+### Deploy the model to the endpoint
+
+After you've created the endpoint, you can deploy the model with the entry script. An endpoint can have multiple deployments. Using rules, the endpoint can then direct traffic to these deployments.
+
+In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We've specified an arbitrary color name (*tff-blue*) for the deployment. You could also use any other name such as *tff-green* or *tff-red* for the deployment.
+The code to deploy the model to the endpoint does the following:
+
+- deploys the best version of the model that you registered earlier;
+- scores the model, using the `score.py` file; and
+- uses the custom environment (that you created earlier) to perform inferencing.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=blue_deployment)]
+
+> [!NOTE]
+> Expect this deployment to take a bit of time to finish.
+
+### Test the deployed model
+
+Now that you've deployed the model to the endpoint, you can predict the output of the deployed model, using the `invoke` method on the endpoint. 
+
+To test the endpoint you need some test data. Let us locally download the test data which we used in our training script.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=download_test_data)]
+
+Load these into a test dataset.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=load_test_data)]
+
+Pick 30 random samples from the test set and write them to a JSON file.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=generate_test_json)]
+
+You can then invoke the endpoint, print the returned predictions, and plot them along with the input images. Use red font color and inverted image (white on black) to highlight the misclassified samples.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=invoke_and_test)]
+
+
+> [!NOTE]
+> Because the model accuracy is high, you might have to run the cell a few times before seeing a misclassified sample.
+
+### Clean up resources
+
+If you won't be using the endpoint, delete it to stop using the resource. Make sure no other deployments are using the endpoint before you delete it.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=delete_endpoint)]
+
+> [!NOTE]
+> Expect this cleanup to take a bit of time to finish.
+
 
 ## Next steps
 
-In this article, you trained and registered a Keras model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a Keras model. You also deployed the model to an online endpoint. See these other articles to learn more about Azure Machine Learning.
 
-* [How and where to deploy models](how-to-deploy-and-where.md)
-* [Track run metrics during training](how-to-log-view-metrics.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
-* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+- [Track run metrics during training](how-to-log-view-metrics.md)
+- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

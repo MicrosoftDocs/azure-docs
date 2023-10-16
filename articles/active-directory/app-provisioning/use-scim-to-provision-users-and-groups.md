@@ -1,50 +1,45 @@
 ---
-title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure Active Directory
-description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
+title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Microsoft Entra ID
+description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Microsoft Entra ID, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
-# Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory
+# Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID
 
-As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
+As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Microsoft Entra ID. This article describes how to build a SCIM endpoint and integrate with the Microsoft Entra provisioning service. The SCIM specification provides a common user schema for provisioning. When used with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
-![Provisioning from Azure AD to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+![Provisioning from Microsoft Entra ID to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
-SCIM is a standardized definition of two endpoints: a `/Users` endpoint and a `/Groups` endpoint. It uses common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email. Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the `/Users` endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
+SCIM 2.0 is a standardized definition of two endpoints: a `/Users` endpoint and a `/Groups` endpoint. It uses common REST API endpoints to create, update, and delete objects. The SCIM consists of a predefined schema for common attributes like group name, username, first name, last name and email. 
+
+Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the `/Users` endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
 
 The standard user object schema and rest APIs for management defined in SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) allow identity providers and apps to more easily integrate with each other. Application developers that build a SCIM endpoint can integrate with any SCIM-compliant client without having to do custom work.
 
-To automate provisioning to an application will require building and integrating a SCIM endpoint with the Azure AD SCIM client. Use the following steps to start provisioning users and groups into your application. 
-    
-1. Design your user and group schema
+To automate provisioning to an application, it requires building and integrating a SCIM endpoint that is access by the Microsoft Entra provisioning service. Use the following steps to start provisioning users and groups into your application.
 
-   Identify the application's objects and attributes to determine how they map to the user and group schema supported by the Azure AD SCIM implementation.
 
-1. Understand the Azure AD SCIM implementation
+1. [Design your user and group schema](#design-your-user-and-group-schema) - Identify the application's objects and attributes to determine how they map to the user and group schema supported by the Microsoft Entra SCIM implementation.
 
-   Understand how the Azure AD SCIM client is implemented to model your SCIM protocol request handling and responses.
+1. [Understand the Microsoft Entra SCIM implementation](#understand-the-azure-ad-scim-implementation) - Understand how the Microsoft Entra provisioning service is implemented to model your SCIM protocol request handling and responses.
 
-1. Build a SCIM endpoint
+1. [Build a SCIM endpoint](#build-a-scim-endpoint) - An endpoint must be SCIM 2.0-compatible to integrate with the Microsoft Entra provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
-   An endpoint must be SCIM 2.0-compatible to integrate with the Azure AD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
-1. Integrate your SCIM endpoint with the Azure AD SCIM client 
+1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Microsoft Entra provisioning service. Microsoft Entra ID supports several third-party applications that implement SCIM 2.0. If you use one of these apps, then you can quickly automate both provisioning and deprovisioning of users and groups.
 
-   If your organization uses a third-party application to implement a profile of SCIM 2.0 that Azure AD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
 
-1. Publish your application to the Azure AD application gallery 
+1. [Optional] [Publish your application to the Microsoft Entra application gallery](#publish-your-application-to-the-azure-ad-application-gallery) - Make it easy for customers to discover your application and easily configure provisioning. 
 
-   Make it easy for customers to discover your application and easily configure provisioning. 
-
-![Steps for integrating a SCIM endpoint with Azure AD](media/use-scim-to-provision-users-and-groups/process.png)
+![Diagram that shows the required steps for integrating a SCIM endpoint with Microsoft Entra ID.](media/use-scim-to-provision-users-and-groups/process.png)
 
 ## Design your user and group schema
 
@@ -55,32 +50,34 @@ The SCIM standard defines a schema for managing users and groups.
 The **core** user schema only requires three attributes (all other attributes are optional):
 
 - `id`, service provider defined identifier
-- `userName`, a unique identifier for the user (generally maps to the Azure AD user principal name)
+- `userName`, a unique identifier for the user (generally maps to the Microsoft Entra user principal name)
 - `meta`, *read-only* metadata maintained by the service provider
 
-In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
+In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application's needs. 
 
-For example, if your application requires both a user's email and user’s manager, use the **core** schema to collect the user’s email and the **enterprise** user schema to collect the user’s manager.
+For example, if your application requires both a user's email and user's manager, use the **core** schema to collect the user's email and the **enterprise** user schema to collect the user's manager.
 
 To design your schema, follow these steps:
 
-1. List the attributes your application requires, then categorize as attributes needed for authentication (e.g. loginName and email), attributes needed to manage the user lifecycle (e.g. status / active), and all other attributes needed for the application to work (e.g. manager, tag).
+1. List the attributes your application requires, then categorize as attributes needed for authentication (for example, loginName and email). Attributes are needed to manage the user lifecycle (for example, status / active), and all other attributes needed for the application to work (for example, manager, tag).
 
-1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example below for an extension to the user to allow provisioning a user `tag`.
+1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example for an extension to the user to allow provisioning a user `tag`.
 
-1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you have defined in your SCIM endpoint does not have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema or use an extension attribute as shown below for the `tags` property.
+1. Map SCIM attributes to the user attributes in Microsoft Entra ID. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Microsoft Entra user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown in the example for the `tags` property.
 
-|Required app attribute|Mapped SCIM attribute|Mapped Azure AD attribute|
+The following table lists an example of required attributes:
+
+|Required app attribute|Mapped SCIM attribute|Mapped Microsoft Entra attribute|
 |--|--|--|
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|name.familyName|surName|
-|workMail|emails[type eq “work”].value|Mail|
+|workMail|emails[type eq "work"].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
+|tag|`urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag`|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
 
-**Example list of required attributes**
+The following JSON payload shows an example SCIM schema:
 
 ```json
 {
@@ -110,26 +107,28 @@ To design your schema, follow these steps:
    }
 }   
 ```
-**Example schema defined by a JSON payload**
+
 
 > [!NOTE]
 > In addition to the attributes required for the application, the JSON representation also includes the required `id`, `externalId`, and `meta` attributes.
 
-It helps to categorize between `/User` and `/Group` to map any default user attributes in Azure AD to the SCIM RFC, see [how customize attributes are mapped between Azure AD and your SCIM endpoint](customize-application-attributes.md).
+It helps to categorize between `/User` and `/Group` to map any default user attributes in Microsoft Entra ID to the SCIM RFC, see [how customize attributes are mapped between Microsoft Entra ID and your SCIM endpoint](customize-application-attributes.md).
 
 
-| Azure Active Directory user | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
+The following table lists an example of user attributes:
+
+| Microsoft Entra user | `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` |
 | --- | --- |
 | IsSoftDeleted |active |
-|department|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|
+|department| `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department`|
 | displayName |displayName |
-|employeeId|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|
+|employeeId|`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber`|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager |
+| manager |`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager` |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
@@ -139,139 +138,146 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
-**Example list of user and group attributes**
+The following table lists an example of group attributes:
 
-| Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Microsoft Entra group | `urn:ietf:params:scim:schemas:core:2.0:Group` |
 | --- | --- |
 | displayName |displayName |
 | members |members |
 | objectId |externalId |
 
-**Example list of group attributes**
 
 > [!NOTE]
-> You are not required to support both users and groups, or all the attributes shown here, it's only a reference on how attributes in Azure AD are often mapped to properties in the SCIM protocol. 
+> You are not required to support both users and groups, or all the attributes shown here, it's only a reference on how attributes in Microsoft Entra ID are often mapped to properties in the SCIM protocol. 
 
-There are several endpoints defined in the SCIM RFC. You can start with the `/User` endpoint and then expand from there. 
+There are several endpoints defined in the SCIM RFC. You can start with the `/User` endpoint and then expand from there. The following table lists some of the SCIM endpoints: 
 
 |Endpoint|Description|
 |--|--|
 |/User|Perform CRUD operations on a user object.|
 |/Group|Perform CRUD operations on a group object.|
 |/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
-|/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
-|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
+|/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (for example, update memberships for a large group).|
+|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example, the resources that are supported and the authentication method.|
 |/ResourceTypes|Specifies metadata about each resource.|
-
-**Example list of endpoints**
 
 > [!NOTE]
 > Use the `/Schemas` endpoint to support custom attributes or if your schema changes frequently as it enables a client to retrieve the most up-to-date schema automatically. Use the `/Bulk` endpoint to support groups.
 
-## Understand the Azure AD SCIM implementation
+<a name='understand-the-azure-ad-scim-implementation'></a>
 
-To support a SCIM 2.0 user management API, this section describes how the Azure AD SCIM client is implemented and shows how to model your SCIM protocol request handling and responses.
+## Understand the Microsoft Entra SCIM implementation
+
+The Microsoft Entra provisioning service is designed to support a SCIM 2.0 user management API.
 
 > [!IMPORTANT]
-> The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
+> The behavior of the Microsoft Entra SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Microsoft Entra user provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
-Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specification), your application must support these requirements:
+Within the SCIM 2.0 protocol specification, your application must support these requirements:
 
 |Requirement|Reference notes (SCIM protocol)|
-|-|-|
-|Create users, and optionally also groups|[section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)|
-|Modify users or groups with PATCH requests|[section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner.|
-|Retrieve a known resource for a user or group created earlier|[section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
-|Query users or groups|[section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.|
-|The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
-|Accept a single bearer token for authentication and authorization of Azure AD to your application.||
-|Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
-|Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
-|Support listing users and paginating|[section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
+|---|---|
+|Create users, and optionally also groups|[Section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)|
+|Modify users or groups with PATCH requests|[Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner.|
+|Retrieve a known resource for a user or group created earlier|[Section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
+|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved with their `id` and queried with their `username` and `externalId`, and groups are queried with `displayName`.|
+|The filter [excludedAttributes=members](#get-group) when querying the group resource|Section [3.4.2.2](https://www.rfc-editor.org/rfc/rfc7644#section-3.4.2.2)|
+|Support listing users and paginating|[Section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
+|Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user shouldn't be returned is when it's hard deleted from the application.|
+|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint is used to discover more attributes.|
+|Accept a single bearer token for authentication and authorization of Microsoft Entra ID to your application.||
 
-Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
+Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with Microsoft Entra ID:
 
-##### General: 
-* `id` is a required property for all resources. Every response that returns a resource should ensure each resource has this property, except for `ListResponse` with zero members.
-* Values sent should be stored in the same format as what they were sent in. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data should not happen between data being sent by Azure AD and data being stored in the SCIM application. (e.g. A phone number sent as 55555555555 should not be saved/returned as +5 (555) 555-5555)
+### General:
+
+* `id` is a required property for all resources. Every response that returns a resource should ensure each resource has this property, except for `ListResponse` with zero elements.
+* Values sent should be stored in the same format they were sent. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data shouldn't happen between data from Microsoft Entra ID and data stored in the SCIM application. (for example. A phone number sent as 55555555555 shouldn't be saved/returned as +5 (555) 555-5555)
 * It isn't necessary to include the entire resource in the **PATCH** response.
-* Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Azure AD emits the values of `op` as **Add**, **Replace**, and **Remove**.
-* Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
+* Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Microsoft Entra ID emits the values of `op` as **Add**, **Replace**, and **Remove**.
+* Microsoft Entra ID makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow. 
 * Support HTTPS on your SCIM endpoint.
-* Custom complex and multivalued attributes are supported but Azure AD does not have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes are not well supported at this time.
-* The "type" sub-attribute values of multivalued complex attributes must be unique. For example, there cannot be two different email addresses with the "work" sub-type. 
+* Custom complex and multivalued attributes are supported but Microsoft Entra ID doesn't have many complex data structures to pull data from in these cases. Name/value attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes isn't supported.
+* The "type" subattribute values of multivalued complex attributes must be unique. For example, there can't be two different email addresses with the "work" subtype.
+* The header for all the responses should be of content-Type: application/scim+json 
 
-##### Retrieving Resources:
+### Retrieving Resources:
+
 * Response to a query/filter request should always be a `ListResponse`.
-* Microsoft Azure AD only uses the following operators: `eq`, `and`
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
+* Microsoft Entra-only uses the following operators: `eq`, `and`
+* The attribute that the resources can be queried on should be set as a matching attribute on the application, see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 
-##### /Users:
-* The entitlements attribute is not supported.
-* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"].value eq "user@contoso.com"_ queries.
+### /Users:
 
-##### /Groups:
+* The entitlements attribute isn't supported.
+* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (for example, if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"].value eq "user@contoso.com"_ queries.
+
+### /Groups:
+
 * Groups are optional, but only supported if the SCIM implementation supports **PATCH** requests.
-* Groups must have uniqueness on the 'displayName' value for the purpose of matching between Azure Active Directory and the SCIM application. This is not a requirement of the SCIM protocol, but is a requirement for integrating a SCIM service with Azure Active Directory.
+* Groups must have uniqueness on the 'displayName' value to match with Microsoft Entra ID and the SCIM application. The uniqueness isn't a requirement of the SCIM protocol, but is a requirement for integrating a SCIM endpoint with Microsoft Entra ID.
 
-##### /Schemas (Schema discovery):
+### /Schemas (Schema discovery):
 
 * [Sample request/response](#schema-discovery)
-* Schema discovery is not currently supported on the custom non-gallery SCIM application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add additional attributes to the schema of an existing gallery SCIM application. 
-* If a value is not present, do not send null values.
-* Property values should be camel cased (e.g. readWrite).
+* Schema discovery is being used on certain gallery applications. Schema discovery is the sole method to add more attributes to the schema of an existing gallery SCIM application. Schema discovery isn't currently supported on custom non-gallery SCIM application.
+* If a value isn't present, don't send null values.
+* Property values should be camel cased (for example, readWrite).
 * Must return a list response.
-* The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure portal or every time  a user lands on the edit provisioning page in the Azure portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
+* The Microsoft Entra provisioning service makes the /schemas request when you save the provisioning configuration. The request is also made when you open the edit provisioning page. Other attributes discovered are surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. Attributes aren't removed. 
 
-  
 ### User provisioning and deprovisioning
 
-The following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
+The following diagram shows the messages that Microsoft Entra ID sends to a SCIM endpoint to manage the lifecycle of a user in your application's identity store.  
 
-![Shows the user provisioning and deprovisioning sequence](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
-*User provisioning and deprovisioning sequence*
+[![Diagram that shows the user deprovisioning sequence.](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)](media/use-scim-to-provision-users-and-groups/scim-figure-4.png#lightbox)
 
 ### Group provisioning and deprovisioning
 
-Group provisioning and deprovisioning are optional. When implemented and enabled, the following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a group in your application's identity store. Those messages differ from the messages about users in two ways:
+Group provisioning and deprovisioning are optional. When implemented and enabled, the following illustration shows the messages that Microsoft Entra ID sends to a SCIM endpoint to manage the lifecycle of a group in your application's identity store. Those messages differ from the messages about users in two ways:
 
 * Requests to retrieve groups specify that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
 
-![Shows the group provisioning and deprovisioning sequence](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
-*Group provisioning and deprovisioning sequence*
+The following diagram shows the group deprovisioning sequence:
+
+[![Diagram that shows the group deprovisioning sequence.](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)](media/use-scim-to-provision-users-and-groups/scim-figure-5.png#lightbox)
 
 ### SCIM protocol requests and responses
-This section provides example SCIM requests emitted by the Azure AD SCIM client and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
+
+This article provides example SCIM requests emitted by the Microsoft Entra provisioning service and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> To understand how and when the Microsoft Entra user provisioning service emits the operations described in the example, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 [User Operations](#user-operations)
-  - [Create User](#create-user) ([Request](#request) / [Response](#response))
-  - [Get User](#get-user) ([Request](#request-1) / [Response](#response-1))
-  - [Get User by query](#get-user-by-query) ([Request](#request-2) / [Response](#response-2))
-  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3) / [Response](#response-3))
-  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) / [Response](#response-4))
-  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5) / [Response](#response-5)) 
-  - [Disable User](#disable-user) ([Request](#request-14) / [Response](#response-14))
-  - [Delete User](#delete-user) ([Request](#request-6) / [Response](#response-6))
+
+- [Create User](#create-user) ([Request](#request) / [Response](#response))
+- [Get User](#get-user) ([Request](#request-1) / [Response](#response-1))
+- [Get User by query](#get-user-by-query) ([Request](#request-2) / [Response](#response-2))
+- [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3) / [Response](#response-3))
+- [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) / [Response](#response-4))
+- [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5) / [Response](#response-5)) 
+- [Disable User](#disable-user) ([Request](#request-14) / [Response](#response-14))
+- [Delete User](#delete-user) ([Request](#request-6) / [Response](#response-6))
 
 [Group Operations](#group-operations)
-  - [Create Group](#create-group) ([Request](#request-7) / [Response](#response-7))
-  - [Get Group](#get-group) ([Request](#request-8) / [Response](#response-8))
-  - [Get Group by displayName](#get-group-by-displayname) ([Request](#request-9) / [Response](#response-9))
-  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) / [Response](#response-10))
-  - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
-  - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
-  - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
+
+- [Create Group](#create-group) ([Request](#request-7) / [Response](#response-7))
+- [Get Group](#get-group) ([Request](#request-8) / [Response](#response-8))
+- [Get Group by displayName](#get-group-by-displayname) ([Request](#request-9) / [Response](#response-9))
+- [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) / [Response](#response-10))
+- [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
+- [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
+- [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
 [Schema discovery](#schema-discovery)
-  - [Discover schema](#discover-schema) ([Request](#request-15) / [Response](#response-15))
+
+- [Discover schema](#discover-schema) ([Request](#request-15) / [Response](#response-15))
 
 ### User Operations
 
-* Users can be queried by `userName` or `emails[type eq "work"]` attributes.  
+* Use `userName` or `emails[type eq "work"]` attributes to query users.  
 
 #### Create User
 
@@ -364,9 +370,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ```
 
 ###### Request
+
 *GET /Users/5171a35d82074e068ce2* 
 
-###### Response (User not found. Note that the detail is not required, only status.)
+###### Response (User not found. The detail isn't required, only status.)
+
+*HTTP/1.1 404 Not Found*
 
 ```json
 {
@@ -538,6 +547,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ##### <a name="request-14"></a>Request
 
 *PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
+
 ```json
 {
     "Operations": [
@@ -587,6 +597,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
     }
 }
 ```
+
 #### Delete User
 
 ##### <a name="request-6"></a>Request
@@ -599,8 +610,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 ### Group Operations
 
-* Groups shall always be created with an empty members list.
-* Groups can be queried by the `displayName` attribute.
+* Groups are created with an empty members list.
+* Use the `displayName` attribute to query groups.
 * Update to the group PATCH request should yield an *HTTP 204 No Content* in the response. Returning a body with a list of all the members isn't advisable.
 * It isn't necessary to support returning all the members of the group.
 
@@ -646,7 +657,9 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
 ##### <a name="response-8"></a>Response
+
 *HTTP/1.1 200 OK*
+
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
@@ -664,11 +677,13 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 #### Get Group by displayName
 
 ##### <a name="request-9"></a>Request
+
 *GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response-9"></a>Response
 
 *HTTP/1.1 200 OK*
+
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
@@ -695,6 +710,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ##### <a name="request-10"></a>Request
 
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
+
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -715,6 +731,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ##### <a name="request-11"></a>Request
 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -767,12 +784,17 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 *HTTP/1.1 204 No Content*
 
 ### Schema discovery
+
 #### Discover schema
 
 ##### <a name="request-15"></a>Request
+
 *GET /Schemas* 
+
 ##### <a name="response-15"></a>Response
+
 *HTTP/1.1 200 OK*
+
 ```json
 {
     "schemas": [
@@ -865,10 +887,13 @@ organization.",
 }
 ```
 
+
 ### Security requirements
+
 **TLS Protocol Versions**
 
-The only acceptable TLS protocol versions are TLS 1.2 and TLS 1.3. No other versions of TLS are permitted. No version of SSL is permitted. 
+The only acceptable protocol version is TLS 1.2. No other SSL/TLS version is permitted.
+
 - RSA keys must be at least 2,048 bits.
 - ECC keys must be at least 256 bits, generated using an approved elliptic curve
 
@@ -878,7 +903,7 @@ All services must use X.509 certificates generated using cryptographic keys of s
 
 **Cipher Suites**
 
-All services must be configured to use the following cipher suites, in the exact order specified below. Note that if you only have an RSA certificate, installed the ECDSA cipher suites do not have any effect. </br>
+All services must be configured to use the following cipher suites, in the exact order specified in the example. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
 
 TLS 1.2 Cipher Suites minimum bar:
 
@@ -892,48 +917,49 @@ TLS 1.2 Cipher Suites minimum bar:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### IP Ranges
-The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
-Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening any inbound ports, on a server in their private network. Learn more [here](./on-premises-scim-provisioning.md).
+The Microsoft Entra provisioning service currently operates under the IP Ranges for Microsoft Entra ID as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the Microsoft Entra ID tag to allow traffic from the Microsoft Entra provisioning service into your application. You need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
+
+Microsoft Entra ID also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Microsoft Entra ID without opening any inbound ports, on a server in their private network. Learn more [here](./on-premises-scim-provisioning.md).
 
 ## Build a SCIM endpoint
 
-Now that you have designed your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM community.
+Now that you've designed your schema and understood the Microsoft Entra SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on many open source SCIM libraries published by the SCIM community.
 
 For guidance on how to build a SCIM endpoint including examples, see [Develop a sample SCIM endpoint](use-scim-to-build-users-and-groups-endpoints.md).
 
-The open source .NET Core [reference code example](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you have built your SCIM endpoint, you will want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](#user-operations).  
+The open source .NET Core [reference code example](https://aka.ms/SCIMReferenceCode) published by the Microsoft Entra provisioning team is one such resource that can jump start your development. Build a SCIM endpoint, then test it out. Use the collection of [Postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses [provided](#user-operations).  
 
    > [!Note]
    > The reference code is intended to help you get started building your SCIM endpoint and is provided "AS IS." Contributions from the community are welcome to help build and maintain the code.
 
 The solution is composed of two projects, _Microsoft.SCIM_ and _Microsoft.SCIM.WebHostSample_.
 
-The _Microsoft.SCIM_ project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface _Microsoft.SCIM.IProvider_, requests are translated into calls to the provider’s methods, which would be programmed to operate on an identity store.
+The _Microsoft.SCIM_ project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface _Microsoft.SCIM.IProvider_, requests are translated into calls to the provider's methods, which would be programmed to operate on an identity store.
 
 ![Breakdown: A request translated into calls to the provider's methods](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-The _Microsoft.SCIM.WebHostSample_ project is a Visual Studio ASP.NET Core Web Application, based on the _Empty_ template. This allows the sample code to be deployed as standalone, hosted in containers or within Internet Information Services. It also implements the _Microsoft.SCIM.IProvider_ interface keeping classes in memory as a sample identity store.
+The _Microsoft.SCIM.WebHostSample_ project is an ASP.NET Core Web Application, based on the _Empty_ template. It allows the sample code to be deployed as standalone, hosted in containers or within Internet Information Services. It also implements the _Microsoft.SCIM.IProvider_ interface keeping classes in memory as a sample identity store.
 
 ```csharp
-    public class Startup
+public class Startup
+{
+    ...
+    public IMonitor MonitoringBehavior { get; set; }
+    public IProvider ProviderBehavior { get; set; }
+
+    public Startup(IWebHostEnvironment env, IConfiguration configuration)
     {
         ...
-        public IMonitor MonitoringBehavior { get; set; }
-        public IProvider ProviderBehavior { get; set; }
-
-        public Startup(IWebHostEnvironment env, IConfiguration configuration)
-        {
-            ...
-            this.MonitoringBehavior = new ConsoleMonitor();
-            this.ProviderBehavior = new InMemoryProvider();
-        }
-        ...
+        this.MonitoringBehavior = new ConsoleMonitor();
+        this.ProviderBehavior = new InMemoryProvider();
+    }
+    ...
 ```
 
 ### Building a custom SCIM endpoint
 
-The SCIM service must have an HTTP address and server authentication certificate of which the root certification authority is one of the following names:
+The SCIM endpoint must have an HTTP address and server authentication certificate of which the root certification authority is one of the following names:
 
 * CNNIC
 * Comodo
@@ -946,62 +972,68 @@ The SCIM service must have an HTTP address and server authentication certificate
 * WoSign
 * DST Root CA X3
 
-The .NET Core SDK includes an HTTPS development certificate that can be used during development, the certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it will listen to a different port:
+The .NET Core SDK includes an HTTPS development certificate that is used during development. The certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it listens to a different port:
 
-* Microsoft.SCIM.WebHostSample: https://localhost:5001
-* IIS Express: https://localhost:44359/
+* Microsoft.SCIM.WebHostSample: `https://localhost:5001`
+* IIS Express: `https://localhost:44359`
 
-For more information on HTTPS in ASP.NET Core use the following link:
+For more information on HTTPS in ASP.NET Core, use the following link:
 [Enforce HTTPS in ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### Handling endpoint authentication
 
-Requests from Azure Active Directory include an OAuth 2.0 bearer token. Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant.
+Requests from Microsoft Entra provisioning service include an OAuth 2.0 bearer token. An authorization server issues the bearer token. Microsoft Entra ID is an example of a trusted  authorization server. Configure the Microsoft Entra provisioning service to use one of the following tokens:
 
-In the token, the issuer is identified by an iss claim, like `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In this example, the base address of the claim value, `https://sts.windows.net`, identifies Azure Active Directory as the issuer, while the relative address segment, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, is a unique identifier of the Azure Active Directory tenant for which the token was issued.
+- A long-lived bearer token. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Microsoft Entra ID, then copy the required OAuth bearer token into the optional **Secret Token** field. In a development environment, you can use the testing token from the `/scim/token` endpoint. Test tokens shouldn't be used in production environments.
 
-The audience for the token will be the application template ID for the application in the gallery, each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests. The application template ID for all custom apps is _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. The token generated by the Azure AD provisioning service should only be used for testing. It should not be used in production environments.
+- Microsoft Entra bearer token. If **Secret Token** field is left blank, Microsoft Entra ID includes an OAuth bearer token issued from Microsoft Entra ID with each request. Apps that use Microsoft Entra ID as an identity provider can validate this Microsoft Entra ID-issued token.
 
-In the sample code, requests are authenticated using the Microsoft.AspNetCore.Authentication.JwtBearer package. The following code enforces that requests to any of the service’s endpoints are authenticated using the bearer token issued by Azure Active Directory for a specified tenant:
+  - The application that receives requests should validate the token issuer as being Microsoft Entra ID for an expected Microsoft Entra tenant.
+  - An `iss` claim identifies the issuer of the token. For example, `"iss":"https://sts.windows.net/12345678-0000-0000-0000-000000000000/"`. In this example, the base address of the claim value, `https://sts.windows.net` identifies Microsoft Entra ID as the issuer, while the relative address segment, _12345678-0000-0000-0000-000000000000_, is a unique identifier of the Microsoft Entra tenant for which the token was issued.
+  - The audience for a token is the **Application ID** for the application in the gallery. Applications registered in a single tenant receive the same `iss` claim with SCIM requests. The application ID for all custom apps is _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. The token generated by the Microsoft Entra provisioning service should only be used for testing. It shouldn't be used in production environments.
+
+
+
+In the sample code, requests are authenticated using the Microsoft.AspNetCore.Authentication.JwtBearer package. The following code enforces that requests to any of the service's endpoints are authenticated using the bearer token issued by Microsoft Entra ID for a specified tenant:
 
 ```csharp
-        public void ConfigureServices(IServiceCollection services)
+public void ConfigureServices(IServiceCollection services)
+{
+    if (_env.IsDevelopment())
+    {
+        ...
+    }
+    else
+    {
+        services.AddAuthentication(options =>
         {
-            if (_env.IsDevelopment())
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+            .AddJwtBearer(options =>
             {
+                options.Authority = " https://sts.windows.net/12345678-0000-0000-0000-000000000000/";
+                options.Audience = "8adf8e6e-67b2-4cf2-a259-e3dc5476c621";
                 ...
-            }
-            else
-            {
-                services.AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                    .AddJwtBearer(options =>
-                    {
-                        options.Authority = " https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/";
-                        options.Audience = "8adf8e6e-67b2-4cf2-a259-e3dc5476c621";
-                        ...
-                    });
-            }
-            ...
-        }
+            });
+    }
+    ...
+}
 
-        public void Configure(IApplicationBuilder app)
-        {
-            ...
-            app.UseAuthentication();
-            app.UseAuthorization();
-            ...
-       }
+public void Configure(IApplicationBuilder app)
+{
+    ...
+    app.UseAuthentication();
+    app.UseAuthorization();
+    ...
+}
 ```
 
-A bearer token is also required to use of the provided [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
+A bearer token is also required to use of the provided [Postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
 
 For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
+The following code enforces that requests to any of the service's endpoints are authenticated using a bearer token signed with a custom key:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -1065,17 +1097,17 @@ private string GenerateJSONWebToken()
 
 ***Example 1. Query the service for a matching user***
 
-Azure Active Directory queries the service for a user with an `externalId` attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
+Microsoft Entra ID queries the service for a user with an `externalId` attribute value matching the mailNickname attribute value of a user in Microsoft Entra ID. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Microsoft Entra ID.
 
 >[!NOTE]
-> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is `externalId`) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
+> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is `externalId`) is configurable in the [Microsoft Entra attribute mappings](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
  Authorization: Bearer ...
 ```
 
-In the sample code the request is translated into a call to the QueryAsync method of the service’s provider. Here is the signature of that method: 
+In the sample code, the request is translated into a call to the QueryAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1098,9 +1130,9 @@ In the sample query, for a user with a given value for the `externalId` attribut
 
 ***Example 2. Provision a user***
 
-If the response to a query to the web service for a user with an `externalId` attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure AD requests that the service provision a user corresponding to the one in Azure AD.  Here is an example of such a request: 
+If the response to a query to the SCIM endpoint for a user with an `externalId` attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Microsoft Entra ID requests that the service provision a user corresponding to the one in Microsoft Entra ID.  Here's an example of such a request: 
 
-```
+```http
 POST https://.../scim/Users HTTP/1.1
 Authorization: Bearer ...
 Content-type: application/scim+json
@@ -1131,7 +1163,7 @@ Content-type: application/scim+json
    "manager":null}
 ```
 
-In the sample code the request is translated into a call to the CreateAsync method of the service’s provider. Here is the signature of that method: 
+In the sample code, the request is translated into a call to the CreateAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1143,18 +1175,18 @@ In the sample code the request is translated into a call to the CreateAsync meth
 Task<Resource> CreateAsync(IRequest<Resource> request);
 ```
 
-In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SCIM.Core2EnterpriseUser class, defined in the Microsoft.SCIM.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SCIM.Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+In a request for user provisioning, the value of the resource argument is an instance of the Microsoft.SCIM.Core2EnterpriseUser class. This class is defined in the Microsoft.SCIM.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SCIM.Core2EnterpriseUser class. The value of the `Identifier` property is set to the unique identifier of the newly provisioned user.  
 
 ***Example 3. Query the current state of a user*** 
 
-To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
+Microsoft Entra ID requests the current state of the specified user from the service with a request such as: 
 
 ```
 GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
 Authorization: Bearer ...
 ```
 
-In the sample code the request is translated into a call to the RetrieveAsync method of the service’s provider. Here is the signature of that method: 
+In the sample code, the request is translated into a call to the RetrieveAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1167,15 +1199,15 @@ In the sample code the request is translated into a call to the RetrieveAsync me
 Task<Resource> RetrieveAsync(IRequest<IResourceRetrievalParameters> request);
 ```
 
-In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+In the example of a request, to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
 * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+* SchemaIdentifier: `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`
 
 ***Example 4. Query the value of a reference attribute to be updated*** 
 
-If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a user object currently has a certain value: 
-In the sample code the request is translated into a call to the QueryAsync method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+Microsoft Entra ID checks the current attribute value in the identity store before updating it. However, only the manager attribute is the checked first for users. Here's an example of a request to determine whether the manager attribute of a user object currently has a certain value: 
+In the sample code, the request is translated into a call to the QueryAsync method of the service's provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
 * parameters.AlternateFilters.Count: 2
 * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
@@ -1185,15 +1217,15 @@ In the sample code the request is translated into a call to the QueryAsync metho
 * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
 * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-* parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+* parameters.SchemaIdentifier: `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`
 
-Here, the value of the index x can be 0 and the value of the index y can be 1, or the value of x can be 1 and the value of y can be 0, depending on the order of the expressions of the filter query parameter.   
+The value of the index x can be `0` and the value of the index y can be `1`. Or the value of x can be `1` and the value of y can be `0`. It depends on the order of the expressions of the filter query parameter.
 
-***Example 5. Request from Azure AD to an SCIM service to update a user*** 
+***Example 5. Request from Microsoft Entra ID to an SCIM endpoint to update a user*** 
 
-Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
+Here's an example of a request from Microsoft Entra ID to an SCIM endpoint to update a user: 
 
-```
+```http
 PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
 Authorization: Bearer ...
 Content-type: application/scim+json
@@ -1213,7 +1245,7 @@ Content-type: application/scim+json
               "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
 ```
 
-In the sample code the request is translated into a call to the UpdateAsync method of the service’s provider. Here is the signature of that method: 
+In the sample code, the request is translated into a call to the UpdateAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks and 
@@ -1226,29 +1258,29 @@ In the sample code the request is translated into a call to the UpdateAsync meth
 Task UpdateAsync(IRequest<IPatch> request);
 ```
 
-In the example of a request to update a user, the object provided as the value of the patch argument has these property values: 
+In the example of a request, to update a user, the object provided as the value of the patch argument has these property values: 
 
 |Argument|Value|
 |-|-|
-|ResourceIdentifier.Identifier|"54D382A4-2050-4C03-94D1-E769F1D15682"|
-|ResourceIdentifier.SchemaIdentifier|"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"|
-|(PatchRequest as PatchRequest2).Operations.Count|1|
-|(PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName|OperationName.Add|
-|(PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath|"manager"|
-|(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count|1|
-|(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference|http://.../scim/Users/2819c223-7f76-453a-919d-413861904646|
-|(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value| 2819c223-7f76-453a-919d-413861904646|
+|`ResourceIdentifier.Identifier`|"54D382A4-2050-4C03-94D1-E769F1D15682"|
+|`ResourceIdentifier.SchemaIdentifier`| `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`|
+|`(PatchRequest as PatchRequest2).Operations.Count`|1|
+|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName`| `OperationName.Add`|
+|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath`| Manager|
+|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count`|1|
+|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference`|`http://.../scim/Users/2819c223-7f76-453a-919d-413861904646`|
+|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value`| 2819c223-7f76-453a-919d-413861904646|
 
 ***Example 6. Deprovision a user***
 
-To deprovision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as:
+To deprovision a user from an identity store fronted by an SCIM endpoint, Microsoft Entra ID sends a request such as:
 
-```
+```http
 DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
 Authorization: Bearer ...
 ```
 
-In the sample code the request is translated into a call to the DeleteAsync method of the service’s provider. Here is the signature of that method: 
+In the sample code, the request is translated into a call to the DeleteAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1263,80 +1295,84 @@ Task DeleteAsync(IRequest<IResourceIdentifier> request);
 The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to deprovision a user: 
 
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+* ResourceIdentifier.SchemaIdentifier: `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`
 
-## Integrate your SCIM endpoint with the Azure AD SCIM client
+<a name='integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service'></a>
 
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-azure-ad-scim-implementation).
+## Integrate your SCIM endpoint with the Microsoft Entra provisioning service
+
+Microsoft Entra ID can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Microsoft Entra SCIM implementation](#understand-the-azure-ad-scim-implementation).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
 > [!IMPORTANT]
-> The Azure AD SCIM implementation is built on top of the Azure AD user provisioning service, which is designed to constantly keep users in sync between Azure AD and the target application, and implements a very specific set of standard operations. It's important to understand these behaviors to understand the behavior of the Azure AD SCIM client. For more information, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> The Microsoft Entra SCIM implementation is built on top of the Microsoft Entra user provisioning service, which is designed to constantly keep users in sync between Microsoft Entra ID and the target application, and implements a very specific set of standard operations. It's important to understand these behaviors to understand the behavior of the Microsoft Entra provisioning service. For more information, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 ### Getting started
 
-Applications that support the SCIM profile described in this article can be connected to Azure Active Directory using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 40 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Applications that support the SCIM profile described in this article can be connected to Microsoft Entra ID using the "non-gallery application" feature in the Microsoft Entra application gallery. Once connected, Microsoft Entra ID runs a synchronization process. The process runs every 40 minutes. The process queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [Azure AD portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
-1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **+ Create your own application**.
 1. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
+    
+    The following screenshot shows the Microsoft Entra application gallery:
 
-   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
-   *Azure AD application gallery*
-
-   > [!NOTE]
-   > If you are using the old app gallery experience, follow the screen guide below.
-   
-   ![Screenshot shows the Azure AD old app gallery experience](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
-   *Azure AD old app gallery experience*
+   ![Screenshot shows the Microsoft Entra application gallery.](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png) 
 
 1. In the app management screen, select **Provisioning** in the left panel.
 1. In the **Provisioning Mode** menu, select **Automatic**.
+    
+    The following screenshot shows the configuring provisioning settings in the Microsoft Entra admin center:
 
-   ![Example: An app's Provisioning page in the Azure portal](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
-   *Configuring provisioning in the Azure portal*
+   ![Screenshot of app provisioning page in the Microsoft Entra admin center.](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)
 
 1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: `https://api.contoso.com/scim/`
-1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD includes an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD-issued token. 
+1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Microsoft Entra ID, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Microsoft Entra ID includes an OAuth bearer token issued from Microsoft Entra ID with each request. Apps that use Microsoft Entra ID as an identity provider can validate this Microsoft Entra ID-issued token. 
    > [!NOTE]
-   > It's ***not*** recommended to leave this field blank and rely on a token generated by Azure AD. This option is primarily available for testing purposes.
-1. Select **Test Connection** to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
+   > It's ***not*** recommended to leave this field blank and rely on a token generated by Microsoft Entra ID. This option is primarily available for testing purposes.
+1. Select **Test Connection** to have Microsoft Entra ID attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
 
     > [!NOTE]
-    > **Test Connection** queries the SCIM endpoint for a user that doesn't exist, using a random GUID as the matching property selected in the Azure AD configuration. The expected correct response is HTTP 200 OK with an empty SCIM ListResponse message.
+    > **Test Connection** queries the SCIM endpoint for a user that doesn't exist, using a random GUID as the matching property selected in the Microsoft Entra configuration. The expected correct response is HTTP 200 OK with an empty SCIM ListResponse message.
 
 1. If the attempts to connect to the application succeed, then select **Save** to save the admin credentials.
-1. In the **Mappings** section, there are two selectable sets of [attribute mappings](customize-application-attributes.md): one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
+1. In the **Mappings** section, there are two selectable sets of [attribute mappings](customize-application-attributes.md): one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Microsoft Entra ID to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
 
     > [!NOTE]
     > You can optionally disable syncing of group objects by disabling the "groups" mapping.
 
 1. Under **Settings**, the **Scope** field defines which users and groups are synchronized. Select **Sync only assigned users and groups** (recommended) to only sync users and groups assigned in the **Users and groups** tab.
 1. Once your configuration is complete, set the **Provisioning Status** to **On**.
-1. Select **Save** to start the Azure AD provisioning service.
-1. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
+1. Select **Save** to start the Microsoft Entra provisioning service.
+1. If syncing only assigned users and groups (recommended), select the **Users and groups** tab. Then, assign the users or groups you want to sync.
 
-Once the initial cycle has started, you can select **Provisioning logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Provisioning logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > The initial cycle takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
 
-## Publish your application to the Azure AD application gallery
+<a name='publish-your-application-to-the-azure-ad-application-gallery'></a>
 
-If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
+## Publish your application to the Microsoft Entra application gallery
+
+If you're building an application used by more than one tenant, make it available in the Microsoft Entra application gallery. It's easy for organizations to discover the application and configure provisioning. Publishing your app in the Microsoft Entra gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft works with you to integrate your application into the gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers.
 
 ### Gallery onboarding checklist
-Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
+Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information is gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
 > * Support a [SCIM 2.0](#understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
-> * Support the OAuth authorization code grant or a long lived token as described below (Required)
+> * Support the OAuth authorization code grant or a long lived token as described in the example (Required)
+> * OIDC apps must have at least 1 role (custom or default) defined
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
 > * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
@@ -1347,13 +1383,13 @@ The SCIM spec doesn't define a SCIM-specific scheme for authentication and autho
 
 |Authorization method|Pros|Cons|Support|
 |--|--|--|--|
-|Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Not supported for new gallery or non-gallery apps.|
-|Long-lived bearer token|Long-lived tokens do not require a user to be present. They are easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
-|OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog, in addition to support for configurable auth / token URLs on the gallery app.|
-|OAuth client credentials grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be completely automated, and new tokens can be silently requested without user interaction. ||Not supported for gallery and non-gallery apps. Support is in our backlog.|
+|Username and password (not recommended or supported by Microsoft Entra ID)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/your-pa-word-doesn-t-matter/ba-p/731984)|Not supported for new gallery or non-gallery apps.|
+|Long-lived bearer token|Long-lived tokens don't require a user to be present. They're easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
+|OAuth authorization code grant|Access tokens have a shorter life than passwords, and have an automated refresh mechanism that long-lived bearer tokens don't have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid, and authorization needs to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog, in addition to support for configurable auth / token URLs on the gallery app.|
+|OAuth client credentials grant|Access tokens have a shorter life than passwords, and have an automated refresh mechanism that long-lived bearer tokens don't have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be automated, and new tokens can be silently requested without user interaction. ||Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth client credentials grant on non-gallery is in our backlog.|
 
 > [!NOTE]
-> It's not recommended to leave the token field blank in the Azure AD provisioning configuration custom app UI. The token generated is primarily available for testing purposes.
+> It's not recommended to leave the token field blank in the Microsoft Entra provisioning configuration custom app UI. The token generated is primarily available for testing purposes.
 
 ### OAuth code grant flow
 
@@ -1363,7 +1399,7 @@ The provisioning service supports the [authorization code grant](https://tools.i
 
 - **Token exchange URL**, a URL by the client to exchange an authorization grant for an access token, typically with client authentication.
 
-- **Client ID**, the authorization server issues the registered client a client identifier, which is a unique string representing the registration information provided by the client.  The client identifier is not a secret; it is exposed to the resource owner and **must not** be used alone for client authentication.  
+- **Client ID**, the authorization server issues the registered client a client identifier, which is a unique string representing the registration information provided by the client.  The client identifier isn't a secret; it's exposed to the resource owner and **must not** be used alone for client authentication.  
 
 - **Client secret**, a secret generated by the authorization server that should be a unique value known only to the authorization server. 
 
@@ -1373,41 +1409,43 @@ The provisioning service supports the [authorization code grant](https://tools.i
 > [!NOTE]
 > OAuth v1 is not supported due to exposure of the client secret. OAuth v2 is supported.  
 
-Best practices (recommended, but not required):
-* Support multiple redirect URLs. Administrators can configure provisioning from both "portal.azure.com" and "aad.portal.azure.com". Supporting multiple redirect URLs will ensure that users can authorize access from either portal.
-* Support multiple secrets for easy renewal, without downtime. 
+It's recommended, but not required, that you support multiple secrets for easy renewal without downtime.
 
-#### How to setup OAuth code grant flow
+#### How to set up OAuth code grant flow
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
-1. Sign in to the Azure portal, go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your application and go to **Provisioning**.
+1. Select **Authorize**.
 
-   1. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
+   1. Users are redirected to the Authorization URL (sign in page for the third party app).
 
    1. Admin provides credentials to the third party application. 
 
-   1. Third party app redirects user back to Azure portal and provides the grant code 
+   1. The third party app redirects user back and provides the grant code 
 
-   1. Azure AD provisioning services calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
+   1. The Provisioning Service calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
 
 1. When the provisioning cycle begins, the service checks if the current access token is valid and exchanges it for a new token if needed. The access token is provided in each request made to the app and the validity of the request is checked before each request.
 
 > [!NOTE]
-> While it's not possible to setup OAuth on the non-gallery applications, you can manually generate an access token from your authorization server and input it as the secret token to a non-gallery application. This allows you to verify compatibility of your SCIM server with the Azure AD SCIM client before onboarding to the app gallery, which does support the OAuth code grant.  
+> While it's not possible to setup OAuth on the non-gallery applications, you can manually generate an access token from your authorization server and input it as the secret token to a non-gallery application. This allows you to verify compatibility of your SCIM server with the Microsoft Entra provisioning service before onboarding to the app gallery, which does support the OAuth code grant.  
 
-**Long-lived OAuth bearer tokens:** If your application doesn't support the OAuth authorization code grant flow, instead generate a long lived OAuth bearer token that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires.
+**Long-lived OAuth bearer tokens:** If your application doesn't support the OAuth authorization code grant flow, instead generate a long lived OAuth bearer token that an administrator can use to set up the provisioning integration. The token should be perpetual, or else the provisioning job is [quarantined](application-provisioning-quarantine-status.md) when the token expires.
 
-For additional authentication and authorization methods, let us know on [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
+For more authentication and authorization methods, let us know on [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
 ### Gallery go-to-market launch check list
-To help drive awareness and demand of our joint integration, we recommend you update your existing documentation and amplify the integration in your marketing channels.  The below is a set of checklist activities we recommend you complete to support the launch
+To help drive awareness and demand of our joint integration, we recommend you update your existing documentation and amplify the integration in your marketing channels. We recommend you to complete the following checklist to support the launch:
 
 > [!div class="checklist"]
 > * Ensure your sales and customer support teams are aware, ready, and can speak to the integration capabilities. Brief your teams, provide them with FAQs and include the integration into your sales materials. 
-> * Craft a blog post or press release that describes the joint integration, the benefits and how to get started. [Example: Imprivata and Azure Active Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
-> * Leverage your social media like Twitter, Facebook or LinkedIn to promote the integration to your customers. Be sure to include @AzureAD so we can retweet your post. [Example: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
-> * Create or update your marketing pages/website (e.g. integration page, partner page, pricing page, etc.) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Monday.com pricing page](https://monday.com/pricing/) 
-> * Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Azure Active Directory integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
-) 
+> * Craft a blog post or press release that describes the joint integration, the benefits and how to get started. [Example: Imprivata and Microsoft Entra Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+> * Leverage your social media like Twitter, Facebook or LinkedIn to promote the integration to your customers. Be sure to include @Microsoft Entra ID so we can retweet your post. [Example: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
+> * Create or update your marketing pages/website (e.g. integration page, partner page, pricing page, etc.) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/directory-integrations), [Monday.com pricing page](https://monday.com/pricing/) 
+> * Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Entra integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration) 
 > * Alert customers of the new integration through your customer communication (monthly newsletters, email campaigns, product release notes). 
 
 ## Next steps

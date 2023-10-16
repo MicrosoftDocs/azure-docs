@@ -6,7 +6,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/20/2020
+ms.date: 04/06/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,7 +26,7 @@ The JSON snippets shown in this article are derived from a [ApplicationGatewayWe
 
 ## Example 1
 
-You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
+You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you block on the User-Agent *evilbot* in the request headers.
 
 Logic: p
 
@@ -47,31 +47,42 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
-And here is the corresponding JSON:
+And here's the corresponding JSON:
 
 ```json
-  {
-    "customRules": [
-      {
-        "name": "blockEvilBot",
-        "ruleType": "MatchRule",
-        "priority": 2,
-        "action": "Block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestHeaders",
-            "operator": "User-Agent",
-            "matchValues": [
-              "evilbot"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+{
+  "customRules": [
+    {
+      "name": "blockEvilBot",
+      "priority": 2,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RequestHeaders",
+              "selector": "User-Agent"
+            }
+          ],
+          "operator": "Contains",
+          "negationConditon": false,
+          "matchValues": [
+            "evilbot"
+          ],
+          "transforms": [
+            "Lowercase"
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 To see a WAF deployed using this custom rule, see [Configure a Web Application Firewall custom rule using Azure PowerShell](configure-waf-custom-rules.md).
@@ -97,36 +108,47 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
 
 ```json
-  {
-    "customRules": [
-      {
-        "name": "blockEvilBot",
-        "ruleType": "MatchRule",
-        "priority": 2,
-        "action": "Block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestHeaders",
-            "operator": "User-Agent",
-            "matchValues": [
-              "evilbot"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+{
+  "customRules": [
+    {
+      "name": "blockEvilBot",
+      "priority": 2,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RequestHeaders",
+              "selector": "User-Agent"
+            }
+          ],
+          "operator": "Regex",
+          "negationConditon": false,
+          "matchValues": [
+            "evilbot"
+          ],
+          "transforms": [
+            "Lowercase"
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Example 2
 
-You want to allow traffic only from the US using the GeoMatch operator and still have the managed rules apply:
+You want to allow traffic only from the United States using the GeoMatch operator and still have the managed rules apply:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -144,41 +166,48 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
 
 ```json
-  {
-    "customRules": [
-      {
-        "name": "allowUS",
-        "ruleType": "MatchRule",
-        "priority": 2,
-        "action": "Block",
-        "matchConditions": [
-          {
-            "matchVariable": "RemoteAddr",
-            "operator": "GeoMatch",
-            "NegationConditon": false,
-            "matchValues": [
-              "US"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+{
+  "customRules": [
+    {
+      "name": "allowUS",
+      "priority": 2,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RemoteAddr"
+            }
+          ],
+          "operator": "GeoMatch",
+          "negationConditon": true,
+          "matchValues": [
+            "US"
+          ],
+          "transforms": [
+            "Lowercase"
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
-
-
 
 ## Example 3
 
 You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
-In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 10.
+In this example, you block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 10.
 
 Logic: p
 
@@ -197,31 +226,39 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Here's the corresponding JSON:
 
 ```json
-  {
-    "customRules": [
-      {
-        "name": "myrule1",
-        "ruleType": "MatchRule",
-        "priority": 10,
-        "action": "Block",
-        "matchConditions": [
-          {
-            "matchVariable": "RemoteAddr",
-            "operator": "IPMatch",
-            "matchValues": [
-              "192.168.5.0/24"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+{
+  "customRules": [
+    {
+      "name": "myrule1",
+      "priority": 10,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RemoteAddr"
+            }
+          ],
+          "operator": "IPMatch",
+          "negationConditon": false,
+          "matchValues": [
+            "192.168.5.0/24"
+          ],
+          "transforms": []
+        }
+      ]
+    }
+  ]
+}
 ```
 
 Corresponding CRS rule:
@@ -229,7 +266,7 @@ Corresponding CRS rule:
 
 ## Example 4
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this action, you can create two separate match conditions, and put them both in the same rule. This configuration ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
 Logic: p **and** q
 
@@ -259,44 +296,55 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1, $condition2 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Here's the corresponding JSON:
 
 ```json
-{ 
-
-    "customRules": [ 
-      { 
-        "name": "myrule", 
-        "ruleType": "MatchRule", 
-        "priority": 10, 
-        "action": "block", 
-        "matchConditions": [ 
-            { 
-              "matchVariable": "RemoteAddr", 
-              "operator": "IPMatch", 
-              "negateCondition": false, 
-              "matchValues": [ 
-                "192.168.5.0/24" 
-              ] 
-            }, 
-            { 
-              "matchVariable": "RequestHeaders", 
-              "selector": "User-Agent", 
-              "operator": "Contains", 
-              "transforms": [ 
-                "Lowercase" 
-              ], 
-              "matchValues": [ 
-                "evilbot" 
-              ] 
-            } 
-        ] 
-      } 
-    ] 
-  } 
+{
+  "customRules": [
+    {
+      "name": "myrule",
+      "priority": 10,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RemoteAddr"
+            }
+          ],
+          "operator": "IPMatch",
+          "negationConditon": false,
+          "matchValues": [
+            "192.168.5.0/24"
+          ],
+          "transforms": []
+        },
+        {
+          "matchVariables": [
+            {
+              "variableName": "RequestHeaders",
+              "selector": "User-Agent"
+            }
+          ],
+          "operator": "Contains",
+          "negationConditon": false,
+          "matchValues": [
+            "evilbot"
+          ],
+          "transforms": [
+            "Lowercase"
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Example 5
@@ -331,221 +379,137 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
    -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
 
 ```json
 {
-    "customRules": [
-      {
-        "name": "myrule1",
-        "ruleType": "MatchRule",
-        "priority": 10,
-        "action": "block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestHeaders",
-            "operator": "IPMatch",
-            "negateCondition": true,
-            "matchValues": [
-              "192.168.5.0/24"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "myrule2",
-        "ruleType": "MatchRule",
-        "priority": 20,
-        "action": "block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestHeaders",
-            "selector": "User-Agent",
-            "operator": "Contains",
-            "negateCondition": true,
-            "transforms": [
-              "Lowercase"
-            ],
-            "matchValues": [
-              "chrome"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "customRules": [
+    {
+      "name": "myrule1",
+      "priority": 10,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RemoteAddr"
+            }
+          ],
+          "operator": "IPMatch",
+          "negationConditon": true,
+          "matchValues": [
+            "192.168.5.0/24"
+          ],
+          "transforms": []
+        }
+      ]
+    },
+    {
+      "name": "myrule2",
+      "priority": 20,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RequestHeaders",
+              "selector": "User-Agent"
+            }
+          ],
+          "operator": "Contains",
+          "negationConditon": true,
+          "matchValues": [
+            "chrome"
+          ],
+          "transforms": [
+            "Lowercase"
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Example 6
 
-You want to block custom SQLI. Since the logic used here is **or**, and all the values are in the *RequestUri*, all of the *MatchValues* can be in a comma-separated list.
+You want to only allow requests from specific known user agents.
+
+Because the logic used here is **or**, and all the values are in the *User-Agent* header, all of the *MatchValues* can be in a comma-separated list.
 
 Logic: p **or** q **or** r
 
 ```azurepowershell
-$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri 
-$condition1 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable1 `
-   -Operator Contains `
-   -MatchValue "1=1", "drop tables", "'—" `
-   -NegationCondition $False
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector User-Agent
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Equal `
+   -MatchValue @('user1', 'user2') `
+   -NegationCondition $True
 
-$rule1 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule4 `
-   -Priority 10 `
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name BlockUnknownUserAgents `
+   -Priority 2 `
    -RuleType MatchRule `
-   -MatchCondition $condition1 `
-   -Action Block
+   -MatchCondition $condition `
+   -Action Block `
+   -State Enabled
 ```
 
 Corresponding JSON:
 
 ```json
-  {
-    "customRules": [
-      {
-        "name": "myrule4",
-        "ruleType": "MatchRule",
-        “priority”: 10
-        "action": "block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestUri",
-            "operator": "Contains",
-            "matchValues": [
-              "1=1",
-              "drop tables",
-              "'--"
-            ]
-          }
-        ]
-      }
-    ]
-  }
-```
-
-Alternative Azure PowerShell:
-
-```azurepowershell
-$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri
-$condition1 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable1 `
-   -Operator Contains `
-   -MatchValue "1=1" `
-   -NegationCondition $False
-
-$rule1 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule1 `
-   -Priority 10 `
-   -RuleType MatchRule `
-   -MatchCondition $condition1 `
--Action Block
-
-$variable2 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri
-
-$condition2 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable2 `
-   -Operator Contains `
-   -MatchValue "drop tables" `
-   -NegationCondition $False
-
-$rule2 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule2 `
-   -Priority 20 `
-   -RuleType MatchRule `
-   -MatchCondition $condition2 `
-   -Action Block
-
-$variable3 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri
-
-$condition3 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable3 `
-   -Operator Contains `
-   -MatchValue "’—" `
-   -NegationCondition $False
-
-$rule3 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule3 `
-   -Priority 30 `
-   -RuleType MatchRule `
-   -MatchCondition $condition3 `
-   -Action Block
-```
-
-Corresponding JSON:
-
-```json
-  {
-    "customRules": [
-      {
-        "name": "myrule1",
-        "ruleType": "MatchRule",
-        "priority": 10,
-        "action": "block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestUri",
-            "operator": "Contains",
-            "matchValues": [
-              "1=1"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "myrule2",
-        "ruleType": "MatchRule",
-        "priority": 20,
-        "action": "block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestUri",
-            "operator": "Contains",
-            "transforms": [
-              "Lowercase"
-            ],
-            "matchValues": [
-              "drop tables"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "myrule3",
-        "ruleType": "MatchRule",
-        "priority": 30,
-        "action": "block",
-        "matchConditions": [
-          {
-            "matchVariable": "RequestUri",
-            "operator": "Contains",
-            "matchValues": [
-              "'--"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+{
+  "customRules": [
+    {
+      "name": "BlockUnknownUserAgents",
+      "priority": 2,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RequestHeaders",
+              "selector": "User-Agent"
+            }
+          ],
+          "operator": "Equal",
+          "negationConditon": true,
+          "matchValues": [
+            "user1",
+            "user2"
+          ],
+          "transforms": []
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Example 7
 
-It is not uncommon to see Azure Front Door deployed in front of Application Gateway.  In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on this, please see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-)
 
 Logic: **not** p
 
@@ -567,40 +531,42 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
-And here is the corresponding JSON:
+And here's the corresponding JSON:
 
 ```json
-  {
-    "customRules": [
-      {
-        "name": "blockNonAFDTraffic",
-        "priority": 2,
-        "ruleType": "MatchRule",
-        "action": "Block",
-        "matchConditions": [
-          {
-            "matchVariables": [
-                {
-                    "variableName": "RequestHeaders",
-                    "selector": "X-Azure-FDID"
-                }
-            ],
-            "operator": "Equal",
-            "negationConditon": true,
-            "matchValues": [
-                "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-            ],
-            "transforms": [
-                "Lowercase"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+{
+  "customRules": [
+    {
+      "name": "blockNonAFDTraffic",
+      "priority": 2,
+      "ruleType": "MatchRule",
+      "action": "Block",
+      "state": "Enabled",
+      "matchConditions": [
+        {
+          "matchVariables": [
+            {
+              "variableName": "RequestHeaders",
+              "selector": "X-Azure-FDID"
+            }
+          ],
+          "operator": "Equal",
+          "negationConditon": true,
+          "matchValues": [
+            "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          ],
+          "transforms": [
+            "Lowercase"
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Next steps

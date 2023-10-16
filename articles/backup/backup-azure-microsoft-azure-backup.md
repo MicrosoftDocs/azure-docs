@@ -1,8 +1,11 @@
 ---
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
-ms.topic: conceptual
-ms.date: 04/14/2021
+ms.topic: how-to
+ms.date: 04/27/2023
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Install and upgrade Azure Backup Server
@@ -14,12 +17,12 @@ ms.date: 04/14/2021
 >
 >
 
-> Applies To: MABS v3. (MABS v2 is no longer supported. If you're using a version earlier than MABS v3, please upgrade to the latest version.)
+> Applies To: MABS v4.
 
-This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
+This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads, such as Hyper-V VMs, VMware VMs, Azure Stack HCI VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
 
 > [!NOTE]
-> Azure Backup Server can now protect VMware VMs and provides improved security capabilities. Install the product as explained in the sections below and the latest Azure Backup Agent. To learn more about backing up VMware servers with Azure Backup Server, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md). To learn about security capabilities, refer to [Azure Backup security features documentation](backup-azure-security-feature.md).
+> To learn more about backing up VMware servers with Azure Backup Server, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md). To learn about security capabilities, refer to [Azure Backup security features documentation](backup-azure-security-feature.md).
 >
 >
 
@@ -41,7 +44,7 @@ The first step towards getting the Azure Backup Server up and running is to set 
 
 ### Using a server in Azure
 
-When choosing a server for running Azure Backup Server, it's recommended you start with a gallery image of Windows Server 2016 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
+When choosing a server for running Azure Backup Server, it's recommended you start with a gallery image of Windows Server 2022 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 
@@ -51,8 +54,8 @@ If you don't want to run the base server in Azure, you can run the server on a H
 
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
-| Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
-| Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials  |
+| Windows Server 2022 |64 bit |Standard, Datacenter, Essentials |
+| Windows Server 2019 |64 bit |Standard, Datacenter, Essentials  |
 
 You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](/system-center/dpm/deduplicate-dpm-storage) work together when deployed in Hyper-V VMs.
 
@@ -70,6 +73,9 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 Always join Azure Backup Server to a domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
 Whether you send backup data to Azure, or keep it locally, Azure Backup Server must be registered with a Recovery Services vault.
+
+>[!Note]
+>If you encounter difficulties to register to a vault or other errors, ensure that you've the MARS agent version 2.0.9249.0 or above installed. If not, we recommend you to install the latest version [from here](https://aka.ms/azurebackup_agent).
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -151,23 +157,26 @@ After you've downloaded all the files, select **MicrosoftAzureBackupInstaller.ex
 
 ![Setup extracting files for install](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
+Once the extraction process completes, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
 
 ### Installing the software package
 
-1. Select **Microsoft Azure Backup** to launch the setup wizard.
+1. Select **Microsoft Azure Backup Server** to launch the setup wizard.
 
-    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. On the Welcome screen, select the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, select **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you'll see a message indicating that the machine meets the requirements. Select the **Next** button.
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/launch-setup-wizard.png" alt-text="Screenshot shows Microsoft Azure Backup Setup Wizard.":::
+2. On the **Welcome** screen, select **Next**.
 
-    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   This takes you to the *Prerequisite Checks* section. On this screen, select **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you'll see a message indicating that the machine meets the requirements. Select the **Next** button.
+
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/prereq/welcome-screen.png" alt-text="Screenshot shows Azure Backup Server welcome and prerequisites check.":::
 3. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting  a new Azure Backup Server installation, pick the option **Install new Instance of SQL Server with this Setup** and select the **Check and Install** button. Once the prerequisites are successfully installed, select **Next**.
 
     >[!NOTE]
-    >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016 and 2017.  All SQL Server versions should be Standard or Enterprise 64-bit.
+    >
+    >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2022 and 2019. All SQL Server versions should be Standard or Enterprise 64-bit.
     >Azure Backup Server won't work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you're using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
 
-    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/sql/install-new-instance-of-sql-server.png" alt-text="Screenshot shows Azure Backup Server SQL check.":::
 
     If a failure occurs with a recommendation to restart the machine, do so and select **Check Again**. If there are any SQL configuration issues, reconfigure SQL according to the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
 
@@ -175,9 +184,9 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
    When you use your own instance of SQL, make sure you add builtin\Administrators to sysadmin role to master DB.
 
-    **SSRS Configuration with SQL 2017**
+    **SSRS Configuration with SQL**
 
-    When you're using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
+    When you're using your own instance of SQL 2019 or 2022 with MABS V4, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
     Use the following values for SSRS configuration:
     * Service Account: ‘Use built-in account’ should be Network Service
@@ -192,7 +201,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 4. Provide a location for the installation of Microsoft Azure Backup server files and select **Next**.
 
-    ![Provide location for installation of files](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/space-screen.png" alt-text="Screenshot shows how to provide location for installation of files.":::
 
     The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
@@ -200,7 +209,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 5. Provide a strong password for restricted local user accounts and select **Next**.
 
-    ![Provide strong password](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/security-screen.png" alt-text="Screenshot shows how to provide strong password.":::
 6. Select whether you want to use *Microsoft Update* to check for updates and select **Next**.
 
    > [!NOTE]
@@ -208,18 +217,22 @@ Once the extraction process complete, check the box to launch the freshly extrac
    >
    >
 
-    ![Microsoft Update Opt-In](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png" alt-text="Screenshot shows the Microsoft Update Opt-In page.":::
 7. Review the *Summary of Settings* and select **Install**.
 
-    ![Summary of settings](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/summary-screen.png" alt-text="Screenshot shows the summary of settings.":::
+
 8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available, you can continue with the installation. If not, you need to provide proxy details to connect to the Internet.
+
+    >[!Important]
+    >If you run into errors in vault registration, ensure that you're using the latest version of the MARS agent, instead of the version packaged with MABS server. You can download the latest version [from here](https://aka.ms/azurebackup_agent) and replace the *MARSAgentInstaller.exe* file in *MARSAgent* folder in the extracted path before installation and registration on new servers.
 
     The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the Recovery Services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
-    ![Register Server Wizard](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/mars/register-server-wizard.png" alt-text="Screenshot shows the Register Server Wizard.":::
 9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
 
-    ![Azure Backup Server setup progress](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png" alt-text="Screenshot shows the Azure Backup Server setup progress.":::
 
 When the installation step has completed, the product's desktop icons will have been created as well. Double-click the icon to launch the product.
 
@@ -265,9 +278,9 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 1. In the display pane, select the client computers for which you want to update the protection agent.
 2. Shut down the original Azure Backup server or take it offline.
 3. Reset the machine account in Active Directory.
-4. Install Server 2016 on a new machine and give it the same machine name as the original Azure Backup server.
+4. Install Windows Server on a new machine and give it the same machine name as the original Azure Backup server.
 5. Join the domain.
-6. Install Azure Backup Server V3 or later (move MABS Storage pool disks from old server and import).
+6. Install Azure Backup Server V4 or later (move MABS Storage pool disks from old server and import).
 7. Restore the DPMDB taken in step 1.
 8. Attach the storage from the original backup server to the new server.
 9. From SQL, restore the DPMDB.
@@ -308,13 +321,18 @@ If your machine has limited internet access, ensure that firewall settings on th
   * `*.microsoftonline.com`
   * `*.windows.net`
   * `www.msftconnecttest.com`
+  *  `www.msftconnecttest.com`
+  * `*.blob.core.windows.net`
+  * `*.queue.core.windows.net`
+  *  `*.blob.storage.azure.net`
+
 * IP addresses
   * 20.190.128.0/18
   * 40.126.0.0/18
 
 If you're using ExpressRoute Microsoft peering, select the following services/regions:
 
-* Azure Active Directory (12076:5060)
+* Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
@@ -333,31 +351,39 @@ It's possible to take an Azure subscription from an *Expired* or *Deprovisioned*
 
 Use the following procedures to upgrade MABS.
 
-### Upgrade from MABS V2 to V3
+### Upgrade from MABS V3 to V4
 
 > [!NOTE]
 >
-> MABS V2 isn't a prerequisite for installing MABS V3. However, you can upgrade to MABS V3 only from MABS V2.
+> MABS V3 isn't a prerequisite for installing MABS V4. However, you can upgrade to MABS V4 only from MABS V3 (RTM, Update Rollup 1 and Update Rollup 2).
 
 Use the following steps to upgrade MABS:
 
-1. To upgrade from MABS V2 to MABS V3, upgrade your OS to Windows Server 2016 or Windows Server 2019 if needed.
+1. To upgrade from MABS V3 to MABS V4, upgrade your OS to Windows Server 2022 or Windows Server 2019 if needed.
 
-2. Upgrade your server. The steps are similar to [installation](#install-and-upgrade-azure-backup-server). However, for SQL settings, you'll get an option to upgrade your SQL instance to SQL 2017, or to use your own instance of SQL server 2017.
+2. Upgrade your server. The steps are similar to [installation](#install-and-upgrade-azure-backup-server). However, for SQL settings, you'll get an option to upgrade your SQL instance to SQL 2022, or to use your own instance of SQL server.
 
    > [!NOTE]
    >
    > Don't exit while your SQL instance is being upgraded. Exiting will uninstall the SQL reporting instance and so an attempt to re-upgrade MABS will fail.
 
-   > [!IMPORTANT]
-   >
-   >  As part of SQL 2017 upgrade, we backup the SQL encryption keys and uninstall the reporting services. After SQL server upgrade,  reporting service(14.0.6827.4788) is installed & encryption keys are restored.
-   >
-   > When configuring SQL 2017 manually, refer to *SSRS configuration with SQL 2017* section under Install instructions.
-
 3. Update the protection agents on the protected servers.
 4. Backups should continue without the need to restart your production servers.
 5. You can begin protecting your data now. If you're upgrading to Modern Backup Storage, while protecting, you can also choose the volumes you wish to store the backups in, and check for under provisioned space. [Learn more](backup-mabs-add-storage.md).
+
+## Increase maximum parallel online backups
+
+You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable number using the following registry keys (if your underlying hardware and network bandwidth can support it).
+
+The example below increases the limit to 12 jobs.
+
+- `[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup]`
+
+  "MaxParallelBackupJobs"=dword:0000000C
+
+- `[HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft Data Protection Manager\Configuration\DPMTaskController\MaxRunningTasksThreshold]`
+
+  "6e7c76f4-a832-4418-a772-8e58fd7466cb"=dword:0000000C
 
 ## Troubleshooting
 

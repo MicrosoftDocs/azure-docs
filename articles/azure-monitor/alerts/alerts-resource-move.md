@@ -1,11 +1,10 @@
 ---
 title: How to update alert rules or alert processing rules when their target resource moves to a different Azure region
 description: Background and instructions for how to update alert rules or alert processing rules when their target resource moves to a different Azure region. 
-author: harelbr
-ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 2/23/2022
+ms.date: 05/28/2023
+ms.reviewer: ofmanor
 ---
 # How to update alert rules or alert processing rules when their target resource moves to a different Azure region
 
@@ -13,11 +12,11 @@ This article describes why existing [alert rules](./alerts-overview.md) and [ale
 
 ## Why the problem exists
 
-Alert rules and alert processing rules reference other Azure resources. Examples include [Azure VMs](../../site-recovery/azure-to-azure-tutorial-migrate.md), [Azure SQL](../../azure-sql/database/move-resources-across-regions.md), and [Azure Storage](../../storage/common/storage-account-move.md). When you move the resources those rules refer to, the rules are likely to stop working correctly because they can't find the resources they reference.
+Alert rules and alert processing rules reference other Azure resources. Examples include [Azure VMs](../../site-recovery/azure-to-azure-tutorial-migrate.md), [Azure SQL](/azure/azure-sql/database/move-resources-across-regions), and [Azure Storage](../../storage/common/storage-account-move.md). When you move the resources those rules refer to, the rules are likely to stop working correctly because they can't find the resources they reference.
 
 There are two main reasons why your rules might stop working after moving the target resources:
 
-- The scope of your rule is explicitly referring the old resource.
+- The scope of your rule is explicitly referring to the old resource.
 - Your alert rule is based on metrics.
 
 ## Rule scope explicitly refers to the old resource
@@ -50,7 +49,7 @@ The problem applies to these rule types:
 
 The metrics that Azure resources emit are regional. Whenever a resource moves to a new region, it starts emitting its metrics in that new region. As a result, any alert rules based on metrics need to be updated or recreated so they point to the current metric stream in the correct region.
 
-This explanation applies to both [metric alert rules](alerts-metric-overview.md) and [availability test alert rules](../app/monitor-web-app-availability.md).
+This explanation applies to both [metric alert rules](alerts-metric-overview.md) and [availability test alert rules](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
 If **all** the resources in the scope have moved, you don't need to recreate the rule. You can just update any field of the alert rule, such as the alert rule description, and save it.
 If **only some** of the resources in the scope have moved, you need to remove the moved resources from the existing rule and create a new rule that covers only the moved resources.
@@ -94,9 +93,9 @@ Navigate to Alerts > Alert processing rules (preview) > filter by the containing
 
 ### Change scope of a rule using PowerShell
 
-1. Get the existing rule ([metric alerts](/powershell/module/az.monitor/get-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/get-azactivitylogalert), [alert processing rules](/powershell/module/az.alertsmanagement/get-azactionrule)).
+1. Get the existing rule ([metric alerts](/powershell/module/az.monitor/get-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/get-azactivitylogalert), alert [processing rules](/powershell/module/az.alertsmanagement/get-azalertprocessingrule)).
 2. Modify the scope. If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
-3. Redeploy the rule ([metric alerts](/powershell/module/az.monitor/add-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/enable-azactivitylogalert), [alert processing rules](/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. Redeploy the rule ([metric alerts](/powershell/module/az.monitor/add-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/enable-azactivitylogalert), [alert processing rules](/powershell/module/az.alertsmanagement/set-azalertprocessingrule)).
 
 ### Change the scope of a rule using Azure CLI
 

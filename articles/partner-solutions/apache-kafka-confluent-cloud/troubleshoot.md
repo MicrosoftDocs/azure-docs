@@ -1,13 +1,15 @@
 ---
-title: Troubleshooting Apache Kafka for Confluent Cloud - Azure partner solutions
+title: Troubleshooting Apache Kafka for Confluent Cloud
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.topic: conceptual
 ms.date: 02/18/2021
+author: flang-msft
+ms.author: franlanglois
 ---
 
-# Troubleshooting Apache Kafka for Confluent Cloud solutions
+# Troubleshooting Apache Kafka on Confluent Cloud solutions
 
-This document contains information about troubleshooting your solutions that use Apache Kafka for Confluent Cloud.
+This document contains information about troubleshooting your solutions that use Apache Kafka on Confluent Cloud.
 
 If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
@@ -19,7 +21,7 @@ To find the offer in the Azure Marketplace, use the following steps:
 1. Search for _Apache Kafka on Confluent Cloud_.
 1. Select the application tile.
 
-If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Azure Active Directory tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Azure Active Directory tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Microsoft Entra tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## Purchase errors
 
@@ -63,10 +65,17 @@ If you have the correct permissions but still can't delete the resource, contact
 
 ## Unable to use single sign-on
 
-If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Azure Active Directory email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
+If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
 
 If the problem persists, contact [Confluent support](https://support.confluent.io).
 
 ## Next steps
 
-Learn about [managing your instance](manage.md) of Apache Kafka for Confluent Cloud.
+- Learn about [managing your instance](manage.md) of Apache Kafka on Confluent Cloud.
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

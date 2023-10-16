@@ -1,13 +1,13 @@
 ---
 title: How to create Azure Health Data Services, workspaces, FHIR and DICOM service, and MedTech service using Azure Bicep
 description: This document describes how to deploy Azure Health Data Services using Azure Bicep.
-author: dougseven
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/24/2022
-ms.author: dseven
-ms.custom: mode-api
+ms.date: 06/06/2022
+ms.author: chrupa
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Deploy Azure Health Data Services using Azure Bicep
@@ -27,7 +27,7 @@ You can continue to work with JSON ARM templates, or use Bicep to develop your A
 
 Using Bicep parameters and variables instead of hard coding names and other values allows you to debug and reuse your Bicep templates.
 
-We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, MedTech service. Also, we define parameters for Azure subscription and Azure Active Directory (Azure AD) tenant. They’re used in the CLI command line with the "--parameters" option.
+We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, MedTech service. Also, we define parameters for Azure subscription and Microsoft Entra tenant. They’re used in the CLI command line with the "--parameters" option.
 
 We then define variables for resources with the keyword *var*. Also, we define variables for properties such as the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep template, and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
 
@@ -282,3 +282,5 @@ In this article, you learned how to create Azure Health Data Services, including
 
 >[!div class="nextstepaction"]
 >[What is Azure Health Data Services](healthcare-apis-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

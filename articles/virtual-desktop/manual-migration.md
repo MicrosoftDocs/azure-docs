@@ -9,7 +9,7 @@ manager: femila
 ---
 # Migrate manually from Azure Virtual Desktop (classic)
 
-Azure Virtual Desktop (classic) creates its service environment with PowerShell cmdlets, REST APIs, and service objects. An "object" in a Azure Virtual Desktop service environment is a thing that Azure Virtual Desktop creates. Service objects include tenants, host pools, application groups, and session hosts.
+Azure Virtual Desktop (classic) creates its service environment with PowerShell cmdlets, REST APIs, and service objects. An *object* in an Azure Virtual Desktop service environment is a thing that Azure Virtual Desktop creates. Service objects include tenants, host pools, application groups, and session hosts.
 
 However, Azure Virtual Desktop (classic) isn't integrated with Azure. Without Azure integration, any objects you create aren't automatically managed by the Azure portal because they're not connected to your Azure subscription.
 
@@ -27,7 +27,7 @@ Major updates can be inconvenient, especially ones you have to do manually. Howe
 Despite the hassle, migrating away from the classic version is still important. Here's what you can do after you migrate:
 
 - Manage Azure Virtual Desktop through the Azure portal.
-- Assign Azure Active Directory (AD) user groups to application groups.
+- Assign Microsoft Entra user groups to application groups.
 - Use the improved Log Analytics feature to troubleshoot your deployment.
 - Use Azure-native role-based access control (Azure RBAC) to manage administrative access.
 
@@ -66,11 +66,11 @@ To migrate manually from Azure Virtual Desktop (classic) to Azure Virtual Deskto
 
 1. Follow the instructions in [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md) to create all high-level objects with the Azure portal.
 2. If you want to bring over the virtual machines you're already using, follow the instructions in [Register the virtual machines to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to manually register them to the new host pool you created in step 1.
-3. Create new RemoteApp app groups.
-4. Publish users or user groups to the new desktop and RemoteApp app groups.
+3. Create new RemoteApp application groups.
+4. Publish users or user groups to the new desktop and RemoteApp application groups.
 5. Update your Conditional Access policy to allow the new objects by following the instructions in [Set up multi-factor authentication](set-up-mfa.md).
 
-To prevent downtime, you should first register your existing session hosts to the Azure Resource Manager-integrated host pools in small groups at a time. After that, slowly bring your users over to the new Azure Resource Manager-integrated app groups.
+To prevent downtime, you should first register your existing session hosts to the Azure Resource Manager-integrated host pools in small groups at a time. After that, slowly bring your users over to the new Azure Resource Manager-integrated application groups.
 
 ## Next steps
 

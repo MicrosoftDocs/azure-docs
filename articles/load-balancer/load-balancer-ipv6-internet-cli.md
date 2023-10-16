@@ -3,16 +3,14 @@ title: Create a public load balancer with IPv6 - Azure CLI
 titleSuffix: Azure Load Balancer
 description: With this learning path, get started creating a public load balancer with IPv6 using Azure CLI.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18, devx-track-azurecli
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/25/2018
-ms.author: allensu
+ms.date: 05/30/2023
+ms.author: mbender
+ms.custom: template-how-to, seodec18, devx-track-azurecli
 ---
 
 # Create a public load balancer with IPv6 using Azure CLI
@@ -152,7 +150,7 @@ This example creates the following items:
 * A NAT rule to translate all incoming traffic on port 3391 to port 3389 for remote desktop protocol (RDP).\*
 * A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
 
-\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You cannot assign both protocols to the same port.
+\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You can't assign both protocols to the same port.
 
 1. Set up the PowerShell variables:
 
@@ -290,7 +288,7 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
 3. Create the virtual machines with the associated NICs:
 
     ```azurecli
-	az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
+    az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
 
-	az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
-	```
+    az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
+    ```

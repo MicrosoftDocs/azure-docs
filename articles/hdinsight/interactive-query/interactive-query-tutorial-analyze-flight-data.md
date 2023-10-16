@@ -4,7 +4,7 @@ description: Tutorial - Learn how to extract data from a raw CSV dataset. Transf
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
-ms.date: 07/02/2019
+ms.date: 04/26/2023
 #Customer intent: As a data analyst, I need to load some data using Interactive Query, transform, and then export it to an Azure SQL database
 ---
 
@@ -25,13 +25,13 @@ This tutorial covers the following tasks:
 
 * An Interactive Query cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Interactive Query** for **Cluster type**.
 
-* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Download the flight data
 
-1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
+1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/Homepage.asp).
 
 2. On the page, clear all fields, and then select the following values:
 
@@ -41,13 +41,13 @@ This tutorial covers the following tasks:
    | Filter Period |January |
    | Fields |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Select **Download**. You get a .zip file with the data fields you selected.
+3. Select **Download**. A .zip file is downloaded with the data fields that you selected.
 
 ## Upload data to an HDInsight cluster
 
 There are many ways to upload data to the storage associated with an HDInsight cluster. In this section, you use `scp` to upload data. To learn about other ways to upload data, see [Upload data to HDInsight](../hdinsight-upload-data.md).
 
-1. Upload the .zip file to the HDInsight cluster head node. Edit the command below by replacing `FILENAME` with the name of the .zip file, and `CLUSTERNAME` with the name of the HDInsight cluster. Then open a command prompt, set your working directory to the file location, and then enter the command.
+1. Upload the .zip file to the HDInsight cluster head node. Edit the command below by replacing `FILENAME` with the name of the .zip file, and `CLUSTERNAME` with the name of the HDInsight cluster. Then open a command prompt, set your working directory to the file location, and then enter the command:
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
@@ -199,7 +199,7 @@ There are many ways to connect to SQL Database and create a table. The following
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. After the installation finishes, use the following command to connect to SQL Database.
+2. After the installation finishes, use the following command to connect to SQL Database:
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD

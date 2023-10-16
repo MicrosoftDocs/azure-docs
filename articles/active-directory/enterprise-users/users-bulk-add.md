@@ -1,11 +1,11 @@
 ---
-title: Bulk create users in the Azure Active Directory portal | Microsoft Docs
-description: Add users in bulk in the Azure AD admin center in Azure Active Directory
+title: Bulk create users in the Azure portal
+description: Add users in bulk in the Azure portal in Microsoft Entra ID
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 05/19/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 09/08/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -15,9 +15,9 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk create users in Azure Active Directory
+# Bulk create users in Microsoft Entra ID
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
+Microsoft Entra ID, part of Microsoft Entra, supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure portal.
 
 ## Required permissions
 
@@ -25,14 +25,14 @@ In order to bulk create users in the administration portal, you must be signed i
 
 ## Understand the CSV template
 
-Download and fill in the bulk upload CSV template to help you successfully create Azure AD users in bulk. The CSV template you download might look like this example:
+Download and fill in the bulk upload CSV template to help you successfully create Microsoft Entra users in bulk. The CSV template you download might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
 > If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
 >
-> Ensure that you add the ".csv" file extension and remove any leading spaces before userPrincipalName, passwordProfile, and accountEnabled.
+> Ensure that you add the `.csv` file extension and remove any leading spaces before `userPrincipalName`, `passwordProfile`, and `accountEnabled`.
 
 ### CSV template structure
 
@@ -49,13 +49,15 @@ The rows in a downloaded CSV template are as follows:
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 - Make sure to check there is no unintended whitespace before/after any field. For **User principal name**, having such whitespace would cause import failure.
-- Ensure that values in **Initial password** comply with the currently active [password policy](../authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts).
+- Ensure that values in **Initial password** comply with the currently active [password policy](../authentication/concept-sspr-policy.md#username-policies).
 
 ## To create users in bulk
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk create**.
-1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add add users you want to create.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Select Microsoft Entra ID.
+1. Select **All users** >  **Users** > **Bulk create**.
+1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add users you want to create.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
@@ -70,19 +72,21 @@ The rows in a downloaded CSV template are as follows:
 
 If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error. The file submission must match the provided template and include the exact column names.
 
+[!INCLUDE [Bulk update warning](~/articles/active-directory/includes/bulk-export.md)]
+
 ## Check status
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
    [![Check create status in the Bulk Operations Results page](./media/users-bulk-add/bulk-center.png)](./media/users-bulk-add/bulk-center.png#lightbox)
 
-Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
+Next, you can check to see that the users you created exist in the Microsoft Entra organization either in the Azure portal or by using PowerShell.
 
 ## Verify users in the Azure portal
 
-1. [Sign in to the Azure AD admin center](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In the navigation pane, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Select Microsoft Entra ID.
+1. Select **All users** > **Users**.
 1. Under **Show**, select **All users** and verify that the users you created are listed.
 
 ### Verify users with PowerShell
@@ -90,7 +94,7 @@ Next, you can check to see that the users you created exist in the Azure AD orga
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you created are listed.

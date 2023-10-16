@@ -3,7 +3,7 @@ title: Set up sign-up and sign-in with a Salesforce account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Salesforce accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -33,7 +33,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Salesforce application
 
-To enable sign-in for users with a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Salesforce [App Manager](https://login.salesforce.com/). For more information, see [Configure Basic Connected App Settings](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm), and [Enable OAuth Settings for API Integration](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
+To enable sign-in for users with a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Salesforce [App Manager](https://login.salesforce.com/). For more information, see [Configure Basic Connected App Settings](https://help.salesforce.com/s/articleView?id=connected_app_create_basics.htm&language=en_US), and [Enable OAuth Settings for API Integration](https://help.salesforce.com/s/articleView?id=connected_app_create_api_integration.htm&language=en_US)
 
 1. [Sign in to Salesforce](https://login.salesforce.com/).
 1. From the menu, select **Setup**.
@@ -45,7 +45,7 @@ To enable sign-in for users with a Salesforce account in Azure Active Directory 
     1. **Contact Email** - The contact email for Salesforce
 1. Under **API (Enable OAuth Settings)**, select **Enable OAuth Settings**
     1. For the **Callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
-    1. In the **Selected OAuth Scopes**, select **Access your basic information (id, profile, email, address, phone)**, and **Allow access to your unique identifier (openid)**.
+    1. In the **Selected OAuth Scopes**, select **Access the identity URL service (id, profile, email, address, phone)**, and **Allow access to your unique identifier (openid)**.
     1. Select **Require Secret for Web Server Flow**.
 1. Select **Configure ID Token** 
     1. Set the **Token Valid for** 5 minutes.
@@ -62,7 +62,7 @@ To enable sign-in for users with a Salesforce account in Azure Active Directory 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Salesforce*.
-1. For **Metadata url**, enter the URL of the [Salesforce OpenID Connect Configuration document](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). For a sandbox, login.salesforce.com is replaced with test.salesforce.com. For a community, login.salesforce.com is replaced with the community URL, such as username.force.com/.well-known/openid-configuration. The URL must be HTTPS.
+1. For **Metadata url**, enter the URL of the [Salesforce OpenID Connect Configuration document](https://help.salesforce.com/s/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm&language=en_US). For a sandbox, login.salesforce.com is replaced with test.salesforce.com. For a community, login.salesforce.com is replaced with the community URL, such as username.force.com/.well-known/openid-configuration. The URL must be HTTPS.
 
     ```
     https://login.salesforce.com/.well-known/openid-configuration
@@ -169,7 +169,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
     </ClaimsProvider>
     ```
 
-4. The **METADATA** is set to the URL of the [Salesforce OpenID Connect Configuration document](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). For a sandbox, login.salesforce.com is replaced with test.salesforce.com. For a community, login.salesforce.com is replaced with the community URL, such as username.force.com/.well-known/openid-configuration. The URL must be HTTPS.
+4. The **METADATA** is set to the URL of the [Salesforce OpenID Connect Configuration document](https://help.salesforce.com/s/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm&language=en_US). For a sandbox, login.salesforce.com is replaced with test.salesforce.com. For a community, login.salesforce.com is replaced with the community URL, such as username.force.com/.well-known/openid-configuration. The URL must be HTTPS.
 5. Set **client_id** to the application ID from the application registration.
 6. Save the file.
 

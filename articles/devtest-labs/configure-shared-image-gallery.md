@@ -2,6 +2,7 @@
 title: Configure a shared image gallery
 description: Learn how to configure a shared image gallery in Azure DevTest Labs, which enables users to access images from a shared location while creating lab resources.
 ms.topic: how-to
+ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
@@ -20,12 +21,12 @@ For more information, see [Shared Image Gallery documentation](../virtual-machin
 If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a shared image gallery as a repository that makes it easy to update and share your images. As a lab owner, you can attach an existing shared image gallery to your lab. Once this gallery is attached, lab users can create machines from these latest images. A key benefit of this feature is that DevTest Labs can now take the advantage of sharing images across labs, across subscriptions, and across regions. 
 
 > [!NOTE]
-> To learn about costs associated with the Shared Image Gallery service, see [Billing for Shared Image Gallery](../virtual-machines/shared-image-galleries.md#billing).
+> To learn about costs associated with the Shared Image Gallery service, see [Billing for Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md#billing).
 
 ## Considerations
 - You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you'll need to detach the existing one and attach another. 
 - DevTest Labs currently doesn't support uploading images to the gallery through the lab. 
-- While creating a virtual machine using a shared image gallery image, DevTest Labs always uses the latest published version of this image. However if an image has multiple versions, user can chose to create a machine from an earlier version by going to the Advanced settings tab during virtual machine creation.  
+- When you create a virtual machine using a shared image gallery image, DevTest Labs always uses the latest published version of this image. However if an image has multiple versions, users can choose to create a machine from an earlier version by going to the Advanced settings tab during virtual machine creation.  
 - Although DevTest Labs automatically makes a best attempt to ensure shared image gallery replicates images to the region in which the Lab exists, it’s not always possible. To avoid users having issues creating VMs from these images, ensure the images are already replicated to the lab’s region.”
 
 ## Use Azure portal
@@ -96,7 +97,7 @@ GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ### Create or update shared image gallery
 
 ```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version=2018-10-15-preview
 Body: 
 {
     "properties":{
@@ -110,7 +111,7 @@ Body:
 ### List images in a shared image gallery
 
 ```rest
-GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version=2018-10-15-preview
 ```
 
 

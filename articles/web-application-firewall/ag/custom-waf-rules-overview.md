@@ -5,18 +5,18 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/20/2022
+ms.date: 11/02/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
 
-The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write your own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
+The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write your own rules to augment the core rule set (CRS) rules. Your custom rules can either block, allow, or log requested traffic based on matching criteria. If the WAF policy is set to detection mode, and a custom block rule is triggered, the request is logged and no blocking action is taken.
 
-Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow or block).
+Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further custom or managed rules are evaluated. Custom rules can be enabled/disabled on demand.
 
-For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule's name and priority.
+For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name, priority and enabled/disabled state.
 
 Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, ((Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
@@ -28,6 +28,9 @@ If you want to use **or** between two different conditions,then the two conditio
 > The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
+
+> [!CAUTION]
+> Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](../../application-gateway/redirect-overview.md) for more information about redirect rules.
 
 ## Allowing vs. blocking
 
@@ -41,14 +44,16 @@ $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Allow
+   -Action Allow `
+   -State Enabled
 
 $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Name example2 `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 The previous `$BlockRule` maps to the following custom rule in Azure Resource Manager:
@@ -60,6 +65,7 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
         "priority": 2,
         "ruleType": "MatchRule",
         "action": "Block",
+        "state": "Enabled",
         "matchConditions": [
           {
             "matchVariables": [
@@ -90,6 +96,10 @@ This custom rule contains a name, priority, an action, and the array of matching
 
 The name of the rule.  It appears in the logs.
 
+### Enable rule [optional]
+
+Turn this rule on/off. Custom rules are enabled by default.
+
 ### Priority [required]
 
 - Determines the rule valuation order. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1-100. 
@@ -103,8 +113,8 @@ Currently, must be **MatchRule**.
 
 Must be one of the variables:
 
-- RemoteAddr – IP Address/Range of the remote computer connection
-- RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
+- RemoteAddr – IPv4 Address/Range of the remote computer connection
+- RequestMethod – HTTP Request method
 - QueryString – Variable in the URI
 - PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
 - RequestUri – URI of the request
@@ -120,8 +130,9 @@ Describes the field of the matchVariable collection. For example, if the matchVa
 
 Must be one of the following operators:
 
-- IPMatch - only used when Match Variable is *RemoteAddr*
+- IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4
 - Equal – input is the same as the MatchValue
+- Any – It shouldn't have a MatchValue. It's recommended for Match Variable with a valid Selector.
 - Contains
 - LessThan
 - GreaterThan
@@ -141,6 +152,7 @@ Negates the current condition.
 A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
 
 - Lowercase
+- Uppercase
 - Trim
 - UrlDecode
 - UrlEncode 
@@ -151,10 +163,23 @@ A list of strings with names of transformations to do before the match is attemp
 
 List of values to match against, which can be thought of as being *OR*'ed. For example, it could be IP addresses or other strings. The value format depends on the previous operator.
 
+Supported HTTP request method values include:
+- GET
+- HEAD
+- POST
+- OPTIONS
+- PUT
+- DELETE
+- PATCH
+
 ### Action [required]
 
-- Allow – Authorizes the transaction, skipping all other rules. The specified request is added to the allow list and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allow list aren't evaluated for any further custom rules or managed rules.
-- Block – Blocks the transaction based on *SecDefaultAction* (detection/prevention mode). Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked. 
+In WAF policy detection mode, if a custom rule is triggered, the action is always logged regardless of the action value set on the custom rule.
+
+- Allow – Authorizes the transaction, skipping all other rules. The specified request is added to the allowlist and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allowlist aren't evaluated for any further custom rules or managed rules.
+- Block - Blocks or logs the transaction based on SecDefaultAction (detection/prevention mode).
+   - Prevention mode - Blocks the transaction based on SecDefaultAction. Just like the Allow action, once the request is evaluated and added to the blocklist, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked.
+   - Detection mode - Logs the transaction based on SecDefaultAction after which evaluation is stopped. Any request after that meets the same conditions won't be evaluated and will just be logged.
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. The other custom rules are evaluated in order of priority, followed by the managed rules.
 
 ## Geomatch custom rules
@@ -163,4 +188,5 @@ Custom rules let you create tailored rules to suit the exact needs of your appli
 
 ## Next steps
 
-After you learn about custom rules, [create your own custom rules](create-custom-waf-rules.md).
+- [Create your own custom rules](create-custom-waf-rules.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)

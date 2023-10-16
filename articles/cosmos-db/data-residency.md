@@ -3,17 +3,17 @@ title: How to meet data residency requirements in Azure Cosmos DB
 description: learn how to meet data residency requirements in Azure Cosmos DB for your data and backups to remain in a single region.
 author: kanshiG
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: govindk
-ms.reviewer: sngun
-
+ms.reviewer: mjbrown
 ---
 
 # How to meet data residency requirements in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-In Azure Cosmos DB, you can configure your data and backups to remain in a single region to meet the[ residency requirements.](https://azure.microsoft.com/global-infrastructure/data-residency/)
+In Azure Cosmos DB, you can configure your data and backups to remain in a single region to meet the [residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## Residency requirements for data
 
@@ -23,7 +23,12 @@ In Azure Cosmos DB, you must explicitly configure the cross-region data replicat
 
 **Continuous mode Backups**: These backups are resident by default as they are stored in either locally redundant or zone redundant storage. To learn more, see the [continuous backup](provision-account-continuous-backup.md) article.
 
-**Periodic mode Backups**: By default, periodic mode account backups will be stored in geo-redundant storage. For periodic backup modes, you can configure data redundancy at the account level. There are three redundancy options for the backup storage. They are local redundancy, zone redundancy, or geo redundancy. To learn more, see how to [configure backup redundancy](configure-periodic-backup-restore.md#configure-backup-interval-retention) using portal.
+**Periodic mode Backups**: By default, periodic mode account backups will be stored in geo-redundant storage. For periodic backup modes, you can configure data redundancy at the account level. There are three redundancy options for the backup storage. They are local redundancy, zone redundancy, or geo redundancy. For more information, see [periodic backup/restore](periodic-backup-restore-introduction.md).
+
+## Residency requirements for analytical store
+
+Analytical store is resident by default as it is stored in either locally redundant or zone redundant storage. To learn more, see the [analytical store](analytical-store-introduction.md) article.
+
 
 ## Use Azure Policy to enforce the residency requirements
 
@@ -33,8 +38,7 @@ Azure Policy is a service that you can use to create, assign, and manage policie
 
 ## Next steps
 
-* Configure and manage periodic backup using [Azure portal](configure-periodic-backup-restore.md)
+* Configure and manage periodic backup using [Azure portal](periodic-backup-restore-introduction.md)
 * Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 * Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
-

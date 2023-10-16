@@ -6,12 +6,12 @@ summary: AKS allows you to quickly deploy a production ready Kubernetes cluster 
 metadata:
   title: Azure Kubernetes Service (AKS) documentation
   description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
-  ms.service: container-service 
+  ms.service: azure-kubernetes-service
+  ms.custom: ignite-2022
   ms.topic: landing-page
-  author: laurenhughes
-  ms.author: lahugh
-  ms.date: 07/21/2020
-
+  author: mgoedtel
+  ms.author: magoedte
+  ms.date: 09/26/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -24,6 +24,24 @@ landingContent:
         links:
           - text: What is AKS?
             url: intro-kubernetes.md
+      - linkListType: whats-new
+        links:
+          - text: Secure your cluster using pod security policies (Deprecated)
+            url: use-pod-security-policies.md
+          - text: Automatically upgrade node images
+            url: auto-upgrade-node-image.md
+          - text: Azure Linux Container Host for AKS
+            url: use-azure-linux.md
+          - text: Vertical Pod Autoscaler (Preview)
+            url: vertical-pod-autoscaler.md
+          - text: Workload identity
+            url: workload-identity-overview.md
+          - text: Use Confidential Virtual Machines
+            url: use-cvm.md
+          - text: AKS GitHub Actions
+            url: kubernetes-action.md
+          - text: Enable Azure resources to access AKS clusters using Trusted Access (Preview)
+            url: trusted-access-feature.md
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -43,11 +61,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Kubernetes Service
-            url: /learn/modules/intro-to-azure-kubernetes-service/
+            url: /training/modules/intro-to-azure-kubernetes-service/
           - text: Introduction to containers on Azure
-            url: /learn/modules/intro-to-containers/
+            url: /training/modules/intro-to-containers/
           - text: Build and store container images with Azure Container Registry
-            url: /learn/modules/build-and-store-container-images/
+            url: /training/modules/build-and-store-container-images/
 
   # Card (optional)
   - title: Deploy an AKS cluster in 5 minutes
@@ -55,14 +73,18 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Azure CLI
-            url: kubernetes-walkthrough.md
+            url: ./learn/quick-kubernetes-deploy-cli.md
+          - text: Azure PowerShell
+            url: ./learn/quick-kubernetes-deploy-powershell.md
           - text: Azure Portal
-            url: kubernetes-walkthrough-portal.md
+            url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
-            url: kubernetes-walkthrough-rm-template.md
+            url: ./learn/quick-kubernetes-deploy-rm-template.md
+          - text: Terraform
+            url: ./learn/quick-kubernetes-deploy-terraform.md
 
   # Card
-  - title: Develop and debug applications
+  - title: Deploy an application in 5 minutes 
     linkLists:
       - linkListType: quickstart
         links:
@@ -70,16 +92,20 @@ landingContent:
             url: quickstart-helm.md
           - text: Develop with Dapr
             url: quickstart-dapr.md
+          - text: Use Draft and the DevX extension for Visual Studio Code
+            url: draft-devx-extension-aks.md
+          - text: Use Automated Deployments
+            url: automated-deployments.md
       - linkListType: how-to-guide
         links:
           - text: Use Bridge to Kubernetes with Visual Studio Code
             url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
           - text: Use Bridge to Kubernetes with Visual Studio
             url: /visualstudio/containers/bridge-to-kubernetes
-
-
-
-
+          - text: Run Java Open Liberty
+            url: howto-deploy-java-liberty-app.md
+          - text: Run Java WebLogic Server
+            url: howto-deploy-java-wls-app.md
 
   # Card
   - title: Architecture guidance
@@ -100,6 +126,43 @@ landingContent:
               url: best-practices.md
             - text: Other AKS solutions
               url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE   
+
+  - title: Configure your cluster for Windows containers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Windows Server container using the Azure CLI
+            url: learn/quick-windows-container-deploy-cli.md
+          - text: Create a Windows Server container using the Azure PowerShell
+            url: learn/quick-windows-container-deploy-powershell.md
+      - linkListType: concept
+        links:
+          - text: Windows Server node security
+            url: concepts-security.md#node-security
+          - text: Security baseline
+            url: /security/benchmark/azure/baselines/aks-security-baseline?context=%2Fazure%2Faks%2Fcontext%2Faks-context
+      - linkListType: how-to-guide
+        links:
+          - text: Upgrade from Windows Server 2019 to 2022
+            url: ./upgrade-windows-2019-2022.md
+          - text: Create Dockerfiles for Windows Server containers
+            url: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context 
+          - text: Optimize Dockerfiles for Windows Server containers
+            url: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context
+          - text: Use HostProcess containers
+            url: use-windows-hpc.md
+          - text: Enable network policies
+            url: ./use-network-policies.md
+          - text: Use Azure disks CSI drivers
+            url: azure-disk-csi.md#windows-containers
+          - text: Use Azure files CSI drivers
+            url: azure-files-csi.md#windows-containers
+          - text: Connect to Windows Server nodes over RDP
+            url: rdp.md
+          - text: Connect to Windows Server nodes over SSH
+            url: node-access.md#create-the-ssh-connection-to-a-windows-node
+          - text: Windows Server containers FAQ
+            url: windows-faq.md
 
   # Card
   - title: Deploy, manage, and update applications
@@ -125,9 +188,23 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Open Service Mesh add-on
-            url: open-service-mesh-about.md
+          - text: Istio add-on
+            url: istio-about.md
           - text: Dapr cluster extension
             url: dapr.md
           - text: Cluster extensions
             url: cluster-extensions.md
+          - text: GitHub Actions for AKS
+            url: integrations.md#github-actions
+  # Card
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+         - text: Troubleshooting Guides
+           url: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes
+         - text: Troubleshoot create operations
+           url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
+         - text: Troubleshoot common issues 
+           url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
+        

@@ -1,9 +1,8 @@
 ---
 title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
 description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 10/27/2022
 ms.author: zarhoads
 ---
 
@@ -15,7 +14,7 @@ This best practices article focuses on how to secure pods in AKS. You learn how 
 
 > [!div class="checklist"]
 > * Use pod security context to limit access to processes and services or privilege escalation
-> * Authenticate with other Azure resources using pod managed identities
+> * Authenticate with other Azure resources using Microsoft Entra Workload ID
 > * Request and retrieve credentials from a digital vault such as Azure Key Vault
 
 You can also read the best practices for [cluster security][best-practices-cluster-security] and for [container image management][best-practices-container-image-management].
@@ -62,57 +61,45 @@ Work with your cluster operator to determine what security context settings you 
 
 ## Limit credential exposure
 
-**Best practice guidance** - Don't define credentials in your application code. Use managed identities for Azure resources to let your pod request access to other resources. A digital vault, such as Azure Key Vault, should also be used to store and retrieve digital keys and credentials. Pod managed identities is intended for use with Linux pods and container images only.
+**Best practice guidance** - Don't define credentials in your application code. Use managed identities for Azure resources to let your pod request access to other resources. A digital vault, such as Azure Key Vault, should also be used to store and retrieve digital keys and credentials. Pod-managed identities are intended for use with Linux pods and container images only.
 
 To limit the risk of credentials being exposed in your application code, avoid the use of fixed or shared credentials. Credentials or keys shouldn't be included directly in your code. If these credentials are exposed, the application needs to be updated and redeployed. A better approach is to give pods their own identity and way to authenticate themselves, or automatically retrieve credentials from a digital vault.
 
-### Use Azure Container Compute Upstream projects
+<a name='use-an-azure-ad-workload-identity'></a>
 
-> [!IMPORTANT]
-> Associated AKS open source projects are not supported by Azure technical support. They are provided for users to self-install into clusters and gather feedback from our community.
+#### Use a Microsoft Entra Workload ID
 
-The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault. These projects are maintained by the Azure Container Compute Upstream team and are part of a [broader list of projects available for use](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support).
+A workload identity is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer, Microsoft Entra ID uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. Your workload can exchange a service account token projected to its volume for a Microsoft Entra token using the Azure Identity client library using the [Azure SDK][azure-sdk-download] or the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL).
 
- * [Azure Active Directory Pod Identity][aad-pod-identity]
- * [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
-
-#### Use pod managed identities
-
-A managed identity for Azure resources lets a pod authenticate itself against Azure services that support it, such as Storage or SQL. The pod is assigned an Azure Identity that lets them authenticate to Azure Active Directory and receive a digital token. This digital token can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. This approach means that no secrets are required for database connection strings, for example. The simplified workflow for pod managed identity is shown in the following diagram:
-
-:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Simplified workflow for pod managed identity in Azure":::
-
-With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can audit and review access. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
-
-For more information about pod identities, see [Configure an AKS cluster to use pod managed identities and with your applications][aad-pod-identity]
+For more information about workload identities, see [Configure an AKS cluster to use Microsoft Entra Workload ID with your applications][workload-identity-overview]
 
 #### Use Azure Key Vault with Secrets Store CSI Driver
 
-Using the pod identity project enables authentication against supporting Azure services. For your own services or applications without managed identities for Azure resources, you can still authenticate using credentials or keys. A digital vault can be used to store these secret contents.
+Using the [Microsoft Entra Workload ID][workload-identity-overview] enables authentication against supporting Azure services. For your own services or applications without managed identities for Azure resources, you can still authenticate using credentials or keys. A digital vault can be used to store these secret contents.
 
 When applications need a credential, they communicate with the digital vault, retrieve the latest secret contents, and then connect to the required service. Azure Key Vault can be this digital vault. The simplified workflow for retrieving a credential from Azure Key Vault using pod managed identities is shown in the following diagram:
 
 :::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Simplified workflow for retrieving a credential from Key Vault using a pod managed identity":::
 
-With Key Vault, you store and regularly rotate secrets such as credentials, storage account keys, or certificates. You can integrate Azure Key Vault with an AKS cluster using the [Azure Key Vault provider for the Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). The Secrets Store CSI driver enables the AKS cluster to natively retrieve secret contents from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Secrets Store CSI Driver onto AKS worker nodes. You can use a pod managed identity to request access to Key Vault and retrieve the secret contents needed through the Secrets Store CSI Driver.
-
+With Key Vault, you store and regularly rotate secrets such as credentials, storage account keys, or certificates. You can integrate Azure Key Vault with an AKS cluster using the [Azure Key Vault provider for the Secrets Store CSI Driver][aks-keyvault-csi-driver]. The Secrets Store CSI driver enables the AKS cluster to natively retrieve secret contents from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Secrets Store CSI Driver onto AKS worker nodes. You can use a Microsoft Entra Workload ID to request access to Key Vault and retrieve the secret contents needed through the Secrets Store CSI Driver.
 
 ## Next steps
 
 This article focused on how to secure your pods. To implement some of these areas, see the following articles:
 
-* [Use managed identities for Azure resources with AKS][aad-pod-identity]
+* [Use Microsoft Entra Workload ID for Azure resources with AKS][workload-identity-overview] (preview)
 * [Integrate Azure Key Vault with AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
-[aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
-[aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
-[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#selinuxoptions-v1-core
+[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#selinuxoptions-v1-core
 [aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
+[azure-sdk-download]: https://azure.microsoft.com/downloads/
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
-[aks-pod-identities]: operator-best-practices-identity.md#use-pod-identities
 [apparmor-seccomp]: operator-best-practices-cluster-security.md#secure-container-access-to-resources
+[microsoft-authentication-library]: ../active-directory/develop/msal-overview.md
+[workload-identity-overview]: workload-identity-overview.md
+[aks-keyvault-csi-driver]: csi-secrets-store-driver.md

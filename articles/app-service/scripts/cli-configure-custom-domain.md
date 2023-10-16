@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 04/21/2022
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
@@ -16,17 +16,43 @@ This sample script creates an app in App Service with its related resources, and
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to an app")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### To create the web app
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/configure-custom-domain/configure-custom-domain-webapp-only.sh" id="FullScript":::
+
+### Map your prepared custom domain name to the web app
+
+1. Create the following variable containing your fully qualified domain name.
+
+   ```azurecli
+   fqdn=<Replace with www.{yourdomain}>
+   ```
+
+1. Configure a CNAME record that maps your fully qualified domain name to your web app's default domain name ($webappname.azurewebsites.net).
+
+1. Map your domain name to the web app.
+
+   ```azurecli
+   az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup --hostname $fqdn
+   
+   echo "You can now browse to http://$fqdn"
+   ```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

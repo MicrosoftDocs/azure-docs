@@ -1,244 +1,273 @@
 ---
-title: Overview of the Azure monitoring agents| Microsoft Docs
-description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.
-services: azure-monitor
-
+title: Azure Monitor Agent overview
+description: Overview of the Azure Monitor Agent, which collects monitoring data from the guest operating system of virtual machines.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 03/16/2021
+author: guywi-ms
+ms.author: guywild
+ms.date: 7/19/2023
+ms.custom: references_regions
+ms.reviewer: jeffwo
+
+#customer-intent: As an IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems of my virtual machines. 
 ---
 
-# Overview of Azure Monitor agents
+# Azure Monitor Agent overview
 
-Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
+Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). Azure Monitor Agent replaces all of Azure Monitor's legacy monitoring agents. This article provides an overview of Azure Monitor Agent's capabilities and supported use cases.
+
+Here's a short **introduction to Azure Monitor agent video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)  
+
+## Benefits
+Using Azure Monitor agent, you get immediate benefits as shown below:  
+
+:::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Snippet of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
+
+- **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md):
+  - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
+  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.  
+- **Simpler management** including efficient troubleshooting:
+  - Supports data uploads to multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse).
+  - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time. 
+  - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
+  - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
+- **Security and Performance**
+  - Enhanced security through Managed Identity and Microsoft Entra tokens (for clients).
+  - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
+- **A single agent** that serves all data collection needs across [supported](#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
+
+## Consolidating legacy agents
+
+Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](./azure-monitor-agent-migration.md#migrate-additional-services-and-features).
+
+If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
+
+Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
+
+- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions. This is fully consolidated into Azure Monitor agent.
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only). Only basic Telegraf plugins are supported today in Azure Monitor agent.
+- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage. This is not consolidated yet.
+
+## Install the agent and configure data collection
+
+Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), where you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. You can define a rule to send data from multiple machines to multiple destinations across regions and tenants.
 
 > [!NOTE]
-> Azure Monitor recently launched a new agent, the [Azure Monitor agent](./azure-monitor-agent-overview.md), that provides all capabilities necessary to collect guest operating system monitoring data. **Use this new agent if you are not bound by [these limitations](./azure-monitor-agent-overview.md#current-limitations)**, as it consolidates the features of all the legacy agents listed below and provides additional benefits. If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
-## Summary of agents
+**To collect data using Azure Monitor Agent:**
 
-The following tables provide a quick comparison of the telemetry agents for Windows and Linux. Further detail on each is provided in the section below.
+1. Install the agent on the resource.
+
+    | Resource type | Installation method | More information |
+    |:---|:---|:---|
+    | Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent by using Azure extension framework. |
+    | On-premises servers (Azure Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
+    | Windows 10, 11 desktops, workstations | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
+    | Windows 10, 11 laptops | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
+    
+1. Define a data collection rule and associate the resource to the rule.
+
+    The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
+
+    | Data source | Destinations | Description |
+    |:---|:---|:---|
+    | Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+    | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+    | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
+    |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+
+
+    <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
+    <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
+
+    > [!NOTE]
+    > On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
+
+    > [!NOTE]
+    > Azure Monitor Agent also supports Azure service [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) which is currently Generally available. For more information, refer [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment).
+
+## Supported services and features
+
+For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features).
+
+## Supported regions
+
+Azure Monitor Agent is available in all public regions, Azure Government and China clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
+
+## Costs
+
+There's no cost for the Azure Monitor Agent, but you might incur charges for the data ingested and stored. For information on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+## Compare to legacy agents
+
+The tables below provide a comparison of Azure Monitor Agent with the legacy the Azure Monitor telemetry agents for Windows and Linux.
 
 ### Windows agents
 
-| | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
+|	Category |	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
 |:---|:---|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
-| **Agent requirements**  | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM insights<br>Service Map |
+|	**Environments supported**	|		|		|		|		|
+|		|	Azure	| ✓ | ✓ | ✓ |
+|		|	Other cloud (Azure Arc)	| ✓ | ✓ |		|
+|		|	On-premises (Azure Arc)	| ✓ | ✓ |		|
+|		|	Windows Client OS	| ✓ |		|		|
+|	**Data collected**	|		|		|		|		|
+|		|	Event Logs	| ✓ | ✓ | ✓ |
+|		|	Performance	| ✓ | ✓ | ✓ |
+|		|	File based logs	|	✓ 	| ✓ | ✓ |
+|		|	IIS logs	|	✓ 	| ✓ | ✓ |
+|		|	ETW events	|		|		| ✓ |
+|		|	.NET app logs	|		|		| ✓ |
+|		|	Crash dumps	|		|		| ✓ |
+|		|	Agent diagnostics logs	|		|		| ✓ |
+|	**Data sent to**	|		|		|		|		|
+|		|	Azure Monitor Logs	| ✓ | ✓ |		|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
+|		|	Azure Storage	|		|		| ✓ |
+|		|	Event Hubs	|		|		| ✓ |
+|	**Services and features supported**	|		|		|		|		|
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
+|		|	VM Insights	|	✓ | ✓ |		|
+|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
+|		|	Automation Update Management	|	| ✓ |		|
+|   | Azure Stack HCI | ✓ |  |  |
+|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
+|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
+|       |   SQL Best Practices Assessment | ✓ |     |       |
 
 ### Linux agents
 
-| | Azure Monitor agent | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
+|	Category	|	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
 |:---|:---|:---|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
-| **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM insights<br>Service Map |
+|	**Environments supported**	|		|		|		|		|		|
+|		|	Azure	| ✓ | ✓ | ✓ | ✓ |
+|		|	Other cloud (Azure Arc)	| ✓ | ✓ |		| ✓ |
+|		|	On-premises (Azure Arc)	| ✓ | ✓ |		| ✓ |
+|	**Data collected**	|		|		|		|		|		|
+|		|	Syslog	| ✓ | ✓ | ✓ |		|
+|		|	Performance	| ✓ | ✓ | ✓ | ✓ |
+|		|	File based logs	| ✓ |		|		|		|
+|	**Data sent to**	|		|		|		|		|		|
+|		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
+|		|	Azure Storage	|		|		| ✓ |		|
+|		|	Event Hubs	|		|		| ✓ |		|
+|	**Services and features supported**	|		|		|		|		|		|
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
+|		|	VM Insights	| ✓ |	✓ 	|		|
+|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
+|		|	Automation Update Management	|		| ✓ |		|
+|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
+|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
 
-<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
-
-## Azure Monitor agent
-
-The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
-
-Use the Azure Monitor agent if you need to:
-
-- Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
-- Manage data collection configuration centrally, using [data collection rules](../essentials/data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
-- Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
-- Use Windows event filtering or multi-homing for logs on Windows and Linux.
-
-<!--- Send data to Azure Storage for archiving.
-- Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Manage the security of your machines using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md). (Available in private preview.)
-- Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
-- Manage the security of your machines using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md).
-- Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
--->
-
-When compared with the legacy agents, the Azure Monitor Agent has [these limitations currently](./azure-monitor-agent-overview.md#current-limitations).
-
-## Log Analytics agent
-
-The legacy [Log Analytics agent](./log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
-
-> [!NOTE]
-> The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
-
-Use the Log Analytics agent if you need to:
-
-* Collect logs and performance data from Azure virtual machines or hybrid machines hosted outside of Azure.
-* Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](../logs/data-platform-logs.md) such as [log queries](../logs/log-query-overview.md).
-* Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
-* Manage the security of your machines using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md).
-* Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application.
-
-Limitations of the Log Analytics agent include:
-
-- Cannot send data to Azure Monitor Metrics, Azure Storage, or Azure Event Hubs.
-- Difficult to configure unique monitoring definitions for individual agents.
-- Difficult to manage at scale since each virtual machine has a unique configuration.
-
-## Azure diagnostics extension
-
-The [Azure Diagnostics extension](./diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. It primarily collects data into Azure Storage but also allows you to define data sinks to also send data to other destinations such as Azure Monitor Metrics and Azure Event Hubs.
-
-Use Azure diagnostic extension if you need to:
-
-- Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [metrics explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Windows only).
-- Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Collect [Boot Diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) to investigate VM boot issues.
-
-Limitations of Azure diagnostics extension include:
-
-- Can only be used with Azure resources.
-- Limited ability to send data to Azure Monitor Logs.
-
-## Telegraf agent
-
-The [InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) is used to collect performance data from Linux computers to Azure Monitor Metrics.
-
-Use Telegraf agent if you need to:
-
-* Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [metrics explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Linux only).
-
-## Dependency agent
-
-The Dependency agent collects discovered data about processes running on the machine and external process dependencies. 
-
-Use the Dependency agent if you need to:
-
-* Use the Map feature [VM insights](../vm/vminsights-overview.md) or the [Service Map](../vm/service-map.md) solution.
-
-Consider the following when using the Dependency agent:
-
-- The Dependency agent requires the Log Analytics agent to be installed on the same machine.
-- On Linux computers, the Log Analytics agent must be installed before the Azure Diagnostic Extension.
-- On both the Windows and Linux versions of the Dependency Agent, data collection is done using a user-space service and a kernel driver. 
-
-## Virtual machine extensions
-
-The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
-
-On hybrid machines, use [Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics and Azure Monitor Dependency VM extensions.
+<sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
 ## Supported operating systems
 
-The following tables list the operating systems that are supported by the Azure Monitor agents. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems. All operating systems are assumed to be x64. x86 is not supported for any operating system.
+The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 isn't supported for any operating system.  
+View [supported operating systems for Azure Arc Connected Machine agent](../../azure-arc/servers/prerequisites.md#supported-operating-systems), which is a prerequisite to run Azure Monitor agent on physical servers and virtual machines hosted outside of Azure (that is, on-premises) or in other clouds.
 
 ### Windows
 
-| Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
-|:---|:---:|:---:|:---:|:---:|
-| Windows Server 2022                                      | X |   |   |   |
-| Windows Server 2019                                      | X | X | X | X |
-| Windows Server 2019 Core                                 | X |   |   |   |
-| Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 | X |   |   | X |
-| Windows Server 2012 R2                                   | X | X | X | X |
-| Windows Server 2012                                      | X | X | X | X |
-| Windows Server 2008 R2 SP1                               | X | X | X | X |
-| Windows Server 2008 R2                                   |   |   |   | X |
-| Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | X |
-| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X | X |   |
-| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X | X |   |
-| Azure Stack HCI                                          |   | X |   |   |
+| Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension | 
+|:---|:---:|:---:|:---:|
+| Windows Server 2022                                      | ✓ | ✓ |   |
+| Windows Server 2022 Core                                 | ✓ |   |   |
+| Windows Server 2019                                      | ✓ | ✓ | ✓ |
+| Windows Server 2019 Core                                 | ✓ |   |   |
+| Windows Server 2016                                      | ✓ | ✓ | ✓ |
+| Windows Server 2016 Core                                 | ✓ |   | ✓ |
+| Windows Server 2012 R2                                   | ✓ | ✓ | ✓ |
+| Windows Server 2012                                      | ✓ | ✓ | ✓ |
+| Windows Server 2008 R2 SP1                               | ✓ | ✓ | ✓ |
+| Windows Server 2008 R2                                   |   |   | ✓ |
+| Windows Server 2008 SP2                                  |   | ✓ |   |
+| Windows 11 Client and Pro                                | ✓<sup>2</sup>, <sup>3</sup> |  |  |
+| Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
+| Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ | ✓ | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only   |   | ✓<sup>1</sup> |   |
+| Windows 7 SP1<br>(Server scenarios only)                 |   | ✓<sup>1</sup> |   |
+| Azure Stack HCI                                          | ✓ | ✓ |   |
+| Windows IoT Enterprise                                          | ✓ |   |   |
 
-<sup>1</sup> Running the OS on server hardware, i.e. machines that are always connected, always turned on, and not running other workloads (PC, office, browser, etc.)
+<sup>1</sup> Running the OS on server hardware that is always connected, always on.<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
+<sup>3</sup> Also supported on Arm64-based machines.
 
 ### Linux
 
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
-|:---|:---:|:---:|:---:|:---:
-| Amazon Linux 2017.09                                        |   | X |   |   |
-| Amazon Linux 2                                              |   | X |   |   |
-| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
-| CentOS Linux 7                                              | X | X | X | X |
-| CentOS Linux 6                                              |   | X |   |   |
-| CentOS Linux 6.5+                                           |   | X | X | X |
-| Debian 10 <sup>1</sup>                                      | X |   |   |   |
-| Debian 9                                                    | X | X | x | X |
-| Debian 8                                                    |   | X | X |   |
-| Debian 7                                                    |   |   |   | X |
-| OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
-| Oracle Linux 7                                              | X | X |   | X |
-| Oracle Linux 6                                              |   | X |   |   |
-| Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.1, 8.2, 8.3, 8.4          | X <sup>3</sup> | X | X |   |
-| Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
-| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
-| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
-| SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
-| SUSE Linux Enterprise Server 15                             | X | X | X |   |
-| SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
-| SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS                                            | X | X | X | X |
-| Ubuntu 18.04 LTS                                            | X | X | X | X |
-| Ubuntu 16.04 LTS                                            | X | X | X | X |
-| Ubuntu 14.04 LTS                                            |   | X |   | X |
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
+|:---|:---:|:---:|:---:|
+| AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
+| Amazon Linux 2017.09                                        |  | ✓ |   |
+| Amazon Linux 2                                              | ✓ | ✓ |   |
+| CentOS Linux 8                                              | ✓ | ✓ |   |
+| CentOS Linux 7                                              | ✓<sup>3</sup> | ✓ | ✓ |
+| CBL-Mariner 2.0                                             | ✓<sup>3,4</sup> |   |   |
+| Debian 11                                                   | ✓<sup>3</sup> |   |   |
+| Debian 10                                                   | ✓ | ✓ |   |
+| Debian 9                                                    | ✓ | ✓ | ✓ |
+| Debian 8                                                    |   | ✓ |   |
+| OpenSUSE 15                                                 | ✓ |   |   |
+| Oracle Linux 8                                              | ✓ | ✓ |   |
+| Oracle Linux 7                                              | ✓ | ✓ | ✓ |
+| Oracle Linux 6.4+                                           |   |  | ✓ |
+| Red Hat Enterprise Linux Server 9+                          | ✓ |  |   |
+| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
+| Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
+| Rocky Linux 8                                               | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15 SP3                         | ✓ |   |   |
+| SUSE Linux Enterprise Server 15 SP2                         | ✓ |   |   |
+| SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
+| Ubuntu 22.04 LTS                                            | ✓ |   |   |
+| Ubuntu 20.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
+| Ubuntu 18.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
+| Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
+| Ubuntu 14.04 LTS                                            |   | ✓ | ✓ |
 
-<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
+<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
+<sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
+<sup>3</sup> Also supported on Arm64-based machines.<br>
+<sup>4</sup> Requires at least 4GB of disk space allocated (not provided by default).
 
-<sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0.
+> [!NOTE]
+> Machines and appliances that run heavily customized or stripped-down versions of the above distributions and hosted solutions that disallow customization by the user are not supported. Azure Monitor and legacy agents rely on various packages and other baseline functionality that is often removed from such systems, and their installation may require some environmental modifications considered to be disallowed by the appliance vendor. For instance, [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/overview/about-github-enterprise-server) is not supported due to heavy customization as well as [documented, license-level disallowance](https://docs.github.com/en/enterprise-server/admin/overview/system-overview#operating-system-software-and-patches) of operating system modification.
 
-#### Dependency agent Linux kernel support
+> [!NOTE]
+> CBL-Mariner 2.0's disk size is by default around 1GB to provide storage COGS savings, compared to other Azure VMs that are around 30GB. However, the Azure Monitor Agent requires at least 4GB disk size in order to install and run successfully. Please check out [CBL-Mariner's documentation](https://eng.ms/docs/products/mariner-linux/gettingstarted/azurevm/azurevm#disk-size) for more information and instructions on how to increase disk size before installing the agent.
 
-Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
+### Linux Hardening Standards
 
-| Distribution | OS version | Kernel version |
-|:---|:---|:---|
-|  Red Hat Linux 8   | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
-|                    | 8.3     |  4.18.0-240.\*el8_3.x86_64 |
-|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
-|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
-|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
-|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
-|                    | 7.8     | 3.10.0-1136 |
-|                    | 7.7     | 3.10.0-1062 |
-|                    | 7.6     | 3.10.0-957  |
-|                    | 7.5     | 3.10.0-862  |
-|                    | 7.4     | 3.10.0-693  |
-| Red Hat Linux 6    | 6.10    | 2.6.32-754 |
-|                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
-|                    | 8.3     | 4.18.0-240.\*el8_3.x86_64 |
-|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
-|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
-|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
-| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
-|                    | 7.8     | 3.10.0-1136 |
-|                    | 7.7     | 3.10.0-1062 |
-| CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-|                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 20.04   | 5.8<br>5.4\* |
-|                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-|                    | 16.04.3 | 4.15.\* |
-|                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122.\*-default, 4.12.14-16.\*-azure|
-|                                 | 12 SP4 | 4.12.\* (includes Azure-tuned kernel) |
-|                                 | 12 SP3 | 4.4.\* |
-|                                 | 12 SP2 | 4.4.\* |
-| SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197.\*-default, 4.12.14-8.\*-azure |
-|                                 | 15     | 4.12.14-150.\*-default |
-| Debian                          | 9      | 4.9  | 
+The Azure Monitoring Agent for Linux now officially supports various hardening standards for Linux operating systems and distros. Every release of the agent is tested and certified against the supported hardening standards. We test against the images that are publicly available on the Azure Marketplace and published by CIS and only support the settings and hardening that are applied to those images. If you apply additional customizations on your own golden images, and those settings are not covered by the CIS images, it will be considered a non-supported scenario.
+
+*Only the Azure Monitoring Agent for Linux will support these hardening standards. There are no plans to support this in the Log Analytics Agent (legacy) or the Diagnostics Extension*
+
+Currently supported hardening standards:
+- SELinux
+- CIS Lvl 1 and 2<sup>1</sup>
+
+On the roadmap
+- STIG
+- FIPs
+
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
+|:---|:---:|:---:|:---:|
+| CentOS Linux 7                                                 | ✓ |   |   |
+| Debian 10                                      | ✓ |   |   |
+| Ubuntu 18                                             | ✓ |   |   |
+| Ubuntu 20                                              | ✓ |   |   |
+| Red Hat Enterprise Linux Server 7                                              | ✓ |   |   |
+| Red Hat Enterprise Linux Server 8                                              | ✓ |   |   |
+
+<sup>1</sup> Supports only the above distros and versions
 
 ## Next steps
 
-Get more details on each of the agents at the following:
-
-- [Overview of the Azure Monitor agent](./azure-monitor-agent-overview.md)
-- [Overview of the Log Analytics agent](./log-analytics-agent.md)
-- [Azure Diagnostics extension overview](./diagnostics-extension-overview.md)
-- [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md)
+- [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
+- [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.

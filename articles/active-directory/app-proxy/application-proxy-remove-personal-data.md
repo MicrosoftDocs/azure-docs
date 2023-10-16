@@ -1,20 +1,20 @@
 ---
-title: Remove personal data - Azure Active Directory Application Proxy
-description:  Remove personal data from connectors installed on devices for Azure Active Directory Application Proxy.
+title: Remove personal data - Microsoft Entra application proxy
+description:  Remove personal data from connectors installed on devices for Microsoft Entra application proxy.
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: harshja
 ---
 
-# Remove personal data for Azure Active Directory Application Proxy
+# Remove personal data for Microsoft Entra application proxy
 
-Azure Active Directory Application Proxy requires that you install connectors on your devices, which means that there might be personal data on your devices. This article provides steps for how to delete that personal data to improve privacy.
+Microsoft Entra application proxy requires that you install connectors on your devices, which means that there might be personal data on your devices. This article provides steps for how to delete that personal data to improve privacy.
 
 ## Where is the personal data?
 
@@ -59,7 +59,7 @@ To find personal data logged by an application that uses Kerberos Constrained De
 
 To delete specific data:
 
-1. Restart the Microsoft Azure AD Application Proxy Connector service to generate a new log file. The new log file enables you to delete or modify the old log files. 
+1. Restart the Microsoft Entra application proxy Connector service to generate a new log file. The new log file enables you to delete or modify the old log files. 
 1. Follow the [View or export specific data](#view-or-export-specific-data) process described previously to find information that needs to be deleted. Search all of the connector logs.
 1. Either delete the relevant log files or selectively delete the fields that contain personal data. You can also delete all old log files if you don’t need them anymore.
 

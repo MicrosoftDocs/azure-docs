@@ -1,16 +1,18 @@
 ---
 title:  How to do custom search in Azure API for FHIR 
 description: This article describes how you can define your own custom search parameters in Azure API for FHIR to be used in the database. 
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: mikaelw
+ms.date: 09/27/2023
+ms.author: kesheth
 ---
 # Defining custom search parameters for Azure API for FHIR
 
-The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the Azure API for FHIR.
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+The Fast Healthcare Interoperability Resources (FHIR&#174;) specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the Azure API for FHIR.
 
 > [!NOTE]
 > Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to be used in production. Below we will outline how you can test search parameters before reindexing the entire FHIR server.
@@ -215,3 +217,5 @@ In this article, you’ve learned how to create a search parameter. Next you can
 
 >[!div class="nextstepaction"]
 >[How to run a reindex job](how-to-run-a-reindex.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

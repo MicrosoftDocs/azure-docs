@@ -1,22 +1,22 @@
 ---
-title: Create and manage downloadable access review history report - Azure Active Directory
-description: Using Azure Active Directory access reviews, you can download a review history for access reviews in your organization.
+title: Create and manage downloadable access review history report
+description: Using Microsoft Entra access reviews, you can download a review history for access reviews in your organization.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyATL
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/18/2022
-ms.author: ajburnle
+ms.date: 06/28/2023
+ms.author: owinfrey
 ---
 
-# Create and manage downloadable access review history report in Azure AD access reviews
+# Create and manage downloadable access review history report in Microsoft Entra access reviews
 
-With Azure Active Directory (Azure AD) Access Reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
+With access reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that are taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
  
 ## Who can access and request review history
 
@@ -26,9 +26,9 @@ Review history and request review history are available for any user if they're 
 
 **Prerequisite role:** All users authorized to view access reviews
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, under **Access Reviews** select **Review history**.
+1. Browse to **Identity governance** > **Access Reviews** > **Review History**.
  
 1. Select **New report**. 
 
@@ -49,15 +49,15 @@ Once a review history report is created, you can download it. All reports that a
 
 ## What is included in a review history report?
 
-The reports provide details on a per-user basis showing the following:
+The reports provide details on a per-user basis showing the following information:
 
 | Element name | Description |
 | --- | --- |
-| AccessReviewId |	Review object id |
-| AccessReviewSeriesId |	Object id of the review series, if the review is an instance of a recurring review. If a one-time review, the value will be am empty GUID. |
-| ReviewType | Review types include group, application, Azure AD role, Azure role, and access package|
+| AccessReviewId |	Review object ID |
+| AccessReviewSeriesId |	Object ID of the review series, if the review is an instance of a recurring review. If the review is one time, the value is an empty GUID. |
+| ReviewType | Review types include group, application, Microsoft Entra role, Azure role, and access package|
 |ResourceDisplayName | Display Name of the resource being reviewed |
-| ResourceId | Id of the resource being reviewed |
+| ResourceId | ID of the resource being reviewed |
 | ReviewName |	Name of the review |
 | CreatedDateTime |	Creation datetime of the review |
 | ReviewStartDate |	Start date of the review
@@ -66,14 +66,14 @@ The reports provide details on a per-user basis showing the following:
 | OwnerId | Reviewer owner ID |
 | OwnerName | Reviewer owner name |
 | OwnerUPN | Reviewer owner User Principal Name |
-| PrincipalId | Id of the principal being reviewed |
+| PrincipalId | ID of the principal being reviewed |
 | PrincipalName | Name of the principal being reviewed |
 | PrincipalUPN | Principal Name of the user being reviewed |
 | PrincipalType | Type of the principal. Options include user, group, and service principal |
 | ReviewDate | Date of the review |
 | ReviewResult | Review results include Deny, Approve, and Not reviewed |
 |Justification | Justification for review result provided by reviewer |
-| ReviewerId | Reviewer Id |
+| ReviewerId | Reviewer ID |
 | ReviewerName | Reviewer Name |
 | ReviewerUPN | Reviewer User Principal Name |
 | ReviewerEmailAddress | Reviewer email address |
@@ -82,7 +82,7 @@ The reports provide details on a per-user basis showing the following:
 | AppliedByEmailAddress | Email address of the user who applied the review result |
 | AppliedDate | Date when the review result were applied |
 | AccessRecommendation | System recommendations include Approve, Deny, and No Info |
-|SubmissionResult | Review result submission status include applied, and not applied. |
+|SubmissionResult | Review result submission statuses include applied, and not applied. |
 
 ## Next steps
 - [Review access to groups or applications](perform-access-review.md)

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -46,7 +46,7 @@ Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity d
 Azure-SSIS | SSIS package execution | SSIS package execution | 
 
 > [!NOTE]
-> Outbound controls vary by service for Azure IR. In Synapse, workspaces have options to limit outbound traffic from the [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md) when utilizing Azure IR. In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network) when utilizing Azure IR. Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
+> Outbound controls vary by service for Azure IR. In Synapse, workspaces have options to limit outbound traffic from the [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md) when utilizing Azure IR. In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network) when utilizing Azure IR. Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
 
 
 ## Azure integration runtime
@@ -55,11 +55,28 @@ An Azure integration runtime can:
 
 - Run Data Flows in Azure 
 - Run copy activities between cloud data stores
-- Dispatch the following transform activities in a public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, ML Studio (classic) Batch Execution activity, ML Studio (classic) Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
+- Dispatch the following transform activities in a public network: 
+   - .NET custom activity
+   - Azure Function activity
+   - Databricks Notebook/ Jar/ Python activity
+   - Data Lake Analytics U-SQL activity
+   - Get Metadata activity
+   - HDInsight Hive activity
+   - HDInsight Pig activity
+   - HDInsight MapReduce activity
+   - HDInsight Spark activity
+   - HDInsight Streaming activity
+   - Lookup activity
+   - Machine Learning Studio (classic) Batch Execution activity
+   - Machine Learning Studio (classic) Update Resource activity
+   - Stored Procedure activity
+   - Validation activity
+   - Web activity
+   
 
 ### Azure IR network environment
 
-Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment. In Synapse, workspaces have options to limit outbound traffic from the IR [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md).  In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network). The Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
+Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment. In Synapse, workspaces have options to limit outbound traffic from the IR [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md).  In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network). The Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
 
 ### Azure IR compute resource and scaling
 Azure integration runtime provides a fully managed, serverless compute in Azure.  You don't have to worry about infrastructure provision, software installation, patching, or capacity scaling.  In addition, you only pay for the duration of the actual utilization.
@@ -78,7 +95,23 @@ For information about creating and configuring an Azure IR, see [How to create a
 A self-hosted IR is capable of:
 
 - Running copy activity between a cloud data stores and a data store in private network.
-- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), ML Studio (classic) Batch Execution activity, ML Studio (classic) Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
+- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: 
+  - Azure Function activity
+  - Custom activity (runs on Azure Batch)
+  - Data Lake Analytics U-SQL activity
+  - Get Metadata activity
+  - HDInsight Hive activity (BYOC-Bring Your Own Cluster)
+  - HDInsight Pig activity (BYOC)
+  - HDInsight MapReduce activity (BYOC)
+  - HDInsight Spark activity (BYOC)
+  - HDInsight Streaming activity (BYOC)
+  - Lookup activity
+  - Machine Learning Studio (classic) Batch Execution activity
+  - Machine Learning Studio (classic) Update Resource activity
+  - Machine Learning Execute Pipeline activity
+  - Stored Procedure activity
+  - Validation activity
+  - Web activity
 
 > [!NOTE] 
 > Use self-hosted integration runtime to support data stores that require bring-your-own driver, such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

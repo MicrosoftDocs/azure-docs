@@ -1,12 +1,12 @@
 ---
 title: Get started with FHIR service - Azure Health Data Services
 description: This document describes how to get started with FHIR service in Azure Health Data Services.
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
-ms.author: dseven
+ms.date: 06/06/2022
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -33,7 +33,7 @@ Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-a
 
 ## Access the FHIR service
 
-The FHIR service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions.
+The FHIR service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
 
 ### Register a client application
 
@@ -53,12 +53,12 @@ You can perform create, read (search), update, and delete (CRUD) transactions ag
 
 #### Get an access token
 
-You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
+You can obtain a Microsoft Entra access token using PowerShell, Azure CLI, REST CCI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
 
 #### Access using existing tools
 
 - [Postman](../fhir/use-postman.md)
-- [Rest Client](../fhir/using-rest-client.md)
+- [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
 
 #### Load data
@@ -96,3 +96,5 @@ This article described the basic steps to get started using the FHIR service. Fo
 
 >[!div class="nextstepaction"]
 >[Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

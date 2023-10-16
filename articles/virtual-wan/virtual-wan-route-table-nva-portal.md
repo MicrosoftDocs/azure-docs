@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/24/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---
@@ -25,7 +25,7 @@ Verify that you have met the following criteria:
 
     * A private IP address must be assigned to the NVA network interface.
 
-    * The NVA is not deployed in the virtual hub. It must be deployed in a separate virtual network.
+    * The NVA isn't deployed in the virtual hub. It must be deployed in a separate virtual network.
 
     *  The NVA virtual network may have one or many virtual networks connected to it. In this article, we refer to the NVA virtual network as an 'indirect spoke VNet'. These virtual networks can be connected to the NVA VNet by using VNet peering. The VNet Peering links are depicted by black arrows in the above figure between VNet 1, VNet 2, and NVA VNet.
 *  You have created two virtual networks. They will be used as spoke VNets.
@@ -34,7 +34,7 @@ Verify that you have met the following criteria:
 
     * Ensure there are no virtual network gateways in any of the VNets.
 
-    * The VNets do not require a gateway subnet.
+    * The VNets don't require a gateway subnet.
 
 ## <a name="signin"></a>1. Sign in
 
@@ -58,7 +58,7 @@ Create the hub. You can use the following example values, or replace with your o
 * **Name:** westushub
 * **Hub private address space:** 10.0.1.0/24
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-empty-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-blank.md)]
 
 ## <a name="route"></a>4. Create and apply a hub route table
 
@@ -99,7 +99,7 @@ Repeat the following procedure for each virtual network that you want to connect
     * **Connection name** - Name your connection.
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
+    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway.
 4. Click **OK** to create the connection.
 
 ## Next steps

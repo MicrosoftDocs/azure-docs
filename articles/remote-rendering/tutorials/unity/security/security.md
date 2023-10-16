@@ -15,7 +15,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Secure Azure Blob Storage containing Azure Remote Rendering models
-> * Authenticate with Azure AD to access your Azure Remote Rendering instance
+> * Authenticate with Microsoft Entra ID to access your Azure Remote Rendering instance
 > * Use Azure credentials for Azure Remote Rendering authentication
 
 ## Prerequisites
@@ -34,7 +34,7 @@ Both the "AccountID + AccountKey" and the "URL + SAS Token" are both essentially
 
 Azure Remote Rendering can securely access the contents of your Azure Blob Storage with the correct configuration. See [How-to: Link storage accounts](../../../how-tos/create-an-account.md#link-storage-accounts) to configure your Azure Remote Rendering instance with your blob storage accounts.
 
-When using a linked blob storage, you'll use slightly different methods for loading models:
+When using a linked blob storage, you use slightly different methods for loading models:
 
 ```cs
 var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
@@ -44,7 +44,7 @@ var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsy
 The above lines use the `FromSas` version of the params and session action. They must be converted to the non-SAS versions:
 
 ```cs
-var loadModelParams = new LoadModelOptions(storageAccountPath, blobName, modelPath, modelEntity);
+var loadModelParams = LoadModelOptions.CreateForBlobStorage(storageAccountPath, blobName, modelPath, modelEntity);
 var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
@@ -83,7 +83,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
         }
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
+        var loadModelParams = LoadModelOptions.CreateForBlobStorage($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
@@ -92,7 +92,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 
     For the most part, this code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
 
-    The additional inputs `storageAccountName` and `blobName` have also been added to the arguments. We'll call this new **LoadModel** method from another method similar to the very first **LoadTestModel** method we created in the first tutorial.
+    The additional inputs `storageAccountName` and `blobName` have also been added to the arguments. We call this new **LoadModel** method from another method similar to the first **LoadTestModel** method we created in the first tutorial.
 
 1. Add the following method to **RemoteRenderingCoordinator** just after **LoadTestModel**
 
@@ -143,14 +143,14 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     }
     ```
 
-    This code adds three additional string variables to your **RemoteRenderingCoordinator** component.
+    This code adds three extra string variables to your **RemoteRenderingCoordinator** component.
     ![Screenshot that highlights the Storage Account Name, Blob Container Name, and Model Path of the RemoteRenderingCoordinator component.](./media/storage-account-linked-model.png)
 
 1. Add your values to the **RemoteRenderingCoordinator** component. Having followed the [Quickstart for model conversion](../../../quickstarts/convert-model.md), your values should be:
 
-    * **Storage Account Name**: Your storage account name, the globally unique name you choose for your storage account. In the quickstart this was *arrtutorialstorage*, your value will be different.
+    * **Storage Account Name**: Your storage account name, the globally unique name you choose for your storage account. In the quickstart this was *arrtutorialstorage*, your value is different.
     * **Blob Container Name**: arroutput, the Blob Storage Container
-    * **Model Path**: The combination of the "outputFolderPath" and the "outputAssetFileName" defined in the *arrconfig.json* file. In the quickstart this was "outputFolderPath":"converted/robot", "outputAssetFileName": "robot.arrAsset". Which would result in a Model Path value of "converted/robot/robot.arrAsset", your value will be different.
+    * **Model Path**: The combination of the "outputFolderPath" and the "outputAssetFileName" defined in the *arrconfig.json* file. In the quickstart, this was "outputFolderPath":"converted/robot", "outputAssetFileName": "robot.arrAsset". Which would result in a Model Path value of "converted/robot/robot.arrAsset", your value is different.
 
     >[!TIP]
     > If you [run the **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) script, without the "-UseContainerSas" argument, the script will output all of the above values for your instead of the SAS token. ![Linked Model](./media/converted-output.png)
@@ -165,21 +165,23 @@ Now the current state of the application and its access to your Azure resources 
 
 ![Better security](./media/security-two.png)
 
-We have one more "password", the AccountKey, to remove from the local application. This can be done using Azure Active Directory (AAD) authentication.
+We have one more "password", the AccountKey, to remove from the local application. This can be done using Microsoft Entra authentication.
 
-## Azure Active Directory (Azure AD) authentication
+<a name='azure-active-directory-azure-ad-authentication'></a>
 
-AAD authentication will allow you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](../../../../active-directory/develop/access-tokens.md) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
+## Microsoft Entra authentication
+
+Microsoft Entra authentication allows you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](../../../../active-directory/develop/access-tokens.md) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **SessionConfiguration** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **SessionConfiguration** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
-1. After configuring the new AAD application, check your AAD application looks like the following images:
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), which involves registering a new Microsoft Entra application and configuring access to your ARR instance.
+1. After configuring the new Microsoft Entra application, check your Microsoft Entra application looks like the following images:
 
-    **AAD Application -> Authentication**
+    **Microsoft Entra Application -> Authentication**
     :::image type="content" source="./../../../how-tos/media/azure-active-directory-app-setup.png" alt-text="App authentication":::
 
-    **AAD Application -> API Permissions**
+    **Microsoft Entra Application -> API Permissions**
     :::image type="content" source="./media/azure-active-directory-api-permissions-granted.png" alt-text="App APIs":::    
 
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
@@ -190,7 +192,7 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
 
-With the Azure side of things in place, we now need to modify how your code connects to the AAR service. We do that by implementing an instance of **BaseARRAuthentication**, which will return a new **SessionConfiguration** object. In this case, the account info will be configured with the Azure Access Token.
+With the Azure side of things in place, we now need to modify how your code connects to the AAR service. We do that by implementing an instance of **BaseARRAuthentication**, which returns a new **SessionConfiguration** object. In this case, the account info is configured with the Azure Access Token.
 
 1. Create a new script named **AADAuthentication** and replace its code with the following:
 
@@ -351,7 +353,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 >[!NOTE]
 > This code is by no means complete and is not ready for a commercial application. For example, at a minimum you'll likely want to add the ability to sign out too. This can be done using the `Task RemoveAsync(IAccount account)` method provided by the client application. This code is only intended for tutorial use, your implementation will be specific to your application.
 
-The code first tries to get the token silently using **AquireTokenSilent**. This will be successful if the user has previously authenticated this application. If it's not successful, move on to a more user-involved strategy.
+The code first tries to get the token silently using **AquireTokenSilent**. This is successful if the user has previously authenticated this application. If it's not successful, move on to a more user-involved strategy.
 
 For this code, we're using the [device code flow](../../../../active-directory/develop/v2-oauth2-device-code.md) to obtain an Access Token. This flow allows the user to sign in to their Azure account on a computer or mobile device and have the resulting token sent back to the HoloLens application.
 
@@ -367,23 +369,25 @@ With this change, the current state of the application and its access to your Az
 
 ![Even better security](./media/security-three.png)
 
-Since the User Credentials aren't stored on the device (or in this case even entered on the device), their exposure risk is very low. Now the device is using a user-specific, time-limited Access Token to access ARR, which uses access control (IAM) to access the Blob Storage. These two steps have completely removed the "passwords" from the source code and increased security considerably. However, this isn't the most security available, moving the model and session management to a web service will improve security further. Additional security considerations are discussed in the [Commercial Readiness](../commercial-ready/commercial-ready.md) chapter.
+Since the User Credentials aren't stored on the device (or in this case even entered on the device), their exposure risk is low. Now the device is using a user-specific, time-limited Access Token to access ARR, which uses access control (IAM) to access the Blob Storage. These two steps have removed the "passwords" from the source code and increased security considerably. However, this isn't the most security available, moving the model and session management to a web service will improve security further. Additional security considerations are discussed in the [Commercial Readiness](../commercial-ready/commercial-ready.md) chapter.
 
-### Testing AAD Auth
+<a name='testing-aad-auth'></a>
 
-In the Unity Editor, when AAD Auth is active, you will need to authenticate every time you launch the application. On device, the authentication step will happen the first time and only be required again when the token expires or is invalidated.
+### Testing Microsoft Entra auth
 
-1. Add the **AAD Authentication** component to the **RemoteRenderingCoordinator** GameObject.
+In the Unity Editor, when Microsoft Entra auth is active, you'll need to authenticate every time you launch the application. On device, the authentication step happens the first time and only be required again when the token expires or is invalidated.
 
-    ![AAD auth component](./media/azure-active-directory-auth-component.png)
+1. Add the **Microsoft Entra authentication** component to the **RemoteRenderingCoordinator** GameObject.
+
+    ![Microsoft Entra auth component](./media/azure-active-directory-auth-component.png)
 
 > [!NOTE]
-> If you are using the completed project from the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), make sure to enable the **AAD Authentication** component by clicking the checkbox next to its title.
+> If you are using the completed project from the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), make sure to enable the **Microsoft Entra authentication** component by clicking the checkbox next to its title.
 
 1. Fill in your values for the Client ID and the Tenant ID. These values can be found in your App Registration's Overview Page:
 
-    * **Active Directory Application Client ID** is the *Application (client) ID* found in your AAD app registration (see image below).
-    * **Azure Tenant ID** is the *Directory (tenant) ID* found in your AAD app registration ( see image below).
+    * **Active Directory Application Client ID** is the *Application (client) ID* found in your Microsoft Entra app registration (see image below).
+    * **Azure Tenant ID** is the *Directory (tenant) ID* found in your Microsoft Entra app registration (see image below).
     * **Azure Remote Rendering Domain** is the same domain you've been using in the **RemoteRenderingCoordinator**'s Remote Rendering Domain.
     * **Azure Remote Rendering Account ID** is the same **Account ID** you've been using for **RemoteRenderingCoordinator**.
     * **Azure Remote Rendering Account Domain** is the same **Account Domain** you've been using in the **RemoteRenderingCoordinator**.
@@ -391,7 +395,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     :::image type="content" source="./media/azure-active-directory-app-overview.png" alt-text="Screenshot that highlights the Application (client) ID and Directory (tenant) ID.":::
 
 1. Press Play in the Unity Editor and consent to running a session.
-    Since the **AAD Authentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
+    Since the **Microsoft Entra authentication** component has a view controller, it's automatically hooked up to display a prompt after the session authorization modal panel.
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
     ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)
@@ -402,7 +406,7 @@ After this point, everything in the application should proceed normally. Check t
 
 ## Build to device
 
-If you're building an application using MSAL to device, you'll need to include a file in your project's **Assets** folder. This will help the compiler build the application correctly using the *Microsoft.Identity.Client.dll* included in the **Tutorial Assets**.
+If you're building an application using MSAL to device, you need to include a file in your project's **Assets** folder. This helps the compiler build the application correctly using the *Microsoft.Identity.Client.dll* included in the **Tutorial Assets**.
 
 1. Add a new file in **Assets** named **link.xml**
 1. Add the following for to the file:
@@ -423,7 +427,7 @@ Follow the steps found in [Quickstart: Deploy Unity sample to HoloLens - Build t
 
 ## Next steps
 
-The remainder of this tutorial set contains conceptual topics for creating a production-ready application that uses Azure Remote Rendering.
+The remainder of this tutorial set contains conceptual articles for creating a production-ready application that uses Azure Remote Rendering.
 
 > [!div class="nextstepaction"]
 > [Next: Commercial Readiness](../commercial-ready/commercial-ready.md)

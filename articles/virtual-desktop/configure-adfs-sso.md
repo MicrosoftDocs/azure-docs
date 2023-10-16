@@ -1,16 +1,17 @@
 ---
-title: Configure Azure Virtual Desktop AD FS single sign-on - Azure
-description: How to configure AD FS single sign-on for a Azure Virtual Desktop environment.
+title: Configure single sign-on for Azure Virtual Desktop using AD FS - Azure
+description: How to configure single sign-on for an Azure Virtual Desktop environment using Active Directory Federation Services.
 services: virtual-desktop
 author: Heidilohr
 manager: lizross
 
 ms.service: virtual-desktop
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: helohr
 ---
-# Configure AD FS single sign-on for Azure Virtual Desktop
+# Configure single sign-on for Azure Virtual Desktop using AD FS
 
 This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Azure Virtual Desktop.
 
@@ -21,22 +22,26 @@ This article will walk you through the process of configuring Active Directory F
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 
-* You must deploy the **Active Directory Certificate Services (CA)** role. All servers running the role must be domain-joined, have the latest Windows updates installed, and be configured as [enterprise certificate authorities](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
-* You must deploy the **Active Directory Federation Services (AD FS)** role. All servers running this role must be domain-joined, have the latest Windows updates installed, and be running Windows Server 2016 or later. See our [federation tutorial](../active-directory/hybrid/tutorial-federation.md) to get started setting up this role.
-* We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
-* You must deploy **Azure AD Connect** to sync users to Azure AD. Azure AD Connect must be configured in [federation mode](../active-directory/hybrid/how-to-connect-install-custom.md).
-* [Set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop on the AD FS server.
-* When using Windows 10 20H1 or 20H2 to connect to Azure Virtual Desktop, you must install the **2021-04 Cumulative Update for Windows 10 (KB5001330)** or later for single sign-on to function properly.
+- Session hosts running a supported version of Windows 10 or Windows 11.
+
+- You must deploy the **Active Directory Certificate Services (CA)** role. All servers running the role must be domain-joined, have the latest Windows updates installed, and be configured as [enterprise certificate authorities](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
+
+- You must deploy the **Active Directory Federation Services (AD FS)** role. All servers running this role must be domain-joined, have the latest Windows updates installed, and be running Windows Server 2016 or later. See our [federation tutorial](../active-directory/hybrid/tutorial-federation.md) to get started setting up this role.
+- We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
+
+- You must deploy **Microsoft Entra Connect** to sync users to Microsoft Entra ID. Microsoft Entra Connect must be configured in [federation mode](../active-directory/hybrid/how-to-connect-install-custom.md).
+
+- [Set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop on the AD FS server.
 
 > [!NOTE]
-> This solution is not supported with Azure AD Domain Services. You must use an Active Directory Domain Controller.
+> This solution is not supported with Microsoft Entra Domain Services. You must use an Active Directory Domain Services domain controller.
 
 ## Supported clients
 
 The following Azure Virtual Desktop clients support this feature:
 
-* [Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-* [Web client](./user-documentation/connect-web.md)
+* [Windows Desktop client](./users/connect-windows.md)
+* [Web client](./users/connect-web.md)
 
 ## Configure the certificate authority to issue certificates
 
@@ -71,7 +76,7 @@ To create a new enrollment agent certificate template:
 6. Next, select **Object Types...**, then **Service Accounts**, and then **OK**.
 7. Enter the service account name for AD FS and select **OK**.
    * In an isolated AD FS setup, the service account will be named "adfssvc$"
-   * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$"
+   * If you set up AD FS using Microsoft Entra Connect, the service account will be named "aadcsvc$"
 8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
    :::image type="content" source="media/adfs-enrollment-properties-security.png" alt-text="A screenshot showing the security tab of the Enrollment Agent certificate template after it is properly configured.":::
@@ -85,7 +90,7 @@ To update an existing enrollment agent certificate template:
 5. Next, select **Object Types...**, then **Service Accounts**, and then **OK**.
 6. Enter the service account name for AD FS and select **OK**.
    * In an isolated AD FS setup, the service account will be named "adfssvc$"
-   * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$"
+   * If you set up AD FS using Microsoft Entra Connect, the service account will be named "aadcsvc$"
 7. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
 ### Create the Smartcard Logon certificate template
@@ -113,7 +118,7 @@ To create the Smartcard Logon certificate template:
 10. Select **Object Types...**, **Service Accounts**, and **OK**.
 11. Enter the service account name for AD FS just like you did in the [Create the enrollment agent certificate template](#create-the-enrollment-agent-certificate-template) section.
     * In an isolated AD FS setup, the service account will be named "adfssvc$"
-    * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$"
+    * If you set up AD FS using Microsoft Entra Connect, the service account will be named "aadcsvc$"
 12. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll", then select **OK** to save.
 
    :::image type="content" source="media/adfs-sso-properties-security.png" alt-text="A screenshot showing the security tab of the SSO certificate template after it is properly configured.":::
@@ -275,5 +280,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Now that you've configured single sign-on, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session using your new credentials, check out these articles:
 
-* [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-* [Connect with the web client](./user-documentation/connect-web.md)
+* [Connect with the Windows Desktop client](./users/connect-windows.md)
+* [Connect with the web client](./users/connect-web.md)

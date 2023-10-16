@@ -4,15 +4,14 @@ description: Learn how to configure a virtual network for injection of Azure-SSI
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
-ms.custom: devx-track-azurepowershell
+ms.date: 04/12/2023
+author: chugugrace
+ms.author: chugu 
 ---
 
 # Configure a virtual network for injection of Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. The express method starts your Azure-SSIS IR faster and has no inbound, as well as less outbound, traffic requirements, but it has some limitations compared to the standard method.
 

@@ -1,21 +1,22 @@
 ---
-title: Restore a deleted Azure Database for MySQL Flexible server
-description: This article describes how to restore a deleted server in Azure Database for MySQL Flexible server using the Azure portal.
-author: adig
-ms.author: adig
+title: Restore a deleted Azure Database for MySQL - Flexible Server
+description: This article describes how to restore a deleted server in Azure Database for MySQL - Flexible Server using the Azure portal.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 11/10/2021
 ---
 
-# Restore a deleted Azure Database for MySQL Flexible server
+# Restore a deleted Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 When a flexible server is deleted, the server backup can be retained up to five days in the service. The server backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a deleted MySQL flexible server resource within 5 days from the time of server deletion. The recommended steps will work only if the backup for the server is still available and not deleted from the system.
 
 ## Pre-requisites
-To restore a deleted Azure Database for MySQL Flexible server, you need the following:
+To restore a deleted Azure Database for MySQL - Flexible Server, you need the following:
 - Azure Subscription name hosting the original server
 - Location where the server was created
 
@@ -26,7 +27,7 @@ To restore a deleted Azure Database for MySQL Flexible server, you need the foll
 2. In Activity Log, click on **Add filter** as shown and set following filters for the 
 
     - **Subscription** = Your Subscription hosting the deleted server
-    - **Resource Type** = Azure Database for MySQL flexible servers (Microsoft.DBforMySQL/flexibleServers) 
+    - **Resource Type** = Azure Database for MySQL - Flexible Servers (Microsoft.DBforMySQL/flexibleServers) 
     - **Operation** = Delete MySQL Server (Microsoft.DBforMySQL/flexibleServers/delete) 
  
      [![Activity log filtered for delete MySQL server operation](./media/how-to-restore-server-portal/monitor-log-delete-server.png)](./media/how-to-restore-server-portal/monitor-log-delete-server.png#lightbox)
@@ -61,7 +62,7 @@ To restore a deleted Azure Database for MySQL Flexible server, you need the foll
 
 9. The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for : 
    - **Subscription** = Your Subscription
-   - **Resource Type** = Azure Database for MySQL flexible servers (Microsoft.DBforMySQL/flexibleServers) 
+   - **Resource Type** = Azure Database for MySQL - Flexible Servers (Microsoft.DBforMySQL/flexibleServers) 
    - **Operation** =  Update MySQL Server Create
 
 ## Next steps

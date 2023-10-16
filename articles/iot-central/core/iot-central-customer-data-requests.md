@@ -1,13 +1,12 @@
 ---
-title: Customer data request features​ in Azure IoT Central | Microsoft Docs
+title: Customer data request features​ in Azure IoT Central
 description: This article describes identifying, deleting, and exporting customer data in Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/28/2021
+ms.date: 06/12/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
 ---
 
 # Azure IoT Central customer data request features​
@@ -18,7 +17,7 @@ Azure IoT Central is a fully managed Internet of Things (IoT) software-as-a-serv
 
 ## Identifying customer data
 
-Azure Active Directory Object-IDs are used to identify users and assign roles. The Azure IoT Central portal displays user email addresses for role assignments but only the Azure Active Directory Object-ID is stored, the email address is dynamically queried from Azure Active Directory. Azure IoT Central administrators can view, export, and delete application users in the user administration section of an Azure IoT Central application.
+Microsoft Entra Object-IDs are used to identify users and assign roles. The Azure IoT Central portal displays user email addresses for role assignments but only the Microsoft Entra Object-ID is stored, the email address is dynamically queried from Microsoft Entra ID. Azure IoT Central administrators can view, export, and delete application users in the user administration section of an Azure IoT Central application.
 
 Within the application, email addresses can be configured to receive alerts. In this case, email addresses are stored within IoT Central and must be managed from the in-app account administration page.
 

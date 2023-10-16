@@ -1,9 +1,8 @@
 ---
-title: Call web APIs from a desktop app | Azure
-titleSuffix: Microsoft identity platform 
+title: Call web APIs from a desktop app
 description: Learn how to build a desktop app that calls web APIs
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -24,7 +24,7 @@ Now that you have a token, you can call a protected web API.
 
 # [.NET](#tab/dotnet)
 
-[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](./includes/scenarios/scenarios-call-apis-dotnet.md)]
 
 # [Java](#tab/java)
 
@@ -85,7 +85,7 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## Call several APIs: Incremental consent and conditional access
+## Call several APIs: Incremental consent and Conditional Access
 
 To call several APIs for the same user, after you get a token for the first API, call `AcquireTokenSilent`. You'll get a token for the other APIs silently most of the time.
 

@@ -4,8 +4,7 @@ description: In this quickstart, you learn how to use the Azure Storage Files Sh
 author: kyle-patterson
 ms.author: kylepa
 ms.date: 06/22/2021
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: quickstart
 ms.devlang: cpp
 ms.custom: mode-api
@@ -43,7 +42,7 @@ In this tutorial, you'll learn how to do basic operations on Azure Files using C
 - [Azure storage account](../common/storage-account-create.md)
 - [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
-- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
+- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/README.md)
 
 ## Setting up
 

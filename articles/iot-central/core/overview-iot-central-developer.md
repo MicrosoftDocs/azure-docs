@@ -1,13 +1,13 @@
 ---
-title: Azure IoT Central device connectivity guide | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how IoT devices connect to your IoT Central application. After a device connects, it uses telemetry to send streaming data and properties to report device state. Iot Central can set device state using writable properties and call commands on a device.
+title: Device connectivity guide
+description: This guide describes how IoT devices connect to and communicate with your IoT Central application. The article describes telemetry, properties, and commands.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: [mvc, device-developer]
+ms.custom: [mvc, device-developer, iot-central-frontdoor]
 
 # This article applies to device developers.
 ---
@@ -28,19 +28,19 @@ The following sections describe the main types of device you can connect to an I
 
 ### IoT device
 
-A IoT device is a standalone device connects directly to IoT Central. A IoT device typically sends telemetry from its onboard or connected sensors to your IoT Central application. Standalone devices can also report property values, receive writable property values, and respond to commands.
+An IoT device is a standalone device that connects directly to IoT Central. An IoT device typically sends telemetry from its onboard or connected sensors to your IoT Central application. Standalone devices can also report property values, receive writable property values, and respond to commands.
 
 ### IoT Edge device
 
 An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as downstream devices. Scenarios that use IoT Edge devices include:
 
-- Aggregate or filter telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
+- Aggregate or filter telemetry before it's sent to IoT Central. This approach can help reduce the costs of sending data to IoT Central.
 - Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a downstream device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
 - Control downstream devices locally to avoid the latency associated with connecting to IoT Central over the internet.
 
 IoT Central only sees the IoT Edge device, not the downstream devices connected to the IoT Edge device.
 
-To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](/learn/modules/connect-iot-edge-device-to-iot-central/).
+To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/).
 
 ### Gateways
 
@@ -61,9 +61,9 @@ When you register a device with IoT Central, you're telling IoT Central the ID o
 
 There are three ways to register a device in an IoT Central application:
 
-- Use the **Devices** page in your IoT Central application to register devices individually. To learn more, see [Add a device](howto-manage-devices-individually.md#add-a-device).
+- Automatically register devices when they first try to connect. This scenario enables OEMs to mass manufacture devices that can connect without being registered first. To learn more, see [Automatically register devices](concepts-device-authentication.md#automatically-register-devices).
 - Add devices in bulk from a CSV file. To learn more, see [Import devices](howto-manage-devices-in-bulk.md#import-devices).
-- Automatically register devices when they first try to connect. This scenario enables OEMs to mass manufacture devices that can connect without first being registered. To learn more, see [Automatically register devices](concepts-device-authentication.md#automatically-register-devices).
+- Use the **Devices** page in your IoT Central application to register devices individually. To learn more, see [Add a device](howto-manage-devices-individually.md#add-a-device).
 
   Optionally, you can require an operator to approve the device before it starts sending data.
 
@@ -74,7 +74,7 @@ You only need to register a device once in your IoT Central application.
 
 ### Provision a device
 
-When a device first tries to connect to your IoT Central application, it starts the process by connecting to the Device Provisioning Service (DPS). DPS checks the device's credentials and, if they're valid, provisions the device with connection string for one of IoT Central's internal IoT hubs. DPS uses the _group enrollment_ configurations in your IoT Central application to manage this provisioning process for you.
+When a device first tries to connect to your IoT Central application, it starts the process by connecting to the Device Provisioning Service (DPS). DPS checks the device's credentials and, if they're valid, provisions the device with the connection string for one of IoT Central's internal IoT hubs. DPS uses the _group enrollment_ configurations in your IoT Central application to manage this provisioning process for you.
 
 > [!TIP]
 > The device also sends the **ID scope** value that tells DPS which IoT Central application the device is connecting to. You can look up the **ID scope** in your IoT Central application on the **Permissions > Device connection groups** page.
@@ -84,7 +84,7 @@ Typically, a device should cache the connection string it receives from DPS but 
 Using DPS enables:
 
 - IoT Central to onboard and connect devices at scale.
-- You to generate device credentials and configure the devices offline without registering the devices through IoT Central UI.
+- You to generate device credentials and configure the devices offline without registering the devices through the IoT Central UI.
 - You to use your own device IDs to register devices in IoT Central. Using your own device IDs simplifies integration with existing back-office systems.
 - A single, consistent way to connect devices to IoT Central.
 
@@ -105,7 +105,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 Device developers typically use one of the device SDKs to implement devices that connect to an IoT Central application. Some scenarios, such as for devices that can't connect to the internet, also require a gateway.
 
-A solution design must take into account the required device connectivity pattern. These patterns fall in to two broad categories. Both categories include devices sending telemetry to your IoT Central application:
+A solution design must take into account the required device connectivity pattern. These patterns fall into two broad categories. Both categories include devices sending telemetry to your IoT Central application:
 
 ### Persistent connections
 
@@ -125,7 +125,7 @@ The following options support persistent device connections:
 
 - Use IoT Central Device Bridge to connect devices that use a custom protocol:
 
-  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the bridge maintains a persistent connection, this option enables command and control of the devices connected to the bridge.
+  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central.
 
   To learn more, see the [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
 

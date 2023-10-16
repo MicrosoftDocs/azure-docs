@@ -1,13 +1,15 @@
 ---
 title: Planned maintenance notification - Azure Database for MariaDB
 description: This article describes the Planned maintenance notification feature in Azure Database for MariaDB
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 06/24/2022
 ---
 # Planned maintenance notification in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Learn how to prepare for planned maintenance events on your Azure Database for MariaDB.
 
@@ -36,14 +38,14 @@ You can utilize the planned maintenance notifications feature to receive alerts 
 
 We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
-You can either check the planned maintenance notification on Azure portal or configure alerts to receive notification. 
+You can either check the planned maintenance notification on Azure portal or configure alerts to receive notification.
 
 ### Check planned maintenance notification from Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), select **Service Health**.
 2. Select **Planned Maintenance** tab
-3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification. 
-   
+3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification.
+
 ### To receive planned maintenance notification
 
 1. In the [portal](https://portal.azure.com), select **Service Health**.
@@ -68,7 +70,6 @@ No, all the Azure regions are patched during the deployment wise window timings.
 ## Retry logic
 
 A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity.md#transient-errors) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](./concepts-connectivity.md#handling-transient-errors).
-
 
 ## Next steps
 

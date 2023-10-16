@@ -1,16 +1,13 @@
 ---
 title: Detach a data disk from a Windows VM - Azure
 description: Detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
-author: cynthn
-ms.service: virtual-machines
-ms.subservice: disks
+author: roygara
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.author: cynthn 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 08/09/2023
+ms.author: rogarana 
 ---
 # How to detach a data disk from a Windows virtual machine
 
@@ -22,8 +19,6 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 > If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](../disks-types.md#billing).
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
- 
 
 ## Detach a data disk using PowerShell
 
@@ -45,6 +40,12 @@ Update-AzVM `
 
 The disk stays in storage but is no longer attached to a virtual machine.
 
+### Lower latency
+
+In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `Remove-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform a detach, like `Update-AzVM`. You don't need to take any action other than calling the explicit detach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
+
 ## Detach a data disk using the portal
 
 You can *hot* remove a data disk, but make sure nothing is actively using the disk before detaching it from the VM.
@@ -52,10 +53,10 @@ You can *hot* remove a data disk, but make sure nothing is actively using the di
 1. In the left menu, select **Virtual Machines**.
 1. Select the virtual machine that has the data disk you want to detach.
 1. Under **Settings**, select **Disks**.
-1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select the **X** button to detach.
+1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select the detach button to detach.
 1. Select **Save** on the top of the page to save your changes.
 
-The disk stays in storage but is no longer attached to a virtual machine. The disk is not deleted.
+The disk stays in storage but is no longer attached to a virtual machine. The disk isn't deleted.
 
 ## Next steps
 

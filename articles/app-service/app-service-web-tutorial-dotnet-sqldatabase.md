@@ -5,12 +5,14 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 01/27/2022
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
 
 ![Published ASP.NET application in Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -46,7 +48,10 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 1. Open the *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* file in Visual Studio.
 
-1. Type `Ctrl+F5` to run the app without debugging. The app is displayed in your default browser.
+1. Type `F5` to run the app. The app is displayed in your default browser.
+
+   > [!NOTE] 
+   > If you only installed Visual Studio and the prerequisites, you may have to [install missing packages via NuGet](/nuget/consume-packages/install-use-packages-visual-studio).
 
 1. Select the **Create New** link and create a couple *to-do* items.
 
@@ -120,7 +125,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 #### Create a server and database
 
-Before creating a database, you need a [logical SQL server](../azure-sql/database/logical-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
+Before creating a database, you need a [logical SQL server](/azure/azure-sql/database/logical-servers). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
 1. In the **Publish** dialog, scroll down to the **Service Dependencies** section. Next to **SQL Server Database**, click **Configure**.
 
@@ -257,7 +262,7 @@ Run a few commands to make updates to your local database.
     
 1. Type `Ctrl+F5` to run the app. Test the edit, details, and create links.
 
-If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same because your application logic is not using this new property yet.
+If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same because your application logic isn't using this new property yet.
 
 #### Use the new property
 
@@ -337,7 +342,7 @@ Now that you enabled Code First Migrations in your Azure app, publish your code 
 
     ![Azure app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
-All your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database is not lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
+All your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database isn't lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
 
 ## Stream application logs
 
@@ -374,7 +379,7 @@ Each action starts with a `Trace.WriteLine()` method. This code is added to show
     > [!TIP]
     > You can experiment with different trace levels to see what types of messages are displayed for each level. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
 
-1. In your browser navigate to your app again at *http://&lt;your app name>.azurewebsites.net*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
+1. In your browser, navigate to your app again at *http://&lt;your app name>.azurewebsites.net*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
 
     ```console
     Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index

@@ -2,14 +2,15 @@
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.workload: identity
-ms.date: 02/16/2022
+ms.date: 03/14/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp azurecli
 ms.custom: azureday1
+ms.subservice: web-apps
 ---
 
 ## Clean up resources
@@ -25,11 +26,3 @@ Select **Delete resource group** to delete the resource group and all the resour
 :::image type="content" alt-text="Screenshot that shows deleting the resource group." source="../media/scenario-secure-app-clean-up-resources/delete-resource-group.png":::
 
 This command might take several minutes to run.
-
-### Delete the app registration
-
-From the portal menu, select **Azure Active Directory** > **App registrations**. Then select the application you created.
-:::image type="content" alt-text="Screenshot that shows selecting app registration." source="../media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
-
-In the app registration overview, select **Delete**.
-:::image type="content" alt-text="Screenshot that shows deleting the app registration." source="../media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::

@@ -3,8 +3,10 @@ title: Monitoring overview
 description: Learn about the various monitoring options on App Service.
 keywords: app service, azure app service, monitoring, diagnostic settings, support, web app, troubleshooting, 
 ms.topic: article
-ms.date: 02/25/2022
+ms.date: 06/29/2023
 ms.author: msangapu
+author: msangapu-msft
+ms.custom: UpdateFrequency3
 ---
 # Azure App Service monitoring overview
 
@@ -12,7 +14,7 @@ Azure App Service provides several monitoring options for monitoring resources f
 
 ## Diagnostic Settings (via Azure Monitor)
 
-Azure Monitor is a monitoring service that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premise. The Azure Monitor data platform collects data into logs and metrics where they can be analyzed. App Service monitoring data can be shipped to Azure Monitor through Diagnostic Settings.
+Azure Monitor is a monitoring service that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The Azure Monitor data platform collects data into logs and metrics where they can be analyzed. App Service monitoring data can be shipped to Azure Monitor through Diagnostic Settings.
 
 Diagnostic settings lets you export logs to other services, such as Log Analytics, Storage account, and Event Hubs. Large amounts of data using SQL-like Kusto can be queried with Log Analytics. You can capture platform logs in Azure Monitor Logs as configured via Diagnostic Settings, and instrument your app further with the dedicated application performance management feature (Application Insights) for additional telemetry and logs.
 

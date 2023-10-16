@@ -11,30 +11,14 @@
     href: tutorial-create-gateway-portal.md
   - name: Configure a site-to-site connection
     href: tutorial-site-to-site-portal.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    items:
-    - name: Sample scripts
-      href: powershell-samples.md
-    - name: Create a VPN gateway
-      href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
-    - name: VPN gateway + P2S RADIUS
-      href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
-    - name: VPN gateway + P2S certificate authentication
-      href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
-    - name: VPN gateway + Site-to-Site
-      href: scripts/vpn-gateway-sample-site-to-site-powershell.md
-    - name: VNet-to-VNet
-      href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
-    - name: Download VPN device template
-      href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
+  - name: Deploy VPN gateway with DDoS protection
+    href: tutorial-protect-vpn-gateway.md
 - name: Concepts
   items:
   - name: Work remotely
     items:
     - name: Support for working remotely
-      href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../networking/working-remotely-support.md?toc=/azure/vpn-gateway/toc.json
     - name: Leveraging Azure VPN
       href: work-remotely-support.md
     - name: NVA configurations and remote work
@@ -53,12 +37,14 @@
     href: vpn-gateway-bgp-overview.md
   - name: About highly available connections
     href: vpn-gateway-highlyavailable.md
-  - name: About Point-to-Site VPN
+  - name: About point-to-site VPN
     href: point-to-site-about.md
-  - name: About Point-to-Site VPN routing
+  - name: About point-to-site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
   - name: About NAT and VPN Gateway
     href: nat-overview.md
+  - name: About site-to-site forced tunneling
+    href: about-site-to-site-tunneling.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
   - name: Security
@@ -68,18 +54,18 @@
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
-      href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../networking/connectivity-interoperability-preface.md?toc=/azure/vpn-gateway/toc.json
     - name: Test Setup Configuration
-      href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fvpn-gateway%2ftoc.json 
+      href: ../networking/connectivity-interoperability-configuration.md?toc=/azure/vpn-gateway/toc.json 
     - name: Control Plane Analysis
-      href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json 
+      href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/vpn-gateway/toc.json 
     - name: Data Plane Analysis
-      href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json    
+      href: ../networking/connectivity-interoperability-data-plane.md?toc=/azure/vpn-gateway/toc.json    
 - name: How-to guides
   items:
   - name: Create and manage a VPN gateway
     items:
-    - name: Create a route-based VPN gateway
+    - name: Create a VPN gateway
       items:
       - name: Azure portal
         href: tutorial-create-gateway-portal.md
@@ -87,9 +73,9 @@
         href: create-routebased-vpn-gateway-powershell.md
       - name: Azure CLI
         href: create-routebased-vpn-gateway-cli.md
-    - name: Verify a VPN gateway connection
+    - name: Verify a gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
-    - name: Reset a VPN gateway or connection
+    - name: Reset a connection or a gateway
       href: reset-gateway.md
     - name: Delete a VPN gateway
       items:
@@ -99,9 +85,9 @@
         href: vpn-gateway-delete-vnet-gateway-powershell.md
     - name: Manage legacy Gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
-  - name: Site-to-Site connections
+  - name: Site-to-site connections
     items:
-    - name: Configure S2S connections
+    - name: Configure site-to-site connections
       items:
       - name: Azure portal
         href: tutorial-site-to-site-portal.md
@@ -109,18 +95,18 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-    - name: Add additional S2S connections
+    - name: Add additional site-to-site connections
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-  - name: Site-to-Site with ExpressRoute connections
+  - name: Site-to-site with ExpressRoute connections
     items:
     - name: Coexisting connections
       items:
       - name: Azure portal
-        href: ../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+        href: ../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=/azure/vpn-gateway/toc.json
       - name: Azure PowerShell
-        href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+        href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=/azure/vpn-gateway/toc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
   - name: VNet-to-VNet connections
@@ -139,13 +125,13 @@
         href: vpn-gateway-connect-different-deployment-models-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Point-to-Site connections
+  - name: Point-to-site connections
     items:
-    - name: P2S server configuration
+    - name: Server configuration
       items:
       - name: Azure certificate authentication
         items:
-        - name: Configure a P2S VPN
+        - name: Configure a point-to-site VPN
           items:
           - name: Azure portal
             href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
@@ -161,64 +147,74 @@
             href: vpn-gateway-certificates-point-to-site-linux.md
       - name: RADIUS authentication
         items:
-        - name: Configure a P2S VPN
+        - name: Configure a point-to-site VPN
           href: point-to-site-how-to-radius-ps.md
-        - name: Integrate P2S VPN RADIUS authentication with NPS server
+        - name: Integrate point-to-site VPN RADIUS authentication with NPS server
           href: vpn-gateway-radius-mfa-nsp.md
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         items:
-        - name: Configure a tenant
+        - name: Configure a point-to-site VPN and tenant
           href: openvpn-azure-ad-tenant.md
-        - name: Configure a tenant with multiple client apps
+        - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
           href: openvpn-azure-ad-mfa.md
       - name: Multiple authentication types
         items:
-        - name: Configure P2S for multiple authentication types
+        - name: Configure point-to-site for multiple authentication types
           href: howto-point-to-site-multi-auth.md          
-      - name: OpenVPN
+      - name: OpenVPN tunnel type
         items:
         - name: Configure OpenVPN tunnel type
           href: vpn-gateway-howto-openvpn.md
         - name: Move to OpenVPN protocol or IKEv2 from SSTP
           href: ikev2-openvpn-from-sstp.md
-        - name: P2S session management
-          href: p2s-session-management.md      
-        - name: Configure an Always On VPN device tunnel
-          href: vpn-gateway-howto-always-on-device-tunnel.md
-        - name: Configure an Always On VPN user tunnel
-          href: vpn-gateway-howto-always-on-user-tunnel.md
-        - name: Advertise custom routes to P2S clients
-          href: vpn-gateway-p2s-advertise-custom-routes.md
-        - name: Create custom IPsec policies for P2S
-          href: create-custom-policies-p2s-ps.md
-    - name: P2S client configuration
-      items:
-      - name: Certificate authentication
+      - name: Configure Always On tunnels
         items:
+        - name: Device tunnel
+          href: vpn-gateway-howto-always-on-device-tunnel.md
+        - name: User tunnel
+          href: vpn-gateway-howto-always-on-user-tunnel.md
+      - name: point-to-site session management
+        href: p2s-session-management.md
+      - name: Advertise custom routes to point-to-site clients
+        href: vpn-gateway-p2s-advertise-custom-routes.md
+      - name: Create custom IPsec policies for point-to-site
+        href: create-custom-policies-p2s-ps.md
+    - name: Client configuration
+      items:
+      - name: Certificate authentication clients
+        items:
+        - name: Windows
+          href: point-to-site-vpn-client-cert-windows.md
+        - name: macOS-iOS
+          href: point-to-site-vpn-client-cert-mac.md
+        - name: Linux
+          href: point-to-site-vpn-client-cert-linux.md
         - name: Install client certificates
           href: point-to-site-how-to-vpn-client-install-azure-cert.md
-        - name: Create and install VPN client configuration files
-          href: point-to-site-vpn-client-configuration-azure-cert.md
-      - name: RADIUS authentication
+      - name: RADIUS authentication clients
         items:
-        - name: Create and install VPN client configuration files
-          href: point-to-site-vpn-client-configuration-radius.md
-      - name: AAD authentication
+        - name: Certificate authentication clients
+          href: point-to-site-vpn-client-configuration-radius-certificate.md
+        - name: Password authentication clients
+          href: point-to-site-vpn-client-configuration-radius-password.md
+        - name: Other authentication protocols
+          href: point-to-site-vpn-client-configuration-radius-other.md
+      - name: Microsoft Entra authentication clients
         items:
-        - name: Windows client
+        - name: Windows
           href: openvpn-azure-ad-client.md
-        - name: macOS client
+        - name: macOS
           href: openvpn-azure-ad-client-mac.md
-        - name: Generate VPN client profile files
+        - name: Generate profile files - Microsoft Entra ID
           href: about-vpn-profile-download.md 
-        - name: Intune - Deploy VPN client profile
-          href: vpn-profile-intune.md
-      - name: OpenVPN
-        items:
-        - name: Configure OpenVPN clients
-          href: vpn-gateway-howto-openvpn-clients.md
+      - name: Azure VPN Client - optional settings
+        href: azure-vpn-client-optional-configurations.md
+      - name: Azure VPN Client versions
+        href: azure-vpn-client-versions.md
+    - name: Intune - Deploy VPN client profile
+      href: vpn-profile-intune.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway
@@ -231,12 +227,8 @@
         href: bgp-how-to-cli.md
     - name: BGP diagnostics
       href: bgp-diagnostics.md
-    - name: Configure forced tunneling
-      items:
-      - name: Azure PowerShell
-        href: vpn-gateway-forced-tunneling-rm.md
-      - name: Azure PowerShell (classic)
-        href: vpn-gateway-about-forced-tunneling.md
+    - name: Configure site-to-site forced tunneling
+      href: site-to-site-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
     - name: Connect AWS and Azure using a BGP-enabled VPN Gateway
@@ -259,7 +251,7 @@
       href: vpn-gateway-download-vpndevicescript.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: Configure IPsec/IKE policies on connections
+  - name: Configure custom IPsec/IKE connection policies
     items:
     - name: Azure portal
       href: ipsec-ike-policy-howto.md 
@@ -295,33 +287,31 @@
       href: https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections
     - name: Validate VPN throughput to a VNet
       href: vpn-gateway-validate-throughput-to-vnet.md
-    - name: Point-to-Site connections
+    - name: Point-to-site connections
       items:
-      - name: Point-to-Site connection problems
+      - name: Point-to-site connection problems
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-      - name: Point-to-Site connection problems - macOS X VPN client
+      - name: Point-to-site connection problems - macOS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Point-to-Site - Azure AD authentication
+      - name: Point-to-site - Microsoft Entra authentication
         href: troubleshoot-ad-vpn-client.md
-    - name: Site-to-Site connection issues
+    - name: Site-to-site connection issues
       items:
-      - name: Site-to-Site connections
+      - name: Site-to-site connections
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
-      - name: Site-to-Site connection disconnects intermittently
+      - name: Site-to-site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
   - name: Classic deployment model articles 
     items:
-    - name: Configure a Site-to-Site connection
+    - name: Configure a site-to-site connection
       href: vpn-gateway-howto-site-to-site-classic-portal.md
-    - name: Configure a Point-to-Site connection
+    - name: Configure a point-to-site connection
       href: vpn-gateway-howto-point-to-site-classic-azure-portal.md
     - name: Configure a VNet-to-VNet connection
       href: vpn-gateway-howto-vnet-vnet-portal-classic.md
-    - name: Configure forced tunneling
-      href: vpn-gateway-about-forced-tunneling.md
     - name: Delete a VPN gateway
       href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
-    - name: Configure multiple S2S connections
+    - name: Configure multiple site-to-site connections
       href: vpn-gateway-multi-site.md
     - name: Configure a VPN gateway
       href: ./vpn-gateway-howto-site-to-site-classic-portal.md
@@ -331,14 +321,14 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
-  - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure.service/#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)
     href: /previous-versions/azure/reference/jj154113(v=azure.100)
   - name: Azure CLI
     href: /cli/azure/network/vnet-gateway
+  - name: Monitoring data
+    href: monitor-vpn-gateway-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -348,7 +338,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
   - name: Subscription and service limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/vpn-gateway/toc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/vpn-gateway
   - name: Pricing calculator

@@ -4,8 +4,8 @@ description: Guidance and recommendations for planning and design before deployi
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/18/2021
-
+ms.date: 05/31/2023
+ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices - Planning your monitoring strategy and configuration
@@ -50,7 +50,7 @@ While the operational data stored in Azure Monitor might be useful for investiga
 
 - [Microsoft Sentinel](../sentinel/overview.md) is a security information event management (SIEM) and security orchestration automated response (SOAR) solution. Sentinel collects security data from a wide range of Microsoft and third-party sources to provide alerting, visualization, and automation. This solution focuses on consolidating as many security logs as possible, including Windows Security Events. Microsoft Sentinel can also collect Windows Security Event Logs and commonly shares a Log Analytics workspace with Defender for Cloud. Security events can only be collected from Microsoft Sentinel or Defender for Cloud when they share the same workspace. Unlike Defender for Cloud, security events are a key component of alerting and analysis in Microsoft Sentinel.
 
-- [Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. It was designed with a primary focus on protecting Windows user devices. Defender for Endpoint monitors workstations, servers, tablets, and cellphones with various operating systems for security issues and vulnerabilities. Defender for Endpoint is closely aligned with Microsoft Endpoint Manager to collect data and provide security assessments. Data collection is primarily based on ETW trace logs and is stored in an isolated workspace.
+- [Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. It was designed with a primary focus on protecting Windows user devices. Defender for Endpoint monitors workstations, servers, tablets, and cellphones with various operating systems for security issues and vulnerabilities. Defender for Endpoint is closely aligned with Microsoft Intune to collect data and provide security assessments. Data collection is primarily based on ETW trace logs and is stored in an isolated workspace.
 
 
 ### System Center Operations Manager

@@ -1,0 +1,165 @@
+---
+- name: Azure Operator Nexus documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: What is Azure Operator Nexus?
+      href: overview.md
+- name: Concepts
+  items:
+    - name: Resource Types
+      href: concepts-resource-types.md
+    - name: Compute overview
+      href: concepts-compute.md
+    - name: Storage overview
+      href: concepts-storage.md
+    - name: Network Fabric overview
+      href: concepts-network-fabric.md
+    - name: Nexus Kubernetes
+      href: concepts-nexus-kubernetes-cluster.md
+    - name: Observability
+      href: concepts-observability.md 
+    - name: Security
+      href: concepts-security.md
+- name: Quickstarts
+  items:
+    - name: Before you start workload deployment
+      href: quickstarts-tenant-workload-prerequisites.md
+    - name: Deploy Nexus Kubernetes cluster
+      expanded: true
+      items:
+        - name: Use the Azure CLI
+          href: quickstarts-kubernetes-cluster-deployment-cli.md
+        - name: Use ARM template
+          href: quickstarts-kubernetes-cluster-deployment-arm.md
+        - name: Use Bicep file
+          href: quickstarts-kubernetes-cluster-deployment-bicep.md
+        - name: Use Azure PowerShell
+          href: quickstarts-kubernetes-cluster-deployment-powershell.md
+    - name: Deploy Nexus Virtual Machine
+      expanded: true
+      items:
+        - name: Use the Azure CLI
+          href: quickstarts-tenant-workload-deployment.md
+        - name: Use Azure PowerShell
+          href: quickstarts-tenant-workload-deployment-ps.md 
+- name: How-To Guides
+  items:
+    - name: Operator Nexus Instance Deployment and Upgrade
+      expanded: false
+      items:
+        - name: Management Plane
+          expanded: true
+          items:
+            - name: Before you start deployment
+              href: howto-azure-operator-nexus-prerequisites.md
+            - name: Network Fabric Controller
+              href: howto-configure-network-fabric-controller.md
+            - name: Cluster Manager
+              href: howto-cluster-manager.md
+        - name: On-Premises Operator Nexus Instance
+          expanded: false
+          items:
+            - name: Operator Nexus Instance Lifecycle Management
+              expanded: false
+              items:
+                - name: Before you start Operator Nexus platform deployment
+                  href: howto-platform-prerequisites.md
+                - name: Network Fabric
+                  href: howto-configure-network-fabric.md
+                - name: Cluster
+                  href: howto-configure-cluster.md
+                - name: Instance Readiness Testing
+                  href: howto-run-instance-readiness-testing.md
+                - name: Cluster Upgrades
+                  href: howto-cluster-runtime-upgrade.md
+        - name: Network Fabric
+          expanded: false
+          items:
+          - name: Isolation Domain
+            href: howto-configure-isolation-domain.md
+          - name: Network Fabric Route Policy
+            href: how-to-route-policy.md  
+    - name: Nexus Kubernetes cluster
+      expanded: false
+      items:
+        - name: Understand agent pools
+          href: howto-kubernetes-cluster-agent-pools.md
+        - name: Configure huge-pages for cluster virtual machines
+          href: howto-kubernetes-cluster-huge-pages.md
+        - name: Configure service load balancer
+          href: howto-kubernetes-service-load-balancer.md
+        - name: Configure role-based access control
+          href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
+        - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
+          href: howto-disable-cgroupsv2.md
+    - name: Nexus Virtual Machine
+      expanded: false
+      items:
+        - name: Create virtual machine image
+          href: howto-virtual-machine-image.md
+        - name: Virtual machine console service
+          href: howto-use-vm-console-service.md
+        - name: Virtual machine placement hints
+          href: howto-virtual-machine-placement-hints.md
+    - name: Observability
+      expanded: false
+      items:
+        - name: Monitor Nexus Kubernetes cluster
+          href: howto-monitor-naks-cluster.md
+        - name: Monitor VMs for VNF
+          href: howto-monitor-virtualized-network-functions-virtual-machines.md
+        - name: Cluster metrics configuration management
+          href: howto-cluster-metrics-configuration-management.md
+        - name: Tracking asynchronous operations
+          href: howto-track-async-operations-cli.md
+    - name: Security
+      expanded: false
+      items:
+        - name: Set up Defender for Cloud security
+          href: howto-set-up-defender-for-cloud-security.md
+        - name: Use Azure Policy for AKS Clusters
+          href: howto-use-azure-policy-for-aks-cluster-security.md
+    - name: Install CLI Extension
+      href: howto-install-cli-extensions.md
+- name: Troubleshooting
+  items:
+    - name: Troubleshoot Bare Metal Machine
+      href: troubleshoot-reboot-reimage-replace.md
+    - name: Troubleshoot Isolation Domain
+      href: troubleshoot-isolation-domain.md
+    - name: Troubleshoot Internet host virtual machine
+      href: troubleshoot-internet-host-virtual-machine.md
+    - name: Troubleshoot BMM reboot issues
+      href: troubleshoot-bmm-node-reboot.md
+    - name: BareMetal Actions
+      expanded: false
+      items:
+        - name: BareMetal BMM Access Setup
+          href: howto-baremetal-bmm-ssh.md
+        - name: BareMetal BMC Access Setup
+          href: howto-baremetal-bmc-ssh.md
+        - name: BareMetal Functions
+          href: howto-baremetal-functions.md
+        - name: BareMetal Run-Read Execution
+          href: howto-baremetal-run-read.md
+        - name: BareMetal Run-Data-Extract Execution
+          href: howto-baremetal-run-data-extract.md
+- name: FAQ
+  href: azure-operator-nexus-faq.md
+- name: Reference
+  items:
+    - name: Instance to on-premises WAN Connectivity
+      href: reference-customer-edge-provider-edge-connectivity.md
+    - name: List of metrics collected
+      href: List-of-metrics-collected.md
+    - name: Near-edge Compute
+      href: reference-near-edge-compute.md
+    - name: Near-edge storage
+      href: reference-near-edge-storage.md
+    - name: Limits & quotas
+      href: reference-limits-and-quotas.md
+    - name: Nexus Kubernetes service VM SKUs
+      href: reference-nexus-kubernetes-cluster-sku.md

@@ -1,23 +1,27 @@
 ---
-title: Manage logic apps in the Azure portal
-description: Edit, enable, disable, or delete logic apps by using the Azure portal.
+title: Manage logic app workflows in the Azure portal
+description: Edit, enable, disable, or delete logic app resources and their workflows using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 01/28/2022
+ms.date: 09/20/2023
 ---
 
-# Manage logic apps in the Azure portal
+# Manage logic app workflows in the Azure portal
 
-You can manage logic apps using the [Azure portal](https://portal.azure.com) or [Visual Studio](manage-logic-apps-with-visual-studio.md). This article shows how to edit, disable, enable, or delete logic apps in the Azure portal. If you're new to Azure Logic Apps, see [What is Azure Logic Apps](logic-apps-overview.md)?
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+This guide shows how to manage Consumption logic app workflows through the Azure portal and perform tasks such as edit, disable, enable, and delete workflows. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
+
+To manage Standard logic app workflows, see [Create a Standard workflow with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An existing logic app. To learn how to create a logic app in the Azure portal, see [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+* An existing Consumption logic app workflow. To learn how to create a logic app in the Azure portal, see [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md).
 
 <a name="find-logic-app"></a>
 
@@ -25,7 +29,7 @@ You can manage logic apps using the [Azure portal](https://portal.azure.com) or 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. In the portal search box, enter `logic apps`, and select **Logic apps**.
+1. In the portal search box, enter **logic apps**, and select **Logic apps**.
 
 1. From the logic apps list, find your logic app by either browsing or filtering the list.
 
@@ -50,6 +54,18 @@ You can manage logic apps using the [Azure portal](https://portal.azure.com) or 
    * **Runtime outgoing IP addresses**
    * **Access endpoint IP addresses**
    * **Connector outgoing IP addresses**
+
+<a name="view-connections"></a>
+
+## View connections
+
+When you create connections within a workflow using [managed connectors](../connectors/managed.md), these connections are actually separate Azure resources with their own resource definitions. To view and manage these connections, follow these steps:
+
+1. In the Azure portal, [find and open your logic app](#find-logic-app).
+
+1. From your logic app's menu, under **Development tools**, select **API Connections**.
+
+1. On the **API Connections** pane, select a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
 
 <a name="disable-enable-logic-apps"></a>
 

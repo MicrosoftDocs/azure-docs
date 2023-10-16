@@ -2,7 +2,10 @@
 title: Check registry health
 description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 ms.topic: article
-ms.date: 07/14/2021
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 # Check the health of an Azure container registry
 
@@ -78,6 +81,10 @@ Challenge endpoint https://myregistry.azurecr.io/v2/ : OK
 Fetch refresh token for registry 'myregistry.azurecr.io' : OK
 Fetch access token for registry 'myregistry.azurecr.io' : OK
 ```  
+
+## Check if registry is configured with quarantine 
+
+Once you enable a container registry to be quarantined, every image you publish to this repository will be quarantined. Any attempts to access or pull quarantined images will fail with an error. For more information, See [pull the quarantine image](https://github.com/Azure/acr/tree/main/docs/preview/quarantine#pull-the-quarantined-image).
 
 ## Next steps
 

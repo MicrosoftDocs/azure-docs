@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/stream-analytics/no-code-filter-ingest-adx.md",
+            "redirect_url": "/azure/stream-analytics/no-code-filter-ingest-data-explorer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/stream-analytics/stream-analytics-manage-job.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
             "redirect_document_id": false
@@ -133,6 +138,16 @@
         {
             "source_path_from_root": "/articles/stream-analytics/vs-code-how-to.md",
             "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-power-bi-dashboard.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-diagram-with-metrics-new.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-job-logical-diagram-with-metrics",
             "redirect_document_id": false
         }
     ]

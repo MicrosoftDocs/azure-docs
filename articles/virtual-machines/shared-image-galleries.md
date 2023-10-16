@@ -6,35 +6,18 @@ ms.author: saraic
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 6/8/2021
+ms.custom: devx-track-azurepowershell
+ms.date: 08/15/2023
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Store and share images in an Azure Compute Gallery
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it's created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
-Azure Compute Gallery now includes the existing Shared Image Gallery service and the new [VM Applications](vm-applications.md) features and capabilities.  
-
-An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and [applications](vm-applications.md). An Azure Compute Gallery provides:
-- Global replication.
-- Versioning and grouping of resources for easier management.
-- Highly available resources with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
-- Premium storage support (Premium_LRS).
-- Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
-- Scaling your deployments with resource replicas in each region.
-
-With a gallery, you can share your resources to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
-
-For more information about storing applications in an Azure Compute Gallery, see [VM Applications](vm-applications.md)
-
-## Image management
-An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
-
-If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an Azure Compute Gallery as a repository. 
+If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an [Azure Compute Gallery](azure-compute-gallery.md) as a repository. 
 
 When you use a gallery to store images, multiple resource types are created:
 
@@ -42,7 +25,7 @@ When you use a gallery to store images, multiple resource types are created:
 |----------|------------|
 | **Image source** | This is a resource that can be used to create an **image version** in a gallery. An image source can be an existing Azure VM that is either [generalized or specialized](#generalized-and-specialized-images), a managed image, a snapshot, a VHD or an image version in another gallery. |
 | **Gallery** | Like the Azure Marketplace, a **gallery** is a repository for managing and sharing images and other resources, but you control who has access. |
-| **Image definition** | Image definitions are created within a gallery and they carry information about the image and any requirements for using it to create VMs. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image definition** | Image definitions are created within a gallery and they carry information about the image and any requirements for using it to create VMs. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It's a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
@@ -51,7 +34,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 ## Image definitions
 
-Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
+Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
 There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
 
@@ -70,18 +53,39 @@ The following parameters determine which types of image versions they can contai
 - Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](generation-2.md) Hyper-V VHD. Default is generation 1.
 
 
-The following are other parameters that can be set on your image definition so that you can more easily track your resources:
+Image definitions contain metadata for the image to allow grouping of images that support the same features, plan, OS State, OS type and others. The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
-- Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
-- Eula - can be used to point to an end-user license agreement specific to the image definition.
+- Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application preinstalled.
+- EULA - can be used to point to an end-user license agreement specific to the image definition.
 - Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
-- End-of-life date - establish a default end-of-life dates for all image versions in the image definition. End-of-life dates are informational; users will still be able to create VMs from images and versions past the end-of-life date.
+- End-of-life date - establish a default date after which the image shouldn't be used, for all image versions in the image definition. End-of-life dates are informational; users will still be able to create VMs from images and versions past the end-of-life date.
 - Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../azure-resource-manager/management/tag-resources.md)
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
+- Architecture
+  - x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+- Features allow you to specify additional features and SecurityType(s) that are supported on the image, based on the type of gallery:
 
+   | Features | Accepted Values | Definition | Supported in |
+   |--|--|--|
+   | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VMs with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
+   | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
+ 
+   When you specify a SecurityType using the `features` parameter, it limits the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
 
+   | SecurityType | Definition | Supported in |
+    |--|--|--|
+   | [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) | It's a generic Gen2 image that does not contain VMGS blob. Gen2 VM or Confidential VM can be created from this image type | Private, Direct shared, Community |
+   | [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) | Only Confidential VMs can be created from this image type | Private |
+   | TrustedLaunchSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM or TrustedLaunch VM can be created from this image type. | Private, direct shared, community |
+   | TrustedLaunch | Only TrustedLaunch VM can be   created from this image type | Private |
+   | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM, TrustedLaunch VM, or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
+
+   For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create) or the [PowerShell examples](/powershell/module/az.compute/new-azgalleryimagedefinition#example-4-create-an-image-definition-for-generalized-windows-images-and-set-features).
+   
+   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](/azure/confidential-computing/confidential-vm-overview#regions).
 ## Image versions
 
 An **image version** is what you use to create a VM. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
@@ -90,82 +94,19 @@ The properties of an image version are:
 
 - Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
 - Source. The source can be a VM, managed disk, snapshot, managed image, or another image version. 
-- Exclude from latest. You can keep a version from being used as the latest image version. 
 - End of life date. Indicate the end-of-life date for the image version. End-of-life dates are informational; users will still be able to create VMs from versions past the end-of-life date.
 
 
 ## Generalized and specialized images
 
-There are two operating system states supported by Azure Compute Gallery. Typically images require that the VM used to create the image has been generalized before taking the image. Generalizing is a process that removes machine and user specific information from the VM. For Windows, the Sysprep tool is used. For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters.
+There are two operating system states supported by Azure Compute Gallery. Typically images require that the VM used to create the image has been [generalized](generalize.md) before taking the image. Generalizing is a process that removes machine and user specific information from the VM.  For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters. For Windows, the Sysprep tool is used.
 
-Specialized VMs have not been through a process to remove machine specific information and accounts. Also, VMs created from specialized images do not have an `osProfile` associated with them. This means that specialized images will have some limitations in addition to some benefits.
+Specialized VMs haven't been through a process to remove machine specific information and accounts. Also, VMs created from specialized images don't have an `osProfile` associated with them. This means that specialized images will have some limitations in addition to some benefits.
 
-- VMs and scale sets created from specialized images can be up and running quicker. Because they are created from a source that has already been through first boot, VMs created from these images boot faster.
+- VMs and scale sets created from specialized images can be up and running quicker. Because they're created from a source that has already been through first boot, VMs created from these images boot faster.
 - Accounts that could be used to log into the VM can also be used on any VM created using the specialized image that is created from that VM.
 - VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
 - The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
-
-## Regional Support
-
-All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allowlist for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
-
-## Limits 
-
-There are limits, per subscription, for deploying resources using Azure Compute Galleries:
-- 100 galleries, per subscription, per region
-- 1,000 image definitions, per subscription, per region
-- 10,000 image versions, per subscription, per region
-- 10 image version replicas, per subscription, per region
-- Any disk attached to the image must be less than or equal to 1TB in size
-
-For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.
- 
-## Scaling
-Azure Compute Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
-
-With Azure Compute Gallery, you can now deploy up to a 1,000 VM instances in a virtual machine scale set (up from 600 with managed images). Image replicas provide for better deployment performance, reliability and consistency.  You can set a different replica count in each target region, based on the scale needs for the region. Since each replica is a deep copy of your image, this helps scale your deployments linearly with each extra replica. While we understand no two images or regions are the same, here's our general guideline on how to use replicas in a region:
-
-- For non-Virtual Machine Scale Set deployments - For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. 
-- For Virtual Machine Scale Set deployments - For each scale set you create concurrently, we recommend you keep one replica.
-
-We always recommend you to overprovision the number of replicas due to factors like image size, content and OS type.
-
-![Graphic showing how you can scale images](./media/shared-image-galleries/scaling.png)
-
-## Make your images highly available
-
-[Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Azure Compute Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
-
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. For more information on regional availability of ZRS, see [Data redundancy](../storage/common/storage-redundancy.md).
-
-![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
-
-## Replication
-Azure Compute Gallery also allows you to replicate your images to other Azure regions automatically. Each image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for image versions. 
-
-The regions an image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or scale-set using that image version in the region.
-
-![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
-
-## Access
-
-As the Azure Compute Gallery, Image Definition, and Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
-
-| Shared with User     | Azure Compute Gallery | Image Definition | Image version |
-|----------------------|----------------------|--------------|----------------------|
-| Azure Compute Gallery | Yes                  | Yes          | Yes                  |
-| Image Definition     | No                   | Yes          | Yes                  |
-
-We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
-
-Images can also be shared, at scale, even across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see "Share gallery VM images across Azure tenants" using the [Azure CLI](./linux/share-images-across-tenants.md) or [PowerShell](./windows/share-images-across-tenants.md).
-
-## Billing
-There is no extra charge for using the Azure Compute Gallery service. You will be charged for the following resources:
-- Storage costs of storing each replica. The storage cost is charged as a snapshot and is based on the occupied size of the image version, the number of replicas of the image version and the number of regions the version is replicated to. 
-- Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
-
-For example, let's say you have an image of a 127 GB OS disk, that only occupies 10GB of storage, and one empty 32 GB data disk. The occupied size of each image would only be 10 GB. The image is replicated to 3 regions and each region has two replicas. There will be six total snapshots, each using 10GB. You will be charged the storage cost for each snapshot based on the occupied size of 10 GB. You will pay network egress charges for the first replica to be copied to the additional two regions. For more information on the pricing of snapshots in each region, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). For more information on network egress, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## Updating resources
@@ -180,6 +121,7 @@ Image definition:
 - Recommended memory
 - Description
 - End of life date
+- ReleaseNotes
 
 Image version:
 - Regional replica count
@@ -187,11 +129,29 @@ Image version:
 - Exclude from latest
 - End of life date
 
+## Sharing
+
+There are three main ways to share images an Azure Compute Gallery, depending on who you want to share with:
+
+| Sharing with: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in Azure |
+|---|---|---|---|---|---|
+| [RBAC Sharing](./share-gallery.md) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
+
+## Shallow replication 
+
+When you create an image version, you can set the replication mode to shallow for development and test. Shallow replication skips copying the image, so the image version is ready faster. But, it also means you can't deploy a large number of VMs from that image version. This is similar to the way that the older managed images worked.
+
+Shallow replication can also be useful if you have large images (up to 32 TB) that aren't frequently deployed. Because the source image isn't copied, larger disks can be used. But, they also can't be used for deploying large numbers of VMs concurrently.
+
+To set an image for shallow replication, use `--replication-mode Shallow` with the Azure CLI.
+
 ## SDK support
 
 The following SDKs support creating Azure Compute Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [.NET](/dotnet/api/azure.resourcemanager.compute)
 - [Java](/java/azure/)
 - [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
@@ -199,7 +159,7 @@ The following SDKs support creating Azure Compute Galleries:
 
 ## Templates
 
-You can create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can create Azure Compute Gallery resource using templates. There are several quickstart templates available: 
 
 - [Create a gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an image definition in a gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
@@ -211,9 +171,9 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move my existing image to an Azure Compute Gallery?](#can-i-move-my-existing-image-to-an-azure-compute-gallery)
 * [Can I create an image version from a specialized disk?](#can-i-create-an-image-version-from-a-specialized-disk)
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Can I replicate my image versions across clouds such as Azure China 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
-* [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Can I share image versions across Microsoft Entra tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
@@ -231,13 +191,31 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Open the [Azure portal](https://portal.azure.com).
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
-1. Look for resources of type **Azure Compute Gallery**, .
+1. Look for resources of the **Azure Compute Gallery** type.
   
+### [Azure CLI](#tab/azure-cli)
+
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
 ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure PowerShell:
+
+```azurepowershell
+$params = @{
+    Begin   = { $currentContext = Get-AzContext }
+    Process = { $null = Set-AzContext -SubscriptionObject $_; Get-AzGallery }
+    End     = { $null = Set-AzContext -Context $currentContext }
+}
+
+Get-AzSubscription | ForEach-Object @params
+```
+
+---
 
 For more information, see [List, update, and delete image resources](update-image-resources.md).
 
@@ -263,21 +241,23 @@ Yes, can create a VM from a [specialized image](windows/create-vm-specialized.md
 No, you can't move the gallery image resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an [image from another gallery](image-version.md).
 
 
-### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
+### Can I replicate my image versions across clouds such as Azure operated by 21Vianet or Azure Germany or Azure Government Cloud?
 
-No, you cannot replicate image versions across clouds.
+No, you can't replicate image versions across clouds.
 
 ### Can I replicate my image versions across subscriptions?
 
 No, you may replicate the image versions across regions in a subscription and use it in other subscriptions through RBAC.
 
-### Can I share image versions across Azure AD tenants? 
+<a name='can-i-share-image-versions-across-azure-ad-tenants'></a>
 
-Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](./windows/share-images-across-tenants.md) or [CLI](./linux/share-images-across-tenants.md).
+### Can I share image versions across Microsoft Entra tenants? 
+
+Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 
 ### How long does it take to replicate image versions across the target regions?
 
-The image version replication time is entirely dependent on the size of the image and the number of regions it is being replicated to. However, as a best practice, it is recommended that you keep the image small, and the source and target regions close for best results. You can check the status of the replication using the -ReplicationStatus flag.
+The image version replication time is entirely dependent on the size of the image and the number of regions it's being replicated to. However, as a best practice, it's recommended that you keep the image small, and the source and target regions close for best results. You can check the status of the replication using the -ReplicationStatus flag.
 
 ### What is the difference between source region and target region?
 
@@ -285,24 +265,36 @@ Source region is the region in which your image version will be created, and tar
 
 ### How do I specify the source region while creating the image version?
 
-While creating an image version, you can use the **--location** tag in CLI and the **-Location** tag in PowerShell to specify the source region. Please ensure the managed image that you are using as the base image to create the image version is in the same location as the location in which you intend to create the image version. Also, make sure that you pass the source region location as one of the target regions when you create an image version.  
+While creating an image version, you can use the **--location** argument in CLI and the **-Location** parameter in PowerShell to specify the source region. Ensure the managed image that you're using as the base image to create the image version is in the same location as the location in which you intend to create the image version. Also, make sure that you pass the source region location as one of the target regions when you create an image version.  
 
 ### How do I specify the number of image version replicas to be created in each region?
 
 There are two ways you can specify the number of image version replicas to be created in each region:
  
 1. The regional replica count which specifies the number of replicas you want to create per region. 
-2. The common replica count which is the default per region count in case regional replica count is not specified. 
+2. The common replica count which is the default per region count in case regional replica count isn't specified. 
 
-To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2". 
+### [Azure CLI](#tab/azure-cli)
 
-If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified. 
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
-To specify the common replica count in CLI, use the **--replica-count** argument in the `az sig image-version create` command.
+If regional replica count isn't specified with each location, then the default number of replicas will be the common replica count that you specified.
+
+To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
+
+If regional replica count isn't specified with each location, then the default number of replicas will be the common replica count that you specified.
+
+To specify the common replica count in Azure PowerShell, use the **-ReplicaCount** parameter in the `New-AzGalleryImageVersion` command.
+
+---
 
 ### Can I create the gallery in a different location than the one for the image definition and image version?
 
-Yes, it is possible. But, as a best practice, we encourage you to keep the resource group, gallery, image definition, and image version in the same location.
+Yes, it's possible. But, as a best practice, we encourage you to keep the resource group, gallery, image definition, and image version in the same location.
 
 ### What are the charges for using an Azure Compute Gallery?
 

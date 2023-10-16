@@ -1,13 +1,14 @@
 ---
-title: Azure CLI samples - Azure Database for MySQL Flexible Server 
+title: Azure CLI samples - Azure Database for MySQL - Flexible Server 
 description: This article lists the Azure CLI code samples available for interacting with Azure Database for MySQL - Flexible Server.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 09/15/2021
+ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 # Azure CLI samples for Azure Database for MySQL - Flexible Server
 
@@ -23,7 +24,7 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 |**Monitor and scale**||
 | [Monitor metrics and scale a server](scripts/sample-cli-monitor-and-scale.md) | Monitors and scales a single Azure Database for MySQL - Flexible server up or down to allow for changing performance needs. |
 |**Backup and restore**||
-| [Restore a server](scripts/sample-cli-restore-server.md) | Restores a single Azure Database for MySQL Flexible Server to a previous point in time. |
+| [Restore a server](scripts/sample-cli-restore-server.md) | Restores a single Azure Database for MySQL - Flexible Server to a previous point in time. |
 |**High Availability**||
 | [Configure zone-redundant high availability](scripts/sample-cli-zone-redundant-ha.md) | Enables Zone-Redundant high availability while creating an Azure Database for MySQL - Flexible Server.|
 | [Configure same-zone high availability](scripts/sample-cli-same-zone-ha.md) | Enables Same-Zone high availability while creating an Azure Database for MySQL - Flexible Server.|
@@ -35,4 +36,3 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 |**Configure logs**||
 | [Configure audit logs](scripts/sample-cli-audit-logs.md) | Configures audit logs on a single Azure Database for MySQL - Flexible Server. |
 | [Configure slow-query logs](scripts/sample-cli-slow-query-logs.md) | Configures slow-query logs on a single Azure Database for MySQL - Flexible Server. |
-

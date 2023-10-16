@@ -1,23 +1,26 @@
 ---
-title: RunToCompletion semantics in Service Fabric
-description: Describes RunToCompletion semantics in Service Fabric.
-author: shsha-msft
-
+title: RunToCompletion semantics and specifications
+description: Learn about Service Fabric RunToCompletion semantics and specifications, and see complete code examples and considerations.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: shsha
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # RunToCompletion
 
-Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. These semantics enable applications and services which complete a task and exit, in contrast to, always running applications and services.
+Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable applications][guest-executables-introduction-link]. These semantics enable applications and services that complete a task and exit, in contrast to always running applications and services.
 
-Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
+Before you proceed with this article, be familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 
 > [!NOTE]
-> RunToCompletion semantics are currently not supported for services written using the [Reliable Services][reliable-services-link] programming model.
+> RunToCompletion semantics aren't supported for services that use the [Reliable Services][reliable-services-link] programming model.
  
 ## RunToCompletion semantics and specification
-RunToCompletion semantics can be specified as an **ExecutionPolicy** when [importing the ServiceManifest][application-and-service-manifests-link]. The specified policy is inherited by all the CodePackages comprising the ServiceManifest. The following ApplicationManifest.xml snippet provides an example.
+
+You can specify RunToCompletion semantics as an `ExecutionPolicy` when you [import the ServiceManifest][application-and-service-manifests-link]. All the CodePackages comprising the ServiceManifest inherit the specified policy. The following snippet from *ApplicationManifest.xml* provides an example:
 
 ```xml
 <ServiceManifestImport>
@@ -27,22 +30,27 @@ RunToCompletion semantics can be specified as an **ExecutionPolicy** when [impor
   </Policies>
 </ServiceManifestImport>
 ```
-**ExecutionPolicy** allows the following two attributes:
-* **Type:** **RunToCompletion** is currently the only allowed value for this attribute.
-* **Restart:** This attribute specifies the restart policy that is applied to CodePackages comprising the ServicePackage, on failure. A CodePackage exiting with a **non-zero exit code** is considered to have failed. Allowed values for this attribute are **OnFailure** and **Never** with **OnFailure** being the default.
+`ExecutionPolicy` allows two attributes:
 
-With restart policy set to **OnFailure**, if any CodePackage fails **(non-zero exit code)**, it is restarted, with back-offs between repeated failures. With restart policy set to **Never**, if any CodePackage fails, the deployment status of the DeployedServicePackage is marked as **Failed** but other CodePackages are allowed to continue execution. If all the CodePackages comprising the ServicePackage run to successful completion **(exit code 0)**, the deployment status of the DeployedServicePackage is marked as **RanToCompletion**. 
+- `Type` has `RunToCompletion` as the only allowed value.
+- `Restart` specifies the restart policy to apply to CodePackages in the ServicePackage on failure. A CodePackage that exits with a non-zero exit code is considered to have failed. Allowed values for this attribute are `OnFailure` and `Never`, with `OnFailure` as the default.
 
-## Complete example using RunToCompletion semantics
+  - With restart policy set to `OnFailure`, any CodePackage that fails with a non-zero exit code restarts, with back-offs between repeated failures.
 
-Let's look at a complete example using RunToCompletion semantics.
+  - With restart policy set to `Never`, if any CodePackage fails, the deployment status of the DeployedServicePackage is marked **Failed**, but other CodePackages continue execution.
+
+If all the CodePackages in the ServicePackage run to successful completion with exit code `0`, the deployment status of the DeployedServicePackage is marked **RanToCompletion**.
+
+## Code example using RunToCompletion semantics
+
+Let's look at a complete example that uses RunToCompletion semantics.
 
 > [!IMPORTANT]
-> The following example assumes familiarity with creating [Windows container applications using Service Fabric and Docker][containers-getting-started-link].
+> The following example assumes familiarity with [creating Windows container applications using Service Fabric and Docker][containers-getting-started-link].
 >
-> This example references mcr.microsoft.com/windows/nanoserver:1809. Windows Server containers are not compatible across all versions of a host OS. To learn more, see [Windows Container Version Compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Windows Server containers aren't compatible across all versions of a host OS. This example references `mcr.microsoft.com/windows/nanoserver:1809`. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-The following ServiceManifest.xml describes a ServicePackage consisting of two CodePackages, which represent containers. *RunToCompletionCodePackage1* just logs a message to **stdout** and exits. *RunToCompletionCodePackage2* pings the loopback address for a while and then exits with an exit code of either **0**, **1** or **2**.
+The following *ServiceManifest.xml* describes a ServicePackage consisting of two CodePackages, which represent containers. `RunToCompletionCodePackage1` just logs a message to **stdout** and exits. `RunToCompletionCodePackage2` pings the loopback address for a while and then exits with an exit code of either `0`, `1`, or `2`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -73,7 +81,9 @@ The following ServiceManifest.xml describes a ServicePackage consisting of two C
 </ServiceManifest>
 ```
 
-The following ApplicationManifest.xml describes an application based on the ServiceManifest.xml discussed above. It specifies **RunToCompletion** **ExecutionPolicy** for *WindowsRunToCompletionServicePackage* with a restart policy of **OnFailure**. Upon activation of *WindowsRunToCompletionServicePackage*, its constituent CodePackages will be started. *RunToCompletionCodePackage1* should exit successfully on the first activation. However, *RunToCompletionCodePackage2* can fail **(non-zero exit code)**, in which case it will be restarted since the restart policy is **OnFailure**.
+The following *ApplicationManifest.xml* describes an application based on the *ServiceManifest.xml* discussed above. The code specifies RunToCompletion ExecutionPolicy for `WindowsRunToCompletionServicePackage` with a restart policy of `OnFailure`.
+
+Upon `WindowsRunToCompletionServicePackage` activation, its constituent CodePackages are started. `RunToCompletionCodePackage1` should exit successfully on the first activation. `RunToCompletionCodePackage2` can fail with a non-zero exit code, and will restart because the restart policy is `OnFailure`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -97,23 +107,26 @@ The following ApplicationManifest.xml describes an application based on the Serv
   </DefaultServices>
 </ApplicationManifest>
 ```
-## Querying deployment status of a DeployedServicePackage
-Deployment status of a DeployedServicePackage can be queried from PowerShell using [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link] or from C# using [FabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync(String, Uri, String)][deployed-service-package-fabricclient-link]
+## Query deployment status of a DeployedServicePackage
 
-## Considerations when using RunToCompletion semantics
+You can query deployment status of a DeployedServicePackage.
 
-The following points should be noted for the current RunToCompletion support.
-* These semantics are only supported for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications.
-* Upgrade scenarios for applications with RunToCompletion semantics are not allowed. Users should delete and recreate such applications, if necessary.
-* Failover events can cause CodePackages to re-execute after successful completion, on the same node, or other nodes of the cluster. Examples of failover events are, node restarts and Service Fabric runtime upgrades on a node.
-* RunToCompletion is incompatible with ServicePackageActivationMode="SharedProcess". Users must specify ServicePackageActivationMode="ExclusiveProcess", given that SharedProcess is the default value. Service Fabric runtime version 9.0 and higher will fail validation for such services.
+- From PowerShell, use the [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link]
+- From C#, use the [FabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync(String, Uri, String)][deployed-service-package-fabricclient-link].
+
+## Considerations for RunToCompletion semantics
+
+Consider the following points about RunToCompletion support:
+
+- RunToCompletion semantics are supported only for [containers][containers-introduction-link] and [guest executable applications][guest-executables-introduction-link].
+- Upgrade scenarios for applications with RunToCompletion semantics aren't allowed. You need to delete and recreate such applications if necessary.
+- Failover events can cause CodePackages to re-execute after successful completion, on the same node or on other nodes of the cluster. Examples of failover events are node restarts and Service Fabric runtime upgrades on a node.
+- RunToCompletion is incompatible with `ServicePackageActivationMode="SharedProcess"`. Service Fabric runtime version 9.0 and higher fails validation for such services. `SharedProcess` is the default value, so you must specify `ServicePackageActivationMode="ExclusiveProcess"` to use RunToCompletion semantics.
 
 ## Next steps
 
-See the following articles for related information.
-
-* [Service Fabric and containers.][containers-introduction-link]
-* [Service Fabric and guest executables.][guest-executables-introduction-link]
+- [Service Fabric and containers][containers-introduction-link]
+- [Service Fabric and guest executables][guest-executables-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

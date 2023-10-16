@@ -1,11 +1,12 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 03/09/2023
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -39,11 +40,11 @@ Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data
 
 This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
 
-- You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 or APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
+- You can't use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you're overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
 
-- When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
+- When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
-- If you use the [Delete Blob](/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.
+- If you use the [Delete Blob](/rest/api/storageservices/delete-blob) API to delete a directory, that directory is deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.
 
 These Blob REST APIs aren't supported:
 
@@ -53,23 +54,23 @@ These Blob REST APIs aren't supported:
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 - [Put Page from URL](/rest/api/storageservices/put-page-from-url)
 
-Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
+Unmanaged VM disks aren't supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
 <a id="api-scope-data-lake-client-library"></a>
 
 ## Support for setting access control lists (ACLs) recursively
 
-The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using Azure Storage Explorer, PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal.
+The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using Azure Storage Explorer, PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support isn't yet available for the Azure portal.
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs.
+If [anonymous read access](./anonymous-read-access-overview.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs. We recommend requiring authorization for all requests to blob data.
 
 <a id="known-issues-tools"></a>
 
 ## AzCopy
 
-Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
+Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/tables/toc.json)). Earlier versions of AzCopy such as AzCopy v8.1, aren't supported.
 
 <a id="storage-explorer"></a>
 
@@ -79,9 +80,9 @@ Use only versions `1.6.0` or higher.
 
 <a id="explorer-in-portal"></a>
 
-## Storage Explorer in the Azure portal
+## Storage browser in the Azure portal
 
-ACLs are not yet supported.
+In the storage browser that appears in the Azure portal, you can't access a file or folder by specifying a path. Instead, you must browse through folders to reach a file.  Therefore, if an ACL grants a user read access to a file but not read access to all folders leading up to the file, that user won't be able to view the file in storage browser.  
 
 <a id="third-party-apps"></a>
 
@@ -89,15 +90,12 @@ ACLs are not yet supported.
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. Applications that call Blob APIs will likely work.
 
-## Storage Analytics logs (classic)
-
-The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ## Windows Azure Storage Blob (WASB) driver
 
-Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues.
+Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it's a client to a hierarchical namespace enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues.
 
-Using the WASB driver as a client to a hierarchical namespace enabled storage account is not supported. Instead, we recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
+Using the WASB driver as a client to a hierarchical namespace enabled storage account isn't supported. Instead, we recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you're trying to migrate off of an on-premises Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
 
 ## Soft delete for blobs capability
 
@@ -105,7 +103,7 @@ If parent directories for soft-deleted files or directories are renamed, the sof
 
 ## Events
 
-If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions.
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. Using the Data Lake Storage endpoint (abfss://URI) for non-hierarchical namespace enabled accounts won't generate events, but the blob endpoint (wasb:// URI) will generate events.
 
 > [!TIP]
 > Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).

@@ -1,22 +1,28 @@
 ---
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
-ms.topic: conceptual
-ms.date: 1/27/2020
+ms.topic: how-to
+ms.date: 1/23/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.service: backup
+ms.custom: engagement-fy23
 ---
 
 # Azure Backup offline backup by using Azure Data Box
+
+This article describes how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault.
 
 You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial Microsoft Azure Recovery Services (MARS) backups offline (without using network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network.  Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](./backup-azure-backup-import-export.md):
 
 - There's no need to procure your own Azure-compatible disks and connectors. Azure Data Box ships the disks associated with the selected [Data Box SKU](https://azure.microsoft.com/services/databox/data/).
 - Azure Backup (MARS Agent) can directly write backup data onto the supported SKUs of Azure Data Box. This capability eliminates the need for you to provision a staging location for your initial backup data. You also don't need utilities to format and copy that data onto the disks.
 
-## Azure Data Box with the MARS Agent
+## Support matrix
 
-This article explains how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault.
+This section explains the supported scenarios.
 
-## Supported platforms
+### Supported platforms
 
 The process to seed data from the MARS Agent by using Azure Data Box is supported on the following Windows SKUs.
 
@@ -38,7 +44,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 | Windows Server 2008 R2 SP1 64 bit     | Standard, Enterprise, Datacenter, Foundation                |
 | Windows Server 2008 SP2 64 bit        | Standard, Enterprise, Datacenter                            |
 
-## Backup data size and supported Data Box SKUs
+### Backup data size and supported Data Box SKUs
 
 | Backup data size (post-compression by MARS)* per server | Supported Azure Data Box SKU                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -113,7 +119,7 @@ The offline backup process using MARS and Azure Data Box requires the Data Box d
 > [!IMPORTANT]
 > Don't select *BlobStorage* for the **Account kind**. The MARS Agent requires an account that supports page blobs, which isn't supported when *BlobStorage* is selected. Select **Storage V2 (general purpose v2)** as the **Account kind** when you create the target storage account for your Azure Data Box job.
 
-![Choose account kind in instance details](./media/offline-backup-azure-data-box/instance-details.png)
+![Screenshot shows how to choose account kind in instance details.](./media/offline-backup-azure-data-box/instance-details.png)
 
 ## Install and set up the MARS Agent
 
@@ -169,43 +175,43 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
 1. Open the **Microsoft Azure Backup** application on your server.
 1. On the **Actions** pane, select **Schedule Backup**.
 
-    ![Select Schedule Backup](./media/offline-backup-azure-data-box/schedule-backup.png)
+    ![Screenshot shows how to select schedule backup.](./media/offline-backup-azure-data-box/schedule-backup.png)
 
 1. Follow the steps in the **Schedule Backup Wizard**.
 
 1. Add items by selecting the **Add Items** button. Keep the total size of the items within the [size limits supported by the Azure Data Box SKU](#backup-data-size-and-supported-data-box-skus) that you ordered and received.
 
-    ![Add items to backup](./media/offline-backup-azure-data-box/add-items.png)
+    ![Screenshot shows how to add items to backup.](./media/offline-backup-azure-data-box/add-items.png)
 
 1. Select the appropriate backup schedule and retention policy for **Files and Folders** and **System State**. System state is applicable only for Windows Servers and not for Windows clients.
 1. On the **Choose Initial Backup Type (Files and Folders)** page of the wizard, select the option **Transfer using Microsoft Azure Data Box disks** and select **Next**.
 
-    ![Choose initial backup type](./media/offline-backup-azure-data-box/initial-backup-type.png)
+    ![Screenshot shows how to choose initial backup type.](./media/offline-backup-azure-data-box/initial-backup-type.png)
 
 1. Sign in to Azure when prompted by using the user credentials that have Owner access on the Azure subscription. After you succeed in doing so, you should see a page that resembles this one.
 
-    ![Create resources and apply required permissions](./media/offline-backup-azure-data-box/creating-resources.png)
+    ![Screenshot shows how to create resources and apply required permissions.](./media/offline-backup-azure-data-box/creating-resources.png)
 
    The MARS Agent then fetches the Data Box jobs in the subscription that are in the Delivered state.
 
-    ![Fetch Data Box jobs for subscription ID](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
+    ![Screenshot shows how to fetch Data Box jobs for subscription ID.](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
 1. Select the correct Data Box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
-    ![Select Data Box orders](./media/offline-backup-azure-data-box/select-databox-order.png)
+    ![Screenshot shows how to select Data Box orders.](./media/offline-backup-azure-data-box/select-databox-order.png)
 
 1. Select **Detect Device** on the **Data Box Device Detection** page. This action makes the MARS Agent scan for locally attached Azure Data Box disks and detect them.
 
-    ![Data Box Device Detection](./media/offline-backup-azure-data-box/databox-device-detection.png)
+    ![Screenshot shows the Data Box Device Detection.](./media/offline-backup-azure-data-box/databox-device-detection.png)
 
     If you connected the Azure Data Box instance as a network share (because of unavailability of USB ports or because you ordered and mounted the 100-TB Data Box device), detection fails at first. You're given the option to enter the network path to the Data Box device.
 
-    ![Enter the network path](./media/offline-backup-azure-data-box/enter-network-path.png)
+    ![Screenshot shows how to enter the network path.](./media/offline-backup-azure-data-box/enter-network-path.png)
 
     >[!IMPORTANT]
     > Provide the network path to the root directory of the Azure Data Box disk. This directory must contain a directory by the name *PageBlob*.
     >
-    >![Root directory of Azure Data Box disk](./media/offline-backup-azure-data-box/root-directory.png)
+    >![Screenshot shows the root directory of Azure Data Box disk.](./media/offline-backup-azure-data-box/root-directory.png)
     >
     >For example, if the path of the disk is `\\mydomain\myserver\disk1\` and *disk1* contains a directory called *PageBlob*, the path you enter on the MARS Agent wizard page is `\\mydomain\myserver\disk1\`.
     >
@@ -215,19 +221,19 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
 
    The following page confirms that the policy is saved successfully.
 
-    ![Policy is saved successfully](./media/offline-backup-azure-data-box/policy-saved.png)
+    ![Screenshot shows that policy is saved successfully.](./media/offline-backup-azure-data-box/policy-saved.png)
 
 1. Select **Close** on the previous page.
 
 1. Select **Back Up Now** in the **Actions** pane of the MARS Agent console. Select **Back Up** on the wizard page.
 
-    ![Back Up Now Wizard](./media/offline-backup-azure-data-box/backup-now.png)
+    ![Screenshot shows the Back Up Now wizard.](./media/offline-backup-azure-data-box/backup-now.png)
 
 The MARS Agent starts backing up the data you selected to the Azure Data Box device. This process might take from several hours to a few days. The amount of time depends on the number of files and connection speed between the server with the MARS Agent and the Azure Data Box disk.
 
 After the backup of the data is finished, you'll see a page on the MARS Agent that resembles this one.
 
-![Backup progress shown](./media/offline-backup-azure-data-box/backup-progress.png)
+![Screenshot shows the Backup progress.](./media/offline-backup-azure-data-box/backup-progress.png)
 
 ## Post-backup steps
 
@@ -244,11 +250,11 @@ This section explains the steps to take after the backup of the data to the Azur
 
 ## Troubleshooting
 
-The Microsoft Azure Recovery Services (MARS) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
+The Microsoft Azure Recovery Services (MARS) Agent creates a Microsoft Entra application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Microsoft Entra application.
 
 ### Problem
 
-When you configure offline backup, you might face a problem because of a bug in the Azure PowerShell cmdlet. You might be unable to add multiple certificates to the same Azure AD application created by the MAB Agent. This problem will affect you if you configured an offline seeding policy for the same or a different server.
+When you configure offline backup, you might face a problem because of a bug in the Azure PowerShell cmdlet. You might be unable to add multiple certificates to the same Microsoft Entra application created by the MAB Agent. This problem will affect you if you configured an offline seeding policy for the same or a different server.
 
 ### Verify if the problem is caused by this specific root cause
 
@@ -258,7 +264,7 @@ To see if your problem is the same as the one previously described, do one of th
 
 Check to see if the following error message appears in the MAB console when you configured offline backup.
 
-![Unable to create Offline Backup policy for the current Azure account](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
+![Screenshot shows that Offline Backup policy for the current Azure account isn't getting created.](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
 #### Step 2 of verification
 
@@ -276,7 +282,7 @@ Sign in to PowerShell that appears on the MAB UI by using a different account wi
 
 #### Step 2 of workaround
 
-If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Azure Active Directory** > **App registrations**.
+If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Microsoft Entra ID** > **App registrations**.
 
 >[!NOTE]
 > Check to see if the `AzureOfflineBackup_<Azure User Id>` application doesn't have any other offline seeding configured and also if no other server is dependent on this application. Go to **Settings** > **Keys** under the **Public Keys** section. It shouldn't have any other public keys added. See the following screenshot for reference.
@@ -293,7 +299,7 @@ From the server you're trying to configure for offline backup, perform the follo
 
 3. Go to the Azure offline backup application mentioned in step 2. Select **Settings** > **Keys** > **Upload Public Key**. Upload the certificate you exported in the previous step.
 
-    ![Upload public key](./media/offline-backup-azure-data-box/upload-public-key.png)
+    ![Screenshot shows the public key is uploaded.](./media/offline-backup-azure-data-box/upload-public-key.png)
 
 4. In the server, open the registry by entering **regedit** in the run window.
 
@@ -309,7 +315,7 @@ From the server you're trying to configure for offline backup, perform the follo
 
 7. To get the value of the thumbprint, double-click the certificate. Select the **Details** tab, and scroll down until you see the thumbprint field. Select **Thumbprint**, and copy the value.
 
-    ![Thumbprint field of certificate](./media/offline-backup-azure-data-box/thumbprint-field.png)
+    ![Screenshot shows the thumbprint field of certificate.](./media/offline-backup-azure-data-box/thumbprint-field.png)
 
 ## Questions
 

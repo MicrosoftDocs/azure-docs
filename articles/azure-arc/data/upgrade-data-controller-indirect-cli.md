@@ -4,10 +4,11 @@ description: Article describes how to upgrade an indirectly connected Azure Arc 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+ms.custom: devx-track-azurecli
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
@@ -15,11 +16,11 @@ ms.topic: how-to
 
 This article describes how to upgrade an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
-During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller won't cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
 
 ## Prerequisites
 
-You will need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
+You'll need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
@@ -29,12 +30,14 @@ kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.
 
 ## Install tools
 
-Before you can proceed with the tasks in this article you need to install:
+Before you can proceed with the tasks in this article, you need to install:
 
-- The [Azure CLI (az)](/cli/azure/install-azure-cli)
+- The [Azure CLI (`az`)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
 
 [!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
+
+The `arcdata` extension version and the image version are related. Check that you have the correct `arcdata` extension version that corresponds to the image version you want to upgrade to in the [Version log](version-log.md).
 
 ## View available images and chose a version
 
@@ -62,9 +65,12 @@ This section shows how to upgrade an indirectly connected data controller.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
+For supported upgrade paths, see [Upgrade Azure Arc-enabled data services](upgrade-overview.md).
+
+
 ### Upgrade
 
-You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
+You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
 You can perform a dry run first. The dry run validates the registry exists, the version schema, and the private repository authorization token (if used). To perform a dry run, use the `--dry-run` parameter in the `az arcdata dc upgrade` command. For example:
 
@@ -81,10 +87,16 @@ Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version.
+To upgrade the data controller, run the `az arcdata dc upgrade` command, specifying the image tag with `--desired-version`.
 
 ```azurecli
-az arcdata dc upgrade --k8s-namespace <namespace> --use-k8s
+az arcdata dc upgrade --name <data controller name> --desired-version <image tag> --k8s-namespace <namespace> --use-k8s
+```
+
+Example:
+
+```azurecli
+az arcdata dc upgrade --name arcdc --desired-version v1.7.0_2022-05-24 --k8s-namespace arc --use-k8s
 ```
 
 The output for the preceding command shows the status of the steps:
@@ -101,43 +113,20 @@ Service account arc:cr-upgrade-worker has been created successfully.
 Creating privileged job arc-elevated-bootstrapper-job
 ```
 
-In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
-
 ## Monitor the upgrade status
 
-You can monitor the progress of the upgrade with kubectl or CLI.
-
-### kubectl
-
-```console
-kubectl get datacontrollers --namespace <namespace>
-kubectl get monitors --namespace <namespace>
-```
-
-The upgrade is a two-part process. First the controller is upgraded, then the monitoring stack is upgraded. During the upgrade, use ```kubectl get monitors -n <namespace> -w``` to view the status. The output will be:
-
-```output
-NAME           STATUS     AGE
-monitorstack   Updating   36m
-monitorstack   Updating   36m
-monitorstack   Updating   39m
-monitorstack   Updating   39m
-monitorstack   Updating   41m
-monitorstack   Ready      41m
-```
+The upgrade is a two-part process. First the controller is upgraded, then the monitoring stack is upgraded. You can monitor the progress of the upgrade with CLI.
 
 ### CLI
 
 ```azurecli
- az arcdata dc status show --k8s-namespace <namespace> --use-k8s
+ az arcdata dc status show --name <data controller name> --k8s-namespace <namespace> --use-k8s
 ```
 
-The upgrade is a two-part process. First the controller is upgraded, then the monitoring stack is upgraded. When the upgrade is complete, the output will be:
+When the upgrade is complete, the output will be:
 
 ```output
 Ready
 ```
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

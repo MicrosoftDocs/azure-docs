@@ -7,19 +7,24 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 08/23/2022
 tags: connectors
+ms.custom: ignite-2022
 ---
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that your workflow can use for Azure Cosmos DB operations. For example, actions include creating or updating, reading, querying, and deleting documents.
 
 You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **Logic App (Standard)** resource types by using the [*managed connector*](managed.md) operations. For **Logic App (Standard)**, Azure Cosmos DB also provides [*built-in*](built-in.md) operations, which are currently in preview and offer different functionality, better performance, and higher throughput. For example, if you're working with the **Logic App (Standard)** resource type, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in your logic app workflows to enable scenarios such as event sourcing and general data processing.
 
-> [!NOTE]
-> Currently, only stateful workflows in a **Logic App (Standard)** resource can use both the managed 
-> connector operations and built-in operations. Stateless workflows can use only built-in operations.
+## Limitations
+
+- Currently, only stateful workflows in a **Logic App (Standard)** resource can use both the managed connector operations and built-in operations. Stateless workflows can use only built-in operations.
+
+- The Azure Cosmos DB connector supports only Azure Cosmos DB accounts created with [Azure Cosmos DB for NoSQL](../cosmos-db/choose-api.md#coresql-api).
 
 ## Prerequisites
 
@@ -93,7 +98,7 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
+   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **New step** or **Add an action**, if between steps.
 
@@ -133,7 +138,7 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create.
+   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create.
 
    :::image type="content" source="./media/connectors-create-api-cosmos-db/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and designer for a Standard logic app workflow with the 'When a HTTP request is received' trigger and parameters configuration.":::
 
@@ -188,8 +193,8 @@ In a **Logic App (Consumption)** workflow, an Azure Cosmos DB connection require
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, provide the remaining required property values to create the connection. <p><p>- If you select **Azure AD Integrated**, no other property values are required, but you have to configure your connection by following the steps for [Azure AD authentication and Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
-| **Access key to your Cosmos DB account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <p><p>**Note**: To find the key, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available key values. |
+| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, provide the remaining required property values to create the connection. <p><p>- If you select **Microsoft Entra integrated**, no other property values are required, but you have to configure your connection by following the steps for [Microsoft Entra authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
+| **Access key to your Azure Cosmos DB account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <p><p>**Note**: To find the key, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available key values. |
 | **Account Id** | Yes | <*acccount-ID*> | The name for the Azure Cosmos DB account to use for this connection. |
 |||||
 
@@ -292,4 +297,6 @@ This example uses the **Response Item Id** in the **Item Id** field to populate 
 
 ## Next steps
 
-[Connectors overview for Azure Logic Apps](apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

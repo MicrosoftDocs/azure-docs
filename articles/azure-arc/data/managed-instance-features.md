@@ -3,7 +3,8 @@ title: Features and Capabilities of Azure Arc-enabled SQL Managed Instance
 description: Features and Capabilities of Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -17,7 +18,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 - Language features - [Control of flow language keywords](/sql/t-sql/language-elements/control-of-flow), [Cursors](/sql/t-sql/language-elements/cursors-transact-sql), [Data types](/sql/t-sql/data-types/data-types-transact-sql), [DML statements](/sql/t-sql/queries/queries), [Predicates](/sql/t-sql/queries/predicates), [Sequence numbers](/sql/relational-databases/sequence-numbers/sequence-numbers), [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine), and [Variables](/sql/t-sql/language-elements/variables-transact-sql).
 - Database features - [Automatic tuning (plan forcing)](/sql/relational-databases/automatic-tuning/automatic-tuning), [Change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Database collation](/sql/relational-databases/collations/set-or-change-the-database-collation), [Contained databases](/sql/relational-databases/databases/contained-databases), [Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Data compression](/sql/relational-databases/data-compression/data-compression), [Database configuration settings](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Online index operations](/sql/relational-databases/indexes/perform-index-operations-online), [Partitioning](/sql/relational-databases/partitions/partitioned-tables-and-indexes), and [Temporal tables](/sql/relational-databases/tables/temporal-tables) ([see getting started guide](/sql/relational-databases/tables/getting-started-with-system-versioned-temporal-tables)).
-- Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([Get started with SQL Database dynamic data masking with the Azure portal](../../azure-sql/database/dynamic-data-masking-configure-portal.md)), [Row Level Security](/sql/relational-databases/security/row-level-security)
+- Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([Get started with SQL Database dynamic data masking with the Azure portal](/azure/azure-sql/database/dynamic-data-masking-configure-portal)), [Row Level Security](/sql/relational-databases/security/row-level-security)
 - Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
@@ -26,9 +27,9 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 |Feature|Azure Arc-enabled SQL Managed Instance|
 |-------------|----------------|
 |Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available.|
-|Always On availability groups<sup>2</sup>|Business critical service tier. In preview.|
+|Always On availability groups<sup>2</sup>|Business Critical service tier.|
 |Basic availability groups <sup>2</sup>|Not Applicable. Similar capabilities available.|
-|Minimum replica commit availability group <sup>2</sup>|Business critical service tier. In preview.|
+|Minimum replica commit availability group <sup>2</sup>|Business Critical service tier. 
 |Clusterless availability group|Yes|
 |Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
 |Backup compression|Yes|
@@ -83,7 +84,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | Contained databases | Yes |
 | Encryption for backups | Yes |
 | SQL Server Authentication | Yes |
-| Azure Active Directory Authentication | No |
+| Microsoft Entra authentication | No |
 | Windows Authentication | Yes |
 
 ## <a name="RDBMSM"></a> RDBMS Manageability  
@@ -131,7 +132,7 @@ Azure Arc-enabled SQL Managed Instance supports various data tools that can help
 
 | **Tool** | Azure Arc-enabled SQL Managed Instance|
 | --- | --- | --- |
-| Azure portal <sup>1</sup> | No |
+| Azure portal | Yes |
 | Azure CLI | Yes |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes |
 | Azure PowerShell | No |
@@ -142,13 +143,11 @@ Azure Arc-enabled SQL Managed Instance supports various data tools that can help
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
 
-<sup>1</sup> The Azure portal can be used to create, view, and delete Azure Arc-enabled SQL Managed Instances.  Updates cannot be done through the Azure portal currently.
-
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ### <a name="Unsupported"></a> Unsupported Features & Services
 
-The following features and services are not available for Azure Arc-enabled SQL Managed Instance. The support of these features will be increasingly enabled over time.
+The following features and services are not available for Azure Arc-enabled SQL Managed Instance.
 
 | Area | Unsupported feature or service |
 |-----|-----|
@@ -160,9 +159,7 @@ The following features and services are not available for Azure Arc-enabled SQL 
 | &nbsp; | FileTable, FILESTREAM |
 | &nbsp; | CLR assemblies with the EXTERNAL_ACCESS or UNSAFE permission set |
 | &nbsp; | Buffer Pool Extension |
-| **SQL Server Agent** |  Subsystems: CmdExec, PowerShell, Queue Reader, SSIS, SSAS, SSRS |
-| &nbsp; | Alerts |
-| &nbsp; | Managed Backup |
+| **SQL Server Agent** |  SQL Server agent is supported but the following specific capabilities are not supported: Subsystems (CmdExec, PowerShell, Queue Reader, SSIS, SSAS, SSRS), Alerts, Managed Backup
 | **High Availability** | Database mirroring  |
 | **Security** | Extensible Key Management |
 | &nbsp; | AD Authentication for Linked Servers | 

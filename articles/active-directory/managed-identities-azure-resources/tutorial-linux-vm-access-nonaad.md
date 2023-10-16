@@ -1,16 +1,17 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Linux - Azure AD 
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Linux"
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
+ms.custom: devx-track-arm-template
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
@@ -22,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how a Linux virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without including authentication information in your code.
+This tutorial shows you how a Linux virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Microsoft Entra ID. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without including authentication information in your code.
 
 You learn how to:
 
@@ -41,11 +42,13 @@ You learn how to:
 
 ## Create a Key Vault  
 
-This section shows how to grant your VM access to a secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+This section shows how to grant your VM access to a secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Microsoft Entra authentication.  However, not all Azure services support Microsoft Entra authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
 
 First, we need to create a Key Vault and grant our VM's system-assigned managed identity access to the Key Vault.
 
-1. Open the Azure [portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal]portal](https://portal.azure.com/)
 1. At the top of the left navigation bar, select **Create a resource**  
 1. In the **Search the Marketplace** box type in **Key Vault** and hit **Enter**.  
 1. Select **Key Vault** from the results.
@@ -80,7 +83,7 @@ The managed identity used by the virtual machine needs to be granted access to r
 1. Select **Access Policy** from the menu on the left side.
 1. Select **Add Access Policy**
 
-   ![key vault create access policy screen](./media/tutorial-linux-vm-access-nonaad/key-vault-access-policy.png)
+   ![Key vault create access policy screen](./media/tutorial-linux-vm-access-nonaad/key-vault-access-policy.png)
 
 1. In the **Add access policy** section under **Configure from template (optional)** choose **Secret Management** from the pull-down menu.
 1. Choose **Select Principal**, and in the search field enter the name of the VM you created earlier.  Select the VM in the result list and choose **Select**.
@@ -92,7 +95,7 @@ The managed identity used by the virtual machine needs to be granted access to r
 To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 >[!IMPORTANT]
-> All Azure SDKs support the Azure.Identity library that makes it easy to acquire Azure AD tokens to access target services. Learn more about [Azure SDKs](https://azure.microsoft.com/downloads/) and leverage the Azure.Identity library.
+> All Azure SDKs support the Azure.Identity library that makes it easy to acquire Microsoft Entra tokens to access target services. Learn more about [Azure SDKs](https://azure.microsoft.com/downloads/) and leverage the Azure.Identity library.
 > - [.NET](/dotnet/api/overview/azure/identity-readme)
 > - [Java](/java/api/overview/azure/identity-readme)
 > - [JavaScript](/javascript/api/overview/azure/identity-readme)
@@ -103,6 +106,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, use CURL to make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
  
+ 
     The CURL request for the access token is below.  
     
     ```bash
@@ -138,7 +142,7 @@ Once you've retrieved the secret from the Key Vault, you can use it to authentic
 
 ## Clean up resources
 
-When you want to clean up the resources, visit the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
+When you want to clean up the resources, sign in to the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
 
 Alternatively you may also do this via [PowerShell or the CLI](../../azure-resource-manager/management/delete-resource-group.md)
 

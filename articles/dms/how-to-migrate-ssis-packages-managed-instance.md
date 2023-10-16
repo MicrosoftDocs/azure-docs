@@ -2,16 +2,15 @@
 title: Migrate SSIS packages to SQL Managed Instance
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate SQL Server Integration Services (SSIS) packages and projects to an Azure SQL Managed Instance using the Azure Database Migration Service or the Data Migration Assistant.
-services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: how-to
+author: croblesm
+ms.author: roblescarlos
+ms.reviewer: randolphwest
 ms.date: 02/20/2020
+ms.service: dms
+ms.topic: how-to
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Migrate SQL Server Integration Services packages to an Azure SQL Managed Instance
@@ -38,7 +37,7 @@ To complete these steps, you need:
 * To open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
 * If you're using a firewall appliance in front of your source databases, you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration, as well as files via SMB port 445.
-* A SQL Managed Instance to host SSISDB. If you need to create one, follow the detail in the article [Create a Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* A SQL Managed Instance to host SSISDB. If you need to create one, follow the detail in the article [Create a Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * To ensure that the logins used to connect the source SQL Server and target managed instance are members of the sysadmin server role.
 * To verify that SSIS is provisioned in Azure Data Factory (ADF) containing Azure-SSIS Integration Runtime (IR) with the destination SSISDB hosted by a SQL Managed Instance (as described in the article [Create the Azure-SSIS integration runtime in Azure Data Factory](../data-factory/create-azure-ssis-integration-runtime.md)).
 
@@ -147,4 +146,4 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 ## Next steps
 
-* Review the migration guidance in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review the migration guidance in the Microsoft [Database Migration Guide](/data-migration/).

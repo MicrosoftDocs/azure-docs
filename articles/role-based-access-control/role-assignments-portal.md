@@ -3,11 +3,11 @@ title: Assign Azure roles using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 09/20/2023
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -16,19 +16,17 @@ ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
-If you need to assign administrator roles in Azure Active Directory, see [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md).
+If you need to assign administrator roles in Microsoft Entra ID, see [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md).
 
 ## Prerequisites
 
 [!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
-#### [Current](#tab/current/)
-
 ## Step 1: Identify the needed scope
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
-![Diagram showing the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram that shows the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,11 +60,17 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 ## Step 3: Select the appropriate role
 
-1. On the **Roles** tab, select a role that you want to use.
+1. On the **Role** tab, select a role that you want to use.
 
     You can search for a role by name or by description. You can also filter roles by type and category.
 
-   ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
+   ![Screenshot of Add role assignment page with Role tab.](./media/shared/roles.png)
+
+1. If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
+
+    Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource. For more information, see [Privileged administrator roles](./role-assignments-steps.md#privileged-administrator-roles).
+
+   ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
 
 1. In the **Details** column, click **View** to get more details about a role.
 
@@ -76,7 +80,7 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 ## Step 4: Select who needs access
 
-1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
+1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Microsoft Entra users, groups, or service principals (applications).
 
    ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 
@@ -110,22 +114,51 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 1. Click **Next**.
 
-## Step 5: (Optional) Add condition (preview)
+## Step 5: (Optional) Add condition
 
-If you selected a role that supports conditions, a **Conditions (optional)** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
+If you selected a role that supports conditions, a **Conditions** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
 
-Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
+The **Conditions** tab will look different depending on the role you selected.
 
+# [Delegate condition](#tab/delegate-condition)
+
+> [!IMPORTANT]
+> Delegating Azure role assignments with conditions is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+If you selected one of the following privileged roles, follow the steps in this section.
+
+- [Owner](built-in-roles.md#owner)
+- [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview)
+- [User Access Administrator](built-in-roles.md#user-access-administrator)
+
+1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
+
+    :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
+
+1. Click **Add condition** to add a condition that constrains the roles and principals this user can assign roles to.
+
+1. Follow the steps in [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md#step-3-add-a-condition).
+
+# [Storage condition](#tab/storage-condition)
+
+If you selected one of the following storage roles, follow the steps in this section.
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
+- [Storage Queue Data Contributor](built-in-roles.md#storage-queue-data-contributor)
+- [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
+- [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
+- [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-1. Click **Add condition** if you want to further refine the role assignments based on storage blob attributes. For more information, see [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md).
+1. Click **Add condition** if you want to further refine the role assignments based on storage attributes.
 
    ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
 
-1. Click **Next**.
+1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
+
+---
 
 ## Step 6: Assign role
 
@@ -140,91 +173,6 @@ Currently, conditions can be added to built-in or custom role assignments that h
     ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal/rg-role-assignments.png)
 
 1. If you don't see the description for the role assignment, click **Edit columns** to add the **Description** column.
-
-#### [Classic](#tab/classic/)
-
-## Step 1: Identify the needed scope (classic)
-
-[!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
-
-![Diagram showing the scope levels for Azure RBAC for classic experience.](../../includes/role-based-access-control/media/scope-levels.png)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
-
-1. Click the specific resource for that scope.
-
-    The following shows an example resource group.
-
-    ![Screenshot of resource group overview page for classic experience.](./media/shared/rg-overview.png)
-
-## Step 2: Open the Add role assignment pane (classic)
-
-**Access control (IAM)** is the page that you typically use to assign roles to grant access to Azure resources. It's also known as identity and access management (IAM) and appears in several locations in the Azure portal.
-
-1. Click **Access control (IAM)**.
-
-    The following shows an example of the Access control (IAM) page for a resource group.
-
-    ![Screenshot of Access control (IAM) page for a resource group for classic experience.](./media/shared/rg-access-control.png)
-
-1. Click the **Role assignments** tab to view the role assignments at this scope.
-
-1. Click **Add** > **Add role assignment**.
-   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
-
-   ![Screenshot of Add > Add role assignment menu for classic experience.](./media/shared/add-role-assignment-menu.png)
-
-1. On the Add role assignment page, click **Use classic experience**.
-
-   ![Screenshot of Add role assignment page with Use classic experience link for classic experience.](./media/role-assignments-portal/add-role-assignment-page-use-classic.png)
-
-    The Add role assignment pane opens.
-
-   ![Screenshot of Add role assignment page with Role, Assign access to, and Select options for classic experience.](./media/role-assignments-portal/add-role-assignment-page.png)
-
-## Step 3: Select the appropriate role (classic)
-
-1. In the **Role** list, search or scroll to find the role that you want to assign.
-
-    To help you determine the appropriate role, you can hover over the info icon to display a description for the role. For additional information, you can view the [Azure built-in roles](built-in-roles.md) article.
-
-   ![Screenshot of Select a role list in Add role assignment for classic experience.](./media/role-assignments-portal/add-role-assignment-role.png)
-
-1. Click to select the role.
-
-## Step 4: Select who needs access (classic)
-
-1. In the **Assign access to** list, select the type of security principal to assign access to.
-
-    | Type | Description |
-    | --- | --- |
-    | **User, group, or service principal** | If you want to assign the role to a user, group, or service principal (application), select this type. |
-    | **User-assigned managed identity** | If you want to assign the role to a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select this type. |
-    | *System-assigned managed identity* | If you want to assign the role to a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select the Azure service instance where the managed identity is located. |
-
-   ![Screenshot of selecting a security principal in Add role assignment for classic experience.](./media/role-assignments-portal/add-role-assignment-type.png)
-
-1. If you selected a user-assigned managed identity or a system-assigned managed identity, select the **Subscription** where the managed identity is located.
-
-1. In the **Select** section, search for the security principal by entering a string or scrolling through the list.
-
-   ![Screenshot of selecting a user in Add role assignment for classic experience.](./media/role-assignments-portal/add-role-assignment-user.png)
-
-1. Once you have found the security principal, click to select it.
-
-## Step 5: Assign role (classic)
-
-1. To assign the role, click **Save**.
-
-   After a few moments, the security principal is assigned the role at the selected scope.
-
-1. On the **Role assignments** tab, verify that you see the role assignment in the list.
-
-    ![Screenshot of role assignment list after assigning role for classic experience.](./media/role-assignments-portal/rg-role-assignments.png)
-
----
 
 ## Next steps
 

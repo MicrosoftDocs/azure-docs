@@ -4,15 +4,14 @@ description: Learn how to join Azure-SSIS integration runtime to a virtual netwo
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
-ms.custom: devx-track-azurepowershell
+ms.date: 07/20/2023
+author: chugugrace
+ms.author: chugu 
 ---
 
 # Join Azure-SSIS integration runtime to a virtual network
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF), you should join your Azure-SSIS integration runtime (IR) to a virtual network in the following scenarios:
 
@@ -52,13 +51,13 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 - If a classic virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection. 
  
-- If an Azure Resource Manager virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an [Azure Resource Manager-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) connection. 
+- If an Azure Resource Manager network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an [Azure Resource Manager-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) connection. 
 
-## Hosting SSISDB in Azure SQL Database server or Managed Instance
+## Hosting SSISDB in Azure SQL Database server or Managed instance
 
 If you host SSISDB in Azure SQL Database server configured with a virtual network service endpoint, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-If you host SSISDB in Azure SQL Managed Instance that joins a virtual network, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or virtual network-to-virtual network connection. For more information, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+If you host SSISDB in Azure SQL Managed Instance that joins a virtual network, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or virtual network-to-virtual network connection. For more information, see [Connect your application to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
 
 ## Access to Azure data stores
 

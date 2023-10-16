@@ -4,9 +4,9 @@ metadata:
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
   ms.service: backup
-  ms.date: 02/25/2022
-  author: v-amallick
-  ms.author: v-amallick
+  ms.date: 08/14/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
   This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
@@ -23,14 +23,28 @@ sections:
       - question: |
           Where can I download the vault credentials file?
         answer: |
-          In the Azure portal, navigate to **Properties** for your vault. Under **Backup Credentials**, select the checkbox for **Already using the latest Recovery Services Agent**. Select **Download**.
+          In the Azure portal, go to **Properties** for your vault. Under **Backup Credentials**, select **Download**.
+
+          - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you're using the latest Recovery Services Agent, and then select **Download**.
+          - If you're doing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
           
-          ![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file.":::
+
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png" alt-text="Screenshot shows the Download option for vault credential files in secondary region.":::
+            >[!Note]
+            >You can't use this secondary region vault credential for registration of the MARS agent.
+          
+          
           
       - question: |
           How long are vault credentials valid?
         answer: |
           Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
+          
+      - question: |
+          Why do I need to update my MARS agent for the vault credentials to work?
+        answer: |
+          A new parameter is added to the vault credentials file. It can be parsed correctly only with MARS agent version 2.0.9249.0 and above.
 
       - question: |
           What characters are allowed for the passphrase?
@@ -88,9 +102,9 @@ sections:
           To know about tenant details, open the vault credential file downloaded from Recovery Services vault and refer to the value of the `<AadTenantId>` attribute.
 
       - question: |
-          What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?
+          What is the impact on MARS Agent backups of transferring the vault subscription to a different Microsoft Entra directory?
         answer: |
-          The change of Azure AD directory will have no impact on MARS Agent backups. 
+          The change of Microsoft Entra directory will have no impact on MARS Agent backups. 
 
       - question: |
           What happens if the expected Weekly, Monthly, or Yearly backup fails?
@@ -102,7 +116,7 @@ sections:
       - question: |
           What happens if I rename or change the FQDN of a Windows machine configured for backup?
         answer: |
-          When you rename a Windows machine or make changes to the FQDN by performing operations like adding machine to a domain, moving machine to another domain or disjoining machine from a domain ,  all currently configured backups are stopped.
+          When you rename a Windows machine or make changes to the FQDN by performing operations like adding machine to a domain, moving machine to another domain or disjoining machine from a domain,  all currently configured backups are stopped.
           
           * You need to register the new machine name with recovery services vault.
           * When you register the new name with the vault, the first operation is a *full* backup.
@@ -243,7 +257,7 @@ sections:
       - question: |
           My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
         answer: |
-          As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
+          As a safety measure, Azure Backup will preserve the recovery point with the longest retention, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
       - question: |
           What happens if I cancel an ongoing restore job?

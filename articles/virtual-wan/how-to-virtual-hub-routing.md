@@ -1,86 +1,71 @@
 ---
-title: 'How to configure virtual hub routing'
+title: 'How to configure virtual hub routing: Azure portal'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure Virtual WAN virtual hub routing.
+description: Learn how to configure Virtual WAN virtual hub routing using the Azure portal.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/30/2023
 ms.author: cherylmc
 
 ---
-# How to configure virtual hub routing
+# How to configure virtual hub routing - Azure portal
 
-A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, ExpressRoute gateway, Point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). This router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to Standard Virtual WAN customers.
+A virtual hub can contain multiple gateways such as a site-to-site VPN gateway, ExpressRoute gateway, point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). The virtual hub router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to customers using **Standard** Virtual WANs. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
+This article helps you configure virtual hub routing using Azure portal. You can also configure virtual hub routing using the [Azure PowerShell steps](how-to-virtual-hub-routing-powershell.md).
 
-## <a name="create-table"></a>Create a route table
+## Create a route table
 
-1. In the Azure portal, navigate to the virtual hub.
-2. Under **Connectivity**, select **Routing**. On the Routing page, you see the **Default** and **None** route tables.
+1. In the Azure portal, navigate to the **virtual hub**.
+1. On the **Virtual HUB** page, in the left pane, select **Route Tables**. The **Route Tables** page will populate the current route tables for this hub.
+1. Select **+ Create route table** to open the **Create Route Table** page.
+1. On the **Basics** page, complete the following fields, then click **Labels** to move to the Labels page.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/routing.png" alt-text="Routing page":::
-3. Select **+Create route table** to open the **Create Route Table** page.
-4. On the Create Route Table page **Basics** tab, complete the following fields.
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Screenshot showing the Create Route Table page Basics tab." lightbox="./media/how-to-virtual-hub-routing/basics.png":::
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Basics tab":::
-
-   * **Name**
-   * **Routes**
-   * **Route name**
-   * **Destination type**
+   * **Name**: Name the route table instance.
+   * **Route name**: Name the route.
+   * **Destination type**: Select from the dropdown.
    * **Destination prefix**: You can aggregate prefixes. For example: VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16. **Branch** routes apply to all connected VPN sites, ExpressRoute circuits, and User VPN connections.
    * **Next hop**: A list of virtual network connections, or Azure Firewall.
+   * **Next Hop IP**: If you select a virtual network connection for Next hop, you'll see **Configure static routes** when you click **Configure**. This is an optional configuration setting. For more information, see [Configuring static routes](about-virtual-hub-routing.md#static).
 
-     If you select a virtual network connection, you will see **Configure static routes**. This is an optional configuration setting. For more information, see [Configuring static routes](about-virtual-hub-routing.md#static).
+1. On the **Labels** page, configure label names. Labels provide a mechanism to logically group route tables. Configure any required labels, then move to the Associations page.
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Next hop":::
+1. On the **Associations** page, associate connections to the route table. You'll see **Branches**, **Virtual Networks**, and the **Current settings** of the connections. After configuring settings, move to the Propagations page.
 
-5. Select the **Labels** tab to configure label names. Labels provide a mechanism to logically group route tables.
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations-settings.png" alt-text="Screenshot shows Associations page with connections to the route table." lightbox="./media/how-to-virtual-hub-routing/associations-settings.png":::
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configure label names":::
+1. On the **Propagations** page, select the settings to propagate routes from connections to the route table.
 
-6. Select the **Associations** tab to associate connections to the route table.
-You will see **Branches**, **Virtual Networks**, and the **Current settings** of the connections.
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations-settings.png" alt-text="Screenshots shows propagations settings." lightbox="./media/how-to-virtual-hub-routing/propagations-settings.png":::
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Association connections to the route table":::
+1. Select **Create** to create the route table.
 
-7. Select the **Propagations** tab to propagate routes from connections to the route table.
+## Edit a route table
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Propagate routes":::
+In the Azure portal, go to your **Virtual HUB -> Route Tables** page. To open the **Edit route table page**, click the name of the route table you want to edit. Edit the values you want to change, then click **Review + create** or **Create** (depending on the page that you are on) to save your settings.
 
-8. Select **Create** to create the route table.
+## Delete a route table
 
-## <a name="edit-table"></a>To edit a route table
+In the Azure portal, go to your **Virtual HUB -> Route Tables** page. Select the checkbox for route table that you want to delete. Click **"…"**, and then select **Delete**. You can't delete a Default or None route table. However, you can delete all custom route tables.
 
-In the Azure portal, locate the route table of your virtual hub. Select the route table to edit any information.
+## View effective routes
 
-## <a name="delete-table"></a>To delete a route table
+1. In the Azure portal, go to your **Virtual HUB -> Effective Routes** page.
+1. From the dropdowns, select the route table to view routes learned by the selected route table. Propagated routes from the connection to the route table are automatically populated in **Effective Routes** of the route table. For more information, see [About effective routes](effective-routes-virtual-hub.md).
+1. To download this information to a csv file, click **Download** at the top of the page.
 
-In the Azure portal, locate the route table of your virtual hub. You cannot delete a Default or None route table. However, you can delete all custom route tables. Click **"…"**, and then select **Delete**.
+   :::image type="content" source="./media/how-to-virtual-hub-routing/effective-routes.png" alt-text="Screenshot of Effective Routes page." lightbox="./media/how-to-virtual-hub-routing/effective-routes.png":::
 
-## <a name="view-routes"></a>To view effective routes
+## <a name="routing-configuration"></a>Configure routing for a virtual network connection
 
-In the Azure portal, locate the route table of your virtual hub. Click **"…"** and select **Effective Routes** to view routes learned by the selected route table. Propagated routes from the connection to the route table are automatically populated in **Effective Routes** of the route table. For more information, see [About effective routes](effective-routes-virtual-hub.md).
-
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="View Effective Routes" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
-
-## <a name="routing-configuration"></a>To set up routing configuration for a virtual network connection
-
-1. In the Azure portal, navigate to your virtual WAN and, under **Connectivity**, select **Virtual Network Connections**.
-1. Select **+Add connection**.
-1. Select the virtual network from the dropdown.
-1. Set up the routing configuration to associate to a route table. For **Associate Route Table**, select the route table from the dropdown.
-1. Set up the routing configuration to propagate to one or many route tables. For **Propagate to Route Table**, select from the dropdown.
-1. For **Static routes**, configure static routes for Network Virtual Appliance (if applicable). Virtual WAN supports a single next hop IP for static route in a virtual network connection. For example, if you have a separate virtual appliance for ingress and egress traffic flows, it would be best to have the virtual appliances in separate VNETs and attach the VNETs to the virtual hub.
-
-
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Set up routing configuration" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## Next steps
 
-For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
-For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
+* For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+* For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).

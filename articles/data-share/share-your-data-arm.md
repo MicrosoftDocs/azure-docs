@@ -1,12 +1,12 @@
 ---
 title: 'Share outside your org (ARM template) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share and an Azure Resource Manager template (ARM template) in this quickstart.
-author: mumian
-ms.author: jgao
+author: sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 01/03/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.date: 10/27/2022
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Share data using Azure Data Share and ARM template

@@ -2,14 +2,14 @@
 title: Microsoft Azure Data Box self-managed shipping | Microsoft Docs in data 
 description: Describes self-managed shipping workflow for Azure Data Box devices
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 03/31/2022
-ms.author: alkohli
+ms.date: 06/06/2022
+ms.author: shaas
 ---
 
 # Use self-managed shipping for Azure Data Box in the Azure portal
@@ -51,7 +51,7 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    ![Schedule pickup for Azure instructions](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
-   **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
+   If you're returning a Data Box in Brazil, see [Return Azure Data Box](data-box-deploy-picked-up.md) for detailed instructions.
 
    ```
    Subject: Request Azure Data Box Disk pickup for order: <ordername>
@@ -91,22 +91,13 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
     ![An order in Picked up state](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
-9. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+9. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
 
    The **Prepare to ship** step needs to complete without any critical errors. Otherwise, you'll need to run this step again after making the necessary fixes. After the **Prepare to ship** step completes successfully, you can view the authorization code for the drop-off on the device local user interface.
 
    > [!NOTE]
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop off.
 
-   **Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
-
-   ```
-   Subject: Request Azure Data Box Disk drop-off for order: <ordername>
-
-   - Order name
-   - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
-   - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
-   ```
 
 10. If you've received an appointment for drop-off, the order should have **Ready to receive at Azure datacenter** status in the Azure portal. Follow the instructions under **Schedule drop-off** to return the device.
 

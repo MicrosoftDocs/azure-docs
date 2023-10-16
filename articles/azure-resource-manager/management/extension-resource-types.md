@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 08/15/2023
 ---
 
 # Resource types that extend capabilities of other resources
@@ -13,12 +13,16 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * advisorScore
 * configurations
+* predict
 * recommendations
 * suppressions
 
 ## Microsoft.AlertsManagement
 
+* alertRuleRecommendations
 * alerts
+* investigations
+* tenantActivityLogAlerts
 
 ## Microsoft.Authorization
 
@@ -40,13 +44,27 @@ An extension resource is a resource that adds to another resource's capabilities
 * roleEligibilityScheduleInstances
 * roleEligibilityScheduleRequests
 * roleEligibilitySchedules
+* roleManagementAlertConfigurations
+* roleManagementAlertDefinitions
+* roleManagementAlerts
 * roleManagementPolicies
 * roleManagementPolicyAssignments
 
 ## Microsoft.Automanage
 
-* configurationProfileAssignmentIntents
 * configurationProfileAssignments
+
+## Microsoft.AwsConnector
+
+* ec2Instances
+
+## Microsoft.AzureCIS
+
+* plannedQuotas
+
+## Microsoft.AzureStackHCI
+
+* virtualMachineInstances
 
 ## Microsoft.Billing
 
@@ -71,9 +89,11 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * artifactSetDefinitions
 * artifactSetSnapshots
-* chaosProviderConfigurations
-* chaosTargets
 * targets
+
+## Microsoft.ConnectedVMwarevSphere
+
+* virtualmachineinstances
 
 ## Microsoft.Consumption
 
@@ -99,24 +119,35 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * serviceAssociationLinks
 
+## Microsoft.ContainerService
+
+* fleetMemberships
+
 ## Microsoft.CostManagement
 
 * Alerts
 * BenefitRecommendations
 * BenefitUtilizationSummaries
 * Budgets
+* CalculateCost
 * Dimensions
 * Exports
 * ExternalSubscriptions
 * Forecast
+* GenerateBenefitUtilizationSummariesReport
+* GenerateCostDetailsReport
 * GenerateDetailedCostReport
 * Insights
+* MarkupRules
 * Pricesheets
 * Publish
 * Query
 * Reportconfigs
 * Reports
 * ScheduledActions
+* SendMessage
+* Settings
+* StartConversation
 * Views
 
 ## Microsoft.CustomProviders
@@ -131,12 +162,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * backupInstances
 
-## Microsoft.Diagnostics
-
-* apollo
-* insights
-* solutions
-
 ## Microsoft.EventGrid
 
 * eventSubscriptions
@@ -146,9 +171,17 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * guestConfigurationAssignments
 
+## Microsoft.Help
+
+* diagnostics
+* discoverySolutions
+* solutions
+* troubleshooters
+
 ## Microsoft.HybridConnectivity
 
 * endpoints
+* solutionConfigurations
 
 ## microsoft.insights
 
@@ -165,6 +198,7 @@ An extension resource is a resource that adds to another resource's capabilities
 * metricNamespaces
 * metrics
 * myWorkbooks
+* tenantactiongroups
 * topology
 * transactions
 
@@ -176,6 +210,7 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.KubernetesConfiguration
 
 * extensions
+* extensionTypes
 * fluxConfigurations
 * namespaces
 * sourceControlConfigurations
@@ -195,18 +230,34 @@ An extension resource is a resource that adds to another resource's capabilities
 * registrationAssignments
 * registrationDefinitions
 
+## Microsoft.Management
+
+* managementGroups
+
 ## Microsoft.Network
 
-* networkManagerConnections
+* cloudServiceNetworkInterfaces
+* cloudServicePublicIPAddresses
+* cloudServiceSlots
+
+## Microsoft.OperationalInsights
+
+* storageInsightConfigs
 
 ## Microsoft.PolicyInsights
 
 * attestations
+* componentPolicyStates
 * eventGridFilters
 * policyEvents
 * policyStates
 * policyTrackedResources
 * remediations
+
+## Microsoft.Purview
+
+* consents
+* policies
 
 ## Microsoft.Quota
 
@@ -227,25 +278,39 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.Resources
 
 * links
+* snapshots
 * tags
+
+## Microsoft.ScVmm
+
+* VirtualMachineInstances
 
 ## Microsoft.Security
 
 * adaptiveNetworkHardenings
 * advancedThreatProtectionSettings
 * antiMalwareSettings
+* apiCollections
+* applications
 * assessmentMetadata
 * assessments
 * Compliances
+* customRecommendations
 * dataCollectionAgents
+* dataSensitivitySettings
+* defenderForStorageSettings
 * deviceSecurityGroups
+* governanceRules
+* healthReports
 * InformationProtectionPolicies
-* insights
+* integrations
 * jitPolicies
 * secureScoreControls
 * secureScores
+* securityStandards
 * serverVulnerabilityAssessments
 * sqlVulnerabilityAssessments
+* standardAssignments
 
 ## Microsoft.SecurityInsights
 
@@ -253,21 +318,38 @@ An extension resource is a resource that adds to another resource's capabilities
 * alertRules
 * alertRuleTemplates
 * automationRules
+* billingStatistics
 * bookmarks
 * cases
+* contentPackages
+* contentProductPackages
+* contentProductTemplates
+* contentTemplates
+* dataConnectorDefinitions
 * dataConnectors
+* dynamicSummaries
 * enrichment
 * entities
 * entityQueryTemplates
+* exportConnections
 * fileImports
+* hunts
+* huntsessions
 * incidents
 * metadata
 * MitreCoverageRecords
 * onboardingStates
+* overview
+* recommendations
 * securityMLAnalyticsSettings
 * settings
 * sourceControls
 * threatIntelligence
+* triggeredAnalyticsRuleRuns
+* workspaceManagerAssignments
+* workspaceManagerConfigurations
+* workspaceManagerGroups
+* workspaceManagerMembers
 
 ## Microsoft.SerialConsole
 
@@ -275,6 +357,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.ServiceLinker
 
+* daprConfigurations
 * dryruns
 * linkers
 
@@ -284,15 +367,12 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Subscription
 
+* aliases
 * policies
 
 ## microsoft.support
 
 * supporttickets
-
-## Microsoft.WorkloadMonitor
-
-* monitors
 
 ## Next steps
 

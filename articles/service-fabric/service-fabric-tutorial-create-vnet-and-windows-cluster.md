@@ -1,11 +1,15 @@
 ---
 title: Create a Service Fabric cluster running Windows in Azure 
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
 
 This tutorial is part one of a series. You learn how to deploy an Azure Service Fabric cluster running Windows into an [Azure virtual network](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-network-vnet-plan-design-arm.md) by using PowerShell and a template. When you're finished, you have a cluster running in the cloud to which you can deploy applications. To create a Linux cluster that uses the Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -17,7 +21,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a VNET in Azure using PowerShell
 > * Create a key vault and upload a certificate
-> * Setup Azure Active Directory authentication
+> * Setup Microsoft Entra authentication
 > * Configure diagnostics collection
 > * Set up the EventStore service
 > * Set up Azure Monitor logs
@@ -43,7 +47,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
-* Install [Azure PowerShell](/powershell/azure/install-az-ps).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
 * [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
@@ -106,7 +110,7 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 If other application ports are needed, you'll need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Windows Defender
-By default, the [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
+By default, the [Windows Defender antivirus program](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
 
 ```json
 {
@@ -148,24 +152,28 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 |certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
-## Set up Azure Active Directory client authentication
+<a name='set-up-azure-active-directory-client-authentication'></a>
+
+## Set up Microsoft Entra client authentication
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
-* Use Azure Active Directory for client identity.
+* Use Microsoft Entra ID for client identity.
 * Use a certificate for server identity and TLS encryption of HTTP communication.
 
-Setting up Azure Active Directory (Azure AD) to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert). Azure AD enables organizations (known as tenants) to manage user access to applications. 
+Setting up Microsoft Entra ID to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert). Microsoft Entra ID enables organizations (known as tenants) to manage user access to applications. 
 
-A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and [Visual Studio](service-fabric-manage-application-in-visual-studio.md). As a result, you create two Azure AD applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
+A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and [Visual Studio](service-fabric-manage-application-in-visual-studio.md). As a result, you create two Microsoft Entra applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
 
 > [!NOTE]
 > You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
 
-In this article, we assume that you've already created a tenant. If you haven't, start by reading [How to get an Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+In this article, we assume that you've already created a tenant. If you haven't, start by reading [How to get a Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-To simplify steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) to your computer.
+To simplify steps involved in configuring Microsoft Entra ID with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) to your computer.
 
-### Create Azure AD applications and assign users to roles
-Create two Azure AD applications to control access to the cluster: one web application and one native application. After you've created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
+<a name='create-azure-ad-applications-and-assign-users-to-roles'></a>
+
+### Create Microsoft Entra applications and assign users to roles
+Create two Microsoft Entra applications to control access to the cluster: one web application and one native application. After you've created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
 
 Run `SetupApplications.ps1`, and provide the tenant ID, cluster name, and web application reply URL as parameters. Specify usernames and passwords for the users. For example:
 
@@ -176,17 +184,17 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China, Azure Germany), specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), specify the `-Location` parameter.
 
-You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory** > **Properties** and copy the **Directory ID** value.
+You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Microsoft Entra ID** > **Properties** and copy the **Directory ID** value.
 
-*ClusterName* is used to prefix the Azure AD applications that are created by the script. It doesn't need to exactly match the actual cluster name. It only makes it easier to map Azure AD artifacts to the Service Fabric cluster in use.
+*ClusterName* is used to prefix the Microsoft Entra applications that are created by the script. It doesn't need to exactly match the actual cluster name. It only makes it easier to map Microsoft Entra artifacts to the Service Fabric cluster in use.
 
-*WebApplicationReplyUrl* is the default endpoint that Azure AD returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster, which by default is:
+*WebApplicationReplyUrl* is the default endpoint that Microsoft Entra ID returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster, which by default is:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-You're prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. In the tenant's applications in the [Azure portal](https://portal.azure.com), you should see two new entries:
+You're prompted to sign in to an account that has administrative privileges for the Microsoft Entra tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. In the tenant's applications in the [Azure portal](https://portal.azure.com), you should see two new entries:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -201,8 +209,10 @@ The script prints the JSON required by the Resource Manager template when you cr
 },
 ```
 
-### Add Azure AD configuration to use Azure AD for client access
-In the [azuredeploy.json][template], configure Azure AD in the **Microsoft.ServiceFabric/clusters** section. Add parameters for the tenant ID, cluster application ID, and client application ID.  
+<a name='add-azure-ad-configuration-to-use-azure-ad-for-client-access'></a>
+
+### Add Microsoft Entra configuration to use Microsoft Entra ID for client access
+In the [azuredeploy.json][template], configure Microsoft Entra ID in the **Microsoft.ServiceFabric/clusters** section. Add parameters for the tenant ID, cluster application ID, and client application ID.  
 
 ```json
 {
@@ -673,7 +683,7 @@ You're now ready to connect to your secure cluster.
 
 The **Service Fabric** PowerShell module provides many cmdlets for managing Service Fabric clusters, applications, and services. Use the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to the secure cluster. The certificate SHA1 thumbprint and connection endpoint details are found in the output from the previous step.
 
-If you previously set up Azure AD client authentication, run the following command: 
+If you previously set up Microsoft Entra client authentication, run the following command: 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
         -KeepAliveIntervalInSec 10 `
@@ -681,7 +691,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.c
         -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
 ```
 
-If you didn't set up Azure AD client authentication, run the following command:
+If you didn't set up Microsoft Entra client authentication, run the following command:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -707,7 +717,7 @@ Advance to the following tutorial to learn how to scale your cluster.
 > [!div class="checklist"]
 > * Create a VNET in Azure using PowerShell
 > * Create a key vault and upload a certificate
-> * Setup Azure Active Directory authentication
+> * Setup Microsoft Entra authentication
 > * Configure diagnostics collection
 > * Set up the EventStore service
 > * Set up Azure Monitor logs

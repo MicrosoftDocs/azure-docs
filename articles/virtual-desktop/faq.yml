@@ -5,9 +5,9 @@ metadata:
   author: Heidilohr
   ms.topic: faq
   ms.service: virtual-desktop
-  ms.date: 12/17/2021
+  ms.date: 04/27/2023
   ms.author: helohr 
-  ms.custom: devx-track-azurepowershell
+  ms.custom:
   manager: femila
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
@@ -21,38 +21,38 @@ sections:
         answer: |
           If you want to create host pools and other objects, you must be assigned the Contributor role on the subscription or resource group you're working with.
           
-          You must be assigned the User Access Admin role on an app group to publish app groups to users or user groups.
+          You must be assigned the User Access Admin role on an application group to publish application groups to users or user groups.
           
           To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example:
           
-          ```powershell
-          "actions": [
-          "Microsoft.Resources/deployments/operations/read",
-          "Microsoft.Resources/tags/read",
-          "Microsoft.Authorization/roleAssignments/read",
-          "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
-          "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-          "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
-          ],
-          "notActions": [],
-          "dataActions": [],
-          "notDataActions": []
+          ```json
+              "actions": [
+                  "Microsoft.Resources/deployments/operations/read",
+                  "Microsoft.Resources/tags/read",
+                  "Microsoft.Authorization/roleAssignments/read",
+                  "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
+                  "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+                  "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
+              ],
+              "notActions": [],
+              "dataActions": [],
+              "notDataActions": []
           }
           ```
           
       - question: |
-         Does Azure Virtual Desktop support split Azure Active Directory models?
+         Can I deploy Azure Virtual Desktop across multiple Microsoft Entra tenants?
         answer: |
-          When a user is assigned to an app group, the service does a simple Azure role assignment. As a result, the user’s Azure Active Directory (AD) and the app group’s Azure AD must be in the same location. All service objects, such as host pools, app groups, and workspaces, also must be in the same Azure AD as the user.
-          
-          You can create virtual machines (VMs) in a different Azure AD as long as you sync the Active Directory with the user's Azure AD in the same virtual network (VNET).
+          Users must be in the same Microsoft Entra tenant as their assigned workspace, host pool, and app group. Having everything in the same tenant lets you assign users to proper role-based access control (RBAC) roles so they can access their resources.
+
+          However, you can deploy virtual machines (VMs) in a different Microsoft Entra tenant if they're joined to either the same AD as the user or an AD that has a trust relationship with the user's AD.
           
       - question: |
          What are location restrictions?
         answer: |
-          All service resources have a location associated with them. A host pool’s location determines which geography the service metadata for the host pool is stored in. An app group can't exist without a host pool. If you add apps to a RemoteApp app group, you'll also need a session host to determine the start menu apps. For any app group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the app group's location should be the same as the host pool's.
+          All service resources have a location associated with them. A host pool's location determines which geography the service metadata for the host pool is stored in. An application group can't exist without a host pool. If you add apps to a RemoteApp application group, you'll also need a session host to determine the start menu apps. For any application group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the application group's location should be the same as the host pool's.
           
-          Workspaces also must be in the same location as their app groups. Whenever the workspace updates, the related app group updates along with it. Like with app groups, the service requires that all workspaces are associated with app groups created in the same location.
+          Workspaces also must be in the same location as their application groups. Whenever the workspace updates, the related application group updates along with it. Like with application groups, the service requires that all workspaces are associated with application groups created in the same location.
           
       - question: |
          How do you expand an object's properties in PowerShell?
@@ -90,7 +90,7 @@ sections:
       - question: |
          Does Azure Virtual Desktop support guest users?
         answer: |
-          Azure Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would manage the guest users' user objects in both Azure AD and Active Directory like local accounts.
+          Azure Virtual Desktop doesn't support Microsoft Entra guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Microsoft Entra ID. The other company would manage the guest users' user objects in both Microsoft Entra ID and Active Directory like local accounts.
           
           You can't use your own licenses for the benefit of a third party. Also, Azure Virtual Desktop doesn't currently support Microsoft Account (MSA).
           
@@ -100,7 +100,7 @@ sections:
 
       - question: |
          How does Azure Virtual Desktop handle backups?
-        answer: There are multiple options in Azure for handling backup. You can use Azure backup, Site Recovery, and snapshots.
+        answer: There are multiple options in Azure Virtual Desktop for handling backup. At the Compute level, backup is recommended only for Personal Host Pools through [Azure Backup](../backup/backup-azure-vms-introduction.md). At the Storage level, recommended backup solution varies based on the backend storage used to store user profiles. If Azure Files Share is used, [Azure Backup for File Share](../backup/azure-file-share-backup-overview.md) is recommended. If Azure NetApp Files is used, [Snaphots/Policies](../azure-netapp-files/snapshots-manage-policy.md) or [Azure NetApp Files Backup](../azure-netapp-files/backup-introduction.md) are tools available.
 
       - question: |
          Does Azure Virtual Desktop support third-party collaboration apps?
@@ -131,14 +131,14 @@ sections:
           
           - The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
           
-          - There are restrictions on how many cores you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, you can create 350 cores. You'll need to divide 350 by either the default number of cores per VM or your own core limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You'll need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](../virtual-machines/quotas.md).
           
-          - The VM prefix name and the number of VMs is fewer than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+          - The VM prefix name can't exceed 11 characters, so that when a sequential number is added the total name is a maximum of 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
           
       - question: |
          Can I manage Azure Virtual Desktop environments with Azure Lighthouse?
         answer: |
-          Azure Lighthouse doesn't fully support managing Azure Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
+          Azure Lighthouse doesn't fully support managing Azure Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Microsoft Entra ID tenant user management, Lighthouse customers still need to sign in to the Microsoft Entra ID that customers use to manage users.
           
           You also can't use CSP sandbox subscriptions with the Azure Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
           
@@ -180,4 +180,19 @@ sections:
       - question: |
          When I'm testing migration, can I have the two different Azure Virtual Desktop environments exist in the same tenant?
         answer: |
-          Yes. You can have both deployments within the same Azure Active Directory tenant.
+          Yes. You can have both deployments within the same Microsoft Entra tenant.
+
+      - question: |
+         Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?
+        answer: |
+          No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported with Azure Virtual Desktop.
+
+      - question: |
+         If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but the VM region stays online?
+        answer: |
+         If the region you stored your host pool metadata in goes down, Azure Virtual Desktop won't accept new user connections to the session host VMs in that host pool. However, any existing sessions on the session host VMs in that host pool will remain connected and unaffected.
+
+      - question: |
+         What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
+        answer: |
+         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you'll receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).

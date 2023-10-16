@@ -5,15 +5,15 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.author: sawinark
-author: swinarko
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 02/15/2022
+ms.author: chugu
+author: chugugrace
+ms.custom: seo-lt-2019
+ms.date: 07/17/2023
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure portal
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity in Azure Data Factory and Synapse Pipelines portal. 
 
@@ -25,13 +25,13 @@ Create an Azure-SSIS integration runtime (IR) if you don't have one already by f
 In this step, you use the Data Factory UI or app to create a pipeline. You add an Execute SSIS Package activity to the pipeline and configure it to run your SSIS package. 
 
 # [Azure Data Factory](#tab/data-factory)
-1. On your Data Factory overview or home page in the Azure portal, select the **Author & Monitor** tile to start the Data Factory UI or app in a separate tab. 
+1. On your Data Factory overview or home page in the Azure portal, select the **Open Azure Data Factory Studio** tile to start the Data Factory UI or app in a separate tab. 
 
-   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Data Factory home page":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
 
    On the home page, select **Orchestrate**. 
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/orchestrate-button.png" alt-text="Screenshot that shows the Orchestrate button on the Azure Data Factory home page.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
 
@@ -41,7 +41,7 @@ Navigate to the Integrate tab in Synapse Studio (represented by the pipeline ico
 
 ---
 
-1. In the **Activities** toolbox, expand **General**. Then drag an **Execute SSIS Package** activity to the pipeline designer surface. 
+1. In the **Activities** toolbox, search for **SSIS**. Then drag an **Execute SSIS Package** activity to the pipeline designer surface. 
 
    :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png" alt-text="Drag an Execute SSIS Package activity to the designer surface"::: 
 
@@ -97,13 +97,13 @@ On the **Settings** tab of Execute SSIS Package activity, complete the following
 
    1. If your Azure-SSIS IR isn't running or the **Manual entries** check box is selected, enter your package and environment paths from SSISDB directly in the following formats: `<folder name>/<project name>/<package name>.dtsx` and `<folder name>/<environment name>`.
 
-      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="Set properties on the Settings tab - Manual":::
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings-2.png" alt-text="Set properties on the Settings tab - Manual":::
 
 #### Package location: File System (Package)
 
 **File System (Package)** as your package location is automatically selected if your Azure-SSIS IR was provisioned without SSISDB or you can select it yourself. If it's selected, complete the following steps.
 
-:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png" alt-text="Set properties on the Settings tab - File System (Package)":::
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings-3.png" alt-text="Set properties on the Settings tab - File System (Package)":::
    
    1. Specify your package to run by providing a Universal Naming Convention (UNC) path to your package file (with `.dtsx`) in the **Package path** box. You can browse and select your package by selecting **Browse file storage** or enter its path manually. For example, if you store your package in Azure Files, its path is `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
@@ -133,7 +133,7 @@ For all UNC paths previously mentioned, the fully qualified file name must be fe
 
 If you select **File System (Project)** as your package location, complete the following steps.
 
-:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png" alt-text="Set properties on the Settings tab - File System (Project)":::
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings-4.png" alt-text="Set properties on the Settings tab - File System (Project)":::
 
    1. Specify your package to run by providing a UNC path to your project file (with `.ispac`) in the **Project path** box and a package file (with `.dtsx`) from your project in the **Package name** box. You can browse and select your project by selecting **Browse file storage** or enter its path manually. For example, if you store your project in Azure Files, its path is `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
@@ -245,7 +245,7 @@ On the **Connection Managers** tab of Execute SSIS Package activity, complete th
 
       For example, without modifying your original package on SSDT, you can convert its on-premises-to-on-premises data flows running on SQL Server into on-premises-to-cloud data flows running on SSIS IR in ADF by overriding the values of **ConnectByProxy**, **ConnectionString**, and **ConnectUsingManagedIdentity** properties in existing connection managers at run-time.
       
-      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
+      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Microsoft Entra authentication with ADF managed identity, see [Configuring Microsoft Entra authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
 
       :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png" alt-text="Set properties from SSDT on the Connection Managers tab":::
    

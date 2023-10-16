@@ -2,9 +2,9 @@
 title: Migration Guide for GPU Compute Workloads in Azure
 description: NC, ND, NCv2-series migration guide.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 02/27/2023
 ---
  
 # Migration Guide for GPU Compute Workloads in Azure
@@ -41,15 +41,27 @@ The [NC (v1)-Series](./nc-series.md) VMs are Azure’s oldest GPU-accelerated co
 
 Today, given the relatively low compute performance of the aging NVIDIA K80 GPU platform, in comparison to VM series featuring newer GPUs, a popular use case for the NC-series is real-time inference and analytics workloads, where an accelerated VM must be available in a steady state to serve request from applications as they arrive. In these cases the volume or batch size of requests may be insufficient to benefit from more performant GPUs. NC VMs are also popular for developers and students learning about, developing for, or experimenting with GPU acceleration, who need an inexpensive cloud-based CUDA deployment target upon which to iterate that doesn’t need to perform to production levels.
 
-In general, NC-Series customers should consider moving directly across from NC sizes to [NC T4 v3](./nct4-v3-series.md) sizes, Azure’s new GPU-accelerated platform for light workloads powered by NVIDIA Tesla T4 GPUs, although other VM SKUs should be considered for workloads running on InfiniBand-enabled NC-Series sizes.
+In general, NC-Series customers should consider moving directly across from NC sizes to [NC T4 v3](./nct4-v3-series.md) sizes, Azure’s new GPU-accelerated platform for light workloads powered by NVIDIA Tesla T4 GPUs.
 
 | Current VM Size | Target VM Size | Difference in Specification | 
 |---|---|---|
 Standard_NC6 <br> Standard_NC6_Promo | Standard_NC4as_T4_v3 <br>or<br>Standard_NC8as_T4 | CPU: Intel Haswell vs AMD Rome<br>GPU count: 1 (same)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 4 (-2) or 8 (+2)<br>Memory GiB: 16 (-40) or 56 (same)<br>Temp Storage (SSD) GiB: 180 (-160) or 360 (+20)<br>Max data disks: 8 (-4) or 16 (+4)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+)| 
 | Standard_NC12<br>Standard_NC12_Promo | Standard_NC16as_T4_v3 | CPU: Intel Haswell vs AMD Rome<br>GPU count: 1 (-1)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 16 (+4)<br>Memory GiB: 110 (-2)<br>Temp Storage (SSD) GiB: 360 (-320)<br>Max data disks: 48 (+16)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
 | Standard_NC24<br>Standard_NC24_Promo | Standard_NC64as_T4_v3* | CPU: Intel Haswell vs AMD Rome<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 64 (+40)<br>Memory GiB: 440 (+216)<br>Temp Storage (SSD) GiB: 2880 (+1440)<br>Max data disks: 32 (-32)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
-|Standard_NC24r<br>Standard_NC24r_Promo<br><br>(InfiniBand clustering-enabled sizes) | Standard_NC24rs_v3* | CPU: Intel Haswell vs Intel Broadwell<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Keppler vs. Volta (+2 generations)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 24 (+0)<br>Memory GiB: 448 (+224)<br>Temp Storage (SSD) GiB: 2948 (+1440)<br>Max data disks: 32 (same)<br>Accelerated Networking: No (Same)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: Yes | 
+| Standard_NC24r<br>Standard_NC24r_Promo | Standard_NC64as_T4_v3* | CPU: Intel Haswell vs AMD Rome<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 64 (+40)<br>Memory GiB: 440 (+216)<br>Temp Storage (SSD) GiB: 2880 (+1440)<br>Max data disks: 32 (-32)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) <br>InfiniBand interconnect: No  |  
 
+### NC v2-Series VMs featuring NVIDIA Tesla P100 GPUs
+
+The NC v2-series virtual machines are a flagship platform originally designed for AI and Deep Learning workloads. They offered excellent performance for Deep Learning training, with per-GPU performance roughly 2x that of the original NC-Series and are powered by NVIDIA Tesla P100 GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. Like the NC and ND -Series, the NC v2-Series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
+
+In general, NCv2-Series customers should consider moving directly across to [NC A100 v4](./nc-a100-v4-series.md) sizes, Azure’s new GPU-accelerated platform  powered by NVIDIA Ampere A100 PCIe GPUs.   
+
+| Current VM Size | Target VM Size | Difference in Specification | 
+|---|---|---|
+| Standard_NC6s_v2 | Standard_NC24ads_A100_v4 | CPU: Intel Broadwell vs AMD Milan <br>GPU count: 1 (same)<br>GPU generation: NVIDIA Pascal vs. Ampere (+2 generation)<br>GPU memory (GiB per GPU): 80 (+64)<br>vCPU: 24 (+18)<br>Memory GiB: 220 (+108)<br>Temp Storage (SSD) GiB: 1123 (+387)<br>Max data disks: 12 (same)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
+| Standard_NC12s_v2 | Standard_NC48ads_A100_v4 | CPU: Intel Broadwell vs AMD Milan<br>GPU count: 2 (same)<br>GPU generation: NVIDIA Pascal vs. Ampere (+2 generations)<br>GPU memory (GiB per GPU): 80 (+64)<br>vCPU: 48 (+36)<br>Memory GiB: 440 (+216)<br>Temp Storage (SSD) GiB: 2246 (+772)<br>Max data disks: 24 (same)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
+| Standard_NC24s_v2 | Standard_NC96ads_A100_v4 | CPU: Intel Broadwell vs AMD Milan<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Pascal vs. Ampere (+2 generations)<br>GPU memory (GiB per GPU): 80 (+64)<br>vCPU: 96 (+72)<br>Memory GiB: 880 (+432)<br>Temp Storage (SSD) GiB: 4492 (+1544)<br>Max data disks: 32 (same)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
+| Standard_NC24rs_v2 | Standard_NC96ads_A100_v4 | CPU: Intel Broadwell vs AMD Milan <br>GPU count: 4 (Same)<br>GPU generation: NVIDIA Pascal vs. Ampere (+2 generations)<br>GPU memory (GiB per GPU): 80 (+64)<br>vCPU: 96 (+72)<br>Memory GiB: 880 (+432)<br>Temp Storage (SSD) GiB: 4492 (+1544)<br>Max data disks: 32 (same)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: No (-)| 
 
 ### ND-Series VMs featuring NVIDIA Tesla P40 GPUs
 
@@ -57,21 +69,12 @@ The ND-series virtual machines are a midrange platform originally designed for A
 
 | Current VM Size | Target VM Size | Difference in Specification | 
 |---|---|---|
-|Standard_ND6 | Standard_NC4as_T4_v3<br>or<br>Standard_NC8as_T4 | CPU: Intel Broadwell vs AMD Rome<br>GPU count: 1 (same)<br>GPU generation: NVIDIA Pascal vs. Turing (+1 generation)<br>GPU memory (GiB per GPU): 16 (-8)<br>vCPU: 4 (-2) or 8 (+2)<br>Memory GiB: 16 (-40) or 56 (-56)<br>Temp Storage (SSD) GiB: 180 (-552) or 360 (-372)<br>Max data disks: 8 (-4) or 16 (+4)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
+|Standard_ND6 | Standard_NC4as_T4_v3<br>or<br>Standard_NC8as_T4_v3 | CPU: Intel Broadwell vs AMD Rome<br>GPU count: 1 (same)<br>GPU generation: NVIDIA Pascal vs. Turing (+1 generation)<br>GPU memory (GiB per GPU): 16 (-8)<br>vCPU: 4 (-2) or 8 (+2)<br>Memory GiB: 16 (-40) or 56 (-56)<br>Temp Storage (SSD) GiB: 180 (-552) or 360 (-372)<br>Max data disks: 8 (-4) or 16 (+4)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
 | Standard_ND12 | Standard_NC16as_T4_v3	| CPU: Intel Broadwell vs AMD Rome<br>GPU count: 1 (-1)<br>GPU generation: NVIDIA Pascal vs. Turing (+1 generations)<br>GPU memory (GiB per GPU): 16 (-8)<br>vCPU: 16 (+4)<br>Memory GiB: 110 (-114)<br>Temp Storage (SSD) GiB: 360 (-1,114)<br>Max data disks: 48 (+16)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
 | Standard_ND24 | Standard_NC64as_T4_v3* | CPU: Intel Broadwell vs AMD Rome<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Pascal vs. Turing (+1 generations)<br>GPU memory (GiB per GPU): 16 (-8)<br>vCPU: 64 (+40)<br>Memory GiB: 440 (same)<br>Temp Storage (SSD) GiB: 2880 (same)<br>Max data disks: 32 (same)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
-| Standard_ND24r | Standard_NC24rs_v3* | CPU: Intel Broadwell (Same)<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Pascal vs. Volta (+1 generation)<br>GPU memory (GiB per GPU): 16 (-8)<br>vCPU: 24 (+0)<br>Memory GiB: 448 (same)<br>Temp Storage (SSD) GiB: 2948 (same)<br>Max data disks: 32 (same)<br>Accelerated Networking: No (Same)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: Yes (Same) | 
+| Standard_ND24r |Standard_ND96amsr_A100_v4 | CPU: Intel Broadwell vs AMD Rome<br>GPU count: 8 (+4)<br>GPU generation: NVIDIA Pascal vs. Ampere (+2 generation)<br>GPU memory (GiB per GPU): 80 (+56)<br>vCPU: 96 (+72)<br>Memory GiB: 1900 (+1452)<br>Temp Storage (SSD) GiB: 6400 (+3452)<br>Max data disks: 32 (same)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: Yes (Same) | 
 
-### NC v2-Series VMs featuring NVIDIA Tesla P100 GPUs
 
-The NC v2-series virtual machines are a flagship platform originally designed for AI and Deep Learning workloads. They offered excellent performance for Deep Learning training, with per-GPU performance roughly 2x that of the original NC-Series and are powered by NVIDIA Tesla P100 GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. Like the NC and ND -Series, the NC v2-Series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
-
-| Current VM Size | Target VM Size | Difference in Specification | 
-|---|---|---|
-| Standard_NC6s_v2 | Standard_NC6s_v3 | CPU: Intel Broadwell (Same)<br>GPU count: 1 (same)<br>GPU generation: NVIDIA Pascal vs. Volta (+1 generation)<br>GPU memory (GiB per GPU): 16 (same)<br>vCPU: 6 (same)<br>Memory GiB: 112 (same)<br>Temp Storage (SSD) GiB: 736 (same)<br>Max data disks: 12 (same)<br>Accelerated Networking: No (same)<br>Premium Storage: Yes (+) | 
-| Standard_NC12s_v2 | Standard_NC12s_v3 | CPU: Intel Broadwell (Same)<br>GPU count: 2 (same)<br>GPU generation: NVIDIA Pascal vs. Volta (+1 generations)<br>GPU memory (GiB per GPU): 16 (same)<br>vCPU: 12 (same)<br>Memory GiB: 112 (same)<br>Temp Storage (SSD) GiB: 1474 (same)<br>Max data disks: 24 (same)<br>Accelerated Networking: No (same)<br>Premium Storage: Yes (+) | 
-| Standard_NC24s_v2 | Standard_NC24s_v3 | CPU: Intel Broadwell (same)<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Pascal vs. Volta (+1 generations)<br>GPU memory (GiB per GPU): 16 (same)<br>vCPU: 24 (same)<br>Memory GiB: 448 (same)<br>Temp Storage (SSD) GiB: 2948 (same)<br>Max data disks: 32 (same)<br>Accelerated Networking: No (same)<br>Premium Storage: Yes (+) | 
-| Standard_NC24rs_v2 | Standard_NC24rs_v3* | CPU: Intel Broadwell (same)<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Pascal vs. Volta (+1 generations)<br>GPU memory (GiB per GPU): 16 (same)<br>vCPU: 24 (same)<br>Memory GiB: 448 (same)<br>Temp Storage (SSD) GiB: 2948 (same)<br>Max data disks: 32 (same)<br>Accelerated Networking: No (same)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: Yes (Same)| 
 
 
 ## Migration Steps

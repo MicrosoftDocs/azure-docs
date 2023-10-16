@@ -4,8 +4,7 @@ description: Learn how Azure protects customer data through data segregation, da
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/8/2022
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---
@@ -27,8 +26,6 @@ Access to customer data by Microsoft operations and support personnel is denied 
 
 Azure support personnel are assigned unique corporate Active Directory accounts by Microsoft. Azure relies on Microsoft corporate Active Directory, managed by Microsoft Information Technology (MSIT), to control access to key information systems. Multi-factor authentication is required, and access is granted only from secure consoles.
 
-All access attempts are monitored and can be displayed via a basic set of reports.
-
 ## Data protection
 Azure provides customers with strong data security, both by default and as customer options.
 
@@ -38,12 +35,12 @@ Azure provides customers with strong data security, both by default and as custo
 
 **In-transit data protection**: Microsoft provides a number of options that can be utilized by customers for securing data in transit internally within the Azure network and externally across the Internet to the end user.  These include communication through Virtual Private Networks (utilizing IPsec/IKE encryption), Transport Layer Security (TLS) 1.2 or later (via Azure components such as Application Gateway or Azure Front Door), protocols directly on the Azure virtual machines (such as Windows IPsec or SMB), and more. 
 
-Additionally, "encryption by default" using MACsec (an IEEE standard at the data-link layer) is enabled for all Azure traffic travelling between Azure datacenters to ensure confidentiality and integrity of customer data. 
+Additionally, "encryption by default" using MACsec (an IEEE standard at the data-link layer) is enabled for all Azure traffic traveling between Azure datacenters to ensure confidentiality and integrity of customer data. 
 
 **Data redundancy**: Microsoft helps ensure that data is protected if there is a cyberattack or physical damage to a datacenter. Customers may opt for:
 
-- In-country/in-region storage for compliance or latency considerations.
-- Out-of-country/out-of-region storage for security or disaster recovery purposes.
+- In-country/region storage for compliance or latency considerations.
+- Out-of-country/region storage for security or disaster recovery purposes.
 
 Data can be replicated within a selected geographic area for redundancy but cannot be transmitted outside it. Customers have multiple options for replicating data, including the number of copies and the number and location of replication datacenters.
 

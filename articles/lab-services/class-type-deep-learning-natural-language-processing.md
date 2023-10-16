@@ -2,7 +2,7 @@
 title: Set up a lab focused on deep learning using Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab focused on deep learning in natural language processing (NLP) using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -18,7 +18,7 @@ Students taking an NLP class get a Linux virtual machine (VM) to learn how to ap
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 ### Lab plan settings
 
@@ -35,16 +35,16 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 | Lab settings | Value |
 | ------------ | ------------------ |
 | Virtual machine (VM) size | **Small GPU (Compute)**. This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
-| VM image | [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). This image provides deep learning frameworks and tools for machine learning and data science. To view the full list of installed tools on this image, see [What’s included on the DSVM?](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
+| VM image | [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux). This image provides deep learning frameworks and tools for machine learning and data science. To view the full list of installed tools on this image, see [What's included on the DSVM?](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Enable remote desktop connection | Optionally, check **Enable remote desktop connection**. The Data Science image is already configured to use X2Go so that teachers and students can connect using a GUI remote desktop. X2Go *doesn't* require the **Enable remote desktop connection** setting to be enabled. |
-| Template Virtual Machine Settings | Optionally, choose **Use a virtual machine image without customization**. If you're using the [April 2022 Update (preview)](lab-services-whats-new.md) and the DSVM has all the tools that your class requires, you can skip the template customization step. |
+| Template Virtual Machine Settings | Optionally, choose **Use a virtual machine image without customization**. If you're using the [August 2022 Update](lab-services-whats-new.md) and the DSVM has all the tools that your class requires, you can skip the template customization step. |
 
 > [!IMPORTANT]
 > We recommend that you use the X2Go with the Data Science image. However, if you choose to use RDP instead, you'll need to connect to the Linux VM using SSH and install the RDP and GUI packages before publishing the lab. Then, students can connect to the Linux VM using RDP later. For more information, see [Enable graphical remote desktop for Linux VMs](how-to-enable-remote-desktop-linux.md).
 
 ## Template machine configuration
 
-The Data Science Virtual Machine for Linux image provides the necessary deep learning frameworks and tools required for this type of class. If you chose **Use a virtual machine image without customization** when creating the lab, the ability to customize the template machine will be disabled. You can [publish the lab](tutorial-setup-lab.md#publish-a-lab) when you're ready.
+The Data Science Virtual Machine for Linux image provides the necessary deep learning frameworks and tools required for this type of class. If you chose **Use a virtual machine image without customization** when creating the lab, the ability to customize the template machine will be disabled. You can [publish the lab](tutorial-setup-lab.md#publish-lab) when you're ready.
 
 ## Cost
 

@@ -1,12 +1,15 @@
 ---
-author: timwarner-msft
+author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/08/2022
-ms.author: timwarner
+ms.date: 10/10/2023
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Device Update for IoT Hub accounts should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27d4c5ec-8820-443f-91fe-1215e96f64b2) |Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Azure Device Update for IoT Hub accounts, data leakage risks are reduced. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/DeviceUpdate_PrivateLink_AuditIfNotExists.json) |
+|[Configure Azure Device Update for IoT Hub accounts to disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27573ebe-7ef3-4472-a8e1-33aef9ea65c5) |Disabling the public network access property improves security by ensuring your Device Update for IoT Hub can only be accessed from a private endpoint. This policy disables public network access on Device Update for IoT Hub resources. |Modify, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/DeviceUpdate_DisablePublicNetworkAccess_Modify.json) |
+|[Configure Azure Device Update for IoT Hub accounts with private endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5b9d063f-c5fd-4750-a489-1258d1fefcbf) |A private endpoint is a private IP address allocated inside a customer-owned virtual network via which an Azure resource is reachable. This policy deploys a private endpoint for your Device Update for IoT hub to allow services inside your virtual network to reach this resource without requiring traffic to be sent to Device Update for IoT Hub's public endpoint. |DeployIfNotExists, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/DeviceUpdate_DeployPrivateEndpoint_Deploy.json) |
+|[Public network access for Azure Device Update for IoT Hub accounts should be disabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F510ec8b2-cb9e-461d-b7f3-6b8678c31182) |Disabling the public network access property improves security by ensuring your Azure Device Update for IoT Hub accounts can only be accessed from a private endpoint. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/DeviceUpdate_DisablePublicNetworkAccess_AuditDeny.json) |

@@ -8,6 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 02/09/2022
 ms.author: kengaderdus
@@ -61,7 +62,7 @@ In the `index.js` file, add the following code:
 
 Take note of the following code snippets in the `index.js`file:
 
-- Imports the passport Azure AD library
+- Imports the passport Microsoft Entra library
         
     :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_import_azuread_lib":::
         
@@ -69,7 +70,7 @@ Take note of the following code snippets in the `index.js`file:
           
     :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_azureadb2c_options":::
 
-- Instantiate the passport Azure AD library with the Azure AD B2C options
+- Instantiate the passport Microsoft Entra library with the Azure AD B2C options
            
     :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_init_azuread_lib":::
 
@@ -94,7 +95,7 @@ Add configurations to a configuration file. The file contains information about 
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-| credentials | tenantName | The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `fabrikamb2c`).|
+| credentials | tenantName | The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `fabrikamb2c`).|
 | credentials |clientID | The web API application ID. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|
 | resource | scope | The scopes of your web API application registration such as `[tasks.read]`. To learn how to get your web API scope, see [Prerequisites](#prerequisites).|
@@ -184,7 +185,7 @@ npm install @azure/msal-node
     - `authCodeRequest`: The configuration object used to retrieve authorization code. 
     - `tokenRequest`: The configuration object used to acquire a token by authorization code.
     - `sessionConfig`: The configuration object for express session. 
-    - `getAuthCode`: A method that creates the URL of the authorization request, letting the user input credentials and consent to the application. It uses the `getAuthCodeUrl` method, which is defined in the [ConfidentialClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.confidentialclientapplication.html) class.
+    - `getAuthCode`: A method that creates the URL of the authorization request, letting the user input credentials and consent to the application. It uses the `getAuthCodeUrl` method, which is defined in the [ConfidentialClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.ConfidentialClientApplication.html) class.
     
     **Express routes**:
     - `/`: 
@@ -203,7 +204,7 @@ npm install @azure/msal-node
         - If the `accessToken` isn't in the session, call the anonymous API endpoint (`http://localhost:5000/public`), otherwise, call the protected API endpoint (`http://localhost:5000/hello`).
     - `/signout`:
         - Signs out the user.
-        - clears the web app session is and makes an http call to the Azure AD B2c logout endpoint.
+        - clears the web app session is and makes an http call to the Azure AD B2C logout endpoint.
 
 
 ## Step 3: Run the web app and API

@@ -1,12 +1,12 @@
 ---
 title: Av2-series 
 description: Specifications for the Av2-series VMs.
-author: migerdes
+author: rishabv90
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 12/21/2022
+ms.author: risverma
 ---
 
 # Av2-series

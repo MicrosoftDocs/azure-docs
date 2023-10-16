@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub AMQP support | Microsoft Docs
-description: Developer guide - support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP Protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
+description: This article describes support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP Protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -28,7 +28,7 @@ The following information is required for the service client:
 | IoT hub hostname | `<iot-hub-name>.azure-devices.net` |
 | Key name | `service` |
 | Access key | A primary or secondary key that's associated with the service |
-| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
+| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#sas-token-structure).
 
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to connect to an IoT hub via a sender link.
 
@@ -38,7 +38,7 @@ import urllib
 import time
 
 # Use generate_sas_token implementation available here:
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -153,7 +153,7 @@ import uamqp
 import urllib
 import time
 
-# Use the generate_sas_token implementation that's available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# Use the generate_sas_token implementation that's available here: https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -223,7 +223,7 @@ The following information is required for the device client:
 |-------------|--------------|
 | IoT hub hostname | `<iot-hub-name>.azure-devices.net` |
 | Access key | A primary or secondary key that's associated with the device |
-| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
+| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#sas-token-structure).
 
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to connect to an IoT hub via a sender link.
 
@@ -233,7 +233,7 @@ import urllib
 import uuid
 
 # Use generate_sas_token implementation available here:
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -373,4 +373,4 @@ To learn more about IoT Hub messaging, see:
 
 * [Cloud-to-device messages](./iot-hub-devguide-messages-c2d.md)
 * [Support for additional protocols](../iot-edge/iot-edge-as-gateway.md)
-* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](./iot-hub-mqtt-support.md)
+* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](../iot/iot-mqtt-connect-to-iot-hub.md)

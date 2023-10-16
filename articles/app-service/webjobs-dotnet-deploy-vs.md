@@ -5,7 +5,7 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: "devx-track-csharp, vs-azure"
+ms.custom: devx-track-csharp, vs-azure, devx-track-dotnet
 ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
@@ -13,7 +13,7 @@ ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 
 # Develop and deploy WebJobs using Visual Studio
 
-This article explains how to use Visual Studio to deploy a console app project to a web app in [Azure App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run background tasks with WebJobs in Azure App Service](webjobs-create.md).
+This article explains how to use Visual Studio to deploy a console app project to a web app in [Azure App Service](overview.md) as an [Azure WebJob](./webjobs-create.md). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run background tasks with WebJobs in Azure App Service](webjobs-create.md).
 
 You can choose to develop a WebJob that runs as either a [.NET Core app](#webjobs-as-net-core-console-apps) or a [.NET Framework app](#webjobs-as-net-framework-console-apps). Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as either .NET Core apps or .NET Framework apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different for .NET Core projects than for .NET Framework projects.
 
@@ -51,7 +51,7 @@ Deploy a project as a WebJob by itself, or link it to a web project so that it a
 
 ### Prerequisites
 
-Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Install Visual Studio 2022 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing console app project
 
@@ -98,7 +98,7 @@ To create a new WebJobs-enabled project, use the console app project template an
     Create a project that is configured to deploy automatically as a WebJob when you deploy a web project in the same solution. Use this option when you want to run your WebJob in the same web app in which you run the related web application.
 
 > [!NOTE]
-> The WebJobs new-project template automatically installs NuGet packages and includes code in *Program.cs* for the [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). If you don't want to use the WebJobs SDK, remove or change the `host.RunAndBlock` statement in *Program.cs*.
+> The WebJobs new-project template automatically installs NuGet packages and includes code in *Program.cs* for the [WebJobs SDK](./webjobs-sdk-get-started.md). If you don't want to use the WebJobs SDK, remove or change the `host.RunAndBlock` statement in *Program.cs*.
 > 
 > 
 
@@ -171,7 +171,7 @@ Some of the fields in this dialog box correspond to fields on the **Add WebJob**
 
 WebJob deployment information:
 
-* For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+* For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 
 * If you deploy a WebJob, and then decide you want to change the type of WebJob and redeploy, delete the *webjobs-publish-settings.json* file. Doing so causes Visual Studio to redisplay the publishing options, so you can change the type of WebJob.
 
@@ -228,7 +228,7 @@ If you enable **Always on** in Azure, you can use Visual Studio to change the We
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-1. In the **Publish** tab, choose **Edit**. 
+1. In the **Settings** section, choose **Show all settings**. 
 
 1. In the **Profile settings** dialog box, choose **Continuous** for **WebJob Type**, and then choose **Save**.
 

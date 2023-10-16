@@ -1,14 +1,12 @@
 ---
-title: Continuous integration and deployment for dedicated SQL pool 
+title: Continuous integration and deployment for dedicated SQL pool
 description: Enterprise-class Database DevOps experience for dedicated SQL pool in Azure Synapse Analytics with built-in support for continuous integration and deployment using Azure Pipelines.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: how-to
-ms.subservice: sql-dw 
-ms.date: 02/04/2020
 ms.author: wiassaf
-ms.reviewer: igorstan
+ms.date: 02/04/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 # Continuous integration and deployment for dedicated SQL pool in Azure Synapse Analytics

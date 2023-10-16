@@ -9,10 +9,14 @@
   items:
   - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
+  - name: Deploy Bastion - ARM template
+    href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
   - name: Deploy Bastion with manual settings
     href: tutorial-create-host-portal.md
+  - name: Deploy Bastion with DDoS protection
+    href: tutorial-protect-bastion-host.md
 - name: Concepts
   items:
   - name: Support for working remotely
@@ -45,14 +49,18 @@
       href: create-host-cli.md
   - name: Configure Bastion settings
     items:
-    - name: Upgrade a SKU
+    - name: View or upgrade SKU
       href: upgrade-sku.md
+    - name: Configure native client support
+      href: native-client.md
     - name: Configure host scaling
       items:
       - name: Azure portal
         href: configure-host-scaling.md
       - name: Azure PowerShell
         href: configure-host-scaling-powershell.md
+    - name: Configure a shareable link
+      href: shareable-link.md
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
   - name: Connect to a virtual machine
@@ -65,12 +73,16 @@
         href: bastion-connect-vm-ssh-windows.md
     - name: Linux VM
       items: 
-      - name: RDP connection
-        href: bastion-connect-vm-rdp-linux.md
       - name: SSH connection
         href: bastion-connect-vm-ssh-linux.md
   - name: Connect to a VM - native client
-    href: connect-native-client-windows.md
+    items:
+    - name: Connect from Windows client
+      href: connect-vm-native-client-windows.md
+    - name: Connect from Linux client
+      href: connect-vm-native-client-linux.md
+  - name: Connect to a VM - IP address
+    href: connect-ip-address.md
   - name: Connect to a VM scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs VMs
@@ -81,7 +93,7 @@
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
-    - name: Upload or download files
+    - name: Transfer files - native client
       href: vm-upload-download-native.md
   - name: Monitoring
     items:

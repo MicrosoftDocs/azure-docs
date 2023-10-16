@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2022
+ms.date: 11/07/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -49,8 +49,6 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
 ```
 
 ## Display claims
-
-The display claims feature is currently in **preview**.
 
 The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of display claims, use the input claims that were previously described. The element may also contain a default value.
 
@@ -133,7 +131,7 @@ Use output claims when:
 - **Claims are output by output claims transformation**.
 - **Setting a default value in an output claim** without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
 - **A validation technical profile returns the output claims** - Your technical profile may call a validation technical profile that returns some claims. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. For example, when signing in with a local account, the self-asserted technical profile named `SelfAsserted-LocalAccountSignin-Email` calls the validation technical profile named `login-NonInteractive`. This technical profile validates the user credentials and also returns the user profile. Such as 'userPrincipalName', 'displayName', 'givenName' and 'surName'.
-- **A display control returns the output claims** - Your technical profile may have a reference to a [display control](display-controls.md). The display control returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. The display control feature is currently in **preview**.
+- **A display control returns the output claims** - Your technical profile may have a reference to a [display control](display-controls.md). The display control returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. 
 
 The following example demonstrates the use of a self-asserted technical profile that uses both display claims and output claims.
 
@@ -174,7 +172,7 @@ The following example demonstrates the use of a self-asserted technical profile 
 
 ### Output claims sign-up or sign-in page
 
-In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element the specifies a `unifiedssp` or `unifiedssd` page type:
+In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element that specifies a `unifiedssp` or `unifiedssd` page type:
 
 - Only the username and password claims are rendered.
 - The first two output claims must be the username and the password (in this order). 
@@ -188,9 +186,12 @@ The PersistedClaims element is not used. The self-asserted technical profile doe
 
 A validation technical profile is used for validating some or all of the output claims of the referencing technical profile. The input claims of the validation technical profile must appear in the output claims of the self-asserted technical profile. The validation technical profile validates the user input and can return an error to the user.
 
-The validation technical profile can be any technical profile in the policy, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md) technical profiles. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
+The validation technical profile can be any technical profile in the policy, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md) technical profiles. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
 
 You can also call a REST API technical profile with your business logic, overwrite input claims, or enrich user data by further integrating with corporate line-of-business application. For more information, see [Validation technical profile](validation-technical-profile.md)
+
+> [!NOTE]
+> A validation technical profile is only triggered when there's an input from the user. You can't create an _empty_ self-asserted technical profile to call a validation technical profile just to take advantage of the **ContinueOnError** attribute of a **ValidationTechnicalProfile** element. You can only call a validation technical profile from a self-asserted technical profile that requests an input from the user, or from an orchestration step in a user journey. 
 
 ## Metadata
 

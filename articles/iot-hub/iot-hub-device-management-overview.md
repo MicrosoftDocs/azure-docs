@@ -34,7 +34,7 @@ Within each of these five stages, there are several device operator requirements
 * **Plan**: Enable operators to create a device metadata scheme that enables them to easily and accurately query for, and target a group of devices for bulk management operations. You can use the device twin to store this device metadata in the form of tags and properties.
   
     *Further reading*: 
-  * [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
+  * [Get started with device twins](device-twins-node.md)
   * [Understand device twins](iot-hub-devguide-device-twins.md)
   * [How to use device twin properties](tutorial-device-twins.md)
   * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
@@ -72,7 +72,7 @@ Within each of these five stages, there are several device operator requirements
 
 ## Device management patterns
 
-IoT Hub enables the following set of device management patterns. The [device management tutorials](iot-hub-node-node-device-management-get-started.md) show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
+IoT Hub enables the following set of device management patterns. The [device management tutorials](device-management-node.md) show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
 
 * **Reboot**: The back-end app informs the device through a direct method that it has started a reboot.  The device uses the reported properties to update the reboot status of the device.
   
@@ -103,7 +103,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Content caching and disconnected device support, including those devices that are in nested configurations, through built-in Microsoft Connected Cache and integration with Azure IoT Edge
-* Subscription and role-based access controls available through the Azure.com portal
+* Subscription and role-based access controls available via the [Azure portal](https://portal.azure.com)
 * Comprehensive cloud-to-edge security features and privacy controls
 
 For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.yml).
@@ -112,4 +112,4 @@ For more information, see [Device Update for IoT Hub](../iot-hub-device-update/i
 
 The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within each device lifecycle stage.
 
-To continue learning about the device management features in IoT Hub, see the [Get started with device management](iot-hub-node-node-device-management-get-started.md) tutorial.
+To continue learning about the device management features in IoT Hub, see [Get started with device management (Node.js)](device-management-node.md).

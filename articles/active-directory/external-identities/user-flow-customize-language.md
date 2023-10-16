@@ -1,6 +1,6 @@
 ---
-title: Language customization in Azure AD user flows
-description: Learn about customizing the language experience in your user flows in Azure Active Directory.
+title: Language customization in Microsoft Entra user flows
+description: Learn about customizing the language experience in your user flows in Microsoft Entra External ID.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -8,50 +8,52 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 11/02/2022
 ms.author: mimart
-ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
+ms.custom: engagement-fy23
+# Customer intent: As a tenant administrator, I want to modify the user flow language, when the users are signing up via the self-service sign-up user flow.
 ---
 
-# Language customization in Azure Active Directory
+# Language customization in Microsoft Entra External ID
 
-Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). Even if your experience is provided for only a single language, you can customize the attribute names on the attribute collection page.
+> [!TIP]
+> This article applies to B2B collaboration user flows. If your tenant is configured for customer identity and access management, see [Customize the language of the authentication experience](customers/how-to-customize-languages-customers.md) for customers.
+
+Language customization in Microsoft Entra External ID allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
 
 ## How language customization works
 
-By default, language customization is enabled for users signing up to ensure a consistent sign up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign up.
+By default, language customization is enabled for users signing up to ensure a consistent sign-up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign-up. If you're using [custom user attributes](user-flow-add-custom-attributes.md), you need to provide your [own translations](#customize-your-strings).
 
-> [!NOTE]
-> If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
+## Customize your strings 
 
-## Customize your strings
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Language customization enables you to customize any string in your user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **User flows**.
-3. Select the user flow that you want to enable for translations.
-4. Select **Languages**.
-5. On the **Languages** page for the user flow, select the language that you want to customize.
-6. Expand **Attribute collection page**.
-7. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [External ID User Flow Administrator](../roles/permissions-reference.md#external-id-user-flow-administrator).
+1. Browse to **Identity** > **External Identities** > **User flows**.
+1. Select the user flow that you want to enable for translations.
+1. Select **Languages**.
+1. On the **Languages** page for the user flow, select the language that you want to customize.
+1. Expand the **Attribute collection page**.
+1. Select **Download defaults** (or **Download overrides** if you've previously edited this language).
 
 These steps give you a JSON file that you can use to start editing your strings.
+
+  :::image type="content" source="media/user-flow-customize-language/language-customization-download-defaults.png" alt-text="Screenshot of downloading the default language customization json file." lightbox="media/user-flow-customize-language/language-customization-download-defaults.png":::
 
 ### Change any string on the page
 
 1. Open the JSON file downloaded from previous instructions in a JSON editor.
 1. Find the element that you want to change. You can find `StringId` for the string you're looking for, or look for the `Value` attribute that you want to change.
 1. Update the `Value` attribute with what you want displayed.
-1. For every string that you want to change, change `Override` to `true`.
-1. Save the file and upload your changes. (You can find the upload control in the same place as where you downloaded the JSON file.)
+1. For every string that you want to change, change `Override` to `true`. If the `Override` value isn't changed to `true`, the entry is ignored.
+1. Save the file and [upload your changes](#upload-your-changes). 
 
-> [!IMPORTANT]
-> If you need to override a string, make sure to set the `Override` value to `true`. If the value isn't changed, the entry is ignored.
+  :::image type="content" source="media/user-flow-customize-language/language-customization-upload-override.png" alt-text="Screenshot of uploading the language customization json file.":::
 
 ### Change extension attributes
 
@@ -77,7 +79,7 @@ Replace `<ExtensionAttributeValue>` with the new string to be displayed.
 
 ### Provide a list of values by using LocalizedCollections
 
-If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. To add `LocalizedCollections`, use the following format:
+If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they're displayed. To add `LocalizedCollections`, use the following format:
 
 ```JSON
 {
@@ -108,13 +110,15 @@ If you want to provide a set list of values for responses, you need to create a 
 ### Upload your changes
 
 1. After you complete the changes to your JSON file, go back to your tenant.
-1. Select **User flows** and click the user flow that you want to enable for translations.
+1. Select **User flows** and select the user flow that you want to enable for translations.
 1. Select **Languages**.
 1. Select the language that you want to translate to.
 1. Select **Attribute collection page**.
 1. Select the folder icon, and select the JSON file to upload.
+1. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
+1. To remove or download your customized override file, select the language and expand the **Attribute collection page**. 
 
-The changes are saved to your user flow automatically.
+  :::image type="content" source="media/user-flow-customize-language/language-customization-remove-download-overrides.png" alt-text="Screenshot of removing or downloading the language customization json file."::: 
 
 ## Additional information
 
@@ -136,11 +140,11 @@ Microsoft provides the `ui_locales` OIDC parameter to social logins. But some so
 
 ### Browser behavior
 
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently does not request a language and goes straight to the default language.
+Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently doesn't request a language and goes straight to the default language.
 
 ## Supported languages
 
-Azure AD includes support for the following languages. User flow languages are provided by Azure AD. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../authentication/concept-mfa-howitworks.md).
+Microsoft Entra External ID includes support for the following languages. User flow languages are provided by Microsoft Entra External ID. The multifactor authentication notification languages are provided by [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
@@ -197,3 +201,9 @@ Azure AD includes support for the following languages. User flow languages are p
 | Vietnamese            | vi            | ![X indicating no.](./media/user-flow-customize-language/no.png) | ![Green check mark.](./media/user-flow-customize-language/yes.png) |
 | Chinese - Simplified  | zh-hans       | ![Green check mark.](./media/user-flow-customize-language/yes.png) | ![Green check mark.](./media/user-flow-customize-language/yes.png) |
 | Chinese - Traditional | zh-hant       | ![Green check mark.](./media/user-flow-customize-language/yes.png) | ![Green check mark.](./media/user-flow-customize-language/yes.png) |
+
+
+## Next steps
+
+- [Add an API connector to a user flow](self-service-sign-up-add-api-connector.md) 
+- [Define custom attributes for user flows](user-flow-add-custom-attributes.md)

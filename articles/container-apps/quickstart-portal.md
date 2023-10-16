@@ -1,24 +1,24 @@
 ---
 title: 'Quickstart: Deploy your first container app using the Azure portal'
-description: Deploy your first application to Azure Container Apps Preview using the Azure portal.
+description: Deploy your first application to Azure Container Apps using the Azure portal.
 services: container-apps
-author: cebundy
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 12/13/2021
-ms.author: v-bcatherine
-ms.custom: mode-ui
+ms.author: cshoe
+ms.custom: mode-ui, event-tier1-build-2022
 ---
 
 # Quickstart: Deploy your first container app using the Azure portal
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 In this quickstart, you create a secure Container Apps environment and deploy your first container app using the Azure portal.
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Also, please make sure to have the Resource Provider "Microsoft.App" registered.
 
 ## Setup
 
@@ -52,4 +52,4 @@ If you're not going to continue to use this application, you can delete the Azur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

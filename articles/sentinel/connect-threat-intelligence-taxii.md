@@ -1,16 +1,13 @@
 ---
 title: Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds | Microsoft Docs
 description: Learn about how to connect Microsoft Sentinel to industry-standard threat intelligence feeds to import threat indicators.
-author: yelevin
+author: austinmccollum
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.date: 03/27/2023
+ms.author: austinmc
 ---
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -25,7 +22,7 @@ To import STIX formatted threat indicators to Microsoft Sentinel from a TAXII se
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that can be integrated with Microsoft Sentinel.
 
 ## Prerequisites  
-
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must have a TAXII 2.0 or TAXII 2.1 **API Root URI** and **Collection ID**.
 
@@ -34,133 +31,9 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 TAXII 2.x servers advertise API Roots, which are URLs that host Collections of threat intelligence. You can usually find the API Root and the Collection ID in the documentation pages of the threat intelligence provider hosting the TAXII server. 
 
 > [!NOTE]
-> In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the cURL utility to browse the discovery endpoint and request the API Root, as [detailed below](#find-the-api-root-using-curl).
+> In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the [cURL](https://en.wikipedia.org/wiki/CURL) utility to browse the discovery endpoint and request the API Root.
 
-### Find the API Root using cURL
-
-Here's an example of how to use the [cURL](https://en.wikipedia.org/wiki/CURL) command line utility, which is provided in Windows and most Linux distributions, to discover the API Root and browse the Collections of a TAXII server, given only the discovery endpoint. Using the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server, you can request the API Root URI and then the Collections.
-
-1.	From a browser, navigate to the ThreatStream TAXII 2.0 server discovery endpoint at https://limo.anomali.com/taxii to retrieve the API Root. Authenticate with the username and password `guest`.
-
-    You will receive the following response:
-
-    ```json
-    {
-        "api_roots":
-        [
-            "https://limo.anomali.com/api/v1/taxii2/feeds/",
-            "https://limo.anomali.com/api/v1/taxii2/trusted_circles/",
-            "https://limo.anomali.com/api/v1/taxii2/search_filters/"
-        ],
-        "contact": "info@anomali.com",
-        "default": "https://limo.anomali.com/api/v1/taxii2/feeds/",
-        "description": "TAXII 2.0 Server (guest)",
-        "title": "ThreatStream Taxii 2.0 Server"
-    }
-    ```
-
-2.	Use the cURL utility and the API Root (https://limo.anomali.com/api/v1/taxii2/feeds/) from the previous response, appending "`collections/`" to the API Root to browse the list of Collection IDs hosted on the API Root:
-
-    ```json
-    curl -u guest https://limo.anomali.com/api/v1/taxii2/feeds/collections/
-    ```
-    After authenticating again with the password "guest", you will receive the following response:
-
-    ```json
-    {
-        "collections":
-        [
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "107",
-                "title": "Phish Tank"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "135",
-                "title": "Abuse.ch Ransomware IPs"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "136",
-                "title": "Abuse.ch Ransomware Domains"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "150",
-                "title": "DShield Scanning IPs"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "200",
-                "title": "Malware Domain List - Hotlist"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "209",
-                "title": "Blutmagie TOR Nodes"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "31",
-                "title": "Emerging Threats C&C Server"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "33",
-                "title": "Lehigh Malwaredomains"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "41",
-                "title": "CyberCrime"
-            },
-            {
-                "can_read": true,
-                "can_write": false,
-                "description": "",
-                "id": "68",
-                "title": "Emerging Threats - Compromised"
-            }
-        ]
-    }
-    ```
-
-You now have all the information you need to connect Microsoft Sentinel to one or more TAXII server Collections provided by Anomali Limo.
-
-| **API Root** (https://limo.anomali.com/api/v1/taxii2/feeds/) | Collection ID |
-| ------------------------------------------------------------ | ------------: |
-| **Phish Tank**                                               | 107           |
-| **Abuse.ch Ransomware IPs**                                  | 135           |
-| **Abuse.ch Ransomware Domains**                              | 136           |
-| **DShield Scanning IPs**                                     | 150           |
-| **Malware Domain List - Hotlist**                            | 200           |
-| **Blutmagie TOR Nodes**                                      | 209           |
-| **Emerging Threats C&C Server**                              |  31           |
-| **Lehigh Malwaredomains**                                    |  33           |
-| **CyberCrime**                                               |  41           |
-| **Emerging Threats - Compromised**                           |  68           |
-|
-
-## Enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel
+## Install the Threat Intelligence solution in Microsoft Sentinel
 
 To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
 
@@ -168,7 +41,21 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 
 1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
+1. Select **Content hub** from the menu.
+
+1. Find and select the **Threat Intelligence** solution.
+
+1. Select the :::image type="icon" source="media/connect-threat-intelligence-taxii/install-update-button.png"::: **Install/Update** button.
+
+    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+
+## Enable the Threat intelligence - TAXII data connector
+
+1. To configure the TAXII data connector, select the **Data connectors** menu. 
+
+1. Find and select the **Threat Intelligence - TAXII** data connector > **Open connector page** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
 
 1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 
@@ -177,7 +64,6 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 You should receive confirmation that a connection to the TAXII server was established successfully, and you may repeat the last step above as many times as you want, to connect to multiple Collections from one or more TAXII servers.
 
 Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
-
 
 
 ## IP allow listing for the Microsoft Sentinel TAXII client

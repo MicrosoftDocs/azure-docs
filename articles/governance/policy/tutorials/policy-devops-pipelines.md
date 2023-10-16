@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Implement Azure Policy with Azure DevOps"
 description: In this tutorial, you implement an Azure Policy with an Azure DevOps release pipeline.
-ms.date: 03/24/2022
+ms.date: 03/02/2023
 ms.topic: tutorial
 ms.author: jukullam
 ms.custom: devops-pipelines-deploy
@@ -11,12 +11,12 @@ ms.custom: devops-pipelines-deploy
 
 **Azure DevOps Services**
 
-Learn how to enforce compliance policies on your Azure resources before and after deployment with Azure Pipelines. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). One scenario for adding Azure Policy to a pipeline is when you want to ensure that resources are deployed only to authorized regions and are configured to send diagnostics logs to Azure Log Analytics. 
+Learn how to enforce compliance policies on your Azure resources before and after deployment with Azure Pipelines. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). One scenario for adding Azure Policy to a pipeline is when you want to ensure that resources are deployed only to authorized regions and are configured to send diagnostics logs to Azure Log Analytics.
 
-You'll need a [classic pipeline](/azure/devops/pipelines/release/define-multistage-release-process) to take advantage of Azure Policy. 
+You can use either the [classic pipeline](/azure/devops/pipelines/release/define-multistage-release-process) or [YAML pipeline](/azure/devops/pipelines/get-started/yaml-pipeline-editor) processes to implement Azure Policy in your CI/CD pipelines.
 
 For more information, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
-and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline). 
+and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 ## Prepare
 
 1. Create an [Azure Policy](./create-and-manage.md) in the Azure portal.
@@ -25,15 +25,17 @@ and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
 1. In Azure DevOps, create a release pipeline that contains at least one stage, or open an existing release pipeline.
 
-1. Add a pre- or post-deployment condition that includes the **Security and compliance assessment** task as a gate.
+1. Add a pre- or post-deployment condition that includes the **Check Azure Policy compliance** task as a gate.
    [More details](/azure/devops/pipelines/release/deploy-using-approvals#set-up-gates).
 
    ![Screenshot of Azure Policy Gate.](../media/devops-policy/azure-policy-gate.png)
 
+If you're using a YAML pipeline definition, then use the [AzurePolicyCheckGate@0](/azure/devops/pipelines/tasks/reference/azure-policy-check-gate-v0) Azure Pipelines task.
+
 ## Validate for any violation(s) during a release
 
 > [!NOTE]
-> Use the [AzurePolicyCheckGate](/azure/devops/pipelines/tasks/deploy/azure-policy) task to check for policy compliance in YAML. This task can only be used as a gate and not in a build or a release pipeline.  
+> Use the [AzurePolicyCheckGate](/azure/devops/pipelines/tasks/deploy/azure-policy) task to check for policy compliance in YAML. This task can only be used as a gate and not in a build or a release pipeline.
 
 1. Navigate to your team project in Azure DevOps.
 

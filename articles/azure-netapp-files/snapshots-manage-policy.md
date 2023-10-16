@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 05/18/2023
 ms.author: anfdocs
 ---
 
@@ -23,18 +23,25 @@ ms.author: anfdocs
 ## Create a snapshot policy 
 
 A snapshot policy enables you to specify the snapshot creation frequency in hourly, daily, weekly, or monthly cycles. You also need to specify the maximum number of snapshots to retain for the volume.  
-
-1.	From the NetApp Account view, click **Snapshot policy**.
+   
+> [!NOTE] 
+> In case of a service maintenance event, Azure NetApp Files might sporadically skip the creation of a scheduled snapshot.
+       
+1.	From the NetApp Account view, select **Snapshot policy**.
 
     ![Screenshot that shows how to navigate to Snapshot Policy.](../media/azure-netapp-files/snapshot-policy-navigation.png)
 
 2.	In the Snapshot Policy window, set Policy State to **Enabled**. 
 
-3.	Click the **Hourly**, **Daily**, **Weekly**, or **Monthly** tab to create hourly, daily, weekly, or monthly snapshot policies. Specify the **Number of snapshots to keep**.  
+3.	Select the **Hourly**, **Daily**, **Weekly**, or **Monthly** tab to create hourly, daily, weekly, or monthly snapshot policies. Specify the **Number of snapshots to keep**.  
 
     > [!IMPORTANT] 
     > For *monthly* snapshot policy definition, be sure to specify a day that will work for all intended months.  If you intend for the monthly snapshot configuration to work for all months in the year, pick a day of the month between 1 and 28.  For example, if you specify `31` (day of the month), the monthly snapshot configuration is skipped for the months that have less than 31 days. 
     > 
+        
+    > [!NOTE] 
+    > Using [policy-based backups for Azure NetApp Files](backup-configure-policy-based.md#configure-a-backup-policy) might affect the number of snapshots to keep. Backup policies involve snapshot policies. And Azure NetApp Files prevents you from deleting the latest backup.
+    
     See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) about the maximum number of snapshots allowed for a volume. 
 
     The following example shows hourly snapshot policy configuration. 
@@ -53,7 +60,7 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 
     ![Screenshot that shows the monthly snapshot policy.](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.	Click **Save**.  
+4.	Select **Save**.  
 
 If you need to create additional snapshot policies, repeat Step 3.
 The policies you created appear in the Snapshot policy page.
@@ -70,33 +77,42 @@ You cannot apply a snapshot policy to a destination volume in cross-region repli
 
     ![Screenshot that shows the Volumes right-click menu.](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.	In the Edit window, under **Snapshot policy**, select a policy to use for the volume.  Click **OK** to apply the policy.  
+2.	In the Edit window, under **Snapshot policy**, select a policy to use for the volume. Select **OK** to apply the policy.  
 
     ![Screenshot that shows the Snapshot policy menu.](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
 ## Modify a snapshot policy 
 
-You can modify an existing snapshot policy to change the policy state, snapshot frequency (hourly, daily, weekly, or monthly), or number of snapshots to keep.  
+You can modify an existing snapshot policy to change the policy state, snapshot frequency (hourly, daily, weekly, or monthly), or number of snapshots to keep.
+
+>[!IMPORTANT]
+>When modifying a snapshot policy, make note of the naming format. Snapshots created with policies modified before March 2022 will have a long name, for example `daily-0-min-past-1am.2022-11-03_0100`, while snapshots created with policies after March 2022 will have a shorter name, for example `daily.2022-11-29_0100`.
+>
+> If your snapshot policy is creating snapshots using the long naming convention, modifications to the snapshot policy will not be applied to existing snapshots. The snapshots created with the previous schedule will not be deleted or overwritten by the new schedule. You will have to manually delete the old snapshots.
+>
+> If your snapshot policy is creating snapshots using the short naming convention, policy modifications will be applied to the existing snapshots. 
  
-1.	From the NetApp Account view, click **Snapshot policy**.
+1.	From the NetApp Account view, select **Snapshot policy**.
 
 2.	Right-click the snapshot policy you want to modify, then select **Edit**.
 
     ![Screenshot that shows the Snapshot policy right-click menu.](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
-3.	Make the changes in the Snapshot Policy window that appears, then click **Save**. 
+3.	Make the changes in the Snapshot Policy window that appears, then select **Save**. 
+
+4.  You will receive a prompt asking you to confirm that you want to update the Snapshot Policy. Select **Yes** to confirm your choice. 
 
 ## Delete a snapshot policy 
 
 You can delete a snapshot policy that you no longer want to keep.   
 
-1.	From the NetApp Account view, click **Snapshot policy**.
+1.	From the NetApp Account view, select **Snapshot policy**.
 
 2.	Right-click the snapshot policy you want to modify, then select **Delete**.
 
     ![Screenshot that shows the Delete menu item.](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
-3.	Click **Yes** to confirm that you want to delete the snapshot policy.   
+3.	Select **Yes** to confirm that you want to delete the snapshot policy.   
 
     ![Screenshot that shows snapshot policy delete confirmation.](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 

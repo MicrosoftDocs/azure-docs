@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Route Server documentation
-summary: Learn how to use Azure Route Server to simplify dynamic routing between your Network Virtual Appliances and your virtual network.
+summary: Learn how to use Azure Route Server to simplify dynamic routing between your Network Virtual Appliances and your Virtual Network.
 
 metadata:
   title: Azure Route Server documentation 
@@ -9,9 +9,9 @@ metadata:
   services: route-server
   ms.service: route-server 
   ms.topic: landing-page 
-  author: duongau 
-  ms.author: duau 
-  ms.date: 09/01/2021
+  author: halkazwini 
+  ms.author: halkazwini 
+  ms.date: 08/30/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Route Server
+  - title: Learn about Azure Route Server
     linkLists:
       - linkListType: overview
         links:
@@ -28,12 +28,12 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Route Server
-            url: /learn/modules/intro-to-azure-route-server
+            url: /training/modules/intro-to-azure-route-server
             
   # Card
   - title: Get started
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
           - text: Create and configure a Route Server - Portal
             url: quickstart-configure-route-server-portal.md
@@ -41,13 +41,66 @@ landingContent:
             url: quickstart-configure-route-server-powershell.md
           - text: Create and configure a Route Server - CLI
             url: quickstart-configure-route-server-cli.md
+          - text: Create and configure a Route Server - ARM
+            url: quickstart-configure-template.md
+      - linkListType: tutorial
+        links:
+          - text: Create and configure Route Server and Quagga NVA
+            url: tutorial-configure-route-server-with-quagga.md          
 
   # Card
-  - title: Planning
+  - title: Learn about Route Server architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Update route tables by using Azure Route Server
+            url: /azure/architecture/example-scenario/networking/manage-routing-azure-route-server
+            
+  # Card
+  - title: Manage features and options
     linkLists:
       - linkListType: concept
         links:
-          - text: ExpressRoute and VPN Gateway support
+          - text: Route Server with ExpressRoute and VPN Gateways
             url: expressroute-vpn-support.md
+          - text: Path selection with Route Server
+            url: path-selection.md
+
+
+  # Card
+  - title: Design
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Dual-homed network with Route Server
+            url: about-dual-homed-network.md
+          - text: Multi-region networking with Route Server
+            url: multiregion.md
+          - text: Anycast routing with Route Server
+            url: anycast.md
+          - text: Default route injection in spoke VNets
+            url: route-injection-in-spokes.md
+          - text: Routing preference
+            url: hub-routing-preference.md
+           
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Route Server
+            url: troubleshoot-route-server.md
+          - text: Monitor Route Server
+            url: monitor-route-server.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.network/#route
+          - text: Azure CLI
+            url: /cli/azure/network/routeserver
           - text: Route Server FAQ
             url: route-server-faq.md

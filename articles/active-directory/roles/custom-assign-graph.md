@@ -1,9 +1,9 @@
 ---
-title: Assign Azure AD admin roles with Microsoft Graph API | Microsoft Docs
-description: Assign and remove Azure AD administrator roles with Graph API in Azure Active Directory
+title: Assign Microsoft Entra admin roles with Microsoft Graph API
+description: Assign and remove Microsoft Entra administrator roles with Graph API in Microsoft Entra ID
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -14,13 +14,13 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
-# Assign custom admin roles using the Microsoft Graph API in Azure Active Directory 
+# Assign custom admin roles using the Microsoft Graph API in Microsoft Entra ID 
 
 You can automate how you assign roles to user accounts using the Microsoft Graph API. This article covers POST, GET, and DELETE operations on roleAssignments.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - Privileged Role Administrator or Global Administrator
 - Admin consent when using Graph Explorer for Microsoft Graph API
 
@@ -290,7 +290,6 @@ We prevent users from deleting their own Global Administrator role to avoid a sc
 
 ## Next steps
 
-* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
-* For more about role permissions, see [Azure AD built-in roles](permissions-reference.md)
+* Feel free to share with us on the [Microsoft Entra administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
+* For more about role permissions, see [Microsoft Entra built-in roles](permissions-reference.md)
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)
-

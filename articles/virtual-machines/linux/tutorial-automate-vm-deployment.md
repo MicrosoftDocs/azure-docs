@@ -5,10 +5,10 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 04/06/2023
 ms.author: cynthn
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-
+ms.reviewer: mattmcinnes
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
 ---
 
@@ -97,7 +97,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--cust
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myAutomatedVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
@@ -152,7 +152,7 @@ az keyvault certificate create \
 
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
@@ -224,7 +224,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The certificate
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMWithCerts \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-secured.txt \

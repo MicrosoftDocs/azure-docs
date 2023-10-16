@@ -1,9 +1,9 @@
 ---
 title: Packet core dashboards
-titleSuffix: Azure Private 5G Core Preview
-description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core Preview deployment. 
-author: djrmetaswitch
-ms.author: drichards
+titleSuffix: Azure Private 5G Core
+description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core deployment. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 01/19/2022
@@ -18,15 +18,29 @@ The packet core dashboards are powered by *Grafana*, an open-source, metric anal
 
 ## Access the packet core dashboards
 
-To sign in to the packet core dashboards:
+> [!TIP]
+> When signing in, if you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
-1. In your browser, enter https://*\<LocalMonitoringIP\>*/grafana, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+<a name='azure-active-directory'></a>
+
+### Microsoft Entra ID
+
+To sign in to the packet core dashboards if you enabled Microsoft Entra authentication:
+
+1. In your browser, enter https://*\<local monitoring domain\>*/grafana, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](enable-azure-active-directory.md#configure-domain-system-name-dns-for-local-monitoring-ip).
+1. Follow the prompts to sign in with your account credentials.
+
+### Local username and password
+
+To sign in to the packet core dashboards if you enabled local username and password authentication:
+
+1. In your browser, enter https://*\<local monitoring IP\>*/grafana, where *\<local monitoring IP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
     :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
 
 1. Sign in using your credentials. 
 
-    If you're accessing the packet core dashboards for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+    If you're accessing the packet core dashboards for the first time after installing or upgrading the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
 
       - **Email or username**: *admin*
       - **Password**: *admin*
@@ -40,6 +54,9 @@ We'll go through the common concepts and operations you'll need to understand be
 ### Dashboards
 
 You can access the following packet core dashboards:
+
+> [!TIP]
+> Some packet core dashboards display different panels depending on whether the packet core instance supports 5G or 4G user equipment (UEs).
 
 - The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
@@ -69,7 +86,19 @@ You can access the following packet core dashboards:
 
     - The **HTTP stats dashboard** for each network function shows statistics for the HTTP requests and responses shown by that network function. You can use the **Serving Endpoint**, **Client Operation**, and **Server Operation** filters to control which operations are shown.
     
-    :::image type="content" source="media/packet-core-dashboards/packet-core-http-stats-dashboard.png" alt-text="Screenshot of the H T T P stats dashboard. Panels related to H T T P statistics for the Session Management Function are shown." lightbox="media/packet-core-dashboards/packet-core-http-stats-dashboard.png":::  
+    :::image type="content" source="media/packet-core-dashboards/packet-core-http-stats-dashboard.png" alt-text="Screenshot of the H T T P stats dashboard. Panels related to H T T P statistics for the Session Management Function are shown." lightbox="media/packet-core-dashboards/packet-core-http-stats-dashboard.png":::
+
+    - The **4G Interfaces dashboard** displays request and response statistics recorded by each of the packet core instance's 4G interfaces. Note that this dashboard is only available for packet core instances supporting 4G devices.
+
+    :::image type="content" source="media/packet-core-dashboards/packet-core-4g-interfaces-dashboard.png" alt-text="Screenshot of the 4G Interfaces dashboard. Panels related to activity on the packet core instance's 4G interfaces are shown." lightbox="media/packet-core-dashboards/packet-core-4g-interfaces-dashboard.png":::  
+
+#### Filter by data network
+
+Some packet core dashboards can be filtered to show statistics for specific data networks on certain panels.
+
+Where supported, at the top left of the dashboard, a **Data Network** dropdown displays all the data networks for the deployment. Selecting one or more checkboxes next to the data network names applies a filter to the panels that support it. By default all data networks are displayed.
+
+:::image type="content" source="media/packet-core-dashboards/packet-core-data-network-filter.png" alt-text="Screenshot of a dashboard showing a Data Networks dropdown." lightbox="media/packet-core-dashboards/packet-core-data-network-filter.png":::
 
 ## Panels and rows
 

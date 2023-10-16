@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot SAP HANA databases backup errors
+title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 04/01/2022
-author: v-amallick
+ms.date: 07/18/2023
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot backup of SAP HANA databases on Azure
@@ -43,7 +43,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | **Error message**      | `Backup log chain is broken`                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from backint-to-file system, or the backint executable might have been changed.</li></ul> |
+| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
 | **Recommended action** | To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups start working as expected.<br>If you do not see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
 
 ### UserErrorSDCtoMDCUpgradeDetected
@@ -57,8 +57,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | **Error message**      | `Backups will fail with this error when the Backint Configuration is incorrectly updated.`                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | The backint configuration updated during the Configure Protection flow by Azure Backup is either altered/updated by the customer. |
-| **Recommended action** | Check if the following (backint) parameters are set:<br><ul><li>[catalog_backup_using_backint:true]</li><li>[enable_accumulated_catalog_backup:false]</li><li>[parallel_data_backup_backint_channels:1]</li><li>[log_backup_timeout_s:900)]</li><li>[backint_response_timeout:7200]</li></ul>If backint-based parameters are present at the HOST level, remove them. However, if the parameters aren't present at the HOST level, but are manually modified at a database level, ensure that the database level values are set. Or, run [stop protection with retain backup data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select Resume backup. |
+| **Possible causes**    | The Backint configuration updated during the Configure Protection flow by Azure Backup is either altered/updated by the customer. |
+| **Recommended action** | Check if the following (Backint) parameters are set:<br><ul><li> `[catalog_backup_using_backint:true]` </li><li> `[enable_accumulated_catalog_backup:false]` </li><li> `[parallel_data_backup_backint_channels:1]` </li><li> `[log_backup_timeout_s:900)]` </li><li> `[backint_response_timeout:7200]` </li></ul>If backint-based parameters are present at the HOST level, remove them. However, if the parameters aren't present at the HOST level, but are manually modified at a database level, ensure that the database level values are set. Or, run [stop protection with retain backup data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select Resume backup. |
 
 ### UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -99,8 +99,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Unable to connect to the AAD service from the HANA system.`
 --------- | --------
-**Possible causes** | Firewall or proxy settings as Backup extension's plugin service account is not allowing the outbound connection to AAD.
-**Recommended action** | Fix the firewall or proxy settings for the outbound connection to AAD to succeed.
+**Possible causes** | Firewall or proxy settings as Backup extension's plugin service account is not allowing the outbound connection to Microsoft Entra ID.
+**Recommended action** | Fix the firewall or proxy settings for the outbound connection to Microsoft Entra ID to succeed.
 
 ### UserErrorMisConfiguredSslCaStore
 
@@ -195,23 +195,37 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours.`
 ------ | -----------
-**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you've a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you've a large number of datasources protected with a policy and you try to modify that policy, it will trigger the configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
 **Recommended action** | Azure Backup service will automatically retry this operation after 24 hours.
+
+### UserErrorInvalidBackint
+
+**Error message** | Found invalid hdbbackint executable.
+--- | ---
+**Possible cause** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
+**Recommended action** | 1. Ensure that there is free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
+
+### UserErrorHanaSQLQueryFailed
+
+**Error message** | Operation failed while running query on HANA Server.     <br><br>     All operations which fail with this user error is due to an issue caused at Hana side while running the query. Additional details have the clear message of the error.
+--- | ---
+**Possible causes** | - Disk corruption issue. <br> - Memory allocation issues. <br> - Too many databases in use. <br> - Topology update issue.
+**Recommended action** | Work with the SAP HANA team to fix this issue. However, if the issue persists, you can contact Microsoft support for further assistance.
 
 ## Restore checks
 
 ### Single Container Database (SDC) restore
 
-Take care of inputs while restoring a single container database (SDC) for HANA to another SDC machine. The database name should be given with lowercase and with "sdc" appended in brackets. The HANA instance will be displayed in capitals.
+Take care of inputs while restoring a single container database (SDC) for HANA to another SDC machine. The database name should be given with lowercase and with `sdc` appended in brackets. The HANA instance will be displayed in capitals.
 
-Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as **"h21(sdc)"**. If you attempt to restore this database to another target SDC, say H11, then following inputs need to be provided.
+Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as `h21(sdc)`. If you attempt to restore this database to another target SDC, say H11, then following inputs need to be provided.
 
 ![Restored SDC database name](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Note the following points:
 
-- By default, the restored database name will be populated with the backup item name. In this case, h21(sdc).
-- Select the target as H11 won't change the restored database name automatically. **It should be edited to h11(sdc)**. Regarding SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
+- By default, the restored database name will be populated with the backup item name. In this case, `h21(sdc)`.
+- Select the target as H11 won't change the restored database name automatically. It should be edited to `h11(sdc)`. Regarding SDC, the restored db name will be the target instance ID with lowercase letters and `sdc` appended in brackets.
 - Since SDC can have only single database, you also need to select the checkbox to allow override of the existing database data with the recovery point data.
 - Linux is case-sensitive. So be careful to preserve the case.
 
@@ -281,7 +295,7 @@ Upgrades from SDC to MDC that don't cause a SID change can be handled as follows
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana)
 - Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
 - Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
-- The older SDC database continues to exist in the vault and have the old backed-up data retained according to the policy
+- The older SDC database continues to exist in the vault and has the old backed-up data retained according to the policy.
 - Configure backup for these databases
 
 ## SDC to MDC upgrade with a change in SID
@@ -290,13 +304,13 @@ Upgrades from SDC to MDC that cause a SID change can be handled as follows:
 
 - Ensure that the new MDC version is currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - **Stop protection with retain data** for the old SDC database
-- Move the _config.json_ file located at _/opt/msawb/etc/config/SAPHana/_.
-- Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs
+- Move the *config.json* file located at `/opt/msawb/etc/config/SAPHana/`.
+- Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs.
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details (new SID and MDC). Due to a change in SID, you might face issues with successful execution of the script. Contact Azure Backup support if you face issues.
-- Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
-- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
-- The older SDC database continues to exist in the vault and have old backed up data retained according to the policy
-- Configure backup for these databases
+- Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register).
+- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC.
+- The older SDC database continues to exist in the vault and has old backed-up data retained according to the policy.
+- Configure backup for these databases.
 
 ## Re-registration failures
 
@@ -320,4 +334,4 @@ In the preceding scenarios, we recommend that you trigger a re-register operatio
 
 ## Next steps
 
-- Review the [frequently asked questions](./sap-hana-faq-backup-azure-vm.yml) about the back up of SAP HANA databases on Azure VMs.
+- Review the [frequently asked questions](./sap-hana-faq-backup-azure-vm.yml) about the backup of SAP HANA databases on Azure VMs.

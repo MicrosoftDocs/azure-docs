@@ -107,7 +107,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
     - Collect and store information about Azure resources. 
     - Perform SQL monitoring checks & reporting.
     - Check website availability. 
-* **Dev/test automation scenarios** - Start and start resources, scale resources, etc.
+* **Dev/test automation scenarios** - Stop and start resources, scale resources, etc.
 * **Governance related automation** - Automatically apply or update tags, locks, etc.
 * **Azure Site Recovery** - orchestrate pre/post scripts defined in a Site Recovery DR workflow.
 * **Azure Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utilization.
@@ -135,9 +135,12 @@ These Azure services can work with Automation job and runbook resources using an
 
 ## Pricing for Azure Automation
 
+Process automation includes runbook jobs and watchers. Billing for jobs is based on the number of job run time minutes used in the month, and for watchers, it is on the number of hours used in a month. The charges for process automation are incurred whenever a [job](./start-runbooks.md) or [watcher](./automation-scenario-using-watcher-task.md) runs. 
+You create Automation accounts with a Basic SKU, wherein the first 500 job run time minutes are free per subscription. You are billed only for minutes/hours that exceed the 500 mins free included units.
+
 You can review the prices associated with Azure Automation on the [pricing](https://azure.microsoft.com/pricing/details/automation/) page.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Automation account](./quickstarts/create-account-portal.md)
+> [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)

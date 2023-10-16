@@ -1,72 +1,68 @@
 ---
 
-title: Conditional access gap analyzer workbook in  Azure AD | Microsoft Docs
-description: Learn how to use the conditional access gap analyzer workbook.
+title: Conditional Access gap analyzer workbook in  Microsoft Entra ID
+description: Learn how to use the Conditional Access gap analyzer workbook.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenho
-editor: ''
-
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/05/2021
-ms.author: markvi
+ms.date: 10/03/2023
+ms.author: sarahlipsey
 ms.reviewer: sarbar 
 
-ms.collection: M365-identity-device-management
 ---
 
-# Conditional access gap analyzer workbook
+# Conditional Access gap analyzer workbook
 
-In Azure AD, you can protect access to your resources by configuring conditional access policies.
-As an IT administrator, you want to ensure that your conditional access policies work as expected to ensure that your resources are properly protected. With the conditional access gap analyzer workbook, you can detect gaps in your conditional access implementation.  
+In Microsoft Entra ID, you can protect access to your resources by configuring Conditional Access policies.
+As an IT administrator, you want to ensure that your Conditional Access policies work as expected to ensure that your resources are properly protected. With the Conditional Access gap analyzer workbook, you can detect gaps in your Conditional Access implementation.  
 
-This article provides you with an overview of this workbook.
+This article provides you with an overview of the **Conditional Access gap analyzer** workbook.
 
 
 ## Description
 
 ![Workbook category](./media/workbook-conditional-access-gap-analyzer/workbook-category.png)
 
-As an IT administrator, you want to make sure that only the right people can access your resources. Azure AD conditional access helps you to accomplish this goal.  
+As an IT administrator, you want to make sure that only the right people can access your resources. Microsoft Entra Conditional Access helps you to accomplish this goal.  
 
-The conditional access gap analyzer workbook helps you to verify that your conditional access policies work as expected.
+The Conditional Access gap analyzer workbook helps you to verify that your Conditional Access policies work as expected.
 
 **This workbook:**
 
-- Highlights user sign-ins that have no conditional access policies applied to them. 
-- Allows you to ensure that there are no users, applications, or locations that have been unintentionally excluded from conditional access policies.  
+- Highlights user sign-ins that have no Conditional Access policies applied to them. 
+- Allows you to ensure that there are no users, applications, or locations that have been unintentionally excluded from Conditional Access policies.  
 
- 
+## How to access the workbook
+
+[!INCLUDE [how to access workbooks](~/articles/active-directory/includes/how-to-access-workbooks.md)]
+3. Select the **Conditional Access Gap Analyzer** workbook from the **Conditional Access** section.
 
 ## Sections
 
-
-The workbook has four sections:  
+The workbook has four sections:
 
 - Users signing in using legacy authentication 
 
-- Number of sign-ins by applications that are not impacted by conditional access policies 
+- Number of sign-ins by applications that aren't impacted by Conditional Access policies 
 
-- High risk sign-in events bypassing conditional access policies 
+- High risk sign-in events bypassing Conditional Access policies 
 
-- Number of sign-ins by location that were not affected by conditional access policies 
+- Number of sign-ins by location that weren't affected by Conditional Access policies 
 
 
-![Conditional access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)
+![Conditional Access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)
 
-Each of these trends offers a breakdown of sign-ins to the user level, so that you can see which users per scenario are bypassing conditional access. 
+Each of these trends offers a breakdown of sign-ins to the user level, so that you can see which users per scenario are bypassing Conditional Access. 
 
 ## Filters
 
 This workbook supports setting a time range filter.
 
 ![Time range filter](./media/workbook-conditional-access-gap-analyzer/time-range.png)
-
-
 
 ## Best practices
 
@@ -79,13 +75,3 @@ Use this workbook to ensure that your tenant is configured to the following Cond
 - Block all high risk sign-ins  
 
 - Block sign-ins from untrusted locations  
-
- 
-
-
-
-
-
-## Next steps
-
-- [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md)

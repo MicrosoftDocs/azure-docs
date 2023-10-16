@@ -6,18 +6,19 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 01/19/2022
+ms.custom: ignite-2022
+ms.date: 12/06/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ---
-# Serverless SQL pool in Azure Synapse Analytics 
+# Serverless SQL pool in Azure Synapse Analytics
 
-Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the [Azure Data Lake](query-data-storage.md) ([Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [delimited text](query-data-storage.md#query-csv-files) formats), [Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key), or Dataverse.
+Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the [Azure Data Lake](query-data-storage.md) ([Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [delimited text](query-data-storage.md#query-csv-files) formats), [Azure Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key), or Dataverse.
 
 Serverless SQL pool is a query service over the data in your data lake. It enables you to access your data through the following functionalities:
- 
-- A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. 
-- Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. 
+
+- A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. To learn more, see the [T-SQL support](#t-sql-support) section.
+- Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. To learn more, see the [Client tools](#client-tools) section. You can learn more from the [Introduction into Synapse Serverless SQL Pools video](https://www.youtube.com/watch?v=rDl58M5PyVw).
 
 Serverless SQL pool is a distributed data processing system, built for large-scale data and computational functions. Serverless SQL pool enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving large data sets.
 
@@ -67,7 +68,7 @@ Security can be enforced using:
 - Logins and users
 - Credentials to control access to storage accounts
 - Grant, deny, and revoke permissions per object level
-- Azure Active Directory integration
+- Microsoft Entra integration
 
 Supported T-SQL:
 
@@ -98,7 +99,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [Various delimited text formats (with custom field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
 
-[Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key)
+[Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key)
 
 [Read a chosen subset of columns](query-data-storage.md#read-a-chosen-subset-of-columns)
 
@@ -114,9 +115,11 @@ In order to enable smooth experience for in place querying of data residing in f
 
 Serverless SQL pool offers mechanisms to secure access to your data.
 
-### Azure Active Directory integration and multi-factor authentication
+<a name='azure-active-directory-integration-and-multi-factor-authentication'></a>
 
-Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
+### Microsoft Entra integration and multi-factor authentication
+
+Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Microsoft Entra integration](/azure/azure-sql/database/authentication-aad-configure). This capability simplifies permission management and enhances security. Microsoft Entra ID supports [multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 
@@ -126,9 +129,9 @@ Serverless SQL pool authentication refers to how users prove their identity when
 
   This authentication method uses a username and password.
 
-- **Azure Active Directory Authentication**:
+- **Microsoft Entra authentication**:
 
-  This authentication method uses identities managed by Azure Active Directory. For Azure AD users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
+  This authentication method uses identities managed by Microsoft Entra ID. For Microsoft Entra users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### Authorization
 
@@ -136,7 +139,7 @@ Authorization refers to what a user can do within a serverless SQL pool database
 
 If SQL Authentication is used, the SQL user exists only in serverless SQL pool and permissions are scoped to the objects in serverless SQL pool. Access to securable objects in other services (such as Azure Storage) can't be granted to SQL user directly since it only exists in scope of serverless SQL pool. The SQL user needs to use one of the [supported authorization types](develop-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
 
-If Azure AD authentication is used, a user can sign in to serverless SQL pool and other services, like Azure Storage, and can grant permissions to the Azure AD user.
+If Microsoft Entra authentication is used, a user can sign in to serverless SQL pool and other services, like Azure Storage, and can grant permissions to the Microsoft Entra user.
 
 ### Access to storage accounts
 
@@ -144,13 +147,13 @@ A user that is logged into the serverless SQL pool service must be authorized to
 
 - **[Shared access signature (SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
 
-- **[User Identity](develop-storage-files-storage-access-control.md?tabs=user-identity)** (also known as "pass-through") is an authorization type where the identity of the Azure AD user that logged into serverless SQL pool is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to Azure AD user for accessing the data. This authorization type uses the Azure AD user that logged into serverless SQL pool, therefore it's not supported for SQL user types.
+- **[User Identity](develop-storage-files-storage-access-control.md?tabs=user-identity)** (also known as "pass-through") is an authorization type where the identity of the Microsoft Entra user that logged into serverless SQL pool is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to Microsoft Entra user for accessing the data. This authorization type uses the Microsoft Entra user that logged into serverless SQL pool, therefore it's not supported for SQL user types.
 
 - **[Workspace Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity)** is an authorization type where the identity of the Synapse workspace  is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to workspace identity for accessing the data.
 
-### Access to Cosmos DB
+### Access to Azure Cosmos DB
 
-You need to create server-level or database-scoped credential with the Cosmos DB account read-only key to [access Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
+You need to create server-level or database-scoped credential with the Azure Cosmos DB account read-only key to [access the Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
 
 ## Next steps
 Additional information on endpoint connection and querying files can be found in the following articles: 

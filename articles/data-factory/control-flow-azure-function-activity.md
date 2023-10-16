@@ -9,10 +9,12 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/23/2022
+
 ---
 
 # Azure Function activity in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in an Azure Data Factory or Synapse pipeline. To run an Azure Function, you must create a linked service connection.  Then you can use the linked service with an activity that specifies the Azure Function that you plan to execute.
 
@@ -21,15 +23,16 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 To use an Azure Function activity in a pipeline, complete the following steps:
 
 1. Expand the Azure Function section of the pipeline Activities pane, and drag an Azure Function activity to the pipeline canvas.
-1. Select the new Azure Function activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+2. Select the new Azure Function activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
 
    :::image type="content" source="media/control-flow-azure-function-activity/azure-function-activity-configuration.png" alt-text="Shows the UI for an Azure Function activity.":::
 
-1. If you do not already have an Azure Function linked service defined, select New to create a new one.  In the new Azure Function linked service pane, choose your existing Azure Function App url and provide a Function Key.
-   
+3. If you do not already have an Azure Function linked service defined, select New to create a new one.  In the new Azure Function linked service pane, choose your existing Azure Function App url and provide a Function Key.
+
    :::image type="content" source="media/control-flow-azure-function-activity/new-azure-function-linked-service.png" alt-text="Shows the new Azure Function linked service creation pane.":::
 
-1. After selecting the Azure Function linked service, provide the function name and other details to complete the configuration.
+4. After selecting the Azure Function linked service, provide the function name and other details to complete the configuration.
 
 ## Azure Function linked service
 
@@ -39,27 +42,30 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 Function Key provides secure access to function name with each one having separate unique keys or master key within a function app. Managed identity provides secure access to the entire function app. User needs to provide key to access function name. For more information, see the function documentation for more details about [Function access key](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#configuration)
 
 
-| **Property** | **Description** | **Required** |
-| --- | --- | --- |
-| Type   | The type property must be set to: **AzureFunction** | Yes |
-| Function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | Yes |
-| Function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | Yes |
-|   |   |   |
+| **Property**     | **Description**                                              | **Required** |
+| ---------------- | ------------------------------------------------------------ | ------------ |
+| Type             | The type property must be set to: **AzureFunction**          | Yes          |
+| Function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal | Yes          |
+| Function key     | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | Yes          |
+| Authentication   | The authentication method used for calling the Azure Function. The supported values are 'System-assigned managed identity' or 'anonymous'.| Yes          |
+| Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property will be displayed when you use system-assigned managed identity. For more information, see [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md).| No         |
+
+>[!Note]
+> When you use anonymous authentication, ensure that you have taken down your identity on the Azure Function side.
 
 ## Azure Function activity
 
-| **Property**  | **Description** | **Allowed values** | **Required** |
-| --- | --- | --- | --- |
-| Name  | Name of the activity in the pipeline  | String | Yes |
-| Type  | Type of activity is ‘AzureFunctionActivity’ | String | Yes |
-| Linked service | The Azure Function linked service for the corresponding Azure Function App  | Linked service reference | Yes |
-| Function name  | Name of the function in the Azure Function App that this activity calls | String | Yes |
-| Method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | Yes |
-| Header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
-| Body  | Body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
-|   |   |   | |
+| **Property**   | **Description**                                              | **Allowed values**                                          | **Required**                  |
+| -------------- | ------------------------------------------------------------ | ----------------------------------------------------------- | ----------------------------- |
+| Name           | Name of the activity in the pipeline                         | String                                                      | Yes                           |
+| Type           | Type of activity is ‘AzureFunctionActivity’                  | String                                                      | Yes                           |
+| Linked service | The Azure Function linked service for the corresponding Azure Function App | Linked service reference                                    | Yes                           |
+| Function name  | Name of the function in the Azure Function App that this activity calls | String                                                      | Yes                           |
+| Method         | REST API method for the function call                        | String Supported Types: "GET", "POST", "PUT"                | Yes                           |
+| Header         | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string)            | No                            |
+| Body           | Body that is sent along with the request to the function api method | String (or expression with resultType of string) or object. | Required for PUT/POST methods |
 
-See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
+See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
 
 ## Routing and queries
 
@@ -70,7 +76,7 @@ The Azure Function Activity supports **routing**. For example, if your Azure Fun
 
 The Azure Function Activity also supports **queries**. A query must be included as part of the `functionName`. For example, when the function name is `HttpTriggerCSharp` and the query that you want to include is `name=hello`, then you can construct the `functionName` in the Azure Function Activity as `HttpTriggerCSharp?name=hello`. This function can be parameterized so the value can be determined at runtime.
 
-## Timeout and long running functions
+## Timeout and long-running functions
 
 Azure Functions times out after 230 seconds regardless of the `functionTimeout` setting you've configured in the settings. For more information, see [this article](../azure-functions/functions-versions.md#timeout). To work around this behavior, follow an async pattern or use Durable Functions. The benefit of Durable Functions is that they offer their own state-tracking mechanism, so you don't need to implement your own state-tracking.
 

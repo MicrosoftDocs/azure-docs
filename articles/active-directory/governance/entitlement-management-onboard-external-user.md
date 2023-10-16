@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Onboard external users to Azure AD through an approval process - Azure Active Directory
-description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
+title: Tutorial - Onboard external users to Microsoft Entra ID through an approval process
+description: Step-by-step tutorial for how to create an access package for external users requiring approvals in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: Sammak
@@ -9,38 +9,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/18/2021
-ms.author: sama
+ms.date: 05/31/2023
+ms.author: owinfrey
 ms.collection: M365-identity-device-management
 
 
 #Customer intent: As a IT admin, I want step-by-step instructions for creating an access package for managing external users through approvals.
 
 ---
-# Tutorial - Onboard external users to Azure AD through an approval process
+# Tutorial - Onboard external users to Microsoft Entra ID through an approval process
 
 You can use entitlement management as a way of onboarding external users. This feature allows external users to request access to a set of resources and where you can set up approvals before they gain access to your directory. For external users onboarded through entitlement, you can manage their lifecycle through access packages. When their last access package expires, they'll be removed from your directory.
 
-In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve been asked to create an access package to onboard partners from an outside organization that your business group is working with. They will need access to a Teams group called **External collaboration**. 
+In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve been asked to create an access package to onboard partners from an outside organization that your business group is working with. They'll need access to a Teams group called **External collaboration**. 
 Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
-To use Azure AD entitlement management, you must have one of the following licenses:
+To use entitlement management, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 ## Step 1: Configure basics
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, in the left navigation, click **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-2. In the left menu, click **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-3. In the left menu, click **Access packages**. If you see Access denied, ensure that an Azure AD Premium P2 license is present in your directory.
+3. When selecting the access package page if you see Access denied, ensure that a Microsoft Entra ID P2 or Microsoft Entra ID Governance license is present in your directory.
 
-4. Click **New access package**.
+4. Select **New access package**.
 
 5. On the **Basics** tab, enter the name **External user package** and description **Access for external users pending approval**.
 
@@ -48,21 +50,21 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Step 2: Configure resources
 
-1. Click **Next** to open the **Resource roles** tab.
+1. Select **Next** to open the **Resource roles** tab.
  
    On this tab, you select the resources and the resource role to include in the access package.
 
-2. Click on **Groups and Teams** and search for your group **External collaboration**.
+2. Select on **Groups and Teams** and search for your group **External collaboration**.
 
 ## Step 3: Configure requests
 
-1. Click **Next** to open the **Requests** tab.
+1. Select **Next** to open the **Requests** tab.
 
    On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
 
-2. In the **Users who can request access** section, click **For users not in your directory** and then click **All users (All connected organizations + any new external users)**.
+2. In the **Users who can request access** section, select **For users not in your directory** and then select **All users (All connected organizations + any new external users)**.
 
-3. Because any user who is not yet in your directory can view and submit a request for this access package, **Yes** is mandatory for the **Require approval** setting.
+3. Because any user who isn't yet in your directory can view and submit a request for this access package, **Yes** is mandatory for the **Require approval** setting.
 
 4. The following settings allow you to configure how your approvals work for your external users:
 
@@ -80,13 +82,13 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Step 4: Configure requestor information
 
-1. Click **Next** to open the **Requestor information** tab
+1. Select **Next** to open the **Requestor information** tab
 
 2. On this screen, you can ask additional questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional. For now you can leave these as empty.
 
 ## Step 5: Configure lifecycle
 
-1. Click **Next** to open the **Lifecycle** tab
+1. Select **Next** to open the **Lifecycle** tab
 
 2. In the **Expiration** section, set **Access package assignment expire** to **Number of days**.
 
@@ -96,11 +98,11 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Step 6: Review and create your access package
 
-1. Click **Next** to open the **Review + Create** tab.
+1. Select **Next** to open the **Review + Create** tab.
 
 2. On this screen, you can review the configuration for your access package before creating. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits.
 
-3. When you're happy with your selections, click on **Create**. After a few moments, you should see a notification that the access package was successfully created.
+3. When you're happy with your selections, select on **Create**. After a few moments, you should see a notification that the access package was successfully created.
 
 4. Once created, you’ll be brought to the **Overview** page for your access package. You can find the **My Access portal link** and copy the value here. Share this link with your external users and they can go to request this package to start collaborating.
 
@@ -110,15 +112,13 @@ In this step, you can delete the **External user package** access package.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or Access package manager
 
-1. In the **Azure portal**, in the left navigation, click **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-2. In the left menu, click **Identity Governance**.
-
-3. In the left menu, click **Access Packages**. 
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 4. Open the **External user package** access package. 
 
-5. Click **Resource Roles**.
+5. Select **Resource Roles**.
 
 6. Select the **External collaboration** group you added to this access package, and in the **Details** pane, select **Remove resource role**. In the message that appears, select **Yes**.
 
@@ -128,4 +128,4 @@ In this step, you can delete the **External user package** access package.
 
 ## Next steps
 
-Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](./entitlement-management-access-package-first.md)
+Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in entitlement management](./entitlement-management-access-package-first.md)

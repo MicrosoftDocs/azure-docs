@@ -3,20 +3,24 @@ title: Configure immutability policies for blob versions
 titleSuffix: Azure Storage
 description: Learn how to configure an immutability policy that is scoped to a blob version. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 12/01/2021
-ms.author: tamram
-ms.subservice: blobs
+ms.date: 09/14/2022
+ms.author: normesta
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ---
 
 # Configure immutability policies for blob versions
 
-Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
+Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data can't be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
 An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a version-level immutability policy. To learn how to configure container-level immutability policies, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
+
+> [!NOTE]
+> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Configuring a version-level immutability policy is a two-step process:
 
@@ -49,7 +53,7 @@ To enable support for version-level immutability when you create a storage accou
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/create-account-version-level-immutability.png" alt-text="Screenshot showing how to create a storage account with version-level immutability support":::
 
-After the storage account is created, you can configure a default version-level policy for the account. For more details, see [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy).
+After the storage account is created, you can configure a default version-level policy for the account. For more information, see [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy).
 
 ##### [PowerShell](#tab/azure-powershell)
 
@@ -73,11 +77,14 @@ az storage account create \
 
 If version-level immutability support is enabled for the storage account and the account contains one or more containers, then you must delete all containers before you delete the storage account, even if there are no immutability policies in effect for the account or containers.
 
+> [!NOTE]
+> Version-level immutability cannot be disabled after it is enabled on the storage account, although locked policies can be deleted.
+
 ### Enable version-level immutability support on a container
 
 Both new and existing containers can be configured to support version-level immutability. However, an existing container must undergo a migration process in order to enable support.
 
-Keep in mind that enabling version-level immutability support for a container does not make data in that container immutable. You must also either configure a default immutability policy for the container, or an immutability policy on a specific blob version. If you enabled version-level immutability for the storage account when it was created, you can also configure a default immutability policy for the account.
+Keep in mind that enabling version-level immutability support for a container doesn't make data in that container immutable. You must also either configure a default immutability policy for the container, or an immutability policy on a specific blob version. If you enabled version-level immutability for the storage account when it was created, you can also configure a default immutability policy for the account.
 
 #### Enable version-level immutability for a new container
 
@@ -138,15 +145,15 @@ If version-level immutability support is enabled for a container and the contain
 
 #### Migrate an existing container to support version-level immutability
 
-To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed. You can migrate ten containers at a time per storage account.
+To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and can't be reversed. You can migrate 10 containers at a time per storage account.
 
 To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
 
-If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
+If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed.
 
 ##### [Portal](#tab/azure-portal)
 
-To migrate a container to support version-level immutable storage in the Azure portal, follow these steps:
+To migrate a container to support version-level immutability policies in the Azure portal, follow these steps:
 
 1. Navigate to the desired container.
 1. Select the **More** button on the right, then select **Access policy**.
@@ -157,7 +164,7 @@ To migrate a container to support version-level immutable storage in the Azure p
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
 
-While the migration operation is underway, the scope of the policy on the container shows as *Container*.
+While the migration operation is underway, the scope of the policy on the container shows as *Container*. Any operations related to managing version-level immutability policies aren't permitted while the container migration is in progress. Other operations on blob data will proceed normally during migration.
 
 :::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-in-process.png" alt-text="Screenshot showing container migration in process":::
 
@@ -192,7 +199,7 @@ To check the status of the long-running operation, read the operation's **JobSta
 $migrationOperation.JobStateInfo.State
 ```
 
-If the container does not have an existing time-based retention policy when you attempt to migrate to version-level immutability, then the operation fails. The following example checks the value of the **JobStateInfo.State** property and displays the error message if the operation failed because the container-level policy does not exist.
+If the container doesn't have an existing time-based retention policy when you attempt to migrate to version-level immutability, then the operation fails. The following example checks the value of the **JobStateInfo.State** property and displays the error message if the operation failed because the container-level policy doesn't exist.
 
 ```azurepowershell
 if ($migrationOperation.JobStateInfo.State -eq "Failed") {
@@ -248,7 +255,7 @@ az storage container-rm show \
 
 After you have enabled version-level immutability support for a storage account or for an individual container, you can specify a default version-level time-based retention policy for the account or container. When you specify a default policy for an account or container, that policy applies by default to all new blob versions that are created in the account or container. You can override the default policy for any individual blob version in the account or container.
 
-The default policy is not automatically applied to blob versions that existed before the default policy was configured.
+The default policy isn't automatically applied to blob versions that existed before the default policy was configured.
 
 If you migrated an existing container to support version-level immutability, then the container-level policy that was in effect before the migration is migrated to a default version-level policy for the container.
 
@@ -272,13 +279,18 @@ To configure a default version-level immutability policy for a storage account i
 To configure a default version-level immutability policy for a container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the **Containers** page, and locate the container to which you want to apply the policy.
-1. Select the **More** button to the right of the container name, and choose **Access policy**.
-1. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
-1. Select **Time-based retention policy** and specify the retention interval.
-1. If desired, select **Allow additional protected appends** to enable writes to append blobs that are protected by an immutability policy. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
-1. Select **OK** to apply the default policy to the container.
+2. Select the **More** button to the right of the container name, and choose **Access policy**.
+3. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
+4. Select **Time-based retention policy** and specify the retention interval.
+5. Choose whether to allow protected append writes. 
 
-    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
+   The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+   The **Block and append blobs** option extends this support by adding the ability to write new blocks to a block blob.  The Blob Storage API does not provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
+
+   To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-container-scope.png" alt-text="Screenshot showing how to configure immutability policy scoped to container.":::
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -326,9 +338,9 @@ Time-based retention policies maintain blob data in a WORM state for a specified
 
 You have three options for configuring a time-based retention policy for a blob version:
 
-- Option 1: You can configure a default policy on the storage account or container that applies to all objects in the account or container. Objects in the account or container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more details, see [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy).
-- Option 2: You can configure a policy on the current version of the blob. This policy can override a default policy configured on the storage account or container, if a default policy exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
-- Option 3: You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. For more details, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
+- Option 1: You can configure a default policy on the storage account or container that applies to all objects in the account or container. Objects in the account or container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more information, see [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy).
+- Option 2: You can configure a policy on the current version of the blob. This policy can override a default policy configured on the storage account or container, if a default policy exists and it's unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more information, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
+- Option 3: You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it's unlocked. For more information, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
 
 For more information on blob versioning, see [Blob versioning](versioning-overview.md).
 
@@ -354,7 +366,7 @@ You can view the properties for a blob to see whether a policy is enabled on the
 
 ### Configure a retention policy on a previous version of a blob
 
-You can also configure a time-based retention policy on a previous version of a blob. A previous version is always immutable in that it cannot be modified. However, a previous version can be deleted. A time-based retention policy protects against deletion while it is in effect.
+You can also configure a time-based retention policy on a previous version of a blob. A previous version is always immutable in that it can't be modified. However, a previous version can be deleted. A time-based retention policy protects against deletion while it is in effect.
 
 To configure a time-based retention policy on a previous version of a blob, follow these steps:
 
@@ -408,7 +420,7 @@ az storage blob immutability-policy set \
 
 When you use the Azure portal to upload a blob to a container that supports version-level immutability, you have several options for configuring a time-based retention policy for the new blob:
 
-- Option 1: If a default retention policy is configured for the container, you can upload the blob with the container's policy. This option is selected by default when there is a retention policy on the container.
+- Option 1: If a default retention policy is configured for the container, you can upload the blob with the container's policy. This option is selected by default when there's a retention policy on the container.
 - Option 2: If a default retention policy is configured for the container, you can choose to override the default policy, either by defining a custom retention policy for the new blob, or by uploading the blob with no policy.
 - Option 3: If no default policy is configured for the container, then you can upload the blob with a custom policy, or with no policy.
 
@@ -416,13 +428,13 @@ To configure a time-based retention policy when you upload a blob, follow these 
 
 1. Navigate to the desired container, and select **Upload**.
 1. In the **Upload** blob dialog, expand the **Advanced** section.
-1. Configure the time-based retention policy for the new blob in the **Retention policy** field. If there is a default policy configured for the container, that policy is selected by default. You can also specify a custom policy for the blob.
+1. Configure the time-based retention policy for the new blob in the **Retention policy** field. If there's a default policy configured for the container, that policy is selected by default. You can also specify a custom policy for the blob.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-blob-upload.png" alt-text="Screenshot showing options for configuring retention policy on blob upload in Azure portal":::
 
 ## Modify or delete an unlocked retention policy
 
-You can modify an unlocked time-based retention policy to shorten or lengthen the retention interval. You can also delete an unlocked policy. Editing or deleting an unlocked time-based retention policy for a blob version does not affect policies in effect for any other versions. If there is a default time-based retention policy in effect for the container, then the blob version with the modified or deleted policy will no longer inherit from the container.
+You can modify an unlocked time-based retention policy to shorten or lengthen the retention interval. You can also delete an unlocked policy. Editing or deleting an unlocked time-based retention policy for a blob version doesn't affect policies in effect for any other versions. If there's a default time-based retention policy in effect for the container, then the blob version with the modified or deleted policy will no longer inherit from the container.
 
 ### [Portal](#tab/azure-portal)
 
@@ -493,9 +505,9 @@ az storage blob immutability-policy delete \
 
 ## Lock a time-based retention policy
 
-When you have finished testing a time-based retention policy, you can lock the policy. A locked policy is compliant with SEC 17a-4(f) and other regulatory compliance. You can lengthen the retention interval for a locked policy up to five times, but you cannot shorten it.
+When you have finished testing a time-based retention policy, you can lock the policy. A locked policy is compliant with SEC 17a-4(f) and other regulatory compliance. You can lengthen the retention interval for a locked policy up to five times, but you can't shorten it.
 
-After a policy is locked, you cannot delete it. However, you can delete the blob after the retention interval has expired.
+After a policy is locked, you can't delete it. However, you can delete the blob after the retention interval has expired.
 
 ### [Portal](#tab/azure-portal)
 
@@ -553,8 +565,10 @@ To configure a legal hold on a blob version, you must first enable version-level
 To configure a legal hold on a blob version with the Azure portal, follow these steps:
 
 1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
-1. Under the **Immutable blob versions** section, select **Add policy**.
-1. Choose **Legal hold** as the policy type, and select **OK** to apply it.
+
+2. Under the **Immutable blob versions** section, select **Add policy**.
+
+3. Choose **Legal hold** as the policy type, and select **OK** to apply it.
 
 The following image shows a current version of a blob with both a time-based retention policy and legal hold configured.
 

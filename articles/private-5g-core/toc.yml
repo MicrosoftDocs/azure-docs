@@ -6,6 +6,42 @@ items:
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
+  - name: What's new?
+    href: whats-new.md
+  - name: Packet core release notes
+    items:
+    - name: 2308 - Current
+      href: azure-private-5g-core-release-notes-2308.md
+    - name: '2307'
+      href: azure-private-5g-core-release-notes-2307.md  
+    - name: '2306'
+      href: azure-private-5g-core-release-notes-2306.md  
+    - name: '2305'
+      href: azure-private-5g-core-release-notes-2305.md  
+    - name: '2303'
+      href: azure-private-5g-core-release-notes-2303.md  
+    - name: '2302'
+      href: azure-private-5g-core-release-notes-2302.md
+    - name: '2301'
+      href: azure-private-5g-core-release-notes-2301.md
+    - name: '2211'
+      href: azure-private-5g-core-release-notes-2211.md
+    - name: '2210'
+      href: azure-private-5g-core-release-notes-2210.md
+    - name: '2209'
+      href: azure-private-5g-core-release-notes-2209.md
+    - name: '2208'
+      href: azure-private-5g-core-release-notes-2208.md
+  - name: Packet core and Azure Stack Edge compatibility
+    href: azure-stack-edge-packet-core-compatibility.md
+- name: Quickstarts
+  items:
+  - name: Deploy a private mobile network and site - ARM template
+    href: deploy-private-mobile-network-with-site-arm-template.md
+  - name: Deploy a private mobile network and site - command line
+    href: deploy-private-mobile-network-with-site-command-line.md
+  - name: Deploy a private mobile network and site - PowerShell
+    href: deploy-private-mobile-network-with-site-powershell.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -14,66 +50,146 @@ items:
   items:
   - name: Key components of a private mobile network
     href: key-components-of-a-private-mobile-network.md
+  - name: Private mobile network design requirements
+    href: private-mobile-network-design-requirements.md
   - name: Statement of compliance
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
-  - name: Default service and SIM policy
+  - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
-  - name: Monitor Azure Private 5G Core using Log Analytics
-    href: monitor-private-5g-core-with-log-analytics.md  
-  - name: Local monitoring tools
+  - name: Monitor Azure Private 5G Core
     items:
-    - name: Distributed tracing
-      href: distributed-tracing.md
-    - name: Packet core dashboards
+    - name: Cloud monitoring with Azure Monitor platform metrics
+      href: monitor-private-5g-core-with-platform-metrics.md
+    - name: Cloud monitoring with Azure Monitor Workbooks
+      href: monitor-private-5g-core-workbooks.md
+    - name: Cloud monitoring of UE usage with Event Hubs (preview)
+      href: ue-usage-event-hub.md
+    - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
+    - name: Local monitoring with distributed tracing
+      href: distributed-tracing.md
+  - name: Reliability
+    href: reliability-private-5g-core.md
   - name: Security
     href: security.md
+  - name: Azure Stack Edge disconnects
+    href: azure-stack-edge-disconnects.md
 - name: How-to guides
   items:
-  - name: Private mobile networks
+  - name: Initial setup
     items:
     - name: Complete the prerequisite tasks for deploying a private mobile network
       href: complete-private-mobile-network-prerequisites.md
+    - name: Commission the AKS cluster
+      href: commission-cluster.md
+  - name: Request support
+    items:
+    - name: How to open a support request 
+      href: open-support-request.md
+  - name: Kubectl access
+    items:
+    - name: Set up kubectl access
+      href: set-up-kubectl-access.md
+  - name: Private mobile networks
+    items:
     - name: Collect the required information to deploy a private mobile network
       href: collect-required-information-for-private-mobile-network.md
     - name: Deploy a private mobile network - Azure portal
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+    - name: Configure Azure Private 5G Core network for accessing UE IP addresses
+      href: configure-access-for-user-equipment-ip-addresses.md
+  - name: Slices
+    items:
+    - name: Create and manage network slices - Azure portal
+      href: create-manage-network-slices.md
+    - name: Create a network slice - ARM template
+      href: create-slice-arm-template.md
   - name: Sites
     items:
     - name: Collect the required information for a site
-      href: collect-required-information-for-a-site.md    
-    - name: Create a site
+      href: collect-required-information-for-a-site.md
+    - name: Create a site - Azure portal
       href: create-a-site.md
-  - name: Services
+    - name: Create a site - ARM template
+      href: create-site-arm-template.md
+    - name: Create additional Packet Core instances for a site - Azure portal
+      href: create-additional-packet-core.md
+    - name: Modify a service plan
+      href: modify-service-plan.md
+    - name: Delete a site
+      href: delete-a-site.md
+  - name: Packet core
+    items:
+    - name: Modify a packet core instance
+      href: modify-packet-core.md
+    - name: Upgrade a packet core instance - Azure portal
+      href: upgrade-packet-core-azure-portal.md
+    - name: Upgrade a packet core instance - ARM template
+      href: upgrade-packet-core-arm-template.md
+    - name: Reinstall a packet core instance
+      href: reinstall-packet-core.md
+    - name: Create custom alerts
+      href: monitor-private-5g-core-alerts.md  
+  - name: Policy control
     items:
     - name: Collect the required information for a service
       href: collect-required-information-for-service.md
-    - name: Configure a service
+    - name: Configure a service - Azure portal
       href: configure-service-azure-portal.md
-  - name: SIM policies
-    items:
     - name: Collect the required information for a SIM policy
       href: collect-required-information-for-sim-policy.md
-    - name: Configure a SIM policy
+    - name: Configure a SIM policy - Azure portal
       href: configure-sim-policy-azure-portal.md
+    - name: Configure a service and SIM policy - ARM template
+      href: configure-service-sim-policy-arm-template.md
+    - name: Configure UE to UE internal forwarding - Azure portal
+      href: configure-internal-forwarding.md
   - name: SIMs
     items:
-    - name: Provision SIMs
+    - name: Provision new SIMs - Azure portal
       href: provision-sims-azure-portal.md
-  - name: Log Analytics
+    - name: Provision new SIMs - ARM template
+      href: provision-sims-arm-template.md
+    - name: Manage existing SIMs
+      href: manage-existing-sims.md
+    - name: Manage SIM groups
+      href: manage-sim-groups.md
+  - name: Local monitoring tools
     items:
-    - name: Enable Log Analytics for a packet core instance
-      href: enable-log-analytics-for-private-5g-core.md
-  - name: Distributed tracing
-    items:
+    - name: Enable Microsoft Entra ID
+      href: enable-azure-active-directory.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
+    - name: Modify a packet core instance's local access configuration
+      href: modify-local-access-configuration.md
+  - name: Network diagnostic tools
+    items:
+    - name: Perform data plane packet capture on a packet core instance
+      href: data-plane-packet-capture.md
+    - name: Use ping and traceroute on a packet core instance
+      href: ping-traceroute.md
+  - name: Gather diagnostics
+    href: gather-diagnostics.md
+  - name: Manage resources
+    items:
+    - name: Move private mobile network resources
+      href: region-move-private-mobile-network-resources.md
+    - name: Delete resources
+      href: delete-resources.md
 - name: Reference
   items:
    - name: REST API
      href: /rest/api/mobilenetwork
+   - name: Region code names
+     href: region-code-names.md
+   - name: ASE VM sizing
+     href: azure-stack-edge-virtual-machine-sizing.md
+   - name: 5QI to DSCP mapping
+     href: differentiated-services-codepoint-5qi-mapping.md
+   - name: Support lifetime
+     href: support-lifetime.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

@@ -4,12 +4,17 @@
   items:
   - name: Azure Service Health service
     href: overview.md
+  - name: What's New
+    href: whats-new.md  
 - name: Quickstarts
   items:
   - name: Configure alerts for service health events
     items:
     - name: Azure portal
       href: alerts-activity-log-service-notifications-portal.md
+    - name: Bicep
+      displayName: Resource Manager, ARM
+      href: alerts-activity-log-service-notifications-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: alerts-activity-log-service-notifications-arm.md
@@ -17,16 +22,16 @@
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
-- name: Concepts
+- name: How To
   items:
   - name: Azure status page
     href: azure-status-overview.md
-  - name: Service Health
-    href: service-health-overview.md
   - name: Resource Health
     href: resource-health-overview.md
-- name: How To
-  items:
+  - name: Azure Service Health Portal Update
+    href: service-health-portal-update.md
+  - name: Azure Service Health Portal (classic)
+    href: service-health-overview.md
   - name: Configure alerts for service health events
     href: ./alerts-activity-log-service-notifications-portal.md
   - name: View service health notifications by using the Azure portal
@@ -45,12 +50,24 @@
     href: resource-health-alert-arm-template-guide.md
 - name: Reference
   items:
-  - name: Service health notifications properties 
+  - name: Service health notifications properties
     href: service-health-notifications-properties.md
+  - name: Stay Informed About Azure Security Issues
+    href: stay-informed-security.md 
   - name: Resource health types and checks
     href: resource-health-checks-resource-types.md
+  - name: Impacted Resources Support for Outages
+    href: impacted-resources-outage.md
+  - name: Impacted Resources Support for Planned Maintenance Events
+    href: impacted-resources-planned-maintenance.md
+  - name: Impacted Resources Support for Security Incidents
+    href: impacted-resources-security.md
   - name: Resource Health FAQ
     href: resource-health-faq.yml
+  - name: Resource Health VM status annotations
+    href: resource-health-vm-annotation.md
+  - name: Admin roles for tenant scope view
+    href: admin-access-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -4,7 +4,7 @@ description: Learn how to query data from Azure Data Lake Storage Gen1 and to st
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
-ms.date: 04/24/2020
+ms.date: 11/17/2022
 ---
 
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
@@ -40,7 +40,6 @@ Currently, only some of the HDInsight cluster types/versions support using Data 
 | HDInsight version 3.4 | No | Yes | |
 | HDInsight version 3.3 | No | No | |
 | HDInsight version 3.2 | No | Yes | |
-| Storm | | |You can use Data Lake Storage Gen1 to write data from a Storm topology. You can also use Data Lake Storage Gen1 for reference data that can then be read by a Storm topology.|
 
 > [!WARNING]  
 > HDInsight HBase is not supported with Azure Data Lake Storage Gen1
@@ -100,7 +99,7 @@ New-AzResourceGroupDeployment `
 
 ## Use Data Lake Storage Gen1 as additional storage
 
-You can use Data Lake Storage Gen1 as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Blob storage or a Azure Data Lake Storage Gen1 account. When running HDInsight jobs against the data stored in Azure Data Lake Storage Gen1 as additional storage, use the fully qualified path. For example:
+You can use Data Lake Storage Gen1 as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Blob storage or an Azure Data Lake Storage Gen1 account. When running HDInsight jobs against the data stored in Azure Data Lake Storage Gen1 as additional storage, use the fully qualified path. For example:
 
 `adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
@@ -118,7 +117,7 @@ Adding a Data Lake Storage account as additional and adding more than one Data L
 
 ## Configure Data Lake Storage Gen1 access
 
-To configure Azure Data Lake Storage Gen1 access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md), and [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+To configure Azure Data Lake Storage Gen1 access from your HDInsight cluster, you must have a Microsoft Entra service principal. Only a Microsoft Entra administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md), and [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 > [!NOTE]  
 > If you are going to use Azure Data Lake Storage Gen1 as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Storage Gen1 as additional storage to an existing HDInsight cluster is not a supported scenario.

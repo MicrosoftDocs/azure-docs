@@ -3,7 +3,7 @@ title: Azure HDInsight clusters with disk encryption lose Key Vault access
 description: Troubleshooting steps and possible resolutions for Key Vault access issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 06/08/2023
 ---
 
 # Scenario: Azure HDInsight clusters with disk encryption lose Key Vault access
@@ -24,7 +24,7 @@ Navigate to Apache Ambari UI to find more information about the alert from **Dis
 
 ### KV/AAD outage
 
-Look at [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md) and Azure status page for more details https://status.azure.com/
+Look at [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md) and Azure status page for more details https://azure.status.microsoft/
 
 ### KV accidental deletion
 

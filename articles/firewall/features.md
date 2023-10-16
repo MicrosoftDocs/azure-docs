@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 08/30/2023
 ms.author: victorh
 ---
 
@@ -37,6 +37,8 @@ Azure Firewall includes the following features:
 - Web categories
 - Certifications
 
+To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+
 ## Built-in high availability
 
 High availability is built in, so no extra load balancers are required and there's nothing you need to configure.
@@ -47,7 +49,9 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no additional cost for a firewall deployed in an Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
 Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 
@@ -58,11 +62,15 @@ For more information about Availability Zones, see [Regions and Availability Zon
 
 ## Unrestricted cloud scalability
 
-Azure Firewall can scale out as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+Azure Firewall can scale out as much as you need to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
 
 ## Application FQDN filtering rules
 
 You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require TLS termination.
+
+The following video shows how to create an application rule: <br><br>
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d8dbf4b9-4f75-4c88-b717-c3664b667e8b]
 
 ## Network traffic filtering rules
 
@@ -96,15 +104,15 @@ Azure Firewall can also resolve names using Azure Private DNS. The virtual netwo
 
 You can use fully qualified domain names (FQDNs) in network rules based on DNS resolution in Azure Firewall and Firewall Policy. 
 
-The specified FQDNs in your rule collections are translated to IP addresses based on your firewall DNS settings. This capability allows you to filter outbound traffic using FQDNs with any TCP/UDP protocol (including NTP, SSH, RDP, and more). As this capability is based on DNS resolution, it is highly recommended you enable the DNS proxy to ensure name resolution is consistent with your protected virtual machines and firewall.
+The specified FQDNs in your rule collections are translated to IP addresses based on your firewall DNS settings. This capability allows you to filter outbound traffic using FQDNs with any TCP/UDP protocol (including NTP, SSH, RDP, and more). As this capability is based on DNS resolution, it's highly recommended you enable the DNS proxy to ensure name resolution is consistent with your protected virtual machines and firewall.
 
 ## Deploy Azure Firewall without public IP address in Forced Tunnel mode
 
 The Azure Firewall service requires a public IP address for operational purposes. While secure, some deployments prefer not to expose a public IP address directly to the Internet. 
 
-In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC which is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or completely blocked.
+In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC that is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or completely blocked.
 
-Forced Tunnel mode cannot be configured at run time. You can either redeploy the Firewall or use the stop and start facility to reconfigure an existing Azure Firewall in Forced Tunnel mode. Firewalls deployed in Secure Hubs are always deployed in Forced Tunnel mode.
+Forced Tunnel mode can't be configured at run time. You can either redeploy the Firewall or use the stop and start facility to reconfigure an existing Azure Firewall in Forced Tunnel mode. Firewalls deployed in Secure Hubs are always deployed in Forced Tunnel mode.
 
 ## Outbound SNAT support
 
@@ -127,9 +135,12 @@ This enables the following scenarios:
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - More ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md) to simplify this configuration.
 
+For more information about NAT behaviors, see [Azure Firewall NAT Behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834).
+
+
 ## Azure Monitor logging
 
-All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](./firewall-workbook.md).
+All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your event hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](./firewall-workbook.md).
 
 For more information, see [Tutorial: Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md). 
 
@@ -141,26 +152,27 @@ You can configure Azure Firewall to route all Internet-bound traffic to a design
 
 ## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
+Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
-- Firewall Standard – only the FQDN part will be examined, so `www.google.com` will be categorized as *Search Engine*. 
+- Firewall Standard – only the FQDN part is examined, so `www.google.com` is categorized as *Search Engine*. 
 
-- Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
+- Firewall Premium – the complete URL is examined, so `www.google.com/news` is categorized as *News*.
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
 
 ### Category exceptions
 
-You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
+You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the predefined **Social networking** web category.
 
 
 
 ## Certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), and ICSA Labs compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
 
 ## Next steps
 
 - [Azure Firewall Premium features](premium-features.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

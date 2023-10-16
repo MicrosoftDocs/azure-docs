@@ -1,25 +1,25 @@
 ---
-title: Reprocess requests for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to reprocess a request for an access package in Azure Active Directory entitlement management.
+title: Reprocess requests for an access package in entitlement management
+description: Learn how to reprocess a request for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/25/2021
-ms.author: ajburnle
+ms.date: 08/24/2023
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 #Customer intent: As a global administrator or access package manager, I want detailed information about how I can repreocess a request for an access package if a request failed so that requestors have the resources in the access package they need to perform their job.
 
 ---
-# Reprocess requests for an access package in Azure AD entitlement management
+# Reprocess requests for an access package in entitlement management
 
 As an access package manager, you can automatically retry a user’s request for access to an access package at any time by using the reprocess functionality. Reprocessing eliminates the need for users to repeat the access package request process if their access to resources is not successfully provisioned.
 
@@ -30,28 +30,30 @@ This article describes how to reprocess requests for an existing access package.
 
 ## Prerequisites
 
-To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Open an existing access package and reprocess user requests
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner, Access package manager or Access package assignment manager
 
 If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you might need to reprocess some of those requests. Follow these steps to reprocess requests for an existing access package:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Click **Azure Active Directory**, and then click **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1.	In the left menu, click **Access packages** and then open the access package.
+1. On the **Access packages** open the access package.
 
-1.	Underneath **Manage** on the left side, click **Requests**.
+1. Underneath **Manage** on the left side, select **Requests**.
 
-1.	Select all users whose requests you wish to reprocess.
+1. Select all users whose requests you wish to reprocess.
 
-1.	Click **Reprocess**.
+1. Select **Reprocess**.
 
 ## Next steps
 

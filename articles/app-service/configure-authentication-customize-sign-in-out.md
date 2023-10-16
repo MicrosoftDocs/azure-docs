@@ -3,6 +3,9 @@ title: Customize sign-ins and sign-outs
 description: Use the built-in authentication and authorization in App Service and at the same time customize the sign-in and sign-out behavior.
 ms.topic: article
 ms.date: 03/29/2021
+ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Customize sign-in and sign-out in Azure App Service authentication
@@ -37,7 +40,7 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Client-directed sign-in
 
-In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. The [Azure Mobile Apps SDKs](https://github.com/Azure/azure-mobile-apps) use this sign-in flow. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
+In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
 
 To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
@@ -56,7 +59,7 @@ The token format varies slightly according to the provider. See the following ta
 | `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
 | | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
@@ -83,7 +86,7 @@ Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/lo
 
 - Clears authentication cookies from the current session.
 - Deletes the current user's tokens from the token store.
-- For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+- For Microsoft Entra ID and Google, performs a server-side sign-out on the identity provider.
 
 Here's a simple sign-out link in a webpage:
 
@@ -91,7 +94,7 @@ Here's a simple sign-out link in a webpage:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/complete`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -123,7 +126,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 ## Limit the domain of sign-in accounts
 
-Both Microsoft Account and Azure Active Directory lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Azure AD allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Azure AD sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
+Both Microsoft Account and Microsoft Entra ID lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Microsoft Entra ID allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Microsoft Entra sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
 
 1. In [https://resources.azure.com](https://resources.azure.com), At the top of the page, select **Read/Write**.
 2. In the left browser, navigate to **subscriptions** > **_\<subscription-name_** > **resourceGroups** > **_\<resource-group-name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app-name>_** > **config** > **authsettingsV2**.
@@ -182,7 +185,7 @@ For any Windows app, you can define authorization behavior of the IIS web server
 
 The identity provider may provide certain turn-key authorization. For example:
 
-- For [Azure App Service](configure-authentication-provider-aad.md), you can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly in Azure AD. For instructions, see [How to remove a user's access to an application](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- For [Azure App Service](configure-authentication-provider-aad.md), you can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly in Microsoft Entra ID. For instructions, see [How to remove a user's access to an application](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - For [Google](configure-authentication-provider-google.md), Google API projects that belong to an [organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) can be configured to allow access only to users in your organization (see [Google's **Setting up OAuth 2.0** support page](https://support.google.com/cloud/answer/6158849?hl=en)).
 
 ### Application level

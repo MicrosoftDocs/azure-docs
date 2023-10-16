@@ -1,12 +1,12 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Create and manage Azure IoT Central applications from the CSP portal | Microsoft Docs
-description: As a CSP, how to create an Azure IoT Central application on behalf of your customer.
+title: Manage Azure IoT Central applications from the CSP portal
+description: As a CSP, learn how to create and manage an Azure IoT Central application on behalf of your customer.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/28/2021
+ms.date: 06/13/2023
 ms.topic: how-to
 
 ---
@@ -17,33 +17,23 @@ The Microsoft Cloud Solution Provider (CSP) program is a Microsoft Reseller prog
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-As a CSP, you can create and manage Microsoft Azure IoT Central applications on behalf of your customers through the [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). When Azure IoT Central applications are created on behalf of customers by CSPs, just like with other CSP managed Azure services, CSPs manage billing for customers. A charge for Azure IoT Central will appear in your total bill in the Microsoft Partner Center.
+As a CSP, you can create and manage Microsoft Azure IoT Central applications on behalf of your customers through the [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). When Azure IoT Central applications are created on behalf of customers by CSPs, just like with other CSP managed Azure services, CSPs manage billing for customers. A charge for Azure IoT Central appears in your total bill in the Microsoft Partner Center.
 
-To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service Management for the customer from the left nav.
+To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to **Service Management** for the customer from the left nav.
 
 ![Microsoft Partner Center, customer view](media/howto-create-and-manage-applications-csp/image1.png)
 
-Azure IoT Central is listed as a service available to administer. Select the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
+Azure IoT Central is listed as a service available to administer. Select the **Azure IoT Central** link on the page to create new applications or manage existing applications for this customer.
 
 ![Azure IoT Central available to manage](media/howto-create-and-manage-applications-csp/image2.png)
 
-You land on the Azure IoT Central Application Manager page. Azure IoT Central keeps context that you came from the Microsoft Partner Center and that you came to manage that particular customer. You see this acknowledged in the header of the Application Manager page. From here, you can either navigate to an existing application you had created earlier for this customer to manage or create a new application for the customer.
+You land on the **Azure IoT Central Application Manager** page. Azure IoT Central keeps context that you came from the Microsoft Partner Center and that you came to manage that particular customer. The **Application Manager** page header shows the Microsoft Partner Center context. From here, you can either navigate to an existing application you created earlier for this customer to manage or create a new application for the customer.
 
 ![Create Manager for CSPs](media/howto-create-and-manage-applications-csp/image3.png)
 
-To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
+:::image type="content" source="media/howto-create-and-manage-applications-csp/iot-central-landing-page.png" alt-text="Screenshot of the IoT Central application manager page.":::
 
-![Screenshot that shows the "Build your IoT application" page with the "Build" button selected.](media/howto-create-and-manage-applications-csp/image4.png)
-
-![Create Application Page for CSPs](media/howto-create-and-manage-applications-csp/image4-1.png)
-
-![Create Application Page for CSPs Billing Info](media/howto-create-and-manage-applications-csp/image4-2.png)
-
-## Pricing plan
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. You must complete all the fields on the **Application Create** page and then choose **Create**.
 
 ## Application name
 
@@ -57,11 +47,11 @@ When you enter the name for your application, your application URL is autogenera
 
 ## Directory
 
-Since Azure IoT Central has context that you came to manage the customer you selected in the Microsoft Partner Portal, you see just the Azure Active Directory tenant for that customer in the Directory field. 
+Azure IoT Central knows the customer you selected in the Microsoft Partner Portal, so you see just the Microsoft Entra tenant for that customer in the **Directory** field.
 
-An Azure Active Directory tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Azure Active Directory tenant.
+A Microsoft Entra tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Microsoft Entra tenant.
 
-To learn more, see [Azure Active Directory](../../active-directory/index.yml).
+To learn more, see [Microsoft Entra ID](../../active-directory/index.yml).
 
 ## Azure subscription
 
@@ -81,7 +71,7 @@ Choose the application template you want to use for your application.
 
 ## Next steps
 
-Now that you have learned how to create an Azure IoT Central application as a CSP, here is the suggested next step:
+Now that you have learned how to create an Azure IoT Central application as a CSP, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [Administer your application](howto-administer.md)

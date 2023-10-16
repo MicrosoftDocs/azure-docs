@@ -1,6 +1,8 @@
 items: 
 - name: Data Factory Documentation
   href: index.yml
+- name: Switch to Data Factory in Microsoft Fabric documentation
+  href: /fabric/data-factory
 - name: Switch to version 1 documentation
   href: v1/data-factory-introduction.md
 - name: Overview
@@ -8,34 +10,29 @@ items:
   - name: Introduction to Data Factory
     href: introduction.md
     displayName: orchestration
-  - name: What's new in Azure Data Factory
+  - name: What's new (recent months)
     href: whats-new.md
+  - name: What's new (archived months)
+    href: whats-new-archive.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory - User interface (UI)
-    href: quickstart-create-data-factory-portal.md
-  - name: Create data factory - Copy data tool
-    href: quickstart-create-data-factory-copy-data-tool.md
+  - name: Get started with Azure Data Factory
+    href: quickstart-get-started.md
+  - name: Create a data factory
+    href: quickstart-create-data-factory.md
+  - name: Hello World - How to copy data
+    href: quickstart-hello-world-copy-data-tool.md
     displayName: timeout
-  - name: Create data factory - Azure CLI
-    href: quickstart-create-data-factory-azure-cli.md
-  - name: Create data factory - Azure PowerShell
-    href: quickstart-create-data-factory-powershell.md
-  - name: Create data factory - .NET
-    href: quickstart-create-data-factory-dot-net.md
-  - name: Create data factory - Python
-    href: quickstart-create-data-factory-python.md
-  - name: Create data factory - REST
-    href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - ARM template
-    displayName: Resource Manager
-    href: quickstart-create-data-factory-resource-manager-template.md
-  - name: Create data flow
+  - name: Create a data flow
     href: data-flow-create.md
+  - name: Training modules
+    href: quickstart-learn-modules.md
+  - name: Azure Data Factory Studio Learning center
+    href: https://ms-adf.azure.com/learn
 - name: Tutorials
   items:
   - name: List of tutorials
@@ -71,7 +68,7 @@ items:
       displayName: polybase
     - name: From SAP BW to Azure Data Lake Storage Gen2
       href: load-sap-bw-data.md
-    - name: From Office 365 to Azure Blob storage
+    - name: From Microsoft 365 to Azure Blob storage
       href: load-office-365-data.md
     - name: Multiple tables in bulk
       items:
@@ -180,6 +177,8 @@ items:
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
       href: tutorial-managed-virtual-network-sql-managed-instance.md 
+    - name: Move an existing Azure integration runtime to a managed virtual network
+      href: tutorial-managed-virtual-network-migrate.md
   - name: Self-hosted integration runtime
     items:
     - name: Enable remote access from intranet with TLS/SSL certificate (Advanced)
@@ -195,6 +194,13 @@ items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
+  - name: Pipeline parameters and variables
+    href: concepts-parameters-variables.md
+  - name: Annotations and user properties
+    href: concepts-annotations-user-properties.md 
+  - name: Nested activities
+    href: concepts-nested-activities.md
+    displayName: nested, nesting
   - name: Linked services
     href: concepts-linked-services.md
   - name: Datasets
@@ -203,7 +209,11 @@ items:
     href: concepts-pipeline-execution-triggers.md
     displayName: retry
   - name: Integration runtime
-    href: concepts-integration-runtime.md
+    items:
+    - name: Integration runtime overview
+      href: concepts-integration-runtime.md
+    - name: Choose the right integration runtime configuration for your scenario
+      href: choose-the-right-integration-runtime-configuration.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
@@ -277,6 +287,9 @@ items:
             displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
           - name: Alphabetical usage details for all functions
             href: data-flow-expressions-usage.md
+      - name: User defined functions
+        href: concepts-data-flow-udf.md
+        displayName: udf, user defined function,data flow library
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview
@@ -285,6 +298,12 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
+  - name: Change data capture
+    items:
+    - name: Change data capture
+      href: concepts-change-data-capture.md    
+    - name: Change data capture resource
+      href: concepts-change-data-capture-resource.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
@@ -293,24 +312,48 @@ items:
     href: concepts-data-redundancy.md
 - name: How-to guides 
   items:
+  - name: Create Data Factory Programmatically
+    items:
+    - name: Create data factory - Azure CLI
+      href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Create data factory - .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Create data factory - Python
+      href: quickstart-create-data-factory-python.md
+    - name: Create data factory - REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Create data factory - Bicep
+      href: quickstart-create-data-factory-bicep.md
   - name: Author
     items:
     - name: Visually author data factories
       href: author-visually.md
     - name: Iterative development and debugging
       href: iterative-development-debugging.md
+    - name: Deactivate and reactivate
+      href: deactivate-activity.md
     - name: Management hub
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
+    - name: Author a change data capture resource
+      href: how-to-change-data-capture-resource.md
+    - name: Author a change data capture resource with schema evolution
+      href: how-to-change-data-capture-resource-with-schema-evolution.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
+    - name: Manage your environment with DataOps
+      href: apply-dataops.md
     - name: Continuous integration and delivery
       items:
       - name: Overview
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Automate with GitHub Actions
+        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
@@ -342,6 +385,10 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: AppFigures
+      href: connector-appfigures.md
+    - name: Asana
+      href: connector-asana.md     
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
@@ -349,9 +396,11 @@ items:
       displayName: timeout
     - name: Azure Cognitive Search
       href: connector-azure-search.md
-    - name: Azure Cosmos DB SQL API
+    - name: Azure Cosmos DB analytical store
+      href: connector-azure-cosmos-analytical-store.md
+    - name: Azure Cosmos DB for NoSQL
       href: connector-azure-cosmos-db.md
-    - name: Azure Cosmos DB's API for MongoDB
+    - name: Azure Cosmos DB for MongoDB
       href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Explorer
       href: connector-azure-data-explorer.md
@@ -428,6 +477,8 @@ items:
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
+    - name: Google Sheets
+      href: connector-google-sheets.md   
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -455,6 +506,9 @@ items:
       href: connector-mariadb.md
     - name: Marketo
       href: connector-marketo.md
+    - name: Microsoft 365
+      href: connector-office-365.md
+      displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
     - name: MongoDB
@@ -473,9 +527,6 @@ items:
       displayName: timeout
     - name: ODBC
       href: connector-odbc.md
-    - name: Office 365
-      href: connector-office-365.md
-      displayName: active directory
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Cloud Storage
@@ -518,6 +569,8 @@ items:
         href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
+    - name: SAP CDC
+      href: connector-sap-change-data-capture.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
       displayName: timeout
@@ -621,7 +674,7 @@ items:
       href: control-flow-azure-function-activity.md
       displayName: timeout, control flow
     - name: Custom activity
-      href: transform-data-using-dotnet-custom-activity.md
+      href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
       displayName: data bricks
@@ -660,6 +713,10 @@ items:
       href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
+    - name: Synapse Notebook activity
+      href: transform-data-synapse-notebook.md
+    - name: Synapse Spark job definition activity
+      href: transform-data-synapse-spark-job-definition.md     
   - name: Control flow
     items:
     - name: Append Variable activity
@@ -689,6 +746,8 @@ items:
     - name: Set Variable activity
       href: control-flow-set-variable-activity.md
       displayName: variables, control flow
+    - name: Set Pipeline Return Value
+      href: tutorial-pipeline-return-value.md
     - name: Switch activity
       href: control-flow-switch-activity.md
       displayName: control flow
@@ -717,9 +776,11 @@ items:
       href: data-flow-alter-row.md
       displayName: upsert, update, insert, delete
     - name: Assert
-      href: data-flow-assert.md
+      href: data-flow-assert.md   
     - name: Conditional split
       href: data-flow-conditional-split.md
+    - name: Cast
+      href: data-flow-cast.md
       displayName: split
     - name: Derived column
       href: data-flow-derived-column.md
@@ -801,6 +862,8 @@ items:
       href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Configure outbound allow lists (Preview)
+      href: configure-outbound-allow-list-azure-policy.md
       displayName: self hosted
     - name: Credentials in Data Factory
       href: credentials.md
@@ -815,6 +878,12 @@ items:
       href: data-factory-private-link.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+  - name: Settings
+    items: 
+    - name: Manage Azure Data Factory settings and preferences
+      href: how-to-manage-settings.md
+    - name: Manage Azure Data Factory studio preview experience
+      href: how-to-manage-studio-preview-exp.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -834,8 +903,6 @@ items:
         href: monitor-ssis.md
       - name: Schema of logs and events
         href: monitor-schema-logs-events.md
-      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
-        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Pipeline failure and error handling
@@ -847,6 +914,8 @@ items:
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
+    - name: Monitor managed virtual network integration runtime
+      href: monitor-managed-virtual-network-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Run Data Pipelines with Service Level Agreements
@@ -938,7 +1007,7 @@ items:
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
-    - name: Enable Azure AD authentication for Azure-SSIS IR
+    - name: Enable Microsoft Entra authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
       displayName: active directory
     - name: Connect to data with Windows Authentication
@@ -1014,7 +1083,7 @@ items:
     - name: Azure Machine Learning
       items:
       - name: Data ingestion
-        href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
+        href: ../machine-learning/v1/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Transformation using mapping data flow
       items:
       - name: Process fixed-width text files
@@ -1031,8 +1100,8 @@ items:
       items:
       - name: SSIS migration overview
         href: scenario-ssis-migration-overview.md
-      - name: SSISDB migration to Azure SQL Managed Instance
-        href: scenario-ssis-migration-ssisdb-mi.md
+      - name: SSIS migration assessment rules
+        href: scenario-ssis-migration-rules.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -1047,6 +1116,12 @@ items:
       href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Replicate data from SAP CDC
+      href: solution-template-replicate-multiple-objects-sap-cdc.md
+    - name: Detect and mask PII data
+      href: solution-template-pii-detection-and-masking.md
+    - name: Extract data from PDF source
+      href: solution-template-extract-data-from-pdf.md
     - name: Migrate data from Amazon S3 to Azure Storage
       href: solution-template-migration-s3-azure.md
     - name: Move files
@@ -1062,90 +1137,209 @@ items:
       href: data-flow-reserved-capacity-overview.md
     - name: Data flow understand reservation charges
       href: data-flow-understand-reservation-charges.md
+    - name: Better understand different integration runtime charges
+      href: better-understand-different-integration-runtime-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
+    - name: FinOps in Azure Data Factory
+      href: apply-finops.md
     - name: Pricing examples     
-      href: pricing-concepts.md
-      displayName: diu  
+      items:
+      - name: Pricing overview
+        href: pricing-concepts.md
+        displayName: diu 
+      - name: Copy data from AWS S3 to Azure Blob storage
+        href: pricing-examples-s3-to-blob.md
+      - name: Copy data and transform with Azure Databricks
+        href: pricing-examples-copy-transform-azure-databricks.md
+      - name: Copy/transform data with dynamic parameters
+        href: pricing-examples-copy-transform-dynamic-parameters.md
+      - name: Run SSIS packages on Azure-SSIS integration runtime
+        href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
+      - name: Using mapping data flow debug for a workday
+        href: pricing-examples-mapping-data-flow-debug-workday.md
+      - name: Transform blob data with mapping data flows
+        href: pricing-examples-transform-mapping-data-flows.md
+      - name: Data integration with Managed VNET
+        href: pricing-examples-data-integration-managed-vnet.md
+      - name: Get delta data from SAP ECC via SAP CDC in mapping data flows
+        href: pricing-examples-get-delta-data-from-sap-ecc.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
       href: data-factory-ux-troubleshoot-guide.md
+      displayName: troubleshooting
     - name: Activities
       href: data-factory-troubleshoot-guide.md
-      displayName: timeout
+      displayName: timeout, troubleshooting
+    - name: Change data capture
+      items:
+      - name: Change data capture troubleshooting
+        href: change-data-capture-troubleshoot.md
+        displayName: change data capture, troubleshooting
     - name: Connectors
       items:
       - name: Overview and general copy activity errors
         href: connector-troubleshoot-guide.md
-        displayName: polybase, timeout
+        displayName: polybase, timeout, troubleshooting
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
-      - name: Azure Cosmos DB (including SQL API)
+        displayName: troubleshooting
+      - name: Azure Cosmos DB (including Azure Cosmos DB for NoSQL)
         href: connector-troubleshoot-azure-cosmos-db.md
+        displayName: troubleshooting
+      - name: Azure Data Explorer
+        href: connector-troubleshoot-azure-data-explorer.md
+        displayName: troubleshooting
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
+        displayName: troubleshooting
       - name: Azure database for PostgreSQL
         href: connector-troubleshoot-postgresql.md
+        displayName: troubleshooting
       - name: Azure files
         href: connector-troubleshoot-azure-files.md
-      - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+        displayName: troubleshooting
+      - name: Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server
         href: connector-troubleshoot-synapse-sql.md
+        displayName: troubleshooting
       - name: Azure Table Storage
         href: connector-troubleshoot-azure-table-storage.md
+        displayName: troubleshooting
       - name: DB2
         href: connector-troubleshoot-db2.md
+        displayName: troubleshooting
       - name: Delimited text format
         href: connector-troubleshoot-delimited-text.md
+        displayName: troubleshooting
       - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
         href: connector-troubleshoot-dynamics-dataverse.md
+        displayName: troubleshooting
+      - name: File system
+        href: connector-troubleshoot-file-system.md
+        displayName: troubleshooting        
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+        displayName: troubleshooting
       - name: Google AdWords
         href: connector-troubleshoot-google-adwords.md          
+        displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md  
+        displayName: troubleshooting
+      - name: MongoDB
+        href: connector-troubleshoot-mongodb.md  
+        displayName: troubleshooting
       - name: Oracle
         href: connector-troubleshoot-oracle.md
+        displayName: troubleshooting
       - name: ORC format
         href: connector-troubleshoot-orc.md
+        displayName: troubleshooting
       - name: Parquet format
         href: connector-troubleshoot-parquet.md
+        displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
+      - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
+        href: connector-troubleshoot-sap.md
+        displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
+        displayName: troubleshooting
+      - name: Snowflake
+        href: connector-troubleshoot-snowflake.md
+        displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
+        displayName: troubleshooting
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
       displayName: orchestration
     - name: Data Flows
       items:
-      - name: Data flow troubleshooting overview
+      - name: Data flow troubleshooting guide
         href: data-flow-troubleshoot-guide.md
-        displayName: timeout
-      - name: Data flow errors and messages
-        href: data-flow-troubleshoot-errors.md
+        displayName: timeout, troubleshooting
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
+        displayName: troubleshooting
     - name: Continuous Integration and Deployment 
       href: ci-cd-github-troubleshoot-guide.md      
+      displayName: troubleshooting
     - name: Security and access control
       href: security-and-access-control-troubleshoot-guide.md
+      displayName: troubleshooting
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
-      displayName: self hosted
+      displayName: self hosted, troubleshooting
     - name: Azure-SSIS Integration Runtime
       href: ssis-integration-runtime-management-troubleshoot.md
-      displayName: timeout
+      displayName: timeout, troubleshooting
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
-      displayName: retry, timeout
+      displayName: retry, timeout, troubleshooting
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
-      displayName: timeout
+      displayName: timeout, troubleshooting
+- name: SAP knowledge center
+  items:
+  - name: Overview
+    href: industry-sap-overview.md
+  - name: SAP connectors
+    href: industry-sap-connectors.md
+  - name: SAP templates
+    href: industry-sap-templates.md
+  - name: SAP change data capture (CDC) capabilities
+    items:
+    - name: Overview and architecture
+      href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
+    - name: Prerequisites and setup
+      href: sap-change-data-capture-prerequisites-configuration.md
+    - name: Set up a self-hosted integration runtime
+      href: sap-change-data-capture-shir-preparation.md
+    - name: Set up a linked service and source dataset
+      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+    - name: Debug issues with the SAP CDC connector
+      href: sap-change-data-capture-debug-shir-logs.md
+    - name: Manage the SAP CDC process
+      href: sap-change-data-capture-management.md
+    - name: Advanced topics
+      href: sap-change-data-capture-advanced-topics.md    
+      displayName: SAP, change data capture, CDC
+- name: Managed Airflow
+  items:
+  - name: Tutorials
+    items:
+    - name: Run an existing pipeline with Airflow
+      href: tutorial-run-existing-pipeline-with-airflow.md
+  - name: Concepts
+    href: concept-managed-airflow.md
+  - name: How-to
+    items:
+    - name: How does Managed Airflow work
+      href: how-does-managed-airflow-work.md
+    - name: How to change the Airflow password
+      href: password-change-airflow.md
+    - name: Create a private requirement Package
+      href: airflow-create-private-requirement-package.md
+    - name: Enable Azure Key Vault for Airflow
+      href: enable-azure-key-vault-for-managed-airflow.md
+    - name: Kubernetes secret to access private container registry
+      href: kubernetes-secret-pull-image-from-private-container-registry.md
+    - name: Rest APIs for the Airflow integrated runtime
+      href: rest-apis-for-airflow-integrated-runtime.md
+    - name: Retrieve the IP address of an Airflow cluster
+      href: airflow-get-ip-airflow-cluster.md
+    - name: Sync a GitHub repository with Airflow
+      href: airflow-sync-github-repository.md
+    - name: Diagnostic logs and metrics
+      href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
+  - name: Pricing
+    href: airflow-pricing.md
 - name: Reference
   items:
   - name: Data flow script
@@ -1182,7 +1376,7 @@ items:
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: /answers/topics/azure-data-factory.html
+    href: https://feedback.azure.com/d365community/forum/1219ec2d-6c26-ec11-b6e6-000d3a4f032c
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region
@@ -1193,3 +1387,4 @@ items:
     href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
+    

@@ -1,24 +1,26 @@
 ---
 title: Use managed identity with an application on a Service Fabric managed cluster
 description: How to use managed identities in Azure Service Fabric application code to access Azure Services on a Service Fabric managed cluster.
-
-ms.topic: article
-ms.date: 5/10/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # How to leverage a Service Fabric application's managed identity to access Azure services on a Service Fabric managed cluster
 
-Service Fabric applications can leverage managed identities to access other Azure resources which support Azure Active Directory-based authentication. An application can obtain an [access token](../active-directory/develop/developer-glossary.md#access-token) representing its identity, which may be system-assigned or user-assigned, and use it as a 'bearer' token to authenticate itself to another service - also known as a [protected resource server](../active-directory/develop/developer-glossary.md#resource-server). The token represents the identity assigned to the Service Fabric application, and will only be issued to Azure resources (including SF applications) which share that identity. Refer to the [managed identity overview](../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities. We will refer to a managed-identity-enabled Service Fabric application as the [client application](../active-directory/develop/developer-glossary.md#client-application) throughout this article.
+Service Fabric applications can leverage managed identities to access other Azure resources which support Microsoft Entra ID-based authentication. An application can obtain an [access token](../active-directory/develop/developer-glossary.md#access-token) representing its identity, which may be system-assigned or user-assigned, and use it as a 'bearer' token to authenticate itself to another service - also known as a [protected resource server](../active-directory/develop/developer-glossary.md#resource-server). The token represents the identity assigned to the Service Fabric application, and will only be issued to Azure resources (including SF applications) which share that identity. Refer to the [managed identity overview](../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities. We will refer to a managed-identity-enabled Service Fabric application as the [client application](../active-directory/develop/developer-glossary.md#client-application) throughout this article.
 
 See a companion sample application that demonstrates using system-assigned and user-assigned [Service Fabric application managed identities](https://github.com/Azure-Samples/service-fabric-managed-identity) with Reliable Services and containers.
 
 > [!IMPORTANT]
-> A managed identity represents the association between an Azure resource and a service principal in the corresponding Azure AD tenant associated with the subscription containing the resource. As such, in the context of Service Fabric, managed identities are only supported for applications deployed as Azure resources. 
+> A managed identity represents the association between an Azure resource and a service principal in the corresponding Microsoft Entra tenant associated with the subscription containing the resource. As such, in the context of Service Fabric, managed identities are only supported for applications deployed as Azure resources. 
 
 > [!IMPORTANT]
-> Prior to using the managed identity of a Service Fabric application, the client application must be granted access to the protected resource. Please refer to the list of [Azure services which support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
+> Prior to using the managed identity of a Service Fabric application, the client application must be granted access to the protected resource. Please refer to the list of [Azure services which support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
  to check for support, and then to the respective service's documentation for specific steps to grant an identity access to resources of interest. 
- 
 
 ## Leverage a managed identity using Azure.Identity
 
@@ -376,9 +378,9 @@ The 'status code' field of the HTTP response header indicates the success status
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
 | 404 Not found. | Unknown authentication code, or the application was not assigned a managed identity. | Rectify the application setup or token acquisition code. |
-| 429 Too many requests. |  Throttle limit reached, imposed by AAD or SF. | Retry with Exponential Backoff. See guidance below. |
+| 429 Too many requests. |  Throttle limit reached, imposed by Microsoft Entra ID or SF. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
-| 5xx Error from service. | The managed identity subsystem or Azure Active Directory returned a transient error. | It is safe to retry after a short while. You may hit a throttling condition (429) upon retrying.|
+| 5xx Error from service. | The managed identity subsystem or Microsoft Entra ID returned a transient error. | It is safe to retry after a short while. You may hit a throttling condition (429) upon retrying.|
 
 If an error occurs, the corresponding HTTP response body contains a JSON object with the error details:
 
@@ -421,7 +423,7 @@ It is recommended that requests failed due to throttling are retried with an exp
 | 5 | Wait 16 seconds and retry |
 
 ## Resource IDs for Azure services
-See [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for a list of resources that support Azure AD, and their respective resource IDs.
+See [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for a list of resources that support Microsoft Entra ID, and their respective resource IDs.
 
 ## Next steps
 * [Deploy an Azure Service Fabric application with user-assigned or system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

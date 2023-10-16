@@ -1,193 +1,222 @@
 ---
-title: Push and pull OCI artifact
-description: Push and pull Open Container Initiative (OCI) artifacts using a private container registry in Azure 
-author: SteveLasker
+title: Push and pull OCI artifact references
+description: Push and pull Open Container Initiative (OCI) artifacts using a container registry in Azure
+author: tejaswikolli-web
 manager: gwallace
 ms.topic: article
-ms.date: 02/03/2021
-ms.author: stevelas
+ms.date: 01/03/2023
+ms.author: tejaswikolli
 ---
 
-# Push and pull an OCI artifact using an Azure container registry
+# Push and pull OCI artifacts using an Azure container registry
 
-You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and Docker-compatible container images.
+You can use an [Azure container registry][acr-landing] to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
-To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) tool to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage a variety of OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
+To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)][oras-cli] CLI to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage various OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
 
 ## Prerequisites
 
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-* **ORAS tool** - Download and install a current ORAS release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). The tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using standard procedures for your operating system.
-* **Azure Active Directory service principal (optional)** - To authenticate directly with ORAS, create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned a role such as AcrPush so that it has permissions to push and pull artifacts.
-* **Azure CLI (optional)** - To use an individual identity, you need a local installation of the Azure CLI. Version 2.0.71 or later is recommended. Run `az --version `to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* **Docker (optional)** - To use an individual identity, you must also have Docker installed locally, to authenticate with the registry. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or [az acr create][az-acr-create].
+* **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI][azure-cli-install] for installation and/or upgrade.
+* **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
+* **Docker (Optional)** - While Docker Desktop isn't required, the `oras` CLI utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.
 
+## Configure a registry
+
+Configure environment variables to easily copy/paste commands into your shell. The commands can be run locally or in the [Azure Cloud Shell](https://shell.azure.com/).
+
+```bash
+ACR_NAME=myregistry
+REGISTRY=$ACR_NAME.azurecr.io
+```
 
 ## Sign in to a registry
 
-This section shows two suggested workflows to sign into the registry, depending on the identity used. Choose the method appropriate for your environment.
-
-### Sign in with ORAS
-
-Using a [service principal](container-registry-auth-service-principal.md) with push rights, run the `oras login` command to sign in to the registry using the service principal application ID and password. Specify the fully qualified registry name (all lowercase), in this case *myregistry.azurecr.io*. The service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`.
-
-```bash
-oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
-```
-
-To read the password from Stdin, use `--password-stdin`.
-
-### Sign in with Azure CLI
-
-[Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
-
-Then, use the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
+Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
+# Login to Azure
 az login
-az acr login --name myregistry
+
+# Login to ACR, using a token based on your Azure identity
+USER_NAME="00000000-0000-0000-0000-000000000000"
+PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
 ```
 
 > [!NOTE]
-> `az acr login` uses the Docker client to set an Azure Active Directory token in the `docker.config` file. The Docker client must be installed and running to complete the individual authentication flow.
+> ACR and ORAS support multiple authentication options for users and system automation. This article uses individual identity, using an Azure token. For more authentication options see [Authenticate with an Azure container registry][acr-authentication]
 
-## Push an artifact
+### Sign in with ORAS
 
-Create a text file in a local working working directory with some sample text. For example, in a bash shell:
+Provide the credentials to `oras login`.
+
+  ```bash
+  oras login $REGISTRY \
+    --username $USER_NAME \
+    --password $PASSWORD
+  ```
+
+## Push a root artifact
+
+A root artifact is an artifact that has no `subject` parent. Root artifacts can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact. Reference artifacts can be anything from a signature, software bill of materials, scan report or other evolving types.
+
+For this example, create content that represents a markdown file:
 
 ```bash
-echo "Here is an artifact" > artifact.txt
+echo 'Readme Content' > readme.md
 ```
 
-Use the `oras push` command to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo. The registry is identified with the fully qualified registry name *myregistry.azurecr.io* (all lowercase). The artifact is tagged `1.0`. The artifact has an undefined type, by default, identified by the *media type* string following the filename `artifact.txt`. See [OCI Artifacts](https://github.com/opencontainers/artifacts) for additional types. 
+The following step pushes the `readme.md` file to `<myregistry>.azurecr.io/samples/artifact:readme`.
+- The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase), followed by the namespace and repo: `/samples/artifact`.
+- The artifact is tagged `:readme`, to identify it uniquely from other artifacts listed in the repo (`:latest, :v1, :v1.0.1`).
+- Setting `--artifact-type readme/example` differentiates the artifact from a container image, which uses `application/vnd.oci.image.config.v1+json`.
+- The `./readme.md` identifies the file uploaded, and the `:application/markdown` represents the [IANA `mediaType`][iana-mediatypes] of the file.  
+  For more information, see [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md).
 
-**Linux or macOS**
+Use the `oras push` command to push the file to your registry. 
+
+**Linux, WSL2 or macOS**
 
 ```bash
-oras push myregistry.azurecr.io/samples/artifact:1.0 \
-    --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
-    ./artifact.txt:application/vnd.unknown.layer.v1+txt
+oras push $REGISTRY/samples/artifact:readme \
+    --artifact-type readme/example \
+    ./readme.md:application/markdown
 ```
 
 **Windows**
 
 ```cmd
-.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
-    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
-    .\artifact.txt:application/vnd.unknown.layer.v1+txt
+.\oras.exe push $REGISTRY/samples/artifact:readme ^
+    --artifact-type readme/example ^
+    .\readme.md:application/markdown
 ```
 
-Output for a successful push is similar to the following:
+Output for a successful push is similar to the following output:
 
 ```console
-Uploading 33998889555f artifact.txt
-Pushed myregistry.azurecr.io/samples/artifact:1.0
-Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
+Uploading 2fdeac43552b readme.md
+Uploaded  2fdeac43552b readme.md
+Pushed <myregistry>.azurecr.io/samples/artifact:readme
+Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1aec5d9dcf7748dd702682d53
 ```
 
-To manage artifacts in your registry, if you are using the Azure CLI, run standard `az acr` commands for managing images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
+## Push a multi-file root artifact
 
-```azurecli
-az acr repository show \
-    --name myregistry \
-    --image samples/artifact:1.0
+When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
+For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles]
+
+Create some documentation for the repository:
+
+```bash
+echo 'Readme Content' > readme.md
+mkdir details/
+echo 'Detailed Content' > details/readme-details.md
+echo 'More detailed Content' > details/readme-more-details.md
 ```
 
-Output is similar to the following:
+Push the multi-file artifact:
+
+**Linux, WSL2 or macOS**
+
+```bash
+oras push $REGISTRY/samples/artifact:readme \
+    --artifact-type readme/example\
+    ./readme.md:application/markdown\
+    ./details
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push $REGISTRY/samples/artifact:readme ^
+    --artifact-type readme/example ^
+    .\readme.md:application/markdown ^
+    .\details
+```
+
+## Discover the manifest
+
+To view the manifest created as a result of `oras push`, use `oras manifest fetch`:
+
+```bash
+oras manifest fetch --pretty $REGISTRY/samples/artifact:readme
+```
+
+The output will be similar to:
 
 ```json
 {
-  "changeableAttributes": {
-    "deleteEnabled": true,
-    "listEnabled": true,
-    "readEnabled": true,
-    "writeEnabled": true
-  },
-  "createdTime": "2019-08-28T20:43:31.0001687Z",
-  "digest": "sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx",
-  "lastUpdateTime": "2019-08-28T20:43:31.0001687Z",
-  "name": "1.0",
-  "signed": false
+  "mediaType": "application/vnd.oci.artifact.manifest.v1+json",
+  "artifactType": "readme/example",
+  "blobs": [
+    {
+      "mediaType": "application/markdown",
+      "digest": "sha256:2fdeac43552b71eb9db534137714c7bad86b53a93c56ca96d4850c9b41b777fc",
+      "size": 15,
+      "annotations": {
+        "org.opencontainers.image.title": "readme.md"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:0d6c7434a34f6854f971487621426332e6c0fda08040b9e6cc8a93f354cee0b1",
+      "size": 189,
+      "annotations": {
+        "io.deis.oras.content.digest": "sha256:11eceb2e7ac3183ec9109003a7389468ec73ad5ceaec0c4edad0c1b664c5593a",
+        "io.deis.oras.content.unpack": "true",
+        "org.opencontainers.image.title": "details"
+      }
+    }
+  ],
+  "annotations": {
+    "org.opencontainers.artifact.created": "2023-01-10T14:44:06Z"
+  }
 }
 ```
 
-## Pull an artifact
+## Pull a root artifact
+
+Create a clean directory for downloading
+
+```bash
+mkdir ./download
+```
 
 Run the `oras pull` command to pull the artifact from your registry.
 
-First remove the text file from your local working directory:
-
 ```bash
-rm artifact.txt
+oras pull -o ./download $REGISTRY/samples/artifact:readme
 ```
 
-Run `oras pull` to pull the artifact, and specify the media type used to push the artifact:
+### View the pulled files
 
 ```bash
-oras pull myregistry.azurecr.io/samples/artifact:1.0 \
-    --media-type application/vnd.unknown.layer.v1+txt
-```
-
-Verify that the pull was successful:
-
-```bash
-$ cat artifact.txt
-Here is an artifact
+tree ./download
 ```
 
 ## Remove the artifact (optional)
 
-To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the artifact you stored there:
-
-```azurecli
-az acr repository delete \
-    --name myregistry \
-    --image samples/artifact:1.0
-```
-
-## Example: Build Docker image from OCI artifact
-
-Source code and binaries to build a container image can be stored as OCI artifacts in an Azure container registry. You can reference a source artifact as the build context for an [ACR task](container-registry-tasks-overview.md). This example shows how to store a Dockerfile as an OCI artifact and then reference the artifact to build a container image.
-
-For example, create a one-line Dockerfile:
+To remove the artifact from your registry, use the `oras manifest delete` command.
 
 ```bash
-echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
-```
-
-Log in to the destination container registry.
-
-```azurecli
-az login
-az acr login --name myregistry
-```
-
-Create and push a new OCI artifact to the destination registry by using the `oras push` command. This example sets the default media type for the artifact.
-
-```bash
-oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
-```
-
-Run the [az acr build](/cli/azure/acr#az-acr-build) command to build the hello-world image using the new artifact as build context:
-
-```azurecli
-az acr build --registry myregistry --image builds/hello-world:v1 \
-  --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/dockerfile:1.0
+ oras manifest delete $REGISTRY/samples/artifact:readme
 ```
 
 ## Next steps
 
-* Learn more about [the ORAS Library](https://github.com/deislabs/oras), including how to configure a manifest for an artifact
+* Learn about [Artifact References](container-registry-oras-artifacts.md), associating signatures, software bill of materials and other reference types
+* Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
-
-
 <!-- LINKS - external -->
-[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
+[iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
+[oras-install-docs]:        https://oras.land/docs/installation
+[oras-cli]:                 https://oras.land/blog/oras-0.15-a-fully-functional-registry-client/
+[oras-push-multifiles]:     https://oras.land/docs/how_to_guides/pushing_and_pulling/#pushing-artifacts-with-multiple-files
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[acr-landing]:              https://aka.ms/acr
+[acr-authentication]:       ./container-registry-authentication.md?tabs=azure-cli
+[az-acr-create]:            ./container-registry-get-started-azure-cli.md
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[azure-cli-install]:        /cli/azure/install-azure-cli

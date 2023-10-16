@@ -2,20 +2,21 @@
 title: Telemetry processor examples - Azure Monitor Application Insights for Java
 description: Explore examples that show telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 10/11/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
+ms.reviewer: mmcc
 ---
 
 # Telemetry processor examples - Azure Monitor Application Insights for Java
 
-This article provides examples of telemetry processors in Application Insights for Java. You'll find samples for include and exclude configurations. You'll also find samples for attribute processors and span processors.
+This article provides examples of telemetry processors in Application Insights for Java, including samples for include and exclude configurations. It also includes samples for attribute processors and span processors.
 ## Include and exclude Span samples
 
 In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
 ### Include spans
 
-This section shows how to include spans for an attribute processor. Spans that don't match the properties aren't processed by the processor.
+This section shows how to include spans for an attribute processor. The processor doesn't process spans that don't match the properties.
 
 A match requires the span name to be equal to `spanA` or `spanB`. 
 
@@ -55,7 +56,7 @@ This span doesn't match the include properties, and the processor actions aren't
 
 ### Exclude spans
 
-This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
+This section demonstrates how to exclude spans for an attribute processor. This processor doesn't process spans that match the properties.
 
 A match requires the span name to be equal to `spanA` or `spanB`.
 
@@ -95,7 +96,7 @@ This span doesn't match the exclude properties, and the processor actions are ap
 
 ### Exclude spans by using multiple criteria
 
-This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
+This section demonstrates how to exclude spans for an attribute processor. This processor doesn't process spans that match the properties.
 
 A match requires the following conditions to be met:
 * An attribute (for example, `env` with value `dev`) must exist in the span.
@@ -354,9 +355,12 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
 }
 ```
 
-The following sample shows how to process spans that have a span name that matches regex patterns.
-This processor removes the `token` attribute. It obfuscates the `password` attribute in spans where the span name matches `auth.*`
-and where the span name doesn't match `login.*`.
+### Mask
+
+For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` using either of the below configurations.
+
+
+First configuration example:
 
 ```json
 {
@@ -365,27 +369,12 @@ and where the span name doesn't match `login.*`.
     "processors": [
       {
         "type": "attribute",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "auth.*"
-          ]
-        },
-        "exclude": {
-          "matchType": "regexp",
-          "spanNames": [
-            "login.*"
-          ]
-        },
         "actions": [
           {
-            "key": "password",
-            "value": "obfuscated",
-            "action": "update"
-          },
-          {
-            "key": "token",
-            "action": "delete"
+            "key": "http.url",
+            "pattern": "user\\/\\d+",
+            "replace": "user\\/****",
+            "action": "mask"
           }
         ]
       }
@@ -394,6 +383,29 @@ and where the span name doesn't match `login.*`.
 }
 ```
 
+
+Second configuration example with regular expression group name:
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "http.url",
+            "pattern": "^(?<userGroupName>[a-zA-Z.:\/]+)\d+",
+            "replace": "${userGroupName}**",
+            "action": "mask"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## Span processor samples
 
@@ -511,7 +523,7 @@ Let's assume the input log message body is `Starting PetClinicApplication on Wor
 ### Masking sensitive data in log message
 
 The following sample shows how to mask sensitive data in a log message body using both log processor and attribute processor.
-Let's assume the input log message body is `User account with userId 123456xx failed to login`. The log processor updates output message body to `User account with userId {redactedUserId} failed to login` and the attribute processor deletes the new attribute `redactedUserId` which was adding in the previous step.
+Let's assume the input log message body is `User account with userId 123456xx failed to login`. The log processor updates output message body to `User account with userId {redactedUserId} failed to login` and the attribute processor deletes the new attribute `redactedUserId`, which was adding in the previous step.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -540,3 +552,9 @@ Let's assume the input log message body is `User account with userId 123456xx fa
   }
 }
 ```
+
+## Frequently asked questions
+
+### Why doesn't the log processor process logs using TelemetryClient.trackTrace()?
+
+TelemetryClient.trackTrace() is part of the Application Insights Classic SDK bridge, and the log processors only work with the new [OpenTelemetry-based instrumentation](opentelemetry-enable.md).

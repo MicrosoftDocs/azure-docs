@@ -2,12 +2,13 @@
 title: Automatic update of the Mobility service in Azure Site Recovery
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
 services: site-recovery
-author: sideeksh
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/02/2020
-ms.author: sideeksh
+ms.date: 03/24/2023
+ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 
 # Automatic update of the Mobility service in Azure-to-Azure replication
@@ -56,19 +57,21 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 
    To manage the extension manually, select **Off**.
 
+    > [!IMPORTANT]
+    > When you choose **Allow Site Recovery to manage**, the setting is applied to all VMs in the vault.
+
 1. Select **Save**.
 
 :::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Extension update settings":::
 
-> [!IMPORTANT]
-> When you choose **Allow Site Recovery to manage**, the setting is applied to all VMs in the vault.
 
 > [!NOTE]
 > Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. Once defined, all subsequent actions to enable replication in the same vault will use that selected automation account. Currently, the drop-down menu will only list automation accounts that are in the same Resource Group as the vault.
 
+**For a custom automation account, use the following script:**
+
 > [!IMPORTANT]
-> The following script needs to be run in the context of an automation account.
-For a custom automation account, use the following script:
+> Run the following script in the context of an automation account. This script leverages System Assigned Managed Identities as its authentication type.
 
 ```azurepowershell
 param(
@@ -84,13 +87,13 @@ param(
 $SiteRecoveryRunbookName = "Modify-AutoUpdateForVaultForPatner"
 $TaskId = [guid]::NewGuid().ToString()
 $SubscriptionId = "00000000-0000-0000-0000-000000000000"
-$AsrApiVersion = "2018-01-10"
-$RunAsConnectionName = "AzureRunAsConnection"
+$AsrApiVersion = "2021-12-01"
 $ArmEndPoint = "https://management.azure.com"
 $AadAuthority = "https://login.windows.net/"
 $AadAudience = "https://management.core.windows.net/"
 $AzureEnvironment = "AzureCloud"
 $Timeout = "160"
+$AuthenticationType = "SystemAssignedIdentity"
 function Throw-TerminatingErrorMessage
 {
         Param
@@ -229,25 +232,19 @@ function Invoke-InternalWebRequest($Uri, $Headers, $Method, $Body, $ContentType,
         }
     }while($true)
 }
-function Get-Header([ref]$Header, $AadAudience, $AadAuthority, $RunAsConnectionName){
+function Get-Header([ref]$Header, $AadAudience){
     try
     {
-        $RunAsConnection = Get-AutomationConnection -Name $RunAsConnectionName
-        $TenantId = $RunAsConnection.TenantId
-        $ApplicationId = $RunAsConnection.ApplicationId
-        $CertificateThumbprint = $RunAsConnection.CertificateThumbprint
-        $Path = "cert:\CurrentUser\My\{0}" -f $CertificateThumbprint
-        $Secret = Get-ChildItem -Path $Path
-        $ClientCredential = New-Object Microsoft.IdentityModel.Clients.ActiveDirectory.ClientAssertionCertificate(
-                $ApplicationId,
-                $Secret)
-        # Trim the forward slash from the AadAuthority if it exist.
-        $AadAuthority = $AadAuthority.TrimEnd("/")
-        $AuthContext = New-Object Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(
-            "{0}/{1}" -f $AadAuthority, $TenantId )
-        $AuthenticationResult = $authContext.AcquireToken($AadAudience, $Clientcredential)
         $Header.Value['Content-Type'] = 'application\json'
-        $Header.Value['Authorization'] = $AuthenticationResult.CreateAuthorizationHeader()
+        Write-InformationTracing ("The Authentication Type is system Assigned Identity based.")
+        $endpoint = $env:IDENTITY_ENDPOINT
+        $endpoint  
+        $Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]" 
+        $Headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
+        $Headers.Add("Metadata", "True")   
+        $authenticationResult = Invoke-RestMethod -Method Get -Headers $Headers -Uri ($endpoint +'?resource=' +$AadAudience)
+        $accessToken = $authenticationResult.access_token
+        $Header.Value['Authorization'] = "Bearer " + $accessToken
         $Header.Value["x-ms-client-request-id"] = $TaskId + "/" + (New-Guid).ToString() + "-" + (Get-Date).ToString("u")
     }
     catch
@@ -264,7 +261,7 @@ function Get-ProtectionContainerToBeModified([ref] $ContainerMappingList)
         Write-InformationTracing ("Get protection container mappings : {0}." -f $VaultResourceId)
         $ContainerMappingListUrl = $ArmEndPoint + $VaultResourceId + "/replicationProtectionContainerMappings" + "?api-version=" + $AsrApiVersion
         Write-InformationTracing ("Getting the bearer token and the header.")
-        Get-Header ([ref]$Header) $AadAudience $AadAuthority $RunAsConnectionName
+        Get-Header ([ref]$Header) $AadAudience
         $Result = @()
         Invoke-InternalRestMethod -Uri $ContainerMappingListUrl -Headers $header -Result ([ref]$Result)
         $ContainerMappings = $Result[0]
@@ -320,8 +317,6 @@ $Inputs = ("Tracing inputs VaultResourceId: {0}, Timeout: {1}, AutoUpdateAction:
 Write-Tracing -Message $Inputs -Level Informational -DisplayMessageToUser
 $CloudConfig = ("Tracing cloud configuration ArmEndPoint: {0}, AadAuthority: {1}, AadAudience: {2}." -f $ArmEndPoint, $AadAuthority, $AadAudience)
 Write-Tracing -Message $CloudConfig -Level Informational -DisplayMessageToUser
-$AutomationConfig = ("Tracing automation configuration RunAsConnectionName: {0}." -f $RunAsConnectionName)
-Write-Tracing -Message $AutomationConfig -Level Informational -DisplayMessageToUser
 ValidateInput
 $SubscriptionId = Initialize-SubscriptionId
 Get-ProtectionContainerToBeModified ([ref]$ContainerMappingList)
@@ -331,6 +326,7 @@ $Input = @{
         "instanceType" = "A2A"
         "agentAutoUpdateStatus" = $AutoUpdateAction
         "automationAccountArmId" = $AutomationAccountArmId
+        "automationAccountAuthenticationType" = $AuthenticationType
     }
   }
 }
@@ -348,7 +344,7 @@ try
     {
     try {
             $UpdateUrl = $ArmEndPoint + $Mapping + "?api-version=" + $AsrApiVersion
-            Get-Header ([ref]$Header) $AadAudience $AadAuthority $RunAsConnectionName
+            Get-Header ([ref]$Header) $AadAudience
             $Result = @()
             Invoke-InternalWebRequest -Uri $UpdateUrl -Headers $Header -Method 'PATCH' `
                 -Body $InputJson  -ContentType "application/json" -Result ([ref]$Result)
@@ -384,7 +380,7 @@ try
         {
             try
             {
-                Get-Header ([ref]$Header) $AadAudience $AadAuthority $RunAsConnectionName
+                Get-Header ([ref]$Header) $AadAudience
                 $Result = Invoke-RestMethod -Uri $JobAsyncUrl -Headers $header
                 $JobState = $Result.Status
                 if($JobState -ieq "InProgress")
@@ -449,6 +445,7 @@ elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
     Throw-TerminatingErrorMessage -Message $ErrorMessage
 }
 Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -DisplayMessageToUser
+
 ```
 
 ### Manage updates manually
@@ -470,7 +467,7 @@ If you can't enable automatic updates, see the following common errors and recom
 
 - **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
 
-  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
 
@@ -478,9 +475,9 @@ If you can't enable automatic updates, see the following common errors and recom
 
 - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
-  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Azure Active Directory application can access the recovery services resource.
+  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Microsoft Entra application can access the recovery services resource.
 
-- **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
+- **Error**: Run As account is not found. Either one of these was deleted or not created - Microsoft Entra Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
 
   **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md).
 
@@ -494,3 +491,7 @@ If you can't enable automatic updates, see the following common errors and recom
 
   > [!NOTE]
   > After you renew the certificate, refresh the page to display the current status.
+
+## Next steps
+
+[Learn more](./how-to-migrate-run-as-accounts-managed-identity.md) on how to migrate the authentication type of the Automation accounts to Managed Identities.

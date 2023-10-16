@@ -5,13 +5,14 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: modillon
-ms.date: 02/15/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 09/27/2023
 ---
 
 # Da Vinci Plan Net for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this tutorial, we'll walk through setting up the FHIR service in Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
@@ -78,3 +79,5 @@ In this tutorial, we walked through setting up Azure API for FHIR to pass the To
 
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -1,286 +1,296 @@
 ---
-title: Tutorial - Encrypt and decrypt blobs using Azure Key Vault
+title: Encrypt and decrypt blobs using Azure Key Vault
 titleSuffix: Azure Storage
 description: Learn how to encrypt and decrypt a blob using client-side encryption with Azure Key Vault.
-services: storage
-author: tamram
-
-ms.service: storage
+author: pauljewellmsft
+ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 02/18/2021
-ms.author: tamram
+ms.date: 11/2/2022
+ms.author: pauljewell
 ms.reviewer: ozgun
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Tutorial - Encrypt and decrypt blobs using Azure Key Vault
+# Tutorial: Encrypt and decrypt blobs using Azure Key Vault
 
-This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies.
+In this tutorial, you learn how to use client-side encryption to encrypt and decrypt blobs using a key stored with Azure Key Vault.
 
-**Estimated time to complete:** 20 minutes
+Azure Blob Storage supports both service-side and client-side encryption. For most scenarios, Microsoft recommends using service-side encryption features for ease of use in protecting your data. To learn more about service-side encryption, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+The [Azure Blob Storage client library for .NET](/dotnet/api/overview/azure/storage) supports client-side data encryption within applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for key management.
 
-For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+This tutorial shows you how to:
+
+> [!div class="checklist"]
+> * Configure permissions for an Azure Key Vault resource
+> * Create a console application to interact with resources using .NET client libraries
+> * Add a key to a key vault
+> * Configure client-side encryption options using a key stored in a key vault
+> * Create a blob service client object with client-side encryption enabled
+> * Upload an encrypted blob, then download and decrypt the blob
 
 ## Prerequisites
 
-To complete this tutorial, you must have the following:
+- Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Azure storage account - [create a storage account](../common/storage-account-create.md)
+- Key vault - create one using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [PowerShell](../../key-vault/general/quick-create-powershell.md)
+- [Visual Studio 2022](https://visualstudio.microsoft.com) installed
 
-- An Azure Storage account
-- Visual Studio 2013 or later
-- Azure PowerShell
+<a name='assign-a-role-to-your-azure-ad-user'></a>
 
-## Overview of client-side encryption
+## Assign a role to your Microsoft Entra user
 
-For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+When developing locally, make sure that the user account that is accessing the key vault has the correct permissions. You'll need the [Key Vault Crypto Officer role](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) to create a key and perform actions on keys in a key vault. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
 
-Here is a brief description of how client side encryption works:
+In this scenario, you'll assign permissions to your user account, scoped to the key vault, to follow the [Principle of Least Privilege](../../../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
-1. The Azure Storage client SDK generates a content encryption key (CEK), which is a one-time-use symmetric key.
-2. Customer data is encrypted using this CEK.
-3. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault. The Storage client itself never has access to the KEK. It just invokes the key wrapping algorithm that is provided by Key Vault. Customers can choose to use custom providers for key wrapping/unwrapping if they want.
-4. The encrypted data is then uploaded to the Azure Storage service.
+The following example shows how to assign the **Key Vault Crypto Officer** role to your user account, which provides the access you'll need to complete this tutorial.
 
-## Set up your Azure Key Vault
+> [!IMPORTANT]
+> In most cases it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
 
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial [Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app](../../key-vault/secrets/quick-create-net.md):
+### [Azure portal](#tab/roles-azure-portal)
 
-- Create a key vault.
-- Add a key or secret to the key vault.
-- Register an application with Azure Active Directory.
-- Authorize the application to use the key or secret.
+1. In the Azure portal, locate your key vault using the main search bar or left navigation.
 
-Make note of the ClientID and ClientSecret that were generated when registering an application with Azure Active Directory.
+2. On the key vault overview page, select **Access control (IAM)** from the left-hand menu.
 
-Create both keys in the key vault. We assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.
+3. On the **Access control (IAM)** page, select the **Role assignments** tab.
 
-## Create a console application with packages and AppSettings
+4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-In Visual Studio, create a new console application.
+    :::image type="content" source="./media/storage-blob-encryption-keyvault/assign-role-key-vault.png" lightbox="./media/storage-blob-encryption-keyvault/assign-role-key-vault.png" alt-text="A screenshot showing how to assign a role in Azure portal.":::
 
-Add necessary nuget packages in the Package Manager Console.
+5. Use the search box to filter the results to the desired role. For this example, search for *Key Vault Crypto Officer* and select the matching result and then choose **Next**.
+
+6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
+
+7. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+
+8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
+
+### [Azure CLI](#tab/roles-azure-cli)
+
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az storage account show` command. You can filter the output properties using the `--query` parameter.
+
+```azurecli
+az keyvault show --resource-group '<your-resource-group-name>' --name '<your-unique-keyvault-name>' --query id
+```
+
+Copy the output `Id` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
+
+```azurecli
+az role assignment create --assignee "<user@domain>" \
+    --role "Key Vault Crypto Officer" \
+    --scope "<your-resource-id>"
+```
+
+### [PowerShell](#tab/roles-powershell)
+
+To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource ID using the `Get-AzResource` command.
+
+```azurepowershell
+Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourKeyVaultName>"
+```
+
+Copy the `Id` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command in PowerShell.
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <user@domain> `
+    -RoleDefinitionName "Key Vault Crypto Officer" `
+    -Scope <yourKeyVaultId>
+```
+
+---
+
+## Set up your project
+
+1. In a console window (such as PowerShell or Bash), use the `dotnet new` command to create a new console app with the name *BlobEncryptionKeyVault*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+
+   ```dotnetcli
+   dotnet new console -n BlobEncryptionKeyVault
+   ```
+
+1. Switch to the newly created *BlobEncryptionKeyVault* directory.
+
+   ```console
+   cd BlobEncryptionKeyVault
+   ```
+
+1. Open the project in your desired code editor. To open the project in:
+    * Visual Studio, locate and double-click the `BlobEncryptionKeyVault.csproj` file.
+    * Visual Studio Code, run the following command:
+
+    ```bash
+    code .
+    ```
+---
+
+To interact with Azure services in this example, install the following client libraries using `dotnet add package`.
+
+### [.NET CLI](#tab/packages-dotnetcli)
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Security.KeyVault.Keys
+dotnet add package Azure.Storage.Blobs
+```
+
+### [PowerShell](#tab/packages-powershell)
 
 ```powershell
-Install-Package Microsoft.Azure.ConfigurationManager
-Install-Package Microsoft.Azure.Storage.Common
-Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
-Install-Package Microsoft.Azure.KeyVault
-Install-Package Microsoft.Azure.KeyVault.Extensions
+Install-Package Azure.Identity
+Install-Package Azure.Security.KeyVault.Keys
+Install-Package Azure.Storage.Blobs
 ```
-
-Add AppSettings to the App.Config.
-
-```xml
-<appSettings>
-    <add key="accountName" value="myaccount"/>
-    <add key="accountKey" value="theaccountkey"/>
-    <add key="clientId" value="theclientid"/>
-    <add key="clientSecret" value="theclientsecret"/>
-    <add key="container" value="stuff"/>
-</appSettings>
-```
-
-Add the following `using` directives and make sure to add a reference to System.Configuration to the project.
-
-# [.NET v12 SDK](#tab/dotnet)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System.Configuration;
-using Microsoft.Azure;
-using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Auth;
-using Microsoft.Azure.Storage.Blob;
-using Microsoft.Azure.KeyVault;
-using System.Threading;
-using System.IO;
-```
-
 ---
 
-## Add a method to get a token to your console application
-
-The following method is used by Key Vault classes that need to authenticate for access to your key vault.
-
-# [.NET v12 SDK](#tab/dotnet)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [.NET v11 SDK](#tab/dotnet11)
+Add the following `using` directives and make sure to add a reference to `System.Configuration` to the project.
 
 ```csharp
-private async static Task<string> GetToken(string authority, string resource, string scope)
+using Azure;
+using Azure.Core;
+using Azure.Identity;
+using Azure.Security.KeyVault.Keys;
+using Azure.Security.KeyVault.Keys.Cryptography;
+using Azure.Storage;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
+```
+
+## Set environment variable
+
+This application looks for an environment variable called `KEY_VAULT_NAME` to retrieve the name of your key vault. To set the environment variable, open a console window and follow the instructions for your operating system. Replace `<your-key-vault-name>` with the name of your key vault.
+
+**Windows:**
+
+You can set environment variables for Windows from the command line. However, when using this approach the values are accessible to all applications running on that operating system and may cause conflicts if you aren't careful. Environment variables can be set at either user or system level:
+
+```cmd
+setx KEY_VAULT_NAME "<your-key-vault-name>"
+````
+After you add the environment variable in Windows, you must start a new instance of the command window. If you're using Visual Studio on Windows, you may need to relaunch Visual Studio after creating the environment variable for the change to be detected.
+
+**Linux:**
+
+```bash
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
+
+## Add a key in Azure Key Vault
+
+In this example, we create a key and add it to the key vault using the Azure Key Vault client library. You can also create and add a key to a key vault using [Azure CLI](/azure/key-vault/keys/quick-create-cli#add-a-key-to-key-vault), [Azure portal](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault), or [PowerShell](/azure/key-vault/keys/quick-create-powershell#add-a-key-to-key-vault).
+
+In the sample below, we create a [KeyClient](/dotnet/api/azure.security.keyvault.keys.keyclient) object for the specified vault. The `KeyClient` object is then used to create a new RSA key in the specified vault.
+
+```csharp
+var keyName = "testRSAKey";
+var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
+
+// URI for the key vault resource
+var keyVaultUri = $"https://{keyVaultName}.vault.azure.net";
+
+TokenCredential tokenCredential = new DefaultAzureCredential();
+
+// Create a KeyClient object
+var keyClient = new KeyClient(new Uri(keyVaultUri), tokenCredential);
+
+// Add a key to the key vault
+var key = await keyClient.CreateKeyAsync(keyName, KeyType.Rsa);
+```
+
+## Create key and key resolver instances
+
+Next, we'll use the key we just added to the vault to create the cryptography client and key resolver instances. [CryptographyClient](/dotnet/api/azure.security.keyvault.keys.cryptography.cryptographyclient) implements [IKeyEncryptionKey](/dotnet/api/azure.core.cryptography.ikeyencryptionkey) and is used to perform cryptographic operations with keys stored in Azure Key Vault. [KeyResolver](/dotnet/api/azure.security.keyvault.keys.cryptography.keyresolver)  implements [IKeyEncryptionResolver](/dotnet/api/azure.core.cryptography.ikeyencryptionkeyresolver) and retrieves key encryption keys from the key identifier and resolves the key.
+```csharp
+// Cryptography client and key resolver instances using Azure Key Vault client library
+CryptographyClient cryptoClient = keyClient.GetCryptographyClient(key.Value.Name, key.Value.Properties.Version);
+KeyResolver keyResolver = new (tokenCredential);
+```
+
+If you have an existing key in the vault that you'd like to encrypt with, you can create the key and key resolver instances by passing in the URI:
+```csharp
+var keyVaultKeyUri = $"https://{keyVaultName}.vault.azure.net/keys/{keyName}";
+CryptographyClient cryptoClient = new CryptographyClient(new Uri(keyVaultKeyUri), tokenCredential);
+```
+
+## Configure encryption options
+
+Now we need to configure the encryption options to be used for blob upload and download. To use client-side encryption, we first create a `ClientSideEncryptionOptions` object and set it on client creation with `SpecializedBlobClientOptions`. 
+
+ The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions) class provides the client configuration options for connecting to Blob Storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
+
+> [!IMPORTANT]
+>Due to a security vulnerability in version 1, it's recommended to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0` for the version parameter. To learn more about mitigating the vulnerability in your apps, see [Mitigate the security vulnerability in your applications](client-side-encryption.md#mitigate-the-security-vulnerability-in-your-applications). For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
+
+```csharp
+// Configure the encryption options to be used for upload and download
+ClientSideEncryptionOptions encryptionOptions = new (ClientSideEncryptionVersion.V2_0)
 {
-    var authContext = new AuthenticationContext(authority);
-    ClientCredential clientCred = new ClientCredential(
-        CloudConfigurationManager.GetSetting("clientId"),
-        CloudConfigurationManager.GetSetting("clientSecret"));
-    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
+    KeyEncryptionKey = cryptoClient,
+    KeyResolver = keyResolver,
+    // String value that the client library will use when calling IKeyEncryptionKey.WrapKey()
+    KeyWrapAlgorithm = "RSA-OAEP"
+};
 
-    if (result == null)
-        throw new InvalidOperationException("Failed to obtain the JWT token");
-
-    return result.AccessToken;
-}
+// Set the encryption options on the client options.
+BlobClientOptions options = new SpecializedBlobClientOptions() { ClientSideEncryption = encryptionOptions };
 ```
 
----
+## Configure client object to use client-side encryption
 
-## Access Azure Storage and Key Vault in your program
-
-In the Main() method, add the following code.
-
-# [.NET v12 SDK](#tab/dotnet)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [.NET v11 SDK](#tab/dotnet11)
+In this example, we apply the client-side encryption configuration options to a `BlobServiceClient` object. When applied at the service client level, these encryption options are passed from the service client to container clients, and from container clients to blob clients. When the `BlobClient` object performs an upload or download operation, the Azure Blob Storage client libraries use envelope encryption to encrypt and decrypt blobs on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
 ```csharp
-// This is standard code to interact with Blob storage.
-StorageCredentials creds = new StorageCredentials(
-    CloudConfigurationManager.GetSetting("accountName"),
-    CloudConfigurationManager.GetSetting("accountKey")
-);
-CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
-CloudBlobClient client = account.CreateCloudBlobClient();
-CloudBlobContainer contain = client.GetContainerReference(CloudConfigurationManager.GetSetting("container"));
-contain.CreateIfNotExists();
-
-// The Resolver object is used to interact with Key Vault for Azure Storage.
-// This is where the GetToken method from above is used.
-KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
+// Create a blob client with client-side encryption enabled.
+// Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
+// with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
+Uri blobUri = new (string.Format($"https://{accountName}.blob.core.windows.net"));
+BlobClient blob = new BlobServiceClient(blobUri, tokenCredential, options).GetBlobContainerClient("test-container").GetBlobClient("testBlob");
 ```
-
----
-
-> [!NOTE]
-> Key Vault Object Models
->
-> It is important to understand that there are actually two Key Vault object models to be aware of: one is based on the REST API (KeyVault namespace) and the other is an extension for client-side encryption.
->
-> The Key Vault Client interacts with the REST API and understands JSON Web Keys and secrets for the two kinds of things that are contained in Key Vault.
->
-> The Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage. They contain an interface for keys (IKey) and classes based on the concept of a Key Resolver. There are two implementations of IKey that you need to know: RSAKey and SymmetricKey. Now they happen to coincide with the things that are contained in a Key Vault, but at this point they are independent classes (so the Key and Secret retrieved by the Key Vault Client do not implement IKey).
->
->
 
 ## Encrypt blob and upload
+When the `BlobClient` object calls an upload method, several steps occur to perform the client-side encryption:
+1. The Azure Storage client library generates a random initialization vector (IV) of 16 bytes and a random content encryption key (CEK) of 32 bytes, and performs envelope encryption of the blob data using this information.
+1. Blob data is encrypted using the CEK.
+1. The CEK is then wrapped (encrypted) using the key encryption key (KEK) we specified in `ClientSideEncryptionOptions`. In this example, the KEK is an asymmetric key pair stored in the specified Azure Key Vault resource. The blob client itself never has access to the KEK, it just invokes the key wrapping algorithm that is provided by Key Vault.
+1. The encrypted blob data is then uploaded to the storage account.
 
-Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
-
-# [.NET v12 SDK](#tab/dotnet)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [.NET v11 SDK](#tab/dotnet11)
+Add the following code to encrypt a blob and upload it to your Azure storage account:
 
 ```csharp
-// Retrieve the key that you created previously.
-// The IKey that is returned here is an RsaKey.
-var rsa = cloudResolver.ResolveKeyAsync(
-            "https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", 
-            CancellationToken.None).GetAwaiter().GetResult();
-
-// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
-BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
-BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
-
-// Reference a block blob.
-CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
-
-// Upload using the UploadFromStream method.
-using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
-    blob.UploadFromStream(stream, stream.Length, null, options, null);
+// Upload the encrypted contents to the blob
+Stream blobContent = BinaryData.FromString("Ready for encryption, Captain.").ToStream();
+await blob.UploadAsync(blobContent);
 ```
 
----
-
-> [!NOTE]
-> If you look at the BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver. Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.
+Once the blob is uploaded, you can view the blob in your storage account to see the encrypted contents along with the encryption metadata.
 
 ## Decrypt blob and download
 
-Decryption is really when using the Resolver classes make sense. The ID of the key used for encryption is associated with the blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob. You just have to make sure that the key remains in Key Vault.
+The Azure Storage client library assumes that the user is managing the KEK either locally or in a key vault. The user doesn't need to know the specific key that was used for encryption. The key resolver specified in `ClientSideEncryptionOptions` will be used to resolve key identifiers when blob data is downloaded and decrypted.
 
-The private key of an RSA Key remains in Key Vault, so for decryption to occur, the Encrypted Key from the blob metadata that contains the CEK is sent to Key Vault for decryption.
+When the `BlobClient` object calls a download method, several steps occur to decrypt the encrypted blob data:
 
-Add the following to decrypt the blob that you just uploaded.
+1. The client library downloads the encrypted blob data, including encryption metadata, from the storage account.
+1. The wrapped CEK is then unwrapped (decrypted) using the KEK. The client library doesn't have access to the KEK during this process, but only invokes the key unwrapping algorithm specified in `ClientSideEncryptionOptions`. The private key of they RSA key pair remains in the key vault, so the encrypted key from the blob metadata that contains the CEK is sent to the key vault for decryption.
+1. The client library uses the CEK to decrypt the encrypted blob data.
 
-# [.NET v12 SDK](#tab/dotnet)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [.NET v11 SDK](#tab/dotnet11)
+Add the following code to download and decrypt the blob that you previously uploaded.
 
 ```csharp
-// In this case, we will not pass a key and only pass the resolver because
-// this policy will only be used for downloading / decrypting.
-BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
-BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
-
-using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
-    blob.DownloadToStream(np, null, options, null);
+// Download and decrypt the encrypted contents from the blob
+Response<BlobDownloadInfo>  response = await blob.DownloadAsync();
+BlobDownloadInfo downloadInfo = response.Value;
+Console.WriteLine((await BinaryData.FromStreamAsync(downloadInfo.Content)).ToString());
 ```
-
----
-
-> [!NOTE]
-> There are a couple of other kinds of resolvers to make key management easier, including: AggregateKeyResolver and CachingKeyResolver.
-
-## Use Key Vault secrets
-
-The way to use a secret with client-side encryption is via the SymmetricKey class because a secret is essentially a symmetric key. But, as noted above, a secret in Key Vault does not map exactly to a SymmetricKey. There are a few things to understand:
-
-- The key in a SymmetricKey has to be a fixed length: 128, 192, 256, 384, or 512 bits.
-- The key in a SymmetricKey should be Base64 encoded.
-- A Key Vault secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault.
-
-Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
-Please note that the hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
-
-```powershell
-// Here we are making a 128-bit key so we have 16 characters.
-//     The characters are in the ASCII range of UTF8 so they are
-//    each 1 byte. 16 x 8 = 128.
-$key = "qwertyuiopasdfgh"
-$b = [System.Text.Encoding]::UTF8.GetBytes($key)
-$enc = [System.Convert]::ToBase64String($b)
-$secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
-
-// Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
-```
-
-In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
-
-# [.NET v12 SDK](#tab/dotnet)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
-    CancellationToken.None).GetAwaiter().GetResult();
-```
-
----
 
 ## Next steps
 
-For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](/previous-versions/azure/dn261237(v=azure.100)).
+In this tutorial, you learned how to use .NET client libraries to perform client-side encryption for blob upload and download operations.
 
-For more information about the Blob REST API, see [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API).
+For a broad overview of client-side encryption for blobs, including instructions for migrating encrypted data to version 2, see [Client-side encryption for blobs](client-side-encryption.md).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](/archive/blogs/windowsazurestorage/).
+For more information about Azure Key Vault, see the [Azure Key Vault overview page](../../key-vault/general/overview.md)

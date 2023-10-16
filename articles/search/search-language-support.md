@@ -7,24 +7,55 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 04/21/2022
+ms.topic: how-to
+ms.date: 01/18/2023
 ---
 
 # Create an index for multiple languages in Azure Cognitive Search
 
-A multilingual search application supports searching over and retrieving results in the user's own language. In Azure Cognitive Search, one way to meet the language requirements of a multilingual app is to create dedicated fields for storing strings in a specific language, and then constrain full text search to just those fields at query time.
+A multilingual search application is one that provides a search experience in the user's own language. [Language support](index-add-language-analyzers.md#supported-language-analyzers) is enabled through a language analyzer assigned to string field. Cognitive Search supports Microsoft and Lucene analyzers. The language analyzer determines the linguistic rules by which content is tokenized. By default, the search engine uses Standard Lucene, which is language agnostic. If testing shows that the default analyzer is insufficient, replace it with a language analyzer.
 
-+ On field definitions, [specify a language analyzer](index-add-language-analyzers.md) that invokes the linguistic rules of the target language. 
+In Azure Cognitive Search, the two patterns for supporting a multi-lingual audience include:
 
-+ On the query request, set the `searchFields` parameter to scope full text search to specific fields, and then use `select` to return just those fields that have compatible content.
++ Create language-specific indexes where all of the alphanumeric content is in the same language, and all searchable string fields are attributed to use the same [language analyzer](index-add-language-analyzers.md).
 
-The success of this technique hinges on the integrity of field content. By itself, Azure Cognitive Search does not translate strings or perform language detection as part of query execution. It's up to you to make sure that fields contain the strings you expect.
++ Create a blended index with language-specific versions of each field (for example, description_en, description_fr, description_ko), and then constrain full text search to just those fields at query time. This approach is useful for scenarios where language variants are only needed on a few fields, like a description.
+
+This article focuses on best practices for defining and querying language specific fields in a blended index. The steps you'll implement include:
+
+> [!div class="checklist"]
+> * Define a string field for each language variant.
+> * Set a language analyzer on each field.
+> * On the query request, set the `searchFields` parameter to specific fields, and then use `select` to return just those fields that have compatible content.
+
+## Prerequisites
+
+Language analysis applies to fields of type `Edm.String` that are `searchable`, and that contain localized text. If you also need text translation, review the next section to see if AI enrichment fits your scenario.
+
+Non-string fields and non-searchable string fields don't undergo lexical analysis and aren't tokenized. Instead, they are stored and returned verbatim.
+
+## Add text translation
+
+This article assumes you have translated strings in place. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during data ingestion. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure Cognitive Search. 
+
+To add text translation, follow these steps:
+
+1. Verify your content is in a [supported data source](search-indexer-overview.md#supported-data-sources).
+
+1. [Create a data source](search-howto-create-indexers.md#prepare-external-data) that points to your content.
+
+1. [Create a skillset](cognitive-search-defining-skillset.md) that includes the [Text Translation skill](cognitive-search-skill-text-translation.md). 
+
+   The Text Translation skill takes a single string as input. If you have multiple fields, can create a skillset that calls Text Translation multiple times, once for each field. Alternatively, you can use the [Text Merger skill](cognitive-search-skill-textmerger.md) to consolidate the content of multiple fields into one long string.
+
+1. Create an index that includes fields for translated strings. Most of this article covers index design and field definitions for indexing and querying multi-language content.
+
+1. [Attach a multi-region Azure AI services resource](cognitive-search-attach-cognitive-services.md) to your skillset.
+
+1. [Create and run the indexer](search-howto-create-indexers.md), and then apply the guidance in this article to query just the fields of interest.
 
 > [!TIP]
-> If text translation is a requirement, you can [create a skillset](cognitive-search-defining-skillset.md) that adds [text translation](cognitive-search-skill-text-translation.md) to the indexing pipeline. This approach requires [using an indexer](search-howto-create-indexers.md) and [attaching a Cognitive Services resource](cognitive-search-attach-cognitive-services.md).
->
-> Text translation is built into the [Import data wizard](cognitive-search-quickstart-blob.md). If you have a [supported data source](search-indexer-overview.md#supported-data-sources) with text you'd like to translate, you can step through the wizard to try out the language detection and translation functionality.
+> Text translation is built into the [Import data wizard](cognitive-search-quickstart-blob.md). If you have a [supported data source](search-indexer-overview.md#supported-data-sources) with text you'd like to translate, you can step through the wizard to try out the language detection and translation functionality before writing any code.
 
 ## Define fields for content in different languages
 
@@ -54,7 +85,7 @@ The "analyzer" property on a field definition is used to set the [language analy
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](search-get-started-dotnet.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate step is [building and populating the index](search-get-started-text.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Constrain the query and trim results
 
@@ -67,7 +98,7 @@ Parameters on the query are used to limit search to specific fields and then tri
 
 Given a goal of constraining search to fields containing French strings, you would use **searchFields** to target the query at fields containing strings in that language.
 
-Specifying the analyzer on a query request is not necessary. A language analyzer on the field definition will always be used during query processing. For queries that specify multiple fields invoking different language analyzers, the terms or phrases will be processed independently by the assigned analyzers for each field.
+Specifying the analyzer on a query request isn't necessary. A language analyzer on the field definition will always be used during query processing. For queries that specify multiple fields invoking different language analyzers, the terms or phrases will be processed independently by the assigned analyzers for each field.
 
 By default, a search returns all fields that are marked as retrievable. As such, you might want to exclude fields that don't conform to the language-specific search experience you want to provide. Specifically, if you limited search to a field with French strings, you probably want to exclude fields with English strings from your results. Using the **$select** query parameter gives you control over which fields are returned to the calling application.
 
@@ -111,14 +142,14 @@ private static void RunQueries(SearchClient srchclient)
 
 ## Boost language-specific fields
 
-Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. IA preference for results in a certain language can be defined using [scoring profiles](index-add-scoring-profiles.md). In the example below, matches found in the description in English will be scored higher relative to matches in other languages:
+Sometimes the language of the agent issuing a query isn't known, in which case the query can be issued against all fields simultaneously. IA preference for results in a certain language can be defined using [scoring profiles](index-add-scoring-profiles.md). In the example below, matches found in the description in French will be scored higher relative to matches in other languages:
 
 ```JSON
   "scoringProfiles": [
     {
-      "name": "englishFirst",
+      "name": "frenchFirst",
       "text": {
-        "weights": { "description": 2 }
+        "weights": { "description_fr": 2 }
       }
     }
   ]
@@ -130,9 +161,9 @@ You would then include the scoring profile in the search request:
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "pets allowed",
-  "searchFields": "Tags, Description",
-  "select": "HotelName, Tags, Description",
-  "scoringProfile": "englishFirst",
+  "searchFields": "Tags, Description_fr",
+  "select": "HotelName, Tags, Description_fr",
+  "scoringProfile": "frenchFirst",
   "count": "true"
 }
 ```

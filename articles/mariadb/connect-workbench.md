@@ -1,17 +1,19 @@
 ---
 title: 'Quickstart: Connect MySQL Workbench - Azure Database for MariaDB'
 description: This quickstart provides the steps to use MySQL Workbench to connect to and query data from Azure Database for MariaDB.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Azure Database for MariaDB: Use MySQL Workbench to connect and query data
 
-This quickstart demonstrates how to connect to an Azure Database for MariaDB instance by using MySQL Workbench. 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
+This quickstart demonstrates how to connect to an Azure Database for MariaDB instance by using MySQL Workbench.
 
 ## Prerequisites
 
@@ -42,7 +44,7 @@ Get the connection information that's required to connect to the Azure Database 
 
 To connect to an Azure Database for MariaDB server by using MySQL Workbench:
 
-1. Open MySQL Workbench on your computer. 
+1. Open MySQL Workbench on your computer.
 
 2. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
 
@@ -57,14 +59,14 @@ To connect to an Azure Database for MariaDB server by using MySQL Workbench:
 
    ![Set up a new connection](./media/connect-workbench/2-setup-new-connection.png)
 
-3. To check that all parameters are configured correctly, select **Test Connection**. 
+3. To check that all parameters are configured correctly, select **Test Connection**.
 
-4. Select **OK** to save the connection. 
+4. Select **OK** to save the connection.
 
 5. Under **MySQL Connections**, select the tile that corresponds to your server. Wait for the connection to be established.
 
    A new SQL tab opens with a blank editor where you can type your queries.
-    
+
    > [!NOTE]
    > By default, SSL connection security is required and is enforced on your Azure Database for MariaDB server. Although typically no additional configuration for SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. If you need to disable SSL, on the server overview page in the Azure portal, select **Connection security** from the menu. For **Enforce SSL connection**, select **Disabled**.
 
@@ -73,44 +75,45 @@ To connect to an Azure Database for MariaDB server by using MySQL Workbench:
 1. Copy and paste the following sample SQL code into the page of a blank SQL tab to illustrate some sample data.
 
     This code creates an empty database named **quickstartdb**. Then, it creates a sample table named **inventory**. The code inserts some rows, and then reads the rows. It changes the data with an update statement, and then reads the rows again. Finally, the code deletes a row, and then reads the rows again.
-    
+
     ```sql
     -- Create a database
     -- DROP DATABASE IF EXISTS quickstartdb;
     CREATE DATABASE quickstartdb;
     USE quickstartdb;
-    
+
     -- Create a table and insert rows
     DROP TABLE IF EXISTS inventory;
     CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);
     INSERT INTO inventory (name, quantity) VALUES ('banana', 150);
     INSERT INTO inventory (name, quantity) VALUES ('orange', 154);
     INSERT INTO inventory (name, quantity) VALUES ('apple', 100);
-    
+
     -- Read
     SELECT * FROM inventory;
-    
+
     -- Update
     UPDATE inventory SET quantity = 200 WHERE id = 1;
     SELECT * FROM inventory;
-    
+
     -- Delete
     DELETE FROM inventory WHERE id = 2;
     SELECT * FROM inventory;
     ```
 
     The screenshot shows an example of the SQL code in MySQL Workbench and the output after it runs:
-    
+
     ![Select the MySQL Workbench SQL tab to run sample SQL code](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. To run the sample SQL code, on the **SQL File** tab, select the lightening bolt icon on the toolbar.
 3. Note the three tabbed results in the **Result Grid** section in the middle of the page. 
-4. Note the **Output** list at the bottom of the page. The status of each command is shown. 
+4. Note the **Output** list at the bottom of the page. The status of each command is shown.
 
 In this quickstart, you connected to Azure Database for MariaDB by using MySQL Workbench, and you queried data by using the SQL language.
 
 <!--
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
 -->

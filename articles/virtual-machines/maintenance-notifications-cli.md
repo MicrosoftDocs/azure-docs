@@ -4,6 +4,7 @@ description: View maintenance notifications for virtual machines running in Azur
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/19/2019
 #pmcontact: shants

@@ -1,8 +1,12 @@
 ---
 title: Built-in policy definitions for Azure Container Instances
 description: Lists Azure Policy built-in policy definitions for Azure Container Instances. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/08/2022
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
 ms.topic: reference
+ms.date: 10/10/2023
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Container Instances

@@ -6,7 +6,7 @@ author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh 
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -21,13 +21,18 @@ In this tutorial, you learn how to:
 > * Deploy Azure Firewall and configure custom routing
 > * Test connectivity
 
+> [!IMPORTANT]
+> A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services such as VPN, ExpressRoute, and so on. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To upgrade an existing Azure Virtual WAN Hub to a Secure Hub and have the Azure Firewall use Availability Zones, you must use Azure PowerShell, as described later in this article.
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - PowerShell 7
 
-   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
+   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7).
+
+- "Az.Network" module version must be 4.17.0 or higher.
 
 ## Sign in to Azure
 
@@ -46,6 +51,8 @@ $RG = "vwan-rg"
 $Location = "westeurope"
 $VwanName = "vwan"
 $HubName =  "hub1"
+$FirewallTier = "Standard" # or "Premium"
+
 # Create Resource Group, Virtual WAN and Virtual Hub
 New-AzResourceGroup -Name $RG -Location $Location
 $Vwan = New-AzVirtualWan -Name $VwanName -ResourceGroupName $RG -Location $Location -AllowVnetToVnetTraffic -AllowBranchToBranchTraffic -VirtualWANType "Standard"
@@ -74,8 +81,12 @@ $AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
 # New Firewall
 $AzFW = New-AzFirewall -Name "azfw1" -ResourceGroupName $RG -Location $Location `
             -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
-            -Sku AZFW_Hub -HubIPAddress $AzFWHubIPs
+            -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
+            -SkuTier $FirewallTier
 ```
+
+> [!NOTE]
+> The following Firewall creation command does **not** use Availability Zones. If you want to use this feature, an additional parameter **-Zone** is required. An example is provided in the upgrade section at the end of this article.
 
 Enabling logging from the Azure Firewall to Azure Monitor is optional, but in this example you use the Firewall logs to prove that traffic is traversing the firewall:
 
@@ -88,13 +99,15 @@ Set-AzDiagnosticSetting -ResourceId $AzFW.Id -Enabled $True -Category AzureFirew
 
 ## Deploy Azure Firewall and configure custom routing
 
+> [!NOTE]
+> This is the configuration deployed when securing connectivity from the Azure Portal with Azure Firewall Manager when the "Inter-hub" setting is set to **disabled**. For instructions on how to configure routing using powershell when "Inter-hub" is set to **enabled**, see [Enabling routing intent](#routingintent).
+
 Now you have an Azure Firewall in the hub, but you still need to modify routing so the Virtual WAN sends the traffic from the virtual networks and from the branches through the firewall. You do this in two steps:
 
 1. Configure all virtual network connections (and branch connections if there were any) to propagate to the `None` Route Table. The effect of this configuration is that other virtual networks and branches won't learn their prefixes, and so has no routing to reach them.
 1. Now you can insert static routes in the `Default` Route Table (where all virtual networks and branches are associated by default), so that all traffic is sent to the Azure Firewall.
 
-> [!NOTE]
-> This is the configuration deployed when securing connectivity from the Azure Portal with Azure Firewall Manager
+
 
 Start with the first step, to configure your virtual network connections to propagate to the `None` Route Table:
 
@@ -103,7 +116,7 @@ Start with the first step, to configure your virtual network connections to prop
 $VnetRoutingConfig = $Spoke1Connection.RoutingConfiguration    # We take $Spoke1Connection as baseline for the future vnet config, all vnets will have an identical config
 $NoneRT = Get-AzVhubRouteTable -ResourceGroupName $RG -HubName $HubName -Name "noneRouteTable"
 $NewPropRT = @{}
-$NewPropRT.Add('Id', $NoneRT.id)
+$NewPropRT.Add('Id', $NoneRT.Id)
 $PropRTList = @()
 $PropRTList += $NewPropRT
 $VnetRoutingConfig.PropagatedRouteTables.Ids = $PropRTList
@@ -121,8 +134,46 @@ $AzFWRoute = New-AzVHubRoute -Name "all_traffic" -Destination @("0.0.0.0/0", "10
 $DefaultRT = Update-AzVHubRouteTable -Name "defaultRouteTable" -ResourceGroupName $RG -VirtualHubName  $HubName -Route @($AzFWRoute)
 ```
 > [!NOTE]
-> String "***all_traffic***" as value for parameter "-Name" in the New-AzVHubRoute command above has a special meaning: if you use this exact string, the configuration applied in this article will be properly reflected in the Azure Portal (Firewall Manager --> Virtual hubs --> [Your Hub] --> Security Configuration). If a different name will be used, the desired configuration will be applied, but will not be reflected in the Azure Portal. 
+> String "***all_traffic***" as value for parameter "-Name" in the New-AzVHubRoute command above has a special meaning: if you use this exact string, the configuration applied in this article will be properly reflected in the Azure Portal (Firewall Manager --> Virtual hubs --> [Your Hub] --> Security Configuration). If a different name will be used, the desired configuration will be applied, but will not be reflected in the Azure Portal.
 
+##  <a name="routingintent"></a> Enabling routing intent
+
+If you want to send inter-hub and inter-region traffic via Azure Firewall deployed in the Virtual WAN hub, you can instead enable the routing intent feature. For more information on routing intent, see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md).
+
+> [!NOTE]
+> This is the configuration deployed when securing connectivity from the Azure Portal with Azure Firewall Manager when the "Interhub" setting is set to **enabled**.
+
+```azurepowershell
+# Get the Azure Firewall resource ID
+$AzFWId = $(Get-AzVirtualHub -ResourceGroupName <thname> -name  $HubName).AzureFirewall.Id
+
+# Create routing policy and routing intent
+$policy1 = New-AzRoutingPolicy -Name "PrivateTraffic" -Destination @("PrivateTraffic") -NextHop $firewall.Id
+$policy2 = New-AzRoutingPolicy -Name "PublicTraffic" -Destination @("Internet") -NextHop $firewall.Id
+New-AzRoutingIntent -ResourceGroupName "<rgname>" -VirtualHubName "<hubname>" -Name "hubRoutingIntent" -RoutingPolicy @($policy1, $policy2)
+```
+
+If you are using non-RFC1918 prefixes in your Virtual WAN such as  40.0.0.0/24 in your Virtual Network or on-premises, add an additional route in the defaultRouteTable after routing intent configuration completes. Make sure you name this route as **private_traffic**. If the route is named otherwise, the desired configuration will apply but it will not be reflected in Azure Portal.
+
+```azurepowershell
+# Get the defaultRouteTable
+$defaultRouteTable = Get-AzVHubRouteTable -ResourceGroupName routingIntent-Demo -HubName wus_hub1 -Name defaultRouteTable
+
+# Get the routes automatically created by routing intent. If private routing policy is enabled, this is the route named _policy_PrivateTraffic. If internet routing policy is enabled, this is the route named _policy_InternetTraffic. 
+$privatepolicyroute = $defaultRouteTable.Routes[1]
+
+
+# Create new route named private_traffic for non-RFC1918 prefixes
+$private_traffic = New-AzVHubRoute -Name "private-traffic" -Destination @("30.0.0.0/24") -DestinationType "CIDR" -NextHop $AzFWId -NextHopType ResourceId
+
+# Create new routes for route table
+$newroutes = @($privatepolicyroute, $private_traffic)
+
+# Update route table
+Update-AzVHubRouteTable -ResourceGroupName <rgname> -ParentResourceName <hubname> -Name defaultRouteTable -Route $newroutes
+
+````
+ 
 ## Test connectivity
 
 Now you have a fully operational secure hub. To test connectivity, you need one virtual machine in each spoke virtual network connected to the hub:
@@ -179,7 +230,7 @@ $SSHRule = New-AzFirewallPolicyNetworkRule -Name PermitSSH -Protocol TCP `
         -SourceAddress "10.0.0.0/8" -DestinationAddress "10.0.0.0/8" -DestinationPort 22
 $NetCollection = New-AzFirewallPolicyFilterRuleCollection -Name "Management" -Priority 100 -ActionType Allow -Rule $SSHRule
 $NetGroup = New-AzFirewallPolicyRuleCollectionGroup -Name "Management" -Priority 200 -RuleCollection $NetCollection -FirewallPolicyObject $FWPolicy
-# Add Application Rul
+# Add Application Rule
 $ifconfigRule = New-AzFirewallPolicyApplicationRule -Name PermitIfconfig -SourceAddress "10.0.0.0/8" -TargetFqdn "ifconfig.co" -Protocol "http:80","https:443"
 $AppCollection = New-AzFirewallPolicyFilterRuleCollection -Name "TargetURLs" -Priority 300 -ActionType Allow -Rule $ifconfigRule
 $NetGroup = New-AzFirewallPolicyRuleCollectionGroup -Name "TargetURLs" -Priority 300 -RuleCollection $AppCollection -FirewallPolicyObject $FWPolicy
@@ -199,7 +250,7 @@ Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC2.Nam
 Now generate traffic from one Virtual Machine to the other, and verify that it's dropped in the Azure Firewall. In the following SSH commands you need to accept the virtual machines fingerprints, and provide the password that you defined when you created the virtual machines. In this example, you're going to send five ICMP echo request packets from the virtual machine in spoke1 to spoke2, plus a TCP connection attempt on port 22 using the Linux utility `nc` (with the `-vz` flags it just sends a connection request and shows the result). You should see the ping failing, and the TCP connection attempt on port 22 succeeding, since it's allowed by the network rule you configured previously:
 
 ```azurepowershell
-# Connect to one VM and ping the other. It shouldnt work, because the firewall should drop the traffic, since no rule for ICMP is configured
+# Connect to one VM and ping the other. It should not work, because the firewall should drop the traffic, since no rule for ICMP is configured
 ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "ping $Spoke2VMPrivateIP -c 5"
 # Connect to one VM and send a TCP request on port 22 to the other. It should work, because the firewall is configured to allow SSH traffic (port 22)
 ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "nc -vz $Spoke2VMPrivateIP 22"
@@ -222,16 +273,16 @@ The easiest way to verify the packets are dropped by the firewall is to check th
 ```azurepowershell
 # Getting Azure Firewall network rule Logs
 $LogWS = Get-AzOperationalInsightsWorkspace -ResourceGroupName $RG
-$LogQuery = 'AzureDiagnostics 
-| where Category == "AzureFirewallNetworkRule" 
-| where TimeGenerated >= ago(5m) 
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int * 
-| parse msg_s with * ". Action: " Action1a 
-| parse msg_s with * " was " Action1b " to " NatDestination 
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2 
-| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt) 
-| extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination) 
-| project TimeGenerated, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination, Resource 
+$LogQuery = 'AzureDiagnostics
+| where Category == "AzureFirewallNetworkRule"
+| where TimeGenerated >= ago(5m)
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action1a
+| parse msg_s with * " was " Action1b " to " NatDestination
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
+| project TimeGenerated, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination, Resource
 | take 25 '
 $(Invoke-AzOperationalInsightsQuery -Workspace $LogWS -Query $LogQuery).Results | ft
 ```
@@ -271,6 +322,46 @@ To delete the test environment, you can remove the resource group with all conta
 # Delete resource group and all contained resources
 Remove-AzResourceGroup -Name $RG
 ```
+
+## Upgrade an existing Hub with Availability Zones
+
+The previous procedure uses Azure PowerShell to create a **new** Azure Virtual WAN Hub, and then immediately converts it to a Secured Hub using Azure Firewall.
+A similar approach can be applied to an **existing** Azure Virtual WAN Hub. Firewall Manager can be also used for the conversion, but it isn't possible to deploy Azure Firewall across Availability Zones without a script-based approach.
+You can use the following code snippet to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three Availability Zones.
+
+```azurepowershell
+# Variable definition
+$RG = "vwan-rg"
+$Location = "westeurope"
+$VwanName = "vwan"
+$HubName =  "hub1"
+$FirewallName = "azfw1"
+$FirewallTier = "Standard" # or "Premium"
+$FirewallPolicyName = "VwanFwPolicy"
+
+# Get references to vWAN and vWAN Hub to convert #
+$Vwan = Get-AzVirtualWan -ResourceGroupName $RG -Name $VwanName
+$Hub = Get-AzVirtualHub -ResourceGroupName  $RG -Name $HubName
+
+# Create a new Firewall Policy #
+$FWPolicy = New-AzFirewallPolicy -Name $FirewallPolicyName -ResourceGroupName $RG -Location $Location
+
+# Create a new Firewall Public IP #
+$AzFWPIPs = New-AzFirewallHubPublicIpAddress -Count 1
+$AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
+
+# Create Firewall instance #
+$AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Location `
+            -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
+            -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
+            -SkuTier $FirewallTier `
+            -Zone 1,2,3
+```
+After you run this script, Availability Zones should appear in the secured hub properties as shown in the following screenshot:
+
+:::image type="content" source="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones." lightbox="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png":::
+
+After the Azure Firewall is deployed, a configuration procedure must be completed as described in the previous *Deploy Azure Firewall and configure custom routing* section.
 
 ## Next steps
 

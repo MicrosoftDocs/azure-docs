@@ -3,17 +3,17 @@ title: Azure support for public safety and justice
 description: Guidance on using Azure cloud services for public safety and justice workloads.
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 recommendations: false
-ms.date: 03/02/2022
+ms.date: 02/06/2023
 ---
 
-# Public safety and justice in Azure Government
+# Azure for public safety and justice
 
 ## Overview
 
-Public safety and justice agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. Cloud computing is transforming the way law enforcement agencies approach their work. It is helping with intelligent policing awareness systems, body camera systems across the country/region, and day-to-day mobile police collaboration.
+Public safety and justice agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. Cloud computing is transforming the way law enforcement agencies approach their work. It's helping with intelligent policing awareness systems, body camera systems across the country/region, and day-to-day mobile police collaboration.
 
 When they're properly planned and secured, cloud services can deliver powerful new capabilities for public safety and justice agencies. These capabilities include digital evidence management, data analysis, and real-time decision support. Solutions can be delivered on the latest mobile devices. However, not all cloud providers are equal. As law enforcement agencies embrace the cloud, they need a cloud service provider they can trust. The core of the law enforcement mission demands partners who are committed to meeting a full range of security, compliance, and operational needs.
 
@@ -29,14 +29,14 @@ Microsoft treats Criminal Justice Information Services (CJIS) compliance as a co
 
 The [Criminal Justice Information Services](https://www.fbi.gov/services/cjis) (CJIS) Division of the US Federal Bureau of Investigation (FBI) gives state, local, and federal law enforcement and criminal justice agencies access to criminal justice information (CJI), for example, fingerprint records and criminal histories. Law enforcement and other government agencies in the United States must ensure that their use of cloud services for the transmission, storage, or processing of CJI complies with the [CJIS Security Policy](https://www.fbi.gov/services/cjis/cjis-security-policy-resource-center/view), which establishes minimum security requirements and controls to safeguard CJI.
 
-### Azure Government and CJIS Security Policy
+### Azure and CJIS Security Policy
 
 Microsoft's commitment to meeting the applicable CJIS regulatory controls help criminal justice organizations be compliant with the CJIS Security Policy when implementing cloud-based solutions. For more information about Azure support for CJIS, see [Azure CJIS compliance offering](/azure/compliance/offerings/offering-cjis).
 
 The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. **These technologies can help you establish sole control over CJI that you're responsible for.**
 
 > [!NOTE]
-> You are wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article does not constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+> You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
 
 ## Location of customer data
 
@@ -77,7 +77,7 @@ While the current CMVP FIPS 140 implementation guidance precludes a FIPS 140 val
 
 Proper protection and management of encryption keys is essential for data security. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
-With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents do not see or extract your cryptographic keys.**
+With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For more information, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys) Therefore, if you use CMK stored in Azure Key Vault HSMs, you effectively maintain sole ownership of encryption keys.
 
 ### Data encryption in transit
 
@@ -85,9 +85,9 @@ Azure provides many options for [encrypting data in transit](../security/fundame
 
 ### Data encryption at rest
 
-Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management. For more information about Azure Storage encryption and Azure Disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
+Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Microsoft Entra ID to ensure secure key access and centralized key management. For more information about Azure Storage encryption and Azure Disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
 
-Azure SQL Database provides [transparent data encryption](../azure-sql/database/transparent-data-encryption-tde-overview.md) (TDE) at rest by [default](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/). TDE performs real-time encryption and decryption operations on the data and log files. Database Encryption Key (DEK) is a symmetric key stored in the database boot record for availability during recovery. It's secured via a certificate stored in the master database of the server or an asymmetric key called TDE Protector stored under your control in [Azure Key Vault](../key-vault/general/security-features.md). Key Vault supports [bring your own key](../azure-sql/database/transparent-data-encryption-byok-overview.md) (BYOK), which enables you to store the TDE Protector in Key Vault and control key management tasks including key rotation, permissions, deleting keys, enabling auditing/reporting on all TDE Protectors, and so on. The key can be generated by the Key Vault, imported, or [transferred to the Key Vault from an on-premises HSM device](../key-vault/keys/hsm-protected-keys.md). You can also use the [Always Encrypted](../azure-sql/database/always-encrypted-azure-key-vault-configure.md) feature of Azure SQL Database, which is designed specifically to help protect sensitive data by allowing you to encrypt data inside your applications and [never reveal the encryption keys to the database engine](/sql/relational-databases/security/encryption/always-encrypted-database-engine). In this manner, Always Encrypted provides separation between those users who own the data (and can view it) and those users who manage the data (but should have no access).
+Azure SQL Database provides [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview) (TDE) at rest by [default](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/). TDE performs real-time encryption and decryption operations on the data and log files. Database Encryption Key (DEK) is a symmetric key stored in the database boot record for availability during recovery. It's secured via a certificate stored in the master database of the server or an asymmetric key called TDE Protector stored under your control in [Azure Key Vault](../key-vault/general/security-features.md). Key Vault supports [bring your own key](/azure/azure-sql/database/transparent-data-encryption-byok-overview) (BYOK), which enables you to store the TDE Protector in Key Vault and control key management tasks including key rotation, permissions, deleting keys, enabling auditing/reporting on all TDE Protectors, and so on. The key can be generated by the Key Vault, imported, or [transferred to the Key Vault from an on-premises HSM device](../key-vault/keys/hsm-protected-keys.md). You can also use the [Always Encrypted](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure) feature of Azure SQL Database, which is designed specifically to help protect sensitive data by allowing you to encrypt data inside your applications and [never reveal the encryption keys to the database engine](/sql/relational-databases/security/encryption/always-encrypted-database-engine). In this manner, Always Encrypted provides separation between those users who own the data (and can view it) and those users who manage the data (but should have no access).
 
 ### Data encryption in use
 
@@ -95,11 +95,30 @@ Microsoft enables you to protect your data throughout its entire lifecycle: at r
 
 Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. For more information, see [Azure confidential computing](../confidential-computing/index.yml) documentation.
 
+## Multi-factor authentication (MFA)
+
+The CJIS Security Policy v5.9.2 revised the multi-factor authentication (MFA) requirements for CJI protection. MFA requires the use of two or more different factors defined as follows:
+
+- Something you know, for example, username/password or personal identification number (PIN)
+- Something you have, for example, a hard token such as a cryptographic key stored on or a one-time password (OTP) transmitted to a specialized hardware device
+- Something you are, for example, biometric information
+
+According to the CJIS Security Policy, identification and authentication of organizational users requires MFA to privileged and non-privileged accounts as part of CJI access control requirements. MFA is required at Authenticator Assurance Level 2 (AAL2), as described in the National Institute of Standards and Technology (NIST) [SP 800-63](https://pages.nist.gov/800-63-3/sp800-63-3.html) *Digital Identity Guidelines*. Authenticators and verifiers operated at AAL2 shall be validated to meet the requirements of FIPS 140 Level 1.
+
+The [Microsoft Authenticator app](../active-directory/authentication/concept-authentication-authenticator-app.md) provides an extra level of security to your Microsoft Entra account. It's available on mobile phones running Android and iOS. With the Microsoft Authenticator app, you can provide secondary verification for MFA scenarios to meet your CJIS Security Policy MFA requirements. As mentioned previously, CJIS Security Policy requires that solutions for hard tokens use cryptographic modules validated at FIPS 140 Level 1. The Microsoft Authenticator app meets FIPS 140 Level 1 validation requirements for all Microsoft Entra authentications, as explained in [Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](../active-directory/authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication). FIPS 140 compliance for Microsoft Authenticator is currently in place for iOS and in progress for Android.
+
+Moreover, Azure can help you meet and **exceed** your CJIS Security Policy MFA requirements by supporting the highest Authenticator Assurance Level 3 (AAL3). According to [NIST SP 800-63B Section 4.3](https://pages.nist.gov/800-63-3/sp800-63b.html#sec4), multi-factor **authenticators** used at AAL3 shall rely on hardware cryptographic modules validated at FIPS 140 Level 2 overall with at least FIPS 140 Level 3 for physical security, which exceeds the CJIS Security Policy MFA requirements. **Verifiers** at AAL3 shall be validated at FIPS 140 Level 1 or higher.
+
+Microsoft Entra ID supports both authenticator and verifier NIST SP 800-63B AAL3 requirements:
+
+- **Authenticator requirements:** FIDO2 security keys, smartcards, and Windows Hello for Business can help you meet AAL3 requirements, including the underlying FIPS 140 validation requirements. Microsoft Entra ID support for NIST SP 800-63B AAL3 **exceeds** the CJIS Security Policy MFA requirements.
+- **Verifier requirements:** Microsoft Entra ID uses the [Windows FIPS 140 Level 1](/windows/security/threat-protection/fips-140-validation) overall validated cryptographic module for all its authentication related cryptographic operations. It's therefore a FIPS 140 compliant verifier.
+
+For more information, see [Azure NIST SP 800-63 documentation](/azure/compliance/offerings/offering-nist-800-63).
+
 ## Restrictions on insider access
 
 Insider threat is characterized as potential for providing back-door connections and cloud service provider (CSP) privileged administrator access to your systems and data. For more information on how Microsoft restricts insider access to your data, see [Restrictions on insider access](./documentation-government-plan-security.md#restrictions-on-insider-access).
-
-All Azure and Azure Government employees in the United States are subject to Microsoft background checks. For more information, see [Screening](./documentation-government-plan-security.md#screening). Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to screened US persons that have completed fingerprint background checks and criminal records checks to address CJIS requirements.
 
 ## Monitoring your Azure resources
 

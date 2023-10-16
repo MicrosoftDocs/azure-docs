@@ -2,17 +2,13 @@
 title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 02/15/2023
 ---
 
 # Configure IP firewall for an Azure Relay namespace
 By default, Relay namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 This feature is helpful in scenarios in which Azure Relay should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Relay with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
-
-
-> [!IMPORTANT]
-> This feature is currently in preview. 
 
 
 ## Enable IP firewall rules
@@ -22,15 +18,14 @@ The IP firewall rules are applied at the namespace level. Therefore, the rules a
 This section shows you how to use the Azure portal to create IP firewall rules for a namespace. 
 
 1. Navigate to your **Relay namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Networking** option. If you select the **All networks** option in the  **Allow access from** section, the Relay namespace accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
-
-    ![Screenshot shows the Networking page with the All networks option selected.](./media/ip-firewall/all-networks-selected.png)
+2. On the left menu, select **Networking**.
 1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-
-        ![Firewall - All networks option selected](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
-3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
+    3. If you want to allow Microsoft services trusted by the Azure Relay service to bypass this firewall, select **Yes** for **Allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall?**. 
+  
+        :::image type="content" source="./media/ip-firewall/selected-networks-trusted-access-disabled.png" alt-text="Screenshot showing the Public access tab of the Networking page with the Firewall enabled.":::
+1. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
 
 ### Use Resource Manager template
@@ -55,69 +50,78 @@ The template takes one parameter: **ipMask**, which is a single IPv4 address or 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "relayNamespaceName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Relay namespace"
+        "namespaces_name": {
+            "defaultValue": "contosorelay0215",
+            "type": "String"
         }
-      },
-      "location": {
-        "type": "string",
-        "metadata": {
-          "description": "Location for Namespace"
-        }
-      }
     },
-    "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
-    },
+    "variables": {},
     "resources": [
-      {
-        "apiVersion": "2018-01-01-preview",
-        "name": "[parameters('relayNamespaceName')]",
-        "type": "Microsoft.Relay/namespaces",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "Standard",
-          "tier": "Standard"
-        },
-        "properties": { }
-      },
-      {
-        "apiVersion": "2018-01-01-preview",
-        "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkrulesets",
-        "dependsOn": [
-          "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
-        ],
-        "properties": {
-          "ipRules": 
-          [
-            {
-                "ipMask":"10.1.1.1",
-                "action":"Allow"
+        {
+            "type": "Microsoft.Relay/namespaces",
+            "apiVersion": "2021-11-01",
+            "name": "[parameters('namespaces_name')]",
+            "location": "East US",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
             },
-            {
-                "ipMask":"11.0.0.0/24",
-                "action":"Allow"
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Relay/namespaces/authorizationrules",
+            "apiVersion": "2021-11-01",
+            "name": "[concat(parameters('namespaces_sprelayns0215_name'), '/RootManageSharedAccessKey')]",
+            "location": "eastus",
+            "dependsOn": [
+                "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_sprelayns0215_name'))]"
+            ],
+            "properties": {
+                "rights": [
+                    "Listen",
+                    "Manage",
+                    "Send"
+                ]
             }
-          ],
-          "virtualNetworkRules": [],
-          "trustedServiceAccessEnabled": false,
-          "defaultAction": "Deny"
+        },
+        {
+            "type": "Microsoft.Relay/namespaces/networkRuleSets",
+            "apiVersion": "2021-11-01",
+            "name": "[concat(parameters('namespaces_sprelayns0215_name'), '/default')]",
+            "location": "East US",
+            "dependsOn": [
+                "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_sprelayns0215_name'))]"
+            ],
+            "properties": {
+                "publicNetworkAccess": "Enabled",
+                "defaultAction": "Deny",
+                "ipRules": [
+                    {
+                        "ipMask": "172.72.157.204",
+                        "action": "Allow"
+                    },
+                    {
+                        "ipMask": "10.1.1.1",
+                        "action": "Allow"
+                    },
+                    {
+                        "ipMask": "11.0.0.0/24",
+                        "action": "Allow"
+                    }
+                ]
+            }
         }
-      }
-    ],
-    "outputs": { }
-  }
+    ]
+}
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 
+[!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
 ## Next steps
 To learn about other network security-related features, see [Network security](network-security.md).

@@ -2,19 +2,19 @@
 title: About networking in Azure VM disaster recovery with Azure Site Recovery
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: Harsha-CS
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/13/2020
-ms.author: harshacs
-
+ms.date: 11/21/2021
+ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 # About networking in Azure VM disaster recovery
 
 
 
-This article provides networking guidance when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
+This article provides networking guidance for platform connectivity when you're replicating Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
 ## Before you start
 
@@ -63,7 +63,7 @@ While using NSG to control outbound connectivity, these service tags need to be 
 - For the storage accounts in source region:
     - Create a [Storage service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
-- Create a [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+- Create a [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to Microsoft Entra ID
 - Create an EventsHub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
 - Create an AzureSiteRecovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
 - Create an AzureKeyVault service tag-based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
@@ -85,7 +85,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the screenshot below.
 
-      ![Screenshot shows Add outbound security rule for a network security group for Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Screenshot shows Add outbound security rule for a network security group for Microsoft Entra ID.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that corresponds to the target location. This allows access to Site Recovery monitoring.
 

@@ -1,17 +1,15 @@
 ---
-title: Load balancing on multiple IP configurations - Azure CLI
+title: Load balancing on multiple IP configurations - PowerShell
 titleSuffix: Azure Load Balancer
-description: In this article, learn about load balancing across primary and secondary IP configurations using Azure CLI.
+description: In this article, learn about load balancing across primary and secondary IP configurations using Azure PowerShell.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18, devx-track-azurecli
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: allensu
+ms.date: 06/27/2023
+ms.author: mbender
+ms.custom: template-how-to, seodec18, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Load balancing on multiple IP configurations using PowerShell
@@ -54,7 +52,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     Then complete [Create a Windows VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) steps 6.3 through 6.8.
 
-5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add) article. Use the following configuration settings:
+5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add-secondary-private-and-public-ip-address) article. Use the following configuration settings:
 
     ```powershell
     $NicName = "VM1-NIC2"

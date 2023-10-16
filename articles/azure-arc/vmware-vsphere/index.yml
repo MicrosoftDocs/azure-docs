@@ -33,12 +33,19 @@ landingContent:
         links:  
         - text: Enable VMware vCenter resources in Azure
           url: browse-and-enable-vcenter-resources-in-azure.md
+        - text: Install Arc agent at scale for your VMware VMs
+          url: enable-guest-management-at-scale.md
         - text: Manage access to VMware resources through Azure RBAC
-          url: manage-access-to-arc-vmware-resources.md
+          url: setup-and-manage-self-service-access.md
         - text: Create a virtual machine on VMware vCenter
           url: quick-start-create-a-vm.md   
         - text: Manage VMware virtual machines in Azure
-          url: manage-vmware-vms-in-azure.md
+          url: perform-vm-ops-through-azure.md
  
-  
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart for Azure Arc-enabled VMware vSphere
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/ 
 

@@ -2,12 +2,10 @@
 title: Create a VM and storage account for a scalable application in Azure
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
 author: roygara
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.subservice: blobs 
-ms.devlang: csharp
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -28,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -50,6 +48,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
+  -AllowBlobPublicAccess $false
 ```
 
 ## Create a virtual machine

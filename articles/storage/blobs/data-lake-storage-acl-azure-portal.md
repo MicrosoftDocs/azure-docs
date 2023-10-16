@@ -1,13 +1,13 @@
 ---
 title: Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
-description: Use the Azure portal to manage access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled.
+titleSuffix: Azure Storage
+description: Use the Azure portal to manage access control lists (ACLs) in storage accounts that have a hierarchical namespace (HNS) enabled.
 author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 03/09/2023
 ms.author: normesta
-ms.reviewer: stewu
 ---
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
@@ -26,9 +26,9 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
 
 - You must have one of the following security permissions:
 
-  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, parent resource group or subscription.
+  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of either the target container, storage account, parent resource group or subscription.
 
-  - You are the owning user of the target container, directory, or blob to which you plan to apply ACL settings.
+  - You're the owning user of the target container, directory, or blob to which you plan to apply ACL settings.
 
 ## Manage an ACL
 
@@ -56,15 +56,15 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
 7. To add a *security principal* to the ACL, select the **Add principal** button.
 
    > [!TIP]
-   > A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD).
+   > A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Microsoft Entra ID.
 
-   Find the security principal by using the search box, and then click the **Select** button.
+   Find the security principal by using the search box, and then select the **Select** button.
 
    > [!div class="mx-imgBorder"]
    > ![Add a security principal to the ACL](./media/data-lake-storage-acl-azure-portal/get-security-principal.png)
 
    > [!NOTE]
-   > We recommend that you create a security group in Azure AD, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+   > We recommend that you create a security group in Microsoft Entra ID, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook.
 

@@ -2,14 +2,13 @@
 title: Map a custom domain to an Azure Blob Storage endpoint
 titleSuffix: Azure Storage
 description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
-author: normesta
-ms.service: storage
+author: akashdubey-ms
+
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: normesta
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint
@@ -189,9 +188,6 @@ The host name is the storage endpoint URL without the protocol identifier and th
 2. In the menu pane, under **Settings**, select **Endpoints**.
 
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.
-
-   > [!NOTE]
-   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
 4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
 
@@ -386,8 +382,31 @@ To remove a custom domain registration, use the [az storage account update](/cli
 ## Map a custom domain with HTTPS enabled
 
 This approach involves more steps, but it enables HTTPS access.
-
 If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article.
+The approach involves using [Azure Front Door (preferred)](../../frontdoor/front-door-overview.md) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
+
+
+### Using Azure Front Door
+1. Enable [Azure Front Door](../../frontdoor/front-door-overview.md) on your blob or website endpoint.
+
+   For steps, see [Integrate an Azure storage account with Azure Front Door](../../frontdoor/integrate-storage-account.md).
+
+2. [Configure a custom domain on Azure Front Door](../../frontdoor/standard-premium/how-to-add-custom-domain.md).
+
+3. [Configure HTTPS on an Azure Front Door custom domain](../../frontdoor/standard-premium/how-to-configure-https-custom-domain.md).
+
+   > [!NOTE]
+   > When you update your static website, be sure to clear cached content on the AFD edge POPs by purging the AFD endpoint. For more information, see [Cache purging in Azure Front Door](../../frontdoor/standard-premium/how-to-cache-purge.md).
+
+4. (Optional) Review the following guidance:
+
+   - Learn how to use [Azure Front Door with Azure Storage blobs](../../frontdoor/scenario-storage-blobs.md).
+   - Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](../../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md).
+   - Learn how to [enable Azure Front Door Private Link with Storage Static Website](../../frontdoor/how-to-enable-private-link-storage-static-website.md).
+   - [HTTP-to-HTTPS redirection with AFD](../../frontdoor/front-door-how-to-redirect-https.md).
+   - [Front Door Billing](../../frontdoor/billing.md).
+
+### Using Azure CDN
 
 1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint.
 
@@ -412,16 +431,7 @@ If you don't need users to access your blob or web content by using HTTPS, then 
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
-
-<sup>2</sup>    Feature is supported at the preview level.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

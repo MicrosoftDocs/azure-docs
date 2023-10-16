@@ -1,21 +1,20 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
-author: ofirmanor
-ms.author: ofmanor
 ms.topic: reference
-ms.date: 2/23/2022
+ms.date: 9/20/2023
+ms.reviewer: nolavime
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
-This article discusses common problems in Azure Monitor alerting and notifications.
+This article discusses common problems in Azure Monitor alerting and notifications. Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
+You can see fired alerts in the Azure portal.
 
-If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
+Refer to these articles for troubleshooting information about metric or log alerts that are not behaving as expected:
 
-- [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
+- [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
+- [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -126,7 +125,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allowlist.
+       Add the [IP addresses](../app/ip-addresses.md) that the webhook is called from to your allowlist.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -135,9 +134,16 @@ If you can see a fired alert in the portal, but its configured action did not tr
     1. **Are you calling Slack or Microsoft Teams?**  
     Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
 
-    1. **Did your webhook became unresponsive or returned errors?** 
+    1. **Did your webhook become unresponsive or return errors?** 
 
-        Our timeout period for a webhook response is 10 seconds. The webhook call will be retried up to two additional times when the following HTTP status codes are returned: 408, 429, 503, 504, or when the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and final retry happens after 100 seconds. If the second retry fails, the endpoint will not be called again for 30 minutes for any action group.
+        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times:
+        
+    - `408`
+    -  `429`
+    - `503`
+    - `504`
+   
+        One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
 
 ## Action or notification happened more than once 
 
@@ -158,8 +164,11 @@ If you have received a notification for an alert (such as an email or an SMS) mo
     ![Screenshot of multiple action groups in an alert.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## Action or notification has an unexpected content
+Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are receiving a degraded experience, if there is a note at the top of your email notification that says: 
 
-If you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
+"This is a degraded email experience. That means the formatting may be off or details could be missing. For more information on the degraded email experience, read here."
+
+If your notification does not contain this note and you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
 
 1. **Did you pick the correct format for the action?** 
 
@@ -171,7 +180,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
  
 1. **Activity log alerts: Is the information available in the activity log?** 
@@ -236,8 +245,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
-
+    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
 - If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).

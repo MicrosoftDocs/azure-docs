@@ -7,7 +7,7 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: mbaldwin
-ms.custom: security-recommendations
+ms.custom: "UpdateFrequency3, security-recommendations"
 
 ---
 
@@ -18,7 +18,7 @@ This article contains security recommendations for Azure App Service. Implementi
 ## General
 
 | Recommendation | Comments |
-|-|-|----|
+|-|-|
 | Stay up to date | Use the latest versions of supported platforms, programming languages, protocols, and frameworks. |
 
 ## Identity and access management
@@ -52,12 +52,13 @@ This article contains security recommendations for Azure App Service. Implementi
 | Use the isolated pricing tier | Except for the isolated pricing tier, all tiers run your apps on the shared network infrastructure in Azure App Service. The isolated tier gives you complete network isolation by running your apps inside a dedicated [App Service environment](environment/intro.md). An App Service environment runs in your own instance of [Azure Virtual Network](../virtual-network/index.yml).|
 | Use secure connections when accessing on-premises resources | You can use [Hybrid connections](app-service-hybrid-connections.md), [Virtual Network integration](./overview-vnet-integration.md), or [App Service environment's](environment/intro.md) to connect to on-premises resources. |
 | Limit exposure to inbound network traffic | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information, see [How To Control Inbound Traffic to an App Service Environment](environment/app-service-app-service-environment-control-inbound-traffic.md). |
+| Protect against DDoS attacks | For web workloads, we highly recommend utilizing [Azure DDoS protection](../ddos-protection/ddos-protection-overview.md) and a [web application firewall](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [Azure Front Door](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [protection against network-level DDoS attacks](../frontdoor/front-door-ddos.md). |
 
 ## Monitoring
 
 | Recommendation | Comments |
 |-|-|
-|Use Microsoft Defender for Cloud's Microsoft Defender for App Service | [Microsoft Defender for App Service](../security-center/defender-for-app-service-introduction.md) is natively integrated with Azure App Service. Defender for Cloud assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in [these recommendations]()../security-center/recommendations-reference.md#appservices-recommendations) to harden your App Service resources. Microsoft Defender for Cloud also provides threat protection and can detect a multitude of threats covering almost the complete list of MITRE ATT&CK tactics from pre-attack to command and control. For a full list of the Azure App Service alerts, see [Microsoft Defender for App Service alerts](../security-center/alerts-reference.md#alerts-azureappserv).|
+|Use Microsoft Defender for Cloud's Microsoft Defender for App Service | [Microsoft Defender for App Service](../security-center/defender-for-app-service-introduction.md) is natively integrated with Azure App Service. Defender for Cloud assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in [these recommendations](../security-center/recommendations-reference.md#appservices-recommendations) to harden your App Service resources. Microsoft Defender for Cloud also provides threat protection and can detect a multitude of threats covering almost the complete list of MITRE ATT&CK tactics from pre-attack to command and control. For a full list of the Azure App Service alerts, see [Microsoft Defender for App Service alerts](../security-center/alerts-reference.md#alerts-azureappserv).|
 
 ## Next steps
 

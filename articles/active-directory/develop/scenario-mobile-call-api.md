@@ -1,9 +1,8 @@
 ---
-title: Call a web API from a mobile app | Azure
-titleSuffix: Microsoft identity platform
+title: Call a web API from a mobile app
 description: Learn how to build a mobile app that calls web APIs. (Call a web API.)
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/18/2020
-ms.author: jmprieur
-ms.reviewer: brandwe
-ms.custom: aaddev 
+ms.author: henrymbugua
+ms.reviewer: brandwe, jmprieur
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -24,12 +23,12 @@ After your app signs in a user and receives tokens, the Microsoft Authentication
 In this article, we'll first look at the MSAL result. Then we'll look at how to use an access token from `AuthenticationResult` or `result` to call a protected web API.
 
 ## MSAL result
-MSAL provides the following values: 
+MSAL provides the following values:
 
 - `AccessToken` calls protected web APIs in an HTTP bearer request.
 - `IdToken` contains useful information about the signed-in user. This information includes the user's name, the home tenant, and a unique identifier for storage.
 - `ExpiresOn` is the expiration time of the token. MSAL handles an app's automatic refresh.
-- `TenantId` is the identifier of the tenant where the user signed in. For guest users in Azure Active Directory (Azure AD) B2B, this value identifies the tenant where the user signed in. The value doesn't identify the user's home tenant.  
+- `TenantId` is the identifier of the tenant where the user signed in. For guest users in Microsoft Entra B2B, this value identifies the tenant where the user signed in. The value doesn't identify the user's home tenant.
 - `Scopes` indicates the scopes that were granted with your token. The granted scopes might be a subset of the scopes that you requested.
 
 MSAL also provides an abstraction for an `Account` value. An `Account` value represents the current user's signed-in account:
@@ -68,7 +67,7 @@ After you have the access token, you can call a web API. Your app will use the t
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
-                
+
                 // Put access token in HTTP request.
                 headers.put("Authorization", "Bearer " + authResult.getAccessToken());
                 return headers;
@@ -91,7 +90,7 @@ NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
 urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
 urlRequest.HTTPMethod = @"GET";
 urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
-        
+
 NSURLSessionDataTask *task =
 [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
@@ -103,14 +102,14 @@ let urlRequest = NSMutableURLRequest()
 urlRequest.url = URL(string: "https://contoso.api.com")!
 urlRequest.httpMethod = "GET"
 urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
-     
+
 let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
 task.resume()
 ```
 
 ### Xamarin
 
-[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](./includes/scenarios/scenarios-call-apis-dotnet.md)]
 
 ## Make several API requests
 
@@ -118,9 +117,9 @@ To call the same API several times, or call multiple APIs, then consider the fol
 
 - **Incremental consent**: The Microsoft identity platform allows apps to get user consent when permissions are required rather than all at the start. Each time your app is ready to call an API, it should request only the scopes that it needs.
 
-- **Conditional access**: When you make several API requests, in certain scenarios you might have to meet additional conditional-access requirements. Requirements can increase in this way if the first request has no conditional-access policies and your app attempts to silently access a new API that requires conditional access. To handle this problem, be sure to catch errors from silent requests, and be prepared to make an interactive request.  For more information, see [Guidance for conditional access](../azuread-dev/conditional-access-dev-guide.md).
+- **Conditional Access**: When you make several API requests, in certain scenarios you might have to meet additional conditional-access requirements. Requirements can increase in this way if the first request has no conditional-access policies and your app attempts to silently access a new API that requires Conditional Access. To handle this problem, be sure to catch errors from silent requests, and be prepared to make an interactive request.  For more information, see [Guidance for Conditional Access](v2-conditional-access-dev-guide.md).
 
-## Call several APIs by using incremental consent and conditional access
+## Call several APIs by using incremental consent and Conditional Access
 
 To call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token:
 

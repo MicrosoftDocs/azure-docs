@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/08/2020
+ms.date: 1/31/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,9 +12,9 @@ services: iot-edge
 
 # Learn how to deploy modules and establish routes in IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. IoT Edge device can run multiple additional modules for any number of processes. Use a deployment manifest to tell your device which modules to install and how to configure them to work together.
+Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. IoT Edge device can run multiple modules for any number of processes. Use a deployment manifest to tell your device which modules to install and how to configure them to work together.
 
 The *deployment manifest* is a JSON document that describes:
 
@@ -23,7 +23,7 @@ The *deployment manifest* is a JSON document that describes:
   * The credentials to access private container registries that contain module images.
   * Instructions for how each module should be created and managed.
 * The **IoT Edge hub** module twin, which includes how messages flow between modules and eventually to IoT Hub.
-* The desired properties of any additional module twins (optional).
+* The desired properties of any extra module twins (optional).
 
 All IoT Edge devices must be configured with a deployment manifest. A newly installed IoT Edge runtime reports an error code until configured with a valid manifest.
 
@@ -167,13 +167,25 @@ The edgeHub module and custom modules also have three properties that tell the I
 * **RestartPolicy**: When and if the IoT Edge agent should restart the module if it stops. If the module is stopped without any errors, it won't start automatically. For more information, see [Docker Docs - Start containers automatically](https://aka.ms/docker-container-restart-policy). Required.
 * **StartupOrder**: *Introduced in IoT Edge version 1.0.10.* Which order the IoT Edge agent should start the modules when first deployed. The order is declared with integers, where a module given a startup value of 0 is started first and then higher numbers follow. The edgeAgent module doesn't have a startup value because it always starts first. Optional.
 
-  The IoT Edge agent initiates the modules in order of the startup value, but does not wait for each module to finish starting before going to the next one.
+  The IoT Edge agent initiates the modules in order of the startup value, but doesn't wait for each module to finish starting before going to the next one.
 
-  Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before the modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
+  Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before you start modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
+
+  > [!NOTE]
+  > Changes to a module's properties will result in that module restarting. For example, a restart will happen if you change properties for the:
+  >    * module image
+  >    * Docker create options
+  >    * environment variables
+  >    * restart policy
+  >    * image pull policy
+  >    * version
+  >    * startup order
+  >
+  > If no module property is changed, the module will **not** restart.
 
 ## Declare routes
 
-The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
+The IoT Edge hub manages communication between modules, IoT Hub, and any downstream devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
 
 Routes are declared in the **$edgeHub** desired properties with the following syntax:
 
@@ -203,7 +215,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 }
 ```
 
-The IoT Edge hub schema version 1.1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge hub schema version 1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 Every route needs a *source* where the messages come from and a *sink* where the messages go. The *condition* is an optional piece that you can use to filter messages.
 
@@ -211,17 +223,17 @@ You can assign *priority* to routes that you want to make sure process their mes
 
 ### Source
 
-The source specifies where the messages come from. IoT Edge can route messages from modules or leaf devices.
+The source specifies where the messages come from. IoT Edge can route messages from modules or downstream devices.
 
-Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Leaf devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+With the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Downstream devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
 The source property can be any of the following values:
 
 | Source | Description |
 | ------ | ----------- |
-| `/*` | All device-to-cloud messages or twin change notifications from any module or leaf device |
-| `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or leaf device |
-| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a leaf device |
+| `/*` | All device-to-cloud messages or twin change notifications from any module or downstream device |
+| `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or downstream device |
+| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a downstream  device |
 | `/messages/modules/*` | Any device-to-cloud message sent by a module through some or no output |
 | `/messages/modules/<moduleId>/*` | Any device-to-cloud message sent by a specific module through some or no output |
 | `/messages/modules/<moduleId>/outputs/*` | Any device-to-cloud message sent by a specific module through some output |
@@ -241,7 +253,7 @@ You can build queries around any of the three parameters with the following synt
 
 For examples about how to create queries for message properties, see [Device-to-cloud message routes query expressions](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules include a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
+An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a downstream device. Messages sent from modules include a system property called **connectionModuleId**. So if you want to route messages from downstream devices directly to IoT Hub, use the following route to exclude module messages:
 
 ```query
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
@@ -292,7 +304,7 @@ For detailed information about how priority queues are managed, see the referenc
 
 The deployment manifest specifies desired properties for each module deployed to the IoT Edge device. Desired properties in the deployment manifest overwrite any desired properties currently in the module twin.
 
-If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub won't modify the module twin in any way. Instead, you can set the desired properties programmatically.
+If you don't specify a module twin's desired properties in the deployment manifest, IoT Hub won't modify the module twin in any way. Instead, you can set the desired properties programmatically.
 
 The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [module twin developer guide](../iot-hub/iot-hub-devguide-module-twins.md).
 
@@ -324,7 +336,7 @@ The following example shows what a valid deployment manifest document may look l
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
               "createOptions": "{}"
             }
           },
@@ -334,7 +346,7 @@ The following example shows what a valid deployment manifest document may look l
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }

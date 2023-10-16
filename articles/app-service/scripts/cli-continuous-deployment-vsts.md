@@ -7,11 +7,11 @@ tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 04/15/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
-# Create an App Service app with continuous deployment using Azure CLI
+# Create an App Service app with continuous deployment from an Azure DevOps repository using Azure CLI
 
 This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from an Azure DevOps repository. For this sample, you need:
 
@@ -20,18 +20,41 @@ This sample script creates an app in App Service with its related resources, and
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create an app with continuous deployment from Azure DevOps")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### To create the web app
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous-webapp-only.sh" id="FullScript":::
+
+### To configure continuous deployment from GitHub
+
+Create the following variables containing your GitHub information.
+
+```azurecli
+gitrepo=<Replace with your Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) repo URL>
+token=<Replace with a Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) personal access token>
+```
+
+Configure continuous deployment from Azure DevOps Services (formerly Visual Studio Team Services, or VSTS). The `--git-token` parameter is required only once per Azure account (Azure remembers token).
+
+```azurecli
+az webapp deployment source config --name $webapp --resource-group $resourceGroup \
+--repo-url $gitrepo --branch master --git-token $token
+```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

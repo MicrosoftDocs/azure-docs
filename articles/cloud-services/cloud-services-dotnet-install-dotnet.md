@@ -1,13 +1,13 @@
 ---
-title: Install .NET on Azure Cloud Services (classic) roles | Microsoft Docs
-description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
+title: Install .NET on Azure Cloud Services (classic) roles
+description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen, devx-track-dotnet
 ---
 
 # Install .NET on Azure Cloud Services (classic) roles
@@ -19,13 +19,14 @@ This article describes how to install versions of .NET Framework that don't come
 For example, you can install .NET Framework 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET Framework 4.6. (The Guest OS family 5 does come with .NET Framework 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available on the [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
+>The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available in the [`azure-cloud-services-files` GitHub repo](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 To install .NET on your web and worker roles, include the .NET web installer as part of your cloud service project. Start the installer as part of the role's startup tasks. 
 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
+* [.NET Framework 4.8.1 web installer](https://go.microsoft.com/fwlink/?linkid=2215256)
 * [.NET Framework 4.8 Web installer](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [.NET Framework 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET Framework 4.6.2 web installer](https://dotnet.microsoft.com/download/dotnet-framework/net462)
@@ -87,17 +88,18 @@ You can use startup tasks to perform operations before a role starts. Installing
    
    ```cmd
    REM Set the value of netfx to install appropriate .NET Framework. 
-   REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
-   REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
+   REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" ***** https://go.microsoft.com/fwlink/?LinkId=397707
+   REM ***** To install .NET 4.6 set the variable netfx to "NDP46" ***** https://go.microsoft.com/fwlink/?LinkId=528222
    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** https://go.microsoft.com/fwlink/?LinkId=671729
-   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://dotnet.microsoft.com/download/dotnet-framework/net462
-   REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
+   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://go.microsoft.com/fwlink/?linkid=780596
+   REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** https://go.microsoft.com/fwlink/?LinkId=825298
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
-   set netfx="NDP472"
    REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
-      
-   REM ***** Set script start timestamp *****
+   REM ***** To install .NET 4.8.1 set the variable netfx to "NDP481" ***** https://go.microsoft.com/fwlink/?linkid=2215256 
+   set netfx="NDP481"
+         
+   REM ***** Set script start timestamp ****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
    set "log=install.cmd started %timestamp%."
@@ -110,6 +112,8 @@ You can use startup tasks to perform operations before a role starts. Installing
    set TEMP=%PathToNETFXInstall%
    
    REM ***** Setup .NET filenames and registry keys *****
+   if %netfx%=="NDP481" goto NDP481
+   if %netfx%=="NDP48" goto NDP48
    if %netfx%=="NDP472" goto NDP472
    if %netfx%=="NDP471" goto NDP471
    if %netfx%=="NDP47" goto NDP47
@@ -119,36 +123,55 @@ You can use startup tasks to perform operations before a role starts. Installing
    
    set "netfxinstallfile=NDP452-KB2901954-Web.exe"
    set netfxregkey="0x5cbf5"
+   set netfxUrl="https://go.microsoft.com/fwlink/?LinkId=397707"
    goto logtimestamp
    
    :NDP46
    set "netfxinstallfile=NDP46-KB3045560-Web.exe"
    set netfxregkey="0x6004f"
+   set netfxUrl="https://go.microsoft.com/fwlink/?LinkId=528222"
    goto logtimestamp
    
    :NDP461
    set "netfxinstallfile=NDP461-KB3102438-Web.exe"
    set netfxregkey="0x6040e"
+   set netfxUrl="https://go.microsoft.com/fwlink/?LinkId=671729"
    goto logtimestamp
    
    :NDP462
    set "netfxinstallfile=NDP462-KB3151802-Web.exe"
    set netfxregkey="0x60632"
+   set netfxUrl="https://go.microsoft.com/fwlink/?linkid=780596"
    goto logtimestamp
    
    :NDP47
    set "netfxinstallfile=NDP47-KB3186500-Web.exe"
    set netfxregkey="0x707FE"
+   set netfxUrl="https://go.microsoft.com/fwlink/?LinkId=825298"
    goto logtimestamp
    
    :NDP471
    set "netfxinstallfile=NDP471-KB4033344-Web.exe"
    set netfxregkey="0x709fc"
+   set netfxUrl="https://go.microsoft.com/fwlink/?LinkId=852095"
    goto logtimestamp
    
    :NDP472
    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
-   set netfxregkey="0x70BF6"
+   set netfxregkey="0x70BF0"
+   set netfxUrl="https://go.microsoft.com/fwlink/?LinkId=863262"
+   goto logtimestamp
+
+   :NDP48
+   set "netfxinstallfile=NDP48-Web.exe"
+   set netfxregkey="0x80EA8"
+   set netfxUrl="https://dotnet.microsoft.com/download/thank-you/net48"
+   goto logtimestamp
+   
+   :NDP481
+   set "netfxinstallfile=NDP481-Web.exe"
+   set netfxregkey="0x82348"
+   set netfxUrl="https://go.microsoft.com/fwlink/?linkid=2215256"
    goto logtimestamp
    
    :logtimestamp
@@ -168,7 +191,26 @@ You can use startup tasks to perform operations before a role starts. Installing
    FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
    echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
    if %foundkey% GEQ %netfxregkeydecimal% goto installed
-   
+
+   REM ***** Downloading .NET Framework Setup *****
+   set retryCount=0
+   set maxRetry=3
+   set delayInSeconds=60
+   echo Downloading .NET Framework %netfx% setup with commandline: powershell -Command "Invoke-WebRequest %netfxUrl% -OutFile %~dp0%netfxinstallfile%" >> %startuptasklog%
+   goto loop
+
+   :loop
+   if %retryCount% NEQ 0 echo %date% %time% : Waiting %delayInSeconds% seconds to retry >> %startuptasklog%
+   if %retryCount% NEQ 0 (powershell -Command "Start-Sleep -Seconds %delayInSeconds%")
+   set /a retryCount=%retryCount%+1
+   echo %date% %time% : Try downloading... [%retryCount% of %maxRetry%] >> %startuptasklog%
+   powershell -Command "Invoke-WebRequest %netfxUrl% -OutFile %~dp0%netfxinstallfile%"
+   if %ERRORLEVEL% NEQ 0 if %retryCount% NEQ %maxRetry% goto loop
+   if %ERRORLEVEL% NEQ 0 if %retryCount%== %maxRetry% echo Taking existing file to install since error occurred while downloading .NET framework %netfx% setup from  %netfxUrl%. >> %startuptasklog%
+   if %ERRORLEVEL%== 0 echo %date% %time% : Successfully downloaded .NET framework %netfx% setup file. >> %startuptasklog%
+   goto install
+
+   install:
    REM ***** Installing .NET *****
    echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
    start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
@@ -230,6 +272,3 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
-
-
-

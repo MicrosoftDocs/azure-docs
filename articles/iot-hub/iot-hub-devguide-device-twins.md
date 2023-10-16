@@ -1,13 +1,12 @@
 ---
-title: Understand Azure IoT Hub device twins | Microsoft Docs
-description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
+title: Understand Azure IoT Hub device twins
+description: This article describes how to use device twins to synchronize state and configuration data between IoT Hub and your devices
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/31/2022
+ms.topic: concept-article
+ms.date: 04/27/2022
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
@@ -26,7 +25,7 @@ Use device twins to:
 
 * Store device-specific metadata in the cloud. For example, the deployment location of a vending machine.
 
-* Report current state information such as available capabilities and conditions from your device app. For example, a device is connected to your IoT hub over cellular or WiFi.
+* Report current state information such as available capabilities and conditions from your device app. For example, whether a device is connected to your IoT hub over cellular or WiFi.
 
 * Synchronize the state of long-running workflows between device app and back-end app. For example, when the solution back end specifies the new firmware version to install, and the device app reports the various stages of the update process.
 
@@ -79,7 +78,6 @@ The following example shows a device twin JSON document:
     }, 
     "version": 2, 
     "tags": {
-        "$etag": "123",
         "deploymentLocation": {
             "building": "43",
             "floor": "1"
@@ -106,7 +104,7 @@ The following example shows a device twin JSON document:
 }
 ```
 
-In the root object are the device identity properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata`, `$etag`, and `$version`) described in the [Device twin metadata](iot-hub-devguide-device-twins.md#device-twin-metadata) and [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) sections.
+In the root object are the device identity properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata` and `$version`) described in the [Device twin metadata](iot-hub-devguide-device-twins.md#device-twin-metadata) and [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) sections.
 
 ### Reported property example
 
@@ -178,46 +176,7 @@ The solution back end operates on the device twin using the following atomic ope
 
 * **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
 
-* **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such routes pre-exist, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. The twin notification message includes properties and body.
-
-  - Properties
-
-    | Name | Value |
-    | --- | --- |
-    $content-type | application/json |
-    $iothub-enqueuedtime |  Time when the notification was sent |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
-    deviceId | ID of the device |
-    hubName | Name of IoT Hub |
-    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | twinChangeNotification |
-    opType | "replaceTwin" or "updateTwin" |
-
-    Message system properties are prefixed with the `$` symbol.
-
-  - Body
-        
-    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the "$metadata" elements. For example,
-
-    ```json
-    {
-      "properties": {
-          "desired": {
-              "$metadata": {
-                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
-              },
-              "$version": 1
-          },
-          "reported": {
-              "$metadata": {
-                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
-              },
-              "$version": 1
-          }
-      }
-    }
-    ```
+* **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such route exists, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. To learn more about the properties and body returned in the twin notification message, see [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in [Control access to IoT Hub](iot-hub-dev-guide-sas.md).
 
@@ -290,7 +249,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 ## Device twin size
 
-IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$version` and `$metadata/$lastUpdated`.
 
 Twin size is computed as follows:
 
@@ -363,12 +322,13 @@ This information is kept at every level (not just the leaves of the JSON structu
 
 ## Optimistic concurrency
 
-Tags, desired, and reported properties all support optimistic concurrency.
-Tags have an ETag, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
+Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update. 
 
-Device twin desired and reported properties do not have ETags, but have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a device app for a reported property or the solution back end for a desired property.
+Device twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
 
-Versions are also useful when an observing agent (such as the device app observing the desired properties) must reconcile races between the result of a retrieve operation and an update notification. The [Device reconnection flow section](iot-hub-devguide-device-twins.md#device-reconnection-flow) provides more information.
+Device twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a device app for a reported property or the solution back end for a desired property.
+
+Versions are also useful when an observing agent (such as the device app observing the desired properties) must reconcile races between the result of a retrieve operation and an update notification. The [Device reconnection flow section](#device-reconnection-flow) provides more information.
 
 ## Device reconnection flow
 
@@ -392,7 +352,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * The [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) article describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* The [IoT Hub MQTT support](iot-hub-mqtt-support.md) article provides more information about IoT Hub support for the MQTT protocol.
+* The [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) article provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
@@ -404,6 +364,6 @@ Now you have learned about device twins, you may be interested in the following 
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [How to use the device twin](iot-hub-node-node-twin-getstarted.md)
+* [How to use the device twin](device-twins-node.md)
 * [How to use device twin properties](tutorial-device-twins.md)
-* [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)

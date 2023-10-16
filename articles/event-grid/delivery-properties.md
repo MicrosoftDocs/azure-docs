@@ -2,7 +2,8 @@
 title: Azure Event Grid - Set custom headers on delivered events 
 description: Describes how you can set custom headers (or delivery properties) on delivered events. 
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.custom: devx-track-azurecli
+ms.date: 02/21/2023
 ---
 
 # Custom delivery properties
@@ -13,7 +14,9 @@ You can set custom headers on the events that are delivered to the following des
 - Webhooks
 - Azure Service Bus topics and queues
 - Azure Event Hubs
-- Relay Hybrid Connections
+- Azure Functions
+- Azure Relay Hybrid Connections
+
 
 When creating an event subscription in the Azure portal, you can use the **Delivery Properties** tab to set custom HTTP headers. This page lets you set fixed and dynamic header values.
 
@@ -22,10 +25,10 @@ To set headers with a fixed value, provide the name of the header and its value 
 
 :::image type="content" source="./media/delivery-properties/static-header-property.png" alt-text="Delivery properties - static":::
 
-You may want check **Is secret?** when providing sensitive data. Sensitive data won't be displayed on the Azure portal. 
+You might want to check **Is secret?** when you're providing sensitive data. The visibility of sensitive data on the Azure portal depends on the user's RBAC permission. 
 
 ## Setting dynamic header values
-You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
+You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. Only JSON values of string, number and boolean are supported. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Delivery properties - dynamic":::
 
@@ -48,7 +51,7 @@ This section gives you a few examples of using delivery properties.
 
 ### Setting the Authorization header with a bearer token (non-normative example)
 
-Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Azure Active Directory](secure-webhook-delivery.md).
+Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Microsoft Entra ID](secure-webhook-delivery.md).
 
 | Header name   | Header type | Header value |
 | :--           | :--         | :--            |
@@ -64,7 +67,7 @@ Authorization: BEARER SlAV32hkKG...
 ```
 
 > [!NOTE]
-> Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
+> Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
 
 ### Service Bus example
 Azure Service Bus supports the use of following message properties when sending single messages. 
@@ -93,7 +96,7 @@ If you need to publish events to a specific partition within an event hub, set t
 
 | Header name | Header type |
 | :-- | :-- |
-|`PartitionKey` | Static |
+|`PartitionKey` | Static or dynamic |
 
 You can also specify custom properties when sending messages to an event hub. Don't use the `aeg-` prefix for the property name as it's used by system properties in message headers. For a list of message header properties, see [Event Hubs as an event handler](handler-event-hubs.md#message-headers)
 

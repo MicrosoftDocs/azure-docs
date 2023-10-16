@@ -1,28 +1,23 @@
 ---
-title: Sign-in log schema in Azure Monitor | Microsoft Docs
-description: Describe the Azure AD sign in log schema for use in Azure Monitor
+title: Sign-in log schema in Azure Monitor
+description: Describe the Microsoft Entra sign-in log schema for use in Azure Monitor
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/17/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
 
-# Interpret the Azure AD sign-in logs schema in Azure Monitor
+# Interpret the Microsoft Entra sign-in logs schema in Azure Monitor
 
-This article describes the Azure Active Directory (Azure AD) sign-in log schema in Azure Monitor. Most of the information that's related to sign-ins is provided under the *Properties* attribute of the `records` object.
+This article describes the Microsoft Entra sign-in log schema in Azure Monitor. Information related to sign-ins is provided under the *Properties* attribute of the `records` object.
 
 
 ```json
@@ -204,12 +199,12 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | ResultType | - | The result of the sign-in operation can be `0` for success or an *error code* for failure. | 
 | ResultSignature | - | This value is always *None*. |
 | ResultDescription | N/A or blank | Provides the error description for the sign-in operation. |
-| riskDetail | riskDetail | Provides the 'reason' behind a specific state of a risky user, sign-in or a risk detection. The possible values are: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. The value `none` means that no action has been performed on the user or sign-in so far. <br>**Note:** Details for this property require an Azure AD Premium P2 license. Other licenses return the value `hidden`. |
+| riskDetail | riskDetail | Provides the 'reason' behind a specific state of a risky user, sign-in or a risk detection. The possible values are: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. The value `none` means that no action has been performed on the user or sign-in so far. <br>**Note:** Details for this property require a Microsoft Entra ID P2 license. Other licenses return the value `hidden`. |
 | riskEventTypes | riskEventTypes | Risk detection types associated with the sign-in. The possible values are: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`,  `generic`, and `unknownFutureValue`. |
-| authProcessingDetails	| Azure AD app authentication library | Contains Family, Library, and Platform information in format: "Family: ADAL Library: ADAL.JS 1.0.0 Platform: JS" |
+| authProcessingDetails	| Azure Active Directory Authentication Library | Contains Family, Library, and Platform information in format: "Family: Microsoft Authentication Library: ADAL.JS 1.0.0 Platform: JS" |
 | authProcessingDetails	| IsCAEToken | Values are True or False |
-| riskLevelAggregated | riskLevel | Aggregated risk level. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in was not enabled for Azure AD Identity Protection. **Note:** Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned `hidden`. |
-| riskLevelDuringSignIn | riskLevel | Risk level during sign-in. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in was not enabled for Azure AD Identity Protection. **Note:** Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned `hidden`. |
+| riskLevelAggregated | riskLevel | Aggregated risk level. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in wasn't enabled for Microsoft Entra ID Protection. **Note:** Details for this property are only available for Microsoft Entra ID P2 customers. All other customers will be returned `hidden`. |
+| riskLevelDuringSignIn | riskLevel | Risk level during sign-in. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in wasn't enabled for Microsoft Entra ID Protection. **Note:** Details for this property are only available for Microsoft Entra ID P2 customers. All other customers will be returned `hidden`. |
 | riskState | riskState | Reports status of the risky user, sign-in, or a risk detection. The possible values are: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
 | DurationMs | - | This value is unmapped, and you can safely ignore this field. |
 | CallerIpAddress | - | The IP address of the client that made the request. | 
@@ -218,7 +213,7 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Level | - | Provides the type of message. For audit, it's always *Informational*. |
 | Location | - | Provides the location of the sign-in activity. |
 | Properties | - | Lists all the properties that are associated with sign-ins.|
-| ResultType | - | Contains the Azure AD error code for the sign-in event (if an error code was present).|
+| ResultType | - | Contains the Microsoft Entra error code for the sign-in event (if an error code was present).|
 
 
 

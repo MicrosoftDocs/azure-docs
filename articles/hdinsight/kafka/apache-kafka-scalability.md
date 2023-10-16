@@ -4,7 +4,7 @@ description: Learn how to configure managed disks for Apache Kafka cluster on Az
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/08/2022
+ms.date: 05/11/2023
 ---
 
 # Configure storage and scalability for Apache Kafka on HDInsight
@@ -40,14 +40,11 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
     ],
 ```
 
-You can find a complete template that demonstrates how to configure managed disks at [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
-
 ## Next steps
 
 For more information on working with Apache Kafka on HDInsight, see the following documents:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
 

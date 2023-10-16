@@ -67,6 +67,9 @@ conceptualContent:
         - url: ./keys/quick-create-portal.md
           itemType: quickstart
           text:  Set and retrieve a key from Azure Key Vault using the Azure portal
+        - url: ./keys/how-to-configure-key-rotation.md
+          itemType: tutorial
+          text:  Configure key auto-rotation
         - url: ./keys/hsm-protected-keys.md
           itemType: overview
           text:  Import HSM-protected keys (overview)
@@ -119,6 +122,9 @@ conceptualContent:
         - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           itemType: reference
           text:  Java Client library
+        - url: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#secret-management
+          itemType: reference
+          text:  Spring Client library
         - url: /javascript/api/overview/azure/key-vault-index
           itemType: reference
           text:  Node.js Client library
@@ -163,7 +169,7 @@ conceptualContent:
         - url: ../app-service/app-service-key-vault-references.md
           itemType: overview
           text: App Services - Reference Key Vault secrets in App Services
-        - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
+        - url: ../app-service/configure-ssl-app-service-certificate.md#store-certificate-in-azure-key-vault
           itemType: overview
           text: App Services - Maintain App Service certificates in Key Vault
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
@@ -172,3 +178,9 @@ conceptualContent:
         - url: /azure/databricks/security/secrets/secret-scopes
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault
+        - url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
+          itemType: overview
+          text: Spring Integration - Read a secret from Azure Key Vault in a Spring Boot application
+        - url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+          itemType: overview
+          text: Spring Integration - Secure Spring Boot apps using Azure Key Vault certificates

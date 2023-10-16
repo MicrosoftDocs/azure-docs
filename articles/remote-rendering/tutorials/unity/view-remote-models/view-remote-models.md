@@ -26,8 +26,9 @@ For this tutorial you need:
 
 * An active pay-as-you-go Azure subscription [Create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(download)](https://git-scm.com/downloads)
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
 * Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
@@ -48,6 +49,9 @@ In this example, we'll assume the project is being created in a folder called **
 ## Include the Azure Remote Rendering and OpenXR packages
 
 Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to your Unity Project.
+
+> [!NOTE]
+> If Unity displays a warning dialog after importing the OpenXR package asking whether to enable the native platform backends for the new input system, click **No** for now. You will enable it in a later step.
 
 ## Configure the camera
 
@@ -75,14 +79,8 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
         ![Screenshot of the Unity Project Settings dialog. The Quality entry is selected in the list on the left. The context menu for the default quality level is opened on the right. The low entry is selected.](./media/settings-quality.png)
 
-1. Select **Graphics** from the left list menu
-    1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-        ![Screenshot of the Unity Project Settings dialog. The Graphics entry is selected in the list on the left. The button to select a Universal Render Pipeline asset is highlighted.](./media/settings-graphics-render-pipeline.png)\
-        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
-        ![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./media/hybrid-rendering-pipeline.png)
-
-        > [!NOTE]
-        > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    > [!NOTE]
+    > In the scope of this tutorial, we stick with the Unity built-in render pipeline. If you would like to use the Universal Render Pipeline, see [Unity Render Pipelines](../../../how-tos/unity/unity-render-pipelines.md) for additional setup steps.
 
 1. Select **XR Plugin Management** from the left list menu
     1. Click the **Install XR Plugin Management** button.
@@ -90,7 +88,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     1. Click the **Open XR** checkbox under **Plug-In Providers**
     1. If a dialog opens that asks you to enable the native platform backends for the new input system click **No**.
 
-    ![Screenshot of the Unity Project Settings dialog. The X R Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open X R checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
+    ![Screenshot of the Unity Project Settings dialog. The XR Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open XR checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
 
     > [!NOTE]
     > If the **Microsoft HoloLens feature group** is disabled the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
@@ -99,11 +97,12 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     1. Set **Depth Submission Mode** to *Depth 16 Bit*
     1. Add the **Microsoft Hand Interaction Profile** to **Interaction Profiles**.
     1. Enable these OpenXR features:
+        * **Azure Remote Rendering**
         * **Hand Tracking**
         * **Mixed Reality Features**
         * **Motion Controller Model**
 
-    ![Screenshot of the Unity Project Settings dialog. The Open X R sub-entry is selected in the list on the left. Highlights on the right side are placed on the Depth Submission Mode, Interaction Profiles, and Open X R feature settings.](./media/xr-plugin-management-openXR-settings.png)
+    ![Screenshot of the Unity Project Settings dialog. The Open XR subentry is selected in the list on the left. Highlights on the right side are placed on the Depth Submission Mode, Interaction Profiles, and Open XR feature settings.](./media/xr-plugin-management-openXR-settings.png)
 
     > [!NOTE]
     > If you don't see the required OpenXR features listed the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
@@ -136,9 +135,9 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 Perform the following steps to validate that the project settings are correct.
 
 1. Choose the **ValidateProject** entry from the **RemoteRendering** menu in the Unity editor toolbar.
-1. Review the **ValidateProject** window for errors and fix project settings where necessary.
+1. Review the **Project Validator** window for errors and fix project settings where necessary.
 
-    ![Screenshot of the Unity Validate Project dialog. The dialog shows a mixture of successful checks, warnings, and errors.](./media/remote-render-unity-validation.png)
+    ![Screenshot of the Unity Project Validator dialog. The dialog shows a list of required, recommended, and development rules that are all successful checked.](./media/remote-render-unity-validation.png)
 
 > [!NOTE]
 > If you use MRTK in your project and you enable the camera subsystem, MRTK will override manual changes that you apply to the camera. This includes fixes from the ValidateProject tool.
@@ -436,7 +435,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         //Implement me
     }
 
-    public void StopRemoteSession()
+    public async void StopRemoteSession()
     {
         //Implement me
     }
@@ -470,7 +469,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Connects the local runtime to the current active session, if there's a session available
     /// </summary>
-    public void ConnectRuntimeToRemoteSession()
+    public async void ConnectRuntimeToRemoteSession()
     {
         //Implement me
     }
@@ -567,46 +566,45 @@ When entering the **NotAuthorized** state, **CheckAuthorization** is called, whi
 
 1. Replace the contents of **InitializeARR** and **InitializeSessionService** with the completed code below:
 
- ```cs
-/// <summary>
-/// Initializes ARR, associating the main camera
-/// Note: This must be called on the main Unity thread
-/// </summary>
-public void InitializeARR()
-{
-    RemoteManagerUnity.InitializeManager(new RemoteUnityClientInit(Camera.main));
-
-    CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
-}
-
-/// <summary>
-/// Create a new remote session manager
-/// If the ARRCredentialGetter is set, use it as it, otherwise use the development credentials 
-/// </summary>
-public async void InitializeSessionService()
-{
-    if (ARRCredentialGetter == null)
-        ARRCredentialGetter = GetDevelopmentCredentials;
-
-    var sessionConfiguration = await ARRCredentialGetter.Invoke();
-
-    ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
-
-    try
+    ```cs
+    /// <summary>
+    /// Initializes ARR, associating the main camera
+    /// Note: This must be called on the main Unity thread
+    /// </summary>
+    public void InitializeARR()
     {
-        ARRSessionService.Initialize(sessionConfiguration);
-    }
-    catch (ArgumentException argumentException)
-    {
-        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
-        Debug.LogError(argumentException.Message);
+        RemoteManagerUnity.InitializeManager(new RemoteUnityClientInit  (Camera.main));
+    
         CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
-        return;
     }
-
-    CurrentCoordinatorState = RemoteRenderingState.NoSession;
-}
-```
+    
+    /// <summary>
+    /// Create a new remote session manager
+    /// If the ARRCredentialGetter is set, use it as it, otherwise use  the development credentials 
+    /// </summary>
+    public async void InitializeSessionService()
+    {
+        if (ARRCredentialGetter == null)
+            ARRCredentialGetter = GetDevelopmentCredentials;
+    
+        var sessionConfiguration = await ARRCredentialGetter.Invoke();
+    
+        ARRSessionService.OnSessionStatusChanged +=     OnRemoteSessionStatusChanged;
+    
+        try
+        {
+            ARRSessionService.Initialize(sessionConfiguration);
+        }
+        catch (ArgumentException argumentException)
+        {
+            Debug.LogError(argumentException.Message);
+            CurrentCoordinatorState = RemoteRenderingState. NotAuthorized;
+            return;
+        }
+    
+        CurrentCoordinatorState = RemoteRenderingState.NoSession;
+    }
+    ```
 
 In order to progress from **NotAuthorized** to **NoSession**, we'd typically present a modal dialog to the user so they can choose (and we'll do just that in another chapter). For now, we'll automatically bypass the authorization check by calling **ByPassAuthentication** as soon as the **RequestingAuthorization** event is triggered.
 
@@ -668,11 +666,11 @@ public async void JoinRemoteSession()
     }
 }
 
-public void StopRemoteSession()
+public async void StopRemoteSession()
 {
     if (ARRSessionService.CurrentActiveSession != null)
     {
-        ARRSessionService.CurrentActiveSession.StopAsync();
+        await ARRSessionService.CurrentActiveSession.StopAsync();
     }
 }
 ```
@@ -697,7 +695,7 @@ The application also needs to listen for events about the connection between the
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
-public void ConnectRuntimeToRemoteSession()
+public async void ConnectRuntimeToRemoteSession()
 {
     if (ARRSessionService == null || ARRSessionService.CurrentActiveSession == null)
     {
@@ -705,12 +703,11 @@ public void ConnectRuntimeToRemoteSession()
         return;
     }
 
-    //Connect the local runtime to the currently connected session
-    //This session is set when connecting to a new or existing session
+    // Connect the local runtime to the currently connected session
+    // This session is set when connecting to a new or existing session
 
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
-    ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
-    CurrentCoordinatorState = RemoteRenderingState.ConnectingToRuntime;
+    await ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
 }
 
 public void DisconnectRuntimeFromRemoteSession()

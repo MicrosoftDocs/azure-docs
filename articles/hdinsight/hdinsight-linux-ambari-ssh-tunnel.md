@@ -4,7 +4,7 @@ description: Learn how to use an SSH tunnel to securely browse web resources hos
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.date: 07/12/2023
 ---
 
 # Use SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs

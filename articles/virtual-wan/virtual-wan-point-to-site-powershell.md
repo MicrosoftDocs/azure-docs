@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
-
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - PowerShell
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using PowerShell. This type of connection requires the native VPN client to be configured on each connecting client computer.
+This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using PowerShell. This type of connection requires the native VPN client to be configured on each connecting client computer. Most of the steps in this article can be performed using Azure Cloud Shell, except for uploading certificates for certificate authentication.
 
 :::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
 
@@ -55,15 +55,15 @@ In the following steps, when selecting the authentication method, you have three
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* **Microsoft Entra authentication:** See [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 
 ### Configuration steps using Azure Certificate authentication
 
 1. User VPN (point-to-site) connections can use certificates to authenticate. To create a self-signed root certificate and generate client certificates using PowerShell, see [Generate and export certificates](certificates-point-to-site.md).
 
-1. Once you've generated and exported the self-signed root certificate, you need to reference the location of the stored certificate. If you're using Cloud Shell in the Azure portal, you need to upload the certificate first.
+1. Once you've generated and exported the self-signed root certificate, you need to reference the location of the stored certificate. This step can't be completed using Azure Cloud Shell because you can't upload certificate files through the Cloud Shell interface. To perform the next steps in this section, you need to either install the Azure PowerShell cmdlets and use PowerShell locally, or use the [Azure portal](virtual-wan-point-to-site-portal.md#p2sconfig).
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    $VpnServerConfigCertFilePath = Join-Path -Path /home/name -ChildPath "\P2SRootCert1.cer"
    $listOfCerts = New-Object "System.Collections.Generic.List[String]"
    $listOfCerts.Add($VpnServerConfigCertFilePath)
@@ -71,7 +71,7 @@ In the following steps, when selecting the authentication method, you have three
 
 1. Create the User VPN Server Configuration. For the VPN protocol, you can choose IKEv2 VPN, OpenVPN, and OpenVPN and IKEv2, depending on your requirements.
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    New-AzVpnServerConfiguration -Name testconfig -ResourceGroupName testRG -VpnProtocol IkeV2 -VpnAuthenticationType Certificate -VpnClientRootCertificateFilesList $listOfCerts -VpnClientRevokedCertificateFilesList $listOfCerts -Location westus
    ```
 

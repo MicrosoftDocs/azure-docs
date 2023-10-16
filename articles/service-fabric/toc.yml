@@ -6,6 +6,8 @@
     href: overview-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: What's new for Service Fabric?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,6 +17,9 @@
     href: quickstart-managed-cluster-template.md
   - name: Service Fabric cluster with Azure portal
     href: quickstart-classic-cluster-portal.md
+  - name: Service Fabric cluster with Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-cluster-bicep.md
   - name: Service Fabric cluster with ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
@@ -41,13 +46,13 @@
     - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
     - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
+      href: how-to-managed-cluster-app-deployment-template.md
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
-      href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+      href: service-fabric-tutorial-deploy-app.md
     - name: 3- Enable HTTPS
       href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
     - name: 4- Configure CI/CD
@@ -64,7 +69,7 @@
       href: service-fabric-tutorial-java-deploy-azure.md
     - name: 4- Monitor and diagnose
       href: service-fabric-tutorial-java-elk.md
-    - name: 5- Configure CI/CD 
+    - name: 5- Configure CI/CD
       href: service-fabric-tutorial-java-jenkins.md
   - name: Containerize an existing .NET app
     items:
@@ -85,8 +90,8 @@
   - name: Create a cluster on Azure
     items:
     - name: 1- Create a cluster on Azure
-      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md     
-    - name: 2- Monitor a cluster 
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
+    - name: 2- Monitor a cluster
       href: service-fabric-tutorial-monitor-cluster.md
     - name: 3- Scale the cluster
       href: service-fabric-tutorial-scale-cluster.md
@@ -94,7 +99,7 @@
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 5- Delete a cluster
       href: service-fabric-tutorial-delete-cluster.md
-  - name: Create a standalone cluster 
+  - name: Create a standalone cluster
     items:
     - name: 1- Create the infrastructure
       items:
@@ -112,9 +117,9 @@
   items:
   - name: Security
     href: service-fabric-best-practices-security.md
-  - name: Networking 
+  - name: Networking
     href: service-fabric-best-practices-networking.md
-  - name: Compute planning and scaling  
+  - name: Compute planning and scaling
     href: service-fabric-best-practices-capacity-scaling.md
   - name: Infrastructure as code
     href: service-fabric-best-practices-infrastructure-as-code.md
@@ -125,7 +130,7 @@
   - name: Replica set size configuration
     href: service-fabric-best-practices-replica-set-size-configuration.md
   - name: Production readiness checklist
-    href: service-fabric-production-readiness-checklist.md  
+    href: service-fabric-production-readiness-checklist.md
 - name: Samples
   items:
   - name: Code samples
@@ -152,7 +157,7 @@
       href: service-fabric-application-and-service-security.md
     - name: Service Fabric Cluster security
       href: service-fabric-cluster-security.md
-    - name: Certificate-based authentication in Service Fabric 
+    - name: Certificate-based authentication in Service Fabric
       href: cluster-security-certificates.md
     - name: Certificate management in Service Fabric
       href: cluster-security-certificate-management.md
@@ -175,7 +180,9 @@
         href: service-fabric-docker-compose.md
       - name: Probes
         href: probes-codepackage.md
-    - name: Reliable Services      
+      - name: Container image management
+        href: container-image-management.md
+    - name: Reliable Services
       items:
       - name: Reliable Services overview
         href: service-fabric-reliable-services-introduction.md
@@ -188,7 +195,7 @@
       - name: Reliable Services lifecycle - Java
         href: service-fabric-reliable-services-lifecycle-java.md
       - name: Replica and instance lifecycle
-        href: service-fabric-concepts-replica-lifecycle.md 
+        href: service-fabric-concepts-replica-lifecycle.md
       - name: Reliable Collections
         href: service-fabric-reliable-services-reliable-collections.md
       - name: Reliable Collection guidelines & recommendations
@@ -322,6 +329,8 @@
         href: service-fabric-cluster-upgrade.md
       - name: Scaling
         href: service-fabric-cluster-scaling.md
+      - name: Node auto-repair
+        href: service-fabric-cluster-node-auto-repair.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
       - name: Infrastructure Service for Azure clusters
@@ -387,7 +396,7 @@
       - name: Monitoring Service Remoting
         href: service-fabric-reliable-serviceremoting-diagnostics.md
       - name: Reliable Actors events
-        href: service-fabric-reliable-actors-diagnostics.md         
+        href: service-fabric-reliable-actors-diagnostics.md
     - name: Infrastructure monitoring
       href: service-fabric-diagnostics-event-generation-perf.md
     - name: Health model overview
@@ -404,7 +413,10 @@
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
-  
+  - name: Managed cluster deny assignment policy
+    href: managed-cluster-deny-assignment.md
+  - name: Service Fabric Explorer blocking operations for managed clusters
+    href: managed-cluster-service-fabric-explorer-blocking-operation.md
 - name: How-to guides
   items:
   - name: Use Service Fabric managed clusters
@@ -413,8 +425,8 @@
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
       href: how-to-managed-cluster-connect.md
-    - name: Configure Azure Active Directory client access
-      href: how-to-managed-cluster-azure-active-directory-client.md         
+    - name: Configure Microsoft Entra client access
+      href: how-to-managed-cluster-azure-active-directory-client.md
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
     - name: Configure node types on a managed cluster
@@ -429,8 +441,14 @@
       href: how-to-managed-cluster-enable-disk-encryption.md
     - name: Select managed disk types for managed cluster nodes
       href: how-to-managed-cluster-managed-disk.md
+    - name: Use Dedicated Hosts with managed cluster
+      href: how-to-managed-cluster-dedicated-hosts.md
+    - name: Use Ephemeral OS disks for node types in managed cluster
+      href: how-to-managed-cluster-ephemeral-os-disks.md
     - name: Configure managed cluster upgrade options
-      href: how-to-managed-cluster-upgrades.md  
+      href: how-to-managed-cluster-upgrades.md
+    - name: Configure maintenance control on a managed cluster
+      href: how-to-managed-cluster-maintenance-control.md
     - name: Deploy application secrets to a managed cluster
       href: how-to-managed-cluster-application-secrets.md
     - name: Deploy an application to a managed cluster using Azure Resource Manager
@@ -439,12 +457,22 @@
       href: how-to-managed-cluster-application-managed-identity.md
     - name: Grant access to other Azure resources on a managed cluster
       href: how-to-managed-cluster-grant-access-other-resources.md
-    - name: Deploy stateless-only node types to a managed cluster 
+    - name: Deploy stateless-only node types to a managed cluster
       href: how-to-managed-cluster-stateless-node-type.md
     - name: Configure secondary node type for large scaling on a managed cluster
-      href: how-to-managed-cluster-large-virtual-machine-scale-sets.md 
+      href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+    - name: Use managed identity with an application
+      href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
+    - name: Deploy custom image
+      href: how-to-deploy-custom-image.md
+    - name: Use NAT gateways
+      href: how-to-managed-cluster-nat-gateway.md
+    - name: Use public IP prefix in a managed cluster
+      href: how-to-managed-cluster-public-ip-prefix.md
+    - name: Use multiple network interface cards
+      href: how-to-managed-cluster-use-multiple-network-interface-cards.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -473,6 +501,8 @@
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
         - name: Set up a Linux cluster on Windows
           href: service-fabric-local-linux-cluster-windows.md
+        - name: Set up a Linux cluster on Windows via WSL2
+          href: service-fabric-local-linux-cluster-windows-wsl2.md
         - name: Deploy a .NET Core app to a remote Linux cluster from VS
           href: service-fabric-how-to-publish-linux-app-vs.md
       - name: Work in a Linux/Eclipse dev environment
@@ -517,12 +547,14 @@
           href: service-fabric-stateless-node-types.md
         - name: Deploy an Azure Service Fabric cluster with Managed data disks
           href: service-fabric-managed-disk.md
-        - name: Set up Azure Active Directory authentication
+        - name: Set up Microsoft Entra authentication
           href: service-fabric-cluster-creation-setup-aad.md
+        - name: Set up Microsoft Entra authentication in Azure portal
+          href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md
         - name: Create using Resource Manager
-          href: service-fabric-cluster-creation-via-arm.md        
+          href: service-fabric-cluster-creation-via-arm.md
         - name: Create using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
         - name: Create a Linux cluster
@@ -535,14 +567,16 @@
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
           href: service-fabric-scale-up-primary-node-type.md
+        - name: Scale up non-primary node type
+          href: service-fabric-scale-up-non-primary-node-type.md
         - name: Add a node type
-          href: virtual-machine-scale-set-scale-node-type-scale-out.md        
+          href: virtual-machine-scale-set-scale-node-type-scale-out.md
         - name: Remove a node type
           href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade
         items:
         - name: Manage Service Fabric cluster upgrades
-          href: service-fabric-cluster-upgrade-version-azure.md    
+          href: service-fabric-cluster-upgrade-version-azure.md
         - name: Upgrade cluster configuration
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
@@ -555,7 +589,7 @@
         - name: Enable disk encryption (Linux)
           href: service-fabric-enable-azure-disk-encryption-linux.md
         - name: Set access control
-          href: service-fabric-cluster-security-roles.md      
+          href: service-fabric-cluster-security-roles.md
         - name: Open a port in the load balancer
           href: create-load-balancer-rule.md
         - name: Change cluster certificate to common name
@@ -563,7 +597,7 @@
         - name: Manually rollover cluster certs
           href: service-fabric-cluster-rollover-cert-cn.md
         - name: Manage cluster certificates
-          href: service-fabric-cluster-security-update-certs-azure.md      
+          href: service-fabric-cluster-security-update-certs-azure.md
         - name: Remote connect to cluster node VM
           href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Upgrading Linux OS for Azure Service Fabric
@@ -581,7 +615,7 @@
         - name: Contents of the standalone package
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
-        href: service-fabric-cluster-windows-server-add-remove-nodes.md                   
+        href: service-fabric-cluster-windows-server-add-remove-nodes.md
       - name: Upgrade
         items:
         - name: Upgrade the Service Fabric version
@@ -591,13 +625,13 @@
         - name: Configuration settings
           href: service-fabric-cluster-manifest.md
         - name: Set access control
-          href: service-fabric-cluster-security-roles.md         
+          href: service-fabric-cluster-security-roles.md
         - name: Patch cluster nodes (Windows)
           href: how-to-patch-cluster-nodes-windows.md
     - name: Visualize using Service Fabric Explorer
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
-      href: service-fabric-connect-to-secure-cluster.md    
+      href: service-fabric-connect-to-secure-cluster.md
   - name: Monitor and diagnose
     items:
     - name: Diagnose common scenarios
@@ -609,9 +643,9 @@
       - name: Add logging to your application
         href: service-fabric-how-to-diagnostics-log.md
       - name: Analyze with Application Insights
-        href: service-fabric-diagnostics-event-analysis-appinsights.md    
+        href: service-fabric-diagnostics-event-analysis-appinsights.md
       - name: Aggregate logs with EventFlow
-        href: service-fabric-diagnostics-event-aggregation-eventflow.md    
+        href: service-fabric-diagnostics-event-aggregation-eventflow.md
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
@@ -621,21 +655,23 @@
       - name: Monitor your cluster with Azure Monitor logs
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Query EventStore APIs
-        href: service-fabric-diagnostics-eventstore-query.md      
+        href: service-fabric-diagnostics-eventstore-query.md
       - name: Windows Cluster Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Cluster Diagnostics
-        href: service-fabric-diagnostics-oms-syslog.md       
+        href: service-fabric-diagnostics-oms-syslog.md
+      - name: Linux Cluster Event Aggregation
+        href: service-fabric-diagnostics-event-aggregation-lad.md
     - name: Monitor infrastructure
       items:
       - name: Collect performance counters with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
       - name: Collect performance counters with WAD
-        href: service-fabric-diagnostics-perf-wad.md     
+        href: service-fabric-diagnostics-perf-wad.md
     - name: Monitor health
       items:
       - name: Report and check health
-        href: service-fabric-diagnostics-how-to-report-and-check-service-health.md   
+        href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
       - name: Troubleshoot with system health reports
         href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
       - name: View health reports
@@ -661,7 +697,7 @@
     - name: Java Reliable Actors application on Linux
       href: service-fabric-create-your-first-linux-application-with-java.md
     - name: Guest executable application on Windows
-      href: quickstart-guest-app.md    
+      href: quickstart-guest-app.md
   - name: Build applications
     items:
     - name: Build a guest executable service
@@ -669,7 +705,7 @@
       - name: Deploy a guest executable
         href: service-fabric-deploy-existing-app.md
     - name: Build a container service
-      items:      
+      items:
       - name: Docker compose
         href: service-fabric-docker-compose.md
       - name: Volume and logging drivers
@@ -698,6 +734,8 @@
           href: service-fabric-reliable-services-communication-remoting.md
         - name: Service Remoting - Java
           href: service-fabric-reliable-services-communication-remoting-java.md
+        - name: Exception serialization in Service Remoting
+          href: service-fabric-reliable-services-exception-serialization.md
         - name: WCF
           href: service-fabric-reliable-services-communication-wcf.md
         - name: Secure communications - C#
@@ -731,7 +769,7 @@
       - name: Configure communications settings
         href: service-fabric-reliable-actors-fabrictransportsettings.md
       - name: Configure ReliableDictionaryActorStateProvider
-        href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
+        href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
     - name: Build an ASP.NET Core service
       href: ./service-fabric-reliable-services-communication-aspnetcore.md
     - name: Build an Apache Tomcat server container on Linux
@@ -756,7 +794,7 @@
       - name: Run a service startup script as a local user or system account
         href: service-fabric-run-script-at-service-startup.md
       - name: Run a service as a local user or system account
-        href: service-fabric-application-runas-security.md      
+        href: service-fabric-application-runas-security.md
       - name: Assign a security access policy for endpoints
         href: service-fabric-assign-policy-to-endpoint.md
       - name: Run a service as an AD user or group
@@ -765,16 +803,19 @@
         href: service-fabric-run-service-as-gmsa.md
       - name: Use a certificate in a container
         href: service-fabric-securing-containers.md
-      - name: Set up gMSA for Windows containers 
+      - name: Set up gMSA for Windows containers
         href: service-fabric-setup-gmsa-for-windows-containers.md
       - name: Configure certificates on Linux
         href: service-fabric-configure-certificates-linux.md
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
-      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md    
+      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
+    - name: Use the Service Fabric Java client API
+      href: service-fabric-java-rest-api-usage.md
+      
   - name: Manage application lifecycle
     items:
     - name: Package an application
@@ -786,7 +827,7 @@
     - name: Specify environment variables
       href: service-fabric-how-to-specify-environment-variables.md
     - name: Deploy or remove applications
-      items:       
+      items:
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -829,7 +870,7 @@
         href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
   - name: Set up and configure reverse proxy
     items:
-    - name: Set up and configure reverse proxy 
+    - name: Set up and configure reverse proxy
       href: service-fabric-reverseproxy-setup.md
     - name: Configure reverse proxy for secure communication
       href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -872,7 +913,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.servicefabric/
   - name: PowerShell
-    href: /powershell/module/servicefabric/?view=azureservicefabricps
+    href: /powershell/module/servicefabric/
   - name: Azure CLI (az sf)
     href: /cli/azure/sf
   - name: Service Fabric CLI (sfctl)
@@ -883,7 +924,7 @@
     - name: sfctl chaos
       href: service-fabric-sfctl-chaos.md
       items:
-      - name: sfctl chaos schedule  
+      - name: sfctl chaos schedule
         href: service-fabric-sfctl-chaos-schedule.md
     - name: sfctl cluster
       href: service-fabric-sfctl-cluster.md
@@ -971,4 +1012,4 @@
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
 - name: Support and troubleshooting
-  href: service-fabric-support.md 
+  href: service-fabric-support.md

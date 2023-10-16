@@ -7,10 +7,12 @@ author: praveensri
 ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
 ms.topic: reference
-ms.date: 07/15/2021
+ms.date: 08/15/2023
 ---
 
 # 997 functional acknowledgments and error codes for X12 messages in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In Azure Logic Apps, you can create workflows that handle X12 messages for Electronic Data Interchange (EDI) communication when you use **X12** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**X12 Decode** action](logic-apps-enterprise-integration-x12-decode.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
 
@@ -91,7 +93,7 @@ The optional AK3 segment reports errors in a data segment and identifies the loc
 |---------|-------------|
 | AK301 | Mandatory, identifies the segment in error with the X12 segment ID, for example, NM1. |
 | AK302 | Mandatory, identifies the segment count of the segment in error. The ST segment is `1`, and each segment increments the segment count by one. |
-| AK303 | Mandatory, identifies a bounded loop, which is a loop surrounded by an Loop Start (LS) segment and a Loop End (LE) segment. AK303 contains the values of the LS and LE segments that bound the segment in error. |
+| AK303 | Mandatory, identifies a bounded loop, which is a loop surrounded by a Loop Start (LS) segment and a Loop End (LE) segment. AK303 contains the values of the LS and LE segments that bound the segment in error. |
 | AK304 | Optional, specifies the code for the error in the data segment. Although AK304 is optional, the element is required when an error exists for the identified segment. For AK304 error codes, review [997 ACK error codes - Data Segment Note](#997-ack-error-codes). |
 |||
 

@@ -1,16 +1,15 @@
 ---
-title: Azure storage table design patterns | Microsoft Docs
+title: Azure storage table design patterns
 description: Review design patterns that are appropriate for use with Table service solutions in Azure. Address issues and trade-offs that are discussed in other articles.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-table-storage
 ms.topic: article
 ms.date: 06/24/2021
-ms.author: tamram
-ms.subservice: tables
+ms.author: akashdubey
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Table design patterns
 
@@ -627,47 +626,40 @@ Consider the following points when deciding how to store log data:
 
 ## Implementation considerations
 
-This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage Client Library (version 4.3.0 at the time of writing).  
+This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage client library (version 4.3.0 at the time of writing).  
 
 ## Retrieving entities
 
-As discussed in the section Design for querying, the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
+As discussed in the section Design for querying, the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage client library.  
 
-### Executing a point query using the Storage Client Library
+### Executing a point query using the Storage client library
 
 The easiest way to execute a point query is to use the **GetEntityAsync** method as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
 
 ```csharp
-var retrieveResult = employeeTable.GetEntityAsync<EmployeeEntity>("Sales", "212");
-if (retrieveResult.Result != null)
-{
-    EmployeeEntity employee = (EmployeeEntity)queryResult.Result;
-    ...
-}  
+EmployeeEntity employee = await employeeTable.GetEntityAsync<EmployeeEntity>("Sales", "212");
 ```
 
 Notice how this example expects the entity it retrieves to be of type **EmployeeEntity**.  
 
 ### Retrieving multiple entities using LINQ
 
-You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library.
+You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos DB Table Standard Library.
 
 ```azurecli
-dotnet add package Microsoft.Azure.Cosmos.Table
+dotnet add package Azure.Data.Tables
 ```
 
 To make the below examples work, you'll need to include namespaces:
 
 ```csharp
 using System.Linq;
-using Azure.Data.Table
+using Azure.Data.Tables
 ```
 
-The employeeTable is a CloudTable object that implements a CreateQuery\<ITableEntity>() method, which returns a TableQuery\<ITableEntity>. Objects of this type implement an IQueryable and allow using both LINQ Query Expressions and dot notation syntax.
+Retrieving multiple entities can be achieved by specifying a query with a **filter** clause. To avoid a table scan, you should always include the **PartitionKey** value in the filter clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the filter clause.
 
-Retrieving multiple entities and be achieved by specifying a query with a **filter** clause. To avoid a table scan, you should always include the **PartitionKey** value in the filter clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the filter clause.
-
-The following C# code snippet finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
+In the following example, `employeeTable` is a [TableClient](/dotnet/api/azure.data.tables.tableclient) object. This example finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
 
 ```csharp
 var employees = employeeTable.Query<EmployeeEntity>(e => (e.PartitionKey == "Sales" && e.RowKey.CompareTo("B") >= 0 && e.RowKey.CompareTo("C") < 0));  
@@ -694,7 +686,7 @@ You should always fully test the performance of your application in such scenari
 
 A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
-If you are using the Table Client Library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the Table Client Library automatically handles continuation tokens if the table service returns them in a response:  
+If you are using the Azure Tables client library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the client library automatically handles continuation tokens if the table service returns them in a response:  
 
 ```csharp
 var employees = employeeTable.Query<EmployeeEntity>("PartitionKey eq 'Sales'")
@@ -705,20 +697,50 @@ foreach (var emp in employees)
 }  
 ```
 
-The following C# code handles continuation tokens explicitly:  
+You can also specify the maximum number of entities that are returned per page. The following example shows how to query entities with `maxPerPage`:
 
 ```csharp
-TableContinuationToken continuationToken = null;
-do
+var employees = employeeTable.Query<EmployeeEntity>(maxPerPage: 10);
+
+// Iterate the Pageable object by page
+foreach (var page in employees.AsPages())
 {
-    var employees = employeeTable.Query<EmployeeEntity>("PartitionKey eq 'Sales'");
-    foreach (var emp in employees.AsPages())
+    // Iterate the entities returned for this page
+    foreach (var emp in page.Values)
     {
         // ...
-        continuationToken = emp.ContinuationToken;
     }
-    
-} while (continuationToken != null);  
+}
+```
+
+In more advanced scenarios, you may want to store the continuation token returned from the service so that your code controls exactly when the next pages is fetched. The following example shows a basic scenario of how the token can be fetched and applied to paginated results:  
+
+```csharp
+string continuationToken = null;
+bool moreResultsAvailable = true;
+while (moreResultsAvailable)
+{
+    var page = employeeTable
+        .Query<EmployeeEntity>()
+        .AsPages(continuationToken, pageSizeHint: 10)
+        .FirstOrDefault(); // pageSizeHint limits the number of results in a single page, so we only enumerate the first page
+
+    if (page == null)
+        break;
+
+    // Get the continuation token from the page
+    // Note: This value can be stored so that the next page query can be executed later
+    continuationToken = page.ContinuationToken;
+
+    var pageResults = page.Values;
+    moreResultsAvailable = pageResults.Any() && continuationToken != null;
+
+    // Iterate the results for this page
+    foreach (var result in pageResults)
+    {
+        // ...
+    }
+} 
 ```
 
 By using continuation tokens explicitly, you can control when your application retrieves the next segment of data. For example, if your client application enables users to page through the entities stored in a table, a user may decide not to page through all the entities retrieved by the query so your application would only use a continuation token to retrieve the next segment when the user had finished paging through all the entities in the current segment. This approach has several benefits:  
@@ -731,12 +753,6 @@ By using continuation tokens explicitly, you can control when your application r
 > A continuation token typically returns a segment containing 1,000 entities, although it may be fewer. This is also the case if you limit the number of entries a query returns by using **Take** to return the first n entities that match your lookup criteria: the table service may return a segment containing fewer than n entities along with a continuation token to enable you to retrieve the remaining entities.  
 >
 >
-
-The following C# code shows how to modify the number of entities returned inside a segment:  
-
-```csharp
-employees.max = 50;  
-```
 
 ### Server-side projection
 
@@ -757,9 +773,9 @@ Notice how the **RowKey** value is available even though it was not included in 
 
 ## Modifying entities
 
-The Storage Client Library enables you to modify your entities stored in the table service by inserting, deleting, and updating entities. You can use EGTs to batch multiple inserts, update, and delete operations together to reduce the number of round trips required and improve the performance of your solution.  
+The Storage client library enables you to modify your entities stored in the table service by inserting, deleting, and updating entities. You can use EGTs to batch multiple inserts, update, and delete operations together to reduce the number of round trips required and improve the performance of your solution.  
 
-Exceptions thrown when the Storage Client Library executes an EGT typically include the index of the entity that caused the batch to fail. This is helpful when you are debugging code that uses EGTs.  
+Exceptions thrown when the Storage client library executes an EGT typically include the index of the entity that caused the batch to fail. This is helpful when you are debugging code that uses EGTs.  
 
 You should also consider how your design affects how your client application handles concurrency and update operations.  
 
@@ -978,13 +994,13 @@ The techniques discussed in this section are especially relevant to the discussi
 > 
 > 
 
-The remainder of this section describes some of the features in the Storage Client Library that facilitate working with multiple entity types in the same table.  
+The remainder of this section describes some of the features in the Storage client library that facilitate working with multiple entity types in the same table.  
 
 ### Retrieving heterogeneous entity types
 
-If you are using the Table Client Library, you have three options for working with multiple entity types.  
+If you are using the Table client library, you have three options for working with multiple entity types.  
 
-If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Executing a point query using the Storage Client Library](#executing-a-point-query-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
+If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Executing a point query using the Storage client library](#executing-a-point-query-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
 
 The second option is to use the **TableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **TableEntity** instances. It then uses the **EntityType** property to determine the type of each entity:  
 
@@ -1036,7 +1052,7 @@ It is possible to generate a SAS token that grants access to a subset of the ent
 Provided you are spreading your requests across multiple partitions, you can improve throughput and client responsiveness by using asynchronous or parallel queries.
 For example, you might have two or more worker role instances accessing your tables in parallel. You could have individual worker roles responsible for particular sets of partitions, or simply have multiple worker role instances, each able to access all the partitions in a table.  
 
-Within a client instance, you can improve throughput by executing storage operations asynchronously. The Storage Client Library makes it easy to write asynchronous queries and modifications. For example, you might start with the synchronous method that retrieves all the entities in a partition as shown in the following C# code:  
+Within a client instance, you can improve throughput by executing storage operations asynchronously. The Storage client library makes it easy to write asynchronous queries and modifications. For example, you might start with the synchronous method that retrieves all the entities in a partition as shown in the following C# code:  
 
 ```csharp
 private static void ManyEntitiesQuery(TableClient employeeTable, string department)

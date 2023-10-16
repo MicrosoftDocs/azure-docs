@@ -1,0 +1,89 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-solution-apaas-paas.md",
+      "redirect_url": "/azure/iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-security-ground-up.md",
+      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/security-recommendations.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-security-deployment.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/howto-use-iot-explorer.md",
+      "redirect_url": "/azure/iot/howto-use-iot-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/index.yml",
+      "redirect_url": "/azure/iot/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-glossary.md",
+      "redirect_url": "/azure/iot/iot-glossary",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-introduction.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-phone-app-how-to.md",
+      "redirect_url": "/azure/iot/iot-phone-app-how-to",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-sdks.md",
+      "redirect_url": "/azure/iot/iot-sdks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-security-architecture.md",
+      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-security-best-practices.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-services-and-technologies.md",
+      "redirect_url": "/azure/iot/iot-services-and-technologies",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-solution-options.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-fundamentals/iot-support-help.md",
+      "redirect_url": "/azure/iot/iot-support-help",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-solution-options.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-security-best-practices.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": true
+    }
+  ]
+}

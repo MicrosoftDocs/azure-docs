@@ -3,32 +3,27 @@ title: What is Azure Load Balancer?
 titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
-ms.custom: seodec18
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/25/2021
-ms.author: allensu
-
+ms.date: 09/15/2023
+ms.author: mbender
+ms.custom: template-overview, engagement-fy23
 ---
 
 # What is Azure Load Balancer?
 
-*Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. 
+*Load balancing* refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
 
-Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load-balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
+Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load-balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set.
 
 A **[public load balancer](./components.md#frontend-ip-configurations)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
 
 An **[internal (or private) load balancer](./components.md#frontend-ip-configurations)** is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-<p align="center">
-  <img src="./media/load-balancer-overview/load-balancer.svg" alt="Figure depicts both public and internal load balancers directing traffic to port 80 on multiple servers on a Web tier and port 443 on multiple servers on a business tier." width="512" title="Azure Load Balancer">
-</p>
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts public and internal load balancers directing traffic to web and business tiers.":::
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
@@ -54,7 +49,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./quickstart-load-balancer-standard-public-portal.md)** zones.
 
-- Configure **[outbound connectivity ](./load-balancer-outbound-connections.md)** for Azure virtual machines.
+- Configure **[outbound connectivity](./load-balancer-outbound-connections.md)** for Azure virtual machines.
 
 - Use **[health probes](./load-balancer-custom-probe-overview.md)** to monitor load-balanced resources.
 
@@ -69,6 +64,8 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 - Move **[internal](./move-across-regions-internal-load-balancer-portal.md)** and **[external](./move-across-regions-external-load-balancer-portal.md)** load balancer resources across Azure regions.
 
 - Load balance TCP and UDP flow on all ports simultaneously using **[HA ports](./load-balancer-ha-ports-overview.md)**.
+
+- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-gateway-portal.md).
 
 ### <a name="securebydefault"></a>Secure by default
 
@@ -98,4 +95,4 @@ Subscribe to the RSS feed and view the latest Azure Load Balancer feature update
 
 * For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
 
-* [Learn module: Introduction to Azure Load Balancer](/learn/paths/intro-to-azure-application-delivery-services).
+* [Learn module: Introduction to Azure Load Balancer](/training/paths/intro-to-azure-application-delivery-services).

@@ -1,13 +1,13 @@
 ---
-title: Introduction to Azure Queue Storage - Azure Storage
+title: Introduction to Azure Queue Storage
+titleSuffix: Azure Storage
 description: See an introduction to Azure Queue Storage, a service for storing large numbers of messages. A Queue Storage service contains a URL format, storage account, queue, and message.
 author: normesta
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 03/18/2020
 ms.topic: overview
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # What is Azure Queue Storage?
@@ -28,7 +28,7 @@ Queue Storage contains the following components:
 
   `https://myaccount.queue.core.windows.net/images-to-download`
 
-- **Storage account:** All access to Azure Storage is done through a storage account. For information about storage account capacity, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+- **Storage account:** All access to Azure Storage is done through a storage account. For information about storage account capacity, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/queues/toc.json).
 
 - **Queue:** A queue contains a set of messages. The queue name **must** be all lowercase. For information on naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
@@ -36,8 +36,8 @@ Queue Storage contains the following components:
 
 ## Next steps
 
-- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-- [Get started with Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
-- [Get started with Queue Storage using Java](storage-java-how-to-use-queue-storage.md)
-- [Get started with Queue Storage using Python](storage-python-how-to-use-queue-storage.md)
-- [Get started with Queue Storage using Node.js](storage-nodejs-how-to-use-queues.md)
+- [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json)
+- [Get started with Queue Storage using .NET](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
+- [Get started with Queue Storage using Java](/azure/storage/queues/storage-quickstart-queues-java?tabs=powershell%2Cpasswordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
+- [Get started with Queue Storage using Python](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
+- [Get started with Queue Storage using Node.js](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)

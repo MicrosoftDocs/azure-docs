@@ -3,8 +3,8 @@ title: Create Apache Hadoop clusters using Azure REST API - Azure
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 12/10/2019
+ms.custom: hdinsightactive, devx-track-azurecli, devx-track-arm-template
+ms.date: 11/17/2022
 ---
 
 # Create Apache Hadoop clusters using the Azure REST API
@@ -35,7 +35,6 @@ The following JSON document is a merger of the template and parameters files fro
                        "type": "string",
                        "allowedValues": ["hadoop",
                        "hbase",
-                       "storm",
                        "spark"],
                        "metadata": {
                            "description": "The type of the HDInsight cluster to create."
@@ -221,7 +220,7 @@ Follow the steps documented in [Get started with Azure CLI](/cli/azure/get-start
 
     In the list, select the subscription that you want to use and note the **Subscription_ID** and __Tenant_ID__ columns. Save these values.
 
-2. Use the following command to create an application in Azure Active Directory.
+2. Use the following command to create an application in Microsoft Entra ID.
 
    ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
@@ -350,9 +349,3 @@ Now that you've successfully created an HDInsight cluster, use the following to 
 
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### Apache Storm clusters
-
-* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

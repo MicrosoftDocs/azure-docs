@@ -33,13 +33,13 @@ You must use the following credentials in the drone partner software to link Far
 
 ## API development
 
-The APIs contain Swagger technical documentation. For information about the APIs and corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The APIs contain Swagger technical documentation.
 
 ## Authentication
 
-FarmBeats uses Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD). Azure App Service provides built-in authentication and authorization support. 
+FarmBeats uses [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md). Azure App Service provides built-in authentication and authorization support. 
 
-For more information about Azure AD, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
+For more information, see [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
 

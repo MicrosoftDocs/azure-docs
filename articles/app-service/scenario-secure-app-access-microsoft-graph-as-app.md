@@ -5,14 +5,15 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 04/05/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp
-ms.custom: azureday1, devx-track-azurepowershell
+ms.custom: azureday1, devx-track-dotnet, AppServiceIdentity
+ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
 
@@ -21,7 +22,6 @@ ms.custom: azureday1, devx-track-azurepowershell
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-microsoft-graph-as-app/introduction.md)]
 
 ## Call Microsoft Graph
-
 
 The [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential), [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential), and [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) classes are used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential) class, which uses the managed identity in the App Service environment or the development environment variables to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
@@ -40,6 +40,7 @@ Run the install commands.
 
 ```dotnetcli
 dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Graph
 ```
 
 #### Package Manager Console
@@ -49,6 +50,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 Run the install commands.
 ```powershell
 Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Graph
 ```
 
 ### .NET Example
@@ -58,9 +60,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Azure.Identity;​
-using Microsoft.Graph.Core;​​
-using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging;
+using Microsoft.Graph;
+using Azure.Identity;
 
 ...
 
@@ -74,27 +76,18 @@ public async Task OnGetAsync()
     var credential = new ChainedTokenCredential(
         new ManagedIdentityCredential(),
         new EnvironmentCredential());
-    var token = credential.GetToken(
-        new Azure.Core.TokenRequestContext(
-            new[] { "https://graph.microsoft.com/.default" }));
 
-    var accessToken = token.Token;
+    string[] scopes = new[] { "https://graph.microsoft.com/.default" };
+
     var graphServiceClient = new GraphServiceClient(
-        new DelegateAuthenticationProvider((requestMessage) =>
-        {
-            requestMessage
-            .Headers
-            .Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+        credential, scopes);
 
-            return Task.CompletedTask;
-        }));
-
-    // MSGraphUser is a DTO class being used to hold User information from the graph service client call
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {
-        var users =await graphServiceClient.Users.Request().GetAsync();
-        foreach(var u in users)
+        //var users = await graphServiceClient.Users.Request().GetAsync();
+        var users = await graphServiceClient.Users.GetAsync();
+        foreach (var u in users.Value)
         {
             MSGraphUser user = new MSGraphUser();
             user.userPrincipalName = u.UserPrincipalName;
@@ -105,7 +98,7 @@ public async Task OnGetAsync()
             msGraphUsers.Add(user);
         }
     }
-    catch(Exception ex)
+    catch (Exception ex)
     {
         string msg = ex.Message;
     }

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/27/2022
+ms.date: 07/17/2023
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Hadoop cluster to Azure Storage 
@@ -86,7 +86,7 @@ We recommend that you follow these best practices when you implement your data m
 ### Authentication and credential management 
 
 - To authenticate to HDFS, you can use [either Windows (Kerberos) or Anonymous](./connector-hdfs.md#linked-service-properties). 
-- Multiple authentication types are supported for connecting to Azure Blob storage.  We highly recommend using [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity). Built on top of an automatically managed Data Factory identity in Azure Active Directory (Azure AD), managed identities allow you to configure pipelines without supplying credentials in the linked service definition. Alternatively, you can authenticate to Blob storage by using a [service principal](./connector-azure-blob-storage.md#service-principal-authentication), a [shared access signature](./connector-azure-blob-storage.md#shared-access-signature-authentication), or a [storage account key](./connector-azure-blob-storage.md#account-key-authentication). 
+- Multiple authentication types are supported for connecting to Azure Blob storage.  We highly recommend using [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity). Built on top of an automatically managed Data Factory identity in Microsoft Entra ID, managed identities allow you to configure pipelines without supplying credentials in the linked service definition. Alternatively, you can authenticate to Blob storage by using a [service principal](./connector-azure-blob-storage.md#service-principal-authentication), a [shared access signature](./connector-azure-blob-storage.md#shared-access-signature-authentication), or a [storage account key](./connector-azure-blob-storage.md#account-key-authentication). 
 - Multiple authentication types also are supported for connecting to Data Lake Storage Gen2.  We highly recommend using [managed identities for Azure resources](./connector-azure-data-lake-storage.md#managed-identity), but you also can use a [service principal](./connector-azure-data-lake-storage.md#service-principal-authentication) or a [storage account key](./connector-azure-data-lake-storage.md#account-key-authentication). 
 - When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without modifying Data Factory linked services. This is also a [best practice for CI/CD](./continuous-integration-delivery.md#best-practices-for-cicd). 
 

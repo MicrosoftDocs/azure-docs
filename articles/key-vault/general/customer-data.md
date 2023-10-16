@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: reference
-ms.date: 01/07/2019
+ms.date: 01/11/2023
 ms.author: mbaldwin
 
 ---
@@ -35,7 +35,7 @@ The following information identifies customer data within Azure Key Vault:
 
 The same REST APIs, Portal experience, and SDKs used to create vaults, keys, secrets, certificates, and managed storage accounts, are also able to update and delete these objects.
 
-Soft-delete allows you to recover deleted data for 90 days after deletion. When using soft-delete, the data may be permanently deleted prior to the 90 days retention period expires by performing a purge operation. If the vault or subscription has been configured to block purge operations, it is not possible to permanently delete data until the scheduled retention period has passed.
+Soft-delete allows you to recover deleted data for 90 days after deletion. When using soft-delete, the data may be permanently deleted prior to the 90 days retention period expires by performing a purge operation. If the vault or subscription has been configured to block purge operations, it isn't possible to permanently delete data until the scheduled retention period has passed.
 
 ## Exporting customer data
 

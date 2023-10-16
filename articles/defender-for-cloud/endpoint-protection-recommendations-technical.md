@@ -1,14 +1,15 @@
 ---
-title: Endpoint protection recommendations in Microsoft Defender for Clouds
+title: Endpoint protection recommendations
 description: How the endpoint protection solutions are discovered and identified as healthy.
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
-ms.date: 03/08/2022
+ms.author: dacurwin
+author: dcurwin
+ms.date: 06/15/2023
 ---
 # Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+> [!NOTE]
+> As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 Microsoft Defender for Cloud provides health assessments of [supported](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Defender for Cloud to generate the following two recommendations:
 
@@ -24,7 +25,7 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 - Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) runs and any of the following occurs:
 
-  * Any of the following properties are false:
+  - Any of the following properties are false:
 
     - **AMServiceEnabled**
     - **AntispywareEnabled**
@@ -33,18 +34,18 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
     - **IoavProtectionEnabled**
     - **OnAccessProtectionEnabled**
 
-  * If one or both of the following properties are 7 or more:
+  - If one or both of the following properties are 7 or more:
 
     - **AntispywareSignatureAge**
     - **AntivirusSignatureAge**
 
 ## Microsoft System Center endpoint protection
 
-* Defender for Cloud recommends **Endpoint protection should be installed on your machines** when importing **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** and running **Get-MProtComputerStatus** results in **AMServiceEnabled = false**.
+- Defender for Cloud recommends **Endpoint protection should be installed on your machines** when importing **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** and running **Get-MProtComputerStatus** results in **AMServiceEnabled = false**.
 
-* Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when **Get-MprotComputerStatus** runs and any of the following occurs:
+- Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when **Get-MprotComputerStatus** runs and any of the following occurs:
 
-  * At least one of the following properties is false:
+  - At least one of the following properties is false:
 
     - **AMServiceEnabled**
     - **AntispywareEnabled**
@@ -53,20 +54,21 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
     - **IoavProtectionEnabled**
     - **OnAccessProtectionEnabled**
 
-  * If one or both of the following Signature Updates are greater or equal to 7:
+  - If one or both of the following Signature Updates are greater or equal to 7:
 
-    * **AntispywareSignatureAge**
-    * **AntivirusSignatureAge**
+    - **AntispywareSignatureAge**
+    - **AntivirusSignatureAge**
 
 ## Trend Micro
 
-* Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
-    - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
-    - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-    - The **dsa_query.cmd** file is found in the Installation Folder
-    - Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
+- Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
+  - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
+  - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
+  - The **dsa_query.cmd** file is found in the Installation Folder
+  - Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec endpoint protection
+
 Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
 
 - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
@@ -83,10 +85,11 @@ Defender for Cloud recommends **Endpoint protection health issues should be reso
 - Check Real-Time Protection status: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 - Check Signature Update status: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 days**
 - Check Full Scan status: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days**
-- Find signature version number Path to signature version for Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
+- Find signature version number Path to signature version for Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"**
 - Path to signature version for Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
 
 Registry Paths:
+
 - **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
 - **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
@@ -104,30 +107,32 @@ Defender for Cloud recommends **Endpoint protection health issues should be reso
 - Find Signature date: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
 - Find Scan date: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
 
-## McAfee Endpoint Security for Linux Threat Prevention 
+## McAfee Endpoint Security for Linux Threat Prevention
 
 Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
 
-- File **/opt/isec/ens/threatprevention/bin/isecav** exists
-- **"/opt/isec/ens/threatprevention/bin/isecav --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
+- File **/opt/McAfee/ens/tp/bin/mfetpcli** exists
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
 
 Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when any of the following checks aren't met:
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
-- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** returns **On Access Scan** status
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --getoasconfig --summary"** returns **On Access Scan** status
 
-## Sophos Antivirus for Linux 
+## Sophos Antivirus for Linux
 
 Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
+
 - File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
 - **"/opt/sophos-av/bin/savdstatus --version"** returns Sophos name = **Sophos Anti-Virus and Sophos version >= 9**
 
 Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when any of the following checks aren't met:
+
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", returns a value
-- **"/opt/sophos-av/bin/savdstatus --lastupdate"** returns lastUpdate, which should be <= 7 days 
-- **"/opt/sophos-av/bin/savdstatus -v"** is equal to **"On-access scanning is running"** 
+- **"/opt/sophos-av/bin/savdstatus --lastupdate"** returns lastUpdate, which should be <= 7 days
+- **"/opt/sophos-av/bin/savdstatus -v"** is equal to **"On-access scanning is running"**
 - **"/opt/sophos-av/bin/savconfig get LiveProtection"** returns enabled
 
 ## Troubleshoot and support
@@ -139,4 +144,4 @@ Microsoft Antimalware extension logs are available at:
 
 ### Support
 
-For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support common questions](https://azure.microsoft.com/support/faq/).

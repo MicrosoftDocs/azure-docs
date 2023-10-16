@@ -1,12 +1,16 @@
 ---
 title: Create instance of DMS (Azure Resource Manager template)
 description: Learn how to create Database Migration Service by using Azure Resource Manager template (ARM template).
-author: MashaMSFT
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.author: mathoma
+author: croblesm
+ms.author: roblescarlos
 ms.date: 06/29/2020
 ms.service: dms
+ms.topic: quickstart
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sql-migration-content
 ---
 
 # Quickstart: Create instance of Azure Database Migration Service using ARM template
@@ -104,7 +108,7 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 For other ways to deploy Azure Database Migration Service, see:
 - [Azure portal](quickstart-create-data-migration-service-portal.md)

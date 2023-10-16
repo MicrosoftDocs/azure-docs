@@ -4,7 +4,8 @@ description: Relevant to collecting perf counters in Azure Virtual Machines, VM 
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 01/29/2020
+ms.date: 07/12/2022
+ms.reviewer: luki
 
 ---
 
@@ -28,6 +29,7 @@ This article provides the version history of the [Azure Diagnostics extension fo
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
 |2.96              |1.11                           |"|
+|2.96              |1.21                           |"|
 
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model -- meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
@@ -150,7 +152,7 @@ Added Storage Type to PublicConfig. StorageType can be *Table*, *Blob*, *TableAn
 Added the ability to route to EventHub.
 
 ### Diagnostics extension 1.5
-Added the sinks element and the ability to send diagnostics data to [Application Insights](../app/cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+Added the sinks element and the ability to send diagnostics data to [Application Insights](../app/azure-web-apps-net-core.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ### Azure SDK 2.6 and diagnostics extension 1.3
 For Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)

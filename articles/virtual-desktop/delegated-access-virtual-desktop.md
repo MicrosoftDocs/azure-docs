@@ -26,22 +26,22 @@ Azure Virtual Desktop delegated access supports the following values for each el
     * Custom roles
 * Scope
     * Host pools
-    * App groups
+    * Application groups
     * Workspaces
 
 ## PowerShell cmdlets for role assignments
 
 Before you start, make sure to follow the instructions in [Set up the PowerShell module](powershell-module.md) to set up the Azure Virtual Desktop PowerShell module if you haven't already.
 
-Azure Virtual Desktop uses Azure role-based access control (Azure RBAC) while publishing app groups to users or user groups. The Desktop Virtualization User role is assigned to the user or user group and the scope is the app group. This role gives the user special data access on the app group.
+Azure Virtual Desktop uses Azure role-based access control (Azure RBAC) while publishing application groups to users or user groups. The Desktop Virtualization User role is assigned to the user or user group and the scope is the application group. This role gives the user special data access on the application group.
 
-Run the following cmdlet to add Azure Active Directory users to an app group:
+Run the following cmdlet to add Microsoft Entra users to an application group:
 
 ```powershell
 New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-Run the following cmdlet to add Azure Active Directory user group to an app group:
+Run the following cmdlet to add Microsoft Entra user group to an application group:
 
 ```powershell
 New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
@@ -49,7 +49,7 @@ New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop 
 
 ## Next steps
 
-For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
+For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/module/az.desktopvirtualization).
 
 For a complete list of roles supported in Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 

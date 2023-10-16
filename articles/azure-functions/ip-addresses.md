@@ -3,7 +3,7 @@ title: IP addresses in Azure Functions
 description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
 
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 06/08/2023
 ---
 
 # IP addresses in Azure Functions
@@ -19,27 +19,20 @@ IP addresses are associated with function apps, not with individual functions. I
 
 ## Function app inbound IP address
 
-Each function app has a single inbound IP address. To find that IP address:
-
-# [Azure Portal](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the function app.
-3. Under **Settings**, select **Properties**. The inbound IP address appears under **Virtual IP address**.
-
-# [Azure CLI](#tab/azurecli)
-
-Use the `nslookup` utility from your local client computer:
+Each function app starts out by using a single inbound IP address. When running in a Consumption or Premium plan, additional inbound IP addresses may be added as event-driven scale-out occurs. To find the inbound IP address or addresses being used by your app, use the `nslookup` utility from your local computer, as in the following example:
 
 ```command
 nslookup <APP_NAME>.azurewebsites.net
 ```
 
----
+In this example, replace `<APP_NAME>` with your function app name. If your app uses a [custom domain name](../app-service/app-service-web-tutorial-custom-domain.md), use `nslookup` for that custom domain name instead.
 
 ## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
 Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
+
+> [!TIP]
+> For some platform-level features such as [Key Vault references](../app-service/app-service-key-vault-references.md), the origin IP might not be one of the outbound IPs, and you should not configure the target resource to rely on these specific addresses. It is recommended that the app instead use a virtual network integration, as the platform will route traffic to the target resource through that network.
 
 To find the outbound IP addresses available to a function app:
 
@@ -56,6 +49,15 @@ To find the outbound IP addresses available to a function app:
 az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outboundIpAddresses --output tsv
 az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$functionApp = Get-AzFunctionApp -ResourceGroupName <GROUP_NAME> -Name <APP_NAME>
+$functionApp.OutboundIPAddress
+$functionApp.PossibleOutboundIPAddress
+```
+
 ---
 
 The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
@@ -69,7 +71,7 @@ If you need to add the outbound IP addresses used by your function apps to an al
 
 For example, the following JSON fragment is what the allowlist for Western Europe might look like:
 
-```
+```json
 {
   "name": "AzureCloud.westeurope",
   "id": "AzureCloud.westeurope",
@@ -156,7 +158,14 @@ To find out if your function app runs in an App Service Environment:
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
+az resource show --resource-group <GROUP_NAME> --name <APP_NAME> --resource-type Microsoft.Web/sites --query properties.sku --output tsv
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$functionApp = Get-AzResource -ResourceGroupName <GROUP_NAME> -ResourceName <APP_NAME> -ResourceType Microsoft.Web/sites 
+$functionApp.Properties.sku
 ```
 
 ---

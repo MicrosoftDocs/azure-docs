@@ -9,9 +9,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 06/26/2023
 ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-support, has-azure-ad-ps-ref
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -52,7 +53,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ## Test the user flow
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Microsoft Entra ID](../active-directory/roles/permissions-reference.md#all-roles).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
@@ -98,15 +99,18 @@ Get the example of the force password reset policy on [GitHub](https://github.co
 
 ## Force password reset on next login
 
-To force reset the password on next login, update the account password profile using MS Graph [Update user](/graph/api/user-update) operation. The following example updates the password profile [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute to `true`, which forces the user to reset the password on next login.
+To force reset the password on next login, update the account password profile using MS Graph [Update user](/graph/api/user-update) operation. To do this, you need to assign your [Microsoft Graph application](microsoft-graph-get-started.md) the [User administrator](../active-directory/roles/permissions-reference.md#user-administrator) role. Follow the steps in [Grant user administrator role](microsoft-graph-get-started.md?tabs=app-reg-ga#optional-grant-user-administrator-role) to assign your Microsoft Graph application a User administrator role. 
+
+The following example updates the password profile [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute to `true`, which forces the user to reset the password on next login.
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<user-object-ID>
 Content-type: application/json
 
 {
-"passwordProfile": {
-  "forceChangePasswordNextSignIn": true
+    "passwordProfile": {
+      "forceChangePasswordNextSignIn": true
+    }
 }
 ```
 
@@ -129,6 +133,9 @@ Content-type: application/json
 
 If you disabled the strong [password complexity](password-complexity.md), update the password policy to [DisableStrongPassword](user-profile-attributes.md#password-policy-attribute):
 
+> [!NOTE]
+> After the user resets their password, the passwordPolicies will be changed back to DisablePasswordExpiration
+
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<user-object-ID>
 Content-type: application/json
@@ -142,7 +149,7 @@ Once a password expiration policy has been set, you must also configure force pa
 
 ### Password expiry duration
 
-The password expiry duration default value is **90** days. The value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure Active Directory Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
+By default, the password is set not to expire. However, the value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure AD PowerShell module. This command updates the tenant, so that all users' passwords expire after number of days you configure.
 
 ## Next steps
 

@@ -1,14 +1,16 @@
 ---
-title: Restart/Stop/start - Azure portal - Azure Database for MySQL Flexible Server
+title: Restart/Stop/start - Azure portal - Azure Database for MySQL - Flexible Server
 description: This article describes how to restart/stop/start operations in Azure Database for MySQL through the Azure CLI.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
+author: code-sidd 
+ms.author: sisawant
 ms.date: 03/30/2021
 ---
 
-# Restart/Stop/Start an Azure Database for MySQL Flexible Server
+# Restart/Stop/Start an Azure Database for MySQL - Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -84,6 +86,9 @@ az mysql flexible-server start
 ## Restart a server
 To restart a server, run  ```az mysql flexible-server restart``` command. If you are using [local context](/cli/azure/config/param-persist), you don't need to provide any arguments.
 
+>[!Note]
+>If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
+
 **Usage:**
 ```azurecli
 az mysql flexible-server restart [--name]
@@ -106,6 +111,5 @@ az mysql flexible-server restart
 >Once the server has restarted successfully, all management operations are now available for the flexible server.
 
 ## Next steps
-- Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
-- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
-
+- Learn more about [networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md)
+- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).

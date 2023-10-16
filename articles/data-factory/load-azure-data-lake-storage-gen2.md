@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/22/2021
+ms.date: 07/20/2023
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
@@ -33,25 +33,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
-   
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
+1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-2. In the **New data factory** page, provide values for following fields:
- 
-    * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name *YourDataFactoryName* is not available", enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
-    * **Subscription**: Select your Azure subscription in which to create the data factory. 
-    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
-    * **Version**: Select **V2**.
-    * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. 
-
-3. Select **Create**.
-
-4. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image: 
-   
    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-   Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration Application in a separate tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
 ## Load data into Azure Data Lake Storage Gen2
 

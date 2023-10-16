@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Useful resources for working with Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists resources that can help you get more information about working with Microsoft Sentinel.
 
 ## Learn more about creating queries
@@ -23,7 +21,7 @@ Microsoft Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL)
 
 ## Microsoft Sentinel templates for data to monitor
 
-The [Azure Active Directory Security Operations Guide](../active-directory/fundamentals/security-operations-introduction.md) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
+The [Microsoft Entra Security Operations Guide](../active-directory/fundamentals/security-operations-introduction.md) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
 
 In each article, check for sections named [Things to monitor](../active-directory/fundamentals/security-operations-privileged-accounts.md#things-to-monitor) for lists of events that we recommend alerting on and investigating, as well as analytics rule templates to deploy directly to Microsoft Sentinel.
 
@@ -52,8 +50,8 @@ We love hearing from our users.
 
 In the TechCommunity space for Microsoft Sentinel:
 
-- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
-- [Post your own questions about Microsoft Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
+- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog)
+- [Post your own questions about Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel)
 
 You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8) program.
 
@@ -68,7 +66,7 @@ Download sample content from the private community GitHub repository to create c
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get certified!](/learn/paths/security-ops-sentinel/)
+> [Get certified!](/training/paths/security-ops-sentinel/)
 
 > [!div class="nextstepaction"]
 > [Read customer use case stories](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)

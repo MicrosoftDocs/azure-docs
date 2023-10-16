@@ -1,14 +1,13 @@
 ---
-title: Azure Front Door - traffic acceleration | Microsoft Docs
+title: Traffic acceleration
+titleSuffix: Azure Front Door
 description: This article helps you understand how Front Door accelerates traffic.
 services: front-door
-documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/27/2022
+ms.date: 08/31/2023
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers
 ---
@@ -23,15 +22,15 @@ Front Door optimizes the traffic path from the end user to the origin server. Th
 
 ::: zone pivot="front-door-classic"
 
-Front Door optimizes the traffic path from the end user to the backend server. This article describes how traffic is routed from the user to Front Door and to the backend.
+Front Door optimizes the traffic path from the end user to the backend server. This article describes how traffic is routed from the user to Front Door and from Front Door to the backend.
 
 ::: zone-end
 
-## <a name = "anycast"></a>Select the Front Door edge location for the request (Anycast)
+## Select the Front Door edge location for the request (Anycast)
 
-Globally, [Front Door has over 150 edge locations](edge-locations-by-region.md), or points of presence (PoPs), located in many countries and regions. Every Front Door PoP can serve traffic for any request.
+Globally, [Front Door has over 150 edge locations](edge-locations-by-region.md), or points of presence (PoPs), located in many countries/regions. Every Front Door PoP can serve traffic for any request.
 
-Traffic routed to the Azure Front Door edge locations uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic. Anycast allows for user requests to reach the closest edge location in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of [Split TCP](#splittcp).
+Traffic routed to the Azure Front Door edge locations uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic. Anycast allows for user requests to reach the closest edge location in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of [Split TCP](#connect-to-the-front-door-edge-location-split-tcp).
 
 Front Door organizes its edge locations into primary and fallback *rings*. The outer ring has edge locations that are closer to users, offering lower latencies.  The inner ring has edge locations that can handle the failover for the outer ring edge location in case any issues happen.
 
@@ -39,7 +38,7 @@ The outer ring is the preferred target for all traffic, and the inner ring is de
 
 Front Door's architecture ensures that requests from your end users always reach the closest Front Door edge locations. If the preferred Front Door edge location is unhealthy, all traffic automatically moves to the next closest edge location.
 
-## <a name = "splittcp"></a>Connect to the Front Door edge location (Split TCP)
+## Connect to the Front Door edge location (Split TCP)
 
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces.
 
@@ -47,7 +46,7 @@ Front Door's architecture ensures that requests from your end users always reach
 
 Split TCP enables the client's TCP connection to terminate inside a Front Door edge location close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT).
 
-The diagram below illustrates how three users, in different geographical locations, connect to a Front Door edge location close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
+The following diagram illustrates how three users, in different geographical locations, connect to a Front Door edge location close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
 
 ![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door edge location to the user, and a longer TCP connection to the origin.](media/front-door-traffic-acceleration/split-tcp-standard-premium.png)
 
@@ -59,7 +58,7 @@ Establishing a TCP connection requires 3-5 roundtrips from the client to the ser
 
 Split TCP enables the client's TCP connection to terminate inside a Front Door edge location close to the user. A separate TCP connection is established to the backend, and this separate connection might have a large round-trip time (RTT).
 
-The diagram below illustrates how three users, in different geographical locations, connect to a Front Door edge location close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
+The following diagram illustrates how three users, in different geographical locations, connect to a Front Door edge location close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
 
 ![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door edge location to the user, and a longer TCP connection to the backend.](media/front-door-traffic-acceleration/split-tcp-classic.png)
 

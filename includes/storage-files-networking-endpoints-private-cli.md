@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
- ms.service: storage
+ author: khdownie
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 5/11/2020
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file, devx-track-azurecli
 ---
 To create a private endpoint for your storage account, you first need to get a reference to your storage account and the virtual network subnet to which you want to add the private endpoint. Replace `<storage-account-resource-group-name>`,  `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<vnet-subnet-name>` below:
@@ -43,7 +43,7 @@ subnet=$(az network vnet subnet show \
 
 To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command.
 
-```bash
+```azurecli
 # Disable private endpoint network policies
 az network vnet subnet update \
         --ids $subnet \
@@ -136,7 +136,7 @@ fi
 
 Now that you have a reference to the private DNS zone, you must create an A record for your storage account.
 
-```bash
+```azurecli
 privateEndpointNIC=$(az network private-endpoint show \
         --ids $privateEndpoint \
         --query "networkInterfaces[0].id" | \

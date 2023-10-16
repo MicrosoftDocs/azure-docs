@@ -4,15 +4,14 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark
-ms.custom: devx-track-azurepowershell
+ms.date: 07/17/2023
+author: chugugrace
+ms.author: chugu
 ---
 
 # How to clean up SSISDB logs automatically
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines, you can use it to run SSIS packages deployed into:
 
@@ -146,7 +145,7 @@ If you use Azure SQL Database server to host SSISDB, it doesn't have a built-in 
 
 Elastic Database Jobs is an Azure service that can automate and run jobs against a database or group of databases. You can schedule, run, and monitor these jobs by using Azure portal, Azure PowerShell, T-SQL, or REST APIs. Use Elastic Database Jobs to invoke the relevant SSISDB stored procedures for log clean-up one time or on a schedule. You can choose the schedule interval based on SSISDB resource usage to avoid heavy database load.
 
-For more info, see [Manage groups of databases with Elastic Database Jobs](../azure-sql/database/elastic-jobs-overview.md).
+For more info, see [Manage groups of databases with Elastic Database Jobs](/azure/azure-sql/database/elastic-jobs-overview).
 
 The following sections describe how to invoke the relevant SSISDB stored procedures, `[internal].[cleanup_server_retention_window_exclusive]`/`[internal].[cleanup_completed_jobs_exclusive]`/`[internal].[cleanup_expired_worker]`, which remove SSISDB logs that are outside their specific retention periods.
 
@@ -154,7 +153,7 @@ The following sections describe how to invoke the relevant SSISDB stored procedu
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
+The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](/azure/azure-sql/database/elastic-jobs-powershell-create).
 
 #### Create parameters
 
@@ -282,7 +281,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ### Configure Elastic Database Jobs using T-SQL
 
-The following T-SQL scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
+The following T-SQL scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](/azure/azure-sql/database/elastic-jobs-tsql-create-manage).
 
 1. Identify an empty S0/higher service tier of Azure SQL Database or create a new one for your job database. Then create an Elastic Job Agent in [Azure portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
@@ -315,7 +314,7 @@ The following T-SQL scripts create a new Elastic Job that invokes your selected 
    SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
    ```
 
-4. Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure. For detailed guidance, see [Manage logins](../azure-sql/database/logins-create-manage.md).
+4. Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure. For detailed guidance, see [Manage logins](/azure/azure-sql/database/logins-create-manage).
 
    ```sql
    -- Connect to the master database of target server that hosts SSISDB 

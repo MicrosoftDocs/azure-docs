@@ -1,19 +1,30 @@
 ---
-title: SSH access for Linux containers
-description: You can open an SSH session to a Linux container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.
-keywords: azure app service, web app, linux, oss
+title: SSH access for Linux and Windows containers
+description: You can open an SSH session to a Linux or a Windows container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.  Custom Windows containers require no modifications to your custom image.
+keywords: azure app service, web app, linux, windows, oss
 author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 09/10/2021
+ms.date: 10/13/2023
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
+zone_pivot_groups: app-service-containers-windows-linux
 
 ---
-# Open an SSH session to a Linux container in Azure App Service
+# Open an SSH session to a container in Azure App Service
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a Container.  App Service provides SSH support direct into an app hosted in a Container.
+
+::: zone pivot="container-windows"
+
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
+
+::: zone-end
+
+::: zone pivot="container-linux"
 
 ![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
@@ -114,9 +125,11 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45738     1 root     Z        0   0%   0   0% [init]
 </pre>
 
+::: zone-end
+
 ## Next steps
 
-You can post questions and concerns on the [Azure forum](/answers/topics/azure-webapps.html).
+You can post questions and concerns on the [Azure forum](/answers/tags/436/azure-app-service).
 
 For more information on Web App for Containers, see:
 

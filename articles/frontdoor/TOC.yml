@@ -1,205 +1,756 @@
-- name: Front Door documentation
+- name: Front Door and CDN documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Front Door?
-    href: front-door-overview.md
-  - name: Choosing the right load balancer
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
-  - name: Tier comparison
-    href: standard-premium/tier-comparison.md
+  - name: Front Door
+    items:
+      - name: What is Azure Front Door?
+        href: front-door-overview.md
+      - name: What is Azure Front Door (classic)?
+        href: classic-overview.md
+      - name: Choosing the right load balancer
+        href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
+      - name: Front Door and CDN comparison
+        href: front-door-cdn-comparison.md
+  - name: CDN
+    items: 
+        - name: What is Azure Content Delivery Network (Azure CDN)?
+          href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/TOC.json
+        - name: Compare product features
+          href: ../cdn/cdn-features.md?toc=/azure/frontdoor/TOC.json
+  - name: Front Door and CDN comparison
+    href: front-door-cdn-comparison.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a Front Door - Portal
-      href: create-front-door-portal.md
+  - name: Front Door
+    expanded: true
+    items:
+    - name: Standard/Premium
+      expanded: true
+      items:
+      - name: Create a Front Door - Portal
+        href: create-front-door-portal.md
+      - name: Create a Front Door - PowerShell
+        href: create-front-door-powershell.md
+      - name: Create a Front Door - CLI
+        href: create-front-door-cli.md
+      - name: Create a Front Door - Bicep
+        href: create-front-door-bicep.md
+      - name: Create a Front Door - ARM template
+        href: create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        href: create-front-door-terraform.md
+    - name: Classic
+      items:
+      - name: Create a Front Door - Portal
+        href: quickstart-create-front-door.md
+      - name: Create a Front Door - PowerShell
+        href: quickstart-create-front-door-powershell.md
+      - name: Create a Front Door - CLI
+        href: quickstart-create-front-door-cli.md
+      - name: Create a Front Door - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: quickstart-create-front-door-bicep.md
+      - name: Create a Front Door - ARM Template
+        displayName: Resource Manager
+        href: quickstart-create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        displayName: Terraform
+        href: quickstart-create-front-door-terraform.md
+  - name: CDN
+    items: 
+    - name: Microsoft (classic)
+      items:
+      - name: Integrate a storage account
+        href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
+      - name: Create a profile and endpoint - Portal
+        href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
+      - name: Create a profile and endpoint - Azure CLI
+        href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - ARM Template
+        displayName: Resource Manager
+        href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - Terraform
+        href: ../cdn/create-profile-endpoint-terraform.md?toc=/azure/frontdoor/TOC.json
 - name: Tutorials
   items:
-  - name: Add security headers with Rules engine
-    href: front-door-security-headers.md
-  - name: Web Application Firewall and Front Door
-    href: front-door-waf.md
-- name: Samples
-  items:
-  - name: Resource Manager Templates
-    href: front-door-quickstart-template-samples.md
+    - name: Front Door
+      items:
+      - name: Classic
+        items:
+        - name: Add security headers with Rules engine
+          href: front-door-security-headers.md
+        - name: Web Application Firewall and Front Door
+          href: front-door-waf.md
+    - name: CDN 
+      items: 
+      - name: Microsoft (classic)
+        items:
+        - name: Add Azure CDN to a web app
+          href: ../cdn/cdn-add-to-web-app.md?toc=/azure/frontdoor/TOC.json
+        - name: Access blobs by using a custom domain over HTTPS
+          href: ../cdn/cdn-storage-custom-domain-https.md?toc=/azure/frontdoor/TOC.json
+        - name: Add a custom domain
+          href: ../cdn/cdn-map-content-to-custom-domain.md?toc=/azure/frontdoor/TOC.json
+        - name: Configure HTTPS on a custom domain
+          href: ../cdn/cdn-custom-ssl.md?toc=/azure/frontdoor/TOC.json
+        - name: Set caching rules
+          href: ../cdn/cdn-caching-rules-tutorial.md?toc=/azure/frontdoor/TOC.json
 - name: Concepts
   items :
-  - name: Front Door manager
-    href: manager.md
-  - name: Caching
-    href: front-door-caching.md
-  - name: Traffic acceleration
-    href: front-door-traffic-acceleration.md
-  - name: Routing
+  - name: Front Door
     items:
-    - name: Routing architecture
-      href: front-door-routing-architecture.md
-    - name: Route matching
-      href: front-door-route-matching.md
-    - name: Origin selection
-      href: front-door-routing-methods.md
-    - name: Routing limits
-      href: front-door-routing-limits.md
-  - name: Origin
-    href: origin.md
-  - name: Wildcard domain
-    href: front-door-wildcard-domain.md
-  - name: Health probes
-    href: front-door-health-probes.md
-  - name: Rules Engine
-    items:  
-    - name: Rules Engine architecture
-      href: front-door-rules-engine.md
-    - name: Rules match conditions
-      href: rules-match-conditions.md
-    - name: Rules actions
-      href: front-door-rules-engine-actions.md
-  - name: Server variables
-    href: rule-set-server-variables.md
-  - name: URL rewrite
-    href: front-door-url-rewrite.md
-  - name: URL redirect
-    href: front-door-url-redirect.md
-  - name: Security
-    items: 
+    - name: Standard/Premium
+      items:
+      - name: Front Door manager
+        href: manager.md
+      - name: Caching
+        href: front-door-caching.md?pivots=front-door-standard-premium
+      - name: Traffic acceleration
+        href: front-door-traffic-acceleration.md?pivots=front-door-standard-premium
+      - name: Routing
+        items:
+        - name: Routing architecture
+          href: front-door-routing-architecture.md?pivots=front-door-standard-premium
+        - name: Route matching
+          href: front-door-route-matching.md?pivots=front-door-standard-premium
+        - name: Routing limits
+          href: front-door-routing-limits.md
+      - name: Endpoints
+        href: endpoint.md
+      - name: Origins
+        items:
+        - name: Overview
+          href: origin.md?pivots=front-door-standard-premium
+        - name: Origin selection
+          href: routing-methods.md
+        - name: Private Link
+          href: private-link.md
+        - name: Health probes
+          href: health-probes.md
+      - name: Domains
+        items:
+        - name: Overview
+          href: domain.md
+        - name: Apex domains
+          href: apex-domain.md
+        - name: Wildcard domains
+          href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
+      - name: Rules Engine
+        items:  
+        - name: Overview
+          href: front-door-rules-engine.md?pivots=front-door-standard-premium
+        - name: Match conditions
+          href: rules-match-conditions.md?pivots=front-door-standard-premium
+        - name: Actions
+          href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
+        - name: Server variables
+          href: rule-set-server-variables.md
+        - name: URL rewrite
+          href: front-door-url-rewrite.md?pivots=front-door-standard-premium
+        - name: URL redirect
+          href: front-door-url-redirect.md?pivots=front-door-standard-premium
+      - name: Understand billing
+        href: billing.md
+      - name: Price comparison between tiers
+        href: understanding-pricing.md
+      - name: Logs and metrics
+        href: front-door-diagnostics.md?pivots=front-door-standard-premium
+      - name: Best practices
+        href: best-practices.md
+      - name: Scenarios
+        items:
+        - name: Overview
+          href: scenarios.md
+        - name: Azure Storage blobs
+          href: scenario-storage-blobs.md
+    - name: Classic
+      items:
+        - name: Migrate to Standard or Premium Tier
+          items:
+          - name: About tier migration
+            href: tier-migration.md
+          - name: Classic to Standard/Premium mapping
+            href: tier-mapping.md
+        - name: Caching
+          href: front-door-caching.md?pivots=front-door-classic
+        - name: Traffic acceleration
+          href: front-door-traffic-acceleration.md?pivots=front-door-classic
+        - name: Routing
+          items:
+          - name: Routing architecture
+            href: front-door-routing-architecture.md?pivots=front-door-classic
+          - name: Route matching
+            href: front-door-route-matching.md?pivots=front-door-classic
+          - name: Traffic routing methods
+            href: routing-methods.md
+          - name: Routing limits
+            href: front-door-routing-limits.md
+        - name: Backend pool
+          href: origin.md?pivots=front-door-classic
+        - name: Wildcard domain
+          href: front-door-wildcard-domain.md?pivots=front-door-classic
+        - name: Health probes
+          href: health-probes.md
+        - name: Rules Engine
+          items:  
+          - name: Rules Engine architecture
+            href: front-door-rules-engine.md?pivots=front-door-classic
+          - name: Rules match conditions
+            href: rules-match-conditions.md?pivots=front-door-classic
+          - name: Rules actions
+            href: front-door-rules-engine-actions.md?pivots=front-door-classic
+        - name: URL rewrite
+          href: front-door-url-rewrite.md?pivots=front-door-classic
+        - name: URL redirect
+          href: front-door-url-redirect.md?pivots=front-door-classic
+    - name: Security
+      items: 
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-front-door-security-baseline?toc=/azure/frontdoor/TOC.json
+      - name: DDoS protection
+        href: front-door-ddos.md
+      - name: End-to-end TLS encryption
+        href: end-to-end-tls.md
+      - name: Web Application Firewall
+        href: web-application-firewall.md
+      - name: Geo-filtering
+        href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=/azure/frontdoor/toc.json
+      - name: Secure traffic to origins
+        href: origin-security.md
+    - name: Protocol
+      items:
+      - name: HTTP/2
+        href: front-door-http2.md
+    - name: FAQ
+      href: front-door-faq.yml
+  - name: CDN
+    items:
+    - name: Migrate CDN provider
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/front-door-security-baseline?toc=/azure/frontdoor/TOC.json
+      href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
-      href: front-door-ddos.md
-    - name: End-to-end TLS encryption
-      href: concept-end-to-end-tls.md
-    - name: Web Application Firewall
-      href: web-application-firewall.md
-    - name: Private Link
-      href: private-link.md
-  - name: Protocol
-    items:
-    - name: HTTP/2
-      href: front-door-http2.md
-  - name: FAQ
-    href: front-door-faq.yml
+      href: ../cdn/cdn-ddos.md?toc=/azure/frontdoor/TOC.json
+    - name: How caching works
+      href: ../cdn/cdn-how-caching-works.md?toc=/azure/frontdoor/TOC.json
+    - name: HTTP/2 support
+      href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/TOC.json
+    - name: Retrieve POP IP's
+      href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/TOC.json
+    - name: Migrate from Standard Edgio to Premium Edgio
+      href: ../cdn/cdn-migrate.md?toc=/azure/frontdoor/TOC.json
+    - name: China content delivery
+      href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
 - name: How-to guides
   items:
-  - name: Configure
+  - name: Front Door
     items:
-    - name: Front Door manager
-      href: how-to-configure-endpoints.md
-    - name: Origins in origin group
-      href: how-to-configure-origin.md
-    - name: Add a custom domain
-      href: standard-premium/how-to-add-custom-domain.md
-    - name: Configure HTTPS on a custom domain
-      href: standard-premium/how-to-configure-https-custom-domain.md
-    - name: Rules Engine
-      href: standard-premium/how-to-configure-rule-set.md
-    - name: Purge cache
-      href: standard-premium/how-to-cache-purge.md
-    - name: Compression
-      href: standard-premium/how-to-compression.md
+    - name: Standard/Premium
+      items:
+      - name: Configure
+        items:
+        - name: Upgrade to Premium tier
+          items:
+          - name: Azure portal
+            href: tier-upgrade.md
+          - name: Azure PowerShell
+            href: tier-upgrade-powershell.md
+        - name: Configure a new endpoint
+          href: how-to-configure-endpoints.md
+        - name: Add origins to origin group
+          href: how-to-configure-origin.md
+        - name: Set up managed identity
+          href: managed-identity.md
+        - name: Domains
+          items:
+          - name: Add a custom domain
+            href: standard-premium/how-to-add-custom-domain.md
+          - name: Add a root or apex domain
+            href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
+          - name: Configure HTTPS on a custom domain
+            href: standard-premium/how-to-configure-https-custom-domain.md
+        - name: Configure caching
+          href: how-to-configure-caching.md
+        - name: Rules Engine
+          href: standard-premium/how-to-configure-rule-set.md
+        - name: Purge cache
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-cache-purge.md
+          - name: Azure PowerShell
+            href: standard-premium/how-to-cache-purge-powershell.md
+          - name: Azure CLI
+            href: standard-premium/how-to-cache-purge-cli.md
+        - name: Compression
+          href: standard-premium/how-to-compression.md
+      - name: Enable Private Link to secure origins
+        items:
+        - name: Connect to an internal load balancer
+          href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
+        - name: Connect to a storage account
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-enable-private-link-storage-account.md
+          - name: Azure CLI
+            href: standard-premium/how-to-enable-private-link-storage-account-cli.md
+        - name: Connect to a storage static website
+          href: how-to-enable-private-link-storage-static-website.md
+        - name: Connect to an App service
+          items:
+          - name: Azure portal
+            href: standard-premium/how-to-enable-private-link-web-app.md
+          - name: Azure CLI
+            href: standard-premium/how-to-enable-private-link-web-app-cli.md
+      - name: Monitor and reports
+        items:
+        - name: Configure diagnostic logs
+          href: standard-premium/how-to-logs.md
+        - name: Access metrics and create alerts
+          href: standard-premium/how-to-monitor-metrics.md
+        - name: View Front Door reports
+          href: standard-premium/how-to-reports.md
+      - name: Integrations
+        items:
+        - name: Azure Storage Account
+          href: integrate-storage-account.md
+        - name: Azure API Management
+          href: ../api-management/front-door-api-management.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Open AI
+          href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Static Web Apps
+          href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Spring Apps
+          href: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy?toc=/azure/frontdoor/toc.json
     - name : Classic
       items:
-      - name: Create a Front Door (classic)
+      - name: Migrate to Standard or Premium tier
         items:
-        - name: Portal
-          href: quickstart-create-front-door.md
-        - name: PowerShell
-          href: quickstart-create-front-door-powershell.md
-        - name: CLI
-          href: quickstart-create-front-door-cli.md
-        - name: Bicep
-          displayName: ARM, Resource Manager, Template
-          href: quickstart-create-front-door-bicep.md
-        - name: ARM Template
-          displayName: Resource Manager
-          href: quickstart-create-front-door-template.md
+        - name: Azure portal
+          href: migrate-tier.md
+        - name: Azure PowerShell
+          href: migrate-tier-powershell.md
       - name: Add a custom domain
-        href: front-door-custom-domain.md
+        items:
+        - name: Azure portal
+          href: front-door-custom-domain.md
+        - name: Azure CLI
+          href: scripts/custom-domain.md
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md
+        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine
         href: front-door-tutorial-rules-engine.md
       - name: Configure HTTP to HTTPS redirect
         href: front-door-how-to-redirect-https.md
-  - name: Enable Private Link to secure origins
+      - name: Configure classic diagnostics
+        href: front-door-diagnostics.md
+    - name: Secure with Web Application Firewall
+      items:
+      - name: Configure a security policy
+        href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=/azure/frontdoor/toc.json
+      - name: Configure geo-filtering
+        href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=/azure/frontdoor/toc.json
+      - name: Configure rate limits
+        href: ../web-application-firewall/afds/waf-front-door-rate-limit-configure.md?toc=%2fazure%2ffrontdoor%2ftoc.json
+      - name: Configure IP restriction
+        href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
+    - name: Troubleshoot
+      items:
+      - name: Troubleshooting Front Door issues
+        href: troubleshoot-issues.md
+      - name: Troubleshooting Front Door performance issues
+        href: troubleshoot-performance-issues.md
+      - name: Allowed certificate authorities
+        href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+      - name: File compression
+        href: standard-premium/troubleshoot-compression.md
+      - name: Subscription offers and bandwidth throttling
+        href: standard-premium/subscription-offers.md
+  - name: CDN
     items:
-    - name: Connect to an internal load balancer
-      href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
-    - name: Connect to a storage account
-      href: standard-premium/how-to-enable-private-link-storage-account.md
-    - name: Connect to an App service
-      href: standard-premium/how-to-enable-private-link-web-app.md
-  - name: Monitor and Reports
-    items:
-    - name: Configure diagnostic
-      href: standard-premium/how-to-logs.md
-    - name: Set up monitoring and alerts
-      href: standard-premium/how-to-monitor-metrics.md
-    - name: View Front Door reports
-      href: standard-premium/how-to-reports.md
-    - name: Configure classic diagnostics
-      href: front-door-diagnostics.md
-  - name: Secure with Web Application Firewall
-    items:
-    - name: Configure a security policy
-      href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-    - name: Configure geo-filtering
-      href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-    - name: Configure rate limits
-      href: ../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-    - name: Configure IP restriction
-      href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-  - name: Troubleshoot
-    items:
-    - name: Troubleshooting Front Door issues
-      href: troubleshoot-issues.md
-    - name: Allowed certificate authorities
-      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
-    - name: File compression
-      href: standard-premium/troubleshoot-compression.md
-    - name: Subscription offers and bandwidth throttling
-      href: standard-premium/subscription-offers.md
+    - name: Microsoft (classic)
+      items:
+      - name: Optimized content
+        href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: Large-file optimization
+          href: ../cdn/cdn-large-file-optimization.md?toc=/azure/frontdoor/TOC.json
+        - name: Media streaming optimization
+          href: ../cdn/cdn-media-streaming-optimization.md?toc=/azure/frontdoor/TOC.json
+      - name: Manage
+        items:
+        - name: Create an endpoint
+          href: ../cdn/cdn-create-endpoint-how-to.md?toc=/azure/frontdoor/TOC.json
+        - name: Manage by using Azure PowerShell
+          href: ../cdn/cdn-manage-powershell.md?toc=/azure/frontdoor/TOC.json
+        - name: Onboard a root or apex domain
+          href: ../cdn/onboard-apex-domain.md?toc=/azure/frontdoor/TOC.json
+        - name: Improve performance by compressing files
+          href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
+        - name: Endpoint multi-origin
+          href: ../cdn/endpoint-multiorigin.md?toc=/azure/frontdoor/TOC.json
+        - name: Enforce HTTPS by using the Standard rules engine
+          href: ../cdn/cdn-standard-rules-engine.md?toc=/azure/frontdoor/TOC.json
+        - name: Control caching behavior
+          items:
+          - name: Cache content by query strings
+            href: ../cdn/cdn-query-string.md?toc=/azure/frontdoor/TOC.json
+          - name: Purge cached assets
+            href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
+        - name: Shared access signature storage support
+          href: ../cdn/cdn-sas-storage-support.md?toc=/azure/frontdoor/TOC.json
+        - name: Cross-origin resource sharing
+          href: ../cdn/cdn-cors.md?toc=/azure/frontdoor/TOC.json
+        - name: Monitor resources
+          href: ../cdn/cdn-resource-health.md?toc=/azure/frontdoor/TOC.json
+        - name: Use Traffic Manager
+          href: ../cdn/cdn-traffic-manager.md?toc=/azure/frontdoor/TOC.json
+      - name: Analyze
+        href: ../cdn/cdn-log-analysis.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: Monitoring, metrics, and access Logs
+          href: ../cdn/monitoring-and-access-log.md?toc=/azure/frontdoor/TOC.json
+        - name: Azure diagnostics logs
+          href: ../cdn/cdn-azure-diagnostic-logs.md?toc=/azure/frontdoor/TOC.json
+      - name: Develop
+        items:
+        - name: .NET
+          href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
+        - name: Node.js
+          href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
+    - name: Akamai Standard
+      items:
+      - name: Optimize content
+        href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: Large-file optimization
+          href: ../cdn/cdn-large-file-optimization.md?toc=/azure/frontdoor/TOC.json
+        - name: Media streaming optimization
+          href: ../cdn/cdn-media-streaming-optimization.md?toc=/azure/frontdoor/TOC.json
+        - name: Dynamic site acceleration
+          href: ../cdn/cdn-dynamic-site-acceleration.md?toc=/azure/frontdoor/TOC.json
+      - name: Manage
+        items:
+        - name: Create an endpoint
+          href: ../cdn/cdn-create-endpoint-how-to.md?toc=/azure/frontdoor/TOC.json
+        - name: Manage by using Azure PowerShell
+          href: ../cdn/cdn-manage-powershell.md?toc=/azure/frontdoor/TOC.json
+        - name: Onboard a root or apex domain
+          href: ../cdn/onboard-apex-domain.md?toc=/azure/frontdoor/TOC.json
+        - name: Restrict access by country or region
+          href: ../cdn/cdn-restrict-access-by-country-region.md?toc=/azure/frontdoor/TOC.json
+        - name: Improve performance by compressing files
+          href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
+        - name: Control caching behavior
+          items:
+          - name: Control caching behavior by using caching rules
+            href: ../cdn/cdn-caching-rules.md?toc=/azure/frontdoor/TOC.json
+          - name: Cache content by query strings
+            href: ../cdn/cdn-query-string.md?toc=/azure/frontdoor/TOC.json
+          - name: Purge cached assets
+            href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
+        - name: Configure time to live (TTL)
+          items:
+          - name: Azure web content
+            href: ../cdn/cdn-manage-expiration-of-cloud-service-content.md?toc=/azure/frontdoor/TOC.json
+          - name: Azure Blob storage
+            href: ../cdn/cdn-manage-expiration-of-blob-content.md?toc=/azure/frontdoor/TOC.json
+        - name: Shared access signature storage support
+          href: ../cdn/cdn-sas-storage-support.md?toc=/azure/frontdoor/TOC.json
+        - name: Cross-origin resource sharing
+          href: ../cdn/cdn-cors.md?toc=/azure/frontdoor/TOC.json
+        - name: Monitor resources
+          href: ../cdn/cdn-resource-health.md?toc=/azure/frontdoor/TOC.json
+        - name: Use Traffic Manager
+          href: ../cdn/cdn-traffic-manager.md?toc=/azure/frontdoor/TOC.json
+      - name: Analyze
+        items:
+        - name: Azure diagnostics logs
+          href: ../cdn/cdn-azure-diagnostic-logs.md?toc=/azure/frontdoor/TOC.json
+      - name: Develop
+        items:
+        - name: .NET
+          href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
+        - name: Node.js
+          href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
+    - name: Edgio
+      items:
+      - name: Standard
+        items:
+        - name: Optimize content
+          href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
+          items:
+          - name: Large-file optimization
+            href: ../cdn/cdn-large-file-optimization.md?toc=/azure/frontdoor/TOC.json
+          - name: Media streaming optimization
+            href: ../cdn/cdn-media-streaming-optimization.md?toc=/azure/frontdoor/TOC.json
+          - name: Dynamic site acceleration
+            href: ../cdn/cdn-dynamic-site-acceleration.md?toc=/azure/frontdoor/TOC.json
+        - name: Manage    
+          items:
+          - name: Create an endpoint
+            href: ../cdn/cdn-create-endpoint-how-to.md?toc=/azure/frontdoor/TOC.json
+          - name: Manage by using Azure PowerShell
+            href: ../cdn/cdn-manage-powershell.md?toc=/azure/frontdoor/TOC.json
+          - name: Onboard a root or apex domain
+            href: ../cdn/onboard-apex-domain.md?toc=/azure/frontdoor/TOC.json
+          - name: Restrict access by country or region
+            href: ../cdn/cdn-restrict-access-by-country-region.md?toc=/azure/frontdoor/TOC.json
+          - name: Improve performance by compressing files
+            href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
+          - name: Endpoint multi-origin
+            href: ../cdn/endpoint-multiorigin.md?toc=/azure/frontdoor/TOC.json
+          - name: Control caching behavior
+            items:
+            - name: Control caching behavior by using caching rules
+              href: ../cdn/cdn-caching-rules.md?toc=/azure/frontdoor/TOC.json
+            - name: Cache content by query strings
+              href: ../cdn/cdn-query-string.md?toc=/azure/frontdoor/TOC.json
+            - name: Purge cached assets
+              href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
+            - name: Preload cached assets
+              href: ../cdn/cdn-preload-endpoint.md?toc=/azure/frontdoor/TOC.json
+          - name: Configure time to live (TTL)
+            items:
+            - name: Azure web content
+              href: ../cdn/cdn-manage-expiration-of-cloud-service-content.md?toc=/azure/frontdoor/TOC.json
+            - name: Azure Blob storage
+              href: ../cdn/cdn-manage-expiration-of-blob-content.md?toc=/azure/frontdoor/TOC.json
+          - name: Shared access signature storage support
+            href: ../cdn/cdn-sas-storage-support.md?toc=/azure/frontdoor/TOC.json
+          - name: Cross-origin resource sharing
+            href: ../cdn/cdn-cors.md?toc=/azure/frontdoor/TOC.json
+          - name: Monitor resources
+            href: ../cdn/cdn-resource-health.md?toc=/azure/frontdoor/TOC.json
+          - name: Use Traffic Manager
+            href: ../cdn/cdn-traffic-manager.md?toc=/azure/frontdoor/TOC.json
+        - name: Analyze
+          href: ../cdn/cdn-log-analysis.md?toc=/azure/frontdoor/TOC.json
+          items:
+          - name: Azure diagnostics logs
+            href: ../cdn/cdn-azure-diagnostic-logs.md?toc=/azure/frontdoor/TOC.json
+          - name: Analytics tools for Azure CDN from Edgio
+            items:
+            - name: Core reports
+              href: ../cdn/cdn-analyze-usage-patterns.md?toc=/azure/frontdoor/TOC.json
+            - name: Custom reports
+              href: ../cdn/cdn-verizon-custom-reports.md?toc=/azure/frontdoor/TOC.json
+        - name: Develop
+          items:
+          - name: .NET
+            href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
+          - name: Node.js
+            href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
+      - name: Premium
+        items:
+        - name: Optimize content
+          href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
+          items:
+          - name: Large-file optimization
+            href: ../cdn/cdn-large-file-optimization.md?toc=/azure/frontdoor/TOC.json
+          - name: Media streaming optimization
+            href: ../cdn/cdn-media-streaming-optimization.md?toc=/azure/frontdoor/TOC.json
+          - name: Dynamic site acceleration
+            href: ../cdn/cdn-dynamic-site-acceleration.md?toc=/azure/frontdoor/TOC.json
+        - name: Manage
+          items:
+          - name: Create an endpoint
+            href: ../cdn/cdn-create-endpoint-how-to.md?toc=/azure/frontdoor/TOC.json
+          - name: Manage by using Azure PowerShell
+            href: ../cdn/cdn-manage-powershell.md?toc=/azure/frontdoor/TOC.json
+          - name: Onboard a root or apex domain
+            href: ../cdn/onboard-apex-domain.md?toc=/azure/frontdoor/TOC.json
+          - name: Restrict access by country or region
+            href: ../cdn/cdn-restrict-access-by-country-region.md?toc=/azure/frontdoor/TOC.json
+          - name: Improve performance by compressing files
+            href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
+          - name: Control caching behavior
+            items:
+            - name: Cache content by query strings
+              href: ../cdn/cdn-query-string-premium.md?toc=/azure/frontdoor/TOC.json
+            - name: Purge cached assets
+              href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
+            - name: Preload cached assets
+              href: ../cdn/cdn-preload-endpoint.md?toc=/azure/frontdoor/TOC.json
+          - name: Configure time to live (TTL)
+            items:
+            - name: Azure web content
+              href: ../cdn/cdn-manage-expiration-of-cloud-service-content.md?toc=/azure/frontdoor/TOC.json
+            - name: Azure Blob storage
+              href: ../cdn/cdn-manage-expiration-of-blob-content.md?toc=/azure/frontdoor/TOC.json
+          - name: Token authentication
+            href: ../cdn/cdn-token-auth.md?toc=/azure/frontdoor/TOC.json
+          - name: Shared access signature storage support
+            href: ../cdn/cdn-sas-storage-support.md?toc=/azure/frontdoor/TOC.json
+          - name: Cross-origin resource sharing
+            href: ../cdn/cdn-cors.md?toc=/azure/frontdoor/TOC.json
+          - name: Monitor resources
+            href: ../cdn/cdn-resource-health.md?toc=/azure/frontdoor/TOC.json
+          - name: Use rules to override behavior
+            href: ../cdn/cdn-verizon-premium-rules-engine.md?toc=/azure/frontdoor/TOC.json
+          - name: Use Traffic Manager
+            href: ../cdn/cdn-traffic-manager.md?toc=/azure/frontdoor/TOC.json  
+        - name: Analyze
+          href: ../cdn/cdn-log-analysis.md?toc=/azure/frontdoor/TOC.json
+          items:
+          - name: Azure diagnostics logs
+            href: ../cdn/cdn-azure-diagnostic-logs.md?toc=/azure/frontdoor/TOC.json
+          - name: Core reports
+            href: ../cdn/cdn-analyze-usage-patterns.md?toc=/azure/frontdoor/TOC.json
+          - name: Custom reports
+            href: ../cdn/cdn-verizon-custom-reports.md?toc=/azure/frontdoor/TOC.json
+          - name: Generate advanced HTTP reports
+            href: ../cdn/cdn-advanced-http-reports.md?toc=/azure/frontdoor/TOC.json
+          - name: View real-time statistics
+            href: ../cdn/cdn-real-time-stats.md?toc=/azure/frontdoor/TOC.json
+          - name: Analyze edge node performance
+            href: ../cdn/cdn-edge-performance.md?toc=/azure/frontdoor/TOC.json
+          - name: Get real-time alerts
+            href: ../cdn/cdn-real-time-alerts.md?toc=/azure/frontdoor/TOC.json
+        - name: Develop
+          items:
+          - name: .NET
+            href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
+          - name: Node.js
+            href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
+    - name: Troubleshoot
+      items:
+      - name: 404 status
+        href: ../cdn/cdn-troubleshoot-endpoint.md?toc=/azure/frontdoor/TOC.json
+      - name: File compression
+        href: ../cdn/cdn-troubleshoot-compression.md?toc=/azure/frontdoor/TOC.json
+      - name: Allowed certificate authorities
+        href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+      - name: Subscription offers and bandwidth throttling
+        href: ../cdn/subscription-offerings.md?toc=/azure/frontdoor/TOC.json
 - name: Reference
   items:
-  - name: HTTP headers protocol support
-    href: front-door-http-headers-protocol.md
-  - name: Azure Front Door edge locations
+  - name: Front Door
     items:
-    - name: Edge locations by region
-      href: edge-locations-by-region.md
-    - name: Edge locations by abbreviation
-      href: edge-locations-by-abbreviation.md
-  - name: Azure CLI
-    href: /cli/azure/afd
-  - name: REST API
-    href: /rest/api/frontdoor
-  - name: Python SDK
-    href: /python/api/azure-mgmt-cdn
-  - name: Go SDK
-    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
-  - name: JavaScript SDK
-    href: /javascript/api/overview/azure/contentdeliverynetwork
-  - name: Classic
+    - name: HTTP headers protocol support
+      href: front-door-http-headers-protocol.md
+    - name: Azure Front Door POP locations
+      items:
+      - name: POP locations by region
+        href: edge-locations-by-region.md
+      - name: POP locations by abbreviation
+        href: edge-locations-by-abbreviation.md
+    - name: Standard/Premium
+      items:
+      - name: Azure CLI
+        href: /cli/azure/afd
+      - name: Azure PowerShell
+        href: /powershell/module/az.cdn
+      - name: Bicep and Resource Manager Templates
+        href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
+      - name: Terraform
+        href: terraform-samples.md?pivots=front-door-standard-premium
+      - name: REST API
+        href: /rest/api/frontdoor
+      - name: Python SDK
+        href: /python/api/azure-mgmt-cdn
+      - name: Go SDK
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/cdn
+    - name: Classic
+      items:
+      - name: Azure CLI
+        href: /cli/azure/afd/
+      - name: Azure PowerShell
+        href: /powershell/module/az.frontdoor
+      - name: Bicep and Resource Manager Templates
+        href: front-door-quickstart-template-samples.md?pivots=front-door-classic
+      - name: Terraform
+        href: terraform-samples.md?pivots=front-door-classic
+      - name: REST API
+        href: /rest/api/frontdoor/#front-door-classic
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/arm-frontdoor-readme
+      - name: Java SDK
+        href: /java/api/overview/azure/resourcemanager-cdn-readme
+  - name: CDN
     items:
+    - name: Azure CDN POP locations
+      items:
+      - name: POP locations by region
+        href: ../cdn/cdn-pop-locations.md?toc=/azure/frontdoor/TOC.json
+      - name: POP locations by abbreviation
+        items:
+        - name: Microsoft (classic)
+          href: ../cdn/microsoft-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
+        - name: Edgio
+          href: ../cdn/cdn-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
+    - name: Standard rules engine
+      href: ../cdn/cdn-standard-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
+      items:
+      - name: Standard rules engine match conditions
+        href: ../cdn/cdn-standard-rules-engine-match-conditions.md?toc=/azure/frontdoor/TOC.json
+      - name: Standard rules engine actions
+        href: ../cdn/cdn-standard-rules-engine-actions.md?toc=/azure/frontdoor/TOC.json
+    - name: Microsoft-specific HTTP headers
+      href: ../cdn/cdn-msft-http-debug-headers.md?toc=/azure/frontdoor/TOC.json
+    - name: Edgio
+      items:
+      - name: Edgio Premium rules engine reference
+        href: ../cdn/cdn-verizon-premium-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: Rules engine conditional expressions
+          href: ../cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions.md?toc=/azure/frontdoor/TOC.json
+        - name: Rules engine match conditions
+          href: ../cdn/cdn-verizon-premium-rules-engine-reference-match-conditions.md?toc=/azure/frontdoor/TOC.json
+        - name: Rules engine features
+          href: ../cdn/cdn-verizon-premium-rules-engine-reference-features.md?toc=/azure/frontdoor/TOC.json
+        - name: HTTP variables
+          href: ../cdn/cdn-http-variables.md?toc=/azure/frontdoor/TOC.json
+      - name: Edgio-specific HTTP headers
+        href: ../cdn/cdn-verizon-http-headers.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: X-EC-Debug headers
+          href: ../cdn/cdn-http-debug-headers.md?toc=/azure/frontdoor/TOC.json
     - name: Azure CLI
-      href: /cli/azure/afd/
+      href: /cli/azure/cdn
     - name: Azure PowerShell
-      href: /powershell/module/az.frontdoor
-    - name: REST API
-      href: /rest/api/frontdoor/#front-door-classic
-    - name: JavaScript SDK
-      href: /javascript/api/overview/azure/frontdoor
-    - name: Java SDK
-      href: /java/api/overview/azure/resourcemanager-cdn-readme
+      href: /powershell/module/az.cdn/
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.cdn
+    - name: REST
+      href: /rest/api/cdn/
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/frontdoor/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=frontdoor
+    - name: Front Door
+      items:
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/frontdoor/
+      - name: Pricing calculator
+        href: https://azure.microsoft.com/pricing/calculator/
+      - name: Service updates
+        href: https://azure.microsoft.com/updates/?product=frontdoor
+    - name: CDN
+      items:
+      - name: Azure Content Delivery Network billing
+        href: ../cdn/cdn-billing.md?toc=/azure/frontdoor/TOC.json
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/
+      - name: Microsoft Q&A question page
+        href: /answers/tags/155/azure-cdn.html
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/cdn/
+      - name: Pricing calculator
+        href: https://azure.microsoft.com/pricing/calculator/
+      - name: Service updates
+        href: https://azure.microsoft.com/updates/?product=cdn
+      - name: Stack Overflow
+        href: https://stackoverflow.com/questions/tagged/azure-cdn
+      - name: Videos
+        href: https://azure.microsoft.com/documentation/videos/index/?services=cdn

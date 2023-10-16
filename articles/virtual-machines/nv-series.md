@@ -3,10 +3,10 @@ title: NV-series - Azure Virtual Machines
 description: Specifications for the NV-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/29/2022
-ms.author: jushiman
+ms.author: vikancha
 ---
 
 # NV-series
@@ -15,7 +15,7 @@ ms.author: jushiman
 
 
 > [!IMPORTANT]
-> NV and NV_Promo series Azure virtual machines (VMs) will be retired on August 31st, 2023. For more information, see the [NV and NV_Promo retirement information](nv-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [NV and NV_Promo series migration guide](nv-series-migration-guide.md).
+> NV and NV_Promo series Azure virtual machines (VMs) will be retired on September 6, 2023. For more information, see the [NV and NV_Promo retirement information](nv-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [NV and NV_Promo series migration guide](nv-series-migration-guide.md).
 >
 > This retirement announcement doesn't apply to NVv3 and NVv4 series VMs. 
 

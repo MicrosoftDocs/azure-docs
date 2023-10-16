@@ -1,17 +1,17 @@
 ---
-title: Create an Azure data factory using REST API
-description: Create an Azure data factory pipeline to copy data from one location in Azure Blob storage to another location.
+title: Create an Azure Data Factory using REST API
+description: Create an Azure Data Factory pipeline to copy data from one location in Azure Blob storage to another location.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/31/2021
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Create an Azure data factory and pipeline by using the REST API
+# Quickstart: Create an Azure Data Factory and pipeline by using the REST API
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,7 +21,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume.
 
-This quickstart describes how to use REST API to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
+This quickstart describes how to use REST API to create an Azure Data Factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -32,8 +32,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
-* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps). This quickstart uses PowerShell to invoke REST API calls.
-* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
+* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). This quickstart uses PowerShell to invoke REST API calls.
+* **Create an application in Microsoft Entra ID** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
 >[!NOTE]
 >	For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
 >	 You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
@@ -69,9 +69,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $apiVersion = "2018-06-01"
     ```
 
-## Authenticate with Azure AD
+<a name='authenticate-with-azure-ad'></a>
 
-Run the following commands to authenticate with Azure Active Directory (AAD):
+## Authenticate with Microsoft Entra ID
+
+Run the following commands to authenticate with Microsoft Entra ID:
 
 ```powershell
 $credentials = Get-Credential -UserName $appId
@@ -109,7 +111,7 @@ $response.Content
 
 Note the following points:
 
-* The name of the Azure data factory must be globally unique. If you receive the following error, change the name and try again.
+* The name of the Azure Data Factory must be globally unique. If you receive the following error, change the name and try again.
 
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.

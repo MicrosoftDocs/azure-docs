@@ -2,7 +2,10 @@
 title: Tutorial - Schedule an ACR task
 description: In this tutorial, learn how to run an Azure Container Registry Task on a defined schedule by setting one or more timer triggers
 ms.topic: article
-ms.date: 11/24/2020
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 # Tutorial: Run an ACR task on a defined schedule
 
@@ -19,7 +22,7 @@ Scheduling a task is useful for scenarios like the following:
 * Run a container workload for scheduled maintenance operations. For example, run a containerized app to remove unneeded images from your registry.
 * Run a set of tests on a production image during the workday as part of your live-site monitoring.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## About scheduling a task
 
@@ -38,7 +41,7 @@ Scheduling a task is useful for scenarios like the following:
 
 First, populate the following shell environment variable with a value appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate the environment variable, you must manually replace each value wherever it appears in the example commands.
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -67,6 +70,34 @@ az acr task show --name timertask --registry $ACR_NAME --output table
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 timertask linux       Enabled                           BASE_IMAGE, TIMER
+```
+
+
+Also, a simple example, of the task running with source code context. The following task triggers running the `hello-world` image from Microsoft Container Registry every day at 21:00 UTC. 
+
+Follow the [Prerequisites](./container-registry-tutorial-quick-task.md#prerequisites) to build the source code context and then create a scheduled task with context.
+ 
+```azurecli
+az acr task create \
+  --name timertask \
+  --registry $ACR_NAME \
+  --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
+  --file Dockerfile \
+  --image timertask:{{.Run.ID}} \
+  --git-access-token $GIT_PAT \
+  --schedule "0 21 * * *"
+```
+
+Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
+
+```azurecli
+az acr task show --name timertask --registry $ACR_NAME --output table
+```
+
+Run the [az acr task run][az-acr-task-run ] command to trigger the task manually.
+
+```azurecli
+az acr task run --name timertask --registry $ACR_NAME
 ```
 
 ## Trigger the task

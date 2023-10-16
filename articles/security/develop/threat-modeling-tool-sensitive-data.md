@@ -8,14 +8,14 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Security Frame: Sensitive Data | Mitigations 
@@ -222,9 +222,9 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Component**               | Web API | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5, MVC 6 |
-| **Attributes**              | Identity Provider - ADFS, Identity Provider - Azure AD |
+| **Attributes**              | Identity Provider - ADFS, Identity Provider - Microsoft Entra ID |
 | **References**              | N/A  |
-| **Steps** | <p>In certain implementations, sensitive artifacts relevant to Web API's authentication are stored in browser's local storage. E.g., Azure AD authentication artifacts like adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>All these artifacts are available even after sign out or browser is closed. If an adversary gets access to these artifacts, he/she can reuse them to access the protected resources (APIs). Ensure that all sensitive artifacts related to Web API is not stored in browser's storage. In cases where client-side storage is unavoidable (e.g., Single Page Applications (SPA) that leverage Implicit OpenIdConnect/OAuth flows need to store access tokens locally), use storage choices with do not have persistence. e.g., prefer SessionStorage to LocalStorage.</p>| 
+| **Steps** | <p>In certain implementations, sensitive artifacts relevant to Web API's authentication are stored in browser's local storage. E.g., Microsoft Entra authentication artifacts like adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>All these artifacts are available even after sign out or browser is closed. If an adversary gets access to these artifacts, he/she can reuse them to access the protected resources (APIs). Ensure that all sensitive artifacts related to Web API is not stored in browser's storage. In cases where client-side storage is unavoidable (e.g., Single Page Applications (SPA) that leverage Implicit OpenIdConnect/OAuth flows need to store access tokens locally), use storage choices with do not have persistence. e.g., prefer SessionStorage to LocalStorage.</p>| 
 
 ### Example
 The below JavaScript snippet is from a custom authentication library which stores authentication artifacts in local storage. Such implementations should be avoided. 
@@ -239,7 +239,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Cosmos DB
+## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Azure Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -325,7 +325,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
 | **References**              | [Azure Storage Service Encryption for Data at Rest (Preview)](../../storage/common/storage-service-encryption.md) |
-| **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own >encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>| 
+| **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>| 
 
 ## <a id="client-storage"></a>Use Client-Side Encryption to store sensitive data in Azure Storage
 
@@ -396,7 +396,7 @@ If the application is not an enterprise application, then use platform provided 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Crypto Obfuscation For .Net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **References**              | [Crypto Obfuscation For .NET](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Steps** | Generated binaries (assemblies within apk) should be obfuscated to stop reverse engineering of assemblies.Tools like `CryptoObfuscator` may be used for this purpose. |
 
 ## <a id="cert"></a>Set clientCredentialType to Certificate or Windows

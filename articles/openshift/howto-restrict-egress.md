@@ -1,119 +1,81 @@
 ---
 title: Restrict egress traffic in an Azure Red Hat OpenShift (ARO) cluster
 description: Learn what ports and addresses are required to control egress traffic in Azure Red Hat OpenShift (ARO)
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: joharder
+ms.author: joharder
 ms.service: azure-redhat-openshift
+ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 04/09/2021
+ms.date: 10/10/2023
 ---
-# Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)
+# Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster
 
-This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). It contains the cluster requirements for a basic ARO deployment, and more requirements for optional Red Hat and third-party components. An [example](#private-aro-cluster-setup) will be provided at the end on how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
+This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster are proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) is provided at the end showing how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
+
+> [!IMPORTANT]
+> Do not attempt these instructions on older ARO clusters if those clusters don't have the Egress Lockdown feature enabled. To enable the Egress Lockdown feature on older ARO clusters, see [Enable Egress Lockdown](./concepts-egress-lockdown.md#enable-egress-lockdown).
+
 
 ## Before you begin
 
 This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md).
 
-> [!IMPORTANT]
-> ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis.
+## Minimum Required FQDN - Proxied through ARO service
 
-## Minimum Required FQDN / application rules
+This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html
 
-This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/4.6/installing/install_config/configuring-firewall.html
-
-The following FQDN / application rules are required:
+The following FQDNs are proxied through the service, and won't need additional firewall rules. They're here for informational purposes.
 
 | Destination FQDN | Port | Use |
 | ----------- | ----------- | ------------- |
-| **`*.quay.io`** | **HTTPS:443** | Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images. |
-| **`registry.redhat.io`** | **HTTPS:443** | Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, and Red Hat provided container images.
-| **`mirror.openshift.com`** | **HTTPS:443** | This is required in the VDI environment or your laptop to access mirrored installation content and images. It's required in the cluster to download platform release signatures to know what images to pull from quay.io. |
-| **`api.openshift.com`** | **HTTPS:443** | Required  by the cluster to check if there are available updates before downloading the image signatures. |
-| **`arosvc.azurecr.io`** | **HTTPS:443** | Global Internal Private registry for ARO Operators.  Required if you do not allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
-| **`arosvc.$REGION.data.azurecr.io`** | **HTTPS:443** | Regional Internal Private registry for ARO Operators.  Required if you do not allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
-| **`management.azure.com`** | **HTTPS:443** | This is used by the cluster to access Azure APIs. |
-| **`login.microsoftonline.com`** | **HTTPS:443** | This is used by the cluster for authentication to Azure. |
-| **`gcs.prod.monitoring.core.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
-| **`*.blob.core.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
-| **`*.servicebus.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
-| **`*.table.core.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
+| **`arosvc.azurecr.io`** | **HTTPS:443** | Global Internal Private registry for ARO Operators.  Required if you don't allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
+| **`arosvc.$REGION.data.azurecr.io`** | **HTTPS:443** | Regional Internal Private registry for ARO Operators.  Required if you don't allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
+| **`management.azure.com`** | **HTTPS:443** | Used by the cluster to access Azure APIs. |
+| **`login.microsoftonline.com`** | **HTTPS:443** | Used by the cluster for authentication to Azure. |
+| **`*.monitor.core.windows.net`** | **HTTPS:443** | Used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
+| **`*.monitoring.core.windows.net`** | **HTTPS:443** | Used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
+| **`*.blob.core.windows.net`** | **HTTPS:443** | Used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
+| **`*.servicebus.windows.net`** | **HTTPS:443** | Used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
+| **`*.table.core.windows.net`** | **HTTPS:443** | Used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
 
 > [!NOTE] 
-> For many customers exposing *.blob, *.table and other large address spaces creates a potential data exfiltration concern. You may want to consider using the [OpenShift Egress Firewall](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/configuring-egress-firewall.html) to protect applications deployed in the cluster from reaching these destinations and use Azure Private Link for specific application needs.
+> For many customers exposing *.blob, *.table and other large address spaces creates a potential data exfiltration concern. You may want to consider using the [OpenShift Egress Firewall](https://docs.openshift.com/container-platform/latest/networking/openshift_sdn/configuring-egress-firewall.html) to protect applications deployed in the cluster from reaching these destinations and use Azure Private Link for specific application needs.
 
 ---
 
-## Complete list of required and optional FQDNs
+## List of optional FQDNs
 
-### FIRST GROUP: INSTALLING AND DOWNLOADING PACKAGES AND TOOLS
+### ADDITIONAL CONTAINER IMAGES
 
-- **`quay.io`**: Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images.
-- **`registry.redhat.io`**: Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, or Red Hat provided container images such as our middleware, the Universal Base Image...
-- **`sso.redhat.com`**: This one is required in the VDI environment or your laptop to connect to cloud.redhat.com. This is the site where we can download the pull secret, and use some of the SaaS solutions we offer in Red Hat to facilitate monitoring of your subscriptions, cluster inventory, chargeback reporting, among other things.
-- **`openshift.org`**: This one is required in the VDI environment or your laptop to connect to download RH CoreOS images, but in Azure they are picked from the marketplace, there is no need to download OS images.
+- **`registry.redhat.io`**: Used to provide images for things such as Operator Hub. 
+- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall can't use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
 
 ---
 
-### SECOND GROUP: TELEMETRY
+### TELEMETRY
 
-All this section can be opted out, but before we know how, please check what it is: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/about-remote-health-monitoring.html
-- **`cert-api.access.redhat.com`**: Use in your VDI or laptop environment.
-- **`api.access.redhat.com`**: Use in your VDI or laptop environment.
-- **`infogw.api.openshift.com`**: Use in your VDI or laptop environment.
-- **`https://cloud.redhat.com/api/ingress`**: Use in the cluster for the insights operator who integrates with the aaS Red Hat Insights.
-In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
-
----
-
-### THIRD GROUP: CLOUD APIs
-
-- **`management.azure.com`**: This is used by the cluster to access Azure APIs.
+You can opt out of telemetry, but make sure you understand this feature before doing so: https://docs.openshift.com/container-platform/4.12/support/remote_health_monitoring/about-remote-health-monitoring.html
+- **`cert-api.access.redhat.com`**: Used for Red Hat telemetry.
+- **`api.access.redhat.com`**: Used for Red Hat telemetry.
+- **`infogw.api.openshift.com`**: Used for Red Hat telemetry.
+- **`https://cloud.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights (required in 4.10 and earlier only).
+- **`https://console.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights.
 
 ---
 
-### FOURTH GROUP: OTHER OPENSHIFT REQUIREMENTS
+### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
 
-- **`mirror.openshift.com`**: This one is required in the VDI environment or your laptop to access mirrored installation content and images and required in the cluster to download platform release signatures, used by the cluster to know what images to pull from quay.io.
-- **`storage.googleapis.com/openshift-release`**: Alternative site to download platform release signatures, used by the cluster to know what images to pull from quay.io.
-- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
-- **`api.openshift.com`**: Required  by the cluster to check if there are available updates before downloading the image signatures.
+- **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
+- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
+- **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative.
 - **`registry.access.redhat.com`**: Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
-
----
-
-### FIFTH GROUP: MICROSOFT & RED HAT ARO MONITORING SERVICE
-
-- **`login.microsoftonline.com`**: This is used by the cluster for authentication to Azure.
-- **`gcs.prod.monitoring.core.windows.net`**: This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s).
-- **`*.blob.core.windows.net`**: This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s).
-- **`*.servicebus.windows.net`**: This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s).
-- **`*.table.core.windows.net`**: This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s).
+- **`access.redhat.com`**: Used in conjunction with `registry.access.redhat.com` when pulling images. Failure to add this access could result in an error message.
 
 ## ARO integrations
 
-### Azure Monitor for containers
+### Azure Monitor container insights
 
-There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.  Here are the [instructions](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) on how to add Azure Monitor to your existing ARO cluster.
-
-#### Required network rules
-
-The following FQDN / application rules are required:
-
-| Destination Endpoint                                                             | Protocol | Port    | Use  |
-|----------------------------------------------------------------------------------|----------|---------|------|
-| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureMonitor:443`**  | TCP           | 443      | This endpoint is used to send metrics data and logs to Azure Monitor and Log Analytics. |
-
-#### Required FQDN / application rules
-
-The following FQDN / application rules are required for ARO clusters that have the Azure Monitor for containers enabled:
-
-| FQDN                                    | Port      | Use      |
-|-----------------------------------------|-----------|----------|
-| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
-| **`*.ods.opinsights.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
-| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
-| **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
+ARO clusters can be monitored using the Azure Monitor container insights extension. Review the pre-requisites and instructions for [enabling the extension](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).
 
 
 ## Private ARO cluster setup
@@ -137,12 +99,12 @@ LOCATION=eastus # The location where ARO cluster is deployed
 ```
 
 ### Create a resource group
-```bash
+```azurecli
 az group create -g "$RESOURCEGROUP" -l $LOCATION
 ```
 
 ### Create the virtual network
-```bash
+```azurecli
 az network vnet create \
   -g $RESOURCEGROUP \
   -n $AROVNET \
@@ -150,7 +112,7 @@ az network vnet create \
 ```
 
 ### Add two empty subnets to your virtual network
-```bash
+```azurecli
   az network vnet subnet create \
     -g "$RESOURCEGROUP" \
     --vnet-name $AROVNET \
@@ -167,7 +129,7 @@ az network vnet create \
 ```
 
 ### Disable network policies for Private Link Service on your virtual network and subnets. This is a requirement for the ARO service to access and manage the cluster.
-```bash
+```azurecli
 az network vnet subnet update \
   -g "$RESOURCEGROUP" \
   --vnet-name $AROVNET \
@@ -175,7 +137,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true
 ```
 ### Create a Firewall Subnet
-```bash
+```azurecli
 az network vnet subnet create \
     -g "$RESOURCEGROUP" \
     --vnet-name $AROVNET \
@@ -185,7 +147,7 @@ az network vnet subnet create \
 
 ## Create a jump-host VM
 ### Create a jump-subnet
-```bash
+```azurecli
   az network vnet subnet create \
     -g "$RESOURCEGROUP" \
     --vnet-name $AROVNET \
@@ -194,14 +156,14 @@ az network vnet subnet create \
     --service-endpoints Microsoft.ContainerRegistry
 ```
 ### Create a jump-host VM
-```bash
+```azurecli
 VMUSERNAME=aroadmin
 
 az vm create --name ubuntu-jump \
              --resource-group $RESOURCEGROUP \
-             --ssh-key-values ~/.ssh/id_rsa.pub \
+             --generate-ssh-keys \
              --admin-username $VMUSERNAME \
-             --image UbuntuLTS \
+             --image Ubuntu2204 \
              --subnet $JUMPSUBNET \
              --public-ip-address jumphost-ip \
              --vnet-name $AROVNET 
@@ -222,9 +184,9 @@ Keep the saved `pull-secret.txt` file somewhere safe - it will be used in each c
 
 When running the `az aro create` command, you can reference your pull secret using the `--pull-secret @pull-secret.txt` parameter. Execute `az aro create` from the directory where you stored your `pull-secret.txt` file. Otherwise, replace `@pull-secret.txt` with `@<path-to-my-pull-secret-file`.
 
-If you are copying your pull secret or referencing it in other scripts, your pull secret should be formatted as a valid JSON string.
+If you're copying your pull secret or referencing it in other scripts, format your pull secret as a valid JSON string.
 
-```bash
+```azurecli
 az aro create \
   -g "$RESOURCEGROUP" \
   -n "$CLUSTER" \
@@ -239,41 +201,41 @@ az aro create \
 ## Create an Azure Firewall
 
 ### Create a public IP Address
-```bash
+```azurecli
 az network public-ip create -g $RESOURCEGROUP -n fw-ip --sku "Standard" --location $LOCATION
 ```
 ### Update install Azure Firewall extension
-```bash
+```azurecli
 az extension add -n azure-firewall
 az extension update -n azure-firewall
 ```
 
 ### Create Azure Firewall and configure IP Config
-```bash
+```azurecli
 az network firewall create -g $RESOURCEGROUP -n aro-private -l $LOCATION
 az network firewall ip-config create -g $RESOURCEGROUP -f aro-private -n fw-config --public-ip-address fw-ip --vnet-name $AROVNET
 
 ```
 
 ### Capture Azure Firewall IPs for a later use
-```bash
+```azurecli
 FWPUBLIC_IP=$(az network public-ip show -g $RESOURCEGROUP -n fw-ip --query "ipAddress" -o tsv)
-FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIpAddress" -o tsv)
+FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIPAddress" -o tsv)
 
 echo $FWPUBLIC_IP
 echo $FWPRIVATE_IP
 ```
 
 ### Create a UDR and Routing Table for Azure Firewall
-```bash
+```azurecli
 az network route-table create -g $RESOURCEGROUP --name aro-udr
 
 az network route-table route create -g $RESOURCEGROUP --name aro-udr --route-table-name aro-udr --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
 ```
 
 ### Add Application Rules for Azure Firewall
-Rule for OpenShift to work based on this [list](https://docs.openshift.com/container-platform/4.3/installing/install_config/configuring-firewall.html#configuring-firewall_configuring-firewall):
-```bash
+Example rule for telemetry to work. Additional possibilities are listed [here](https://docs.openshift.com/container-platform/4.3/installing/install_config/configuring-firewall.html#configuring-firewall_configuring-firewall):
+```azurecli
 az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
  --collection-name 'ARO' \
  --action allow \
@@ -281,10 +243,10 @@ az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
  -n 'required' \
  --source-addresses '*' \
  --protocols 'http=80' 'https=443' \
- --target-fqdns 'registry.redhat.io' '*.quay.io' 'sso.redhat.com' 'management.azure.com' 'mirror.openshift.com' 'api.openshift.com' 'quay.io' '*.blob.core.windows.net' 'gcs.prod.monitoring.core.windows.net' 'registry.access.redhat.com' 'login.microsoftonline.com' '*.servicebus.windows.net' '*.table.core.windows.net' 'grafana.com'
+ --target-fqdns 'cert-api.access.redhat.com' 'api.openshift.com' 'api.access.redhat.com' 'infogw.api.openshift.com'
 ```
 Optional rules for Docker images:
-```bash
+```azurecli
 az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
  --collection-name 'Docker' \
  --action allow \
@@ -296,7 +258,7 @@ az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
 ```
 
 ### Associate ARO Subnets to FW
-```bash
+```azurecli
 az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CLUSTER-master" --route-table aro-udr
 az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CLUSTER-worker" --route-table aro-udr
 ```
@@ -304,14 +266,14 @@ az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CL
 ## Test the configuration from the Jumpbox
 These steps work only if you added rules for Docker images. 
 ### Configure the jumpbox
-Log into a jumpbox VM and install `azure-cli`, `oc-cli`, and `jq` utils. For the installation of openshift-cli, check the Red Hat customer portal.
+Log in to a jumpbox VM and install `azure-cli`, `oc-cli`, and `jq` utils. For the installation of openshift-cli, check the Red Hat customer portal.
 ```bash
 #Install Azure-cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 #Install jq
 sudo apt install jq -y
 ```
-### Log into the ARO cluster
+### Log in to the ARO cluster
 List cluster credentials:
 ```bash
 
@@ -326,7 +288,7 @@ ARO_PASSWORD=$(az aro list-credentials -n $CLUSTER -g $RESOURCEGROUP -o json | j
 ARO_USERNAME=$(az aro list-credentials -n $CLUSTER -g $RESOURCEGROUP -o json | jq -r '.kubeadminUsername')
 ```
 Get an API server endpoint:
-```bash
+```azurecli
 ARO_URL=$(az aro show -n $CLUSTER -g $RESOURCEGROUP -o json | jq -r '.apiserverProfile.url')
 ```
 
@@ -398,7 +360,7 @@ sudo ssh -i /Users/jimzim/.ssh/id_rsa -L 443:console-openshift-console.apps.d5xm
 
 ## Clean up resources
 
-```bash
+```azurecli
 
 # Clean up the ARO cluster, vnet, firewall and jumpbox
 

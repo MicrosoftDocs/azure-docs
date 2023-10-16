@@ -1,22 +1,24 @@
 ---
-title: B2B collaboration API and customization - Azure Active Directory
-description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
+title: B2B collaboration API and customization
+description: Microsoft Entra B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 12/02/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to customize the invitation process with the API.
 ---
-# Azure Active Directory B2B collaboration API and customization
+# Microsoft Entra B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
+[With the Microsoft Graph REST API](/graph/api/resources/invitation), you can customize the invitation process in a way that works best for your organization.
 
 ## Capabilities of the invitation API
 
@@ -25,8 +27,8 @@ The API offers the following capabilities:
 1. Invite an external user with *any* email address.
 
     ```
-    "invitedUserDisplayName": "Sam"
-    "invitedUserEmailAddress": "gsamoogle@gmail.com"
+    "invitedUserDisplayName": "Taylor"
+    "invitedUserEmailAddress": "taylor@fabrikam.com"
     ```
 
 2. Customize where you want your users to land after they accept their invitation.
@@ -35,13 +37,13 @@ The API offers the following capabilities:
     "inviteRedirectUrl": "https://myapps.microsoft.com/"
     ```
 
-3. Choose to send the standard invitation mail through us
+3. Choose to send the standard invitation mail through us.
 
     ```
     "sendInvitationMessage": true
     ```
 
-   with a message to the recipient that you can customize
+   with a message to the recipient that you can customize.
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -49,7 +51,7 @@ The API offers the following capabilities:
 
 4. And choose to cc: people you want to keep in the loop about your inviting this collaborator.
 
-5. Or completely customize your invitation and onboarding workflow by choosing not to send notifications through Azure AD.
+5. Or completely customize your invitation and onboarding workflow by choosing not to send notifications through Microsoft Entra ID.
 
     ```
     "sendInvitationMessage": false
@@ -57,7 +59,7 @@ The API offers the following capabilities:
 
    In this case, you get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
 
-6. Finally, if you are an admin, you can choose to invite the user as member.
+6. Finally, if you're an admin, you can choose to invite the user as member.
 
     ```
     "invitedUserType": "Member"
@@ -65,7 +67,7 @@ The API offers the following capabilities:
 
 ## Determine if a user was already invited to your directory
 
-You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If the user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the already email exists as a UPN or other sign-in property.
+You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If the user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the email already exists as a UPN or other sign-in property.
 
 1. Make sure the user's email domain isn't part of your resource tenant's verified domain.
 2. In the resource tenant, use the following get user query where {0} is the email address you're inviting:
@@ -86,8 +88,7 @@ In this mode, whoever is using the API needs to have the permissions to be creat
 
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
-For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
-
+For more information, see: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 ## PowerShell
 
@@ -119,7 +120,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 ```
 
 > [!NOTE]
-> Make sure you have the latest version of the AzureAD PowerShell module or AzureADPreview PowerShell module. 
+> Make sure you have the latest version of the Azure AD PowerShell module or AzureADPreview PowerShell module. 
 
 ## See also
 
@@ -127,7 +128,6 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 
 ## Next steps
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
+- [Add and invite guest users](add-users-administrator.md)
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
-- [B2B collaboration invitation redemption](redemption-experience.md)
-- [Add B2B collaboration users without an invitation](add-user-without-invite.md)

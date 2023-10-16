@@ -2,12 +2,12 @@
 title: 'Tutorial: Load balance multiple IP configurations - Azure portal'
 titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 08/08/2021
-ms.custom: template-tutorial
+ms.date: 12/12/2022
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Load balance multiple IP configurations using the Azure portal 
@@ -48,41 +48,46 @@ In this section, you'll create a virtual network for the load balancer and virtu
     | Resource Group   | Select **Create new**. </br> In **Name** enter **TutorialLBIP-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(Europe) West Europe** |
+    | Region           | Select **West Europe** |
 
-5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+5. Select the **IP Addresses** tab or select **Next: IP Addresses**.
 
-6. In the **IP Addresses** tab, enter this information:
+6. In the **IP Addresses** tab, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16** |
 
-7. Under **Subnet name**, select the word **default**.
+7. Select **+ Add subnet**.
 
-8. In **Edit subnet**, enter this information:
+8. In **Add subnet**, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **myBackendSubnet** |
     | Subnet address range | Enter **10.1.0.0/24** |
 
-9. Select **Save**.
+9. Select **Add**.
 
 10. Select the **Security** tab.
 
-11. Under **BastionHost**, select **Enable**. Enter this information:
+11. Under **BastionHost**, select **Enable**. Enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-
-12. Select the **Review + create** tab or select the **Review + create** button.
+12. Select the **Review + create** tab or select the blue **Review + create** button at the bottom of the page.
 
 13. Select **Create**.
+
+ > [!IMPORTANT]
+
+ > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+ >
 
 ## Create NAT gateway
 
@@ -104,7 +109,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
 
-4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
+4. Select the **Outbound IP** tab select the **Next: Outbound IP**.
 
 5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
 
@@ -112,13 +117,13 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 7. Select **OK**.
 
-8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
+8. Select the **Subnet** tab or **Next: Subnet**.
 
 9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
 
 10. Select **myBackendSubnet** under **Subnet name**.
 
-11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
+11. Select **Review + create**.
 
 12. Select **Create**.
 
@@ -128,7 +133,7 @@ In this section, you'll create two virtual machines to host the IIS websites.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. In **Virtual machines**, select **+ Create** then **+ Virtual machine**.
+2. In **Virtual machines**, select **+ Create** then **Azure virtual machine**.
 
 3. In **Create virtual machine**, enter or select the following information:
 
@@ -142,8 +147,8 @@ In this section, you'll create two virtual machines to host the IIS websites.
     | Region | Select **(Europe) West Europe** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **1** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1** |
-    | Azure Spot instance | Leave the default of unchecked. |
+    | Security type | Leave the default of **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter - Gen2** |
     | Size | Choose VM size or take default setting |
     | **Administrator account** |  |
     | Username | Enter a username |
@@ -152,24 +157,24 @@ In this section, you'll create two virtual machines to host the IIS websites.
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None** |
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the Networking tab, select or enter:
+5. In the Networking tab, select or enter:
 
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **myBackendSubnet** |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **myBackendSubnet(10.1.0.0/24)** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGrule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In **Create network security group**, enter **myNSG** in **Name**. </br> In **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> In **Priority**, enter **100**. </br> In **Name**, enter **myNSGrule** </br> Select **Add** </br> Select **OK** |
    
-7. Select **Review + create**. 
+6. Select **Review + create**. 
   
-8. Review the settings, and then select **Create**.
+7. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create another VM with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 to 7 to create another VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 |
     | ------- | ---- |
@@ -189,7 +194,7 @@ For more information on configuring floating IP in the virtual machine configura
 
 2. Select **myVM1**.
 
-3. If the virtual machine is running, stop the virtual machine. 
+3. Stop the virtual machine if it's running.
 
 4. Select **Networking** in **Settings**.
 
@@ -254,29 +259,91 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
 
 4. In **Overview**, select **Connect** then **Bastion**.
 
-5. Select **Use Bastion**.
+5. Enter the username and password you entered when you created the virtual machine.
 
-6. Enter the username and password you entered when you created the virtual machine.
+6. Select **Allow** for Bastion to use the clipboard.
 
-7. Select **Allow** for Bastion to use the clipboard.
+7. On the server desktop, navigate to Start > Windows Administrative Tools > Windows PowerShell > Windows PowerShell.
 
-8. On the server desktop, navigate to Start > Windows Administrative Tools > Windows PowerShell > Windows PowerShell.
-
-9. In the PowerShell window, execute the `route print` command, which returns output similar to the following output for a virtual machine with two attached network interfaces:
+8. In the PowerShell window, execute the `route print` command, which returns output similar to the following output for a virtual machine with two attached network interfaces:
 
     ```console
     ===========================================================================
     Interface List
-      6...00 22 48 86 00 53 ......Microsoft Hyper-V Network Adapter #2
-     13...00 22 48 83 0b da ......Microsoft Hyper-V Network Adapter #3
+      4...60 45 bd 9c c7 00 ......Microsoft Hyper-V Network Adapter
+     11...60 45 bd 8d 44 fa ......Microsoft Hyper-V Network Adapter #3
       1...........................Software Loopback Interface 1
     ===========================================================================
+
+    IPv4 Route Table
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0         10.1.0.1         10.1.0.4     10
+             10.1.0.0    255.255.255.0         On-link          10.1.0.4    266
+             10.1.0.0    255.255.255.0         On-link          10.1.0.6    266
+             10.1.0.4  255.255.255.255         On-link          10.1.0.4    266
+             10.1.0.6  255.255.255.255         On-link          10.1.0.6    266
+           10.1.0.255  255.255.255.255         On-link          10.1.0.4    266
+           10.1.0.255  255.255.255.255         On-link          10.1.0.6    266
+            127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+            127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+      127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+        168.63.129.16  255.255.255.255         10.1.0.1         10.1.0.4     11
+      169.254.169.254  255.255.255.255         10.1.0.1         10.1.0.4     11
+            224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+            224.0.0.0        240.0.0.0         On-link          10.1.0.4    266
+            224.0.0.0        240.0.0.0         On-link          10.1.0.6    266
+      255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      255.255.255.255  255.255.255.255         On-link          10.1.0.4    266
+      255.255.255.255  255.255.255.255         On-link          10.1.0.6    266
+    ===========================================================================
+    Persistent Routes:
+      None
+
+    IPv6 Route Table
+    ===========================================================================
+    Active Routes:
+     If Metric Network Destination      Gateway
+      1    331 ::1/128                  On-link
+      4    266 fe80::/64                On-link
+     11    266 fe80::/64                On-link
+     11    266 fe80::382:8783:5d2:f71e/128       
+                                        On-link
+      4    266 fe80::1575:ced8:3e94:f23a/128
+                                        On-link
+      1    331 ff00::/8                 On-link
+      4    266 ff00::/8                 On-link
+     11    266 ff00::/8                 On-link
+    ===========================================================================
+    Persistent Routes:
+      None
     ```
     In this example, **Microsoft Hyper-V Network Adapter #3 (interface 13)** is the secondary network interface that doesn't have a default gateway assigned to it.
 
-10. In the PowerShell window, execute the `ipconfig /all` command to see which IP address is assigned to the secondary network interface. In this example, 10.1.0.6 is assigned to interface 13. No default gateway address is returned for the secondary network interface.
+9. In the PowerShell window, execute the `ipconfig /all` command to see which IP address is assigned to the secondary network interface. In this example, **10.1.0.6** is assigned to interface 13. No default gateway address is returned for the secondary network interface.
 
-11. To route all traffic for addresses outside the subnet to the gateway, execute the following command:
+    ```console
+
+       Connection-specific DNS Suffix  . : pbu0t5vjr3sevaritkncspakhd.ax.internal.cloudapp.net
+       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter #3
+       Physical Address. . . . . . . . . : 60-45-BD-A1-75-FB
+       DHCP Enabled. . . . . . . . . . . : Yes
+       Autoconfiguration Enabled . . . . : Yes
+       Link-local IPv6 Address . . . . . : fe80::dfb3:b93e:3516:c5b6%12(Preferred)
+       IPv4 Address. . . . . . . . . . . : 10.1.0.6(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       Lease Obtained. . . . . . . . . . : Monday, December 12, 2022 7:42:31 PM
+       Lease Expires . . . . . . . . . . : Friday, January 19, 2159 2:17:19 AM
+       Default Gateway . . . . . . . . . :
+       DHCP Server . . . . . . . . . . . : 168.63.129.16
+       DHCPv6 IAID . . . . . . . . . . . : 207635901
+       DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2B-28-C9-C0-60-45-BD-9B-ED-AE
+       DNS Servers . . . . . . . . . . . : 168.63.129.16
+       NetBIOS over Tcpip. . . . . . . . : Enabled
+    ```
+
+10. To route all traffic for addresses outside the subnet to the gateway, execute the following command:
 
     ```console
     route -p add 0.0.0.0 MASK 0.0.0.0 10.1.0.1 METRIC 5015 IF 13
@@ -284,7 +351,7 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
 
     In this example, **10.1.0.1** is the default gateway for the virtual network you created previously.
 
-12. Execute the following commands in the PowerShell windows to install and configure IIS and the test websites:
+11. Execute the following commands or copy and paste the code into the PowerShell window to install and configure IIS and the test websites:
 
     ```powershell
     ## Install IIS and the management tools. ##
@@ -303,7 +370,7 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
         Name = 'Default Web Site'
         BindingInformation = '*:80:'
     }
-    Remove-IISSiteBinding @para2 -Force
+    Remove-IISSiteBinding @para2
 
     ## Remove the default htm file. ##
     Remove-Item c:\inetpub\wwwroot\iisstart.htm
@@ -338,11 +405,11 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
 
     }
     Add-Content @para6
-
     ```
-13. Close the Bastion connection to **myVM1**.
 
-14. Repeat steps 1 through 13 for **myVM2**. Use the PowerShell code below for **myVM2** for the IIS install.
+12. Close the Bastion connection to **myVM1**.
+
+13. Repeat steps 1 through 12 for **myVM2**. Use the following PowerShell code for **myVM2** for the IIS install.
 
     ```powershell
     ## Install IIS and the management tools. ##
@@ -395,7 +462,6 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
         Value = $("Hello World from www.fabrikam.com" + "-" + $env:computername)
     }
     Add-Content @para6
-
     ```
 
 ## Create load balancer
@@ -407,7 +473,7 @@ With zone-redundancy, one or more availability zones can fail and the data path 
 During the creation of the load balancer, you'll configure:
 
 * Two frontend IP addresses, one for each website.
-* Backend pool
+* Backend pools
 * Inbound load-balancing rules
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
@@ -423,145 +489,133 @@ During the creation of the load balancer, you'll configure:
     | Resource group         | Select **TutorialLBIP-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **(Europe) West Europe**.                                        |
-    | Type          | Select **Public**.                                        |
+    | Region         | Select **West Europe**.                                        |
     | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
 
-4. Select **Next: Frontend IP configuration** at the bottom of the page.
+4. Select **Next: Frontend IP configuration**.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
-6. Enter **Frontend-contoso** in **Name**.
+6. Enter or select the following information in **Add frontend IP configuration**:
 
-7. Select **IPv4** for the **IP version**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **Frontend-contoso**. |
+    | IP version | Select **IPv4**. |
+    | IP type | Select **IP address**. |
+    | Public IP address | Select **Create new**. </br> Enter **myPublicIP-contoso** for **Name** </br> Select **Zone-redundant** in **Availability zone**. </br> Leave the default of **Microsoft Network** for **Routing preference**. </br> Select **OK**. |
 
     > [!NOTE]
     > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
-
-8. Select **IP address** for the **IP type**.
-
-    > [!NOTE]
+    >
     > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
-
-9. Select **Create new** in **Public IP address**.
-
-10. In **Add a public IP address**, enter **myPublicIP-contoso** for **Name**.
-
-11. Select **Zone-redundant** in **Availability zone**.
-
-    > [!NOTE]
+    >
     > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
-12. Leave the default of **Microsoft Network** for **Routing preference**.
+7. Select **Add**.
 
-13. Select **OK**.
+8. Select **+ Add a frontend IP configuration**.
 
-14. Select **Add**.
+9. Enter or select the following information in **Add frontend IP configuration**:
 
-14. Select **+ Add a frontend IP**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **Frontend-fabrikam**. |
+    | IP version | Select **IPv4**. |
+    | IP type | Select **IP address**. |
+    | Public IP address | Select **Create new**. </br> Enter **myPublicIP-fabrikam** for **Name** </br> Select **Zone-redundant** in **Availability zone**. </br> Leave the default of **Microsoft Network** for **Routing preference**. </br> Select **OK**. |
 
-15. Enter **Frontend-fabrikam** in **Name**.
+10. Select **Add**.
 
-7. Select **IPv4** for the **IP version**.
+11. Select **Next: Backend pools**.
 
-8. Select **IP address** for the **IP type**.
+12. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-9. Select **Create new** in **Public IP address**.
+13. Enter or select the following information in **Add a backend pool**:
 
-10. In **Add a public IP address**, enter **myPublicIP-fabrikam** for **Name**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myBackendPool-contoso**. |
+    | Virtual network | Select **myVNet**. |
+    | Backend Pool Configuration | Select **NIC**. |
 
-11. Select **Zone-redundant** in **Availability zone**.
+14. In **IP configurations**, select **+ Add**.
 
-14. Select **Add**.
+15. Select **myVM1** and **myVM2** that correspond with **ipconfig1 (10.1.0.4)** and **ipconfig1 (10.1.0.5)**.
 
-15. Select **Next: Backend pools** at the bottom of the page.
+16. Select **Add**.
 
-16. In the **Backend pools** tab, select **+ Add a backend pool**.
+17. Select **Save**.
 
-17. Enter **myBackendPool-contoso** for **Name** in **Add backend pool**.
+18. Select **+ Add a backend pool**.
 
-18. Select **myVNet** in **Virtual network**.
+19. Enter or select the following information in **Add a backend pool**:
 
-19. Select **NIC** for **Backend Pool Configuration**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myBackendPool-fabrikam**. |
+    | Virtual network | Select **myVNet**. |
+    | Backend Pool Configuration | Select **NIC**. |
 
-20. Select **IPv4** for **IP version**.
+20. In **IP configurations**, select **+ Add**.
 
-21. In **Virtual machines**, select **+ Add**.
+21. Select **myVM1** and **myVM2** that correspond with **ipconfig1 (10.1.0.6)** and **ipconfig1 (10.1.0.7)**.
 
-22. Select **myVM1** and **myVM2** that correspond with **ipconfig1 (10.1.0.4)** and **ipconfig1 (10.1.0.5)**.
+22. Select **Add**.
 
-23. Select **Add**.
+23. Select **Save**.
 
-21. Select **Add**.
+24. Select **Next: Inbound rules**.
 
-22. Select **+ Add a backend pool**.
+25. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
-23. Enter **myBackendPool-fabrikam** for **Name** in **Add backend pool**.
-
-24. Select **myVNet** in **Virtual network**.
-
-19. Select **NIC** for **Backend Pool Configuration**.
-
-20. Select **IPv4** for **IP version**.
-
-21. In **Virtual machines**, select **+ Add**.
-
-22. Select **myVM1** and **myVM2** that correspond with **ipconfig1 (10.1.0.6)** and **ipconfig1 (10.1.0.7)**.
-
-23. Select **Add**.
-
-21. Select **Add**.
-
-22. Select the **Next: Inbound rules** button at the bottom of the page.
-
-23. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
-
-24. In **Add load balancing rule**, enter or select the following information:
+26. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myHTTPRule-contoso** |
     | IP Version | Select **IPv4**. |
     | Frontend IP address | Select **Frontend-contoso**. |
+    | Backend pool | Select **myBackendPool-contoso**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool-contoso**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-contoso**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-contoso**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-25. Select **Add**.
+27. Select **Add**.
 
-26. Select **Add a load balancing rule**.
+28. Select **Add a load balancing rule**.
 
-27. In **Add load balancing rule**, enter or select the following information:
+29. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myHTTPRule-fabrikam** |
     | IP Version | Select **IPv4**. |
     | Frontend IP address | Select **Frontend-fabrikam**. |
+    | Backend pool | Select **myBackendPool-fabrikam**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool-fabrikam**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-fabrikam**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-fabrikam**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-25. Select **Add**.
+30. Select **Add**.
 
-26. Select the blue **Review + create** button at the bottom of the page.
+31. Select the blue **Review + create** button at the bottom of the page.
 
-27. Select **Create**.
+32. Select **Create**.
 
     > [!NOTE]
     > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
@@ -597,8 +651,7 @@ In this section, you'll discover the public IP address for each website. You'll 
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the virtual machines and load balancer with the following steps:
+If you're not going to continue to use this application, delete the virtual machines and load balancer with the following steps:
 
 1. In the search box at the top of the portal, enter **Resource group**.  Select **Resource groups** in the search results.
 

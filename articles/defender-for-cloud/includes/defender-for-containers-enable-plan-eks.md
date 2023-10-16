@@ -1,14 +1,15 @@
 ---
-author: elkrieger
 ms.service: defender-for-cloud
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 02/27/2022
-ms.author: elkrieger
+ms.date: 07/14/2022
+ms.author: dacurwin
+author: dcurwin
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
 > [!IMPORTANT]
-> If you haven't already connected an AWS account, do so now using the instructions in [Connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
+> If you haven't already connected an AWS account, [connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
 
 To protect your EKS clusters, enable the Containers plan on the relevant account connector:
 
@@ -28,13 +29,14 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
     > [!Note]
     > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](../supported-machines-endpoint-solutions-clouds-containers.md).
 
+1. (Optional) Enable vulnerability scanning of your ECR images. Learn more about [vulnerability assessment for ECR images](../defender-for-containers-vulnerability-assessment-elastic.md).
+
 1. Continue through the remaining pages of the connector wizard.
 
-1. Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There are 2 dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
+1. Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
     - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
-    - `EKS clusters should have the Azure Policy extension installed`
-    
-    For each of the recommendations, follow follow the steps below to install the required extensions.
+
+    For each of the recommendations, follow the steps below to install the required extensions.
 
     **To install the required extensions**:
     1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
@@ -60,4 +62,4 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
 To view the alerts and recommendations for your EKS clusters, use the filters on the alerts, recommendations, and inventory pages to filter by resource type **AWS EKS cluster**.
 
-:::image type="content" source="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png" alt-text="Screenshot of how to use filters on Microsoft Defender for Cloud's alerts page to view alerts related to AWS EKS clusters." lightbox="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png":::
+:::image type="content" source="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png" alt-text="Screenshot of how to use filters on Microsoft Defender for Cloud's security alerts page to view alerts related to AWS EKS clusters." lightbox="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png":::

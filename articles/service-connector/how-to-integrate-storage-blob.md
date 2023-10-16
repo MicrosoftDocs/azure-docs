@@ -1,79 +1,135 @@
 ---
 title: Integrate Azure Blob Storage with Service Connector
 description: Integrate Azure Blob Storage into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.date: 06/13/2022
+zone_pivot_group_filename: service-connector/zone-pivot-groups.json
+zone_pivot_groups: howto-authtype
 ---
 
 # Integrate Azure Blob Storage with Service Connector
 
-This page shows the supported authentication types and client types of Azure Blob Storage using Service Connector. You might still be able to connect to Azure Blob Storage in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types, client types and sample codes of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. Also detail steps with sample codes about how to make connection to the blob storage. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute service
 
 - Azure App Service
-- Azure Spring Cloud
+- Azure Container Apps
+- Azure Spring Apps
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .Net | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | | | ![yes icon](./media/green-check.png) | |
-| Node.js | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
 
-## Default environment variable names or application properties
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-### .NET, Java, Node.JS, Python
 
-**Secret/ConnectionString**
+---
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+## Default environment variable names or application properties and sample codes
 
-**System-assigned Managed Identity**
+Reference the connection details and sample codes in following tables, accordings to your connection's authentication type and client type, to connect compute services to Azure Blob Storage. Please go to beginning of the documentation to choose authentication type.
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+::: zone pivot="system-identity"
 
-**User-assigned Managed Identity**
+### System-assigned managed identity
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
-| AZURE_STORAGEBLOB_CLIENTID | Your client ID | `{yourClientID}` |
+| Default environment variable name  | Description           | Example value                                           |
+|------------------------------------|-----------------------|---------------------------------------------------------|
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
 
-**Service Principal**
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
-| AZURE_STORAGEBLOB_CLIENTID | Your client ID | `{yourClientID}` |
-| AZURE_STORAGEBLOB_CLIENTSECRET | Your client secret | `{yourClientSecret}` |
-| AZURE_STORAGEBLOB_TENANTID | Your tenant ID | `{yourTenantID}` |
+#### Sample codes
 
-### Java - Spring Boot
+Follow these steps and sample codes to connect to Azure Blob Storage with system-assigned managed identity.
+[!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
-**Secret/ConnectionString**
+::: zone-end
 
-| Application properties | Description | Example value |
-| --- | --- | --- |
-| azure.storage.account-name | Your blob storage account name | `{storageAccountName}` |
-| azure.storage.account-key | Your blob storage account key | `{yourSecret}` |
-| azure.storage.blob-endpoint | Your blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+::: zone pivot="user-identity"
+
+### User-assigned managed identity
+
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
+
+| Default environment variable name  | Description           | Example value                                           |
+|------------------------------------|-----------------------|---------------------------------------------------------|
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_CLIENTID         | Your client ID        | `<client-ID>`                                           |
+
+#### Sample codes
+
+Follow these steps and sample codes to connect to Azure Blob Storage with user-assigned managed identity.
+[!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
+
+::: zone-end
+
+
+::: zone pivot="connection-string"
+
+### Connection string
+
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
+
+#### SpringBoot client type
+
+| Application properties      | Description                    | Example value                                           |
+|-----------------------------|--------------------------------|---------------------------------------------------------|
+| azure.storage.account-name  | Your Blob storage-account-name | `<storage-account-name>`                                |
+| azure.storage.account-key   | Your Blob Storage account key  | `<account-key>`                                          |
+| azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
+
+
+#### other client types
+| Default environment variable name  | Description                    | Example value                                                                                                       |
+|------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+
+
+#### Sample codes
+
+Follow these steps and sample codes to connect to Azure Blob Storage with connection string.
+[!INCLUDE [code sample for blob](./includes/code-blob-secret.md)]
+
+::: zone-end
+
+::: zone pivot="service-principal"
+
+### Service principal
+
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
+
+| Default environment variable name  | Description           | Example value                                           |
+|------------------------------------|-----------------------|---------------------------------------------------------|
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_CLIENTID         | Your client ID        | `<client-ID>`                                           |
+| AZURE_STORAGEBLOB_CLIENTSECRET     | Your client secret    | `<client-secret>`                                       |
+| AZURE_STORAGEBLOB_TENANTID         | Your tenant ID        | `<tenant-ID>`                                           |
+
+#### Sample codes
+
+Follow these steps and sample codes to connect to Azure Blob Storage with service principal.
+[!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
+
+::: zone-end
 
 ## Next steps
 
-Follow the tutorials listed below to learn more about Service Connector.
+Follow the tutorials to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

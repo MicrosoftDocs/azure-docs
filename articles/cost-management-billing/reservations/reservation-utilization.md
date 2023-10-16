@@ -2,11 +2,11 @@
 title: View Azure reservation utilization
 description: Learn how to get reservation utilization and details.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -42,6 +42,11 @@ There are two options for Power BI users:
 
 - Cost Management connector for Power BI Desktop - Reservation purchase date and utilization data are available in the [Cost Management connector for Power BI Desktop](/power-bi/desktop-connect-azure-cost-management). Create the reports you want by using the connector.
 - Cost Management Power BI App - Use the [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) for pre-created reports that you can further customize.
+
+## Set alerts on utilization
+
+With reservation utilization alerts, you can promptly take remedial actions to ensure optimal utilization of your reservation purchases. To learn more, see [Reservation utilization alerts](../costs/reservation-utilization-alerts.md).
+
 
 ## Next steps
 

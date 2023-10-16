@@ -3,7 +3,7 @@ title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 06/01/2022
 ms.author: helohr
 manager: femila
 ---
@@ -22,28 +22,20 @@ The latter method is a lot more efficient and cost-effective. However, it's up t
 
 You need the following things to customize your Windows 10 Enterprise multi-session images to add multiple languages:
 
-- An Azure virtual machine (VM) with Windows 10 Enterprise multi-session, version 1903 or later
+- An Azure virtual machine (VM) with a [supported version of Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education).
 
 - The Language ISO, Feature on Demand (FOD) Disk 1, and Inbox Apps ISO of the OS version the image uses. You can download them here:
      
      - Language ISO:
-        - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, version 2004 or later Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10 Language Pack ISO (version 2004 or later)](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - FOD Disk 1 ISO:
-        - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, version 2004 or later FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10 FOD Disk 1 ISO (version 2004 or later)](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inbox Apps ISO:
-        - [Windows 10, version 1903 or 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
-        - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
-        - [Windows 10, version 20H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
-        - [Windows 10, version 21H1 or 21H2 Inbox Apps ISO](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+        - [Windows 10 Inbox Apps ISO (version 21H1 or later)](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/19041.3031.230508-1728.vb_release_svc_prod3_amd64fre_InboxApps.iso)
      
-     - If you use Local Experience Pack (LXP) ISO files to localize your images, you will also need to download the appropriate LXP ISO for the best language experience
-        - If you're using Windows 10, version 1903 or 1909:
-          - [Windows 10, version 1903 or 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
-        - If you're using Windows 10, version 2004, 20H2, or 21H1, use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
+     - If you use Local Experience Pack (LXP) ISO files to localize your images, you'll also need to download the appropriate LXP ISO for the best language experience. Use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
           - [Windows 10, version 2004 or later 01C 2021 LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
           - [Windows 10, version 2004 or later 02C 2021 LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
           - [Windows 10, version 2004 or later 04B 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
@@ -54,7 +46,9 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004 or later 11C 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2111C.iso)
           - [Windows 10, version 2004 or later 01C 2022 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2201C.iso)
           - [Windows 10, version 2004 or later 02C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/sg/download/888969d5-f34g-4e03-ac9d-1f9786c66749/LanguageExperiencePack.2202C.iso)
-          
+          - [Windows 10, version 2004 or later 04C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/LanguageExperiencePack.2204C.iso)
+          - [Windows 10, version 2004 or later 06C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/LanguageExperiencePack.2206C.iso)
+
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
 >[!NOTE]
@@ -89,9 +83,13 @@ To create the content repository for language packages and FODs and a repository
 To create a custom Windows 10 Enterprise multi-session image manually:
 
 1. Deploy an Azure VM, then go to the Azure Gallery and select the current version of Windows 10 Enterprise multi-session you're using.
-2. After you've deployed the VM, connect to it using RDP as a local admin.
-3. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
-4. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
+1. After you've deployed the VM, connect to it using RDP as a local admin.
+1. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
+
+   > [!IMPORTANT]
+   > After you install a language pack, you have to reinstall the latest cumulative update that is installed on your image. If you do not reinstall the latest cumulative update, you may encounter errors. If the latest cumulative update is already installed, Windows Update does not offer it again; you have to manually reinstall it. For more information, see [Languages overview](/windows-hardware/manufacture/desktop/languages-overview?view=windows-10&preserve-view=true#considerations).
+
+1. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
 
 ## Create a custom Windows 10 Enterprise multi-session image automatically
 
@@ -99,7 +97,7 @@ If you'd rather install languages through an automated process, you can set up a
 
 ```powershell
 ########################################################
-## Add Languages to running Windows Image for Capture##
+## Add Languages to running Windows Image for Capture ##
 ########################################################
 
 ##Disable Language Pack Cleanup##
@@ -174,7 +172,7 @@ The script might take a while depending on the number of languages you need to i
 
 Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 
-After adding additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO.
+After you've added additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO.
 To perform this refresh in an environment where the VM doesn't have internet access, you can use the following PowerShell script template to automate the process and update only installed versions of inbox apps.
 
 ```powershell
@@ -229,7 +227,7 @@ To run sysprep:
 
 2. Stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
-3. You can now use the customized image to deploy a Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
+3. You can now use the customized image to deploy an Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 ## Enable languages in Windows settings app
 

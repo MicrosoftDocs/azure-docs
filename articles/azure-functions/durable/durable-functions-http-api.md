@@ -87,6 +87,8 @@ The response payload for the **HTTP 202** cases is a JSON object with the follow
 | **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
 | **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
 | **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
+| **`suspendPostUri`**        |The "suspend" URL of the orchestration instance. |
+| **`resumePostUri`**         |The "resume" URL of the orchestration instance. |
 
 The data type of all fields is `string`.
 
@@ -98,7 +100,9 @@ Here is an example response payload for an orchestration instance with `abc123` 
     "purgeHistoryDeleteUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
     "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/raiseEvent/{eventName}?code=XXX",
     "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
-    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX"
+    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX",
+    "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/suspend?reason={text}&code=XXX",
+    "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/resume?reason={text}&code=XXX"
 }
 ```
 
@@ -168,7 +172,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 
 | Field                 | Data type | Description |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
+| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*, *Suspended*. |
 | **`input`**           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | **`customStatus`**    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | **`output`**          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
@@ -249,6 +253,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &createdTimeFrom={timestamp}
     &createdTimeTo={timestamp}
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &instanceIdPrefix={prefix}
     &showInput=[true|false]
     &top={integer}
 ```
@@ -263,6 +268,7 @@ GET /runtime/webhooks/durableTask/instances?
     &createdTimeFrom={timestamp}
     &createdTimeTo={timestamp}
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &instanceIdPrefix={prefix}
     &showInput=[true|false]
     &top={integer}
 ```
@@ -271,13 +277,12 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field                   | Parameter type  | Description |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | The ID of the orchestration instance. |
 | **`showInput`**         | Query string    | Optional parameter. If set to `false`, the function input will not be included in the response payload.|
-| **`showHistory`**       | Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
 | **`showHistoryOutput`** | Query string    | Optional parameter. If set to `true`, the function outputs will be included in the orchestration execution history.|
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
+| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
 | **`top`**               | Query string    | Optional parameter. When specified, limits the number of instances returned by the query. |
 
 ### Response
@@ -334,9 +339,12 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Azure Storage provider](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
 If more results exist, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
+
+> [!CAUTION]
+> The query result may return fewer items than the limit specified by `top`. When receiving results, you should therefore *always* check to see if there is a continuation token.
 
 If you set continuation token value in the next request header, you can get the next page of results. This name of the request header is also `x-ms-continuation-token`.
 
@@ -430,7 +438,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`runtimeStatus`**   | Query string    | Optional parameter. When specified, filters the list of purged instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are many rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are many rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
 ### Response
 
@@ -552,6 +560,64 @@ Here is an example request that terminates a running instance and specifies a re
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
+
+The responses for this API do not contain any content.
+
+## Suspend instance (preview)
+
+Suspends a running orchestration instance.
+
+### Request
+
+In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/suspend
+    ?reason={text}
+    &taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+| Field             | Parameter Type  | Description |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | The ID of the orchestration instance. |
+| **`reason`**      | Query string    | Optional. The reason for suspending the orchestration instance. |
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The suspend request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
+
+The responses for this API do not contain any content.
+
+## Resume instance (preview)
+
+Resumes a suspended orchestration instance.
+
+### Request
+
+In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/resume
+    ?reason={text}
+    &taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+| Field             | Parameter Type  | Description |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | The ID of the orchestration instance. |
+| **`reason`**      | Query string    | Optional. The reason for resuming the orchestration instance. |
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The resume request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
 
 The responses for this API do not contain any content.
 

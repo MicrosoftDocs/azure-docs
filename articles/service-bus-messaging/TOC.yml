@@ -4,11 +4,10 @@
   items:
   - name: What is Service Bus Messaging?
     href: service-bus-messaging-overview.md
-  - name: Compare messaging services
-    href: ../event-grid/compare-messaging-services.md
-    maintainContext: true
   - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
+  - name: Compare messaging services
+    href: compare-messaging-services.md
 - name: Quickstarts
   items:
   - name: Service Bus queues
@@ -21,19 +20,28 @@
         href: service-bus-quickstart-powershell.md
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
+      - name: Bicep
+        displayName: Resource Manager,ARM,template
+        href: service-bus-resource-manager-namespace-queue-bicep.md
       - name: ARM template
-        displayName: Resource Manager      
+        displayName: Resource Manager
         href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:
-      - name: .NET (Azure.Messaging.ServiceBus)
+      - name: .NET
         href: service-bus-dotnet-get-started-with-queues.md
-      - name: Java (azure-messaging-servicebus)
-        href: service-bus-java-how-to-use-queues.md
-      - name: Python (azure-servicebus)
-        href: service-bus-python-how-to-use-queues.md
-      - name: JavaScript (@azure/service-bus)
+      - name: Go
+        href: service-bus-go-how-to-use-queues.md
+      - name: Java
+        items:
+        - name: Java
+          href: service-bus-java-how-to-use-queues.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+      - name: JavaScript
         href: service-bus-nodejs-how-to-use-queues.md
+      - name: Python
+        href: service-bus-python-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions
@@ -46,14 +54,18 @@
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
       items:
-      - name: .NET (Azure.Messaging.ServiceBus)
+      - name: .NET
         href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-      - name: Java (azure-messaging-servicebus)
-        href: service-bus-java-how-to-use-topics-subscriptions.md
-      - name: Python (azure-servicebus)
-        href: service-bus-python-how-to-use-topics-subscriptions.md
-      - name: JavaScript (@azure/service-bus)
+      - name: Java
+        items:
+        - name: Java
+          href: service-bus-java-how-to-use-topics-subscriptions.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+      - name: JavaScript
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+      - name: Python
+        href: service-bus-python-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
   - name: Update inventory
@@ -61,7 +73,7 @@
   - name: Handle Service Bus events via Event Grid
     items:
     - name: Azure Logic Apps
-      href: service-bus-to-event-grid-integration-example.md      
+      href: service-bus-to-event-grid-integration-example.md
     - name: Azure Functions
       href: service-bus-to-event-grid-integration-function.md
   - name: Build message-driven business applications with NServiceBus
@@ -79,7 +91,7 @@
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Advanced features
-    items: 
+    items:
     - name: Overview of advanced features
       href: advanced-features-overview.md
     - name: Message sessions
@@ -112,7 +124,9 @@
       href: service-bus-outages-disasters.md
     - name: Throttling
       href: service-bus-throttling.md
-  - name: Federation 
+    - name: Enforce minimum required TLS version
+      href: transport-layer-security-enforce-minimum-version.md
+  - name: Federation
     items:
       - name: Message replication and cross-region federation
         href: service-bus-federation-overview.md
@@ -137,7 +151,7 @@
       items:
       - name: Authentication with Shared Access Signatures
         href: service-bus-sas.md
-      - name: Use Azure Active Directory
+      - name: Use Microsoft Entra ID
         items:
         - name: Authenticate with managed identities for Azure resources
           href: service-bus-managed-service-identity.md
@@ -156,19 +170,17 @@
   items:
   - name: Develop
     items:
-    - name: Create a namespace
-      href: service-bus-create-namespace-portal.md
     - name: Send and receive messages using PHP
       href: service-bus-php-how-to-use-queues.md
     - name: Publish and subscribe for messages using PHP
       href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
-      href: service-bus-filter-examples.md    
+      href: service-bus-filter-examples.md
     - name: Message handling
       items:
       - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
-      - name: Java Message Service (JMS) Developer guide.md
+      - name: Java Message Service (JMS) Developer guide
         href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
@@ -202,6 +214,8 @@
       href: migrate-jms-activemq-to-servicebus.md
     - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
       href: deprecate-service-bus-management.md
+    - name: Migrate to Passwordless Connections
+      href: service-bus-migrate-azure-credentials.md
   - name: Monitor
     items:
     - name: End-to-end tracing and diagnostics
@@ -220,17 +234,19 @@
       href: enable-message-sessions.md
     - name: Enable duplicate detection for a queue or topic
       href: enable-duplicate-detection.md
-    - name: Enable partitions for a queue or topic
-      href: enable-partitions.md
+    - name: Enable partitions (basic / standard)
+      href: enable-partitions-basic-standard.md
+    - name: Enable partitions for queues or topics in premium tier
+      href: enable-partitions-premium.md      
     - name: Enable auto forwarding for a queue or subscription
-      href: enable-auto-forward.md      
+      href: enable-auto-forward.md
     - name: Enable dead lettering for a queue or subscription
-      href: enable-dead-letter.md      
+      href: enable-dead-letter.md
     - name: Get message counters
       href: message-counters.md
     - name: Move across regions
       href: move-across-regions.md
-    - name: Automatically update messaging units 
+    - name: Automatically update messaging units
       href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
@@ -238,8 +254,10 @@
       href: service-bus-management-libraries.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
-    - name: Use Service Bus Explorer to perform data operations on Service Bus
+    - name: Use Service Bus Explorer
       href: explorer.md
+    - name: Prepare for planned maintenance
+      href: prepare-for-planned-maintenance.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
@@ -261,12 +279,18 @@
       href: configure-customer-managed-key.md
     - name: Disable local or SAS authentication
       href: disable-local-authentication.md
+    - name: Configure minimum required TLS version
+      href: transport-layer-security-configure-minimum-version.md
+    - name: Audit minimum required TLS version
+      href: transport-layer-security-audit-minimum-version.md
+    - name: Configure TLS version for client
+      href: transport-layer-security-configure-client-version.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
       href: service-bus-troubleshooting-guide.md
-    - name: Messaging exceptions
-      href: service-bus-messaging-exceptions.md
+    - name: SDK troubleshooting guide
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md
 - name: Reference
@@ -277,34 +301,44 @@
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
       href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
+    - name: Migrate from WindowsAzure.ServiceBus to Azure.Messaging.ServiceBus
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
       href: /dotnet/api/azure.messaging.servicebus
-    - name: Microsoft.Azure.ServiceBus (.NET Standard)
+    - name: Microsoft.Azure.ServiceBus (.NET Standard - legacy)
       href: /dotnet/api/microsoft.azure.servicebus
-    - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+    - name: Microsoft.ServiceBus.Messaging (.NET Framework - legacy)
       href: /dotnet/api/microsoft.servicebus.messaging
   - name: Java
-    items: 
+    items:
     - name: Migrate from azure-servicebus to azure-messaging-servicebus
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
       href: /java/api/com.azure.messaging.servicebus
-    - name: azure-servicebus  
+    - name: azure-servicebus (legacy)
       href: /java/api/com.microsoft.azure.servicebus
+  - name: Spring
+    items:
+    - name: Spring JMS support
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/service-bus-messaging/toc.json#spring-jms-support
+    - name: Spring Integration with Azure Service Bus
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/service-bus-messaging/toc.json#spring-integration-with-azure-service-bus
+    - name: Spring Cloud Stream Binder for Azure Service Bus
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/service-bus-messaging/toc.json#spring-cloud-stream-binder-for-azure-service-bus
   - name: Python
-    items: 
+    items:
     - name: azure-servicebus version 7
       href: /python/api/overview/azure/servicebus
     - name: Migrate from azure-servicebus version 0.50 to version 7
       href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md
   - name: JavaScript
     items:
-    - name: azure/service-bus version 7 
+    - name: azure/service-bus version 7
       href: /javascript/api/overview/azure/service-bus
     - name: Migrate from version 1 to version 7
       href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md
   - name: Go
-    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus      
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby
@@ -330,14 +364,14 @@
   items:
   - name: FAQ
     href: service-bus-faq.yml
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-service-bus
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-service-bus
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-service-bus.html
+    href: /answers/tags/73/azure-service-bus
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator

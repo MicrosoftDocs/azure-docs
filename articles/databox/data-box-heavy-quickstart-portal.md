@@ -2,12 +2,12 @@
 title: Quickstart for Microsoft Azure Data Box Heavy| Microsoft Docs
 description: In this quickstart, learn how to deploy Azure Data Box Heavy using the Azure portal, including how to cable, configure, and copy data to upload to Azure.
 services: databox
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 11/04/2020
-ms.author: alkohli
+ms.date: 06/13/2022
+ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
@@ -52,7 +52,7 @@ Before you begin, make sure that:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Order
 
@@ -71,7 +71,7 @@ Once the order is created, the device is prepared for shipment.
 
 Use these Azure CLI commands to create a Data Box Heavy job.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group:
 
@@ -211,7 +211,7 @@ This operation takes about 15-20 minutes to complete.
 
 1. Remove the cables and return them to the tray at the back of the device.
 2. Schedule a pickup with your regional carrier.
-3. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
+3. Reach out to [Data Box Operations](mailto:adbops@microsoft.com) to inform regarding the pickup and to get the return shipping label.
 4. The return shipping label should be visible on the front clear panel of the device.
 
 ## Verify data

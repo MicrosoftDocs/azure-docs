@@ -4,15 +4,13 @@ title: Azure HDInsight documentation # < 60 chars
 summary: Azure HDInsight is a managed Apache Hadoop service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more in the cloud. # < 160 chars
 
 metadata:
-  title: Azure HDInsight # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure HDInsight is a managed Apache Hadoop cloud service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure HDInsight
+  description: Azure HDInsight is a managed Apache Hadoop cloud service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more.
   services: hdinsight
-  ms.service: hdinsight #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: hdinsight
+  ms.topic: landing-page
   ms.collection: collection
-  author: jasonwhowell #Required; your GitHub user alias, with correct capitalization.
-  ms.author: jasonh #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/27/2020 #Required; mm/dd/yyyy format.
+  ms.date: 07/12/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,7 +29,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Build analytical solutions with Azure HDInsight
-            url: /learn/paths/build-oss-analytical-solutions-az-hdinsight/
+            url: /training/paths/build-oss-analytical-solutions-az-hdinsight/
           - text: Create HDInsight clusters
             url: ./hdinsight-hadoop-provision-linux-clusters.md
           - text: Monitoring with HDInsight
@@ -164,13 +162,3 @@ landingContent:
             url: ./hbase/apache-hbase-accelerated-writes.md
           - text: Apache Phoenix best practices
             url: ./hbase/apache-hbase-phoenix-performance.md
-
-  # Card
-  - title: Apache Storm
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is Apache Storm?
-            url:  ./storm/apache-storm-overview.md
-          - text: Create an Apache Storm topology
-            url: ./storm/apache-storm-quickstart.md

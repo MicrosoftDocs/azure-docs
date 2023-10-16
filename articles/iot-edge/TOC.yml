@@ -1,102 +1,57 @@
 - name: Azure IoT Edge documentation
   href: index.yml
-- name: Azure IoT Edge versions
-  href: version-history.md
 - name: Overview
+  expanded: true
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
-  - name: About Azure IoT Edge for Linux on Windows
-    href: iot-edge-for-linux-on-windows.md
+  - name: Version / release notes
+    href: version-history.md
+  - name: Supported platforms
+    href: support.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Deploy code to a Linux device
     href: quickstart-linux.md
-  - name: Deploy code to a Windows device
-    href: quickstart.md
 - name: Tutorials
   items:
-  - name: Monitor devices and modules
-    href: tutorial-monitor-with-workbooks.md
-  - name: Set up development environment
+  - name: Develop modules
     items:
-    - name: Develop with Linux containers
+    - name: Develop modules using VS Code
       href: tutorial-develop-for-linux.md
-    - name: Develop with IoT Edge for Linux on Windows
-      href: tutorial-develop-for-linux-on-windows.md
-    - name: Develop with Windows containers
-      href: tutorial-develop-for-windows.md
-  - name: Develop custom code modules
-    items:
-    - name: C
-      href: tutorial-c-module.md
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Java
-      href: tutorial-java-module.md
-    - name: Node.js
-      href: tutorial-node-module.md
-    - name: Python
-      href: tutorial-python-module.md
-    - name: Use Windows containers
-      items:
-      - name: C
-        href: tutorial-c-module-windows.md
-      - name: C#
-        href: tutorial-csharp-module-windows.md
+    - name: Develop modules with Visual Studio
+      href: how-to-visual-studio-develop-module.md
   - name: Deploy Azure services as modules
-    items: 
+    items:
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with Azure Stream Analytics
+    - name: Deploy a Stream Analytics module
       href: tutorial-deploy-stream-analytics.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
       href: tutorial-store-data-sql-server.md
-  - name: Use IoT Edge as a gateway
-    items:
-    - name: Create hierarchies of IoT Edge devices
-      href: tutorial-nested-iot-edge.md
-  - name: End-to-end example of machine learning at the edge
-    items:
-    - name: Introduction
-      href: tutorial-machine-learning-edge-01-intro.md
-    - name: Set up development machine and Azure services
-      href: tutorial-machine-learning-edge-02-prepare-environment.md
-    - name: Generate simulated device data
-      href: tutorial-machine-learning-edge-03-generate-data.md
-    - name: Train and deploy an Azure Machine Learning model
-      href: tutorial-machine-learning-edge-04-train-model.md
-    - name: Configure a transparent gateway
-      href: tutorial-machine-learning-edge-05-configure-edge-device.md
-    - name: Create and deploy IoT Edge modules
-      href: tutorial-machine-learning-edge-06-custom-modules.md
-    - name: Send data to IoT Hub via transparent gateway
-      href: tutorial-machine-learning-edge-07-send-data-to-hub.md
+  - name: Create hierarchies of IoT Edge devices
+    href: tutorial-nested-iot-edge.md
+  - name: Configure EST server
+    href: tutorial-configure-est-server.md
+  - name: Configure, connect, and verify a GPU
+    href: configure-connect-verify-gpu.md
+  - name: Monitor devices and modules
+    href: tutorial-monitor-with-workbooks.md
 - name: Concepts
   items:
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
-  - name: IoT Edge modules
-    items:
-    - name: Understand Azure IoT Edge modules
-      href: iot-edge-modules.md
-    - name: IoT Edge agent and hub properties
-      href: module-edgeagent-edgehub.md
-  - name: IoT Edge for Linux on Windows
-    items:
-    - name: Benefits
-      href: iot-edge-for-linux-on-windows-benefits.md
-    - name: Updates
-      href: iot-edge-for-linux-on-windows-updates.md
-    - name: Security
-      href: iot-edge-for-linux-on-windows-security.md
-    - name: Networking 
-      href: iot-edge-for-linux-on-windows-networking.md
-    - name: Platform support
-      href: iot-edge-for-linux-on-windows-support.md
+  - name: IoT Edge agent and hub properties
+    href: module-edgeagent-edgehub.md
+  - name: Understand Azure IoT Edge modules
+    href: iot-edge-modules.md
+  - name: IoT Edge device as a gateway
+    href: iot-edge-as-gateway.md
+  - name: Production checklist
+    href: production-checklist.md
   - name: Development
     items:
     - name: Develop modules
@@ -109,10 +64,6 @@
       href: module-composition.md
     - name: Automatic deployments
       href: module-deployment-monitoring.md
-  - name: Offline capabilities
-    href: offline-capabilities.md
-  - name: IoT Edge device as a gateway
-    href: iot-edge-as-gateway.md
   - name: Security
     items:
     - name: Securing Azure IoT Edge
@@ -121,12 +72,12 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Using Private Link with IoT Edge
+      href: using-private-link.md   
     - name: Confidential computing
       href: deploy-confidential-applications.md
-  - name: Platform support
-    href: support.md
-  - name: Production deployment checklist
-    href: production-checklist.md
+  - name: Offline capabilities
+    href: offline-capabilities.md
   - name: Limits and restrictions
     href: iot-edge-limits-and-restrictions.md
 - name: How-to guides
@@ -135,6 +86,10 @@
     items:
     - name: Create an IoT Edge device
       href: how-to-create-iot-edge-device.md
+    - name: Configure device settings
+      href: configure-device.md
+    - name: Configure proxy support
+      href: how-to-configure-proxy-support.md
     - name: Linux containers on Linux hosts
       items:
       - name: Provision a single device
@@ -148,81 +103,22 @@
         - name: X.509 certificate attestation
           href: how-to-provision-devices-at-scale-linux-x509.md
         - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-tpm.md    
+          href: how-to-provision-devices-at-scale-linux-tpm.md
         - name: Symmetric key attestation
           href: how-to-provision-devices-at-scale-linux-symmetric.md
-    - name: Linux containers on Windows hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-linux-on-windows-x509.md
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-on-windows-symmetric.md
-      - name: Provision devices at scale
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-    - name: Windows containers on Windows hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-windows-symmetric.md
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-windows-x509.md
-      - name: Provision devices at scale
-        items:
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-windows-symmetric.md
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-windows-tpm.md
     - name: Update IoT Edge
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
     - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
+    - name: Deploy IoT Edge VM using a Bicep file
+      displayname: ARM,template,resource manager
+      href: how-to-install-iot-edge-ubuntuvm-bicep.md
     - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
-  - name: IoT Edge for Linux on Windows
-    items:
-    - name : Install and provision
-      items:
-      - name: Provision a single device
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-linux-on-windows-x509.md
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-on-windows-symmetric.md
-      - name: Provision devices at scale
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-    - name: Configure nested virtualization for Windows VMs
-      href: nested-virtualization.md
-    - name: Create virtual switch
-      href: how-to-create-virtual-switch.md
-    - name: Configure GPU acceleration
-      href: gpu-acceleration.md
-    - name: Configure networking
-      href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
   - name: Develop custom modules
     items:
-    - name: Develop with Visual Studio 2019
-      href: how-to-visual-studio-develop-module.md
-    - name: Develop with Visual Studio Code
-      href: how-to-vs-code-develop-module.md
     - name: Configure module build options
       href: how-to-configure-module-build-options.md
     - name: Configure module createOptions
@@ -231,6 +127,8 @@
           href: how-to-use-create-options.md
         - name: Give modules access to a device's local storage
           href: how-to-access-host-storage-from-module.md
+    - name: Debug modules with VS Code
+      href: debug-module-vs-code.md
   - name: Deploy modules
     items:
     - name: Deploy to individual devices
@@ -293,10 +191,6 @@
         href: how-to-connect-downstream-iot-edge-device.md
       - name: Configure the API proxy module
         href: how-to-configure-api-proxy-module.md
-  - name: Configure proxy support
-    href: how-to-configure-proxy-support.md
-  - name: Publish and subscribe with IoT Edge
-    href: how-to-publish-subscribe.md
   - name: Azure Blob Storage on IoT Edge
     items:
     - name: Understand blob storage at the edge
@@ -325,16 +219,85 @@
       href: troubleshoot-in-portal.md
     - name: Resolve common errors
       href: troubleshoot-common-errors.md
+- name: Azure IoT Edge for Linux on Windows (EFLOW)
+  expanded: false
+  items:
+  - name: About EFLOW
+    href: iot-edge-for-linux-on-windows.md
+  - name: Deploy to a Windows device
+    href: quickstart.md
+  - name: Concepts
+    items:
+    - name: Benefits
+      href: iot-edge-for-linux-on-windows-benefits.md
+    - name: Updates
+      href: iot-edge-for-linux-on-windows-updates.md
+    - name: Security
+      href: iot-edge-for-linux-on-windows-security.md
+    - name: Networking
+      href: iot-edge-for-linux-on-windows-networking.md
+    - name: Supported platforms
+      href: iot-edge-for-linux-on-windows-support.md
+  - name: Install and provision
+    items:
+    - name: Single device
+      items:
+      - name: X.509 certificate attestation
+        href: how-to-provision-single-device-linux-on-windows-x509.md
+      - name: Symmetric key attestation
+        href: how-to-provision-single-device-linux-on-windows-symmetric.md
+    - name: Provision at scale
+      items:
+      - name: X.509 certificate attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+      - name: TPM attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+      - name: Symmetric key attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+  - name: Configure
+    items:
+    - name: Access TPM secrets
+      href: how-to-access-dtpm.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Connect a USB device
+      href: how-to-connect-usb-devices.md
+    - name: GPU acceleration
+      href: gpu-acceleration.md
+    - name: Networking
+      items:
+      - name: Understand VM networking
+        href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
+      - name: Virtual switch
+        href: how-to-create-virtual-switch.md
+      - name: Multiple NICs
+        href: how-to-configure-multiple-nics.md
+      - name: VM on a DMZ
+        href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
+    - name: Shared folders
+      href: how-to-share-windows-folder-to-vm.md
+  - name: Develop and debugging
+    href: tutorial-develop-for-linux-on-windows.md
+  - name: Create a hierarchy of IoT Edge devices
+    href: tutorial-nested-iot-edge-for-linux-on-windows.md
+  - name: Troubleshoot
+    items:
+    - name: Diagnose virtual machine
+      href: troubleshoot-iot-edge-for-linux-on-windows.md
+    - name: Diagnose virtual machine networking
+      href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
+    - name: Resolve common errors
+      href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
+  - name: Reference
+    items:
+    - name: PowerShell functions
+      href: reference-iot-edge-for-linux-on-windows-functions.md
 - name: Reference
   items:
+  - name: Azure IoT Edge 1.1 archive
+    href: /previous-versions/azure/iot-edge
   - name: Runtime modules environment variables
-    href: https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md
-  - name: PowerShell functions
-    items:
-    - name: IoT Edge for Linux on Windows
-      href: reference-iot-edge-for-linux-on-windows-functions.md
-    - name: IoT Edge for Windows
-      href: reference-windows-scripts.md
+    href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
   - name: Create test certificates
     href: how-to-create-test-certificates.md
   - name: Azure CLI
@@ -342,9 +305,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -370,23 +333,27 @@
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples
+    - name: C
+      href: https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples
     - name: Node.js
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+      href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples
     - name: Python
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+      href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
   - name: Azure Certified for IoT device catalog
     href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Tools for VS Code
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+  - name: Azure IoT Edge for Visual Studio Code
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
+  - name: Azure IoT Hub extension for Visual Studio Code
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool

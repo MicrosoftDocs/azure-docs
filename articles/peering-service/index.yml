@@ -1,18 +1,19 @@
 ### YamlMime:Landing
 
-title: Azure Peering Service
+title: Azure Peering Service documentation
 summary: Learn about Azure Peering Service
 
 metadata:
   title: Azure Peering Service documentation
-  description: Learn how to manage and deploy Peering Service connection
+  description: Learn how to deploy and manage Azure Peering Service connections.
   services: peering-service
   ms.service: peering-service
   ms.subservice: peering-service
   ms.topic: landing-page
-  author: ypitsch
-  ms.author: ypitsch
-  ms.date: 05/18/2020
+  author: halkazwini
+  ms.author: halkazwini
+  ms.date: 06/13/2023
+  ms.custom: engagement-fy23
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -30,29 +31,27 @@ landingContent:
         links:
           - text: Locations and partners
             url: location-partners.md
-          - text: Connections
-            url: connection.md
-          - text: Connection telemetry
-            url: connection-telemetry.md
-          - text: Onboarding model
-            url: onboarding-model.md
 
   # Card
   - title: Get started
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Register Peering Service - Azure portal
-            url: azure-portal.md
-
-  # Card
-  - title: Telemetry
-    linkLists:
       - linkListType: concept
         links:
-          - text: Connection telemetry
-            url: connection-telemetry.md
+          - text: Peering Service connections
+            url: connection.md
       - linkListType: how-to-guide
         links:
-          - text: Measure connection telemetry
-            url: measure-connection-telemetry.md
+          - text: Create a Peering Service connection
+            url: azure-portal.md
+          - text: Access connection telemetry
+            url: connection-telemetry.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.peering/
+          - text: Azure CLI
+            url: /cli/azure/peering/

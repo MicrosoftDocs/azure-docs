@@ -1,13 +1,14 @@
 ---
-title: What to do if there if an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
-description: Learn what to do f there is an Azure service disruption that affects Managed HSM.
+title: What to do if there's an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
+description: Learn what to do if there's an Azure service disruption that affects Managed HSM.
 services: key-vault
 author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/04/2023
 ms.author: mbaldwin
 ---
 
@@ -27,7 +28,7 @@ Here are the steps of the disaster recovery procedure:
 
 1. Create a new HSM Instance.
 2. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response, which will be downloaded as a SecurityDomainExchangeKey (public key).
-3. Create and then upload the "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
+3. Create and then upload the "Security Domain Transfer File". You'll need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
 4. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. Backups allow for easy roll-back.
 5. Restore the recent HSM backup from the source HSM.
 
@@ -44,7 +45,7 @@ You must provide the following inputs to create a Managed HSM resource:
 - The Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
+The following example creates an HSM named **ContosoMHSM2**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -67,7 +68,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 ## Activate the Security Domain recovery mode
 
-At this point in the normal creation process, we initialize and download the new HSM's Security Domain. However, since we are executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key instead. The Security Domain Exchange Key is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
+At this point in the normal creation process, we initialize and download the new HSM's Security Domain. However, since we're executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key instead. The Security Domain Exchange Key is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
 
 ```azurecli-interactive
 az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer
@@ -75,7 +76,7 @@ az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-
 
 ## Upload Security Domain to destination HSM
 
-For this step you will need:
+For this step you'll need:
 - The Security Domain Exchange Key you downloaded in previous step.
 - The Security Domain of the source HSM.
 - At least quorum number of private keys that were used to encrypt the security domain.
@@ -89,16 +90,16 @@ The `az keyvault security-domain upload` command performs following operations:
 In the following example, we use the Security Domain from the **ContosoMHSM**, the 2 of the corresponding private keys, and upload it to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
 
 ```azurecli-interactive
-az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
+az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
 ```
 
 Now both the source HSM (ContosoMHSM) and the destination HSM (ContosoMHSM2) have the same security domain. We can now restore a full backup from the source HSM into the destination HSM.
 
 ## Create a backup (as a restore point) of your new HSM
 
-It is always a good idea to take a full backup before you execute a full HSM restore, so that you have a restore point in case something goes wrong with the restore.
+It's always a good idea to take a full backup before you execute a full HSM restore, so that you have a restore point in case something goes wrong with the restore.
 
-To create an HSM backup, you will need:
+To create an HSM backup, you'll need:
 - A storage account where the backup will be stored
 - A blob storage container in this storage account where the backup process will create a new folder to store encrypted backup
 
@@ -117,7 +118,7 @@ az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoB
 
 For this step you need:
 
-- The storage account and the blob container where the source HSM's backups are stored.
+- The storage account and the blob container in which the source HSM's backups are stored.
 - The folder name from where you want to restore the backup. If you create regular backups, there will be many folders inside this container.
 
 
@@ -128,7 +129,7 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-ContosoMHSM-2020083120161860
 ```
 
-Now you have completed a full disaster recovery process. The contents of the source HSM when the backup was taken are copied to the destination HSM, including all the keys, versions, attributes, tags, and role assignments.
+Now you've completed a full disaster recovery process. The contents of the source HSM when the backup was taken are copied to the destination HSM, including all the keys, versions, attributes, tags, and role assignments.
 
 ## Next steps
 

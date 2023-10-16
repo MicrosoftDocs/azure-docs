@@ -4,8 +4,9 @@ description: IP groups allow you to group and manage IP addresses for Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 10/10/2023
 ms.author: victorh
 ---
 
@@ -18,12 +19,9 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules in
 - As a source address in application rules
 
 
-An IP Group can have a single IP address, multiple IP addresses, or one or more IP address ranges.
+An IP Group can have a single IP address, multiple IP addresses, one or more IP address ranges or addresses and ranges in combination.
 
 IP Groups can be reused in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
-
-> [!NOTE]
-> IP Groups are not currently available in Azure national cloud environments.
 
 ## Sample format
 
@@ -62,13 +60,28 @@ You can now select **IP Group** as a **Source type** or **Destination type** for
 
 ![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
 
+## Parallel IP Group updates (preview)
+
+You can now update multiple IP Groups in parallel at the same time. This is particularly useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
+
+With this support, you can now:
+
+- Update 20 IP Groups at a time
+- Update the firewall and firewall policy during IP Group updates
+- Use the same IP Group in parent and child policy
+- Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously
+- Receive new and improved error messages
+   - Fail and succeed states
+
+     For example, if there is an error with one IP Group update out of 20 parallel updates, the other updates proceed, and the errored IP Group fails. In addition, if the IP Group update fails, and the firewall is still healthy, the firewall remains in a *Succeeded* state. To check if the IP Group update has failed or succeeded, you can view the status on the IP Group resource.
+
 ## Region availability
 
 IP Groups are available in all public cloud regions.
 
 ## IP address limits
 
-You can have a maximum of 100 IP Groups per firewall with a maximum 5000 individual IP addresses or IP prefixes per each IP Group.
+For IP Group limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ## Related Azure PowerShell cmdlets
 

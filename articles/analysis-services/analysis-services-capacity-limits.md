@@ -1,10 +1,10 @@
 ---
-title: Azure Analysis Services resource and object limits | Microsoft Docs
+title: Learn about Azure Analysis Services resource and object limits | Microsoft Docs
 description: This article describes resource and object limits for an Azure Analysis Services server.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 01/24/2023
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -15,7 +15,7 @@ This article describes resource and model object limits.
 
 ## Tier limits
 
-For QPU and Memory limits for developer, basic, and standard tiers, see the [Azure Analysis Services pricing page](https://azure.microsoft.com/pricing/details/analysis-services/).
+For Query Processing Units (QPU) and Memory limits for developer, basic, and standard tiers, see the [Azure Analysis Services pricing page](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## Object limits
 

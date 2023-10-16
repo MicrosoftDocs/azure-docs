@@ -134,7 +134,7 @@ items:
       href: /azure/data-explorer/kusto/query/pivotplugin?context=/azure/synapse-analytics/context/context
     - name: preview plugin
       href: /azure/data-explorer/kusto/query/previewplugin?context=/azure/synapse-analytics/context/context
-    - name: python plugin
+    - name: Python plugin
       href: /azure/data-explorer/kusto/query/pythonplugin?context=/azure/synapse-analytics/context/context
     - name: R plugin
       href: /azure/data-explorer/kusto/query/rplugin?context=/azure/synapse-analytics/context/context
@@ -219,7 +219,7 @@ items:
   - name: serialize operator
     href: /azure/data-explorer/kusto/query/serializeoperator?context=/azure/synapse-analytics/context/context
   - name: sort operator
-    href: /azure/data-explorer/kusto/query/sortoperator?context=/azure/synapse-analytics/context/context
+    href: /azure/data-explorer/kusto/query/sort-operator?context=/azure/synapse-analytics/context/context
   - name: summarize operator
     items:
     - name: summarize operator overview

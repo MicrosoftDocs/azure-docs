@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Active Directory B2C with xID
+title: Configure xID with Azure Active Directory B2C for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with xID for passwordless authentication
 services: active-directory-b2c
@@ -8,107 +8,114 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 05/04/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
 
-In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (customer content) through the xID API.  Furthermore, the xID app generates a private key in a secure area within user’s mobile device, which can be used as a digital signing device.
-
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. The My Number Card, the digital ID card issued by the Japanese government, verifies xID-authenticated user identities. For their users, organizations can get verified Personal Identification Information (customer content) through the xID API. Furthermore, the xID app generates a private key in a secure area in user mobile devices, making them digital signing devices.
 
 ## Prerequisites
 
-To get started, you'll need:
+* An Azure subscription
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
-
-- Your xID client information provided by xID inc. [Contact xID](https://xid.inc/contact-us) for the xID client information that should include the following parameters:
-  - Client ID
-  - Client Secret
-  - Redirect URL
-  - Scopes
-- Download and install the [xID app](https://x-id.me/) on your mobile device.
-  - To complete registration, you'll need your own My Number Card.
-  - If you use the UAT version of API, you'll also need UAT version of xID app. To install UAT app, [contact xID inc](https://xid.inc/contact-us).
+  * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md)
+* Your xID client information provided by xID inc. 
+* Go to the xid.inc [Contact Us](https://xid.inc/contact-us) page for xID client information:
+  * Client ID
+  * Client Secret
+  * Redirect URL
+  * Scopes
+* Go to x-id.me to install the [xID app](https://x-id.me/) on a mobile device:
+  * My Number Card
+  * If you use API UAT version, get the xID app UAT version. See, [Contact Us](https://xid.inc/contact-us)
 
 ## Scenario description
 
-The following architecture diagram shows the implementation.
+The following diagram shows the architecture.
 
-![image shows the architecture diagram](./media/partner-xid/partner-xid-architecture-diagram.png)
+![Diagram of the xID architecture.](./media/partner-xid/partner-xid-architecture-diagram.png)
 
-| Step | Description |
-|:--------|:--------|
-| 1. |User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username. |
-| 2. |Azure AD B2C redirects the user to xID authorize API endpoint using an OpenID Connect (OIDC) request. An OIDC endpoint is available containing information about the endpoints. xID Identity provider (IdP) redirects the user to the xID authorization sign in page, allows the user to fill in or select their email address. |
-| 3. |xID IdP sends the push notification to the user’s mobile device. |
-| 4. |The user opens the xID app and checks the request, then enters the PIN or authenticates with their biometrics. If PIN or biometrics is successfully verified, xID app activates the private key and creates an electronic signature. |
-| 5. |xID app sends the signature to xID IdP for verification. |
-| 6. |xID IdP shows consent screen to the user, requesting authorization to give their personal information to the service they're signing in. |
-| 7. |xID IdP returns the OAuth authorization code to Azure AD B2C. |
-| 8. |Using the authorization code, Azure AD B2C sends a token request. |
-| 9. |xID IdP checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user’s identifier and email address. |
-| 10. |In addition, if the user's customer content is needed, Azure AD B2C calls the xID userdata API. |
-| 11. |The xID userdata API returns the user’s encrypted customer content. User can decrypt it with their private key, which they create when they request the xID client information. |
-| 12. | User is either granted or denied access to the customer application based on the verification results. |
+1. At the Azure AD B2C sign-in page user signs in or signs up.
+2. Azure AD B2C redirects the user to xID authorize API endpoint using an OpenID Connect (OIDC) request. An OIDC endpoint has endpoint information. xID identity provider (IdP) redirects the user to the xID authorization sign in page. User enters email address.
+3. xID IdP sends push notification to user mobile device.
+4. User opens the xID app, checks the request, enters a PIN, or uses biometrics. xID app activates the private key and creates an electronic signature.
+5. xID app sends the signature to xID IdP for verification.
+6. A consent screen appears to give personal information to the service.
+7. xID IdP returns the OAuth authorization code to Azure AD B2C.
+8. Azure AD B2C sends a token request using the authorization code.
+9. xID IdP checks the token request. If valid, OAuth access token is returned and the ID token with user identifier and email address.
+10. If user customer content is needed, Azure AD B2C calls the xID user data API.
+11. The xID user data API returns encrypted customer content. Users decrypt with a private key, created when requesting xID client information.
+12. User is granted or denied access to the customer application.
 
 
-## Onboard with xID
+## Install xID
 
-Request for API documents by filling out [the form](https://xid.inc/contact-us). In the message field, indicate that you would like to onboard with Azure AD B2C. The xID sales representatives will contact you. Follow the instructions  provided in the xID API document and request a xID API client. xID tech team will send client information to you in 3-4 working days.
+1. To request API documents, fill out the request form.  Go to [Contact Us](https://xid.inc/contact-us). 
+2. In the message, indicate you're using Azure AD B2C. 
+3. An xID sales representative contacts you. 
+4. Follow the instructions in the xID API document.
+5. Request an xID API client. 
+6. xID tech team sends client information to you in 3-4 business days.
+7. Supply a redirect URI in your site using the following pattern. Users return to it after authentication. 
 
-## Step 1: Create a xID policy key
+`https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp`
 
-Store the client secret that you received from xID in your Azure AD B2C tenant.
+## Register a web application in Azure AD B2C
+
+Register applications in a tenant you manage, then they can interact with Azure AD B2C.
+
+Learn more: [Application types that can be used in Active Directory B2C](application-types.md)
+
+For testing, you register `https://jwt.ms`, a Microsoft web application with decoded token contents, which don't leave your browser.
+
+### Register a web application and enable ID token implicit grant
+
+Complete [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md?tabs=app-reg-ga) 
+
+## Create a xID policy key
+
+Store the Client Secret from xID in your Azure AD B2C tenant. For the following instructions, use the directory with the Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the portal toolbar, select **Directories + subscriptions**.
+3. On the **Portal settings | Directories + subscriptions** page, in the Directory name list, locate your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the top-left corner of the Azure portal, select **All services**.
+6. Search for and select **Azure AD B2C**.
+7. On **Overview**, select **Identity Experience Framework**.
+8. Select **Policy Keys**.
+9. Select **Add**.
+10. For **Options**, select **Manual**.
+11. Enter a policy key **Name** for the policy key. The prefix `B2C_1A_` is appended to the key name.
+12. In **Secret**, enter the Client Secret from xID.
+13. For **Key usage**, select **Signature**.
+14. Select **Create**.
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant:
+   >[!NOTE]
+   >In Azure AD B2C, custom policies are for complex scenarios. 
+   >
+   >See, [User flows and custom policies overview](./user-flow-overview.md).
 
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
 
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**.
+## Configure xID as identity provider
 
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+For users to sign in using xID, make xID a claims provider that Azure AD B2C communicates with through an endpoint. The endpoint provides claims Azure AD B2C uses to verify users authenticated with digital identity on their device.
 
-4. On the Overview page, select **Identity Experience Framework**.
+### Add xID as a claims provider
 
-5. Select **Policy Keys** and then select **Add**.
+Get the custom policy starter packs from GitHub, then update the XML files in the SocialAccounts starter pack with your Azure AD B2C tenant name.
 
-6. For **Options**, choose `Manual`.
-
-7. Enter a **Name** for the policy key. For example, `X-IDClientSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-
-8. In **Secret**, enter your client secret that you previously received from xID.
-
-9. For **Key usage**, select `Signature`.
-
-10. Select **Create**.
-
->[!NOTE]
->In Azure AD B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios.
-
-## Step 2: Configure xID as an Identity provider
-
-To enable users to sign in using xID, you need to define xID as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated using digital identity available on their device, proving the user’s identity.
-
-Use the following steps to add xID as a claims provider:
-
-1. Get the custom policy starter packs from GitHub, then update the XML files in the SocialAndLocalAccounts starter pack with your Azure AD B2C tenant name:
-
-    i. Download the [.zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or [clone the repository](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
-      
-    ii. In all of the files in the **LocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is `contoso`, all instances of `yourtenant.onmicrosoft.com` become `contoso.onmicrosoft.com`. 
-
-2. Open the `LocalAccounts/ TrustFrameworkExtensions.xml`.
-
-3. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element.
-
-4. Add a new **ClaimsProvider** similar to the one shown below:
+1. Download the zip file [active-directory-b2c-policy-starterpack-main](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository. See, [Azure-Samples/active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+2. In the files in the **SocialAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, `yourtenant.onmicrosoft.com` becomes `contoso.onmicrosoft.com`. 
+3. Open the **SocialAccounts/TrustFrameworkExtensions.xml**.
+4. Find the **ClaimsProviders** element. If there isn't one, add it under the root element.
+5. Add a new **ClaimsProvider** similar to the following example:
 
    ```xml
 
@@ -116,10 +123,10 @@ Use the following steps to add xID as a claims provider:
       <Domain>X-ID</Domain>
       <DisplayName>X-ID</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="X-ID-Oauth2">
+        <TechnicalProfile Id="X-ID-OIDC">
           <DisplayName>X-ID</DisplayName>
           <Description>Login with your X-ID account</Description>
-          <Protocol Name="OAuth2" />
+          <Protocol Name="OpenIdConnect" />
           <Metadata>
             <Item Key="METADATA">https://oidc-uat.x-id.io/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the X-ID Application ID -->
@@ -132,9 +139,10 @@ Use the following steps to add xID as a claims provider:
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
             <Item Key="token_endpoint_auth_method">client_secret_basic</Item>
             <Item Key="ClaimsEndpoint">https://oidc-uat.x-id.io/userinfo</Item>
+            <Item Key="ValidTokenIssuerPrefixes">https://oidc-uat.x-id.io/</Item>
           </Metadata>
           <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="B2C_1A_X-IDClientSecret" />
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_XIDSecAppSecret" />
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
@@ -142,7 +150,7 @@ Use the following steps to add xID as a claims provider:
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="sid" />
             <OutputClaim ClaimTypeReferenceId="userdataid" />
-            <OutputClaim ClaimTypeReferenceId="X-ID_verified" />
+            <OutputClaim ClaimTypeReferenceId="XID_verified" />
             <OutputClaim ClaimTypeReferenceId="email_verified" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="https://oidc-uat.x-id.io/" />
@@ -167,7 +175,7 @@ Use the following steps to add xID as a claims provider:
           <Item Key="UseClaimAsBearerToken">identityProviderAccessToken</Item>
           <!-- <Item Key="AllowInsecureAuthInProduction">true</Item> -->
           <Item Key="DebugMode">true</Item>
-          <Item Key="DefaultUserMessageIfRequestFailed">Cannot process your request right now, please try again later.</Item>
+          <Item Key="DefaultUserMessageIfRequestFailed">Can't process your request right now, please try again later.</Item>
         </Metadata>
         <InputClaims>
           <!-- Claims sent to your REST API -->
@@ -175,8 +183,8 @@ Use the following steps to add xID as a claims provider:
         </InputClaims>
         <OutputClaims>
           <!-- Claims parsed from your REST API -->
-          <OutputClaim ClaimTypeReferenceId="last_name" PartnerClaimType="givenName" />
-          <OutputClaim ClaimTypeReferenceId="first_name" PartnerClaimType="surname" />
+          <OutputClaim ClaimTypeReferenceId="last_name" />
+          <OutputClaim ClaimTypeReferenceId="first_name" />
           <OutputClaim ClaimTypeReferenceId="previous_name" />
           <OutputClaim ClaimTypeReferenceId="year" />
           <OutputClaim ClaimTypeReferenceId="month" />
@@ -197,37 +205,37 @@ Use the following steps to add xID as a claims provider:
 
    ```
 
-4. Set **client_id** with your xID Application ID.
+6. Set **client_id** with your xID Application ID.
+7. Select **Save**.
 
-5. Save the changes.
+## Add a user journey
 
-## Step 3: Add a user journey
+Add an identity provider to sign-in pages. 
 
-At this point, you've set up the identity provider, but it's not yet available in any of the sign in pages. If you've your own custom user journey continue to [step 4](#step-4-add-the-identity-provider-to-a-user-journey), otherwise, create a duplicate of an existing template user journey as follows:
+1. If you have a custom user journey, go to **Add the identity provider to a user journey**. Otherwise, create a duplicate of a template user journey:
+2. From the starter pack, open the **TrustFrameworkBase.xml**.
+3. Locate and copy the contents of the **UserJourneys** element that includes `ID=SignUpOrSignIn`.
+4. Open the **TrustFrameworkExtensions.xml** and locate the UserJourneys element. If there isn't one, add one.
+5. Paste the contents of the UserJourney element as a child of the UserJourneys element.
+6. Rename the user journey ID. For example, `ID=CustomSignUpSignIn`
 
-1. Open the `TrustFrameworkBase.xml` file from the starter pack.
+## Add the identity provider to a user journey
 
-2. Find and copy the entire contents of the **UserJourneys** element that includes `ID=SignUpOrSignIn`.
+Add the new identity provider to the user journey.
 
-3. Open the `TrustFrameworkExtensions.xml` and find the UserJourneys element. If the element doesn't exist, add one.
+1. Locate the orchestration step element with Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element has an identity provider list for signing in. The order of the elements controls the order of the sign-in buttons. 
+2. Add a **ClaimsProviderSelection** XML element. 
+3. Set the value of **TargetClaimsExchangeId** to a friendly name.
+4. Add a **ClaimsExchange** element. 
+5. Set the **ID** to the value of the target claims exchange ID. This change links the xID button to `X-IDExchange` action. 
+6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created (`X-ID-OIDC`).
+7. Add an Orchestration step to call xID UserInfo endpoint to return claims about the authenticated user `X-ID-Userdata`.
 
-4. Paste the entire content of the UserJourney element that you copied as a child of the UserJourneys element.
-
-5. Rename the ID of the user journey. For example, `ID=CustomSignUpSignIn`
-
-## Step 4: Add the identity provider to a user journey
-
-Now that you have a user journey, add the new identity provider to the user journey.
-
-1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name, such as `X-IDExchange`.
-
-2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID to link the xID button to `X-ID-SignIn` action. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
-
-   The following XML demonstrates orchestration steps of a user journey with the identity provider:
+The following XML demonstrates the user journey orchestration with xID identity provider.
 
    ```xml
 
-    <UserJourney Id="X-IDSignUpOrSignIn">
+    <UserJourney Id="CombinedSignInAndSignUp">
       <OrchestrationSteps>
 
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -238,7 +246,7 @@ Now that you have a user journey, add the new identity provider to the user jour
 
         <OrchestrationStep Order="2" Type="ClaimsExchange">
           <ClaimsExchanges>
-            <ClaimsExchange Id="X-IDExchange" TechnicalProfileReferenceId="X-ID-Oauth2" />
+            <ClaimsExchange Id="X-IDExchange" TechnicalProfileReferenceId="X-ID-OIDC" />
           </ClaimsExchanges>
         </OrchestrationStep>
 
@@ -291,38 +299,180 @@ Now that you have a user journey, add the new identity provider to the user jour
 
    ```
 
-## Step 5: Upload the custom policy
+There are identity claims xID supports referenced as part of the policy. Claims schema is where you declare the claims. The ClaimsSchema element has a ClaimType element list. The ClaimType element contains the ID attribute, which is the claim name.
+
+1. Open the **TrustFrameworksExtension.xml**.
+2. Locate the **BuildingBlocks** element.
+3. Add the following ClaimType element in the **ClaimsSchema** element of the **TrustFrameworksExtension.xml** policy
+
+```xml
+ <BuildingBlocks>
+    <ClaimsSchema>
+      <!-- xID -->
+      <ClaimType Id="sid">
+        <DisplayName>sid</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="userdataid">
+        <DisplayName>userdataid</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="xid_verified">
+        <DisplayName>xid_verified</DisplayName>
+        <DataType>boolean</DataType>
+      </ClaimType>
+      <ClaimType Id="email_verified">
+        <DisplayName>email_verified</DisplayName>
+        <DataType>boolean</DataType>
+      </ClaimType>
+      <ClaimType Id="identityProviderAccessToken">
+        <DisplayName>Identity Provider Access Token</DisplayName>
+        <DataType>string</DataType>
+        <AdminHelpText>Stores the access token of the identity provider.</AdminHelpText>
+      </ClaimType>
+      <ClaimType Id="last_name">
+        <DisplayName>last_name</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="first_name">
+        <DisplayName>first_name</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="previous_name">
+        <DisplayName>previous_name</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="year">
+        <DisplayName>year</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="month">
+        <DisplayName>month</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="date">
+        <DisplayName>date</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="prefecture">
+        <DisplayName>prefecture</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="city">
+        <DisplayName>city</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="address">
+        <DisplayName>address</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="sub_char_common_name">
+        <DisplayName>sub_char_common_name</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="sub_char_previous_name">
+        <DisplayName>sub_char_previous_name</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="sub_char_address">
+        <DisplayName>sub_char_address</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <ClaimType Id="verified_at">
+        <DisplayName>verified_at</DisplayName>
+        <DataType>int</DataType>
+      </ClaimType>
+      <ClaimType Id="gender">
+        <DisplayName>Gender</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="gender" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's gender.</AdminHelpText>
+        <UserHelpText>Your gender.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+      <ClaimType Id="correlationId">
+        <DisplayName>correlation ID</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+      <!-- xID -->
+    </ClaimsSchema>
+  </BuildingBlocks>
+```
+
+## Configure the relying party policy
+
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/main/LocalAccounts/SignUpOrSignin.xml), specifies the user journey the Azure AD B2C executes. 
+
+1. In the relying party,locate the **DefaultUserJourney** element. 
+2. Update the **ReferenceId** to match the user journey ID you added to the identity provider.
+
+In the following example, for the xID user journey, the **ReferenceId** is set to `CombinedSignInAndSignUp`.
+
+```xml
+   <RelyingParty>
+        <DefaultUserJourney ReferenceId="CombinedSignInAndSignUp" />
+        <TechnicalProfile Id="PolicyProfile">
+          <DisplayName>PolicyProfile</DisplayName>
+          <Protocol Name="OpenIdConnect" />
+          <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+          <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+          <OutputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
+          <OutputClaim ClaimTypeReferenceId="issuerUserId" />
+          <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
+          <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="last_name" />
+          <OutputClaim ClaimTypeReferenceId="previous_name" />
+          <OutputClaim ClaimTypeReferenceId="year" />
+          <OutputClaim ClaimTypeReferenceId="month" />
+          <OutputClaim ClaimTypeReferenceId="date" />
+          <OutputClaim ClaimTypeReferenceId="prefecture" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+          <OutputClaim ClaimTypeReferenceId="address" />
+          <OutputClaim ClaimTypeReferenceId="sub_char_common_name" />
+          <OutputClaim ClaimTypeReferenceId="sub_char_previous_name" />
+          <OutputClaim ClaimTypeReferenceId="sub_char_address" />
+          <OutputClaim ClaimTypeReferenceId="gender" />
+          <OutputClaim ClaimTypeReferenceId="verified_at" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="sid" />
+          <OutputClaim ClaimTypeReferenceId="userdataid" />
+          <OutputClaim ClaimTypeReferenceId="xid_verified" />
+          <OutputClaim ClaimTypeReferenceId="email_verified" />
+          </OutputClaims>
+          <SubjectNamingInfo ClaimType="sub" />
+        </TechnicalProfile>
+      </RelyingParty>
+
+```
+
+## Upload the custom policy
+
+For the following instructions, use the directory with the Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list. locate your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+6. Under Policies, select **Identity Experience Framework**.
+7. Select **Upload Custom Policy**.
+8. Upload the files in the following order: 
+  * Base policy file: `TrustFrameworkBase.xml`
+  * Extension policy: `TrustFrameworkExtensions.xml`
+  * Relying party policy: `SignUpSignIn.xml`
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant: 
+## Test the custom policy
 
-    a. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-    b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
-3. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
-
-4. Under Policies, select **Identity Experience Framework**.
-
-5. Select **Upload Custom Policy**, and then upload the files in the **LocalAccounts** starter pack in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
-
-## Step 6: Test your custom policy
-
-1. In your Azure AD B2C tenant blade, and under **Policies**, select **Identity Experience Framework**.
-
-1. Under **Custom policies**, select **CustomSignUpSignIn**.
-
-3. For **Application**, select the web application that you previously registered as part of this article's prerequisites. The **Reply URL** should show `https://jwt.ms`.
-
-4. Select **Run now**. Your browser should be redirected to the xID sign in page.
-
-5. If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+1. In your Azure AD B2C tenant, and under **Policies**, select **Identity Experience Framework**.
+2. Under **Custom policies**, select **CustomSignUpSignIn**.
+3. For **Application**, select the web application that you registered. The **Reply URL** is `https://jwt.ms`.
+4. Select **Run now**. 
+5. The browser redirects to the xID sign in page.
+6. The browser redirects to `https://jwt.ms`. The token contents returned by Azure AD B2C appear.
 
 ## Next steps
 
-For additional information, review the following articles:
-
-- [Custom policies in Azure AD B2C](custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* [Azure AD B2C custom policy overview](custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

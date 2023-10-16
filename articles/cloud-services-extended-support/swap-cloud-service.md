@@ -3,6 +3,7 @@ title: Swap or switch deployments in Azure Cloud Services (extended support)
 description: Learn how to swap or switch between deployments in Azure Cloud Services (extended support).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
+ms.custom: devx-track-arm-template
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
@@ -58,7 +59,7 @@ To save compute costs, you can delete one of the cloud services (designated as a
 
 ## REST API
 
-To use the [REST API](/rest/api/compute/load-balancers/swap-public-ip-addresses) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
+To use the [REST API](/rest/api/load-balancer/load-balancers/swap-public-ip-addresses) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
 
 ```http
 POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01

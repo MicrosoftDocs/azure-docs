@@ -5,8 +5,9 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen
 ---
 # Invoke an SSIS package using stored procedure activity in Azure Data Factory
@@ -28,7 +29,7 @@ In this section you use Azure PowerShell to create a Data Factory pipeline with 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Create a data factory
 The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package.

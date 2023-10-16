@@ -7,11 +7,11 @@ metadata:
   title: Service Connector documentation
   description: Connect your Azure compute service to backing services easily with Service Connector.
   ms.service: service-connector
+  ms.custom: event-tier1-build-2022
   ms.topic: landing-page
-  author: shizn
-  ms.author: xshi
-  ms.date: 10/29/2021
-
+  author: maud-lv
+  ms.author: malev
+  ms.date: 05/24/2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -26,16 +26,36 @@ landingContent:
             url: overview.md
           - text: Key concepts in Service Connector
             url: concept-service-connector-internals.md
+          - text: Region support
+            url: concept-region-support.md
+          - text: High availability
+            url: concept-availability.md
+          - text: Permission requirements
+            url: concept-permission.md
+          - text: Frequently asked questions
+            url: faq.yml
 
   # Card
-  - title: Get started
+  - title: Get started using the Azure portal
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create new service connection in App Service
+          - text: Create a connection in App Service
             url: quickstart-portal-app-service-connection.md 
-          - text: Create new service connection in Spring Cloud
+          - text: Create a connection in Azure Spring Apps
             url: quickstart-portal-spring-cloud-connection.md
+          - text: Create a connection in Container Apps
+            url: quickstart-portal-container-apps.md
+  - title: Get started using the Azure CLI
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a connection in App Service
+            url: quickstart-cli-app-service-connection.md
+          - text: Create a connection in Azure Spring Apps
+            url: quickstart-cli-spring-cloud-connection.md
+          - text: Create a connection in Container Apps
+            url: quickstart-cli-container-apps.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
@@ -48,9 +68,18 @@ landingContent:
             url: tutorial-csharp-webapp-storage-cli.md
           - text: Spring Cloud app with Kafka on Confluent Cloud
             url: tutorial-java-spring-confluent-kafka.md
+          - text: Store secrets in Key Vault
+            url: tutorial-portal-key-vault.md
+          - text: Web app with App Configuration
+            url: tutorial-connect-web-app-app-configuration.md
+          - text: Passwordless connection to database
+            url: tutorial-passwordless.md
+            
       - linkListType: how-to-guide
         links:
+          - text: Manage authentication
+            url: how-to-manage-authentication.md
+          - text: Store secrets in Azure Key Vault
+            url: tutorial-portal-key-vault.md
           - text: Troubleshooting guide
             url: how-to-troubleshoot-front-end-error.md
-          - text: Region support
-            url: concept-region-support.md

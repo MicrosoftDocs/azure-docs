@@ -1,6 +1,56 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-manage-routes.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-route-with-managed-identity.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-endpoints#endpoint-options-identity-based-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-integrate-logic-apps.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-power-platform-logic-apps-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-ingest-opcua-data.md",
+      "redirect_url": "https://github.com/digitaltwinconsortium/ManufacturingOntologies#manufacturing-ontologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-monitor-metrics.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-monitor-diagnostics.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-monitor-alerts.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-use-data-history.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-data-history-connection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-app-registration-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-app-registration-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-set-up-instance-powershell.md",
       "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
       "redirect_document_id": false
@@ -21,13 +71,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "troubleshoot-resource-health.md",
-      "redirect_url": "/azure/digital-twins/how-to-monitor-resource-health",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "how-to-create-app-registration.md",
-      "redirect_url": "/azure/digital-twins/how-to-create-app-registration-portal",
+      "source_path": "how-to-monitor-resource-health.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-resource-health",
       "redirect_document_id": true
     },
     {
@@ -82,18 +127,23 @@
     },
     {
       "source_path": "how-to-enable-managed-identities-portal.md",
-      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-portal#enable-disable-managed-identity-for-the-instance",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-enable-managed-identities-cli.md",
-      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli#enable-disable-managed-identity-for-the-instance",
       "redirect_document_id": false
     },
     {
       "source_path": "overview-differences.md",
-      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
-      "redirect_document_id": true
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "resources-compare-original-release.md",
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "concepts-convert-models.md",
@@ -105,18 +155,16 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
-
     {
       "source_path": "how-to-manage-routes-apis-cli.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-manage-routes-portal.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
-
     {
       "source_path": "how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
@@ -139,7 +187,12 @@
     },
     {
       "source_path": "how-to-configure-postman.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-postman",
+      "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-use-postman.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
       "redirect_document_id": true
     },
     {
@@ -194,8 +247,18 @@
     },
     {
       "source_path": "how-to-egress-endpoints.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "troubleshoot-error-403.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-error-403-digital-twins",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-error-404.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-error-404-digital-twins",
+      "redirect_document_id": true
     },
     {
       "source_path": "how-to-multitenant-applications.md",
@@ -279,5 +342,3 @@
     }
   ]
 }
-
-

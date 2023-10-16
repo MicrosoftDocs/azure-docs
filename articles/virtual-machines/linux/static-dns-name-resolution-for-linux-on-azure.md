@@ -1,14 +1,15 @@
 ---
 title: Use internal DNS for VM name resolution with the Azure CLI 
 description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: networking
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
-ms.date: 02/16/2017
-ms.author: cynthn
-
+ms.date: 04/06/2023
+ms.author: mattmcinnes
+ms.reviewer: cynthn
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure
@@ -47,16 +48,16 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ## Detailed walkthrough
 
-A full continuous integration and continuous deployment (CiCd) infrastructure on Azure requires certain servers to be static or long-lived servers. It is recommended that Azure assets like the virtual networks and Network Security Groups are static and long lived resources that are rarely deployed. Once a virtual network has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure. You can later add a Git repository server or a Jenkins automation server delivers CiCd to this virtual network for your development or test environments.  
+A full continuous integration and continuous deployment (CiCd) infrastructure on Azure requires certain servers to be static or long-lived servers. It's recommended that Azure assets like the virtual networks and Network Security Groups are static and long lived resources that are rarely deployed. Once a virtual network has been deployed, it can be reused in new deployments without any adverse affects to the infrastructure. You can later add a Git repository server or a Jenkins automation server delivers CiCd to this virtual network for your development or test environments.  
 
-Internal DNS names are only resolvable inside an Azure virtual network. Because the DNS names are internal, they are not resolvable to the outside internet, providing additional security to the infrastructure.
+Internal DNS names are only resolvable inside an Azure virtual network. Because the DNS names are internal, they aren't resolvable to the outside internet, providing extra security to the infrastructure.
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myNic`, and `myVM`.
 
@@ -124,7 +125,7 @@ az network vnet subnet update \
 
 
 ## Create the virtual network interface card and static DNS names
-Azure is very flexible, but to use DNS names for VM name resolution, you need to create virtual network interface cards (vNics) that include a DNS label. vNics are important as you can reuse them by connecting them to different VMs over the infrastructure lifecycle. This approach keeps the vNic as a static resource while the VMs can be temporary. By using DNS labeling on the vNic, we are able to enable simple name resolution from other VMs in the VNet. Using resolvable names enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  
+To use DNS names for VM name resolution, you need to create virtual network interface cards (vNics) that include a DNS label. vNics are important as you can reuse them by connecting them to different VMs over the infrastructure lifecycle. This approach keeps the vNic as a static resource while the VMs can be temporary. By using DNS labeling on the vNic, we're able to enable simple name resolution from other VMs in the VNet. Using resolvable names enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  
 
 Create the vNic with [az network nic create](/cli/azure/network/nic). The following example creates a vNic named `myNic`, connects it to the `myVnet` virtual network named `myVnet`, and creates an internal DNS name record called `jenkins`:
 
@@ -147,7 +148,7 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```

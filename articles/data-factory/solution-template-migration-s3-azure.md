@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/31/2022
+ms.date: 04/12/2023
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2. 
+Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2.
 
  > [!NOTE]
  > If you want to copy small data volume from AWS S3 to Azure (for example, less than 10 TB), it's more efficient and easy to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). The template that's described in this article is more than what you need.
@@ -42,7 +42,7 @@ The template contains two parameters:
 
 ### For the template to copy changed files only from Amazon S3 to Azure Data Lake Storage Gen2
 
-This template (*template name: copy delta data from AWS S3 to Azure Data Lake Storage Gen2*) uses LastModifiedTime of each file to copy the new or updated files only from AWS S3 to Azure. Be aware if your files or folders has already been time partitioned with timeslice information as part of the file or folder name on AWS S3 (for example, /yyyy/mm/dd/file.csv), you can go to this [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) to get the more performant approach for incremental loading new files. 
+This template (*template name: copy delta data from AWS S3 to Azure Data Lake Storage Gen2*) uses LastModifiedTime of each file to copy the new or updated files only from AWS S3 to Azure. Be aware if your files or folders has already been time partitioned with timeslice information as part of the file or folder name on AWS S3 (for example, /yyyy/mm/dd/file.csv), you can go to this [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) to get the more performant approach for incremental loading new files.
 This template assumes that you have written a partition list in an external control table in Azure SQL Database. So it will use a *Lookup* activity to retrieve the partition list from the external control table, iterate over each partition, and make each ADF copy job copy one partition at a time. When each copy job starts to copy the files from AWS S3, it relies on LastModifiedTime property to identify and copy the new or updated files only. Once any copy job completed, it uses *Stored Procedure* activity to update the status of copying each partition in control table.
 
 The template contains seven activities:
@@ -60,9 +60,9 @@ The template contains two parameters:
 
 ## How to use these two solution templates
 
-### For the template to migrate historical data from Amazon S3 to Azure Data Lake Storage Gen2 
+### For the template to migrate historical data from Amazon S3 to Azure Data Lake Storage Gen2
 
-1. Create a control table in Azure SQL Database to store the partition list of AWS S3. 
+1. Create a control table in Azure SQL Database to store the partition list of AWS S3.
 
     > [!NOTE]
     > The table name is s3_partition_control_table.
@@ -71,8 +71,8 @@ The template contains two parameters:
 
     ```sql
     CREATE TABLE [dbo].[s3_partition_control_table](
-    	[PartitionPrefix] [varchar](255) NULL,
-    	[SuccessOrFailure] [bit] NULL
+        [PartitionPrefix] [varchar](255) NULL,
+        [SuccessOrFailure] [bit] NULL
     )
 
     INSERT INTO s3_partition_control_table (PartitionPrefix, SuccessOrFailure)
@@ -84,7 +84,7 @@ The template contains two parameters:
     ('e', 0);
     ```
 
-2. Create a Stored Procedure on the same Azure SQL Database for control table. 
+2. Create a Stored Procedure on the same Azure SQL Database for control table.
 
     > [!NOTE]
     > The name of the Stored Procedure is sp_update_partition_success. It will be invoked by SqlServerStoredProcedure activity in your ADF pipeline.
@@ -93,9 +93,9 @@ The template contains two parameters:
     CREATE PROCEDURE [dbo].[sp_update_partition_success] @PartPrefix varchar(255)
     AS
     BEGIN
-    
-    	UPDATE s3_partition_control_table
-    	SET [SuccessOrFailure] = 1 WHERE [PartitionPrefix] = @PartPrefix
+
+        UPDATE s3_partition_control_table
+        SET [SuccessOrFailure] = 1 WHERE [PartitionPrefix] = @PartPrefix
     END
     GO
     ```
@@ -107,7 +107,7 @@ The template contains two parameters:
 4. Select **Use this template**.
 
     :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-2.png" alt-text="Screenshot that highlights the Use this template button.":::
-	
+
 5. You see the 2 pipelines and 3 datasets were created, as shown in the following example:
 
     :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-3.png" alt-text="Screenshot that shows the two pipelines and three datasets that were created by using the template.":::
@@ -123,7 +123,7 @@ The template contains two parameters:
 
 ### For the template to copy changed files only from Amazon S3 to Azure Data Lake Storage Gen2
 
-1. Create a control table in Azure SQL Database to store the partition list of AWS S3. 
+1. Create a control table in Azure SQL Database to store the partition list of AWS S3.
 
     > [!NOTE]
     > The table name is s3_partition_delta_control_table.
@@ -132,10 +132,10 @@ The template contains two parameters:
 
     ```sql
     CREATE TABLE [dbo].[s3_partition_delta_control_table](
-    	[PartitionPrefix] [varchar](255) NULL,
-    	[JobRunTime] [datetime] NULL,
-    	[SuccessOrFailure] [bit] NULL
-    	)
+        [PartitionPrefix] [varchar](255) NULL,
+        [JobRunTime] [datetime] NULL,
+        [SuccessOrFailure] [bit] NULL
+        )
 
     INSERT INTO s3_partition_delta_control_table (PartitionPrefix, JobRunTime, SuccessOrFailure)
     VALUES
@@ -146,22 +146,21 @@ The template contains two parameters:
     ('e','1/1/2019 12:00:00 AM',1);
     ```
 
-2. Create a Stored Procedure on the same Azure SQL Database for control table. 
+2. Create a Stored Procedure on the same Azure SQL Database for control table.
 
     > [!NOTE]
     > The name of the Stored Procedure is sp_insert_partition_JobRunTime_success. It will be invoked by SqlServerStoredProcedure activity in your ADF pipeline.
 
     ```sql
-    	CREATE PROCEDURE [dbo].[sp_insert_partition_JobRunTime_success] @PartPrefix varchar(255), @JobRunTime datetime, @SuccessOrFailure bit
-    	AS
-    	BEGIN
-    		INSERT INTO s3_partition_delta_control_table (PartitionPrefix, JobRunTime, SuccessOrFailure)
-    		VALUES
-    		(@PartPrefix,@JobRunTime,@SuccessOrFailure)
-    	END
-    	GO
+    CREATE PROCEDURE [dbo].[sp_insert_partition_JobRunTime_success] @PartPrefix varchar(255), @JobRunTime datetime, @SuccessOrFailure bit
+    AS
+    BEGIN
+        INSERT INTO s3_partition_delta_control_table (PartitionPrefix, JobRunTime, SuccessOrFailure)
+        VALUES
+            (@PartPrefix,@JobRunTime,@SuccessOrFailure)
+    END
+    GO
     ```
-
 
 3. Go to the **Copy delta data from AWS S3 to Azure Data Lake Storage Gen2** template. Input the connections to your external control table, AWS S3 as the data source store and Azure Data Lake Storage Gen2 as the destination store. Be aware that the external control table and the stored procedure are reference to the same connection.
 
@@ -170,12 +169,12 @@ The template contains two parameters:
 4. Select **Use this template**.
 
     :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-2.png" alt-text="Use this template":::
-	
+
 5. You see the 2 pipelines and 3 datasets were created, as shown in the following example:
 
     :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-3.png" alt-text="Review the pipeline":::
 
-6.  Go the "DeltaCopyFromS3" pipeline and select **Debug**, and enter the **Parameters**. Then, select **Finish**.
+6. Go the "DeltaCopyFromS3" pipeline and select **Debug**, and enter the **Parameters**. Then, select **Finish**.
 
     :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-4.png" alt-text="Click **Debug**":::
 
@@ -186,7 +185,7 @@ The template contains two parameters:
 8. You can also check the results from the control table by a query *"select * from s3_partition_delta_control_table"*, you will see the output similar to the following example:
 
     :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-6.png" alt-text="Screenshot that shows the results from the control table after you run the query.":::
-	
+
 ## Next steps
 
 - [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md)

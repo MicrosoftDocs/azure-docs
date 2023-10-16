@@ -1,13 +1,11 @@
 ---
 title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
-author: ggailey777
 
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 03/24/2021
-ms.author: glenga
 ms.reviewer: jehollan
 ---
 # Use dependency injection in .NET Azure Functions
@@ -21,7 +19,7 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 - Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
 
 > [!IMPORTANT]
-> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET 5.0 functions out-of-process. The .NET isolated process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated process guide.
+> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET functions out-of-process. The .NET isolated worker process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated worker process guide.
 
 ## Prerequisites
 
@@ -36,6 +34,11 @@ Before you can use dependency injection, you must install the following NuGet pa
 ## Register services
 
 To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
+
+> [!WARNING]
+> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
+>
+> Injection of `IConfiguration` can lead to unexpected behavior. To learn more about adding configuration sources, see [Customizing configuration sources](#customizing-configuration-sources).
 
 To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
@@ -278,9 +281,6 @@ To access user secrets values in your function app code, use `IConfiguration` or
 
 ## Customizing configuration sources
 
-> [!NOTE]
-> Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
-
 To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's `StartUp` class.
 
 The following sample adds configuration values from a base and an optional environment-specific app settings files.
@@ -306,6 +306,10 @@ namespace MyNamespace
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
                 .AddEnvironmentVariables();
         }
+        
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+        }
     }
 }
 ```
@@ -325,9 +329,6 @@ By default, configuration files such as *appsettings.json* are not automatically
     <CopyToPublishDirectory>Never</CopyToPublishDirectory>
 </None>
 ```
-
-> [!IMPORTANT]
-> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
 
 ## Next steps
 

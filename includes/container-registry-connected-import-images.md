@@ -1,9 +1,10 @@
 ---
-author: dlepow
+author: tejaswikolli-web
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 09/16/2021
-ms.author: danlep
+ms.date: 08/16/2022
+ms.author: tejaswikolli
 ---
 ## Import images to your cloud registry
 
@@ -19,7 +20,7 @@ REGISTRY_NAME=<container-registry-name>
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/acr/connected-registry:0.5.0
+  --source mcr.microsoft.com/acr/connected-registry:0.8.0
 ```
 
 ### IoT Edge and API proxy images

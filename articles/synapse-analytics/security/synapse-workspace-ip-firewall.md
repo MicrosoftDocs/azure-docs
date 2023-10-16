@@ -5,8 +5,8 @@ author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 04/12/2022
-ms.author: seshin 
+ms.date: 09/16/2022
+ms.author: danzhang 
 ms.reviewer: wiassaf
 ---
 
@@ -16,7 +16,7 @@ This article will explain IP firewall rules and teach you how to configure them 
 
 ## IP firewall rules
 
-IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development).
+IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development). The maximum number of IP firewall rules is limited to 128. If you have the **Allow Azure Services and resources to access this server** setting enabled, this counts as a single firewall rule for the workspace.
 
 ## Create and manage IP firewall rules
 
@@ -38,14 +38,13 @@ You can also add IP firewall rules to a Synapse workspace after the workspace is
 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (dedicated SQL pools and serverless SQL pool) in your workspace.
 
-Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1433 for Synapse Studio. 
-For private endpoints of your workspace target resources (Sql, SqlOnDemand, Dev), allow outgoing communication on TCP port 443 and 1433, unless you have configured other custom ports.
+Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1443. These ports are used by Synapse Studio.
 
-Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
+To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. The 1433 port used by SSMS (Desktop Application).
 
 ## Manage the Azure Synapse workspace firewall 
 
-For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 For more information on the methods to manage the firewall programmatically, see: 
 - [API](/rest/api/synapse/ip-firewall-rules)

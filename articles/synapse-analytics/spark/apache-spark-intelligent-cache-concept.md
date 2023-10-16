@@ -5,7 +5,7 @@ services: synapse-analytics
 author: avinandaMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 2/17/2022
+ms.date: 7/7/2022
 ms.author: avinandac
 ms.reviewer: sngun 
 ms.subservice: spark
@@ -20,9 +20,6 @@ When querying a file or table from your data lake, the Apache Spark engine in Sy
 The Synapse Intelligent Cache simplifies this process by automatically caching each read within the allocated cache storage space on each Spark node. Each request for a file will check to see if the file exists in the cache and compare the tag from the remote storage to determine if the file is stale. If the file doesn't exist or if the file is stale, then Spark will read the file and store it in the cache. When the cache becomes full, the file with the oldest last access time will be evicted from the cache to allow for more recent files. 
 
 The Synapse cache is a single cache per node. If you're using a medium size node and run with two small executors on a single medium size node, these two executors would share the same cache. 
-
-> [!Note]
-> Intelligent Cache is currently in Public Preview.
 
 ## Enable or Disable the cache
 
@@ -39,7 +36,7 @@ When creating a new Spark pool, browse under the **additional settings** tab to 
 
 ### Enabling/Disabling cache for existing Spark pools
 
-For existing Spark pools, browse to the **Scale settings** of your Apache Spark pool of choice to enable, by moving the **slider** to a value more then 0, or disable it, by moving **slider** to 0.
+For existing Spark pools, browse to the **Scale settings** of your Apache Spark pool of choice to enable, by moving the **slider** to a value more than 0, or disable it, by moving **slider** to 0.
 
 ![How to enable or disable Intelligent Cache for existing Spark pools](./media/apache-spark-intelligent-cache-concept/inteligent-cache-setting-config.png)
 
@@ -88,22 +85,22 @@ This feature will benefit you if:
 
 * Your workload uses Delta tables, parquet file formats and CSV files. 
 
-* You're using Apache Spark v3.1 or higher on Azure Synapse. 
+* You're using Apache Spark 3 or higher on Azure Synapse. 
 
 
 You won't see the benefit of this feature if:
-* You're reading a file that exceed the cache size because the beginning of the files could be evicted and subsequent queries will have to refetch the data from the remote storage. In this case, you won't see any benefits from the Intelligent Cache and you may want to increase your cache size and/or node size.  
+* You're reading a file that exceeds the cache size because the beginning of the files could be evicted and subsequent queries will have to refetch the data from the remote storage. In this case, you won't see any benefits from the Intelligent Cache and you may want to increase your cache size and/or node size.  
 
 * Your workload requires large amounts of shuffle, then disabling the Intelligent Cache will free up available space to prevent your job from failing due to insufficient storage space.  
 
-* You're using a Spark 2.4 pool, you'll need to upgrade your pool to the latest version of Spark. 
+* You're using a Spark 3.1 pool, you'll need to upgrade your pool to the latest version of Spark. 
 
 
 ## Learn more
 To learn more on Apache Spark, see the following articles:
   - [What is Apache Spark](./spark/../apache-spark-concepts.md)
   - [Apache Spark core concepts](./spark/../apache-spark-concepts.md)
-  - [Azure Synapse Runtime for Apache Spark 3.1](./spark/../apache-spark-3-runtime.md)
+  - [Azure Synapse Runtime for Apache Spark 3.2](./spark/../apache-spark-32-runtime.md)
   - [Apache Spark pool sizes and configurations](./spark/../apache-spark-pool-configurations.md)
 
 To learn about configuring Spark session settings

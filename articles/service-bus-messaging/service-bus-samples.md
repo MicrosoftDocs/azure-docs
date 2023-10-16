@@ -3,12 +3,15 @@ title: Azure Service Bus samples or examples
 description: Azure Service Bus messaging samples or examples that demonstrate key features. 
 author: spelluru
 ms.topic: article
-ms.date: 07/23/2021
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 10/19/2022
 ms.author: spelluru
 ---
 
 # Service Bus messaging samples or examples
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places:
+The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## .NET samples
 
@@ -22,6 +25,13 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | ------- | ---------------- | 
 | azure-messaging-servicebus (latest) | [Code samples](/samples/azure/azure-sdk-for-java/servicebus-samples/) |
 | azure-servicebus (legacy) | [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) |
+
+## Spring samples
+| Package                                           | Samples location                                                                                                                                                          | 
+|---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| spring-cloud-azure-starter-servicebus-jms         | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-starter-servicebus-jms)         |
+| spring-cloud-azure-starter-integration-servicebus | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-starter-integration-servicebus) |
+| spring-cloud-azure-stream-binder-servicebus       | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-stream-binder-servicebus)       |
 
 ## Python samples
 | Package | Samples location |
@@ -41,8 +51,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 ## Go samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azure-service-bus-go | [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
+| azservicebus | [GitHub location](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus) |
 
 ## Management samples
 You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.
-

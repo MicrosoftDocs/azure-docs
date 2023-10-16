@@ -1,33 +1,32 @@
 ---
-title: Microsoft Endpoint Configuration Manager for Azure Virtual Desktop
-description: Recommended ways for you to manage your Azure Virtual Desktop environment.
+title: Manage session hosts with Microsoft Intune - Azure Virtual Desktop
+description: Recommended ways for you to manage your Azure Virtual Desktop session hosts.
 author: heidilohr
-
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 04/11/2023
 ms.author: helohr
 manager: femila
 ---
-# Microsoft Endpoint Manager and Intune for Azure Virtual Desktop
+# Manage session hosts with Microsoft Intune
 
-We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment after deployment. Microsoft Endpoint Manager is a unified management platform that includes Microsoft Endpoint Configuration Manager and Microsoft Intune.
+We recommend using [Microsoft Intune](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment. Microsoft Intune is a unified management platform that includes Microsoft Configuration Manager and Microsoft Intune.
 
-> [!NOTE]
-> Managing Azure Virtual Desktop session hosts using Microsoft Endpoint Manager is currently only supported in the Azure Public cloud.
+## Microsoft Configuration Manager
 
-## Microsoft Endpoint Configuration Manager
-
-Microsoft Endpoint Configuration Manager versions 1906 and later can manage your Azure Virtual Desktop devices. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-virtual-desktop).
+Microsoft Configuration Manager versions 1906 and later can manage your domain-joined and Microsoft Entra hybrid joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
 
 ## Microsoft Intune
 
-Intune supports Windows 10 Enterprise virtual machines (VMs) for Azure Virtual Desktop. For more information about support, see [Using Windows 10 Enterprise with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
+Microsoft Intune can manage your Microsoft Entra joined and Microsoft Entra hybrid joined session hosts. To learn more about using Intune to manage Windows 11 and Windows 10 single session hosts, see [Using Azure Virtual Desktop with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
 
-Intune support for Windows 10 Enterprise multi-session VMs on Azure Virtual Desktop is currently in public preview. To see what the public preview version currently supports, check out [Using Windows 10 Enterprise multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+For Windows 11 and Windows 10 multi-session hosts, Intune supports both device-based configurations and user-based configurations on Windows 11 and Windows 10. User-scope configuration on Windows 10 requires the update March 2023 Cumulative Update Preview (KB5023773) and OS version 19042.2788, 19044.2788, 19045.2788 or later. To learn more about using Intune to manage multi-session hosts, see [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+
+> [!NOTE]
+> Managing Azure Virtual Desktop session hosts using Intune is currently supported in the Azure Public and [Azure Government clouds](/enterprise-mobility-security/solutions/ems-intune-govt-service-description).
 
 ## Licensing
 
-[Microsoft Endpoint Configuration Manager and Microsoft Intune licenses](https://microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) are included with most Microsoft 365 subscriptions. 
+[Microsoft Intune licenses](https://microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) are included with most Microsoft 365 subscriptions. 
 
 Learn more about licensing requirements at the following resources:
 

@@ -1,50 +1,51 @@
 ---
-title: List users, groups, or devices in an administrative unit - Azure Active Directory
-description: List users, groups, or devices in an administrative unit in Azure Active Directory.
+title: List users, groups, or devices in an administrative unit
+description: List users, groups, or devices in an administrative unit in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
 # List users, groups, or devices in an administrative unit
 
-In Azure Active Directory (Azure AD), you can list the users, groups, or devices in administrative units.
+In Microsoft Entra ID, you can list the users, groups, or devices in administrative units.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
-- Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
+- Azure AD PowerShell module when using PowerShell
 - AzureADPreview module when using PowerShell for devices
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-You can list the users, groups, or devices in administrative units using the Azure portal.
+You can list the users, groups, or devices in administrative units using the Microsoft Entra admin center.
 
 ### List the administrative units for a single user, group, or device
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select one of the following:
+1. Browse to **Identity**.
 
-    - **Users**
-    - **Groups**
+1. Browse to one of the following:
+
+    - **Users** > **All users**
+    - **Groups** > **All groups**
     - **Devices** > **All devices**
 
 1. Select the user, group, or device you want to list their administrative units.
@@ -55,11 +56,11 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the users, groups, or devices for a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to list the users, groups, or devices for.
+1. Select the administrative unit that you want to list the users, groups, or devices for.
 
 1. Select one of the following:
 
@@ -71,17 +72,34 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the devices for an administrative unit by using the All devices page
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**.
-
-1. Select **Devices** > **All devices**.
+1. Browse to **Identity** > **Devices** > **All devices**.
 
 1. Select the filter for administrative unit.
 
 1. Select the administrative unit whose devices you want to list.
 
     ![Screenshot of All devices page with an administrative unit filter.](./media/admin-units-members-list/device-admin-unit-filter.png)
+
+### List the restricted management administrative units for a single user or group
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Browse to **Identity**.
+
+1. Browse to one of the following:
+
+    - **Users** > **All users**
+    - **Groups** > **All groups**
+
+1. Select the user or group you want to list their restricted management administrative units.
+
+1. Select **Administrative units** to list all the administrative units where the user or group is a member.
+
+1. In the **Restricted management** column, look for administrative units that are set to **Yes**.
+
+    ![Screenshot of the Administrative units page with the Restricted management column.](./media/admin-units-members-list/list-restricted-management-admin-unit.png)
 
 ## PowerShell
 
@@ -147,11 +165,9 @@ foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)
 
 ## Microsoft Graph API
 
-Use the [List members](/graph/api/administrativeunit-list-members) API to list users or groups for an administrative unit.
-
-Use the [List members (Beta)](/graph/api/administrativeunit-list-members?view=graph-rest-beta&preserve-view=true) API to list devices for an administrative unit.
-
 ### List the administrative units for a user
+
+Use the user [List memberOf](/graph/api/user-list-memberof) API to list the administrative units a user is a direct member of.
 
 ```http
 GET https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -159,30 +175,47 @@ GET https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.
 
 ### List the administrative units for a group
 
+Use the group [List memberOf](/graph/api/group-list-memberof) API to list the administrative units a group is a direct member of.
+
 ```http
 GET https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ### List the administrative units for a device
 
+Use the [List device memberships](/graph/api/device-list-memberof) API to list the administrative units a device is a direct member of.
+
 ```http
-GET https://graph.microsoft.com/beta/devices/{device-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
+GET https://graph.microsoft.com/v1.0/devices/{device-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
-### List the groups for an administrative unit
+### List the users, groups, or devices for an administrative unit
+
+Use the [List members](/graph/api/administrativeunit-list-members) API to list the users, groups, or devices for an administrative unit. For member type, specify `microsoft.graph.user`, `microsoft.graph.group`, or `microsoft.graph.device`.
 
 ```http
 GET https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
 ```
 
-### List the devices for an administrative unit
+### List whether a single user is in a restricted management administrative unit
+
+Use the [Get a user (beta)](/graph/api/user-get?view=graph-rest-beta&preserve-view=true) API to determine whether a user is in a restricted management administrative unit. Look at the value of the `isManagementRestricted` property. If the property is `true`, it is in a restricted management administrative unit. If the property is `false`, empty, or null, it is not in a restricted management administrative unit.
 
 ```http
-GET https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.device
+GET https://graph.microsoft.com/beta/users/{user-id}
 ```
 
+Response
+
+```
+{ 
+  "displayName": "John",
+  "isManagementRestricted": true,
+  "userPrincipalName": "john@contoso.com", 
+}
+```
 
 ## Next steps
 
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)

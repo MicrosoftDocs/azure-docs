@@ -4,11 +4,11 @@ description: Learn how to use the Azure Image Builder, and the Azure CLI, to cre
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 03/02/2021
+ms.date: 04/11/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Create a Linux image and distribute it to an Azure Compute Gallery
@@ -17,11 +17,9 @@ ms.subservice: image-builder
 
 This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
-
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
-
 
 ## Register the features
 
@@ -47,7 +45,7 @@ az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
 ```
 
-## Set variables and permissions 
+## Set variables and permissions
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
@@ -81,9 +79,10 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
+
 Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the gallery. The role definition will then be assigned to the user-identity.
 
-```bash
+```azurecli-interactive
 # create user assigned identity for image builder to access the storage account where the script is located
 identityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $identityName
@@ -114,7 +113,6 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
 
-
 ## Create an image definition and gallery
 
 To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder will not create the gallery and image definition for you.
@@ -139,7 +137,6 @@ az sig image-definition create \
    --sku 18.04-LTS \
    --os-type Linux
 ```
-
 
 ## Download and configure the .json
 
@@ -184,7 +181,6 @@ az resource invoke-action \
 
 Creating the image and replicating it to both regions can take a while. Wait until this part is finished before moving on to creating a VM.
 
-
 ## Create the VM
 
 Create a VM from the image version that was created by Azure Image Builder.
@@ -219,7 +215,6 @@ You should see the image was customized with a *Message of the Day* as soon as y
 
 If you want to now try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
-
 This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
 When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
@@ -234,6 +229,7 @@ az resource delete \
 ```
 
 Delete permissions assignments, roles and identity
+
 ```azurecli-interactive
 az role assignment delete \
     --assignee $imgBuilderCliId \
@@ -259,8 +255,7 @@ az sig image-version delete \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
    --subscription $subscriptionID
-```   
-
+```  
 
 Delete the image definition.
 

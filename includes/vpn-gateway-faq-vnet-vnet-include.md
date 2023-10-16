@@ -1,5 +1,4 @@
 ---
- description: include file
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
@@ -17,9 +16,11 @@ VNet-to-VNet traffic within the same region is free for both directions when you
 
 No. VNet-to-VNet traffic travels across the Microsoft Azure backbone, not the internet.
 
-### Can I establish a VNet-to-VNet connection across Azure Active Directory tenants?
+<a name='can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-tenants'></a>
 
-Yes, VNet-to-VNet connections that use Azure VPN gateways work across Azure AD tenants.
+### Can I establish a VNet-to-VNet connection across Microsoft Entra tenants?
+
+Yes, VNet-to-VNet connections that use Azure VPN gateways work across Microsoft Entra tenants.
 
 ### Is VNet-to-VNet traffic secure?
 
@@ -80,6 +81,3 @@ No. You can't have overlapping IP address ranges.
 ### Can there be overlapping address spaces among connected virtual networks and on-premises local sites?
 
 No. You can't have overlapping IP address ranges.
-
-
-

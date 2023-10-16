@@ -1,21 +1,25 @@
 ---
 title: Resource availability by region
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
-ms.topic: article
-ms.date: 04/27/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: conceptual
+ms.date: 05/23/2023
 ms.custom: references_regions
 
 ---
 # Resource availability for Azure Container Instances in Azure regions
 
-This article details the availability of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/).
+This article details the availability of Azure Container Instances compute, memory, storage resources, and product features in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/).
 
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication.
 
 > [!NOTE]
 > Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time or in a different region with available resources.
 
-For information about quotas and other limits in your deployments, see [Quotas and limits for Azure Container Instances](container-instances-quotas.md).
+For information about quotas and other limits in your deployments, see [Quotas and limits for Azure Container Instances](container-instances-resource-and-quota-limits.md).
 
 ## Linux container groups
 
@@ -25,39 +29,47 @@ The following regions and maximum resources are available to container groups wi
 > The maximum resources in a region are different depending on your deployment. For example, a region may have a different maximum CPU and memory size in an Azure virtual network deployment than for a general deployment. That same region may also have a different set of maximum values for a deployment with GPU resources. Verify your deployment type before checking the below tables for the maximum values in your region.
 
 > [!NOTE]
-> Some regions don't support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
+> Some regions don't support availability zones (denoted by a 'N/A' in the table), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table). For more information, see [Azure regions with availability zones][az-region-support].
 
-| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
-| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
-| Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
-| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Canada East | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
-| Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A | Y |
-| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Korea Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N |
-| North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y |
-| Norway East | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y |
-| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y |
-| South India | 4 | 16 | N/A | N/A | 50 | K80 | N |
-| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| UK West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N |
-| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West US | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
+| Region | Max CPU | Max memory (GB) | VNET max CPU | VNET max memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support | Confidential SKU | Spot containers (preview) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: | :----: | :----: |
+| Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Australia Southeast | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Brazil South | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Central India | 4 | 16 | 4 | 16 | 50 | V100 | N | N | N |
+| Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | Y | N |
+| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | Y |
+| France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y| N | N |
+| Germany West Central | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Japan West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Jio India West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Korea Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| North Central US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | N | N | N |
+| North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y | Y | N |
+| Norway East | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Norway West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| South Africa North | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y | N | N |
+| South India | 4 | 16 | 4 | 16 | 50 | K80 | N | N | N |
+| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y | N | N |
+| Sweden Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Sweden South | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Switzerland North | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Switzerland West | 4 | 16 | N/A | N/A | 50 | N/A | N | N | N |
+| UAE North | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N | 
+| UK West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | Y | Y |
+| West India | 4 | 16 | N/A | N/A | 50 | N/A | N | N | N |
+| West US | 4 | 16 | 4 | 16 | 50 | N/A | N | Y | Y |
+| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | N | N |
+| West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
@@ -79,6 +91,9 @@ The following regions and maximum resources are available to container groups wi
 
 > [!IMPORTANT]
 > At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
+
+> [!IMPORTANT] 
+> At this time, Windows container groups are not supported with Confidential containers on Azure Container Instances.
 
 ### Windows Server 2016
 
@@ -122,7 +137,7 @@ The following regions and maximum resources are available to container groups wi
 | Central US | 4 | 16 | 20 | Y |
 | East Asia | 4 | 16 | 20 | N |
 | East US | 4 | 16 | 20 | Y |
-| East US 2 | 2 | 3.5 | 20 | Y |
+| East US 2 | 4 | 16 | 20 | Y |
 | France Central | 4 | 16 | 20 | Y |
 | Japan East | 4 | 16 | 20 | Y |
 | Korea Central | 4 | 16 | 20 | N |
@@ -136,10 +151,11 @@ The following regions and maximum resources are available to container groups wi
 | West Europe | 4 | 16 | 20 | Y |
 | West US | 4 | 16 | 20 | N |
 | West US 2 | 4 | 16 | 20 | Y |
+| West US 3| 4 | 16 | 20 | Y |
 
 ## Next steps
 
-Let the team know if you'd like to see additional regions or increased resource availability at [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
+Let the team know if you'd like to see more regions or increased resource availability at [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 

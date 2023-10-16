@@ -2,8 +2,8 @@
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
-ms.date: 11/08/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-2022
+ms.date: 05/02/2023
 ---
 
 # Service Bus Premium and Standard messaging tiers
@@ -24,15 +24,11 @@ Some high-level differences are highlighted in the following table.
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
-Not only is this performance more predictable and available, but it is also faster. With Premium Messaging, peak performance is much faster than with the Standard tier.
+Not only is this performance more predictable and available, but it's also faster. With Premium Messaging, peak performance is much faster than with the Standard tier.
 
 ## Premium Messaging technical differences
 
 The following sections discuss a few differences between Premium and Standard messaging tiers.
-
-### Partitioned queues and topics
-
-Partitioned queues and topics aren't supported in Premium Messaging. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
 
 ### Express entities
 
@@ -53,15 +49,15 @@ The CPU and memory usage are tracked and displayed to you for the following reas
 - Understand the capacity of resources purchased.
 - Capacity planning that helps you decide to scale up/down.
 
-## Messaging unit - How many are needed?
+## How many messaging units are needed? 
 
-When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace.
+You specify the number of messaging units when provisioning an Azure Service Bus Premium namespace. These messaging units are dedicated resources that are allocated to the namespace. When partitioning has been enabled on the namespace, the messaging units are equally distributed across the partitions.
 
 The number of messaging units allocated to the Service Bus Premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
 
 There are a few factors to take into consideration when deciding the number of messaging units for your architecture:
 
-- Start with ***1 or 2 messaging units*** allocated to your namespace.
+- Start with ***1 or 2 messaging units*** allocated to your namespace, or ***1 message unit per partition***.
 - Study the CPU usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
     - If CPU usage is ***below 20%***, you might be able to ***scale down*** the number of messaging units allocated to your namespace.
     - If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.
@@ -80,7 +76,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Select **View full pricing details** to see more information about each tier.
 
 :::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Screenshot that shows the selection of premium tier when creating a namespace.":::
 
@@ -90,13 +86,17 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that have used larger message payloads on other enterprise messaging brokers and are looking to seamlessly migrate to Azure Service Bus.
 
 Here are some considerations when sending large messages on Azure Service Bus -
-   * Supported on Azure Service Bus premium tier namespaces only.
-   * Supported only when using the AMQP protocol. Not supported when using the SBMP protocol.
-   * Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
-   * Sending large messages will result in decreased throughput and increased latency.
-   * While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
-   * The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
-   * Batching is not supported. 
+
+- Supported on Azure Service Bus premium tier namespaces only.
+- Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols, in the premium tier the maximum message size for these protocols is 1MB.
+- Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
+- Sending large messages will result in decreased throughput and increased latency.
+- While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
+- The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
+- Batching isn't supported. 
+- Service Bus Explorer doesn't support sending or receiving large messages. 
+
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ### Enabling large messages support for a new queue (or topic)
 

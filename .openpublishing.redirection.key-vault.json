@@ -16,6 +16,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/key-vault/general/import-cert-faqs.yml",
+      "redirect_url": "/azure/key-vault/general/faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/certificate-scenarios.md",
       "redirect_url": "/azure/key-vault/certificates/certificate-scenarios",
       "redirect_document_id": false
@@ -490,7 +495,6 @@
       "redirect_url": "/azure/aks/csi-secrets-store-driver",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/key-vault/general/assign-access-policy-portal.md",
       "redirect_url": "/azure/key-vault/general/assign-access-policy",
@@ -506,6 +510,5 @@
       "redirect_url": "/azure/key-vault/general/assign-access-policy",
       "redirect_document_id": false
     }
-
   ]
 }

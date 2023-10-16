@@ -4,8 +4,9 @@ description: In this article, you deploy a model from Azure Machine Learning as 
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 06/09/2021
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis
@@ -32,7 +33,7 @@ Azure Cache for Redis is performant and scalable. When paired with an Azure Mach
 > * `model` - The registered model that will be deployed.
 > * `inference_config` - The inference configuration for the model.
 >
-> For more information on setting these variables, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
+> For more information on setting these variables, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-managed-online-endpoints.md).
 
 ## Create an Azure Cache for Redis instance
 
@@ -48,7 +49,7 @@ You’ll be able to deploy a machine learning model to Azure Functions with any 
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string can contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string can contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's _host name_ will be _\<DNS name>.redis.cache.windows.net_. |
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
@@ -78,14 +79,14 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 Before deploying, you must define what is needed to run the model as a web service. The following list describes the core items needed for a deployment:
 
-* An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
+* An **entry script**. This script accepts requests, scores the request using the model, and returns the results.
 
     > [!IMPORTANT]
     > The entry script is specific to your model; it must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
     >
     > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning it to the client.
     >
-    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](../machine-learning/how-to-deploy-advanced-entry-script.md#binary-data).
+    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](../machine-learning/v1/how-to-deploy-advanced-entry-script.md#binary-data).
 
 For the run function, ensure it connects to a Redis endpoint.
 
@@ -118,11 +119,11 @@ def run(data):
         return error
 ```
 
-For more information on entry script, see [Define scoring code.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
+For more information on entry script, see [Define scoring code.](../machine-learning/how-to-deploy-managed-online-endpoints.md)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
-These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
+These entities are encapsulated into an **inference configuration**. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
 > When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
@@ -143,10 +144,10 @@ These entities are encapsulated into an __inference configuration__. The inferen
 
 For more information on environments, see [Create and manage environments for training and deployment](../machine-learning/how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-managed-online-endpoints.md).
 
 > [!IMPORTANT]
-> When deploying to Functions, you do not need to create a __deployment configuration__.
+> When deploying to Functions, you do not need to create a **deployment configuration**.
 
 ## Install the SDK preview package for Functions support
 
@@ -161,7 +162,7 @@ pip install azureml-contrib-functions
 To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) or the specific package function for the trigger you want to use. The following code snippet demonstrates how to create a new package with an HTTP trigger from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-managed-online-endpoints.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -195,20 +196,20 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     "passwords": [
         {
         "name": "password",
-        "value": "Iv0lRZQ9762LUJrFiffo3P4sWgk4q+nW"
+        "value": "abcdefghijklmmopqrstuv1234567890"
         },
         {
         "name": "password2",
-        "value": "=pKCxHatX96jeoYBWZLsPR6opszr==mg"
+        "value": "1234567890abcdefghijklmmopqrstuv"
         }
     ],
-    "username": "myml08024f78fd10"
+    "username": "charlie.roy"
     }
     ```
 
-    Save the value for __username__ and one of the __passwords__.
+    Save the value for **username** and one of the **passwords**.
 
-1. If you don't already have a resource group or app service plan to deploy the service, the these commands demonstrate how to create both:
+1. If you don't already have a resource group or app service plan to deploy the service, these commands demonstrate how to create both:
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
@@ -257,12 +258,12 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     {
         "name": "DOCKER_REGISTRY_SERVER_URL",
         "slotSetting": false,
-        "value": "https://myml08024f78fd10.azurecr.io"
+        "value": "[server-name].azurecr.io"
     },
     {
         "name": "DOCKER_REGISTRY_SERVER_USERNAME",
         "slotSetting": false,
-        "value": "myml08024f78fd10"
+        "value": "[username]"
     },
     {
         "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
@@ -271,7 +272,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|[server-name].azurecr.io/package:20190827195524"
     }
     ]
     ```
@@ -317,3 +318,4 @@ After a few moments, the resource group and all of its resources are deleted.
 * Learn to configure your function app in the [Functions](../azure-functions/functions-create-function-linux-custom-image.md) documentation.
 * [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions)
 * Create a [Python app that uses Azure Cache for Redis](./cache-python-get-started.md)
+

@@ -3,16 +3,16 @@ title: Azure DevTest Labs documentation # < 60 chars
 summary: Quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud with Azure DevTest Labs. # < 160 chars
 
 metadata:
-  title: Azure DevTest Labs documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Use Azure DevTest Labs to quickly set up a lab in the cloud. Create a development, test, hackathon, or classroom lab for your team or students. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure DevTest Labs documentation
+  description: Use Azure DevTest Labs to quickly set up a lab in the cloud. Create a development, test, hackathon, or classroom lab for your team or students.
   services: devtest-lab
-  ms.service: devtest-lab #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: devtest-lab
   ms.subservice: 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: RoseHJM #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rosemalcolm #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/26/2021 #Required; mm/dd/yyyy format.
+  author: RoseHJM
+  ms.author: rosemalcolm
+  ms.date: 09/30/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -39,7 +39,7 @@ landingContent:
       - linkListType: learn
         links:       
           - text: Intro to DevTest Labs
-            url: /learn/modules/intro-to-azure-devtest-labs/
+            url: /training/modules/intro-to-azure-devtest-labs/
   - title: Artifacts
     linkLists:
       - linkListType: how-to-guide
@@ -76,5 +76,7 @@ landingContent:
             url: /cli/azure/lab
           - text: PowerShell
             url: /powershell/module/az.devtestlabs/#devtest_labs
+          - text: PowerShell DevTest Labs Module
+            url: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library  
           - text: REST API
             url: /rest/api/dtl

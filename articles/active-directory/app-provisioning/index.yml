@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 
 title: Application and HR provisioning documentation
-summary: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+summary: Microsoft Entra app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Microsoft Entra ID also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
 
-metadata: 
-   title: Application provisioning documentation
-   description: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
-   ms.service: active-directory
-   ms.subservice: app-provisioning
-   ms.workload: identity
-   ms.topic: landing-page
-   ms.date: 08/12/2021
-   author: kenwith
-   ms.author: kenwith
-   manager: karenhoran
+metadata:
+  title: Application provisioning documentation
+  description: Microsoft Entra app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Microsoft Entra ID also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+  ms.service: active-directory
+  ms.subservice: app-provisioning
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 10/20/2022
+  author: kenwith
+  ms.author: kenwith
+  manager: amycolannino
 
 landingContent:
   - title: Provision users and groups to a cloud app
@@ -29,11 +29,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: SAP Cloud Platform Identity Authentication provisioning
-            url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+            url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
           - text: Oracle Fusion ERP provisioning
-            url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+            url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
           - text: Atlassian Cloud provisioning
-            url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+            url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
       - linkListType: how-to-guide
         links:
           - text: Adding a gallery app? Configure provisioning to the app
@@ -47,7 +47,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Provisioning with SCIM (Identity Standards Blog)
-            url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+            url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/provisioning-with-scim-getting-started/ba-p/880010
       - linkListType: how-to-guide
         links:
           - text: Developing an app? Use SCIM for automatic provisioning
@@ -61,12 +61,6 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Workday provisioning
-            url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+            url: ../saas-apps/workday-inbound-tutorial.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
           - text: SAP SuccessFactors provisioning
-            url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-  - title: New in docs
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: What's new in docs
-            url: whats-new-docs.md            
+            url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context

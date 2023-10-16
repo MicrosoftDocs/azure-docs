@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 10/10/2023
 ms.author: victorh
 ---
 
@@ -19,68 +19,48 @@ The following Azure Firewall preview features are available publicly for you to 
 
 ## Feature flags
 
-As new features are released to preview, some of them will be behind a feature flag. To enable the functionality in your environment, you must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (VNet firewalls and SecureHub firewalls).  
+As new features are released to preview, some of them are behind a feature flag. To enable the functionality in your environment, you must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (virtual network firewalls and SecureHub firewalls).  
 
-This article will be updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they'll be available to all customers without the need to enable a feature flag. 
+This article is updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they're available to all customers without the need to enable a feature flag. 
 
 ## Preview features
 
 The following features are available in preview.
 
-### Network rule name logging (preview)
+### Explicit proxy (preview)
 
-Currently, a network rule hit event shows the following attributes in the logs: 
+With the Azure Firewall Explicit proxy set on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user defined route (UDR).
 
-   - Source and destination IP/port
-   - Action (allow, or deny)
+For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
 
- With this new feature, the event logs for network rules also show the following attributes:
-   - Policy name
-   - Rule collection group
-   - Rule collection
-   - Rule name 
+### Resource Health (preview)
 
-To enable the Network Rule name Logging feature, the following commands need to be run in Azure PowerShell. For the feature to immediately take effect, an operation needs to be run on the firewall. This can be a rule change (least intrusive), a setting change, or a stop/start operation. Otherwise, the firewall/s is updated with the feature within several days.
+With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
+Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
+For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
 
-Run the following Azure PowerShell commands to configure Azure Firewall network rule name logging:
+### Top flows (preview) and Flow trace logs (preview)
 
-```azurepowershell
-Connect-AzAccount 
-Select-AzSubscription -Subscription "subscription_id or subscription_name" 
-Register-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
-```
+- The Top flows log shows the top connections that contribute to the highest throughput through the firewall.
+-  Flow trace logs show the full journey of a packet in the TCP handshake.
 
-Run the following Azure PowerShell command to turn off this feature:
+For more information, see [Enable Top flows (preview) and Flow trace logs (preview) in Azure Firewall](enable-top-ten-and-flow-trace.md).
 
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
-```
+### Auto-learn SNAT routes (preview)
 
-### Azure Firewall Premium performance boost (preview)
+You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
 
-As more applications move to the cloud, the performance of the network elements can become a bottleneck. As the central piece of any network design, the firewall needs to support all the workloads. The Azure Firewall Premium performance boost feature allows more scalability for these deployments.
+### Embedded Firewall Workbooks (preview)
 
-This feature significantly increases the throughput of Azure Firewall Premium. For more details, see [Azure Firewall performance](firewall-performance.md).
+Azure Firewall predefined workbooks are two selections away and fully available from the **Monitoring** section in the Azure Firewall portal UI.
 
-To enable the Azure Firewall Premium Performance boost feature, run the following commands in Azure PowerShell. Stop and start the firewall for the feature to take effect immediately. Otherwise, the firewall/s is updated with the feature within several days. 
+For more information, see [Azure Firewall: New Monitoring and Logging Updates](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-new-monitoring-and-logging-updates/ba-p/3897897#:~:text=Embedded%20Firewall%20Workbooks%20are%20now%20in%20public%20preview)
 
-The Premium performance boost feature can be enabled on both the [hub virtual network](../firewall-manager/vhubs-and-vnets.md) firewall and the [secured virtual hub](../firewall-manager/vhubs-and-vnets.md) firewall. This feature has no effect on Standard Firewalls.
+### Parallel IP Group updates (preview)
 
-Run the following Azure PowerShell commands to configure the Azure Firewall Premium performance boost:
+You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
 
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription "subscription_id or subscription_name"
-Register-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Run the following Azure PowerShell command to turn off this feature:
-
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
-```
+For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
 
 ## Next steps
 

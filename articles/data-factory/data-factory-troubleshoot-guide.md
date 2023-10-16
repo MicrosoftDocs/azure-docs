@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 03/03/2022
+ms.date: 08/10/2023
 ms.author: abnarain
 ---
 
@@ -109,7 +109,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Message**: `Job is not fully initialized yet. Please retry later.`
 
-- **Cause**: The job has not initialized.
+- **Cause**: The job hasn't initialized.
 
 - **Recommendation**: Wait and try again later.
 
@@ -143,7 +143,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
    :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Screenshot of the Databricks pipeline.":::
 
-    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output had been coming as expected before the failure. 
+    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output data arrived as expected prior to the failure.
 
    :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Screenshot of the difference in the output.":::
 
@@ -159,9 +159,9 @@ The following table applies to U-SQL.
 
 - **Message**: `The access token is from the wrong tenant.`
 
-- **Cause**: Incorrect Azure Active Directory (Azure AD) tenant.
+- **Cause**: Incorrect Microsoft Entra tenant.
 
-- **Recommendation**: Incorrect Azure Active Directory (Azure AD) tenant.
+- **Recommendation**: Incorrect Microsoft Entra tenant.
 
 <br/>
 
@@ -359,13 +359,13 @@ The following table applies to U-SQL.
 
 - **Cause**: The properties of the activity such as `pipelineParameters` are invalid for the Azure Machine Learning (ML) pipeline.
 
-- **Recommendation**: Check that the value of activity properties matches the expected payload of the published Azure ML pipeline specified in Linked Service.
+- **Recommendation**: Check that the value of activity properties matches the expected payload of the published Azure Machine Learning pipeline specified in Linked Service.
 
 ### Error code: 4124
 
 - **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: The published Azure ML pipeline endpoint doesn't exist.
+- **Cause**: The published Azure Machine Learning pipeline endpoint doesn't exist.
 
 - **Recommendation**: Verify that the published Azure Machine Learning pipeline endpoint specified in Linked Service exists in Azure Machine Learning.
 
@@ -381,9 +381,51 @@ The following table applies to U-SQL.
 
 - **Message**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
-- **Cause**: The Azure ML pipeline run failed.
+- **Cause**: The Azure Machine Learning pipeline run failed.
 
 - **Recommendation**: Check Azure Machine Learning for more error logs, then fix the ML pipeline.
+
+## Azure Synapse Analytics
+
+### Error code: 3250
+
+- **Message**: `There are not enough resources available in the workspace, details: '%errorMessage;'`
+
+- **Cause**: Insufficient resources
+
+- **Recommendation**: Try ending the running job(s) in the workspace, reducing the numbers of vCores requested, increasing the workspace quota or using another workspace.
+
+### Error code: 3251
+
+- **Message**: `There are not enough resources available in the pool, details: '%errorMessage;'`
+
+- **Cause**: Insufficient resources
+
+- **Recommendation**: Try ending the running job(s) in the pool, reducing the numbers of vCores requested, increasing the pool maximum size or using another pool.
+
+### Error code: 3252
+
+- **Message**: `There are not enough vcores available for your spark job, details: '%errorMessage;'`
+
+- **Cause**: Insufficient virtual cores
+
+- **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCore quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
+
+### Error code: 3253
+
+- **Message**: `There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under the Integration Runtime used for ActivityId: '%activityId;'.`
+
+- **Cause**: Throttling threshold was reached.
+
+- **Recommendation**: Retry the request after a wait period.
+
+### Error code: 3254
+
+- **Message**: `AzureSynapseArtifacts linked service has invalid value for property '%propertyName;'.`
+
+- **Cause**: Bad format or missing definition of property '%propertyName;'.
+
+- **Recommendation**: Check if the linked service has property '%propertyName;' defined with correct data.
 
 ## Common
 
@@ -688,7 +730,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The service tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
-- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
+- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them with the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
    For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
@@ -958,7 +1000,7 @@ The following table applies to Azure Batch.
 
 ### SSL error when linked service using HDInsight ESP cluster
 
-- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.'`
 
 - **Cause**: The issue is most likely related with System Trust Store.
 
@@ -980,15 +1022,55 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ## Web Activity  
 
-### Error code: 2128
+### Error Code: 2001
 
-- **Message**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Message**: `The length of execution output is over limit (around 4MB currently).`
 
-- **Cause**: This issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
+- **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
 
-- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman/Netmon/Wireshark**.
+- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
+
+### Error Code: 2002
+
+- **Message**: `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+- **Cause**: The payload you are attempting to send is too large.
+
+- **Recommendation**: Refer to [Payload is too large](data-factory-troubleshoot-guide.md#payload-is-too-large).
+
+### Error Code: 2003
+
+- **Message**: `There are substantial concurrent external activity executions which is causing failures due to throttling under subscription <subscription id>, region <region code> and limitation <current limit>. Please reduce the concurrent executions. For limits, refer https://aka.ms/adflimits.`
+
+- **Cause**: Too many activities are running concurrently. This can happen when too many pipelines are triggered at once.
+
+- **Recommendation**: Reduce pipeline concurrency. You might have to distribute the trigger time of your pipelines.  
+
+### Error Code: 2010
+
+- **Message**: `The Self-hosted Integration Runtime ‘<SHIR name>’ is offline`
+
+- **Cause**: The self-hosted integration runtime is offline or the Azure integration runtime is expired or not registered.
+
+- **Recommendation**: Make sure your self-hosted integration runtime is up and running. Refer to [Troubleshoot self-hosted integration runtime](self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
+
+### Error Code: 2105
+
+- **Message**: `The value type '<provided data type>', in key '<key name>' is not expected type '<expected data type>'`
+
+- **Cause**: Data generated in the dynamic content expression doesn't match with the key and causes JSON parsing failure.
+
+- **Recommendation**: Look at the key field and fix the dynamic content definition.
 
 ### Error code: 2108
+
+- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url: <URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime'`
+
+- **Cause**: Unable to reach the URL provided. This can occur because there was a network connection issue, the URL was unresolvable, or a localhost URL was being used on an Azure integration runtime.
+
+- **Recommendation**: Verify that the provided URL is accessible.
+
+<br/> 
 
 - **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
@@ -996,40 +1078,58 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
 
-#### More details
-To use **Fiddler** to create an HTTP session of the monitored web application:
+    **Using Fiddler**
+    
+    To use **Fiddler** to create an HTTP session of the monitored web application:
+    
+    1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+    
+    1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
+    
+       1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
+    
+          :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+    
+    1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
+    
+       Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+    
+    1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+    
+    1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+    
+    1. Create a request:
+    
+    1. Select the **Composer** tab.
+    
+       1. Set the HTTP method and URL.
+     
+       1. If needed, add headers and a request body.
+    
+       1. Select **Execute**.
+    
+    1. Turn on traffic capturing again, and complete the problematic transaction on your page.
+    
+    1. Go to: **File** > **Save** > **All Sessions**.
+    
+    For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
-1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+### Error Code: 2113
 
-1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
+- **Message**: `ExtractAuthorizationCertificate: Unable to generate a certificate from a Base64 string/password combination`
 
-   1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
+- **Cause**: Unable to generate certificate from Base64 string/password combination.
 
-      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+- **Recommendation**: Verify that the Base64 encoded PFX certificate and password combination you are using are correctly entered.
 
-1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
+### Error Code: 2403
 
-   Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+- **Message**: `Get access token from MSI failed for Datafactory <DF mname>, region <region code>. Please verify resource url is valid and retry.`
 
-1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+- **Cause**: Unable to acquire an access token from the resource URL provided.
 
-1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+- **Recommendation**: Verify that you have provided the correct resource URL for your managed identity.
 
-1. Create a request:
-
-1. Select the **Composer** tab.
-
-   1. Set the HTTP method and URL.
- 
-   1. If needed, add headers and a request body.
-
-   1. Select **Execute**.
-
-1. Turn on traffic capturing again, and complete the problematic transaction on your page.
-
-1. Go to: **File** > **Save** > **All Sessions**.
-
-For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## General
 
@@ -1063,11 +1163,31 @@ When you observe that the activity is running much longer than your normal runs 
 > [!TIP]
 > Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
 
+### Execute Pipeline passes array parameter as string to the child pipeline
+
+**Error message:** `Operation on target ForEach1 failed: The execution of template action 'MainForEach1' failed: the result of the evaluation of 'foreach' expression '@pipeline().parameters.<parameterName>' is of type 'String'. The result must be a valid array.`
+
+**Cause:** Even if in the Execute Pipeline you create the parameter of type array, as shown in the below image, the pipeline will fail.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/parameter-type-array.png" alt-text="Screenshot showing the parameters of the Execute Pipeline activity.":::
+
+This is due to the fact that the payload is passed from the parent pipeline to the child as string. We can see it when we check the input passed to the child pipeline.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/input-type-string.png" alt-text="Screenshot showing the input type string.":::
+
+**Recommendation:** To solve the issue we can leverage the create array function as shown in the below image.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/create-array-function.png" alt-text="Screenshot showing how to use the create array function.":::
+
+Then our pipeline will succeed. And we can see in the input box that the parameter passed is an array.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/input-type-array.png" alt-text="Screenshot showing input type array.":::
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
-* [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+* [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

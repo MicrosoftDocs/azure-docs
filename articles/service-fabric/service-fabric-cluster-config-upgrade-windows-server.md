@@ -1,9 +1,14 @@
 ---
 title: Upgrade the configuration of a standalone cluster 
 description: Learn how to upgrade the configuration that runs a standalone Service Fabric cluster.
-ms.topic: conceptual
-ms.date: 11/09/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrade the configuration of a standalone cluster 
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the configuration settings of your standalone Service Fabric cluster.
@@ -16,15 +21,15 @@ You can add, update, or remove settings in the `fabricSettings` section under th
 For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
 
 ```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
+{
+  "name": "Diagnostics",
+  "parameters": [
+    {
+      "name": "MaxDiskQuotaInMB",
+      "value": "65536"
+    }
+  ]
+}
 ```
 
 After you've modified the settings in your ClusterConfig.json file, [test the cluster configuration](#test-the-cluster-configuration) and then [upgrade the cluster configuration](#upgrade-the-cluster-configuration) to apply the settings to your cluster. 

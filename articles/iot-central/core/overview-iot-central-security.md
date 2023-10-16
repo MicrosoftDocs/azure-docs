@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central application security guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to secure your IoT Central application. IoT Central security includes users, devices, API access, and authentication to other services for data export.
+description: This guide describes how to secure your IoT Central application including users, devices, API access, and authentication to other services for data export.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 04/12/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # IoT Central security guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage security in IoT Central applications.
+An IoT Central application lets you monitor and manage your devices, letting you quickly evaluate your IoT scenario. This guide is for administrators who manage security in IoT Central applications.
 
 In IoT Central, you can configure and manage security in the following areas:
 
@@ -22,10 +22,12 @@ In IoT Central, you can configure and manage security in the following areas:
 - Device access to your application.
 - Programmatic access to your application.
 - Authentication to other services from your application.
+- Use a secure virtual network.
+- Audit logs track activity in the application.
 
 ## Manage user access
 
-Every user must have a user account before they can sign in and access an IoT Central application. IoT Central currently supports Microsoft accounts and Azure Active Directory accounts, but not Azure Active Directory groups.
+Every user must have a user account before they can sign in and access an IoT Central application. IoT Central currently supports Microsoft accounts and Microsoft Entra accounts, but not Microsoft Entra groups.
 
 *Roles* enable you to control who within your organization is allowed to do various tasks in IoT Central. Each role has a specific set of permissions that determine what a user in the role can see and do in the application. There are three built-in roles you can assign to users of your application. You can also create custom roles with specific permissions if you require finer-grained control.
 
@@ -65,7 +67,7 @@ Every IoT Central REST API call requires an authorization header that IoT Centra
 
 To access an IoT Central application using the REST API, you can use an:
 
-- *Azure Active Directory bearer token*. A bearer token is associated with either an Azure Active Directory user account or a service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
+- *Microsoft Entra bearer token*. A bearer token is associated with either a Microsoft Entra user account or a service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
 - IoT Central API token. An API token is associated with a role in your IoT Central application.
 
 To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
@@ -82,10 +84,17 @@ Managed identities are more secure because:
 
 To learn more, see:
 
-- [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Export IoT data to cloud destinations using blob storage](howto-export-to-blob-storage.md)
 - [Configure a managed identity in the Azure portal](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
 - [Configure a managed identity using the Azure CLI](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
 
+## Connect to a destination on a secure virtual network
+
+Data export in IoT Central lets you continuously stream device data to destinations such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus Messaging. You may choose to lock down these destinations by using an Azure Virtual Network (VNet) and private endpoints. To enable IoT Central to connect to a destination on a secure VNet, configure a firewall exception. To learn more, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
+
+## Audit logs
+
+Audit logs let administrators track activity within your IoT Central application. Administrators can see who made what changes at what times. To learn more, see [Use audit logs to track activity in your IoT Central application](howto-use-audit-logs.md).
 ## Next steps
 
 Now that you've learned about security in your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-roles.md) in Azure IoT Central.

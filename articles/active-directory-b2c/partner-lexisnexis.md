@@ -3,152 +3,139 @@ title: Tutorial to configure Azure Active Directory B2C with LexisNexis
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with LexisNexis which is a profiling and identity validation service and is used to verify user identification and provide comprehensive risk assessments based on the user's device.
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 12/7/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
 # Tutorial for configuring LexisNexis with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [LexisNexis](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). LexisNexis provides a variety of solutions, you can find them [here](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). In this sample tutorial, we'll cover the **ThreatMetrix** solution from LexisNexis. ThreatMetrix is a profiling and identity validation service. It's used to verify user identification and provide comprehensive risk assessments based on the user's device.
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [LexisNexis ThreatMetrix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). Learn more about LexisNexis contact methods and [ThreatMetix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd), the profiling and identity-validation service that also provides comprehensive risk assessments based on user devices.
 
-This integration does profiling based on a few pieces of user information, which is provided by the user during sign-up flow. ThreatMetrix  determines whether the user should be allowed to continue to log in or not. The following attributes are considered in ThreatMetrix's risk analysis:
+This integration's profiling is based on user information provided during the sign-up flow. ThreatMetrix permits the user to sign in, or not. 
+
+ThreatMetrix risk analysis attributes:
 
 - Email
-- Phone Number
-- Profiling information collected from the user's machine
+- Phone number
+- Profiling information collected from the user device
 
 ## Prerequisites
 
 To get started, you'll need:
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription
 
-- [An Azure AD B2C tenant](./tutorial-create-tenant.md) that is linked to your Azure subscription.
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+- [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 ## Scenario description
 
 The ThreatMetrix integration includes the following components:
 
-- Azure AD B2C – The authorization server, responsible for verifying the user’s credentials, also known as the identity provider
-
-- ThreatMetrix – The ThreatMetrix service takes inputs provided by the user and combines it with profiling information gathered from the user's machine to verify the security of the user interaction.
-
-- Custom REST API – This API implements the integration between Azure AD B2C and the ThreatMetrix service.
+- **Azure AD B2C** – The authorization server that verifies user credentials, also known as the identity provider (IdP)
+- **ThreatMetrix** – Combines user input with profiling information from the user device to verify the interaction's security
+- **Custom REST API** – Use to implement the Azure AD B2C and ThreatMetrix integration
 
 The following architecture diagram shows the implementation.
 
-![screenshot for lexisnexis-architecture-diagram](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
+   ![Diagram of lexisnexis solution architecture.](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|Step | Description |
-|:--------------|:-------------|
-|1. | User arrives at a login page. User selects sign-up to create a new account and enter information into the page. Azure AD B2C collects the user attributes.
-| 2. | Azure AD B2C calls the middle layer API and passes on the user attributes.
-| 3. | Middle layer API collects user attributes and transforms it into a format that LexisNexis API could consume. Then, sends it to LexisNexis.  
-| 4. | LexisNexis consumes the information and processes it to validate user identification based on the risk analysis. Then, it returns the result to the middle layer API.
-| 5. | Middle layer API processes the information and sends back relevant information to Azure AD B2C.
-| 6. | Azure AD B2C receives information back from middle layer API. If it shows a Failure response, an error message is displayed to user. If it shows a Success response, the user is authenticated and granted access.
 
-## Onboard with LexisNexis
+1. User selects sign-up to create a new account and enters attributes. Azure AD B2C collects the attributes.
+2. Azure AD B2C calls the middle layer API and passes the user attributes.
+3. Middle layer API transforms attributes into a consumable API format and sends it to LexisNexis.
+4. LexisNexis validates user identification based on risk analysis and returns the results to the middle layer API.
+5. Middle layer API processes the results and sends relevant information to Azure AD B2C.
+6. Azure AD B2C receives information from middle layer API. If the response fails, an error message appears. If the response succeeds, the user is authenticated and granted access.
 
-1. To create a LexisNexis account, contact [LexisNexis](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd)
+## Create a LexisNexis account and policy
 
-2. Create a LexisNexis policy that meets your requirements. Use the documentation available [here](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd).
+1. To create a LexisNexis account, go to lexisnexis.com and select [Contact Us](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd).
+2. Create a policy using [LexisNexis documentation](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd).
+3. After account creation, you'll receive API configuration information. Use the following sections to complete the process. 
 
 >[!NOTE]
-> The name of the policy will be used later.
-
-Once an account is created, you'll receive the information you need for API configuration. The following sections describe the process.
+>You'll use the policy name later.
 
 ## Configure Azure AD B2C with LexisNexis
 
-### Part 1 - Deploy the API
+### Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
+To deploy the API code to an Azure service, go to [/samples/ThreatMetrix/Api](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api). You can publish the code from Visual Studio.
 
 >[!NOTE]
->You'll need the URL of the deployed service to configure Azure AD with the required settings.
+>You'll need deployed service URL to configure Microsoft Entra ID.
 
-### Part 2 - Configure the API
+### Configure the API
 
-Application settings can be [configured in the App service in Azure](../app-service/configure-common.md#configure-app-settings).  With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the REST API:
+You can [configure app settings](../app-service/configure-common.md#configure-app-settings) in the Azure App service, without checking them into a repository. You'll provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
-| :-------- | :------------| :-----------|
-|ThreatMetrix:Url | ThreatMetrix account configuration |     |
-|ThreatMetrix:OrgId | ThreatMetrix account configuration |     |
-|ThreatMetrix:ApiKey |ThreatMetrix account configuration|  |
-|ThreatMetrix:Policy | Name of policy created in ThreatMetrix | |
-| BasicAuth:ApiUsername |Define a username for the API| Username will be used in the Azure AD B2C configuration
-| BasicAuth:ApiPassword | Define a password for the API | Password will be used in the Azure AD B2C configuration
+| --- | ---| ---|
+|ThreatMetrix:Url | ThreatMetrix account configuration |N/A|
+|ThreatMetrix:OrgId | ThreatMetrix account configuration |N/A|
+|ThreatMetrix:ApiKey |ThreatMetrix account configuration|N/A|
+|ThreatMetrix:Policy | Policy name created in ThreatMetrix |N/A|
+| BasicAuth:ApiUsername |Enter an API username| Username is used in the Azure AD B2C configuration|
+| BasicAuth:ApiPassword | Enter an API password | Password is used in the Azure AD B2C configuration|
 
-### Part 3 - Deploy the UI
+### Deploy the UI
 
-This solution uses custom UI templates that are loaded by Azure AD B2C. These UI templates do the profiling that is sent directly to the ThreatMetrix service.
+This solution uses custom UI templates loaded by Azure AD B2C. These templates do the profiling that goes to ThreatMetrix.
 
-Refer to these [instructions](./customize-ui-with-html.md#custom-page-content-walkthrough) to deploy the included [UI files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) to a blob storage account. The instructions include setting up a blob storage account, configuring CORS, and enabling public access.
+Use the instructions in [custom page content walkthrough](./customize-ui-with-html.md#custom-page-content-walkthrough) to deploy the UI files in [/samples/ThreatMetrix/ui-template](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) to a blob storage account. The instructions include setting up a blob storage account, configuring cross-origin resource sharing (CORS), and enabling public access.
 
-The UI is based on the [ocean blue template](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). All links within the UI should be updated to refer to the deployed location. In the UI folder, find and replace https://yourblobstorage/blobcontainer with the deployed location.
+The UI is based on the ocean blue template in [/samples/ThreatMetrix/ui-template/ocean_blue](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Update UI links to refer to the deployed location. In the UI folder, find and replace `https://yourblobstorage/blobcontainer` with the deployed location.
 
-### Part 4 - Create API policy keys
+### Create API policy keys
 
-Refer to this [document](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) and create two policy keys – one for the API username, and one for the API password that you defined above.
+To create two policy keys, follow the instructions in [add REST API username and password policy keys](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys). One policy is for the API username, the other is for the API password, you created.
 
-The sample policy uses these key names:
+Example policy key names:
 
 - B2C_1A_RestApiUsername
-
 - B2C_1A_RestApiPassword
 
-### Part 5 - Update the API URL
+### Update the API URL
 
-In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), find the technical profile named `Rest-LexisNexus-SessionQuery`, and update the `ServiceUrl` metadata item with the location of the API deployed above.
+In [samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), find the `Rest-LexisNexus-SessionQuery` technical profile, and update the `ServiceUrl` metadata item with the deployed API location.
 
-### Part 6 - Update UI URL
+### Update the UI URL
 
-In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), do a find and replace to search for https://yourblobstorage/blobcontainer/ with the location the UI files are deployed to.
-
->[!NOTE]
-> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
-
-### Part 7 - Configure the Azure AD B2C policy
-
-Refer to this [document](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
+In [/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), search for and replace `https://yourblobstorage/blobcontainer/` with the UI-file location.
 
 >[!NOTE]
->Update the provided policies to relate to your specific tenant.
+>We recommend you add consent notification on the attribute collection page. Notify users that information goes to third-party services for identity verification.
+
+### Configure the Azure AD B2C policy
+
+Go to the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download [LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts). Configure the policy in [samples/ThreatMetrix/policy/](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
+
+>[!NOTE]
+>Update the policies to relate to your tenant.
 
 ## Test the user flow
 
-1. Open the Azure AD B2C tenant and under Policies select **User flows**.
-
-2. Select your previously created **User Flow**.
-
-3. Select **Run user flow** and select the settings:
-
-   a. **Application**: select the registered app (sample is JWT)
-
-   b. **Reply URL**: select the **redirect URL**
-
-   c. Select **Run user flow**.
-
-4. Go through sign-up flow and create an account
-
-5. Log-out
-
-6. Go through sign-in flow  
-
-7. ThreatMetrix puzzle will pop up after you enter **continue**.
+1. Open the Azure AD B2C tenant.
+2. Under **Policies**, select **User flows**.
+3. Select the created **User Flow**.
+4. Select **Run user flow**.
+5. For **Application**, select the registered app (example is JWT).
+6. For **Reply URL**, select the **redirect URL**.
+7. Select **Run user flow**.
+8. Complete the sign-up flow.
+9. Create an account.
+10. Sign out.
+11. Complete the sign-in flow.
+12. Select **Continue**.
+13. The ThreatMetrix puzzle appears.
 
 ## Next steps
 
-For additional information, review the following articles:
-
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
 - [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

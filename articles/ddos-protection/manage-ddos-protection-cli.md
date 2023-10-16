@@ -1,24 +1,24 @@
 ---
-title: Create and configure an Azure DDoS Protection plan using Azure CLI
+title: 'Quickstart: Create and configure an Azure DDoS Network Protection plan - Azure CLI'
 description: Learn how to create a DDoS Protection Plan using Azure CLI
 services: ddos-protection
-documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
+ms.custom: ignite-2022, devx-track-azurecli
 ms.workload: infrastructure-services
-ms.date: 04/18/2022
-ms.author: yitoh
-
+ms.date: 05/23/2023
+ms.author: abell
 ---
-# Quickstart: Create and configure Azure DDoS Protection Standard using Azure CLI
+# QuickStart: Create and configure Azure DDoS Network Protection using Azure CLI
 
-Get started with Azure DDoS Protection Standard by using Azure CLI.
+Get started with Azure DDoS Network Protection by using Azure CLI.
 
-A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
-In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
+In this QuickStart, you'll create a DDoS protection plan and link it to a virtual network.
+
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection.":::
 
 ## Prerequisites
 
@@ -91,6 +91,19 @@ az network vnet update \
     --ddos-protection true
 ```
 
+### Disable DDoS protection for a virtual network
+
+Update a given virtual network to disable DDoS protection:
+
+```azurecli-interactive
+az network vnet update \
+    --resource-group MyResourceGroup \
+    --name MyVnet \
+    --ddos-protection-plan MyDdosProtectionPlan \
+    --ddos-protection false
+    
+```
+
 ## Validate and test
 
 First, check the details of your DDoS protection plan:
@@ -114,18 +127,8 @@ az group delete \
 --name MyResourceGroup 
 ```
 
-Update a given virtual network to disable DDoS protection:
-
-```azurecli-interactive
-az network vnet update \
-    --resource-group MyResourceGroup \
-    --name MyVnet \
-    --ddos-protection-plan MyDdosProtectionPlan \
-    --ddos-protection false
-    
-```
-
-If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it.
+> [!NOTE]
+> If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it.
 
 ## Next steps
 

@@ -1,84 +1,185 @@
 ---
-title: Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
+title: Customize cluster egress with outbound types in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
-services: container-service
-ms.topic: article
-ms.date: 06/29/2020
-
-
+author: asudbring
+ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
+ms.author: allensu
+ms.topic: how-to
+ms.date: 06/06/2023
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
-# Customize cluster egress with a User-Defined Route
+# Customize cluster egress with outbound types in Azure Kubernetes Service (AKS)
 
-Egress from an AKS cluster can be customized to fit specific scenarios. By default, AKS will provision a Standard SKU Load Balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
+You can customize egress for an AKS cluster to fit specific scenarios. By default, AKS will provision a standard SKU load balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
-This article walks through how to customize a cluster's egress route to support custom network scenarios, such as those which disallows public IPs and requires the cluster to sit behind a network virtual appliance (NVA).
-
-## Prerequisites
-* Azure CLI version 2.0.81 or greater
-* API version of `2020-01-01` or greater
-
+This article covers the various types of outbound connectivity that are available in AKS clusters.
+how 
+> [!NOTE]
+> You can now update the `outboundType` after cluster creation. This feature is in preview. See [Updating `outboundType after cluster creation (preview)](#updating-outboundtype-after-cluster-creation-preview).
 
 ## Limitations
-* OutboundType can only be defined at cluster create time and can't be updated afterwards.
+
 * Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
-* Setting `outboundType` to a value of `UDR` requires a user-defined route with valid outbound connectivity for the cluster.
-* Setting `outboundType` to a value of `UDR` implies the ingress source IP routed to the load-balancer may **not match** the cluster's outgoing egress destination address.
 
-## Overview of outbound types in AKS
+## Outbound types in AKS
 
-An AKS cluster can be customized with a unique `outboundType` of type `loadBalancer` or `userDefinedRouting`.
-
-> [!IMPORTANT]
-> Outbound type impacts only the egress traffic of your cluster. For more information, see [setting up ingress controllers](ingress-basic.md).
+You can configure an AKS cluster using the following outbound types: load balancer, NAT gateway, or user-defined routing. The outbound type impacts only the egress traffic of your cluster. For more information, see [setting up ingress controllers](ingress-basic.md).
 
 > [!NOTE]
-> You can use your own [route table][byo-route-table] with UDR and kubenet networking. Make sure you cluster identity (service principal or managed identity) has Contributor permissions to the custom route table.
+> You can use your own [route table][byo-route-table] with UDR and [kubenet networking](../aks/configure-kubenet.md). Make sure your cluster identity (service principal or managed identity) has Contributor permissions to the custom route table.
 
-### Outbound type of loadBalancer
+### Outbound type of `loadBalancer`
 
-If `loadBalancer` is set, AKS completes the following configuration automatically. The load balancer is used for egress through an AKS assigned public IP. An outbound type of `loadBalancer` supports Kubernetes services of type `loadBalancer`, which expect egress out of the load balancer created by the AKS resource provider.
+The load balancer is used for egress through an AKS-assigned public IP. An outbound type of `loadBalancer` supports Kubernetes services of type `loadBalancer`, which expect egress out of the load balancer created by the AKS resource provider.
 
-The following configuration is done by AKS.
-   * A public IP address is provisioned for cluster egress.
-   * The public IP address is assigned to the load balancer resource.
-   * Backend pools for the load balancer are set up for agent nodes in the cluster.
+If `loadBalancer` is set, AKS automatically completes the following configuration:
 
-Below is a network topology deployed in AKS clusters by default, which use an `outboundType` of `loadBalancer`.
+* A public IP address is provisioned for cluster egress.
+* The public IP address is assigned to the load balancer resource.
+* Backend pools for the load balancer are set up for agent nodes in the cluster.
 
 ![Diagram shows ingress I P and egress I P, where the ingress I P directs traffic to a load balancer, which directs traffic to and from an internal cluster and other traffic to the egress I P, which directs traffic to the Internet, M C R, Azure required services, and the A K S Control Plane.](media/egress-outboundtype/outboundtype-lb.png)
 
-### Outbound type of userDefinedRouting
+For more information, see [using a standard load balancer in AKS](load-balancer-standard.md).
+
+### Outbound type of `managedNatGateway` or `userAssignedNatGateway`
+
+If `managedNatGateway` or `userAssignedNatGateway` are selected for `outboundType`, AKS relies on [Azure Networking NAT gateway](../virtual-network/nat-gateway/manage-nat-gateway.md) for cluster egress.
+
+* Select `managedNatGateway` when using managed virtual networks. AKS will provision a NAT gateway and attach it to the cluster subnet.
+* Select `userAssignedNatGateway` when using bring-your-own virtual networking. This option requires that you have provisioned a NAT gateway before cluster creation.
+
+For more information, see [using NAT gateway with AKS](nat-gateway.md).
+
+### Outbound type of `userDefinedRouting`
 
 > [!NOTE]
-> Using outbound type is an advanced networking scenario and requires proper network configuration.
+> The `userDefinedRouting` outbound type is an advanced networking scenario and requires proper network configuration.
 
 If `userDefinedRouting` is set, AKS won't automatically configure egress paths. The egress setup must be done by you.
 
-The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when not using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
+You must deploy the AKS cluster into an existing virtual network with a subnet that has been previously configured. Since you're not using a standard load balancer (SLB) architecture, you must establish explicit egress. This architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow NAT to be done by a public IP assigned to the standard load balancer or appliance.
 
-#### Load balancer creation with userDefinedRouting
+For more information, see [configuring cluster egress via user-defined routing](egress-udr.md).
 
-AKS clusters with an outbound type of UDR receive a standard load balancer (SLB) only when the first Kubernetes service of type 'loadBalancer' is deployed. The load balancer is configured with a public IP address for *inbound* requests and a backend pool for *inbound* requests. Inbound rules are configured by the Azure cloud provider, but **no outbound public IP address or outbound rules** are configured as a result of having an outbound type of UDR. Your UDR will still be the only source for egress traffic.
+## Updating `outboundType` after cluster creation (preview)
 
-Azure load balancers [don't incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/).
+Changing the outbound type after cluster creation will deploy or remove resources as required to put the cluster into the new egress configuration.
 
-## Deploy a cluster with outbound type of UDR and Azure Firewall
+The following tables show the supported migration paths between outbound types for managed and BYO virtual networks.
 
-To illustrate the application of a cluster with outbound type using a user-defined route, a cluster can be configured on a virtual network with an Azure Firewall on its own subnet. See this example on the [restrict egress traffic with Azure firewall example](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall).
+### Supported Migration Paths for Managed VNet
 
-> [!IMPORTANT]
-> Outbound type of UDR requires there is a route for 0.0.0.0/0 and next hop destination of NVA (Network Virtual Appliance) in the route table.
-> The route table already has a default 0.0.0.0/0 to Internet, without a Public IP to SNAT just adding this route will not provide you egress. AKS will validate that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to NVA or gateway, etc.
-> When using an outbound type of UDR, a load balancer public IP address for **inbound requests** is not created unless a service of type *loadbalancer* is configured. A public IP address for **outbound requests** is never created by AKS if an outbound type of UDR is set.
+| Managed VNet           |loadBalancer   | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+|------------------------|---------------|-------------------|------------------------|--------------------|
+| loadBalancer           | N/A           | Supported         | Not Supported          | Supported          |
+| managedNATGateway      | Supported     | N/A               | Not Supported          | Supported          |
+| userAssignedNATGateway | Not Supported | Not Supported     | N/A                    | Not Supported      |
+| userDefinedRouting     | Supported     | Supported         | Not Supported          | N/A                |
+
+### Supported Migration Paths for BYO VNet
+
+| BYO VNet               | loadBalancer  | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+|------------------------|---------------|-------------------|------------------------|--------------------|
+| loadBalancer           | N/A           | Not Supported     | Supported              | Supported          |
+| managedNATGateway      | Not Supported | N/A               | Not Supported          | Not Supported      |
+| userAssignedNATGateway | Supported     | Not Supported     | N/A                    | Supported          |
+| userDefinedRouting     | Supported     | Not Supported     | Supported              | N/A                |
+
+Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), `userAssignedNATGateway` and `userDefinedRouting` (if using a custom virtual network).
+
+> [!WARNING] 
+> Migrating the outbound type to user managed types (`userAssignedNATGateway` and `userDefinedRouting`) will change the outbound public IP addresses of the cluster. 
+> if [Authorized IP ranges](./api-server-authorized-ip-ranges.md) is enabled, please make sure new outbound ip range is appended to authorized ip range.
+
+> [!WARNING]
+> Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, you need to update them to match the new egress IP address.
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+### Install the `aks-preview` Azure CLI extension
+
+`aks-preview` version 0.5.113 is required.
+
+* Install and update the `aks-preview` extension.
+
+```azurecli
+# Install aks-preview extension
+az extension add --name aks-preview
+# Update aks-preview extension
+az extension update --name aks-preview
+```
+
+### Register the `AKS-OutBoundTypeMigrationPreview` feature flag
+
+1. Register the `AKS-OutBoundTypeMigrationPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+```
+
+2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+```
+
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Update cluster to use a new outbound type
+
+* Update the outbound configuration of your cluster using the [`az aks update`][az-aks-update] command.
+
+### Update cluster from loadbalancer to managedNATGateway  
+
+```azurecli-interactive
+az aks update -g <resourceGroup> -n <clusterName> --outbound-type managedNATGateway --nat-gateway-managed-outbound-ip-count <number of managed outbound ip>
+```
+
+### Update cluster from managedNATGateway to loadbalancer
+
+```azurecli-interactive
+az aks update -g <resourceGroup> -n <clusterName> \
+--outbound-type loadBalancer \
+<--load-balancer-managed-outbound-ip-count <number of managed outbound ip>| --load-balancer-outbound-ips <outbound ip ids> | --load-balancer-outbound-ip-prefixes <outbound ip prefix ids> >
+```
+
+> [!WARNING]
+> Do not reuse an IP address that is already in use in prior outbound configurations.
+
+### Update cluster from managedNATGateway to userDefinedRouting
+
+- Add route `0.0.0.0/0` to default route table. Please refer to [Customize cluster egress with a user-defined routing table in Azure Kubernetes Service (AKS)](egress-udr.md)
+
+```azurecli-interactive
+az aks update -g <resourceGroup> -n <clusterName> --outbound-type userDefinedRouting
+```
+
+### Update cluster from loadbalancer to userAssignedNATGateway in BYO vnet scenario
+
+- Associate nat gateway with subnet where the workload is associated with. Please refer to [Create a managed or user-assigned NAT gateway](nat-gateway.md)
+
+```azurecli-interactive
+az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNATGateway
+```
 
 ## Next steps
 
-See [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md).
-
-See [how to create, change, or delete a route table](../virtual-network/manage-route-table.md).
+* [Configure standard load balancing in an AKS cluster](load-balancer-standard.md)
+* [Configure NAT gateway in an AKS cluster](nat-gateway.md)
+* [Configure user-defined routing in an AKS cluster](egress-udr.md)
+* [NAT gateway documentation](./nat-gateway.md)
+* [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md)
+* [Manage route tables](../virtual-network/manage-route-table.md)
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update

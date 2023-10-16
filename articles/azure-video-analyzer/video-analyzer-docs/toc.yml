@@ -2,81 +2,25 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Video Analyzer
-    href: overview.md
-  - name: About Video Analyzer for Media
-    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
-  - name: Terminology
-    href: terminology.md
+  - name: About Video Indexer
+    href: /azure/azure-video-indexer/video-indexer-overview
   - name: What's new
-    items:
-    - name: Release notes
-      href: release-notes.md  
 - name: Quickstarts
   items:
   - name: Edge module
     items:
-    - name: Get started 
-      items:
-      - name: Use portal
-        href: edge/get-started-detect-motion-emit-events-portal.md      
-      - name: Use ARM template
-        href: edge/get-started-detect-motion-emit-events.md
-    - name: Detect motion and emit events    
-      href: edge/detect-motion-emit-events-quickstart.md
+    - name: Get started
     - name: Detect motion, record video
-      items:
-      - name: Record locally on the edge
-        href: edge/detect-motion-record-video-edge-devices.md
-      - name: Record to the cloud
-        href: edge/detect-motion-record-video-clips-cloud.md
     - name: Analyze live video
-      items:
-      - name: Use gRPC
-        displayName: analyze live video
-        href: edge/analyze-live-video-use-your-model-grpc.md
-      - name: Use HTTP
-        displayName: analyze live video
-        href: edge/analyze-live-video-use-your-model-http.md
-    - name: Track objects in live videos
-      href: edge/track-objects-live-video.md
   - name: Service
     items:
-    - name: Get started 
-      items:
-        - name: Use portal
-          href: cloud/get-started-livepipelines-portal.md
+    - name: Get started
 - name: Tutorials
   items:
   - name: Edge module
     items:
-    - name: Continuous video recording to the cloud
-      href: edge/use-continuous-video-recording.md
-    - name: Event-based video recording
-      href: edge/record-event-based-live-video.md
-    - name: Record and stream inference data with video
-      href: edge/record-stream-inference-data-with-video.md
-    - name: Use line crossing
-      href: edge/use-line-crossing.md
     - name: Analyze live video
-      items:
-      - name: With OVMS via HTTP extension
-        displayName: analyze live video, intel, OpenVINO 
-        href: edge/use-intel-openvino-tutorial.md
-      - name: With OV DL Streamer via gRPC extension
-        displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
-        href: edge/use-intel-grpc-video-analytics-serving-tutorial.md
-      - name: With Custom Vision
-        displayName: analyze live video    
-        href: edge/analyze-live-video-custom-vision.md 
-      - name: With Spatial Analysis
-        href: edge/computer-vision-for-spatial-analysis.md    
-    - name: Visualize AI inference events
-      href: visualize-ai-events-power-bi.md   
   - name: Service
-    items:
-    - name: Export a video clip with portal
-      href: cloud/export-portion-of-video-as-mp4.md
 - name: GitHub samples
   items:
   - name: C# sample repository
@@ -89,129 +33,26 @@
     href: https://github.com/Azure-Samples/video-analyzer-postman
 - name: Concepts
   items:
-  - name: Pipeline
-    href: pipeline.md
-  - name: List of pipeline topologies
-    href: pipeline-topologies-list.md    
-  - name: Pipeline extension
-    href: pipeline-extension.md
-  - name: Video recording
-    href: video-recording.md
-  - name: Connect cameras to the cloud
-    href: cloud/connect-cameras-to-cloud.md #??
-  - name: Scenarios 
-    items:
-    - name: Analyze live videos
-      href: analyze-live-video-without-recording.md
-    - name: AI composition 
-      href: ai-composition-overview.md
-    - name: Event-based video recording
-      href: event-based-video-recording-concept.md 
-    - name: Continuous video recording
-      href: continuous-video-recording.md
+  - name: Scenarios
 - name: How-to guides
   items:
   - name: Setup
-    items:
-    - name: Create a new account
-      href: create-video-analyzer-account.md
-    - name: Managed identity
-      href: managed-identity.md
-    - name: Customer managed keys
-      href: customer-managed-keys.md
   - name: Deploy to the edge
-    items:  
-    - name: Deploy to an IoT Edge device
-      href: edge/deploy-iot-edge-device.md
-    - name: Deploy to a Windows device
-      displayName: eflow    
-      href: edge/deploy-iot-edge-linux-on-windows.md  
-    - name: Deploy on Azure Stack Edge
-      href: edge/deploy-on-stack-edge.md
   - name: Viewing
-    items:     
-    - name: Recorded and live videos
-      href: viewing-videos-how-to.md
-    - name: Create access policies for playback
-      href: access-policies.md      
-    - name: Enable video preview images
-      href: edge/enable-video-preview-images.md
   - name: Record
-    items:
-    - name: Manage retention policy
-      href: manage-retention-policy.md
   - name: Apply AI on the edge
-    items:   
-    - name: Configure a signal gate     
-      href: edge/configure-signal-gate.md    
-    - name: Develop and deploy gRPC inference server
-      href: edge/develop-deploy-grpc-inference-srv.md
-    - name: Analyze using AI composition
-      href: edge/analyze-ai-composition.md
   - name: Operate edge module
-    items:
-    - name: Invoke direct methods
-      href: edge/use-azure-portal-to-invoke-direct-methods.md    
-    - name: Discover ONVIF-capable cameras
-      href: edge/camera-discovery.md      
-    - name: Use Visual Studio Code extension
-      href: edge/use-visual-studio-code-extension.md
-    - name: Monitor and log
-      href: edge/monitor-log-edge.md 
-    - name: Troubleshoot
-      href: edge/troubleshoot.md      
   - name: Operate Service
-    items:  
-    - name: Connect devices
-      href: cloud/connect-devices.md
-    - name: Connect camera via remote device adapter
-      href: cloud/use-remote-device-adapter.md
-    - name: Monitor and log
-      href: cloud/monitor-log-cloud.md     
-    - name: Troubleshoot      
-      href: cloud/troubleshoot.md     
-  - name: Networking 
-    items:
-    - name: Public endpoints    
-      href: access-public-endpoints-networking.md
-  - name: Security 
-    items:
-    - name: Assign built-in policy    
-      href: policy-definitions-security.md
+  - name: Networking
+  - name: Security
   - name: Visualize
-    items:
-    - name: Embed player widget in a web app
-      href: player-widget.md
-    - name: Use player widget sample app 
-      href: sample-player-widget.md
-    - name: Embed player widget in Power BI
-      href: embed-player-in-power-bi.md
-- name: Reference 
+- name: Reference
   items:
-  - name: Developer SDKs
-    href: sdk.md
   - name: REST APIs
     href: /rest/api/videoanalyzer/
-  - name: Spatial Analysis operations
-    href: spatial-analysis-operations.md    
-  - name: Visual Studio Code extension
-    href: visual-studio-code-extension.md  
   - name: Transparency and Responsible AI principles
     href: https://go.microsoft.com/fwlink/?linkid=2163476
   - name: Edge module
-    items:
-    - name: Direct methods
-      href: edge/direct-methods.md
-    - name: gRPC extension protocol
-      href: edge/grpc-extension-protocol.md
-    - name: HTTP extension protocol 
-      href: edge/http-extension-protocol.md
-    - name: Inference metadata schema
-      href: edge/inference-metadata-schema.md
-    - name: Module Twin configuration
-      href: edge/module-twin-configuration-schema.md
-    - name: Production readiness and best practices	
-      href: edge/production-readiness.md
 - name: Resources
   items:
   - name: Available regions
@@ -221,16 +62,14 @@
   - name: FAQ
     items:
     - name: Edge module FAQ
-      href: edge/faq.yml 
+      href: edge/faq.yml
     - name: Service FAQ
-      href: cloud/faq.yml     
+      href: cloud/faq.yml
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/video-analyzer/
-  - name: Quotas and limitations
-    href: quotas-limitations.md
+    href: https://azure.microsoft.com/pricing/
   - name: Terraform resource
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer
   - name: Video Analyzer edge
     href: https://aka.ms/ava-marketplace
   - name: Video Analyzer service
-    href: https://aka.ms/ava-service
+    href: https://azuremarketplace.microsoft.com/marketplace/apps/azure-appliedai-services.azure-video-analyzer

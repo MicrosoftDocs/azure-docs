@@ -1,24 +1,21 @@
 ---
-title: "Deploy models using online endpoints with REST APIs (preview)"
+title: "Deploy models using online endpoints with REST APIs"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy models using online endpoints with REST APIs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
-
-author: rsethur
-ms.author: seramasu
-ms.date: 12/22/2021
-ms.reviewer: laobri
-ms.custom: devplatv2
+author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
+ms.date: 06/15/2022
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
-# Deploy models with REST (preview)
+# Deploy models with REST
 
-Learn how to use the Azure Machine Learning REST API to deploy models (preview).
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Learn how to use the Azure Machine Learning REST API to deploy models.
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -32,7 +29,7 @@ In this article, you learn how to use the new REST APIs to:
 ## Prerequisites
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/).
-- An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - A service principal in your workspace. Administrative REST requests use [service principal authentication](how-to-setup-authentication.md#use-service-principal-authentication).
 - A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
@@ -46,9 +43,9 @@ In this article, you learn how to use the new REST APIs to:
 
 ## Azure Machine Learning online endpoints
 
-Online endpoints (preview) allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
+Online endpoints allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning online endpoints [including the Azure CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
+There are many ways to create an Azure Machine Learning online endpoint [including the Azure CLI](how-to-deploy-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
 
 ## Create machine learning assets
 
@@ -142,12 +139,12 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 ## Next steps
 
-* Learn how to deploy your model [using the Azure CLI](how-to-deploy-managed-online-endpoints.md).
+* Learn how to deploy your model [using the Azure CLI](how-to-deploy-online-endpoints.md).
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
-* Learn to [Troubleshoot online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
-* Learn how to [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+* Learn to [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
+* Learn how to [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
-* Learn [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
-* [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
-* [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
-* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
+* Learn [safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
+* [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
+* [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).

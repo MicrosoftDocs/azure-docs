@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 04/11/2023
 
 ---
 # Nodes and pools in Azure Batch
@@ -79,6 +79,9 @@ There are two types of pool configurations available in Batch.
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
 
+> [!IMPORTANT]
+> Currently, Batch does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md). 
+
 The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
 
 ### Cloud Services Configuration
@@ -99,8 +102,6 @@ When you create a pool, you need to select the appropriate **nodeAgentSkuId**, d
 ### Custom images for Virtual Machine pools
 
 To learn how to create a pool with custom images, see [Use the Azure Compute Gallery to create a custom pool](batch-sig-images.md).
-
-Alternatively, you can create a custom pool of virtual machines using a [managed image](batch-custom-images.md) resource. For information about preparing custom Linux images from Azure VMs, see [How to create an image of a virtual machine or VHD](../virtual-machines/linux/capture-image.md). For information about preparing custom Windows images from Azure VMs, see [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 ### Container support in Virtual Machine pools
 
@@ -168,7 +169,7 @@ Enabling internode communication also impacts the placement of the nodes within 
 
 ## Start tasks
 
-If desired, you can add a [start task](jobs-and-tasks.md#start-task) that will executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
+If desired, you can add a [start task](jobs-and-tasks.md#start-task) that will execute on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
 
 ## Application packages
 
@@ -178,11 +179,9 @@ For more information about using application packages to deploy your application
 
 ## Virtual network (VNet) and firewall configuration
 
-When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 ### VNet requirements
-
-[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 For more information about setting up a Batch pool in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
 

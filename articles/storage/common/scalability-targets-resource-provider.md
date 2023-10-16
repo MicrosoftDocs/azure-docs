@@ -1,21 +1,22 @@
 ---
-title: Scalability for the Azure Storage resource provider
+title: Scalability targets for the Azure Storage resource provider
 description: Scalability and performance targets for operations against the Azure Storage resource provider. The resource provider implements Azure Resource Manager for Azure Storage.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.author: tamram
-ms.subservice: common
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-arm-template
 ---
 
 # Scalability and performance targets for the Azure Storage resource provider
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](/support/legal/sla/storage/v1_5/).
+The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ## Scale targets for the resource provider
 

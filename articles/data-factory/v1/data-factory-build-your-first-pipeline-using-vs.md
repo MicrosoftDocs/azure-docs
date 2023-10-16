@@ -7,8 +7,8 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.custom: vs-azure, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.custom: vs-azure
+ms.date: 04/12/2023
 ---
 
 # Tutorial: Create a data factory by using Visual Studio
@@ -273,7 +273,7 @@ You have created the Azure Storage linked service, and input and output datasets
 
     The **start** and **end** properties of the pipeline specifies the active period of the pipeline. You configured the dataset to be produced monthly, therefore, only once slice is produced by the pipeline (because the month is same in start and end dates).
 
-    In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+    In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 4. Save the **HiveActivity1.json** file.
 
 ### Add partitionweblogs.hql and input.log as a dependency

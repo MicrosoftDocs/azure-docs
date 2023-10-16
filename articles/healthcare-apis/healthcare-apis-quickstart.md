@@ -1,12 +1,12 @@
 ---
 title: Deploy workspace in the Azure portal - Azure Health Data Services
 description: This document teaches users how to deploy a workspace in the Azure portal.
-author: stevewohl
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/24/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: chrupa
 ms.custom: mode-api
 ---
 
@@ -24,54 +24,70 @@ don’t have an Azure subscription, see [Create your free Azure account today](h
 
 In the Azure portal, select **Create a resource**.
 
-[ ![Create resource](media/create-resource.png) ](media/create-resource.png#lightbox)
+[ ![Screenshot of Create resource.](media/create-resource.png) ](media/create-resource.png#lightbox)
 
 ## Search for Azure Health Data Services
 
 In the search box, enter **Azure Health Data Services**.
 
-[ ![Search for HAzure Health Data Services](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
+[ ![Screenshot of Search for Azure Health Data Services](media/search-services-marketplace.png) ](media/search-services-marketplace.png#lightbox)
 
 ## Create Azure Health Data Services account
 
 Select **Create** to create a new Azure Health Data Services account.
 
-   [ ![Create workspace](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
+   [ ![Screenshot of create new account button.](media/create-azure-health-data-services-resource.png) ](media/create-azure-health-data-services-resource.png#lightbox)
 
-## Enter Subscription and instance details
+## Enter subscription and workspace details
 
-1. Select a **Subscription** and **Resource group** from the drop-down lists or select **Create new**.
+1. Under the **Project details** section of the **Basics** tab, select a **Subscription** and **Resource group** from their drop-down lists.  Select **Create new** to create a new resource group.
 
-   [ ![Create workspace new](media/create-healthcare-api-workspace-new.png) ](media/create-healthcare-api-workspace-new.png#lightbox)
+   [ ![Screenshot of create health data services workspace basics tab.](media/create-health-data-services-workspace-basics-tab.png) ](media/create-health-data-services-workspace-basics-tab.png#lightbox)
 
 2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
-3. (**Optional**) Select **Next: Tags >**. Enter a **Name** and **Value**, and then select **Next: Review + create**. 
+3. Select **Next: Networking >**.  It's here that you can connect a workspace publicly with the default **Public endpoint (all networks)** option selected. You may also connect a workspace using a private endpoint by selecting the **Private endpoint** option. For more information about accessing Azure Health Data Services over a private endpoint, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).
 
-   [ ![Tags](media/tags-new.png) ](media/tags-new.png#lightbox)
+   [ ![Screenshot of create health data services workspace networking tab.](media/create-workspace-networking-tab.png) ](media/create-workspace-networking-tab.png#lightbox)
 
-   Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](.././azure-resource-manager/management/tag-resources.md).
+4.  Select **Next: Tags >** if you want to include name and value pairs to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. Enter a **Name** and **Value** for the workspace, and then select **Review + create** or **Next: Review + create**.  For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](.././azure-resource-manager/management/tag-resources.md).
 
-4. Select **Create**.
+   [ ![Screenshot of the health data services workspace tags tab.](media/tags-new.png) ](media/tags-new.png#lightbox)
 
-[ ![Workspace terms](media/workspace-terms.png) ](media/workspace-terms.png)
+5. Select **Create** if you don't need to make any changes to the workspace project and instance details.  If you must make changes to the project and instance details, select **Previous**.
 
+   [ ![Screenshot of the health data services workspace instance details.](media/workspace-review-create-tab.png) ](media/workspace-review-create-tab.png#lightbox)
 
    **Optional**: You may select **Download a template for automation** of your newly created workspace.
+
+6. After the workspace deployment process is complete, select **Go to resource**.
+
+   [ ![Screenshot of the workspace and the go to resource button.](media/workspace-deployment-details.png) ](media/workspace-deployment-details.png#lightbox)
+
+    You now can create a FHIR service, DICOM service, and MedTech service from the newly deployed Azure Health Data Services workspace.
+
+[ ![Screenshot of the newly deployed Azure Health Data Services workspace.](media/deploy-health-data-services-workspace.png) ](media/deploy-health-data-services-workspace.png#lightbox)
 
 
 ## Next steps
 
-Now that the workspace is created, you can:
+Now that the workspace is created, you can do the following:
 
-* [Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
-* [Deploy DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
-* [Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
-* [Convert your data to FHIR](./../healthcare-apis/fhir/convert-data.md)
+>[!div class="nextstepaction"]
+>[Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
 
-[ ![Deploy different services](media/healthcare-apis-deploy-services.png) ](media/healthcare-apis-deploy-services.png)
+>[!div class="nextstepaction"]
+>[Deploy DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
+
+>[!div class="nextstepaction"]
+>[Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
+
+>[!div class="nextstepaction"]
+>[Convert your data to FHIR](./../healthcare-apis/fhir/convert-data.md)
 
 For more information about Azure Health Data Services workspace, see
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -3,7 +3,7 @@ title: Enterprise Security Package for Azure HDInsight
 description: Learn the Enterprise Security Package components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 09/19/2023
 ---
 
 # Enterprise Security Package for Azure HDInsight
@@ -12,7 +12,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 * Integration with Active Directory for authentication.
 
-    In the past, you created HDInsight clusters with local admin user and local SSH user. The local admin user can access all the files, folders, tables, and columns.  With  Enterprise Security Package, you enable Azure role-based access control by integrating HDInsight with your Azure Active Directory Domain Services.
+    In the past, you created HDInsight clusters with local admin user and local SSH user. The local admin user can access all the files, folders, tables, and columns.  With  Enterprise Security Package, you enable Azure role-based access control by integrating HDInsight with your Microsoft Entra Domain Services.
 
     For more information, see:
 
@@ -22,7 +22,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
     * [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
-    * [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+    * [Configure Domain-joined HDInsight clusters using Microsoft Entra Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 * Authorization for data
 
@@ -55,5 +55,5 @@ For information on pricing and SLA for the Enterprise Security Package, see [HDI
 
 * [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
-* [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
+* [Azure HDInsight release notes](./hdinsight-release-notes.md)
 * [Apache components on HDInsight](./hdinsight-component-versioning.md)

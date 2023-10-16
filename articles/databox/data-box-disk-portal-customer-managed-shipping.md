@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Disk self-managed Shipping | Microsoft Docs in data 
 description: Describes self-managed shipping workflow for Azure Data Box Disk devices
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 06/22/2021
-ms.author: alkohli
+ms.date: 06/07/2022
+ms.author: shaas
 ---
 
 # Use self-managed shipping for Azure Data Box Disk in the Azure portal
@@ -51,7 +51,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 5. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authorization code, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's datacenter.
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
-
+   
    **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
 
    ```
@@ -99,15 +99,8 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
    > [!NOTE]
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop-off.
 
-   **Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+    If you're returning a Data Box Disk in Brazil, see [Return Azure Data Box Disk](data-box-deploy-picked-up.md) for detailed instructions.
 
-   ```
-   Subject: Request Azure Data Box Disk drop-off for order: <ordername>
-
-   - Order name
-   - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
-   - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
-   ```
 
 10. After you receive an appointment for drop-off, the order should be in the **Ready to receive at Azure datacenter** state in the Azure portal.
 

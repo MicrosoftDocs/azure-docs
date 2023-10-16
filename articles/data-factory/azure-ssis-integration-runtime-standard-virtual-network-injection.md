@@ -4,15 +4,15 @@ description: Learn how to configure a virtual network for standard injection of 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
+ms.date: 04/12/2023
+author: chugugrace
+ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Standard virtual network injection method
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synpase Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the standard method, you need to configure your virtual network to meet these requirements:
 
@@ -180,7 +180,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
     |-------------------|-------|
     | <b>Azure Public</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.clouddatahub.net_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.windows.net_</li><li>_\*.table.core.windows.net_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.io_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.windows.net_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_gcs.prod.monitoring.core.windows.net_</li><li>_prod.warmpath.msftcloudes.com_</li><li>_azurewatsonanalysis-prod.core.windows.net_</li></ul></li></ul> |
     | <b>Azure Government</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.datamovement.azure.us_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.usgovcloudapi.net_</li><li>_\*.table.core.usgovcloudapi.net_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.us_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.usgovcloudapi.net_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_fairfax.warmpath.usgovcloudapi.net_</li><li>_azurewatsonanalysis.usgovcloudapp.net_</li></ul></li></ul> |
-    | <b>Azure China 21Vianet</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.datamovement.azure.cn_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.chinacloudapi.cn_</li><li>_\*.table.core.chinacloudapi.cn_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.cn_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.chinacloudapi.cn_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_mooncake.warmpath.chinacloudapi.cn_</li><li>_azurewatsonanalysis.chinacloudapp.cn_</li></ul></li></ul> |
+    | <b>Microsoft Azure operated by 21Vianet</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.datamovement.azure.cn_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.chinacloudapi.cn_</li><li>_\*.table.core.chinacloudapi.cn_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.cn_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.chinacloudapi.cn_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_mooncake.warmpath.chinacloudapi.cn_</li><li>_azurewatsonanalysis.chinacloudapp.cn_</li></ul></li></ul> |
 
   - If you use Azure SQL Database server/Managed Instance to host SSISDB, you must open ports *1433, 11000-11999* for outbound TCP traffic with *0.0.0.0/0* or your Azure SQL Database server/Managed Instance FQDN as destination.
 

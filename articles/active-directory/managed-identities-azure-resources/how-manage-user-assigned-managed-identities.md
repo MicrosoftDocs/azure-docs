@@ -1,23 +1,23 @@
 ---
-title: Manage user-assigned managed identities - Azure AD
+title: Manage user-assigned managed identities
 description: Create user-assigned managed identities.
 services: active-directory
 author: barclayn
-manager: karenhoran
-editor: 
+manager: amycolannino
+editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/08/2022
-ms.author: barclayn 
-ms.custom: devx-track-azurecli
+ms.date: 05/10/2023
+ms.author: barclayn
+ms.custom: devx-track-azurecli, devx-track-linux
 zone_pivot_groups: identity-mi-methods
 ---
 
 # Manage user-assigned managed identities
 
-Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get an Azure Active Directory (Azure AD) token for your applications. The applications can use the token when accessing resources that support Azure AD authentication. Azure manages the identity so you don't have to.
+Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get a Microsoft Entra token for your applications. The applications can use the token when accessing resources that support Microsoft Entra authentication. Azure manages the identity so you don't have to.
 
 There are two types of managed identities: system-assigned and user-assigned. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](overview.md).
 
@@ -30,8 +30,9 @@ In this article, you learn how to create, list, delete, or assign a role to a us
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
-
 ## Create a user-assigned managed identity
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
@@ -42,9 +43,9 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     - **Resource group**: Choose a resource group to create the user-assigned managed identity in, or select **Create new** to create a new resource group.
     - **Region**: Choose a region to deploy the user-assigned managed identity, for example, **West US**.
     - **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
-  
+
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
-  
+
    :::image type="content" source="media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane.":::
 
 1. Select **Review + create** to review the changes.
@@ -57,7 +58,7 @@ To list or read a user-assigned managed identity, your account needs to have eit
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 1. A list of the user-assigned managed identities for your subscription is returned. To see the details of a user-assigned managed identity, select its name.
-1. You can now view the details about the managed identity as shown in the image below.
+1. You can now view the details about the managed identity as shown in the image.
 
    :::image type="content" source="media/how-manage-user-assigned-managed-identities/list-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the list of user-assigned managed identity.":::
 
@@ -76,14 +77,14 @@ Deleting a user-assigned identity doesn't remove it from the VM or resource it w
 
 ## Manage access to user-assigned managed identities
 
-In some environments, administrators choose to limit who can manage user-assigned managed identities. You do this by using [built-in](../../role-based-access-control/built-in-roles.md#identity) RBAC roles. You can use these roles to grant a user or group in your organization rights over a user-assigned managed identity.
+In some environments, administrators choose to limit who can manage user-assigned managed identities. Administrators can implement this limitation using [built-in](../../role-based-access-control/built-in-roles.md#identity) RBAC roles. You can use these roles to grant a user or group in your organization rights over a user-assigned managed identity.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 1. A list of the user-assigned managed identities for your subscription is returned. Select the user-assigned managed identity that you want to manage.
 1. Select **Access control (IAM)**.
 1. Choose **Add role assignment**.
-  
+
    ![Screenshot that shows the user-assigned managed identity access control screen](media/how-manage-user-assigned-managed-identities/role-assign.png)
 
 1. In the **Add role assignment** pane, choose the role to assign and choose **Next**.
@@ -104,12 +105,12 @@ In this article, you learn how to create, list, delete, or assign a role to a us
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]  
-> To modify user permissions when you use an app service principal by using the CLI, you must provide the service principal more permissions in the Azure Active Directory Graph API because portions of the CLI perform GET requests against the Graph API. Otherwise, you might end up receiving an "Insufficient privileges to complete the operation" message. To do this step, go into the **App registration** in Azure AD, select your app, select **API permissions**, and scroll down and select **Azure Active Directory Graph**. From there, select **Application permissions**, and then add the appropriate permissions. 
+> [!IMPORTANT]
+> To modify user permissions when you use an app service principal by using the CLI, you must provide the service principal more permissions in the Azure Active Directory Graph API because portions of the CLI perform GET requests against the Graph API. Otherwise, you might end up receiving an "Insufficient privileges to complete the operation" message. To do this step, go into the **App registration** in Microsoft Entra ID, select your app, select **API permissions**, and scroll down and select **Azure Active Directory Graph**. From there, select **Application permissions**, and then add the appropriate permissions.
 
-## Create a user-assigned managed identity 
+## Create a user-assigned managed identity
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
@@ -152,6 +153,7 @@ For a full list of Azure CLI identity commands, see [az identity](/cli/azure/ide
 
 For information on how to assign a user-assigned managed identity to an Azure VM, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets.
 
 ::: zone-end
 
@@ -173,17 +175,17 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
-1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
 1. Sign in to Azure.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-1. Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+1. Install the [latest version of PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Install-Module -Name PowerShellGet -AllowPrerelease
     ```
 
@@ -191,7 +193,7 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
 1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
     ```
 
@@ -238,7 +240,7 @@ Remove-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER AS
 
 For a full list and more details of the Azure PowerShell managed identities for Azure resources commands, see [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity#managed_service_identity).
 
-
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets.
 ::: zone-end
 
 
@@ -263,9 +265,9 @@ Resource Manager templates help you deploy new or modified resources defined by 
 - Use a [custom template from Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) to create a template from scratch or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
 - Derive from an existing resource group by exporting a template. You can export them from either [the original deployment](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates) or from the [current state of the deployment](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Use a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then upload and deploy by using PowerShell or the Azure CLI.
-- Use the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to create and deploy a template. 
+- Use the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to create and deploy a template.
 
-## Create a user-assigned managed identity 
+## Create a user-assigned managed identity
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
@@ -305,7 +307,7 @@ To create a user-assigned managed identity, use the following template. Replace 
 
 To assign a user-assigned managed identity to an Azure VM using a Resource Manager template, see [Configure managed identities for Azure resources on an Azure VM using a template](qs-configure-template-windows-vm.md).
 
-
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets.
 ::: zone-end
 
 
@@ -329,7 +331,7 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 1. If you're running locally, sign in to Azure through the Azure CLI.
 
-    ```
+    ```azurecli-interactive
     az login
     ```
 
@@ -339,7 +341,7 @@ In this article, you learn how to create, list, and delete a user-assigned manag
     az account get-access-token
     ```
 
-## Create a user-assigned managed identity 
+## Create a user-assigned managed identity
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
@@ -409,9 +411,8 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 ## Next steps
 
 For information on how to assign a user-assigned managed identity to an Azure VM or virtual machine scale set by using CURL, see:
-- [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity) 
+- [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity)
 - [Configure managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity)
 
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets.
 ::: zone-end
-
-

@@ -3,13 +3,12 @@ title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azu
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
 author: mbaldwin
-manager: devtiw
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/24/2021
+ms.date: 01/24/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 
@@ -24,9 +23,9 @@ ms.custom: devx-track-azurepowershell
 
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
 
-Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
+Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
-This functionality is not available for Azure China 21Vianet.
+This functionality isn't available for Microsoft Azure operated by 21Vianet. 
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)
@@ -35,21 +34,21 @@ This functionality is not available for Azure China 21Vianet.
 More information about generating and transferring an HSM-protected key over the Internet:
 
 * You generate the key from an offline workstation, which reduces the attack surface.
-* The key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it is transferred to the Azure Key Vault HSMs. Only the encrypted version of your key leaves the original workstation.
+* The key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it's transferred to the Azure Key Vault HSMs. Only the encrypted version of your key leaves the original workstation.
 * The toolset sets properties on your tenant key that binds your key to the Azure Key Vault security world. So after the Azure Key Vault HSMs receive and decrypt your key, only these HSMs can use it. Your key cannot be exported. This binding is enforced by the nCipher  HSMs.
 * The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. In addition, the toolset includes attestation from nCipher that the KEK is not exportable and was generated inside a genuine HSM that was manufactured by nCipher.
-* The toolset includes attestation from nCipher that the Azure Key Vault security world was also generated on a genuine HSM manufactured by nCipher. This attestation proves to you that Microsoft is using genuine hardware.
+* The toolset includes attestation from nCipher that the Azure Key Vault security world was also generated on a genuine HSM manufactured by nCipher. This attestation demonstrates that Microsoft is using genuine hardware.
 * Microsoft uses separate KEKs and separate Security Worlds in each geographical region. This separation ensures that your key can be used only in data centers in the region in which you encrypted it. For example, a key from a European customer cannot be used in data centers in North American or Asia.
 
 ## More information about nCipher HSMs and Microsoft services
 
-nCipher Security, an Entrust Datacard company, is a leader in the general purpose HSM market, empowering world-leading organizations by delivering trust, integrity and control to their business critical information and applications. nCipher's cryptographic solutions secure emerging technologies – cloud, IoT, blockchain, digital payments – and help meet new compliance mandates, using the same proven technology that global organizations depend on today to protect against threats to their sensitive data, network communications and enterprise infrastructure. nCipher delivers trust for business critical applications, ensuring the integrity of data and putting customers in complete control – today, tomorrow, at all times.
+nCipher Security, an Entrust Datacard company, is a leader in the general purpose HSM market, empowering world-leading organizations by delivering trust, integrity and control to their business critical information and applications. nCipher's cryptographic solutions secure emerging technologies – cloud, IoT, blockchain, digital payments – and help meet new compliance mandates, using the same proven technology that global organizations depend on today to protect against threats to their sensitive data, network communications and enterprise infrastructure. nCipher delivers trust for business critical applications, ensuring the integrity of data and putting customers in complete control – today, tomorrow, always.
 
 Microsoft has collaborated with nCipher Security to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization's usage spikes. At the same time, your key is protected inside Microsoft's HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft's HSMs.
 
 ## Implementing bring your own key (BYOK) for Azure Key Vault
 
-Use the following information and procedures if you will generate your own HSM-protected key and then transfer it to Azure Key Vault—the bring your own key (BYOK) scenario.
+Use the following information and procedures if you will generate your own HSM-protected key and then transfer it to Azure Key Vault. This is known as the Bring Your Own Key (BYOK) scenario.
 
 ## Prerequisites for BYOK
 
@@ -59,28 +58,28 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | --- | --- |
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
-| nCipher nShield HSMs, smartcards, and support software |You must have access to a nCipher Hardware Security Module and basic operational knowledge of nCipher nShield HSMs. See [nCipher nShield Hardware Security Module](https://go.ncipher.com/rs/104-QOX-775/images/nCipher_nShield_Family_Brochure.pdf?_ga=2.106120835.1607422418.1590478092-577009923.1587131206) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and nCipher nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| nCipher nShield HSMs, smartcards, and support software |You must have access to a nCipher Hardware Security Module and basic operational knowledge of nCipher nShield HSMs. See [nCipher nShield Hardware Security Module](https://www.arrow.com/ecs-media/8441/33982ncipher_nshield_family_brochure.pdf) for the list of compatible models, or to purchase an HSM if you do not have one. |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and nCipher nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16-MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
 
-You will use the following five steps to generate and transfer your key to an Azure Key Vault HSM:
+You'll use the following five steps to generate and transfer your key to an Azure Key Vault HSM:
 
-* [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation)
-* [Step 2: Prepare your disconnected workstation](#step-2-prepare-your-disconnected-workstation)
-* [Step 3: Generate your key](#step-3-generate-your-key)
-* [Step 4: Prepare your key for transfer](#step-4-prepare-your-key-for-transfer)
-* [Step 5: Transfer your key to Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
+* [Step 1: Prepare your Internet-connected workstation](#prepare-your-internet-connected-workstation)
+* [Step 2: Prepare your disconnected workstation](#prepare-your-disconnected-workstation)
+* [Step 3: Generate your key](#generate-your-key)
+* [Step 4: Prepare your key for transfer](#prepare-your-key-for-transfer)
+* [Step 5: Transfer your key to Azure Key Vault](#transfer-your-key-to-azure-key-vault)
 
-## Step 1: Prepare your Internet-connected workstation
+## Prepare your Internet-connected workstation
 
 For this first step, do the following procedures on your workstation that is connected to the Internet.
 
-### Step 1.1: Install Azure PowerShell
+### Install Azure PowerShell
 
 From the Internet-connected workstation, download and install the Azure PowerShell module that includes the cmdlets to manage Azure Key Vault. For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
-### Step 1.2: Get your Azure subscription ID
+### Get your Azure subscription ID
 
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
@@ -94,13 +93,13 @@ In the pop-up browser window, enter your Azure account user name and password. T
    Get-AzSubscription
 ```
 
-From the output, locate the ID for the subscription you will use for Azure Key Vault. You will need this subscription ID later.
+From the output, locate the ID for the subscription you will use for Azure Key Vault. You'll need this subscription ID later.
 
 Do not close the Azure PowerShell window.
 
-### Step 1.3: Download the BYOK toolset for Azure Key Vault
+### Download the BYOK toolset for Azure Key Vault
 
-Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
+Go to the Microsoft Download Center and download the Azure Key Vault BYOK toolset for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
 
 ---
 **United States:**
@@ -246,15 +245,15 @@ The toolset includes:
 
 Copy the package to a USB drive or other portable storage.
 
-## Step 2: Prepare your disconnected workstation
+## Prepare your disconnected workstation
 
 For this second step, do the following procedures on the workstation that is not connected to a network (either the Internet or your internal network).
 
-### Step 2.1: Prepare the disconnected workstation with nCipher nShield HSM
+### Prepare the disconnected workstation with nCipher nShield HSM
 
 Install the nCipher support software on a Windows computer, and then attach a nCipher nShield HSM to that computer.
 
-Ensure that the nCipher tools are in your path (**%nfast_home%\bin**). For example, type the following:
+Ensure that the nCipher tools are in your path (**%nfast_home%\bin**). For example, type :
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -262,23 +261,23 @@ Ensure that the nCipher tools are in your path (**%nfast_home%\bin**). For examp
 
 For more information, see the user guide included with the nShield HSM.
 
-### Step 2.2: Install the BYOK toolset on the disconnected workstation
+### Install the BYOK toolset on the disconnected workstation
 
-Copy the BYOK toolset package from the USB drive or other portable storage, and then do the following:
+Copy the BYOK toolset package from the USB drive or other portable storage, and then:
 
 1. Extract the files from the downloaded package into any folder.
 2. From that folder, run vcredist_x64.exe.
 3. Follow the instructions to the install the Visual C++ runtime components for Visual Studio 2013.
 
-## Step 3: Generate your key
+## Generate your key
 
 For this third step, do the following procedures on the disconnected workstation. To complete this step your HSM must be in initialization mode.
 
-### Step 3.1: Change the HSM mode to 'I'
+### Change the HSM mode to 'I'
 
 If you are using nCipher nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode's LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
-### Step 3.2: Create a security world
+### Create a security world
 
 Start a command prompt and run the nCipher new-world program.
 
@@ -289,21 +288,21 @@ Start a command prompt and run the nCipher new-world program.
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you're prompted to enter three blank cards and pins for each one. Then, any two cards give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
 > [!NOTE]
-> If your HSM does not support the newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite= DLf3072s256mRijndael with --cipher-suite=DLf1024s160mRijndael
+> If your HSM does not support the newer cypher suite DLf3072s256mRijndael, you can replace `--cipher-suite= DLf3072s256mRijndael` with `--cipher-suite=DLf1024s160mRijndael`.
 >
 > Security world created with new-world.exe that ships with nCipher software version 12.50 is not compatible with this BYOK procedure. There are two options available:
-> 1) Downgrade nCipher software version to 12.40.2 to create a new security world.
-> 2) Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version of new-world.exe that is compatible with this BYOK procedure.
+> 1. Downgrade nCipher software version to 12.40.2 to create a new security world.
+> 2. Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version of new-world.exe that is compatible with this BYOK procedure.
 
-Then do the following:
+Then:
 
 * Back up the world file. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.
 
-### Step 3.3: Change the HSM mode to 'O'
+### Change the HSM mode to 'O'
 
 If you are using nCipher nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode's LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
-### Step 3.4: Validate the downloaded package
+### Validate the downloaded package
 
 This step is optional but recommended so that you can validate the following:
 
@@ -427,7 +426,7 @@ To validate the downloaded package:
         ```
 
      > [!TIP]
-     > The nCipher nShield software includes python at %NFAST_HOME%\python\bin
+     > The nCipher nShield software includes Python at %NFAST_HOME%\python\bin
      >
      >
 2. Confirm that you see the following, which indicates successful validation: **Result: SUCCESS**
@@ -436,7 +435,7 @@ This script validates the signer chain up to the nShield root key. The hash of t
 
 You're now ready to create a new key.
 
-### Step 3.5: Create a new key
+### Create a new key
 
 Generate a key by using the nCipher nShield **generatekey** program.
 
@@ -450,7 +449,7 @@ When you run this command, use these instructions:
 
 * The parameter *protect* must be set to the value **module**, as shown. This creates a module-protected key. The BYOK toolset does not support OCS-protected keys.
 * Replace the value of *contosokey* for the **ident** and **plainname** with any string value. To minimize administrative overheads and reduce the risk of errors, we recommend that you use the same value for both. The **ident** value must contain only numbers, dashes, and lower case letters.
-* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the [nCipher documentation.](https://go.ncipher.com/rs/104-QOX-775/images/nShield-family-br-A4.pdf)
+* The pubexp is left blank (default) in this example, but you can specify specific values.
 
 This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_simple_**, followed by the **ident** that was specified in the command. For example: **key_simple_contosokey**. This file contains an encrypted key.
 
@@ -462,11 +461,11 @@ Back up this Tokenized Key File in a safe location.
 
 You are now ready to transfer your key to Azure Key Vault.
 
-## Step 4: Prepare your key for transfer
+## Prepare your key for transfer
 
 For this fourth step, do the following procedures on the disconnected workstation.
 
-### Step 4.1: Create a copy of your key with reduced permissions
+### Create a copy of your key with reduced permissions
 
 Open a new command prompt and change the current directory to the location where you unzipped the BYOK zip file. 
 To reduce the permissions on your key, from a command prompt, run one of the following, depending on your geographic region or instance of Azure:
@@ -579,7 +578,7 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
    ```
 
-When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
+When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#generate-your-key) step.
 
 You are asked to plug in your security world admin cards.
 
@@ -599,9 +598,9 @@ You may inspects the ACLS using following commands using the nCipher nShield uti
    "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
    ```
 
-  When you run these commands, replace contosokey with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
+  When you run these commands, replace contosokey with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#generate-your-key) step.
 
-### Step 4.2: Encrypt your key by using Microsoft's Key Exchange Key
+### Encrypt your key by using Microsoft's Key Exchange Key
 
 Run one of the following commands, depending on your geographic region or instance of Azure:
 
@@ -715,17 +714,17 @@ Run one of the following commands, depending on your geographic region or instan
 
 When you run this command, use these instructions:
 
-* Replace *contosokey* with the identifier that you used to generate the key in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
-* Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the [Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation) step.
+* Replace *contosokey* with the identifier that you used to generate the key in **Step 3.5: Create a new key** from the [Generate your key](#generate-your-key) step.
+* Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the [Prepare your Internet-connected workstation](#prepare-your-internet-connected-workstation) step.
 * Replace *ContosoFirstHSMKey* with a label that is used for your output file name.
 
 When this completes successfully, it displays **Result: SUCCESS** and there is a new file in the current folder that has the following name: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
-### Step 4.3: Copy your key transfer package to the Internet-connected workstation
+### Copy your key transfer package to the Internet-connected workstation
 
 Use a USB drive or other portable storage to copy the output file from the previous step (KeyTransferPackage-ContosoFirstHSMkey.byok) to your Internet-connected workstation.
 
-## Step 5: Transfer your key to Azure Key Vault
+## Transfer your key to Azure Key Vault
 
 For this final step, on the Internet-connected workstation, use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 

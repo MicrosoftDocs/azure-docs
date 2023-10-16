@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot network connectivity issues | Microsoft Docs
 description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
-author: SGSneha
-ms.author: v-ssudhir
-ms.manager: deseelam
+author: vijain
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/03/2021
-
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot network connectivity
@@ -17,7 +15,7 @@ This article helps you troubleshoot network connectivity issues using Azure Migr
 
 Make sure the private endpoint is an approved state.  
 
-1. Go to **Azure Migrate**: **Discovery and Assessment** and **Server Migration properties** page.
+1. Go to **Azure Migrate**: **Discovery and Assessment** and **Migration and modernization** properties page.
 
 2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Migrate.  
 
@@ -30,7 +28,7 @@ Make sure the private endpoint is an approved state.
 
 
 ## Validate the data flow through the private endpoints
-Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Server Migration Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
+Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Migration and modernization Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
 
 ## Verify DNS resolution
 
@@ -40,11 +38,11 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 **To obtain the private endpoint details to verify DNS resolution:**
 
-1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below. 
+1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below. 
 
       ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
 
-      [![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox) 
+      [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox) 
 
 2. If you have created a private endpoint for the storage account(s) for replicating over a private network, you can obtain the private link FQDN and IP address as illustrated below. 
 
@@ -58,7 +56,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
--  Enter ```nslookup_<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+-  Enter ```nslookup <storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 
@@ -242,9 +240,10 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 
 |**DNS mappings containing Private endpoint URLs**  | **Details** |
 |--- | ---|
-|*.disc.privatelink.test.migration.windowsazure.com | Azure Migrate Discovery service endpoint
-|*.asm.privatelink.test.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.test.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.disc.privatelink.prod.migration.windowsazure.com | Azure Migrate Discovery service endpoint
+|*.asm.privatelink.prod.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
+|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.privatelink.siterecovery.windowsazure.com | Azure Site Recovery service endpoint to orchestrate replications
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
 
@@ -253,7 +252,7 @@ In addition to the URLs above, the appliance needs access to the following URLs 
 | **Other public cloud URLs <br> (Public endpoint URLs)** | **Details** |
 |--- | ---|
 |*.portal.azure.com | Navigate to the Azure portal
-|*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Azure Active Directory
+|*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Microsoft Entra ID
 |management.azure.com | For triggering Azure Resource Manager deployments
 |*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 |aka.ms/* (optional) | Allow access to *also know as* links; used to download and install the latest updates for appliance services
@@ -343,3 +342,17 @@ This issue can occur if the services running on the appliance are not running on
 
     :::image type="content" source="./media/troubleshoot-network-connectivity/view-appliance-services.png" alt-text="Snapshot of View appliance services.":::
 
+### Failed to save configuration: 504 gateway timeout
+
+#### Possible causes:
+This issue can occur if the Azure Migrate appliance cannot reach the service endpoint provided in the error message.
+
+#### Remediation:
+
+To validate the private link connection, perform a DNS resolution of the Azure Migrate service endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that they resolve to private IP addresses.
+
+**To obtain the private endpoint details to verify DNS resolution:**
+
+The private endpoint details and private link resource FQDN information are available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** on both the properties pages to view the full list. 
+
+Next, refer to [this guidance](#verify-dns-resolution) to verify the DNS resolution.

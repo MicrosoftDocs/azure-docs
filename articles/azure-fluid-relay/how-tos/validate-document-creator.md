@@ -1,29 +1,23 @@
 ---
-title: "How to: Validate a User Created a Document"
-description: How to validate that the user who created a document is the same user who is claiming to be creating the document.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
-ms.date: 04/05/2022
+title: "How to: Validate a user who created a container"
+description: How to validate that the user who created a container is the same user who is claiming to be accessing the container.
+ms.date: 01/18/2023
 ms.topic: reference
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/apis/azure-client/itokenprovider/
 ---
 
-# How to: Validate a User Created a Document
+# How to: Validate a user who created a container
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+When you create a container in Azure Fluid Relay, the JWT provided by the [ITokenProvider](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface) for the creation request can only be used once. After creating a container, the client must generate a new JWT that contains the document ID (which is really the container ID) provided by the service at creation time. If an application has an authorization service that manages container access control, it will need to know who created a container with a given ID in order to authorize the generation of a new JWT for access to that container.
 
-When creating a document in Azure Fluid Relay, the JWT provided by the `ITokenProvider` for the creation request can only be used once. After creating a document, the client must generate a new JWT that contains the document ID provided by the service at creation time. If an application has an authorization service that manages document access control, it will need to know who created a document with a given ID in order to authorize the generation of a new JWT for access to that document.
+## Inform an authorization service when a container is created
 
-## Inform an Authorization Service when a document is Created
+An application can tie into the container creation lifecycle by implementing a public [documentPostCreateCallback()](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface#documentpostcreatecallback-methodsignature) method in its `TokenProvider`. (The name of this function can be confusing. It is really a callback for post *container* creation.) This callback will be triggered directly after creating the container, before a client requests the new JWT it needs to gain read/write permissions to the container that was created.
 
-An application can tie into the document creation lifecycle by implementing a public `documentPostCreateCallback()` property in its `TokenProvider`. This callback will be triggered directly after creating the document, before a client requests the new JWT it needs to gain read/write permissions to the document that was created.
+The `documentPostCreateCallback()` receives two parameters: 1) the ID of the container that was created (also called the "document ID") and 2) a JWT signed by the service with no permission scopes. The authorization service can verify the given JWT and use the information in the JWT to grant the correct user permissions for the newly created container.
 
-The `documentPostCreateCallback()` receives 2 parameters: 1) the ID of the document that was created and 2) a JWT signed by the service with no permission scopes. The authorization service can verify the given JWT and use the information in the JWT to grant the correct user permissions for the newly created document.
-
-### Create an endpoint for your document creation callback
+### Create an endpoint for your container creation callback
 
 This example below is an [Azure Function](../../azure-functions/functions-overview.md) based off the example in [How to: Write a TokenProvider with an Azure Function](azure-function-token-provider.md#create-an-endpoint-for-your-tokenprovider-using-azure-functions).
 
@@ -97,7 +91,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     const user: IUser = claims.user;
     // Pseudo-function: implement according to your needs
-    giveUserPermissionsForDocument(documentId, user);
+    giveUserPermissionsForContainer(documentId, user);
 
     context.res = {
         status: 200,
@@ -110,7 +104,7 @@ export default httpTrigger;
 
 ### Implement the `documentPostCreateCallback`
 
-This example implementation below extends the [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider/) and uses the [axios](https://www.npmjs.com/package/axios) library to make a simple HTTP request to the Azure Function used for generating tokens.
+This example implementation below extends the [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class) and uses the [axios](https://www.npmjs.com/package/axios) library to make a HTTP request to the Azure Function used for generating tokens.
 
 ```typescript
 import { AzureFunctionTokenProvider, AzureMember } from "@fluidframework/azure-client";
@@ -120,7 +114,7 @@ import axios from "axios";
  * Token Provider implementation for connecting to an Azure Function endpoint for
  * Azure Fluid Relay token resolution.
  */
-export class AzureFunctionTokenProviderWithDocumentCreateCallback extends AzureFunctionTokenProvider {
+export class AzureFunctionTokenProviderWithContainerCreateCallback extends AzureFunctionTokenProvider {
     /**
      * Creates a new instance using configuration parameters.
      * @param azFunctionUrl - URL to Azure Function endpoint
@@ -134,6 +128,8 @@ export class AzureFunctionTokenProviderWithDocumentCreateCallback extends AzureF
         super(azFunctionUrl, user);
     }
 
+    // In this context, a document is another name for container, so you can think of this function
+    // as if it were named containerPostCreateCallback.
     public async documentPostCreateCallback?(documentId: string, creationToken: string): Promise<void> {
         await axios.post(this.authAzFunctionUrl, {
             params: {

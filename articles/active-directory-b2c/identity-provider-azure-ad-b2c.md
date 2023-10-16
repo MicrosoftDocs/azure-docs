@@ -3,14 +3,14 @@ title: Set up sign-up and sign-in with an Azure AD B2C account from another Azur
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Azure AD B2C accounts from another tenant in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
-ms.author: kengaderdus
+ms.date: 10/11/2023
+ms.author: godonnell
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Overview
 
-This article describes how to set up a federation with another Azure AD B2C tenant. When your applications are protected with your Azure AD B2C, this allows users from other Azure AD B2C’s to login with their existing accounts. In the following diagram, users are able to sign-in to an Application protected by *Contoso*’s Azure AD B2C, with an account managed by *Fabrikam*’s Azure AD B2C tenant 
+This article describes how to set up a federation with another Azure AD B2C tenant. When your applications are protected with your Azure AD B2C, this allows users from other Azure AD B2C’s to login with their existing accounts. In the following diagram, users are able to sign in to an application protected by *Contoso*’s Azure AD B2C, with an account managed by *Fabrikam*’s Azure AD B2C tenant. In this case, user account must be present in *Fabrikam*’s tenant before an application protected by *Contoso*’s Azure AD B2C can attempt to sign in. 
 
 ![Azure AD B2C federation with another Azure AD B2C tenant](./media/identity-provider-azure-ad-b2c/azure-ad-b2c-federation.png)
 
@@ -38,11 +38,11 @@ This article describes how to set up a federation with another Azure AD B2C tena
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ### Verify the application's publisher domain
-As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD B2C user flows, the publisher’s domain appears only when using a [Microsoft account](../active-directory-b2c/identity-provider-microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, do the following:
+As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD B2C user flows, the publisher’s domain appears only when using a [Microsoft account](../active-directory-b2c/identity-provider-microsoft-account.md) or other Microsoft Entra tenant as the identity provider. To meet these new requirements, do the following:
 
 1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
 1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:
-   - If the app registration for the Microsoft account identity provider is in an Azure AD tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - If the app registration for the Microsoft account identity provider is in a Microsoft Entra tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
    - If your app registration for the Microsoft account identity provider is in an Azure AD B2C tenant, [mark your app as publisher verified using Microsoft Graph APIs](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (for example, using Graph Explorer). The UI for setting an app’s verified publisher is currently disabled for Azure AD B2C tenants.
 
 ## Create an Azure AD B2C application

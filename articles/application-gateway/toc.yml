@@ -6,6 +6,8 @@
     href: overview.md
   - name: Application Gateway v2
     href: overview-v2.md
+  - name: Application Gateway for Containers
+    href: ./for-containers/overview.md
   - name: Well-Architected review of Application Gateway
     href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Quickstarts
@@ -24,7 +26,7 @@
     displayName: Resource Manager
     href: quick-create-template.md
   - name: Create Application Gateway - Terraform
-    href: /azure/developer/terraform/application-gateway-quickstart?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
+    href: quick-create-terraform.md
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -41,18 +43,10 @@
     href: tutorial-ingress-controller-add-on-new.md
   - name: Ingress Controller add-on for AKS (Brownfield)
     href: tutorial-ingress-controller-add-on-existing.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: Resource Manager templates
-    href: resource-manager-template-samples.md
+  - name: Deploy Application Gateway with DDoS protection
+    href: tutorial-protect-application-gateway.md
 - name: Concepts
   items:
-  - name: Support for working remotely
-    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: Basics
     items:
     - name: Application Gateway features
@@ -67,18 +61,14 @@
         href: configuration-overview.md
       - name: Infrastructure
         href: configuration-infrastructure.md
-      - name: Front-end IP address
-        href: configuration-front-end-ip.md
+      - name: Frontend IP address
+        href: configuration-frontend-ip.md
       - name: Listeners
         href: configuration-listeners.md
       - name: Request routing rules
         href: configuration-request-routing-rules.md
       - name: HTTP settings
         href: configuration-http-settings.md
-  - name: High traffic support
-    href: high-traffic-support.md
-  - name: Autoscaling v2 SKU
-    href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing
     items:
     - name: Multiple site hosting
@@ -93,6 +83,10 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+    - name: Private Deployment
+      href: application-gateway-private-deployment.md
+    - name: Private Link
+      href: private-link.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -103,20 +97,30 @@
       href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-  - name: Ingress for AKS
-    href: ingress-controller-overview.md
+    - name: SSL certificate management (preview)
+      href: ssl-certificate-management.md
   - name: Health monitoring
     items:
     - name: Monitor Azure Application Gateway
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostic logs and backend health
+    - name: Backend health
+      href: application-gateway-backend-health.md      
+    - name: Diagnostic logs
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
+  - name: High traffic support
+    href: high-traffic-support.md
+  - name: Autoscaling v2 SKU
+    href: application-gateway-autoscaling-zone-redundant.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: Ingress for AKS
+    href: ingress-controller-overview.md
   - name: Understanding pricing
     href: understanding-pricing.md
   - name: FAQ
@@ -293,12 +297,20 @@
     href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
-  - name: Migrate from v1 to v2
-    href: migrate-v1-v2.md
+  - name: Migrating to v2 SKU
+    items:
+      - name: About v1 retirement
+        href: v1-retirement.md
+      - name: Migrate from v1 to v2
+        href: migrate-v1-v2.md  
+      - name: FAQ
+        href: retirement-faq.md
   - name: Configure alerts
     href: configure-alerts-with-templates.md
   - name: Classic to Resource Manager
-    href: classic-to-resource-manager.md  
+    href: classic-to-resource-manager.md
+  - name: Configure Private Link
+    href: private-link-configure.md
 - name: Reference
   items:
   - name: Monitoring data

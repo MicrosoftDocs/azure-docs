@@ -8,4 +8,4 @@ ms.custom: references_regions
 
 ---
 > [!IMPORTANT]
-> The capabilities available (PSTN/SMS, Inbound/Outbound) depend on the country that you're operating within (your Azure billing address location), your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements. For more information, visit the [Phone number types](../concepts/numbers/number-types.md) documentation.
+> SMS and PSTN capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md) documentation.

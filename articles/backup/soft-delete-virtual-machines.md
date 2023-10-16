@@ -2,8 +2,11 @@
 title: Soft delete for virtual machines
 description: Learn how soft delete for virtual machines makes backups more secure.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/10/2022
 ms.custom: references_regions, devx-track-azurepowershell
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Soft delete for virtual machines
 
@@ -15,7 +18,7 @@ Soft delete for VMs protects the backups of your VMs from unintended deletion. E
 
 ## Supported regions
 
-Soft delete is currently supported in the West Central US, East Asia, Canada Central, Canada East, France Central, France South, Korea Central, Korea South, UK South, UK West, Australia East, Australia South East, North Europe, West US, West US2, Central US, South East Asia, North Central US, South Central US, Japan East, Japan West, India South, India Central, India West, East US 2, Switzerland North, Switzerland West, Norway West, Norway East, and all National regions.
+Soft delete is available in all Azure Public and National regions.
 
 ## Soft delete for VMs using Azure portal
 

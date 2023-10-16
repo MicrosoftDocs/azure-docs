@@ -1,18 +1,20 @@
 ---
-title: Use an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
-description: Learn how to configure a lab plan to use a compute gallery so that a user can share an image with other and another user can use the image to create a template VM in the lab. 
+title: Use an Azure compute gallery in Azure Lab Services
+description: Learn how to use an Azure compute gallery in a lab plan. A compute gallery lets you share a VM image, which can be reused to create new labs.
 ms.topic: how-to
-ms.date: 11/13/2021
+ms.date: 12/15/2022
+author: ntrogh
+ms.author: nicktrog
 ---
 
-# Use an Azure Compute Gallery in Azure Lab Services
+# Use an Azure compute gallery in Azure Lab Services
 
-An image contains the operating system, software applications, files, and settings that are installed on a VM.  There are two types of images that you can use when you set up a new lab:
+An image contains the operating system, software applications, files, and settings that are installed on a VM. This article shows how educators or lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) for others to create new labs.
 
-- Azure Marketplace images that are prebuilt by Microsoft for use within Azure.  These images have either Windows or Linux installed and may also include software applications.  For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes installed deep learning frameworks and tools.
-- Custom images that are created by your institution’s IT department and\or other educators.  You can create both Windows and Linux custom images and have the flexibility to install Microsoft and 3rd party applications based on your unique needs.  You also can add files, change application settings, and more.
+You can use two types of images to set up a new lab:
 
-This article shows how educators/lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create new labs.
+- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes deep learning frameworks and tools.
+- Custom images are created by your institution’s IT department and\or other educators. You can create both Windows and Linux custom images. You have the flexibility to install Microsoft and third-party applications based on your unique needs. You also can add files, change application settings, and more.
 
 > [!IMPORTANT]
 > While using a Azure compute galleries, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
@@ -31,8 +33,8 @@ Here are the couple of scenarios supported by this feature:
 - Image must be replicated to the same region as the lab plan.
 
 ## Save an image to a compute gallery
-
-After a compute gallery is attached, an educator can save an image to the compute gallery so that it can be reused by other educators.
+> [!IMPORTANT]
+> Images can only be saved from labs that were created in the same region as their lab plan.
 
 1. On the **Template** page for the lab, select **Export to Azure Compute Gallery** on the toolbar.
 
@@ -41,7 +43,7 @@ After a compute gallery is attached, an educator can save an image to the comput
 
     :::image type="content" source="./media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png" alt-text="Export to Azure Compute Gallery dialog":::
 
-3. You'll see a note telling you to go to the Azure port to see the progress of this operation. This operation can take sometime.
+3. You'll see a note telling you to go to the Azure portal to see the progress of this operation. This operation can take sometime.
 
     ![Export in progress](./media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
 
@@ -57,20 +59,33 @@ After you save the image to the compute gallery, you can use that image from the
 
 An educator can pick a custom image available in the compute gallery for the template VM when creating a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
-![Use virtual machine image from the gallery](./media/how-to-use-shared-image-gallery/use-shared-image.png)
+:::image type="content" source="./media/how-to-use-shared-image-gallery/use-shared-image.png" alt-text="Screenshot that shows the list of virtual machine images in the Create a new lab page.":::
 
->[!IMPORTANT]
+>[!NOTE]
 >Azure Compute Gallery images will not show if they have been disabled or if the region of the lab plan is different than the gallery images.
 
-For more information about replicating images, see  [replication in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
+> [!IMPORTANT]
+> When you create a new lab from an exported lab VM image, you need to use the same credentials as the original template VM when creating the lab. After the lab creation finishes, you can [reset the username and password](./how-to-set-virtual-machine-passwords.md).
 
-### Re-save a custom image to compute gallery
+For more information about replicating images, see  [replication in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
 
-After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you can either create a new image or to update the original image.
+### Resave a custom image to compute gallery
+
+After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you can either create a new image or update the original image.
 
 If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  Creating a new image allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
 
 If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries.md#image-versions).  Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
+
+## Troubleshooting
+
+### Unable to login with the credentials you used for creating the lab
+
+When you create a new lab from an exported lab VM image, perform the following steps:
+
+1. Reuse the same credentials as the original template VM when creating the new lab.
+
+1. After the lab creation finishes, you can [reset the username and password](./how-to-set-virtual-machine-passwords.md).
 
 ## Next steps
 

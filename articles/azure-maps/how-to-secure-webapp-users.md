@@ -1,61 +1,60 @@
 ---
-title: How to secure a web application with interactive single-sign-in
+title: How to secure a web application with interactive single sign-in
 titleSuffix: Azure Maps
-description: How to configure a web application which supports Azure AD single-sign-on with Azure Maps Web SDK using OpenID Connect protocol.
-author: stevemunk
-ms.author: v-munksteve
+description: How to configure a web application that supports Microsoft Entra single sign-in with Azure Maps Web SDK using OpenID Connect protocol.
+author: eriklindeman
+ms.author: eriklind
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Secure a web application with user sign-in
 
-The following guide pertains to an application which is hosted on web servers, maintains multiple business scenarios, and deploys to web servers. The application has the requirement to provide protected resources secured only to Azure AD users. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
+The following guide pertains to an application that is hosted on web servers, maintains multiple business scenarios, and deploys to web servers. The application has the requirement to provide protected resources secured only to Microsoft Entra users. The objective of the scenario is to enable the web application to authenticate to Microsoft Entra ID and call Azure Maps REST APIs on behalf of the user.
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
-## Create an application registration in Azure AD
+<a name='create-an-application-registration-in-azure-ad'></a>
 
-You must create the web application in Azure AD for users to sign in. This web application will then delegate user access to Azure Maps REST APIs.
+## Create an application registration in Microsoft Entra ID
 
-1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
+You must create the web application in Microsoft Entra ID for users to sign in. This web application then delegates user access to Azure Maps REST APIs.
 
-    > [!div class="mx-imgBorder"]
-    > ![App registration](./media/how-to-manage-authentication/app-registration.png)
+1. In the Azure portal, in the list of Azure services, select **Microsoft Entra ID** > **App registrations** > **New registration**.  
 
-2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For more details please see Azure AD [Scenario: Web app that signs in users](../active-directory/develop/scenario-web-app-sign-user-overview.md). Complete the provided steps from the Azure AD scenario.  
+    :::image type="content" source="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing App registration." lightbox="./media/how-to-manage-authentication/app-registration.png":::
 
-3. Once the application registration is complete, Confirm that application sign-in works for users. Once sign-in works, then the application can be granted delegated access to Azure Maps REST APIs.
-    
-4.  To assign delegated API permissions to Azure Maps, go to the application. Then select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
+2. Enter a **Name**, choose a **Support account type**, provide a redirect URI that represents the url to which Microsoft Entra ID issues the token, which is the url where the map control is hosted. For more information, see Microsoft Entra ID [Scenario: Web app that signs in users](../active-directory/develop/scenario-web-app-sign-user-overview.md). Complete the provided steps from the Microsoft Entra scenario.  
 
-    > [!div class="mx-imgBorder"]
-    > ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
+3. Once the application registration is complete, confirm that application sign-in works for users. Once sign-in works, the application can be granted delegated access to Azure Maps REST APIs.
+
+4. To assign delegated API permissions to Azure Maps, go to the application and select **API permissions** > **Add a permission**. select **Azure Maps** in the **APIs my organization uses** list.
+
+    :::image type="content" source="./media/how-to-manage-authentication/app-permissions.png" alt-text="A screenshot showing add app API permissions." lightbox="./media/how-to-manage-authentication/app-permissions.png":::
 
 5. Select the check box next to **Access Azure Maps**, and then select **Add permissions**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+    :::image type="content" source="./media/how-to-manage-authentication/select-app-permissions.png" alt-text="A screenshot showing select app API permissions." lightbox="./media/how-to-manage-authentication/select-app-permissions.png":::
 
-6. Enable the web application to call Azure Maps REST APIs by configuring the app registration with an application secret, For detailed steps, see [A web app that calls web APIs: App registration](../active-directory/develop/scenario-web-app-call-api-app-registration.md). A secret is required to authenticate to Azure AD on-behalf of the user. The app registration certificate or secret should be stored in a secure store for the web application to retrieve to authenticate to Azure AD. 
-   
-   * If the application already has configured an Azure AD app registration and a secret this step may be skipped.
+6. Enable the web application to call Azure Maps REST APIs by configuring the app registration with an application secret, For detailed steps, see [A web app that calls web APIs: App registration](../active-directory/develop/scenario-web-app-call-api-app-registration.md). A secret is required to authenticate to Microsoft Entra on-behalf of the user. The app registration certificate or secret should be stored in a secure store for the web application to retrieve to authenticate to Microsoft Entra ID.
 
-> [!Tip]
-> If the application is hosted in an Azure environment, we recommend using [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and an Azure Key Vault instance to access secrets by [acquiring an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for accessing Azure Key Vault secrets or certificates. To connect to Azure Key Vault to retrieve secrets, see [tutorial to connect through managed identity](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
-   
-7. Implement a secure token endpoint for the Azure Maps Web SDK to access a token. 
-   
-   * For a sample token controller, see [Azure Maps Azure AD Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/blob/master/src/OpenIdConnect/AzureMapsOpenIdConnectv1/AzureMapsOpenIdConnect/Controllers/TokenController.cs). 
-   * For a non-AspNetCore implementation or other, see [Acquire token for the app](../active-directory/develop/scenario-web-app-call-api-acquire-token.md) from Azure AD documentation.
+   * This step may be skipped if the application already has a Microsoft Entra app registration and secret configured.
+
+    > [!TIP]
+    > If the application is hosted in an Azure environment, we recommend using [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and an Azure Key Vault instance to access secrets by [acquiring an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for accessing Azure Key Vault secrets or certificates. To connect to Azure Key Vault to retrieve secrets, see [tutorial to connect through managed identity](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
+
+7. Implement a secure token endpoint for the Azure Maps Web SDK to access a token.
+
+   * For a sample token controller, see [Azure Maps Microsoft Entra ID Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/blob/master/src/OpenIdConnect/AzureMapsOpenIdConnectv1/AzureMapsOpenIdConnect/Controllers/TokenController.cs).
+   * For a non-AspNetCore implementation or other, see [Acquire token for the app](../active-directory/develop/scenario-web-app-call-api-acquire-token.md) from Microsoft Entra documentation.
    * The secured token endpoint is responsible to return an access token for the authenticated and authorized user to call Azure Maps REST APIs.
 
-8. Configure Azure role-based access control (Azure RBAC) for users or groups. See [grant role-based access for users](#grant-role-based-access-for-users-to-azure-maps).
+8. To configure Azure role-based access control (Azure RBAC) for users or groups, see [grant role-based access for users](#grant-role-based-access-for-users-to-azure-maps).
 
-9. Configure the web application page with the Azure Maps Web SDK to access the secure token endpoint. 
+9. Configure the web application page with the Azure Maps Web SDK to access the secure token endpoint.
 
 ```javascript
 var map = new atlas.Map("map", {
@@ -100,6 +99,6 @@ Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-Explore samples that show how to integrate Azure AD with Azure Maps:
+Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [!div class="nextstepaction"]
-> [Azure Maps Azure AD Web App Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/OpenIdConnect)
+> [Azure Maps Microsoft Entra Web App Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/OpenIdConnect)

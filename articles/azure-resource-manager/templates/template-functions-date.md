@@ -2,15 +2,13 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.custom: devx-track-arm-template
+ms.date: 10/12/2023
 ---
 
 # Date functions for ARM templates
 
-Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
-
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+This article describes the functions for working with dates in your Azure Resource Manager template (ARM template).
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
@@ -35,6 +33,25 @@ In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) fu
 
 The datetime value that results from adding the duration value to the base value.
 
+### Remarks
+
+The dateTimeAdd function takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+
+```json
+"outputs": {
+  "add10YearsOutput": {
+    "type": "string",
+    "value": "[dateTimeAdd('2023-01-31 00:00:00Z', 'P1M')]" //2023-03-02T00:00:00Z
+  },
+  "add1MonthOutput": {
+    "type": "string",
+    "value": "[dateTimeAdd('2024-01-31 00:00:00Z', 'P1M')]" //2024-03-01T00:00:00Z
+  }
+}
+```
+
+In this example, `dateTimeAdd` returns `2023-03-02T00:00:00Z`, not `2023-02-28T00:00:00Z`. If the base is `2024-01-31 00:00:00Z`, it returns `2024-03-01T00:00:00Z` because 2024 is a leap year.
+
 ### Examples
 
 The following example template shows different ways of adding time values.
@@ -52,6 +69,122 @@ When the preceding template is deployed with a base time of `2020-04-07 14:53:14
 The next example template shows how to set the start time for an Automation schedule.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
+
+## dateTimeFromEpoch
+
+`dateTimeFromEpoch(epochTime)`
+
+Converts an epoch time integer value to an ISO 8601 datetime.
+
+In Bicep, use the [dateTimeFromEpoch](../bicep/bicep-functions-date.md#datetimefromepoch) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| epochTime | Yes | int | The epoch time to convert to a datetime string. |
+
+### Return value
+
+An ISO 8601 datetime string.
+
+### Example
+
+The following example shows output values for the epoch time functions.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "convertedEpoch": {
+      "type": "int",
+      "defaultValue": "[dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))]"
+    }
+  },
+  "variables": {
+    "convertedDatetime": "[dateTimeFromEpoch(parameters('convertedEpoch'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "epochValue": {
+      "type": "int",
+      "value": "[parameters('convertedEpoch')]"
+    },
+    "datetimeValue": {
+      "type": "string",
+      "value": "[variables('convertedDatetime')]"
+    }
+  }
+}
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+## dateTimeToEpoch
+
+`dateTimeToEpoch(dateTime)`
+
+Converts an ISO 8601 datetime string to an epoch time integer value.
+
+In Bicep, use the [dateTimeToEpoch](../bicep/bicep-functions-date.md#datetimetoepoch) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| dateTime | Yes | string | The datetime string to convert to an epoch time. |
+
+### Return value
+
+An integer that represents the number of seconds from midnight on January 1, 1970.
+
+### Examples
+
+The following example shows output values for the epoch time functions.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "convertedEpoch": {
+      "type": "int",
+      "defaultValue": "[dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))]"
+    }
+  },
+  "variables": {
+    "convertedDatetime": "[dateTimeFromEpoch(parameters('convertedEpoch'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "epochValue": {
+      "type": "int",
+      "value": "[parameters('convertedEpoch')]"
+    },
+    "datetimeValue": {
+      "type": "string",
+      "value": "[variables('convertedDatetime')]"
+    }
+  }
+}
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+The next example uses the epoch time value to set the expiration for a key in a key vault.
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/azuredeploy.json" highlight="54,104":::
 
 ## utcNow
 

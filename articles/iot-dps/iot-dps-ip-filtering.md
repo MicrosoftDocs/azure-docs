@@ -1,9 +1,10 @@
-﻿---
+---
 title: Microsoft Azure IoT DPS IP connection filters
 description: How to use IP filtering to block connections from specific IP addresses to your Azure IoT DPS instance. 
 author: kgremban
 ms.author: kgremban
 ms.service: iot-dps
+ms.custom: devx-track-arm-template
 services: iot-dps
 ms.topic: how-to
 ms.date: 11/12/2021
@@ -17,7 +18,7 @@ Security is an important aspect of any IoT solution. Sometimes you need to expli
 
 There are two specific use-cases where it is useful to block connections to a DPS endpoint from certain IP addresses:
 
-* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS and your devices.
+* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS instance and your devices.
 
 * You need to reject traffic from IP addresses that have been identified as suspicious by the DPS administrator.
 

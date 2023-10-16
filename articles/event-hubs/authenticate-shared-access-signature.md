@@ -2,14 +2,15 @@
 title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 03/13/2023
 ms.devlang: csharp, java, javascript, php
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
-# Authenticate access to Event Hubs resources using shared access signatures (SAS)
-Shared access signature (SAS) gives you granular control over the type of access you grant to the clients who has the shared access signature. Here are some of the controls you can set in a SAS: 
 
-- The interval over which the SAS is valid, including the start time and expiry time.
+# Authenticate access to Event Hubs resources using shared access signatures (SAS)
+Shared access signature (SAS) gives you granular control over the type of access you grant to the clients. Here are some of the controls you can set in a SAS: 
+
+- The interval over which the SAS is valid, which includes the start time and expiry time.
 - The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the listen permission, but not the send permission.
 - Only clients that present valid credentials can send data to an event hub.
 - A client can't impersonate another client.
@@ -18,35 +19,33 @@ Shared access signature (SAS) gives you granular control over the type of access
 This article covers authenticating the access to Event Hubs resources using SAS. To learn about **authorizing** access to Event Hubs resources using SAS, see [this article](authorize-access-shared-access-signature.md). 
 
 > [!NOTE]
-> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the shared access signatures, which can be more easily compromised. While you can continue to use shared access signatures (SAS) to grant fine-grained access to your Event Hubs resources, Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
+> Microsoft recommends that you use Microsoft Entra credentials when possible as a security best practice, rather than using the shared access signatures, which can be more easily compromised. While you can continue to use shared access signatures (SAS) to grant fine-grained access to your Event Hubs resources, Microsoft Entra ID offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
 > 
-> For more information about Azure AD integration in Azure Event Hubs, see [Authorize access to Event Hubs using Azure AD](authorize-access-azure-active-directory.md). 
+> For more information about Microsoft Entra integration in Azure Event Hubs, see [Authorize access to Event Hubs using Microsoft Entra ID](authorize-access-azure-active-directory.md). 
 
 
 ## Configuring for SAS authentication
-You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
+You can configure a SAS rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a SAS rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
 
 The following image shows how the authorization rules apply on sample entities. 
 
 ![Configure authorization rule](./media/authenticate-shared-access-signature/configure-sas-authorization-rule.png)
 
-In this example, the sample Event Hubs namespace (ExampleNamespace) has two entities: eh1 and topic1. The authorization rules are defined both at the entity level and also at the namespace level.  
+In this example, the sample Event Hubs namespace (ExampleNamespace) has two entities: eh1 and Kafka topic1. The authorization rules are defined both at the entity level and also at the namespace level.  
 
-The manageRuleNS, sendRuleNS, and listenRuleNS authorization rules apply to both event hub instance eh1 and topic t1. The listenRule-eh and sendRule-eh authorization rules apply only to event hub instance eh1 and sendRuleT authorization rule applies only to topic topic1. 
+The manageRuleNS, sendRuleNS, and listenRuleNS authorization rules apply to both eh1 and t1. The listenRule-eh and sendRule-eh authorization rules apply only to eh1 and sendRuleT authorization rule applies only to topic1. 
 
-When using sendRuleNS authorization rule, client applications can send to both eh1 and topic1. When sendRuleT authorization rule is used, it enforces granular access to topic1 only and hence client applications using this rule for access  now cannot send to eh1, but only to topic1.
+When you use sendRuleNS authorization rule, client applications can send to both eh1 and topic1. When sendRuleT authorization rule is used, it enforces granular access to topic1 only and hence client applications using this rule for access  now can't send to eh1, but only to topic1.
 
 ## Generate a Shared Access Signature token 
 Any client that has access to name of an authorization rule name and one of its signing keys can generate a SAS token. The token is generated by crafting a string in the following format:
 
 - `se`  – Token expiry instant. Integer reflecting seconds since epoch 00:00:00 UTC on 1 January 1970 (UNIX epoch) when the token expires
-- `skn` – Name of the authorization rule, that is the SAS key name.
+- `skn` – Name of the authorization rule, which is the SAS key name.
 - `sr` – URI of the resource being accessed.
 - `sig` – Signature.
 
-The signature-string is the SHA-256 hash computed over the resource URI (scope as described in the previous section) and the string representation of the token expiry instant, separated by CRLF.
-
-The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value. 
+The signature-string is the SHA-256 hash computed over the resource URI (scope as described in the previous section) and the string representation of the token expiry instant, separated by CRLF. The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value. 
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
@@ -58,7 +57,7 @@ The resource URI is the full URI of the Service Bus resource to which access is 
 
 The URI must be percent-encoded.
 
-The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/eh1` or `http://contoso.servicebus.windows.net` in the previous example.
+The SAS rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/eh1` or `http://contoso.servicebus.windows.net` in the previous example.
 
 A SAS token is valid for all resources prefixed with the `<resourceURI>` used in the signature-string.
 
@@ -72,18 +71,43 @@ Following section shows generating a SAS token using shared access signature pol
 
 ```javascript
 function createSharedAccessToken(uri, saName, saKey) { 
-    if (!uri || !saName || !saKey) { 
-            throw "Missing required parameter"; 
-        } 
-    var encoded = encodeURIComponent(uri); 
-    var now = new Date(); 
-    var week = 60*60*24*7;
-    var ttl = Math.round(now.getTime() / 1000) + week;
-    var signature = encoded + '\n' + ttl; 
-    var signatureUTF8 = utf8.encode(signature); 
-    var hash = crypto.createHmac('sha256', saKey).update(signatureUTF8).digest('base64'); 
-    return 'SharedAccessSignature sr=' + encoded + '&sig=' +  
-        encodeURIComponent(hash) + '&se=' + ttl + '&skn=' + saName; 
+  if (!uri || !saName || !saKey) { 
+          throw "Missing required parameter"; 
+      } 
+  var encoded = encodeURIComponent(uri); 
+  var now = new Date(); 
+  var week = 60*60*24*7;
+  var ttl = Math.round(now.getTime() / 1000) + week;
+  var signature = encoded + '\n' + ttl; 
+  var hash = crypto.createHmac('sha256', saKey).update(signature, 'utf8').digest('base64'); 
+  return 'SharedAccessSignature sr=' + encoded + '&sig=' +  
+      encodeURIComponent(hash) + '&se=' + ttl + '&skn=' + saName; 
+}
+```
+
+To use a policy name and a key value to connect to an event hub, use the `EventHubProducerClient` constructor that takes the `AzureNamedKeyCredential` parameter.
+
+```javascript
+const producer = new EventHubProducerClient("NAMESPACE NAME.servicebus.windows.net", eventHubName, new AzureNamedKeyCredential("POLICYNAME", "KEYVALUE"));
+```
+
+You need to add a reference to `AzureNamedKeyCredential`.
+
+```javascript
+const { AzureNamedKeyCredential } = require("@azure/core-auth");
+```
+
+To use a SAS token that you generated using the code above, use the `EventHubProducerClient` constructor that takes the `AzureSASCredential` parameter.
+
+```javascript
+var token = createSharedAccessToken("https://NAMESPACENAME.servicebus.windows.net", "POLICYNAME", "KEYVALUE");
+const producer = new EventHubProducerClient("NAMESPACENAME.servicebus.windows.net", eventHubName, new AzureSASCredential(token));
+```
+
+You need to add a reference to `AzureSASCredential`.
+
+```javascript
+const { AzureSASCredential } = require("@azure/core-auth");
 ```
 
 #### JAVA
@@ -175,7 +199,7 @@ private static string createToken(string resourceUri, string keyName, string key
 
 ```azurepowershell-interactive
 [Reflection.Assembly]::LoadWithPartialName("System.Web")| out-null
-$URI="myNamespace.servicebus.windows.net/myEventHub"
+$URI="myNamespace.servicebus.windows.net/myEventHub/"
 $Access_Policy_Name="RootManageSharedAccessKey"
 $Access_Policy_Key="myPrimaryKey"
 #Token expires now+300
@@ -244,16 +268,16 @@ For example, to define authorization rules scoped down to only sending/publishin
 To authenticate back-end applications that consume from the data generated by Event Hubs producers, Event Hubs token authentication requires its clients to either have the **manage** rights or the **listen** privileges assigned to its Event Hubs namespace or event hub instance or topic. Data is consumed from Event Hubs using consumer groups. While SAS policy gives you granular scope, this scope is defined only at the entity level and not at the consumer level. It means that the privileges defined at the namespace level or the event hub instance or topic level will be applied to the consumer groups of that entity.
 
 ## Disabling Local/SAS Key authentication  
-For certain organizational security requirements, you may have to disable local/SAS key authentication completely and rely on the Azure Active Directory (Azure AD) based authentication which is the recommended way to connect with Azure Event Hubs. You can disable local/SAS key authentication at the Event Hubs namespace level using Azure portal or Azure Resource Manager template. 
+For certain organizational security requirements, you may have to disable local/SAS key authentication completely and rely on the Microsoft Entra ID based authentication, which is the recommended way to connect with Azure Event Hubs. You can disable local/SAS key authentication at the Event Hubs namespace level using Azure portal or Azure Resource Manager template. 
 
 ### Disabling Local/SAS Key authentication via the portal 
 You can disable local/SAS key authentication for a given Event Hubs namespace using the Azure portal. 
 
-As shown in the following image, in the namespace overview section, click on the *Local Authentication*. 
+As shown in the following image, in the namespace overview section, select **Local Authentication**. 
 
 ![Namespace overview for disabling local auth](./media/authenticate-shared-access-signature/disable-local-auth-overview.png)
 
-And then select *Disabled* option and click *Ok* as shown below. 
+And then select **Disabled** option and select **Ok** as shown below. 
 ![Disabling local auth](./media/authenticate-shared-access-signature/disabling-local-auth.png)
 
 ### Disabling Local/SAS Key authentication using a template 
@@ -303,6 +327,11 @@ You can disable local authentication for a given Event Hubs namespace by setting
   ]
 ``` 
 
+## Samples
+
+- See the .NET sample #6 in [this GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples) to learn how to publish events to an event hub using shared access credentials or the default Azure credential identity.
+- See the .NET sample #5 in [this GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) to learn how to consume or process events using shared access credentials or the default Azure credential identity.
+
 ## Next steps
 See the following articles:
 
@@ -312,7 +341,7 @@ See the following articles:
 
 See the following related articles:
 
-- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
-- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)
+- [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authorize access to Event Hubs resources using Microsoft Entra ID](authorize-access-azure-active-directory.md)
 - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)

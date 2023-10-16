@@ -2,7 +2,7 @@
 title: Manage Azure Analysis Services | Microsoft Docs
 description: This article describes the tools used to manage administration and management tasks for an Azure Analysis Services server.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: owend
@@ -46,21 +46,19 @@ To get all the latest features, and the smoothest experience when connecting to 
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
-    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../azure-sql/database/authentication-mfa-ssms-overview.md). 
+    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-overview). 
    
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 
 ## External open source tools
 
-**Tabular Editor** - An open-source tool for creating, maintaining, and managing tabular models using an intuitive, lightweight editor. A hierarchical view shows all objects in your tabular model. Objects are organized by display folders with support for multi-select property editing and DAX syntax highlighting. XMLA read-only is required for query operations. Read-write is required for metadata operations. To learn more, see [tabulareditor.github.io](https://tabulareditor.github.io/).
-
 **ALM Toolkit** - An open-source schema compare tool for Analysis Services tabular models and Power BI datasets, most often used for application lifecycle management (ALM) scenarios. Perform deployment across environments and retain incremental refresh historical data. Diff and merge metadata files, branches and repos. Reuse common definitions between datasets. Read-only is required for query operations. Read-write is required for metadata operations. To learn more, see [alm-toolkit.com](http://alm-toolkit.com/).
 
 **DAX Studio** – An open-source tool for DAX authoring, diagnosis, performance tuning, and analysis. Features include object browsing, integrated tracing, query execution breakdowns with detailed statistics, DAX syntax highlighting and formatting. XMLA read-only is required for query operations. To learn more, see [daxstudio.org](https://daxstudio.org/).
 
 ## Server administrators and database users
-In Azure Analysis Services, there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+In Azure Analysis Services, there are two types of users, server administrators and database users. Both types of users must be in your Microsoft Entra ID and must be specified by organizational email address or UPN. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Troubleshooting connection problems
 When connecting using SSMS, if you run into problems, you may need to clear the login cache. Nothing is cached to disc. To clear the cache, close and restart the connect process. 

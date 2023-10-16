@@ -1,26 +1,20 @@
 ---
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
-ms.topic: conceptual
-ms.date: 01/04/2022
-ms.custom: devx-track-azurepowershell
-author: v-amallick
+ms.topic: how-to
+ms.date: 06/24/2023
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Back up and restore Azure VMs with PowerShell
+# Back up and restore Azure VMs using Azure PowerShell
 
-This article explains how to back up and restore an Azure VM in an [Azure Backup](backup-overview.md) Recovery Services vault using PowerShell cmdlets.
+This article describes how to back up and restore an Azure VM in an [Azure Backup](backup-overview.md) Recovery Services vault using PowerShell cmdlets.
 
-In this article you learn how to:
+Azure Backup provides independent and isolated backups to guard against unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized, and you can easily restore as needed.
 
-> [!div class="checklist"]
->
-> * Create a Recovery Services vault and set the vault context.
-> * Define a backup policy
-> * Apply the backup policy to protect multiple virtual machines
-> * Trigger an on-demand backup job for the protected virtual machines
 Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
 
 ## Before you start
@@ -33,7 +27,7 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 
 The object hierarchy is summarized in the following diagram.
 
-![Recovery Services object hierarchy](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Disgram shows the Recovery Services object hierarchy.](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices/) reference in the Azure library.
 
@@ -43,7 +37,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 To begin:
 
-1. [Download the latest version of PowerShell](/powershell/azure/install-az-ps)
+1. [Download the latest version of PowerShell](/powershell/azure/install-azure-powershell)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
@@ -53,7 +47,7 @@ To begin:
 
     The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following image is an example of what you'll see. It isn't the complete list of cmdlets.
 
-    ![list of Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
+    ![Screenshot shows the list of Recovery Services.](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
 3. Sign in to your Azure account using **Connect-AzAccount**. This cmdlet brings up a web page prompts you for your account credentials:
 
@@ -96,7 +90,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage), or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for *testvault* set to **GeoRedundant**.
+3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage), or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for `testvault` set to **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -134,7 +128,7 @@ Use a Recovery Services vault to protect your virtual machines. Before you apply
 
 ### Set vault context
 
-Before enabling protection on a VM, use [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, *testvault*.
+Before enabling protection on a VM, use [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, `testvault`.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-rg" | Set-AzRecoveryServicesVaultContext
@@ -426,18 +420,21 @@ There's an important difference between the restoring a VM using the Azure porta
 >
 >
 
-The following graphic shows the object hierarchy from the RecoveryServicesVault down to the BackupRecoveryPoint.
+The following graphic shows the object hierarchy from the `RecoveryServicesVault` down to the `BackupRecoveryPoint`.
 
-![Recovery Services object hierarchy showing BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
+![Screenshot shows the BackupContainer listed by Recovery Services object hierarchy.](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
 To restore backup data, identify the backed-up item and the recovery point that holds the point-in-time data. Use [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) to restore data from the vault to your account.
 
 The basic steps to restore an Azure VM are:
 
-* Select the VM.
-* Choose a recovery point.
-* Restore the disks.
-* Create the VM from stored disks.
+> [!div class="checklist"]
+> * Select the VM.
+> * Choose a recovery point.
+> * Restore the disks.
+> * Create the VM from stored disks.
+
+Now, you can also use PowerShell to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using PowerShell](#restore-data-to-virtual-machine-using-powershell).
 
 ### Select the VM (when restoring files)
 
@@ -669,7 +666,7 @@ The template isn't directly accessible since it's under a customer's storage acc
 
 ### Create a VM using the config file
 
-The following section lists steps necessary to create a VM using _VMConfig_ file.
+The following section lists steps necessary to create a VM using `VMConfig` file.
 
 > [!NOTE]
 > It's highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.
@@ -711,7 +708,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
         }
     ```
 
-    * **Non-managed and encrypted VMs with Azure AD (BEK only)** - For non-managed, encrypted VMs with Azure AD (encrypted using BEK only), you need to restore the secret to the key vault before you can attach disks. For more information, see the [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs. When setting the OS disk, make sure to mention the relevant OS type.
+    * **Non-managed and encrypted VMs with Microsoft Entra ID (BEK only)** - For non-managed, encrypted VMs with Microsoft Entra ID (encrypted using BEK only), you need to restore the secret to the key vault before you can attach disks. For more information, see the [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs. When setting the OS disk, make sure to mention the relevant OS type.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -724,7 +721,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
         }
     ```
 
-    * **Non-managed and encrypted VMs with Azure AD (BEK and KEK)** - For non-managed, encrypted VMs with Azure AD (encrypted using BEK and KEK), restore the key and secret to the key vault before attaching the disks. For more information, see [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs.
+    * **Non-managed and encrypted VMs with Microsoft Entra ID (BEK and KEK)** - For non-managed, encrypted VMs with Microsoft Entra ID (encrypted using BEK and KEK), restore the key and secret to the key vault before attaching the disks. For more information, see [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -738,7 +735,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
         }
     ```
 
-    * **Non-managed and encrypted VMs without Azure AD (BEK only)** - For non-managed, encrypted VMs without Azure AD (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step isn't required for a data blob). The $dekurl can be fetched from the restored keyVault.
+    * **Non-managed and encrypted VMs without Microsoft Entra ID (BEK only)** - For non-managed, encrypted VMs without Microsoft Entra ID (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step isn't required for a data blob). The $dekurl can be fetched from the restored keyVault.
 
     The following script needs to be executed only when the source keyVault/secret isn't available.
 
@@ -765,7 +762,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
         }
     ```
 
-    * **Non-managed and encrypted VMs without Azure AD (BEK and KEK)** - For non-managed, encrypted VMs without Azure AD (encrypted using BEK & KEK), if source **keyVault/key/secret are not available** restore the key and secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step isn't required for a data blob). The $dekurl and $kekurl can be fetched from the restored keyVault.
+    * **Non-managed and encrypted VMs without Microsoft Entra ID (BEK and KEK)** - For non-managed, encrypted VMs without Microsoft Entra ID (encrypted using BEK & KEK), if source **keyVault/key/secret are not available** restore the key and secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step isn't required for a data blob). The $dekurl and $kekurl can be fetched from the restored keyVault.
 
     The script below needs to be executed only when the source keyVault/key/secret isn't available.
 
@@ -795,11 +792,11 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
 
     * **Managed and non-encrypted VMs** - For managed non-encrypted VMs, attach the restored managed disks. For in-depth information, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs with Azure AD (BEK only)** - For managed encrypted VMs with Azure AD (encrypted using BEK only), attach the restored managed disks. For in-depth information, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+    * **Managed and encrypted VMs with Microsoft Entra ID (BEK only)** - For managed encrypted VMs with Microsoft Entra ID (encrypted using BEK only), attach the restored managed disks. For in-depth information, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs with Azure AD (BEK and KEK)** - For managed encrypted VMs with Azure AD (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+    * **Managed and encrypted VMs with Microsoft Entra ID (BEK and KEK)** - For managed encrypted VMs with Microsoft Entra ID (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs without Azure AD (BEK only)** -For managed, encrypted VMs without Azure AD (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step isn't required for a data disk). The $dekurl can be fetched from the restored keyVault.
+    * **Managed and encrypted VMs without Microsoft Entra ID (BEK only)** -For managed, encrypted VMs without Microsoft Entra ID (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step isn't required for a data disk). The $dekurl can be fetched from the restored keyVault.
 
     The script below needs to be executed only when the source keyVault/secret isn't available.  
 
@@ -820,7 +817,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
 
     After the secrets are available and the encryption details are set on the OS disk, to attach the restored managed disks, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs without Azure AD (BEK and KEK)** - For managed, encrypted VMs without Azure AD (encrypted using BEK & KEK), if source **keyVault/key/secret are not available** restore the key and secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step isn't required for data disks). The $dekurl and $kekurl can be fetched from the restored keyVault.
+    * **Managed and encrypted VMs without Microsoft Entra ID (BEK and KEK)** - For managed, encrypted VMs without Microsoft Entra ID (encrypted using BEK & KEK), if source **keyVault/key/secret are not available** restore the key and secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step isn't required for data disks). The $dekurl and $kekurl can be fetched from the restored keyVault.
 
     The following script needs to be executed only when the source keyVault/key/secret isn't available.
 
@@ -868,7 +865,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
 7. Push ADE extension.
    If the ADE extensions aren't pushed, then the data disks will be marked as unencrypted, so it's mandatory for the steps below to be executed:
 
-   * **For VM with Azure AD** - Use the following command to manually enable encryption for the data disks  
+   * **For VM with Microsoft Entra ID** - Use the following command to manually enable encryption for the data disks  
 
      **BEK only**
 
@@ -882,7 +879,7 @@ The following section lists steps necessary to create a VM using _VMConfig_ file
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm.Name -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-   * **For VM without Azure AD** - Use the following command to manually enable encryption for the data disks.
+   * **For VM without Microsoft Entra ID** - Use the following command to manually enable encryption for the data disks.
 
      If during the command execution it asks for AADClientID, then you need to update your Azure PowerShell.
 
@@ -981,6 +978,48 @@ After the required files are copied, use [Disable-AzRecoveryServicesBackupRPMoun
 ```powershell
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
+
+## Restore data to virtual machine using PowerShell
+
+You can now directly restore data to original/alternate VM without performing multiple steps.
+
+### Restore data to original VM
+
+```powershell-interactive
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "resourceGroup" -Name "vaultName"
+$BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -Name "V2VM" -VaultId $vault.ID
+$StartDate = (Get-Date).AddDays(-7)
+$EndDate = Get-Date
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
+$OriginalLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -VaultId $vault.ID -VaultLocation $vault.Location 
+```
+
+```output
+WorkloadName    Operation       Status          StartTime              EndTime
+------------    ---------       ------          ---------              -------
+V2VM            Restore         InProgress      26-Apr-16 1:14:01 PM   01-Jan-01 12:00:00 AM
+```
+
+The last command triggers an original location restore operation to restore the data in-place in the existing VM.
+
+###  Restore data to a newly created VM
+
+```powershell-interactive
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "resourceGroup" -Name "vaultName"
+$BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -Name "V2VM" -VaultId $vault.ID
+$StartDate = (Get-Date).AddDays(-7)
+$EndDate = Get-Date
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
+$AlternateLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -TargetResourceGroupName "Target_RG" -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -TargetVMName "TagetVirtualMachineName" -TargetVNetName "Target_VNet" -TargetVNetResourceGroup "" -TargetSubnetName "subnetName" -VaultId $vault.ID -VaultLocation $vault.Location 
+```
+
+```output
+WorkloadName    Operation       Status          StartTime              EndTime
+------------    ---------       ------          ---------              -------
+V2VM            Restore         InProgress      26-Apr-16 1:14:01 PM   01-Jan-01 12:00:00 AM
+```
+
+The last command triggers an alternate location restore operation to create a new VM in *Target_RG* resource group as per the inputs specified by parameters *TargetVMName*, *TargetVNetName*, *TargetVNetResourceGroup*, *TargetSubnetName*. This ensures that the data is restored in the required VM, virtual network and subnet.
 
 ## Next steps
 

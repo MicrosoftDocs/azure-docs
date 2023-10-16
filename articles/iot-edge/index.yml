@@ -11,112 +11,71 @@ metadata:
   ms.topic: landing-page
   author: PatAltimore
   ms.author: patricka
-  
-  ms.date: 08/05/2019
+  ms.date: 05/09/2022
   ms.custom: e2e-hybrid
 
 landingContent:
-  - title: Develop for Linux devices
-    linkLists: 
+  - title: About IoT Edge development
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure IoT Edge?
+            url: about-iot-edge.md
+          - text: What is Azure IoT Edge for Linux on Windows (EFLOW)?
+            url: iot-edge-for-linux-on-windows.md
+      - linkListType: concept
+        links:
+          - text: Understand the Azure IoT Edge runtime and its architecture
+            url: iot-edge-runtime.md
+          - text: Azure IoT Edge versions and release notes
+            url: version-history.md
+          - text: Azure IoT Edge supported systems
+            url: support.md
+      - linkListType: how-to-guide
+        links:
+          - text: How an IoT Edge device can be used as a gateway
+            url: iot-edge-as-gateway.md
+  - title: Getting started using Linux devices
+    linkLists:
       - linkListType: quickstart
         links: 
-          - text: Deploy your first IoT Edge module to a Linux device
+          - text: Deploy your first IoT Edge module to a virtual Linux device
             url: quickstart-linux.md
       - linkListType: tutorial
         links: 
-          - text: Develop IoT Edge modules for Linux devices
+          - text: Develop Azure IoT Edge modules using Visual Studio Code
             url: tutorial-develop-for-linux.md
       - linkListType: how-to-guide
-        links: 
-          - text: Use Visual Studio Code to develop and debug modules
-            url: how-to-vs-code-develop-module.md
-  - title: Develop and deploy using Windows devices
-    linkLists: 
-      - linkListType: concept
-        links: 
-          - text: What is Azure IoT Edge for Linux on Windows (EFLOW)?
-            url: iot-edge-for-linux-on-windows.md
+        links:
+          - text: Install the IoT Edge runtime on Linux devices
+            url: how-to-provision-single-device-linux-symmetric.md
+          - text: Register and provision Linux devices at scale
+            url: how-to-provision-devices-at-scale-linux-symmetric.md
+          - text: Debug IoT Edge modules using Visual Studio Code
+            url: debug-module-vs-code.md
+      - linkListType: reference
+        links:
+          - text: IoT Edge open-source repository
+            url: https://github.com/Azure/iotedge
+  - title: Getting started using Windows devices
+    linkLists:
       - linkListType: quickstart
         links: 
           - text: Deploy your first IoT Edge module to a Windows device
             url: quickstart.md
+      - linkListType: tutorial
+        links: 
+          - text: Develop using IoT Edge for Linux on Windows
+            url: tutorial-develop-for-linux-on-windows.md
       - linkListType: how-to-guide
         links: 
           - text: Create and provision IoT Edge for Linux on Windows
             url: how-to-provision-single-device-linux-on-windows-symmetric.md
-          - text: Use Visual Studio 2019 to develop and debug modules using EFLOW
-            url: how-to-visual-studio-develop-module.md
-  - title: Create an IoT Edge device
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Register and provision devices at scale
-            url: how-to-provision-devices-at-scale-linux-symmetric.md
-          - text: Install the IoT Edge runtime on Linux devices
-            url: how-to-provision-single-device-linux-symmetric.md
           - text: Install the IoT Edge runtime on Windows devices
             url: how-to-provision-single-device-linux-on-windows-symmetric.md
-  - title: Engage with the open-source community
-    linkLists:
-      - linkListType: get-started
+          - text: Use Visual Studio 2019 to develop and debug modules using EFLOW
+            url: how-to-visual-studio-develop-module.md
+      - linkListType: reference
         links:
-          - text: IoT Edge repository
-            url: https://github.com/Azure/iotedge
-          - text: IoT Edge GitHub issues
-            url: https://github.com/Azure/iotedge/issues
-          - text: Latest releases and changelogs
-            url: https://github.com/Azure/azure-iotedge/releases
-          - text: IoT Edge for Linux on Windows repository
+          - text: IoT Edge for Linux on Windows open-source repository
             url: https://github.com/Azure/iotedge-eflow
-          - text: IoT Edge for Linux on Windows GitHub issues
-            url: https://github.com/Azure/iotedge-eflow/issues
-  - title: Use IoT Edge devices as gateways
-    linkLists: 
-      - linkListType: concept
-        links: 
-          - text: How an IoT Edge device can be used as a gateway
-            url: iot-edge-as-gateway.md
-      - linkListType: how-to-guide
-        links: 
-          - text: Configure a transparent gateway
-            url: how-to-create-transparent-gateway.md
-          - text: Authenticate a downstream device to Azure IoT Hub
-            url: how-to-authenticate-downstream-device.md
-          - text: Connect a downstream device to a gateway
-            url: how-to-connect-downstream-device.md
-  - title: Prepare for production scenarios
-    linkLists: 
-      - linkListType: concept
-        links: 
-          - text: Understand automatic deployments
-            url: module-deployment-monitoring.md
-          - text: Platform support
-            url: support.md
-          - text: Production deployment checklist
-            url: production-checklist.md
-          - text: Understand IoT Edge certificate usage
-            url: iot-edge-certs.md
-          - text: Security standards for IoT Edge
-            url: security.md
-      - linkListType: how-to-guide
-        links: 
-          - text: Deploy and monitor at scale using the Azure CLI
-            url: how-to-deploy-cli-at-scale.md
-          - text: Create a CI/CD pipeline with Azure Pipelines
-            url: how-to-continuous-integration-continuous-deployment.md
-      - linkListType: deploy
-        links:
-          - text: REST API for IoT Hub
-            url: /rest/api/iothub/
-  - title:  Deploy AI to the edge
-    linkLists: 
-      - linkListType: tutorial
-        links: 
-          - text: Deploy Azure Machine Learning as an IoT Edge module
-            url: tutorial-deploy-machine-learning.md
-          - text: Perform image classification at the edge with Custom Vision Service
-            url: tutorial-deploy-custom-vision.md
-      - linkListType: deploy
-        links: 
-          - text: Find Azure Cognitive Services modules in the Azure Marketplace
-            url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services

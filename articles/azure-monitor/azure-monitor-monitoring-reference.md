@@ -7,6 +7,7 @@ ms.topic: reference
 ms.service: azure-monitor
 ms.custom: subject-monitoring
 ms.date: 04/03/2022
+ms.reviewer: robb
 ---
 
 # Monitoring Azure Monitor data reference
@@ -473,5 +474,5 @@ The following schemas are relevant to action groups, which are part of the notif
 
 ## See Also
 
-- See [Monitoring Azure Azure Monitor](monitor-azure-monitor.md) for a description of what Azure Monitor monitors in itself. 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure Monitor](monitor-azure-monitor.md) for a description of what Azure Monitor monitors in itself. 
+- See [Monitoring Azure resources with Azure Monitor](./essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

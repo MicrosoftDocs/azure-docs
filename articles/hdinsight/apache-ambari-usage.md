@@ -3,7 +3,7 @@ title: Apache Ambari usage in Azure HDInsight
 description: Discussion of how Apache Ambari is used in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 05/10/2023
 ---
 
 # Apache Ambari usage in Azure HDInsight
@@ -48,7 +48,7 @@ This is the sequence of service start at boot time:
 
 ## Ambari Database
 
-HDInsight creates a database in SQL Database under the hood to serve as the database for Ambari server. The default [service tier is S0](../azure-sql/database/elastic-pool-scale.md).
+HDInsight creates a database in SQL Database under the hood to serve as the database for Ambari server. The default [service tier is S0](/azure/azure-sql/database/elastic-pool-scale).
 
 For any cluster with worker node count bigger than 16 when creating the cluster, S2 is the database service tier.
 

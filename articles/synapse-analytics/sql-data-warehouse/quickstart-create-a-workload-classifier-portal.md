@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create a workload classifier - Portal'
+title: "Quickstart: Create a workload classifier - Portal"
 description: Use Azure portal to create a workload classifier with high importance.
-author: ronortloff
-ms.author: rortloff
-manager: craigg
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sngun
 ms.date: 05/04/2020
-ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: azure-synapse, mode-ui
+ms.topic: quickstart
+ms.custom:
+  - azure-synapse
+  - mode-ui
 ---
 
 # Quickstart: Create a dedicated SQL pool workload classifier using the Azure portal
@@ -17,7 +18,7 @@ ms.custom: azure-synapse, mode-ui
 In this quickstart, you will create a [workload classifier](sql-data-warehouse-workload-classification.md) for assigning queries to a workload group.  The classifier will assign requests from the `ELTLogin` SQL user to the `DataLoads` workload group.   Follow the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial to create the `DataLoads` workload group.  This tutorial will create a workload classifier with the WLM_LABEL option to help further classify requests correctly.  The classifier will assign `HIGH` [workload importance](sql-data-warehouse-workload-importance.md) to these requests as well.
 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 
 ## Sign in to the Azure portal

@@ -1,20 +1,20 @@
 ---
-title: Azure Resource Manager template samples - Azure Front Door
-description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door and configuring Front Door rate limiting.
+title: Azure Resource Manager template samples
+titleSuffix: Azure Front Door
+description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door profile and configuring Front Door rate limiting.
 services: frontdoor
-documentationcenter: ""
 author: duongau
 ms.service: frontdoor
 ms.topic: sample
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2022
+ms.custom: devx-track-arm-template, devx-track-bicep
+ms.date: 07/25/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
-# Azure Resource Manager deployment model templates for Front Door
+# Bicep and Azure Resource Manager deployment model templates for Front Door
 
-The following table includes links to Azure Resource Manager deployment model templates for Azure Front Door.
+The following table includes links to Bicep and Azure Resource Manager deployment model templates for Azure Front Door.
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -36,10 +36,8 @@ The following table includes links to Azure Resource Manager deployment model te
 | [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
 |**Azure Functions origins**| **Description** |
 | [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
-| [Azure Functions with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-function-private-link) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
 |**API Management origins**| **Description** |
 | [API Management (external)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-api-management-external) | Creates an API Management instance with external VNet integration, and a Front Door profile.  |
-| [API Management with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-api-management-private-link) | Creates an API Management instance with a private endpoint, and a Front Door profile.  |
 |**Storage origins**| **Description** |
 | [Storage static website](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-storage-static-website) | Creates an Azure Storage account and static website with a public endpoint, and a Front Door profile.  |
 | [Storage blobs with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-storage-blobs-private-link) | Creates an Azure Storage account and blob container with a private endpoint, and a Front Door profile.  |
@@ -56,7 +54,7 @@ The following table includes links to Azure Resource Manager deployment model te
 | Template | Description |
 | ---| ---|
 | [Create a basic Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-basic)| Creates a basic Front Door configuration with a single backend. |
-| [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-multiple-backends)| Creates a Front Door with load balancing configured for multiple backends in ta backend pool and also across backend pools based on URL path. |
+| [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-multiple-backends)| Creates a Front Door with load balancing configured for multiple backends in a backend pool and also across backend pools based on URL path. |
 | [Onboard a custom domain and managed TLS certificate with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)| Add a custom domain to your Front Door and use a Front Door-managed TLS certificate. |
 | [Onboard a custom domain and customer-managed TLS certificate with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain-customer-certificate)| Add a custom domain to your Front Door and use your own TLS certificate by using Key Vault. |
 | [Create Front Door with geo filtering](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering)| Create a Front Door that allows/blocks traffic from certain countries/regions. |

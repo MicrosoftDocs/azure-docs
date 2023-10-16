@@ -1,23 +1,25 @@
 ---
 title: Move Azure regions - Azure portal - Azure Database for MariaDB
 description: Move an Azure Database for MariaDB server from one Azure region to another using a read replica and the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/29/2020
+ms.date: 06/24/2022
 #Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---
 
 # Move an Azure Database for MariaDB server to another region by using the Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 There are various scenarios for moving an existing Azure Database for MariaDB server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
 
-You can use an Azure Database for MariaDB [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. To do so, first create a read replica in the target region. Next, stop replication to the read replica server to make it a standalone server that accepts both read and write traffic. 
+You can use an Azure Database for MariaDB [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. To do so, first create a read replica in the target region. Next, stop replication to the read replica server to make it a standalone server that accepts both read and write traffic.
 
 > [!NOTE]
-> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../azure-resource-manager/management/move-resource-group-and-subscription.md) article. 
+> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../azure-resource-manager/management/move-resource-group-and-subscription.md) article.
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ You can use an Azure Database for MariaDB [cross-region read replica](concepts-r
 
 To create a cross-region read replica server in the target region using the Azure portal, use the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the existing Azure Database for MariaDB server that you want to use as the source server. This action opens the **Overview** page.
 1. Select **Replication** from the menu, under **SETTINGS**.
 1. Select **Add Replica**.
@@ -52,7 +54,7 @@ Stopping replication to the replica server, causes it to become a standalone ser
 1. Select **Replication** from the menu, under **SETTINGS**.
 1. Select the replica server.
 1. Select **Stop replication**.
-1. Confirm you want to stop replication by clicking **OK**.
+1. Confirm you want to stop replication by selecting **OK**.
 
 ## Clean up source server
 
@@ -65,7 +67,7 @@ You may want to delete the source Azure Database for MariaDB server. To do so, u
 
 ## Next steps
 
-In this tutorial, you moved an Azure Database for MariaDB server from one region to another by using the Azure portal and then cleaned up the unneeded source resources. 
+In this tutorial, you moved an Azure Database for MariaDB server from one region to another by using the Azure portal and then cleaned up the unneeded source resources.
 
 - Learn more about [read replicas](concepts-read-replicas.md)
 - Learn more about [managing read replicas in the Azure portal](howto-read-replicas-portal.md)

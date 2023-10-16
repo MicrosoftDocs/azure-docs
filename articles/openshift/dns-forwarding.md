@@ -1,8 +1,8 @@
 ---
 title: Configure DNS Forwarding for Azure Red Hat OpenShift 4
 description: Configure DNS Forwarding for Azure Red Hat OpenShift 4
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 04/24/2020
@@ -19,7 +19,7 @@ oc edit dns.operator/default
  
 This will launch an editor and you can replace `spec: {}` with:
  
- ```yaml
+```yaml
 spec:
   servers:
   - forwardPlugin:

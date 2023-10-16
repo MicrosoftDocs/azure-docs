@@ -5,8 +5,8 @@ ms.service: azure-government
 ms.topic: overview
 ms.workload: azure-government
 ms.custom: references_regions
-ms.author: stevevi
-author: stevevi
+ms.author: eliotgra
+author: EliotSeattle
 recommendations: false
 ms.date: 03/07/2022
 ---
@@ -23,7 +23,7 @@ The following video provides a good introduction to Azure Government:
 
 </br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Enable-government-missions-in-the-cloud-with-Azure-Government/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Enable-government-missions-in-the-cloud-with-Azure-Government/player]
 
 ## Compare Azure Government and global Azure
 

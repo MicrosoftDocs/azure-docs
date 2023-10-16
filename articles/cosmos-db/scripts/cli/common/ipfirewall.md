@@ -1,22 +1,24 @@
 ---
-title: Create an Azure Cosmos account with IP firewall
-description: Create an Azure Cosmos account with IP firewall
-author: markjbrown
-ms.author: mjbrown
+title: Create an Azure Cosmos DB account with IP firewall
+description: Create an Azure Cosmos DB account with IP firewall
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Create an Azure Cosmos account with IP firewall using Azure CLI
+# Create an Azure Cosmos DB account with IP firewall using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-The script in this article demonstrates creating a Cosmos DB account with default values and IP Firewall enabled. It uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script to the `az cosmosdb account create` command for your API specific script.
+The script in this article demonstrates creating an Azure Cosmos DB account with default values and IP Firewall enabled. It uses a API for NoSQL account, but these operations are identical across all database APIs in Azure Cosmos DB. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script to the `az cosmosdb account create` command for your API specific script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -54,6 +56,6 @@ For Azure CLI samples for specific APIs see:
 
 - [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
 - [CLI Samples for Gremlin](../../../graph/cli-samples.md)
-- [CLI Samples for MongoDB API](../../../mongodb/cli-samples.md)
+- [CLI Samples for API for MongoDB](../../../mongodb/cli-samples.md)
 - [CLI Samples for SQL](../../../sql/cli-samples.md)
 - [CLI Samples for Table](../../../table/cli-samples.md)

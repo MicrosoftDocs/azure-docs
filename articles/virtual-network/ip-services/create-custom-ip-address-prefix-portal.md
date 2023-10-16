@@ -1,18 +1,18 @@
 ---
-title: Create a custom IP address prefix - Azure portal
+title: Create a custom IPv4 address prefix - Azure portal
 titleSuffix: Azure Virtual Network
-description: Learn about how to onboard a custom IP address prefix using the Azure portal
-author: asudbring
+description: Learn how to onboard a custom IP address prefix using the Azure portal
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 03/31/2022
-ms.author: allensu
-
+ms.date: 08/24/2023
 ---
-# Create a custom IP address prefix using the Azure portal
 
-A custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
+# Create a custom IPv4 address prefix using the Azure portal
+
+A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. You maintain ownership of the range while Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
 The steps in this article detail the process to:
 
@@ -26,7 +26,7 @@ The steps in this article detail the process to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A customer owned IP range to provision in Azure.
+- A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
 > [!NOTE]
@@ -34,37 +34,48 @@ The steps in this article detail the process to:
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range.
+To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
+* The address range must be owned by you and registered under your name with the one of the five major Regional Internet Registries:
+      * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
+      * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
+      * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
+      * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
+      * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
-* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry website. ARIN, RIPE, and APNIC.  
+* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry (RIR) website or via their API. The RIR requires the ROA to be digitally signed with the Resource Public Key Infrastructure (RPKI) of your RIR.
     
     For this ROA:
         
-    * The Origin AS must be listed as 8075.
+    * The Origin AS must be listed as 8075 for the Public Cloud.  (If the range will be onboarded to the US Gov Cloud, the Origin AS must be listed as 8070.)
     
     * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
     * The prefix length should exactly match the prefixes that can be advertised by Microsoft. For example, if you plan to bring 1.2.3.0/24 and 2.3.4.0/23 to Microsoft, they should both be named.
   
-    * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft.
+    * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft, where it will be verified to determine its authenticity and correctness as part of the provisioning process.
+
+> [!NOTE]
+> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
 
 ### Certificate readiness
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
 
-The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
+The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning to the Public cloud.
 
 > [!NOTE]
 > Execute the following commands in PowerShell with OpenSSL installed.  
 
     
-1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
+1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
 
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
     
@@ -81,9 +92,11 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
-    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net.
+    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
-    * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
+    * [AFRINIC](https://afrinic.net/support/my-afrinic-net) - edit the “Remarks” of the inetnum record using MyAFRINIC.
+    
+    * For ranges from LACNIC registry, create a support ticket with Microsoft.
      
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 
@@ -129,7 +142,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 3. Select **+ Create**.
 
-4. In **Create a custom IP prefix**, enter or select the following information in the **Basics** tab:
+4. In **Create a custom IP prefix**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -139,10 +152,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | **Instance details** |   |
     | Name | Enter **myCustomIPPrefix**. |
     | Region | Select **West US 2**. |
-    | Availability Zones | Select **Zone-redundant**. |
+    | IP Version | Select IPv4. |
     | IPv4 Prefix (CIDR) | Enter **1.2.3.0/24**. |
     | ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
-    | Signed message | Paste in the output of **$byoipauthsigned** from the earlier section. |
+    | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
+    | Availability Zones | Select **Zone-redundant**. |
 
     :::image type="content" source="./media/create-custom-ip-address-prefix-portal/create-custom-ip-prefix.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
 
@@ -150,7 +164,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 6. Select **Create**.
 
-The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix.
+The range is pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix.
 
 > [!NOTE]
 > The estimated time to complete the provisioning process is 30 minutes.
@@ -160,7 +174,7 @@ The range will be pushed to the Azure IP Deployment Pipeline. The deployment pro
 
 ## Create a public IP prefix from custom IP prefix
 
-When you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
+When you create a prefix, you must create static IP addresses from the prefix. In this section, you create a static IP address from the prefix you created earlier.
 
 1. In the search box at the top of the portal, enter **Custom IP**.
 
@@ -187,27 +201,27 @@ When you create a prefix, you must create static IP addresses from the prefix. I
 
 6. Select **Review + create**, and then **Create** on the following page.
 
-10. Repeat steps 1-5 to return to the **Overview** page for **myCustomIPPrefix**. You'll see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix. For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
+10. Repeat steps 1-5 to return to the **Overview** page for **myCustomIPPrefix**. You see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix. For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
 ## Commission the custom IP address prefix
 
 When the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
 
-1. In the search box at the top of the portal, enter **Custom IP**.
+1. In the search box at the top of the portal, enter **Custom IP** and select **Custom IP Prefixes**.
 
-2. In the search results, select **Custom IP Prefixes**.
+2. Verify, and wait if necessary, for **myCustomIPPrefix** to be is listed in a **Provisioned** state.
 
-3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
+3.  In **Custom IP Prefixes**, select **myCustomIPPrefix**.
 
-4. In **Overview** of **myCustomIPPrefix**, select **Commission**.
+4. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu and choose **Globally**.
 
-The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. The status which will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
+The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.
 
 > [!IMPORTANT]
-> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
+> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.  To prevent these issues during initial deployment, you can choose the regional only commissioning option where your custom IP prefix will only be advertised within the Azure region it is deployed in. For more information, see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md) for more information.
 
 ## Next steps
 

@@ -4,14 +4,14 @@ title: VPN Gateway documentation # < 60 chars
 summary: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. # < 160 chars
 
 metadata:
-  title: VPN Gateway documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to configure, create, and manage an Azure VPN gateway.  # Required; article description that is displayed in search results. < 160 chars.
+  title: VPN Gateway documentation
+  description: Learn how to configure, create, and manage an Azure VPN gateway.
   services: vpn-gateway
-  ms.service: vpn-gateway #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: cherylmc #Required; your GitHub user alias, with correct capitalization.
-  ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/07/2021 #Required; mm/dd/yyyy format.
+  ms.service: vpn-gateway
+  ms.topic: landing-page
+  author: cherylmc
+  ms.author: cherylmc
+  ms.date: 08/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,21 +27,20 @@ landingContent:
             url: vpn-gateway-about-vpngateways.md
       - linkListType: concept
         links:
-          - text: Point-to-site connections
-            url: point-to-site-about.md
-          - text: BGP
-            url: vpn-gateway-bgp-overview.md
-          - text: Zone-redundant gateways
-            url: about-zone-redundant-vnet-gateways.md
           - text: VPN Gateway FAQ
             url: vpn-gateway-vpn-faq.md
+          - text: About VPN Gateway connections and topology
+            url: design.md
+          - text: About zone-redundant gateways
+            url: about-zone-redundant-vnet-gateways.md
+          - text: About BGP and VPN Gateway
+            url: vpn-gateway-bgp-overview.md
       - linkListType: learn
         links:
           - text: Introduction to Azure VPN Gateway
-            url: /learn/modules/intro-to-azure-vpn-gateway
+            url: /training/modules/intro-to-azure-vpn-gateway/
           - text: Connect your on-premises network to Azure with VPN Gateway
-            url:  /learn/modules/connect-on-premises-network-with-vpn-gateway/
-
+            url: /training/modules/connect-on-premises-network-with-vpn-gateway/
   # Card
   - title: Get started
     linkLists:
@@ -49,12 +48,43 @@ landingContent:
         links:
           - text: Create and manage a VPN gateway
             url: tutorial-create-gateway-portal.md
-          - text: Create a site-to-site VPN connection
+
+  # Card
+  - title: Point-to-site VPNs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About point-to-site VPNs
+            url: point-to-site-about.md
+          - text: About point-to-site VPN routing
+            url: vpn-gateway-about-point-to-site-routing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Certificate authentication
+            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+          - text: RADIUS authentication
+            url: point-to-site-how-to-radius-ps.md
+          - text: Microsoft Entra authentication
+            url: openvpn-azure-ad-tenant.md
+          - text: Multiple authentication types
+            url: howto-point-to-site-multi-auth.md
+
+# Card
+  - title: Site-to-site VPNs
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a site-to-site configuration
             url: tutorial-site-to-site-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Create a point-to-site VPN connection
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+          - text: Configure BGP
+            url: bgp-howto.md
+          - text: Configure forced tunneling
+            url: vpn-gateway-forced-tunneling-rm.md
+          - text: Configure active-active gateways
+            url: active-active-portal.md
+
   # Card
   - title: VPN devices
     linkLists:
@@ -68,17 +98,16 @@ landingContent:
             url: vpn-gateway-3rdparty-device-config-overview.md
           - text: Download device configuration scripts
             url: vpn-gateway-download-vpndevicescript.md
+
   # Card
   - title: Manage
     linkLists:
       - linkListType: concept
         links:
-          - text: Gateway configuration settings
+          - text: About configuration settings
             url: vpn-gateway-about-vpn-gateway-settings.md
           - text: Gateway SKUs
             url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
-          - text: Point-to-site routing
-            url: vpn-gateway-about-point-to-site-routing.md
       - linkListType: how-to-guide
         links:
           - text: Verify a VPN gateway
@@ -87,6 +116,19 @@ landingContent:
             url: vpn-gateway-delete-vnet-gateway-portal.md
           - text: Modify a local network gateway
             url: vpn-gateway-modify-local-network-gateway-portal.md
+
+  # Card
+  - title: Learn about VPN Gateway architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Virtual network peering and VPN gateways
+            url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering/
+      - linkListType: concept
+        links:
+          - text: Troubleshoot a hybrid VPN connection
+            url: /azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn/
+
   # Card
   - title: Security and monitoring
     linkLists:
@@ -97,7 +139,8 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts
-            url: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+            url: monitor-vpn-gateway.md
+            
   # Card
   - title: Reference
     linkLists:

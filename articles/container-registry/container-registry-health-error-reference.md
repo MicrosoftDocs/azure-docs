@@ -2,7 +2,9 @@
 title: Error reference for registry health checks
 description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
 ms.topic: article
-ms.date: 01/25/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 # Health check error reference
 
@@ -50,7 +52,7 @@ This error means that the CLI was unable to determine the Helm version installed
 
 This error means that the registry can't access the user-assigned or sysem-assigned managed identity used to configure registry encryption with a customer-managed key. The managed identity might have been deleted.  
 
-*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](container-registry-customer-managed-keys.md#troubleshoot).
+*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](tutorial-troubleshoot-customer-managed-keys.md).
 
 ## CONNECTIVITY_DNS_ERROR
 
@@ -72,9 +74,9 @@ This error means that the challenge endpoint of the target registry did not issu
 
 ## CONNECTIVITY_AAD_LOGIN_ERROR
 
-This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support Azure Active Directory authentication.
+This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support Microsoft Entra authentication.
 
-*Potential solutions*: Try a different way to authenticate, for example, with admin credentials. If users need  to authenticate using Azure Active Directory, open an issue at https://aka.ms/acr/issues.
+*Potential solutions*: Try a different way to authenticate, for example, with admin credentials. If users need  to authenticate using Microsoft Entra ID, open an issue at https://aka.ms/acr/issues.
 
 ## CONNECTIVITY_REFRESH_TOKEN_ERROR
 
@@ -103,7 +105,11 @@ This error means that the CLI was unable to find the login server of the given r
 ## NOTARY_VERSION_ERROR
 
 This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue. You can also try downloading and installing a pre-compiled binary of Notary earlier than 0.6.0 for 64 bit Linux or macOS X from the Notary repository's releases page on GitHub. For windows download the .exe, place it in the(default path:  C:\ProgramFiles\Docker\Docker\resources\bin) and rename it to notary.exe. 
- 
+
+## CONNECTIVITY_TOOMANYREQUESTS_ERROR
+
+This error means that the user has sent too many requests in a short period causing the authentication system to block further requests to prevent overload. This error occurs by reaching a configured limit in the user's registry service tier or environment. We recommend waiting for a moment before sending another request. This will allow the authentication system's block to lift and you can try sending a request again.  
+
 ## Next steps
 
 For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).

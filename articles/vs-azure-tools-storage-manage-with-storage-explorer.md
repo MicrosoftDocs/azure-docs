@@ -1,10 +1,9 @@
 ---
-title: Get started with Storage Explorer | Microsoft Docs
+title: Get started with Storage Explorer
 description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
 author: cawaMS
-
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
@@ -24,42 +23,69 @@ In this article, you'll learn several ways of connecting to and managing your Az
 
 # [Windows](#tab/windows)
 
-The following versions of Windows support Storage Explorer:
+The following versions of Windows support the latest versions of Storage Explorer:
 
 * Windows 11
 * Windows 10
-* Windows 8
-* Windows 7
 
-For all versions of Windows, Storage Explorer requires .NET Framework 4.7.2 at a minimum.
+Additional requirements include:
+- Starting with Storage Explorer version 1.30.0, your Windows install must support 64-bit applications.
+- Starting with Storage Explorer version 1.30.0, you must have a x64 .NET 6 runtime installed. You can download the latest .NET 6 runtime from [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 # [macOS](#tab/macos)
 
 The following versions of macOS support Storage Explorer:
 
-* macOS 10.12 Sierra and later versions
+* macOS 10.13 High Sierra and later versions
 
-# [Linux](#tab/linux)
+Starting with Storage Explorer version 1.31.0, both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download.
 
-Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer) for most common distributions of Linux. We recommend Snap Store for this installation. The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
+# [Ubuntu](#tab/linux-ubuntu)
 
-For supported distributions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
-Storage Explorer requires the use of a password manager. You might have to connect to a password manager manually. You can connect Storage Explorer to your system's password manager by running the following command:
+Ubuntu comes preinstalled with `snapd`, which allows you to run snaps. You can learn more on the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+
+Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install dependencies manually. The following distributions of Linux support *.tar.gz* installation:
+Installing the Storage Explorer snap is recommended, but Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install all of Storage Explorer's dependencies manually.
 
-* Ubuntu 20.04 x64
-* Ubuntu 18.04 x64
-* Ubuntu 16.04 x64
+For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
-The *.tar.gz* installation might work on other distributions, but only these listed ones are officially supported.
+# [Red Hat Enterprise Linux](#tab/linux-rhel)
 
-For more help installing Storage Explorer on Linux, see [Linux dependencies](./storage/common/storage-explorer-troubleshooting.md#linux-dependencies) in the Azure Storage Explorer troubleshooting guide.
+Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
+
+To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+
+Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+For more help installing Storage Explorer on RHEL, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
+
+# [SUSE Linux Enterprise Server](#tab/linux-sles)
+
+> [!NOTE]
+> Storage Explorer has not been tested for SLES. You may try using Storage Explorer on your system, but we cannot guarantee that Storage Explorer will work as expected.
+
+Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
+
+To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+
+Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
 ---
 
@@ -77,7 +103,7 @@ Storage Explorer provides several ways to connect to Azure resources:
 ### Sign in to Azure
 
 > [!NOTE]
-> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Azure Active Directory (Azure AD) permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Azure Active Directory (Azure AD)** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
+> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Microsoft Entra permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Microsoft Entra ID** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. In Storage Explorer, select **View** > **Account Management** or select the **Manage Accounts** button.
 
@@ -110,7 +136,7 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 Storage Explorer lets you connect to individual resources, such as an Azure Data Lake Storage Gen2 container, using various authentication methods. Some authentication methods are only supported for certain resource types.
 
-| Resource type    | Azure AD | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
+| Resource type    | Microsoft Entra ID | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
 |------------------|----------|----------------------|--------------------------------|--------------------|
 | Storage accounts | Yes      | Yes                  | Yes (connection string or URL) | No                 |
 | Blob containers  | Yes      | No                   | Yes (URL)                      | Yes                |
@@ -118,7 +144,7 @@ Storage Explorer lets you connect to individual resources, such as an Azure Data
 | Gen2 directories | Yes      | No                   | Yes (URL)                      | Yes                |
 | File shares      | No       | No                   | Yes (URL)                      | No                 |
 | Queues           | Yes      | No                   | Yes (URL)                      | No                 |
-| Tables           | No       | No                   | Yes (URL)                      | No                 |
+| Tables           | Yes      | No                   | Yes (URL)                      | No                 |
 
 Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 
@@ -134,7 +160,9 @@ If Storage Explorer couldn't add your connection, or if you can't access your da
 
 The following sections describe the different authentication methods you can use to connect to individual resources.
 
-#### Azure AD
+<a name='azure-ad'></a>
+
+#### Microsoft Entra ID
 
 Storage Explorer can use your Azure account to connect to the following resource types:
 * Blob containers
@@ -142,11 +170,11 @@ Storage Explorer can use your Azure account to connect to the following resource
 * Azure Data Lake Storage Gen2 directories
 * Queues
 
-Azure AD is the preferred option if you have data layer access to your resource but no management layer access.
+Microsoft Entra ID is the preferred option if you have data layer access to your resource but no management layer access.
 
 1. Sign in to at least one Azure account using the [steps described above](#sign-in-to-azure).
 1. In the **Select Resource** panel of the **Connect to Azure Storage** dialog, select **Blob container**, **ADLS Gen2 container**, or **Queue**.
-1. Select **Sign in using Azure Active Directory (Azure AD)** and select **Next**.
+1. Select **Sign in using Microsoft Entra ID** and select **Next**.
 1. Select an Azure account and tenant. The account and tenant must have access to the Storage resource you want to attach to. Select **Next**.
 1. Enter a display name for your connection and the URL of the resource. Select **Next**.
 1. Review your connection information in the **Summary** panel. If the connection information is correct, select **Connect**.
@@ -267,11 +295,8 @@ As you enter text in the search box, Storage Explorer displays all resources tha
 ## Next steps
 
 * [Manage Azure Blob storage resources with Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
-* [Work with data using Azure Storage Explorer](./cosmos-db/storage-explorer.md)
 * [Manage Azure Data Lake Store resources with Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png
 [15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/create-shared-access-signature-for-storage-explorer.png
-[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-cosmos-db-by-connection-string.png
-[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string-for-cosmos-db.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-search-for-resource.png

@@ -2,14 +2,13 @@
 title: Azure Blob indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 05/18/2023
 ---
 
 # Index data from Azure Blob Storage
@@ -28,11 +27,11 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
 + Blobs providing text content and metadata. If blobs contain binary content or unstructured text, consider adding [AI enrichment](cognitive-search-concept-intro.md) for image and natural language processing. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
-+ A supported network configuration and data access. At a minimum, you'll need read permissions in Azure Storage. A storage connection string that includes an access key will give you read access to storage content. If instead you're using Azure AD logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
++ A supported network configuration and data access. At a minimum, you'll need read permissions in Azure Storage. A storage connection string that includes an access key will give you read access to storage content. If instead you're using Microsoft Entra logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
 
   By default, both search and storage accept requests from public IP addresses. If network security isn't an immediate concern, you can index blob data using just the connection string and read permissions. When you're ready to add network protections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for guidance about data access.
 
-+ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to make the requests described in this article. 
++ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
 
 <a name="SupportedFormats"></a>
 
@@ -60,6 +59,11 @@ Before you set up indexing, review your source data to determine whether any cha
 If you don't set up inclusion or exclusion criteria, the indexer will report an ineligible blob as an error and move on. If enough errors occur, processing might stop. You can specify error tolerance in the indexer [configuration settings](#configure-and-run-the-blob-indexer).
 
 An indexer typically creates one search document per blob, where the text content and metadata are captured as searchable fields in an index. If blobs are whole files, you can potentially parse them into [multiple search documents](search-howto-index-one-to-many-blobs.md). For example, you can parse rows in a [CSV file](search-howto-index-csv-blobs.md) to create one search document per row.
+
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or an .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
+
+Textual content of a document is extracted into a string field named "content". You can also extract standard and user-defined metadata.
+
 
 <a name="indexing-blob-metadata"></a>
 
@@ -90,6 +94,9 @@ You still have to add the underscored fields to the index definition, but you ca
 Lastly, any metadata properties specific to the document format of the blobs you're indexing can also be represented in the index schema. For more information about content-specific metadata, see [Content metadata properties](search-blob-metadata-properties.md).
 
 It's important to point out that you don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
+
+Currently, indexing [blob index tags](../storage/blobs/storage-blob-index-how-to.md) is not supported by this indexer. 
+
 
 ## Define the data source
 
@@ -189,7 +196,7 @@ Once the index and data source have been created, you're ready to create the ind
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-      "name" : "my-blob-indexer,
+      "name" : "my-blob-indexer",
       "dataSourceName" : "my-blob-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
@@ -197,7 +204,7 @@ Once the index and data source have been created, you're ready to create the ind
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
           "base64EncodeKeys": null,
-          "configuration:" {
+          "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",
               "dataToExtract": "contentAndMetadata",

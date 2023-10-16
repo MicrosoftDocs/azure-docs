@@ -3,24 +3,23 @@ title: Create datasets with Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: conceptual
-ms.author: nibaccam
-author: nibaccam
+ms.author: franksolomon 
+author: fbsolo-ms1
 ms.date: 08/05/2020
-ms.custom: how-to, tracking-python
-
-# Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
+ms.custom: how-to, tracking-python, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
 ---
 
 # Create Azure Machine Learning datasets from Azure Open Datasets
 
 In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml). 
 
-By creating an [Azure Machine Learning dataset](../machine-learning/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
+By creating an [Azure Machine Learning dataset](../machine-learning/v1/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
 * Incur no extra storage cost.
 * Don't risk unintentionally changing your original data sources. 
 * Improve ML workflow performance speeds.
 
-To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
+To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/v1/concept-data.md#data-workflow) article.
 
 Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
 
@@ -43,7 +42,7 @@ For this article, you need:
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the `azureml-datasets` package.
 
-    * Create an [Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
+    * Create an [Azure Machine Learning compute instance](../machine-learning/how-to-create-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
 
     **OR**
 
@@ -54,7 +53,7 @@ For this article, you need:
 
 ## Create datasets with the SDK
 
-To create Azure Machine Learning datasets via Azure Open Datasets classes in the Python SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either an Azure Machine Learning [`TabularDataset`, `FileDataset`](../machine-learning/how-to-create-register-datasets.md#dataset-types), or both. See the [reference documentation](/python/api/azureml-opendatasets/azureml.opendatasets) for a full list of `opendatasets` classes.
+To create Azure Machine Learning datasets via Azure Open Datasets classes in the Python SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either an Azure Machine Learning [`TabularDataset`, `FileDataset`](../machine-learning/v1/how-to-create-register-datasets.md#dataset-types), or both. See the [reference documentation](/python/api/azureml-opendatasets/azureml.opendatasets) for a full list of `opendatasets` classes.
 
 You can retrieve certain `opendatasets` classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset **only** by using the `get_tabular_dataset()` or `get_file_dataset()` functions from the `Dataset`class in the Python SDK.
 
@@ -116,7 +115,7 @@ You can also create Azure Machine Learning datasets from Azure Open Datasets wit
 
 ## Access datasets for your experiments
 
-Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/how-to-train-with-datasets.md).
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/v1/how-to-train-with-datasets.md).
 
 ## Example notebooks
 
@@ -126,6 +125,6 @@ For examples and demonstrations of Open Datasets functionality,  see these [samp
 
 * [Train your first ML model](../machine-learning/tutorial-1st-experiment-sdk-train.md).
 
-* [Train with datasets](../machine-learning/how-to-train-with-datasets.md).
+* [Train with datasets](../machine-learning/v1/how-to-train-with-datasets.md).
 
-* [Create an Azure machine learning dataset](../machine-learning/how-to-create-register-datasets.md).
+* [Create an Azure machine learning dataset](../machine-learning/v1/how-to-create-register-datasets.md).

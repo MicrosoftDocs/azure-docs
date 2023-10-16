@@ -4,9 +4,9 @@ description: Learn how to execute SQL Server Integration Services (SSIS) package
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/22/2021
-author: swinarko
-ms.author: sawinark
+ms.date: 07/17/2023
+author: chugugrace
+ms.author: chugu
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility
@@ -21,7 +21,7 @@ The modern AzureDTExec utility comes with a SQL Server Management Studio (SSMS) 
 
 AzureDTExec runs your packages as Execute SSIS Package activities in Data Factory pipelines. For more information, see [Run SSIS packages as Azure Data Factory activities](./how-to-invoke-ssis-package-ssis-activity.md). 
 
-AzureDTExec can be configured via SSMS to use an Azure Active Directory (Azure AD) application that generates pipelines in your data factory. It can also be configured to access file systems, file shares, or Azure Files where you store your packages. Based on the values you give for its invocation options, AzureDTExec generates and runs a unique Data Factory pipeline with an Execute SSIS Package activity in it. Invoking AzureDTExec with the same values for its options reruns the existing pipeline.
+AzureDTExec can be configured via SSMS to use a Microsoft Entra application that generates pipelines in your data factory. It can also be configured to access file systems, file shares, or Azure Files where you store your packages. Based on the values you give for its invocation options, AzureDTExec generates and runs a unique Data Factory pipeline with an Execute SSIS Package activity in it. Invoking AzureDTExec with the same values for its options reruns the existing pipeline.
 
 ## Prerequisites
 To use AzureDTExec, download and install the latest version of SSMS, which is version 18.3 or later. Download it from [this website](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -37,9 +37,9 @@ This action opens a **AzureDTExecConfig** window that needs to be opened with ad
 
 In the **AzureDTExecConfig** window, enter your configuration settings as follows:
 
-- **ApplicationId**: Enter the unique identifier of the Azure AD app that you create with the right permissions to generate pipelines in your data factory. For more information, see [Create an Azure AD app and service principal via Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
-- **AuthenticationKey**: Enter the authentication key for your Azure AD app.
-- **TenantId**: Enter the unique identifier of the Azure AD tenant, under which your Azure AD app is created.
+- **ApplicationId**: Enter the unique identifier of the Microsoft Entra app that you create with the right permissions to generate pipelines in your data factory. For more information, see [Create a Microsoft Entra app and service principal via Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+- **AuthenticationKey**: Enter the authentication key for your Microsoft Entra app.
+- **TenantId**: Enter the unique identifier of the Microsoft Entra tenant, under which your Microsoft Entra app is created.
 - **DataFactory**: Enter the name of your data factory in which unique pipelines with Execute SSIS Package activity in them are generated based on the values of options provided when you invoke AzureDTExec.
 - **IRName**: Enter the name of the Azure-SSIS IR in your data factory, on which the packages specified in their Universal Naming Convention (UNC) path will run when you invoke AzureDTExec.
 - **PipelineNameHashStrLen**: Enter the length of hash strings to be generated from the values of options you provide when you invoke AzureDTExec. The strings are used to form unique names for Data Factory pipelines that run your packages on the Azure-SSIS IR. Usually a length of 32 characters is sufficient.

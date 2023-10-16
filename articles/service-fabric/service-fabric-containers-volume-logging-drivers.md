@@ -1,8 +1,12 @@
 ---
 title: Azure Files volume driver for Service Fabric
 description: Service Fabric supports using Azure Files to backup volumes from your container.
-ms.topic: conceptual
-ms.date: 6/10/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Files volume driver for Service Fabric
@@ -195,7 +199,7 @@ As shown in the **DriverOption** elements in the snippet above, the Azure Files 
 ## Using your own volume or logging driver
 Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/vmss-custom-script-windows/) or an [SetupEntryPoint script](./service-fabric-application-model.md).
 
-An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is as follows:
+An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/cloud/aci-compose-features/) is as follows:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \

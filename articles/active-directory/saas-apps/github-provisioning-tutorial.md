@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: User provisioning for GitHub - Azure AD'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user organization membership in GitHub Enterprise Cloud.
+title: 'Tutorial: User provisioning for GitHub'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user organization membership in GitHub Enterprise Cloud.
 services: active-directory
 author: twimmers
 manager: CelesteDG
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automate provisioning of GitHub Enterprise Cloud organization membership.
+The objective of this tutorial is to show you the steps you need to perform in GitHub and Microsoft Entra ID to automate provisioning of GitHub Enterprise Cloud organization membership.
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
+> The Microsoft Entra provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-* An Azure Active directory tenant
+* A Microsoft Entra tenant
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * A user account in GitHub with Admin permissions to the organization
 * [SAML configured for the GitHub Enterprise Cloud organization](./github-tutorial.md)
@@ -30,29 +30,32 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * SCIM provisioning to a single organization is supported only when SSO is enabled at the organization level
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to GitHub
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized. 
+Microsoft Entra ID uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Microsoft Entra ID is synchronized. 
 
-Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your GitHub app. Once decided, you can assign these users to your GitHub app by following the instructions here:
+Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Microsoft Entra ID represent the users who need access to your GitHub app. Once decided, you can assign these users to your GitHub app by following the instructions here:
 
 For more information, see [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### Important tips for assigning users to GitHub
 
-* We recommend that you assign a single Azure AD user to GitHub to test the provisioning configuration. Additional users and/or groups may be assigned later.
+* We recommend that you assign a single Microsoft Entra user to GitHub to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to GitHub, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
 
 ## Configuring user provisioning to GitHub
 
-This section guides you through connecting your Azure AD to GitHub's SCIM provisioning API to automate provisioning of GitHub organization membership. This integration, which leverages an [OAuth app](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations), automatically adds, manages, and removes members' access to a GitHub Enterprise Cloud organization based on user and group assignment in Azure AD. When users are [provisioned to a GitHub organization via SCIM](https://docs.github.com/en/free-pro-team@latest/rest/reference/scim#provision-and-invite-a-scim-user), an email invitation is sent to the user's email address.
+This section guides you through connecting your Microsoft Entra ID to GitHub's SCIM provisioning API to automate provisioning of GitHub organization membership. This integration, which leverages an [OAuth app](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations), automatically adds, manages, and removes members' access to a GitHub Enterprise Cloud organization based on user and group assignment in Microsoft Entra ID. When users are [provisioned to a GitHub organization via SCIM](https://docs.github.com/en/rest/enterprise-admin/scim), an email invitation is sent to the user's email address.
 
-### Configure automatic user account provisioning to GitHub in Azure AD
+<a name='configure-automatic-user-account-provisioning-to-github-in-azure-ad'></a>
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+### Configure automatic user account provisioning to GitHub in Microsoft Entra ID
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 2. If you have already configured GitHub for single sign-on, search for your instance of GitHub using the search field. Otherwise, select **Add** and search for **GitHub** in the application gallery. Select GitHub from the search results, and add it to your list of applications.
 
@@ -68,7 +71,7 @@ This section guides you through connecting your Azure AD to GitHub's SCIM provis
 
    ![Screenshot shows the sign-in page for GitHub.](./media/github-provisioning-tutorial/github2.png)
 
-7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/organizations/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
+7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Microsoft Entra ID can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/organizations/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
 
    ![Screenshot shows Organizations page in GitHub.](./media/github-provisioning-tutorial/github3.png)
 
@@ -76,22 +79,22 @@ This section guides you through connecting your Azure AD to GitHub's SCIM provis
 
 9. Click **Save**.
 
-10. Under the Mappings section, select **Synchronize Azure Active Directory Users to GitHub**.
+10. Under the Mappings section, select **Synchronize Microsoft Entra users to GitHub**.
 
-11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the **Matching precendence** setting for the other default attributes in the **Provisioning** section because errors might occur. Select **Save** to commit any changes.
+11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Microsoft Entra ID to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the **Matching precedence** setting for the other default attributes in the **Provisioning** section because errors might occur. Select **Save** to commit any changes.
 
-12. To enable the Azure AD provisioning service for GitHub, change the **Provisioning Status** to **On** in the **Settings** section.
+12. To enable the Microsoft Entra provisioning service for GitHub, change the **Provisioning Status** to **On** in the **Settings** section.
 
 13. Click **Save**.
 
 This operation starts the initial synchronization of any users and/or groups assigned to GitHub in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service. 
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

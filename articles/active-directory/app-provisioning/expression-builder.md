@@ -1,14 +1,14 @@
 ---
-title: Understand how expression builder works with Application Provisioning in Azure Active Directory
-description: Understand how expression builder works with Application Provisioning in Azure Active Directory.
+title: Understand how expression builder works with Application Provisioning in Microsoft Entra ID
+description: Understand how expression builder works with Application Provisioning in Microsoft Entra ID.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/02/2021
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -31,12 +31,12 @@ In application provisioning, you use expressions for attribute mappings. You acc
 
 To use expression builder, select a function and attribute and then enter a suffix if needed. Then select **Add expression** to add the expression to the code box. To learn more about the functions available and how to use them, see [Reference for writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
-Test the expression by searching for a user or providing values and selecting **Test expression**. The output of the expression test will appear in the **View expression output** box.
+Test the expression by searching for a user or providing values and selecting **Test expression**. The output of the expression test appears in the **View expression output** box.
 
 When you're satisfied with the expression, move it to an attribute mapping. Copy and paste it into the expression box for the attribute mapping you're working on.
 
 ## Known limitations
-* Extension attributes are not available for selection in the expression builder. However, extension attributes can be used in the attribute mapping expression. 
+* Extension attributes aren't available for selection in the expression builder. However, extension attributes can be used in the attribute mapping expression. 
 
 ## Next steps
 

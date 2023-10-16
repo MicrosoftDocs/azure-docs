@@ -2,15 +2,15 @@
 title: 'Quickstart: Deploy an AKS cluster with Enclave Confidential Container Intel SGX nodes by using the Azure CLI'
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with enclave confidential containers a Hello World app by using the Azure CLI.
 author: agowdamsft
-ms.service: container-service
+ms.service: virtual-machines 
 ms.subservice: confidential-computing
 ms.topic: quickstart
-ms.date: 11/1/2021
+ms.date: 04/11/2023
 ms.author: amgowda
-ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api
+ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api, devx-track-linux
 ---
 
-# Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI
+# Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI
 
 In this quickstart, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster with enclave-aware (DCsv2/DCSv3) VM nodes. You'll then run a simple Hello World application in an enclave. You can also provision a cluster and add confidential computing nodes from the Azure portal, but this quickstart focuses on the Azure CLI.
 
@@ -24,34 +24,31 @@ Features of confidential computing nodes include:
 - Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 
 > [!NOTE]
-> DCsv2/DCsv3 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md). DCsv3 VM's are currently in preview in limited regions. Please refer to above mentioned page for details. 
-
+> DCsv2/DCsv3 VMs use specialized hardware that's subject region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 ## Prerequisites
 
 This quickstart requires:
 
-- An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Azure CLI version 2.0.64 or later installed and configured on your deployment machine. 
+- A minimum of eight DCsv2/DCSv3/DCdsv3 cores available in your subscription.
 
-  Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
-- A minimum of six DCsv2 cores available in your subscription. 
+  By default, there is no pre-assigned quota for Intel SGX VM sizes for your Azure subscriptions. You should follow [these instructions](../azure-portal/supportability/per-vm-quota-requests.md) to request for VM core quota for your subscriptions.
 
-  By default, the quota for confidential computing per Azure subscription is eight VM cores. If you plan to provision a cluster that requires more than eight cores, follow [these instructions](../azure-portal/supportability/per-vm-quota-requests.md) to raise a quota-increase ticket.
+## Create an AKS cluster with enclave-aware confidential computing nodes and Intel SGX add-on
 
-## Create an AKS cluster with enclave-aware confidential computing nodes and add-on
+Use the following instructions to create an AKS cluster with the Intel SGX add-on enabled, add a node pool to the cluster, and verify what you created with hello world enclave application.
 
-Use the following instructions to create an AKS cluster with the confidential computing add-on enabled, add a node pool to the cluster, and verify what you created.
-
-### Create an AKS cluster with a system node pool
+### Create an AKS cluster with a system node pool and AKS Intel SGX Addon
 
 > [!NOTE]
 > If you already have an AKS cluster that meets the prerequisite criteria listed earlier, [skip to the next section](#add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster) to add a confidential computing node pool.
 
-First, create a resource group for the cluster by using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *westus2* region:
+Intel SGX AKS Addon "confcom" exposes the Intel SGX device drivers to your containers to avoid added changes to your pod yaml.
+
+First, create a resource group for the cluster by using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus2* region:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus2
 ```
 
 Now create an AKS cluster, with the confidential computing add-on enabled, by using the [az aks create][az-aks-create] command:
@@ -60,15 +57,17 @@ Now create an AKS cluster, with the confidential computing add-on enabled, by us
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addons confcom
 ```
 
-### Add a user node pool with confidential computing capabilities to the AKS cluster 
+The above command will deploy a new AKS cluster with system node pool of non confidential computing node. Confidential computing Intel SGX nodes are not recommended for system node pools.
 
-Run the following command to add a user node pool of `Standard_DC2s_v2` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/Dcsv3 SKUs and regions](../virtual-machines/dcv2-series.md).
+### Add a user node pool with confidential computing capabilities to the AKS cluster<a id="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>
+
+Run the following command to add a user node pool of `Standard_DC4s_v3` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/DCsv3 SKUs and regions](../virtual-machines/dcv3-series.md).
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC4s_v3 --node-count 2
 ```
 
-After you run the command, a new node pool with DCsv2 should be visible with confidential computing add-on DaemonSets ([SGX device plug-in](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)).
+After you run the command, a new node pool with DCsv3 should be visible with confidential computing add-on DaemonSets ([SGX device plug-in](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)).
 
 ### Verify the node pool and add-on
 
@@ -80,9 +79,11 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Use the `kubectl get pods` command to verify that the nodes are created properly and the SGX-related DaemonSets are running on DCsv2 node pools:
 
-```console
-$ kubectl get pods --all-namespaces
+```bash
+kubectl get pods --all-namespaces
+```
 
+```output
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 
@@ -102,15 +103,15 @@ Run the following command to enable the confidential computing add-on:
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
 
-### Add a DCsv2/DCsv3 user node pool to the cluster
+### Add a DCsv3 user node pool to the cluster
 
 > [!NOTE]
-> To use the confidential computing capability, your existing AKS cluster needs to have a minimum of one node pool that's based on a DCsv2/DCsv3 VM SKU. To learn more about DCs-v2 VMs SKUs for confidential computing, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
+> To use the confidential computing capability, your existing AKS cluster needs to have a minimum of one node pool that's based on a DCsv2/DCsv3 VM SKU. To learn more about DCs-v2/Dcs-v3 VMs SKUs for confidential computing, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 Run the following command to create a node pool:
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 2 --node-vm-size Standard_DC4s_v3
 ```
 
 Verify that the new node pool with the name *confcompool1* has been created:
@@ -123,21 +124,24 @@ az aks nodepool list --cluster-name myAKSCluster --resource-group myResourceGrou
 
 Sign in to your existing AKS cluster to perform the following verification:
 
-```console
+```bash
 kubectl get nodes
 ```
 
 The output should show the newly added *confcompool1* pool on the AKS cluster. You might also see other DaemonSets.
 
-```console
-$ kubectl get pods --all-namespaces
+```bash
+kubectl get pods --all-namespaces
+```
 
+```output
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 
 If the output matches the preceding code, your AKS cluster is now ready to run confidential applications. 
 
 ## Deploy Hello World from an isolated enclave application <a id="hello-world"></a>
+
 You're now ready to deploy a test application. 
 
 Create a file named *hello-world-enclave.yaml* and paste in the following YAML manifest. You can find this sample application code in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). This deployment assumes that you've deployed the *confcom* add-on.
@@ -166,7 +170,8 @@ spec:
             sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. sgx limit setting needs "confcom" AKS Addon as referenced above. 
       restartPolicy: Never
   backoffLimit: 0
-  ```
+```
+
 Alternatively you can also do a node pool selection deployment for your container deployments as shown below
 
 ```yaml
@@ -200,35 +205,43 @@ spec:
             kubernetes.azure.com/sgx_epc_mem_in_MiB: 10
       restartPolicy: "Never"
   backoffLimit: 0
-  ```
+```
 
 Now use the `kubectl apply` command to create a sample job that will open in a secure enclave, as shown in the following example output:
 
-```console
-$ kubectl apply -f hello-world-enclave.yaml
+```bash
+kubectl apply -f hello-world-enclave.yaml
+```
 
+```output
 job "sgx-test" created
 ```
 
 You can confirm that the workload successfully created a Trusted Execution Environment (enclave) by running the following commands:
 
-```console
-$ kubectl get jobs -l app=sgx-test
+```bash
+kubectl get jobs -l app=sgx-test
+```
 
+```output
 NAME       COMPLETIONS   DURATION   AGE
 sgx-test   1/1           1s         23s
 ```
 
-```console
-$ kubectl get pods -l app=sgx-test
+```bash
+kubectl get pods -l app=sgx-test
+```
 
+```output
 NAME             READY   STATUS      RESTARTS   AGE
 sgx-test-rchvg   0/1     Completed   0          25s
 ```
 
-```console
-$ kubectl logs -l app=sgx-test
+```bash
+kubectl logs -l app=sgx-test
+```
 
+```output
 Hello world from the enclave
 Enclave called into host to print: Hello World!
 ```
@@ -249,9 +262,9 @@ az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 
 ## Next steps
 
-* Run Python, Node, or other applications through confidential containers using ISV/OSS SGX wrapper software. Review [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
+- Run Python, Node, or other applications through confidential containers using ISV/OSS SGX wrapper software. Review [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
 
-* Run enclave-aware applications by using the [enclave-aware Azure container samples in GitHub](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
+- Run enclave-aware applications by using the [enclave-aware Azure container samples in GitHub](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 
 <!-- LINKS -->
 [az-group-create]: /cli/azure/group#az_group_create

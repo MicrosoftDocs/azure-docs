@@ -1,18 +1,19 @@
 ---
-title: Use ARM template to publish Azure IoT Hub, storage account, route messages
-description: Use ARM template to publish Azure IoT Hub, storage account, route messages
+title: Quickstart - route messages to storage (ARM)
+titleSuffix: Azure IoT Hub
+description: Learn how to use an ARM template to publish Azure IoT Hub, storage account, route messages in this quickstart
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: quickstart
-ms.date: 08/24/2020
+
 ms.author: kgremban
-ms.custom: mvc, subject-armqs, mode-arm
+ms.service: iot-hub
+ms.topic: quickstart-arm
+ms.date: 08/24/2020
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Deploy an Azure IoT Hub and a storage account using an ARM template
+# Quickstart: Deploy an Azure IoT hub and a storage account using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT hub that will route messages to Azure Storage, and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -22,7 +23,19 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+- The sample application you run in this quickstart is written using C#. You need the .NET SDK 6.0 or greater on your development machine.
+
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
+
+    You can verify the current version of C# on your development machine using the following command:
+
+    ```cmd/sh
+    dotnet --version
+    ```
+
+- Download and unzip the [IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip).
 
 ## Review the template
 
@@ -46,9 +59,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
     [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Download and unzip the [IoT C# Samples](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
-
-1. Open a command window and go to the folder where you unzipped the IoT C# Samples. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
+1. Open a command window and go to the folder where you unzipped the IoT C# SDK. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Sign in to the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
 
    ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -108,7 +119,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
 ## Review deployed resources
 
-1. Log in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
 
 1. Drill down into the storage account until you find files.
 
@@ -121,13 +132,13 @@ This section provides the steps to deploy the template, create a virtual device,
    ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
 
    > [!NOTE]
-   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# Samples repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iot-hub/Tutorials/Routing/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
+   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
 
-You have deployed an ARM template to create an IoT Hub and a storage account, and run a program to send messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
+You have deployed an ARM template to create an IoT hub and a storage account, and run a program to send messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
 
 ## Clean up resources
 
-To remove the resources added during this quickstart, log into the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. It will delete all of the resources in the group.
+To remove the resources added during this quickstart, sign in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. It will delete all of the resources in the group.
 
 ## Next steps
 

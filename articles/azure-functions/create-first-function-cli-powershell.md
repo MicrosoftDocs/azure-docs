@@ -23,37 +23,17 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
-
 + One of the following tools for creating Azure resources:
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 9.4.0 or later.
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
-### Prerequisite check
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
-
-# [Azure CLI](#tab/azure-cli)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
-
-+ Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
-
----
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## Create a local function project
 
@@ -110,7 +90,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
@@ -118,7 +98,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime PowerShell -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime PowerShell -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.

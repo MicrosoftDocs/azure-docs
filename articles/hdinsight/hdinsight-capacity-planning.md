@@ -4,7 +4,7 @@ description: Identify key questions for capacity and performance planning of an 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 05/07/2020
+ms.date: 04/25/2023
 ---
 
 # Capacity planning for HDInsight clusters
@@ -29,18 +29,16 @@ HDInsight is available in many Azure regions. To find the closest region, see [P
 
 ### Location of default storage
 
-The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage Gen1 is available in some regions - see the current [Data Lake Storage availability](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
-
+The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage is available in some regions - see the current [Data Lake Storage availability](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 ### Location of existing data
 
 If you want to use an existing storage account or Data Lake Storage as your cluster's default storage, then you must deploy your cluster at that same location.
 
 ### Storage size
 
-On a deployed cluster, you can attach additional Azure Storage accounts or access other Data Lake Storage. All your storage accounts must live in the same location as your cluster. A Data Lake Storage can be in a different location, though great distances may introduce some latency.
+On a deployed cluster, you can attach another Azure Storage accounts or access other Data Lake Storage. All your storage accounts must live in the same location as your cluster. A Data Lake Storage can be in a different location, though great distances may introduce some latency.
 
-Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is almost unlimited.
-
+Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits), while Data Lake Storage is almost unlimited.
 A cluster can access a combination of different storage accounts. Typical examples include:
 
 * When the amount of data is likely to exceed the storage capacity of a single blob storage
@@ -55,7 +53,7 @@ For better performance, use only one container per storage account.
 
 ## Choose a cluster type
 
-The cluster type determines the workload your HDInsight cluster is configured to run. Types include [Apache Hadoop](./hadoop/apache-hadoop-introduction.md), [Apache Storm](./storm/apache-storm-overview.md), [Apache Kafka](./kafka/apache-kafka-introduction.md), or [Apache Spark](./spark/apache-spark-overview.md). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
+The cluster type determines the workload your HDInsight cluster is configured to run. Types include [Apache Hadoop](./hadoop/apache-hadoop-introduction.md), [Apache Kafka](./kafka/apache-kafka-introduction.md), or [Apache Spark](./spark/apache-spark-overview.md). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
 
 ## Choose the VM size and type
 
@@ -67,9 +65,9 @@ For more information on how to choose the right VM family for your workload, see
 
 ## Choose the cluster scale
 
-A cluster's scale is determined by the quantity of its VM nodes. For all cluster types, there are node types that have a specific scale, and node types that support scale-out. For example, a cluster may  require exactly three [Apache ZooKeeper](https://zookeeper.apache.org/) nodes or two Head nodes. Worker nodes that do data processing in a distributed fashion benefit from the additional worker nodes.
+A cluster's scale is determined by the quantity of its VM nodes. For all cluster types, there are node types that have a specific scale, and node types that support scale-out. For example, a cluster may  require exactly three [Apache ZooKeeper](https://zookeeper.apache.org/) nodes or two Head nodes. Worker nodes that do data processing in a distributed fashion benefit from another worker nodes.
 
-Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores). More nodes will increase the total memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically. Use simulated workloads or canary queries.
+Depending on your cluster type, increasing the number of worker nodes adds more computational capacity (such as more cores). More nodes will increase the total memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically. Use simulated workloads or canary queries.
 
 You can scale out your cluster to meet peak load demands. Then scale it back down when those extra nodes are no longer needed. The [Autoscale feature](hdinsight-autoscale-clusters.md) allows you to automatically scale your cluster based upon predetermined metrics and timings. For more information on scaling your clusters manually, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
 
@@ -84,6 +82,35 @@ You're charged for a cluster's lifetime. If there are only specific times that y
 
 Sometimes errors can occur because of the parallel execution of multiple maps and reduce components on a multi-node cluster. To help isolate the issue, try distributed testing. Run concurrent multiple jobs on a single worker node cluster. Then expand this approach to run multiple jobs concurrently on clusters containing more than one node. To create a single-node HDInsight cluster in Azure, use the *`Custom(size, settings, apps)`* option  and use a value of 1 for *Number of Worker nodes* in the **Cluster size** section when provisioning a new cluster in the portal.
 
+## View quota management for HDInsight
+
+View a granular level and categorization of the quota at a VM family level. View the current quota and how much quota is remaining for a region at a VM family level. 
+
+> [!NOTE]
+> This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow subsequently.
+
+1. View current quota:
+
+   See the current quota and how much quota is remaining for a region at a VM family level.
+   
+   1. From Azure portal, in the top search bar, search and select **Quotas**.
+   1. From the Quota page, select **Azure HDInsight**
+    
+      :::image type="content" source="./media/hdinsight-capacity-planning/hdinsight-search-quota.png" alt-text="Screenshot showing how to search quotas." lightbox="./media/hdinsight-capacity-planning/hdinsight-search-quota.png":::
+      
+   1. From the dropdown box, select your **Subscription** and **Region**
+   
+      :::image type="content" source="./media/hdinsight-capacity-planning/select-cluster-and-region.png" alt-text="Screenshot showing how to select cluster and region for quota allocation." lightbox="./media/hdinsight-capacity-planning/select-cluster-and-region.png":::
+
+      :::image type="content" source="./media/hdinsight-capacity-planning/view-and-manage-quota.png" alt-text="Screenshot showing how to view and manage quota." lightbox="./media/hdinsight-capacity-planning/view-and-manage-quota.png":::
+         
+1. View quota details:
+ 
+   1. Click on the row for which you want to view the quota details.
+   
+   :::image type="content" source="./media/hdinsight-capacity-planning/quota-details.png" alt-text="Screenshot showing the quota details." lightbox="./media/hdinsight-capacity-planning/quota-details.png":::
+      
+ 
 ## Quotas
 
 For more information on managing subscription quotas, see [Requesting quota increases](quota-increase-request.md).
@@ -92,3 +119,4 @@ For more information on managing subscription quotas, see [Requesting quota incr
 
 * [Set up clusters in HDInsight with Apache Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Learn about key scenarios to monitor for your HDInsight cluster that might affect your cluster's capacity.
+

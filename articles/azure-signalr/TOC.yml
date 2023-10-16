@@ -21,6 +21,9 @@
     href: signalr-quickstart-azure-functions-java.md
   - name: Azure Functions - Python
     href: signalr-quickstart-azure-functions-python.md
+  - name: Azure SignalR Service deployment - Bicep
+    href: signalr-quickstart-azure-signalr-service-bicep.md
+    displayName: ARM, Resource Manager, Template
   - name: Azure SignalR Service deployment - ARM template
     href: signalr-quickstart-azure-signalr-service-arm-template.md
     displayName: deploy azure resource manager template
@@ -58,17 +61,17 @@
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
     items:
-    - name: Build real-time apps with Azure Functions
+    - name: Real-time apps with Azure Functions
       href: signalr-concept-azure-functions.md
-    - name: Develop and configure serverless SignalR Service apps
+    - name: Develop and configure SignalR Service apps
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
-    - name: Upstream settings
+    - name: Configure upstream endpoints
       href: concept-upstream.md
   - name: High availability
     items:
-    - name: Gracefully shutdown your app server
+    - name: Gracefully shut down your app server
       href: server-graceful-shutdown.md
     - name: Resiliency and disaster recovery
       href: signalr-concept-disaster-recovery.md
@@ -82,9 +85,9 @@
     href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
-  - name: Authorization with Azure AD
+  - name: Authorization with Microsoft Entra ID
     items:
-      - name: Overview of Azure AD for Azure SignalR Service
+      - name: Overview of Microsoft Entra ID for Azure SignalR Service
         href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
@@ -96,7 +99,7 @@
       href: ./security-controls-policy.md
 - name: How-to guides
   items:
-  - name: Scale
+  - name: Scale and geo-replicate
     items:
     - name: Single instance
       href: signalr-howto-scale-signalr.md
@@ -104,6 +107,8 @@
       href: signalr-howto-scale-multi-instances.md
     - name: Autoscale
       href: signalr-howto-scale-autoscale.md
+    - name: Geo-replication
+      href: howto-enable-geo-replication.md
   - name: Secure
     items:
     - name: Access key rotation
@@ -116,12 +121,16 @@
       href: howto-network-access-control.md
     - name: Secure outbound traffic through Shared Private Endpoints
       href: howto-shared-private-endpoints.md
+    - name: Access Key Vault in private network through Shared Private Endpoints
+      href: howto-shared-private-endpoints-key-vault.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
-    - name: Authorize from Azure Application
+    - name: Authorize from Azure application
       href: signalr-howto-authorize-application.md
-    - name: Authorize from Managed Identity
+    - name: Authorize from managed identity
       href: signalr-howto-authorize-managed-identity.md
+    - name: Disable local authentication.
+      href: howto-disable-local-auth.md
     - name: Custom domain
       href: howto-custom-domain.md
   - name: Integrate
@@ -130,10 +139,20 @@
       href: signalr-concept-azure-functions.md
     - name: Event Grid integration
       href: signalr-howto-event-grid-integration.md
+    - name: Integrate with reverse proxies
+      items:
+        - name: Overview
+          href: signalr-howto-reverse-proxy-overview.md
+        - name: Use SignalR Service with Application Gateway
+          href: signalr-howto-work-with-app-gateway.md
+        - name: Use SignalR Service with API Management
+          href: signalr-howto-work-with-apim.md
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
+    - name: Monitor SignalR service data reference
+      href: signalr-howto-monitor-reference.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
   - name: Troubleshooting
@@ -152,7 +171,20 @@
   - name: Azure CLI
     href: /cli/azure/signalr
   - name: REST API
-    href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
+    items:
+    - name: Control plane
+      href: /rest/api/signalr
+    - name: Data plane
+      href: signalr-reference-data-plane-rest-api.md
+      items:
+      - name: Versions
+        items:
+          - name: v20220601
+            href: swagger/signalr-data-plane-rest-v20220601.md
+          - name: v1
+            href: swagger/signalr-data-plane-rest-v1.md
+          - name: v1-preview
+            href: swagger/signalr-data-plane-rest-v1-preview.md
   - name: ASP.NET Core SignalR
     href: /aspnet/core/signalr/introduction
   - name: Azure SignalR Service Protocol

@@ -1,12 +1,10 @@
 ---
-title: Protecting your network resources in Microsoft Defender for Cloud
+title: Protecting your network resources
 description: This document addresses recommendations in Microsoft Defender for Cloud that help you protect your Azure network resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 10/23/2022
 ---
 # Protect your network resources
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
@@ -16,8 +14,8 @@ This article addresses recommendations that apply to your Azure resources from a
 
 The **Networking** features of Defender for Cloud include: 
 
-- Network map (requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans))
-- [Adaptive network hardening](adaptive-network-hardening.md) (requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans))
+- Network map (requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features))
+- [Adaptive network hardening](adaptive-network-hardening.md) (requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features))
 - Networking security recommendations
  
 ## View your networking resources and their recommendations
@@ -37,7 +35,7 @@ To open the Network map:
 
 1. Select **Network map**.
 
-    :::image type="content" source="./media/protect-network-resources/opening-network-map.png" alt-text="Opening the network map from the Workload protections." lightbox="./media/protect-network-resources/opening-network-map.png":::
+:::image type="content" source="media/protect-network-resources/workload-protection-network-map.png" alt-text="Screenshot showing selection of network map from workload protections." lightbox="media/protect-network-resources/workload-protection-network-map.png":::
 
 1. Select the **Layers** menu choose **Topology**.
  
@@ -59,7 +57,7 @@ The network map can show you your Azure resources in a **Topology** view and a *
 
 In the **Topology** view of the networking map, you can view the following insights about your networking resources:
 
-- In the inner circle, you can see all the Vnets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
+- In the inner circle, you can see all the VNets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
 - The lines connecting the resources in the map let you know which resources are associated with each other, and how your Azure network is structured. 
 - Use the severity indicators to quickly get an overview of which resources have open recommendations from Defender for Cloud.
 - You can click any of the resources to drill down into them and view the details of that resource and its recommendations directly, and in the context of the Network map.  

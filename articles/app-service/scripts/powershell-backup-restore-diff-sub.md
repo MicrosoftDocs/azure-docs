@@ -6,7 +6,7 @@ tags: azure-service-management
 
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
-ms.date: 11/21/2018
+ms.date: 12/06/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
@@ -39,6 +39,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Adds an authenticated account to use for Azure Resource Manager cmdlet requests.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Gets a list of backups for a web app. |
+| [Get-AzWebAppBackup](/powershell/module/az.websites/get-azwebappbackup) | Gets a backup for a web app using the backup ID. |
+| [Get-AzWebAppBackupConfiguration](/powershell/module/az.websites/get-azwebappbackupconfiguration) | Gets the backup configuration for a web app. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restores a web app from a previously completed backup. |
 

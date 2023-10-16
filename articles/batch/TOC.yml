@@ -8,24 +8,26 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run a Batch job - CLI
+  - name: Create a Batch account and run a job - Azure CLI
     displayName: quickstart, first, create
     href: quick-create-cli.md
-  - name: Run a Batch job - Portal
+  - name: Create a Batch account and run a job - Azure portal
     displayName: quickstart, first, create
     href: quick-create-portal.md
-  - name: Run a Batch job - .NET
-    displayName: quickstart, first, create, c#, csharp
-    href: quick-run-dotnet.md
-  - name: Run a Batch job - Python
-    displayName: quickstart, first, create
-    href: quick-run-python.md
   - name: Create a Batch account - Bicep
     href: quick-create-bicep.md
     displayName: Resource Manager, ARM, Template
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
     displayName: Resource Manager
+  - name: Create a Batch account - Terraform
+    href: quick-create-terraform.md
+  - name: Create a Batch pool and run a job - .NET
+    displayName: quickstart, first, create, c#, csharp
+    href: quick-run-dotnet.md
+  - name: Create a Batch pool and run a job - Python
+    displayName: quickstart, first, create
+    href: quick-run-python.md
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -84,7 +86,7 @@
       displayName: compute node, application package, scaling, schedule, os, configuration
       href: nodes-and-pools.md
     - name: Jobs and tasks
-      displayName: Batch job, start task, environment 
+      displayName: Batch job, start task, environment
       href: jobs-and-tasks.md
     - name: Files and directories
       displayName: Batch file, working directory
@@ -99,10 +101,30 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
-  - name: High availability and disaster recovery
-    href: high-availability-disaster-recovery.md
+  - name: Reliability in Azure Batch
+    href: ../reliability/reliability-batch.md?toc=/azure/batch/toc.json&bc=/azure/batch/breadcrumb/toc.json
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
+  - name: Feature retirements
+    items:
+    - name: Active change, retirement, and end of life notices
+      href: https://github.com/Azure/Batch/labels/notice
+    - name: Cloud Service Configuration Pools
+      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
+    - name: Batch certificates
+      href: batch-certificate-migration-guide.md
+    - name: Pools without public IP addresses (classic)
+      href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
+    - name: Classic compute node communication model
+      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
+    - name: VHD and Managed Images
+      href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
+    - name: TLS 1.0 and TLS 1.1
+      href: batch-tls-101-migration-guide.md
+    - name: Job and pool lifetime statistics
+      href: job-pool-lifetime-statistics-migration-guide.md
+    - name: Low-priority virtual machines
+      href: low-priority-vms-retirement-migration-guide.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -113,19 +135,21 @@
       href: batch-management-dotnet.md
     - name: Get cost analysis and set budgets
       href: budget.md
+    - name: Configure public network access with Batch accounts
+      href: public-network-access.md
     - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
+    - name: Manage private endpoint connections with Batch accounts
+      href: manage-private-endpoint-connections.md
     - name: Configure customer-managed keys
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
-    - name: Use simplified compute node communication
-      href: simplified-compute-node-communication.md
-  - name: Authenticate with Azure AD
+  - name: Authenticate with Microsoft Entra ID
     items:
-    - name: Azure AD with Batch service
+    - name: Microsoft Entra ID with Batch service
       href: batch-aad-auth.md
-    - name: Azure AD with Batch Management
+    - name: Microsoft Entra ID with Batch Management
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       displayName: credential, certificate
@@ -140,6 +164,8 @@
       href: resource-files.md
   - name: Create and manage pools
     items:
+    - name: Use simplified compute node communication
+      href: simplified-compute-node-communication.md
     - name: Autoscale compute nodes
       displayName: scaling, dynamic, formula
       href: batch-automatic-scaling.md
@@ -151,7 +177,7 @@
     - name: Configure access to compute nodes
       displayName: rdp, ssh, network, remote
       href: pool-endpoint-configuration.md
-    - name: Create a pool with the Shared Image Gallery
+    - name: Create a pool with Azure Compute Gallery
       displayName: managed image, sig
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
@@ -170,6 +196,9 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Create a simplified node communication pool without public IP addresses
+      displayName: private
+      href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
     - name: Use extensions with pools
@@ -253,7 +282,7 @@
     href: batch-js-get-started.md
   - name: Run workloads
     items:
-    - name: MPI 
+    - name: MPI
       displayName: multi-instance, message passing interface
       href: batch-mpi.md
     - name: Container workloads
@@ -277,7 +306,7 @@
       - name: Rendering architectures
         href: batch-rendering-architectures.md
     - name: Data processing with Batch and Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=/azure/batch/toc.json
 - name: Reference
   items:
   - name: Azure CLI
@@ -336,8 +365,6 @@
     href: https://azure.github.io/BatchExplorer/
   - name: Batch feedback
     href: https://feedback.azure.com/d365community/forum/7462aa60-0c25-ec11-b6e6-000d3a4f07b8
-  - name: Batch Shipyard
-    href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: /archive/blogs/windowshpc/
   - name: HPC on Azure

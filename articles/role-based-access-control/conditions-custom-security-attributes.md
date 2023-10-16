@@ -3,14 +3,15 @@ title: "Allow read access to blobs based on tags and custom security attributes 
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/16/2021
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 05/09/2022
 ms.author: rolyon
-
-#Customer intent: As a dev, devops, or it admin, I want to 
+#Customer intent: As a dev, devops, or it admin, I want to
 ---
 
 # Allow read access to blobs based on tags and custom security attributes (Preview)
@@ -23,14 +24,14 @@ In this article, you learn how to allow read access to blobs based on blob index
 
 ## Prerequisites
 
-To assign custom security attributes and add role assignments conditions in your Azure AD tenant, you need:
+To assign custom security attributes and add role assignments conditions in your Microsoft Entra tenant, you need:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) and [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
-> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
+> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition editor.
 
 ## Condition
 
@@ -47,7 +48,7 @@ Here is what the condition looks like in code:
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
  )
  OR 
  (
@@ -62,19 +63,19 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Click **Microsoft Entra ID** > **Custom security attributes (Preview)**.
 
-1. Add an attribute named `Project` with values of `Baker` and `Cascade`. Or use an existing attribute. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. Add an attribute named `Project` with values of `Baker` and `Cascade`. Or use an existing attribute. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
 
     ![Screenshot of adding a custom security attribute.](./media/conditions-custom-security-attributes/project-attribute-add.png)
 
 ## Step 2: Assign the custom security attribute to a user
 
-1. In Azure AD, create a security group.
+1. In Microsoft Entra ID, create a security group.
 
 1. Add a user as a member of the group.
 
-1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
+1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign, update, list, or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
 
     ![Screenshot of assigning a custom security attribute.](./media/conditions-custom-security-attributes/project-users-attributes-assign.png)
 
@@ -94,7 +95,10 @@ For more information about conditions, see [What is Azure attribute-based access
     | --- | --- | --- |
     | Baker text file | Project | Baker |
     | Cascade text file | Project | Cascade |
- 
+
+    > [!TIP]
+    > For information about the characters that are allowed for blob index tags, see [Setting blob index tags](../storage/blobs/storage-manage-find-blobs.md#setting-blob-index-tags).
+
 ## Step 4: Assign Storage Blob Data Reader role with a condition
 
 1. Open a new tab and sign in to the [Azure portal](https://portal.azure.com).
@@ -121,7 +125,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition.
  
-1. Click **Read content from a blob with tag conditions** and then click **Select**.
+1. Click **Read a blob** and then click **Select**.
 
 1. In the **Build expression** section, click **Add**.
 
@@ -149,7 +153,7 @@ For more information about conditions, see [What is Azure attribute-based access
     ```
     (
      (
-      !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+      !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
      )
      OR 
      (
@@ -191,7 +195,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Azure PowerShell
 
-You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/common/storage-auth-abac-powershell.md).
+You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/blobs/storage-auth-abac-powershell.md).
 
 ### Add a condition
 
@@ -210,7 +214,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 1. Set the `Condition` property of the role assignment object. Be sure to use your attribute set name.
 
     ```powershell
-    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
+    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
     ```
 
 1. Set the `ConditionVersion` property of the role assignment object.
@@ -268,7 +272,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
 ## Azure CLI
 
-You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/common/storage-auth-abac-cli.md).
+You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/blobs/storage-auth-abac-cli.md).
 
 ### Add a condition
 
@@ -308,7 +312,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
 1. Update the `condition` property. Be sure to use your attribute set name.
 
     ```azurecli
-    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
+    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
     ```
 
 1. Update the `conditionVersion` property.
@@ -362,6 +366,6 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ## Next steps
 
-- [What are custom security attributes in Azure AD? (Preview)](../active-directory/fundamentals/custom-security-attributes-overview.md)
+- [What are custom security attributes in Microsoft Entra ID? (Preview)](../active-directory/fundamentals/custom-security-attributes-overview.md)
 - [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)

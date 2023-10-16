@@ -28,7 +28,7 @@ The following table lists the available configuration settings.
 | `cwd`<br />(Azure Pipelines only) | Absolute path to the working folder. Defaults to `$(System.DefaultWorkingDirectory)`. | No |
 | `build_timeout_in_minutes` | Set this value to customize the build timeout. Defaults to `15`. | No |
 
-With these settings, you can set up GitHub Actions or [Azure Pipelines](publish-devops.md) to run continuous integration/continuous delivery (CI/CD) for your static web app.
+With these settings, you can set up GitHub Actions or [Azure Pipelines](get-started-portal.md?pivots=azure-devops) to run continuous integration/continuous delivery (CI/CD) for your static web app.
 
 ## File name and location
 
@@ -134,7 +134,7 @@ In this configuration:
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
-- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
+- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./deployment-token-management.md).
 
 > [!NOTE]
 > `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
@@ -147,6 +147,7 @@ For Node.js applications, you can take fine-grained control over what commands r
 
 > [!NOTE]
 > Currently, you can only define `app_build_command` and `api_build_command` for Node.js builds.
+> To specify the Node.js version, use the [`engines`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#engines) field in the `package.json` file.
 
 # [GitHub Actions](#tab/github-actions)
 
@@ -189,6 +190,9 @@ To skip building the front-end app:
 - Set `skip_app_build` to `true`.
 - Set `output_location` to an empty string (`''`).
 
+> [!NOTE]
+> Make sure you have your `staticwebapp.config.json` file copied as well into the *output* directory.
+
 # [GitHub Actions](#tab/github-actions)
 
 ```yml
@@ -218,13 +222,14 @@ inputs:
 ```
 
 ---
+
 ## Skip building the API
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
 
 Steps to skip building the API:
 
-- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct runtime and version. Refer to [Configure Azure Static Web Apps](configuration.md#selecting-the-api-language-runtime-version) for the list of supported runtimes and versions.
+- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct runtime and version. Refer to [Configure Azure Static Web Apps](configuration.md#select-the-api-language-runtime-version) for the list of supported runtimes and versions.
     ```json
     {
       "platform": {
@@ -296,6 +301,44 @@ inputs:
   output_location: 'public'
   build_timeout_in_minutes: 30
   azure_static_web_apps_api_token: $(deployment_token)
+```
+
+---
+
+## Run workflow without deployment secrets
+
+Sometimes you need your workflow to continue to process even when some secrets are missing. Set the `SKIP_DEPLOY_ON_MISSING_SECRETS` environment variable to `true` to configure your workflow to proceed without defined secrets.
+
+When enabled, this feature allows the workflow to continue without deploying the site's content.
+
+# [GitHub Actions](#tab/github-actions)
+
+```yaml
+...
+
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }}
+  action: 'upload'
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
+```
+
+# [Azure Pipelines](#tab/azure-devops)
+
+```yaml
+...
+
+inputs:
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+  azure_static_web_apps_api_token: $(deployment_token)
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
 ---

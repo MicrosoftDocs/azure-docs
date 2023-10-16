@@ -1,0 +1,267 @@
+### YamlMime:Landing
+
+title: System functions in Azure Cosmos DB for NoSQL
+summary: Azure Cosmos DB for NoSQL provides many built-in system functions for common tasks across a wide variety of categories.
+
+metadata:
+  title: System functions (NoSQL query)
+  titleSuffix: Azure Cosmos DB for NoSQL
+  description: Azure Cosmos DB for NoSQL provides many built-in system functions for common tasks across a wide variety of categories.
+  author: jcodella
+  ms.author: jacodel
+  ms.reviewer: sidandrews
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.topic: landing-page
+  ms.date: 07/01/2023
+  ms.custom: query-reference
+
+landingContent:
+  - title: Array functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ARRAY_CONCAT
+            url: array-concat.md
+          - text: ARRAY_CONTAINS
+            url: array-contains.md
+          - text: ARRAY_LENGTH
+            url: array-length.md
+          - text: ARRAY_SLICE
+            url: array-slice.md
+          - text: CHOOSE
+            url: choose.md
+          - text: ObjectToArray
+            url: objecttoarray.md
+          - text: SetIntersect
+            url: setintersect.md
+          - text: SetUnion
+            url: setunion.md
+  - title: Conditional functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: IIF
+            url: iif.md
+  - title: Date and time functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: GetCurrentDateTime
+            url: getcurrentdatetime.md
+          - text: GetCurrentDateTimeStatic
+            url: getcurrentdatetimestatic.md
+          - text: GetCurrentTicks
+            url: getcurrentticks.md
+          - text: GetCurrentTicksStatic
+            url: getcurrentticksstatic.md
+          - text: GetCurrentTimestamp
+            url: getcurrenttimestamp.md
+          - text: GetCurrentTimestampStatic
+            url: getcurrenttimestampstatic.md
+      - linkListType: reference
+        links:
+          - text: DateTimeAdd
+            url: datetimeadd.md
+          - text: DateTimeBin
+            url: datetimebin.md
+          - text: DateTimeDiff
+            url: datetimediff.md
+          - text: DateTimeFromParts
+            url: datetimefromparts.md
+          - text: DateTimePart
+            url: datetimepart.md
+          - text: DateTimeToTicks
+            url: datetimetoticks.md
+          - text: DateTimeToTimestamp
+            url: datetimetotimestamp.md
+          - text: TicksToDateTime
+            url: tickstodatetime.md
+          - text: TimestampToDateTime
+            url: timestamptodatetime.md
+  - title: Item functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: DocumentId
+            url: documentid.md
+  - title: Mathematical functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ABS
+            url: abs.md
+          - text: ACOS
+            url: acos.md
+          - text: ASIN
+            url: asin.md
+          - text: ATAN
+            url: atan.md
+          - text: ATN2
+            url: atn2.md
+          - text: CEILING
+            url: ceiling.md
+          - text: COS
+            url: cos.md
+          - text: COT
+            url: cot.md
+          - text: DEGREES
+            url: degrees.md
+          - text: EXP
+            url: exp.md
+      - linkListType: reference
+        links:
+          - text: FLOOR
+            url: floor.md
+          - text: IntAdd
+            url: intadd.md
+          - text: IntBitAnd
+            url: intbitand.md
+          - text: IntBitLeftShift
+            url: intbitleftshift.md
+          - text: IntBitNot
+            url: intbitnot.md
+          - text: IntBitOr
+            url: intbitor.md
+          - text: IntBitRightShift
+            url: intbitrightshift.md
+          - text: IntBitXor
+            url: intbitxor.md
+          - text: IntDiv
+            url: intdiv.md
+          - text: IntMod
+            url: intmod.md
+      - linkListType: reference
+        links:
+          - text: IntMul
+            url: intmul.md
+          - text: IntSub
+            url: intsub.md
+          - text: LOG
+            url: log.md
+          - text: LOG10
+            url: log10.md
+          - text: NumberBin
+            url: numberbin.md
+          - text: PI
+            url: pi.md
+          - text: POWER
+            url: power.md
+          - text: RADIANS
+            url: radians.md
+          - text: RAND
+            url: rand.md
+          - text: ROUND
+            url: round.md
+      - linkListType: reference
+        links:
+          - text: SIGN
+            url: sign.md
+          - text: SIN
+            url: sin.md
+          - text: SQRT
+            url: sqrt.md
+          - text: SQUARE
+            url: square.md
+          - text: TAN
+            url: tan.md
+          - text: TRUNC
+            url: trunc.md
+  - title: Spatial functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ST_AREA
+            url: st-area.md
+          - text: ST_DISTANCE
+            url: st-distance.md
+          - text: ST_INTERSECTS
+            url: st-intersects.md
+          - text: ST_ISVALID
+            url: st-isvalid.md
+          - text: ST_ISVALIDDETAILED
+            url: st-isvaliddetailed.md
+          - text: ST_WITHIN
+            url: st-within.md
+  - title: String functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: CONCAT
+            url: concat.md
+          - text: CONTAINS
+            url: contains.md
+          - text: ENDSWITH
+            url: endswith.md
+          - text: INDEX_OF
+            url: index-of.md
+          - text: LEFT
+            url: left.md
+          - text: LENGTH
+            url: length.md
+          - text: LOWER
+            url: lower.md
+          - text: LTRIM
+            url: ltrim.md
+          - text: REGEXMATCH
+            url: regexmatch.md
+          - text: REPLACE
+            url: replace.md
+      - linkListType: reference
+        links:
+          - text: REPLICATE
+            url: replicate.md
+          - text: REVERSE
+            url: reverse.md
+          - text: RIGHT
+            url: right.md
+          - text: RTRIM
+            url: rtrim.md
+          - text: STARTSWITH
+            url: startswith.md
+          - text: STRINGEQUALS
+            url: stringequals.md
+          - text: StringToArray
+            url: stringtoarray.md
+          - text: StringToBoolean
+            url: stringtoboolean.md
+          - text: StringToNull
+            url: stringtonull.md
+          - text: StringToNumber
+            url: stringtonumber.md
+      - linkListType: reference
+        links:
+          - text: StringToObject
+            url: stringtoobject.md
+          - text: SUBSTRING
+            url: substring.md
+          - text: ToString
+            url: tostring.md
+          - text: TRIM
+            url: trim.md
+          - text: UPPER
+            url: upper.md
+  - title: Type checking functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: IS_ARRAY
+            url: is-array.md
+          - text: IS_BOOL
+            url: is-bool.md
+          - text: IS_DEFINED
+            url: is-defined.md
+          - text: IS_FINITE_NUMBER
+            url: is-finite-number.md
+          - text: IS_INTEGER
+            url: is-integer.md
+          - text: IS_NULL
+            url: is-null.md
+          - text: IS_NUMBER
+            url: is-number.md
+          - text: IS_OBJECT
+            url: is-object.md
+          - text: IS_PRIMITIVE
+            url: is-primitive.md
+          - text: IS_STRING
+            url: is-string.md

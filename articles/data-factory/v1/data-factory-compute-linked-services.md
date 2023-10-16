@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Compute environments supported by Azure Data Factory version 1
@@ -263,7 +263,7 @@ You can create a Batch linked service to register a Batch pool of virtual machin
 
 If you are new to using the Batch service:
 
-* Learn about [Azure Batch basics](../../azure-sql/database/sql-database-paas-overview.md).
+* Learn about [Azure Batch basics](/azure/azure-sql/database/sql-database-paas-overview).
 * Learn about the [New-AzureBatchAccount](/previous-versions/azure/mt125880(v=azure.100)) cmdlet. Use this cmdlet to create a Batch account. Or, you can create the Batch account by using the [Azure portal](../../batch/batch-account-create-portal.md). For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Learn about the [New-AzureBatchPool](/previous-versions/azure/mt125936(v=azure.100)) cmdlet. Use this cmdlet to create a Batch pool.
 
@@ -351,7 +351,7 @@ The following table describes the generic properties that are used in the JSON d
 For your Data Lake Analytics linked service, you can choose between authentication by using a service principal or a user credential.
 
 #### Service principal authentication (recommended)
-To use service principal authentication, register an application entity in Azure Active Directory (Azure AD). Then, grant Azure AD access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+To use service principal authentication, register an application entity in Microsoft Entra ID. Then, grant Microsoft Entra ID access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 * Application ID
 * Application key 
 * Tenant ID
@@ -420,8 +420,8 @@ The following table shows expirations by user account type:
 
 | User type                                | Expires after                            |
 | :--------------------------------------- | :--------------------------------------- |
-| User accounts that are *not* managed by Azure AD (Hotmail, Live, and so on) | 12 hours.                                 |
-| User accounts that *are* managed by Azure AD | 14 days after the last slice run. <br /><br />90 days, if a slice that's based on an OAuth-based linked service runs at least once every 14 days. |
+| User accounts that are *not* managed by Microsoft Entra ID (Hotmail, Live, and so on) | 12 hours.                                 |
+| User accounts that *are* managed by Microsoft Entra ID | 14 days after the last slice run. <br /><br />90 days, if a slice that's based on an OAuth-based linked service runs at least once every 14 days. |
 
 To avoid or resolve this error, reauthorize by selecting the **Authorize** button when the token expires. Then, redeploy the linked service. You can also generate values for the **sessionId** and **authorization** properties programmatically by using the following code:
 

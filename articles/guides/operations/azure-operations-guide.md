@@ -4,6 +4,7 @@ description: Get started guide for Azure IT operators
 author: RicksterCDN
 ms.author: rclaus
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
@@ -101,7 +102,7 @@ Services for storing and managing data:
 
 Services for building and operating applications:
 
-- Azure Active Directory (Azure AD)
+- Microsoft Entra ID
 
 - Azure Service Bus for connecting distributed systems
 
@@ -137,7 +138,7 @@ One of the benefits of using Azure is that you can deploy your applications into
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](../../azure-portal/azure-portal-overview.md) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### Resources
 
@@ -157,7 +158,7 @@ In addition to creating, managing, and deleting resources by using the Azure por
 
 #### Azure PowerShell
 
-Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Azure CLI
 
@@ -209,7 +210,7 @@ In addition to viewing the billing in the portal, you can access the billing inf
 
 - You can use the Azure Usage API to retrieve your usage data. You can fine-tune the billing usage information by tagging related Azure resources. For example, you can tag each of the resources in a resource group with a department name or project name, and then track the costs specifically for that one tag.
 
-- You can use the [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md) to list all the available resources, along with the metadata. For more information on prices, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
+- You can use the [Cost Management automation overview](../../cost-management-billing/automate/automation-overview.md) to list all the available resources, along with the metadata. For more information on prices, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### Forecast cost with the pricing calculator
 
@@ -379,7 +380,7 @@ For more information, see [Get started with Azure Table storage](../../cosmos-db
 #### Queue storage
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
-For more information, see [Get started with Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md).
+For more information, see [Get started with Azure Queue storage](/azure/storage/queues/).
 
 ### Deploying a storage account
 

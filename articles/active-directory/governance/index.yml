@@ -1,17 +1,16 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory Identity Governance documentation
-summary: Azure Active Directory (Azure AD) Identity Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
+title: Microsoft Entra ID Governance documentation
+summary: Microsoft Entra ID Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
 
 metadata: 
-  author: ajburnle
+  author: owinfreyatl
   description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
-  manager: karenhoran
-  ms.author: ajburnle
-  ms.collection: na
-  ms.date: 09/14/2019
+  manager: amycolannino
+  ms.author: owinfrey
+  ms.date: 03/07/2023
   ms.service: active-directory
-  ms.subservice: na
+  ms.subservice: compliance
   ms.topic: landing-page
   services: active-directory
 
@@ -19,27 +18,33 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Identity Governance
+  - title: About ID Governance
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD Identity Governance?
+          - text: What is ID Governance?
             url: identity-governance-overview.md
       - linkListType: video
         links:
           - text: Govern access to your resources
             url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+      - linkListType: reference
+        links:
+          - text: Microsoft Entra ID Governance licensing fundamentals
+            url: licensing-fundamentals.md
+          - text: Identity Governance dashboard (Preview)
+            url: governance-dashboard.md            
   
   # Card
   - title: Govern the lifecycle of access to groups, apps, and sites
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD entitlement management?
+          - text: What is entitlement management?
             url: entitlement-management-overview.md
       - linkListType: tutorial
         links:
-          - text: Manage access to resources - Azure portal
+          - text: Manage access to resources - Microsoft Entra
             url: entitlement-management-access-package-first.md
           - text: Manage access to resources - Microsoft Graph
             url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
@@ -53,7 +58,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure AD access reviews?
+          - text: What are access reviews?
             url: access-reviews-overview.md
       - linkListType: how-to-guide
         links:
@@ -63,11 +68,31 @@ landingContent:
             url: perform-access-review.md
   
   # Card
+  - title: Govern the lifecycle of users as they join, move within, and leave organizations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Lifecycle Workflows?
+            url: what-are-lifecycle-workflows.md
+      - linkListType: tutorial
+        links:
+          - text: On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra admin center
+            url: tutorial-onboard-custom-workflow-portal.md
+          - text: On-boarding users to your organization using Lifecycle workflows with Microsoft Graph
+            url: tutorial-onboard-custom-workflow-graph.md
+      - linkListType: concept
+        links:
+          - text: Understanding Lifecycle Workflows 
+            url: understanding-lifecycle-workflows.md
+          - text: Lifecycle Workflows built-in tasks
+            url: lifecycle-workflow-tasks.md  
+  
+  # Card
   - title: Make users eligible for privileged roles
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD Privileged Identity Management?
+          - text: What is Privileged Identity Management?
             url: ../privileged-identity-management/pim-configure.md
   
   # Card

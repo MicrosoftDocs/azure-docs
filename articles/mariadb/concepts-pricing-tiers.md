@@ -1,14 +1,16 @@
 ---
 title: Pricing tiers - Azure Database for MariaDB
 description: Learn about the various pricing tiers for Azure Database for MariaDB including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 06/24/2022
 ---
 
 # Azure Database for MariaDB pricing tiers
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 You can create an Azure Database for MariaDB server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MariaDB server level. A server can have one or many databases.
 
@@ -82,7 +84,7 @@ Azure Database for MariaDB provides up to 100% of your provisioned server storag
 
 ## Scale resources
 
-After you create your server, you can independently change the vCores, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. 
+After you create your server, you can independently change the vCores, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI.
 
 When you change the number of vCores, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute.
 
@@ -93,5 +95,6 @@ Scaling storage and changing the backup retention period are true online operati
 For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/mariadb/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MariaDBServer) shows the monthly cost on the **Pricing tier** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, and choose **Azure Database for MariaDB** to customize the options.
 
 ## Next steps
+
 - Learn about the [service limitations](concepts-limits.md).
 - Learn how to [create a MariaDB server in the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).

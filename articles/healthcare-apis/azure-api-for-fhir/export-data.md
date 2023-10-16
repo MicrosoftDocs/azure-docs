@@ -1,15 +1,17 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export for Azure API for FHIR
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: mikaelw
+ms.date: 9/27/2023
+ms.author: kesheth
 ---
 
-# How to export FHIR data in Azure API for FHIR
+# Export FHIR data in Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
@@ -29,10 +31,9 @@ The Azure API For FHIR supports $export at the following levels:
 * [Patient](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) - Azure API for FHIR exports all related resources but doesn't export the characteristics of the group: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
-When data is exported, a separate file is created for each resource type. To ensure that the exported files don't become too large. We create a new file after the size of a single-exported file becomes larger than 64 MB. The result is that you may get multiple files for each resource type, which will be enumerated (that is, Patient-1.ndjson, Patient-2.ndjson). 
+With export, data is exported in multiple files each containing resources of only one type. The number of resources in an individual file will be limited. The maximum number of resources is based on system performance. It is currently set to 5,000, but can change. The result is that you may get multiple files for a resource type, which will be enumerated (for example, `Patient-1.ndjson`, `Patient-2.ndjson`).
 
-
-> [!Note] 
+> [!NOTE] 
 > `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
 
 In addition, checking the export status through the URL returned by the location header during the queuing is supported along with canceling the actual export job.
@@ -62,8 +63,9 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | \_type | Yes | Allows you to specify which types of resources will be included. For example, \_type=Patient would return only patient resources|
 | \_typefilter | Yes | To request finer-grained filtering, you can use \_typefilter along with the \_type parameter. The value of the _typeFilter parameter is a comma-separated list of FHIR queries that further restrict the results |
 | \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container isn’t specified, the data will be exported to a new container. |
+| \_till | No |  Allows you to only export resources that have been modified till the time provided. This parameter is applicable to only System-Level export. In this case, if historical versions have not been disabled or purged, export guarantees true snapshot view, or, in other words, enables time travel. |
 
-> [!Note]
+> [!NOTE]
 > Only storage accounts in the same subscription as that for Azure API for FHIR are allowed to be registered as the destination for $export operations.
 
 ## Secure Export to Azure Storage
@@ -93,50 +95,7 @@ You're now ready to export FHIR data to the storage account securely. Note that 
 > [!IMPORTANT]
 > The user interface will be updated later to allow you to select the Resource type for Azure API for FHIR and a specific service instance.
 
-### Allowing specific IP addresses for the Azure storage account in a different region
-
-Select **Networking** of the Azure storage account from the
-portal. 
-   
-Select **Selected networks**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to
-allow access from the internet or your on-premises networks. You can
-find the IP address in the table below for the Azure region where the
-Azure API for FHIR is provisioned.
-
-|**Azure Region**         |**Public IP Address** |
-|:----------------------|:-------------------|
-| Australia East       | 20.53.44.80       |
-| Canada Central       | 20.48.192.84      |
-| Central US           | 52.182.208.31     |
-| East US              | 20.62.128.148     |
-| East US 2            | 20.49.102.228     |
-| East US 2 EUAP       | 20.39.26.254      |
-| Germany North        | 51.116.51.33      |
-| Germany West Central | 51.116.146.216    |
-| Japan East           | 20.191.160.26     |
-| Korea Central        | 20.41.69.51       |
-| North Central US     | 20.49.114.188     |
-| North Europe         | 52.146.131.52     |
-| South Africa North   | 102.133.220.197   |
-| South Central US     | 13.73.254.220     |
-| Southeast Asia       | 23.98.108.42      |
-| Switzerland North    | 51.107.60.95      |
-| UK South             | 51.104.30.170     |
-| UK West              | 51.137.164.94     |
-| West Central US      | 52.150.156.44     |
-| West Europe          | 20.61.98.66       |
-| West US 2            | 40.64.135.77      |
-
-> [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](../../healthcare-apis/fhir/convert-data.md#host-and-use-templates)
-
-### Allowing specific IP addresses for the Azure storage account in the same region
-
-The configuration process is the same as above except a specific IP
-address range in CIDR format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
-
-> [!Note] 
-> It is possible that a private IP address within the range of 10.0.2.0/24 may be used instead. In that case, the $export operation will not succeed. You can retry the $export request, but there is no guarantee that an IP address within the range of 100.64.0.0/10 will be used next time. That's the known networking behavior by design. The alternative is to configure the storage account in a different region.
+[!INCLUDE [Specific IP ranges for storage account](../includes/common-ip-address-storage-account.md)]
     
 ## Next steps
 
@@ -144,3 +103,5 @@ In this article, you've learned how to export FHIR resources using $export comma
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -1,14 +1,13 @@
 ---
 title: Memory and concurrency limits
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes for dedicated SQL pool in Azure Synapse Analytics.
-author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 04/04/2021
-ms.author: rortloff
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sngun
+ms.date: 04/04/2021
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -48,6 +47,9 @@ The service levels range from DW100c to DW30000c.
 | DW30000c          | 60            | 1                              | 18000                          |
 
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
+
+> [!NOTE]
+> Synapse Dedicated SQL pool is an evergreen platform service. Under [shared responsibility model in the cloud](../../security/fundamentals/shared-responsibility.md#division-of-responsibility), Microsoft continues to invest in advancements to underlying software and hardware which host dedicated SQL pool. As a result, the number of nodes or the type of computer hardware which underpins a given performance level (SLO) may change. The number of compute nodes listed here are provided as a reference, and shouldn't be used for sizing or performance purposes. Irrespective of number of nodes or underlying infrastructure, Microsoft's goal is to deliver performance in accordance with SLO; hence, we recommend that all sizing exercises must use cDWU as a guide. For more information on SLO and compute Data Warehouse Units, see [Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)](what-is-a-data-warehouse-unit-dwu-cdwu.md#service-level-objective).
 
 ## Concurrency maximums for workload groups
 

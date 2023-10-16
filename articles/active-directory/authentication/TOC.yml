@@ -9,9 +9,9 @@
   items:
   - name: Enable self-service password reset
     href: tutorial-enable-sspr.md
-  - name: Enable Azure AD Multi-Factor Authentication
+  - name: Enable Microsoft Entra multifactor authentication
     href: tutorial-enable-azure-mfa.md
-  - name: Enable cloud sync password writeback (preview)
+  - name: Enable cloud sync password writeback
     href: tutorial-enable-cloud-sync-sspr-writeback.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
@@ -26,6 +26,8 @@
     items:
     - name: Overview
       href: concept-authentication-methods.md
+    - name: Manage 
+      href: concept-authentication-methods-manage.md
     - name: Microsoft Authenticator app
       href: concept-authentication-authenticator-app.md
     - name: OATH tokens
@@ -36,6 +38,12 @@
       href: concept-authentication-phone-options.md
     - name: Security questions
       href: concept-authentication-security-questions.md
+  - name: Authentication strengths
+    items:
+    - name: Overview
+      href: concept-authentication-strengths.md
+    - name: Troubleshoot
+      href: troubleshoot-authentication-strengths.md
   - name: Self-service password reset
     items:
     - name: How password reset works
@@ -46,12 +54,20 @@
       href: concept-sspr-policy.md
     - name: Licenses
       href: concept-sspr-licensing.md
-  - name: Multi-Factor Authentication
+  - name: Multifactor authentication
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Default protection 
+      href: concept-authentication-default-enablement.md
+    - name: System-preferred MFA 
+      href: concept-system-preferred-multifactor-authentication.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
+    - name: Understanding telephony fraud
+      href: concept-mfa-telephony-fraud.md
+    - name: Regional opt-in
+      href: concept-mfa-regional-opt-in.md
     - name: Data residency
       href: concept-mfa-data-residency.md
     - name: Licenses
@@ -74,8 +90,86 @@
     href: concept-registration-mfa-sspr-combined.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
+  - name: Web browser cookies
+    href: concept-authentication-web-browser-cookies.md
 - name: How-to guides
   items:
+  - name: Manage authentication methods
+    href: how-to-authentication-methods-manage.md      
+  - name: Passwordless
+    items: 
+      - name: Deploying passwordless
+        href: howto-authentication-passwordless-deployment.md
+      - name: Passwordless FIDO2 security keys
+        items:
+          - name: Enable FIDO2 security keys 
+            href: howto-authentication-passwordless-security-key.md
+          - name: Sign in to Windows 10 devices
+            href: howto-authentication-passwordless-security-key-windows.md
+          - name: SSO to on-premises resources
+            href: howto-authentication-passwordless-security-key-on-premises.md
+          - name: Hybrid FAQs
+            href: howto-authentication-passwordless-faqs.md
+          - name: Troubleshoot hybrid
+            href: howto-authentication-passwordless-troubleshoot.md
+      - name: Microsoft Authenticator
+        items:
+        - name: Manage
+          href: howto-authentication-passwordless-phone.md
+        - name: Run a registration campaign
+          href: how-to-mfa-registration-campaign.md
+        - name: Use number matching 
+          href: how-to-mfa-number-match.md
+        - name: Use additional context 
+          href: how-to-mfa-additional-context.md
+        - name: Use Authenticator Lite 
+          href: how-to-mfa-authenticator-lite.md
+        - name: Use Microsoft managed settings 
+          href: ./concept-authentication-default-enablement.md
+      - name: Windows Hello for Business
+        href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
+      - name: Certificate-based authentication
+        items:
+        - name: Microsoft Entra CBA
+          items:
+          - name: Overview
+            href: concept-certificate-based-authentication.md
+          - name: How Microsoft Entra CBA works
+            href: concept-certificate-based-authentication-technical-deep-dive.md
+          - name: Configure Microsoft Entra CBA
+            href: how-to-certificate-based-authentication.md
+          - name: Windows smart card logon
+            href: concept-certificate-based-authentication-smartcard.md
+          - name: Apple devices
+            href: concept-certificate-based-authentication-mobile-ios.md
+          - name: Android devices
+            href: concept-certificate-based-authentication-mobile-android.md
+          - name: Certificate user IDs
+            href: concept-certificate-based-authentication-certificateuserids.md
+          - name: Migrate federated users
+            href: concept-certificate-based-authentication-migration.md
+          - name: FAQ
+            href: certificate-based-authentication-faq.yml
+        - name: Federated CBA with Microsoft Entra ID
+          items:
+          - name: Configure CBA with federation
+            href: certificate-based-authentication-federation-get-started.md
+          - name: Use on Android Devices
+            href: certificate-based-authentication-federation-android.md
+          - name: Use on iOS Devices
+            href: certificate-based-authentication-federation-ios.md
+  - name: Use a Temporary Access Pass
+    href: howto-authentication-temporary-access-pass.md
+  - name: Use SMS-based authentication
+    items:  
+    - name: Manage
+      href: howto-authentication-sms-signin.md
+    - name: Supported apps for SMS-based authentication
+      href: how-to-authentication-sms-supported-apps.md
+    - name: Two-way SMS unsupported
+      href: how-to-authentication-two-way-sms-unsupported.md
+  - name: Use email address sign-in
+    href: howto-authentication-use-email-signin.md
   - name: Self-service password reset
     items:
     - name: Deployment guide
@@ -86,10 +180,12 @@
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
-  - name: Azure AD Multi-Factor Authentication
+  - name: Microsoft Entra multifactor authentication
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
+    - name: Configure MFA using the portal guide
+      href: multi-factor-authentication-wizard.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
     - name: Configure users
@@ -116,32 +212,12 @@
         href: howto-mfa-nps-extension.md
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
-      - name: Azure VPN and Azure AD MFA
+      - name: Azure VPN and Microsoft Entra multifactor authentication
         href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
-  - name: Passwordless
-    items: 
-      - name: Deploying passwordless
-        href: howto-authentication-passwordless-deployment.md
-      - name: Passwordless FIDO2 security keys
-        items:
-          - name: Enable FIDO2 security keys for your tenant
-            href: howto-authentication-passwordless-security-key.md
-          - name: Sign in to Windows 10 devices
-            href: howto-authentication-passwordless-security-key-windows.md
-          - name: SSO to on-premises resources
-            href: howto-authentication-passwordless-security-key-on-premises.md
-          - name: Hybrid FAQs
-            href: howto-authentication-passwordless-faqs.md
-          - name: Troubleshoot hybrid
-            href: howto-authentication-passwordless-troubleshoot.md
-      - name: Passwordless phone sign-in
-        href: howto-authentication-passwordless-phone.md
-      - name: Windows Hello for Business
-        href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
   - name: Security info registration
     items:
     - name: Enable combined registration
@@ -162,50 +238,8 @@
       href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Run a registration campaign
-    href: how-to-mfa-registration-campaign.md
-  - name: Use number matching (Preview)
-    href: how-to-mfa-number-match.md
-  - name: Use additional context (Preview)
-    href: how-to-mfa-additional-context.md
-  - name: Use Microsoft managed settings 
-    href: how-to-mfa-microsoft-managed.md
-  - name: Use a Temporary Access Pass (Preview)
-    href: howto-authentication-temporary-access-pass.md
-  - name: Use SMS-based authentication
-    href: howto-authentication-sms-signin.md
-  - name: Supported apps for SMS-based authentication
-    href: how-to-authentication-sms-supported-apps.md
-  - name: Two-way SMS unsupported
-    href: how-to-authentication-two-way-sms-unsupported.md
-  - name: Use email address sign-in
-    href: howto-authentication-use-email-signin.md
-  - name: Azure AD smart lockout
+  - name: Microsoft Entra smart lockout
     href: howto-password-smart-lockout.md
-  - name: Certificate-based authentication
-    items:
-    - name: Azure AD CBA (Preview)
-      items:
-      - name: Overview
-        href: concept-certificate-based-authentication.md
-      - name: How Azure AD CBA works
-        href: concept-certificate-based-authentication-technical-deep-dive.md
-      - name: Limitations
-        href: concept-certificate-based-authentication-limitations.md
-      - name: Configure Azure AD CBA
-        href: how-to-certificate-based-authentication.md
-      - name: FAQ
-        href: certificate-based-authentication-faq.yml
-      - name: Troubleshoot
-        href: troubleshoot-certificate-based-authentication.md
-    - name: Federated CBA with Azure AD
-      items:
-      - name: Configure CBA with federation
-        href: active-directory-certificate-based-authentication-get-started.md
-      - name: Use on Android Devices
-        href: active-directory-certificate-based-authentication-android.md
-      - name: Use on iOS Devices
-        href: active-directory-certificate-based-authentication-ios.md
   - name: Reporting
     items:
     - name: Authentication methods activity
@@ -218,14 +252,16 @@
       href: howto-mfa-reporting-datacollection.md
   - name: MFA Server
     items:
-    - name: Migrate MFA Server to Azure AD MFA
+    - name: Migrate MFA Server to Microsoft Entra multifactor authentication
       items:
       - name: Overview
         href: how-to-migrate-mfa-server-to-azure-mfa.md
       - name: Migrate to Azure MFA and user authentication
-        href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+        href: how-to-migrate-mfa-server-to-mfa-user-authentication.md
       - name: Migrate to Azure MFA with Federation
-        href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
+        href: how-to-migrate-mfa-server-to-mfa-with-federation.md
+      - name: Migration Utility
+        href: how-to-mfa-server-migration-utility.md    
     - name: Deploy MFA on-premises
       href: howto-mfaserver-deploy.md
     - name: Install the user portal
@@ -273,7 +309,7 @@
     - name: SSPR writeback
       href: troubleshoot-sspr-writeback.md
     - name: SSPR FAQ
-      href: active-directory-passwords-faq.yml
+      href: passwords-faq.yml
     - name: MFA FAQ
       href: multi-factor-authentication-faq.yml
     - name: NPS extension
@@ -286,8 +322,12 @@
     href: /samples/browse/?products=azure
   - name: Azure PowerShell cmdlets
     href: /powershell/azure/
-  - name: Microsoft Graph REST API beta
-    href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
+  - name: Authentication methods APIs - Microsoft Graph
+    href: /graph/api/resources/authenticationmethods-overview
+  - name: Authentication strengths APIs - Microsoft Graph (preview)
+    href: /graph/api/resources/authenticationstrengths-overview
+  - name: Authentication methods policy - Microsoft Graph
+    href: /graph/api/resources/authenticationmethodspolicies-overview
   - name: Service limits and restrictions
     href: ../enterprise-users/directory-service-limits-restrictions.md
   - name: FIDO2 compatibility

@@ -7,10 +7,11 @@ metadata:
   title: Azure Backup Documentation 
   description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. 
   ms.service: backup
+  ms.custom: engagement-fy23
   ms.topic: landing-page 
-  author: v-amallick
-  ms.author: v-amallick 
-  ms.date: 12/01/2019 
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick 
+  ms.date: 09/29/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -30,6 +31,8 @@ landingContent:
             url: backup-support-matrix.md
           - text: Azure Backup architecture
             url: backup-architecture.md
+          - text: Azure Backup security
+            url: security-overview.md
 
   # Card (optional)
   - title: Get started with Azure Backup
@@ -59,24 +62,25 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Blobs backup
+          - text: Multiple backups per day for Azure VMs
+            url: backup-azure-vms-enhanced-policy.md
+          - text: Multi-user authorization for Backup vault 
+            url: multi-user-authorization-concept.md?tabs=backup-vault
+          - text: Enhanced soft delete
+            url: backup-azure-enhanced-soft-delete-about.md
+          - text: Azure Kubernetes Service backup (preview)
+            url: azure-kubernetes-service-backup-overview.md
+          - text: Azure Blob vaulted backups (preview)
             url: blob-backup-overview.md
-          - text: Azure Disk Backup
-            url: disk-backup-overview.md
-          - text: Backup Center
-            url: backup-center-overview.md
-          - text: Backup Azure Database for PostgreSQL 
-            url: backup-azure-database-postgresql.md
-          - text: Selective disk backup and restore for Azure VMs
+          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
             url: selective-disk-backup-restore.md
-          - text: Cross Region Restore for SQL Server databases on Azure VMs
-            url: restore-sql-database-azure-vm.md#cross-region-restore
-          - text: Support for backup of VM with up to 32 disks
-            url: backup-support-matrix-iaas.md#vm-storage-support
-          - text: Soft Delete for Azure Backup
-            url: backup-azure-security-feature-cloud.md
-          - text: SQL Server on Azure VMs restore as files
-            url: restore-sql-database-azure-vm.md#restore-as-files
+          - text: SAP HANA System Replication backup
+            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
+          - text: Cross Region Restore for PostgreSQL (preview)
+            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview
+          - text: Cross Region Restore support for MARS agent (preview)
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
+
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -123,8 +127,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Back up SAP HANA databases in Azure VMs
+          - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
+          - text: Back up SAP HSR databases on Azure VMs
+            url: sap-hana-database-with-hana-system-replication-backup.md
+          - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
+            url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md
           - text: FAQ - Back up SAP HANA databases on Azure VMs
@@ -149,6 +157,8 @@ landingContent:
             url: backup-windows-with-mars-agent.md
           - text: Manage MARS Agent backups by using the Azure Backup service
             url: backup-azure-manage-mars.md
+          - text: Cross Region Restore support for MARS agent (preview)
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent

@@ -19,9 +19,11 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 1. Create a Stream Analytics job.
 
-2. Create a storage account to be used by the Stream Analytics job.
+2. Create a storage account to be used by the Stream Analytics job.   
+   > [!IMPORTANT]
+   > The Azure Stream Analytics retains snapshots within this storage account. When configuring the retention policy, it is imperative to ensure that the chosen timespan effectively encompasses the desired recovery duration for your Stream Analytics job.
 
-3. Create your Azure SQL Database with a data set to be used as reference data by the Stream Analytics job.
+4. Create your Azure SQL Database with a data set to be used as reference data by the Stream Analytics job.
 
 ### Define SQL Database reference data input
 
@@ -35,7 +37,7 @@ Please see [delta query](sql-reference-data.md#delta-query).
 
    ![When SQL Database is selected, the SQL Database New input page appears. There is a configuration form in the left pane, and a Snapshot query in the right pane.](./media/sql-reference-data/sql-input-config.png)
 
-3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md)
+3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](/azure/azure-sql/database/connect-query-portal)
 
 ### Specify storage account in Job config
 
@@ -61,10 +63,12 @@ Use the following steps to add Azure SQL Database as a reference input source us
 2. Become familiar with the [Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md) quickstart.
 
 3. Create a storage account.
+   > [!IMPORTANT]
+   > The Azure Stream Analytics retains snapshots within this storage account. When configuring the retention policy, it is imperative to ensure that the chosen timespan effectively encompasses the desired recovery duration for your Stream Analytics job.
 
 ### Create a SQL Database table
 
-Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL Database using SSMS](../azure-sql/database/design-first-database-tutorial.md) for details.
+Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL Database using SSMS](/azure/azure-sql/database/design-first-database-tutorial) for details.
 
 The example table used in the following example was created from the following statement:
 
@@ -124,7 +128,7 @@ Before deploying the job to Azure, you can test the query logic locally against 
 
 ## Delta query
 
-When using the delta query, [temporal tables in Azure SQL Database](../azure-sql/temporal-tables.md) are recommended.
+When using the delta query, [temporal tables in Azure SQL Database](/azure/azure-sql/temporal-tables) are recommended.
 
 1. Create a temporal table in Azure SQL Database.
 

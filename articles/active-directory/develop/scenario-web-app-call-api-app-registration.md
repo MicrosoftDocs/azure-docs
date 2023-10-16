@@ -1,9 +1,8 @@
 ---
-title: Register a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Register a web app that calls web APIs
 description: Learn how to register a web app that calls web APIs
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -22,7 +22,7 @@ A web app that calls web APIs has the same registration as a web app that signs 
 
 However, because the web app now also calls web APIs, it becomes a confidential client application. That's why some extra registration is required. The app must share client credentials, or *secrets*, with the Microsoft identity platform.
 
-[!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Registration of client secrets](./includes/scenarios/scenarios-registration-client-secrets.md)]
 
 ## API permissions
 

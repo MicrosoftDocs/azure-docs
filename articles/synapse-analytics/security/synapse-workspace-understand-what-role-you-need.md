@@ -22,7 +22,7 @@ You can open Synapse Studio and view details of the workspace and list any of it
 
 ### Resource management
 
-You can create SQL pools, Data Explorer pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
+You can create SQL pools, Data Explorer pools, and Apache Spark pools if you are an Azure Owner or Contributor on the resource group. You can create an Integration Runtime if you are an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
 
 You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
@@ -30,7 +30,7 @@ You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integ
 
 With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, KQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers, and credentials. These artifacts can be published or saved with additional permissions.  
 
-If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts.
+If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts, including scheduled pipelines.
 
 ### Execute your code
 
@@ -45,6 +45,10 @@ With Compute Operator permissions on the workspace or specific integration runti
 You can review the status of running notebooks and jobs in Apache Spark pools if you're a Synapse User.
 
 You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Operator at the workspace or for a specific Spark pool or pipeline.  
+
+### Debug pipelines
+
+You can review and make changes in pipelines as a Synapse User, but if you want to be able to debug it you also need to have Synapse Credential User.
 
 ### Publish and save your code
 
@@ -73,63 +77,63 @@ All Synapse RBAC permissions/actions shown in the table are prefixed `Microsoft/
 
 Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 --|--|--
-|Open Synapse Studio on a workspace|Synapse User, or |read
-| |Azure Owner, Contributor, or Reader on the workspace|none
-|List SQL pools, Data Explorer pools, Apache Spark pools, Integration runtimes and access their configuration details|Synapse User, or|read|
-||Azure Owner, Contributor, or Reader on the workspace|none
-|List linked services, credentials, managed private endpoints|Synapse User|read
+|Open Synapse Studio on a workspace|Synapse User or |read
+| |Azure Owner or Contributor, or Reader on the workspace|none
+|List SQL pools or Data Explorer pools or Apache Spark pools, or Integration runtimes and access their configuration details|Synapse User or|read|
+||Azure Owner or Contributor, or Reader on the workspace|none
+|List linked services or credentials or managed private endpoints|Synapse User|read
 SQL POOLS|
-Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the workspace|none
-Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
-Create a SQL script</br>|Synapse User, or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
-List and open any published SQL script| Synapse Artifact User, Artifact Publisher, Synapse Contributor|artifacts/read
+Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the resource group|none
+Manage (pause or scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
+Create a SQL script</br>|Synapse User or </br>Azure Owner or Contributor on the workspace. </br></br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
+List and open any published SQL script| Synapse Artifact User or Artifact Publisher, or Synapse Contributor|artifacts/read
 Run a SQL script on a serverless SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
 Run a SQL script on a dedicated SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
-Publish a new, updated, or deleted SQL script|Synapse Artifact Publisher, Synapse Contributor|sqlScripts/write, delete
+Publish a new or updated, or deleted SQL script|Synapse Artifact Publisher or Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to the Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on the workspace (via workspace properties in the Azure Portal)|Azure Owner or Contributor on the workspace |
 DATA EXPLORER POOLS|
-Create a Data Explorer pool |Azure Owner or Contributor on the workspace|none
-Manage (pause, scale, or delete) a Data Explorer pool|Azure Owner or Contributor on the Data Explorer pool or workspace|none
-Create a KQL script</br>|Synapse User, </br>*Additional Data Explorer permissions are required to run a script, publish, or commit changes*.|
-List and open any published KQL script| Synapse Artifact User, Artifact Publisher, Synapse Contributor|artifacts/read
+Create a Data Explorer pool |Azure Owner or Contributor on the resource group|none
+Manage (pause or scale, or delete) a Data Explorer pool|Azure Owner or Contributor on the Data Explorer pool or workspace|none
+Create a KQL script</br>|Synapse User. </br></br>*Additional Data Explorer permissions are required to run a script, publish, or commit changes*.|
+List and open any published KQL script| Synapse Artifact User or Artifact Publisher, or Synapse Contributor|artifacts/read
 Run a KQL script on a Data Explorer pool| Data Explorer permissions on the pool (granted automatically to a Synapse Administrator)|none
-Publish new, update, or delete KQL script|Synapse Artifact Publisher, Synapse Contributor|kqlScripts/write, delete
+Publish new, update, or delete KQL script|Synapse Artifact Publisher or Synapse Contributor|kqlScripts/write, delete
 Commit changes to a KQL script to the Git repo|Requires Git permissions on the repo|
 APACHE SPARK POOLS|
-Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
+Create an Apache Spark pool|Azure Owner or Contributor on the resource group|
 Monitor Apache Spark applications| Synapse User|read
-View the logs for notebook and job execution |Synapse Monitoring Operator|
+View the logs for completed notebook and job execution |Synapse Monitoring Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
-Create a notebook or job definition|Synapse User, or </br>Azure Owner, Contributor, or Reader on the workspace</br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
-List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User, Synapse Monitoring Operator on the workspace|artifacts/read
-Run a notebook and review its output, or submit a Spark job|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
-Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace, Synapse Apache Spark Administrator|notebooks/write, delete
+Create a notebook or job definition|Synapse User or </br>Azure Owner or Contributor, or Reader on the workspace</br></br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
+List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User or Synapse Monitoring Operator on the workspace|artifacts/read
+Run a notebook and review its output, or submit a Spark job|Synapse Apache Spark Administrator or Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
+Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace or Synapse Apache Spark Administrator|notebooks/write, delete
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
 PIPELINES, INTEGRATION RUNTIMES, DATAFLOWS, DATASETS & TRIGGERS|
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
 Monitor Integration runtime status|Synapse Monitoring Operator|read, integrationRuntimes/viewLogs
 Review pipeline runs|Synapse Monitoring Operator|read, pipelines/viewOutputs 
-Create a pipeline |Synapse User</br>*Additional Synapse permissions are required to debug, add triggers, publish, or commit changes*|read
-Create a dataflow or dataset |Synapse User</br>*Additional Synapse permissions are required to publish, or commit changes*|read
-List and open a published pipeline |Synapse Artifact User, Synapse Monitoring Operator | artifacts/read
-Preview dataset data|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity| 
-Debug a pipeline using the default Integration runtime|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity credential|read, </br>credentials/useSecret
-Create a trigger, including trigger now (requires permission to execute the pipeline)|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
-Execute/run a pipeline|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
-Copy data using the Copy Data tool|Synapse User + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
-Ingest data (using a schedule)|Synapse Author + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
+Create a pipeline |Synapse User</br></br>*Additional Synapse permissions are required to debug, add triggers, publish, or commit changes*|read
+Create a dataflow or dataset |Synapse User</br></br>*Additional Synapse permissions are required to publish, or commit changes*|read
+List and open a published pipeline |Synapse Artifact User or Synapse Monitoring Operator | artifacts/read
+Preview dataset data|Synapse User and Synapse Credential User on the WorkspaceSystemIdentity| 
+Debug a pipeline using the default Integration runtime|Synapse User and Synapse Credential User on the WorkspaceSystemIdentity credential|read, </br>credentials/useSecret
+Create a trigger, including trigger now (requires permission to execute the pipeline)|Synapse User and Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
+Execute/run a pipeline|Synapse User and Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
+Copy data using the Copy Data tool|Synapse User and Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
+Ingest data (using a schedule)|Synapse Author and Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
 Publish a new, updated, or deleted pipeline, dataflow, or trigger to the service|Synapse Artifact Publisher on the workspace|pipelines/write, delete</br>dataflows/write, delete</br>triggers/write, delete
 Commit changes to pipelines, dataflows, datasets, or triggers to the Git repo |Git permissions|none 
 LINKED SERVICES|
-Create a linked service (includes assigning a credential)|Synapse User</br>*Additional permissions are required to use a linked service with credentials, or to publish, or commit changes*|read
+Create a linked service (includes assigning a credential)|Synapse User</br></br>*Additional permissions are required to use a linked service with credentials, or to publish, or commit changes*|read
 List and open a published linked service|Synapse Artifact User|linkedServices/write, delete  
-Test connection on a linked service secured by a credential|Synapse User + Synapse Credential User|credentials/useSecret/action|
-Publish a linked service|Synapse Artifact Publisher, Synapse Linked Data Manager|linkedServices/write, delete
+Test connection on a linked service secured by a credential|Synapse User and Synapse Credential User|credentials/useSecret/action|
+Publish a linked service|Synapse Artifact Publisher or Synapse Linked Data Manager|linkedServices/write, delete
 Commit linked service definitions to the Git repo|Git permissions|none
 ACCESS MANAGEMENT|
 Review Synapse RBAC role assignments at any scope|Synapse User|read
-Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete 
+Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete
 
 
 ## Next steps

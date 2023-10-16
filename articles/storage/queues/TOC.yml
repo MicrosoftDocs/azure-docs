@@ -1,10 +1,10 @@
 - name: Azure Queue storage documentation
   href: ./index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What are Azure queues?
     href: storage-queues-introduction.md
+  expanded: true
 - name: Quickstarts
   items:
   - name: Manage queues without code
@@ -13,73 +13,88 @@
       href: storage-quickstart-queues-portal.md
   - name: Develop with queues
     items:
-    - name: .NET (v12)
+    - name: .NET
       href: storage-quickstart-queues-dotnet.md
-    - name: .NET (v11)
-      href: storage-quickstart-queues-dotnet-legacy.md
-    - name: Java (v12)
+    - name: Java
       href: storage-quickstart-queues-java.md
-    - name: Python (v12)
-      href: storage-quickstart-queues-python.md
-    - name: JavaScript (v12)
+    - name: JavaScript
       href: storage-quickstart-queues-nodejs.md
+    - name: Python
+      href: storage-quickstart-queues-python.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
-    href: storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: storage-tutorial-queues.md?toc=/azure/storage/queues/toc.json
 - name: Samples
   items:
   - name: .NET
-    href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-samples-dotnet.md?toc=/azure/storage/queues/toc.json
   - name: Java
-    href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json
+  - name: Spring
+    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
   - name: Python
-    href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-samples-python.md?toc=/azure/storage/queues/toc.json
   - name: JavaScript
-    href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-samples-javascript.md?toc=/azure/storage/queues/toc.json
   - name: Other languages
-    href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-samples.md?toc=/azure/storage/queues/toc.json
   - name: Azure Resource Graph queries
     href: ../common/resource-graph-samples.md
 - name: Concepts
   items:
   - name: Storage accounts
-    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-account-overview.md?toc=/azure/storage/queues/toc.json
   - name: Authorization
-    href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/authorize-data-access.md?toc=/azure/storage/queues/toc.json
     items:
-    - name: Authenticate and authorize with Azure AD
+    - name: Authorizing data operations
+      href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
+      items:
+      - name: Authorize with Microsoft Entra ID
+        items:
+        - name: Authorize with Azure roles
+          href: authorize-access-azure-active-directory.md
+        - name: Authorize with conditions
+          href: queues-auth-abac.md
+        - name: Actions and attributes for conditions
+          href: queues-auth-abac-attributes.md
+    - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:
       - name: View and manage account keys
-        href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-account-keys-manage.md?toc=/azure/storage/queues/toc.json
       - name: Configure connection strings
-        href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-configure-connection-string.md?toc=/azure/storage/queues/toc.json
       - name: Use the Azure Storage REST API
-        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-rest-api-auth.md?toc=/azure/storage/queues/toc.json
     - name: Authorize with SAS
-      href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-sas-overview.md?toc=/azure/storage/queues/toc.json
+    - name: Migrate to passwordless connections
+      href: passwordless-migrate-queues.md?toc=/azure/storage/queues/toc.json
   - name: Authorizing management operations
-    href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/authorization-resource-provider.md?toc=/azure/storage/queues/toc.json
   - name: Security
     items:
     - name: Azure Storage encryption at rest
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-service-encryption.md?toc=/azure/storage/queues/toc.json
       items:
       - name: Encryption with customer-managed keys
-        href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/queues/toc.json
     - name: Use Azure Private Endpoints
-      href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
+      href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
-      href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
+    - name: Security recommendations
+      href: security-recommendations.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=%2fazure%2fstorage%2fqueues%2ftoc.json?toc=/azure/storage/queues/TOC.json
+      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/queues/toc.json?toc=/azure/storage/queues/TOC.json
   - name: Data redundancy
-    href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
   - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
   - name: Performance, scaling, and cost optimization
     items:
     - name: Scalability and performance targets
@@ -87,9 +102,9 @@
       - name: Queue storage
         href: scalability-targets.md
       - name: Standard storage accounts
-        href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/queues/toc.json
       - name: Storage resource provider
-        href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/queues/toc.json
     - name: Performance and scalability checklist
       href: storage-performance-checklist.md
   - name: Monitor and troubleshoot
@@ -97,30 +112,32 @@
     - name: Monitor Queue storage
       href: monitor-queue-storage.md
     - name: Transition from classic metrics
-      href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-metrics-migration.md?toc=/azure/storage/queues/toc.json
     - name: Monitoring (classic)
       items:
       - name: Storage Analytics
-        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-analytics.md?toc=/azure/storage/queues/toc.json
       - name: Metrics
-        href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-analytics-metrics.md?toc=/azure/storage/queues/toc.json
       - name: Logs
-        href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting
 - name: How to
   items:
   - name: Create and manage storage accounts
     items:
     - name: Create a storage account
       displayName: resource manager, resource manager template, template, ARM
-      href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-account-create.md?toc=/azure/storage/queues/toc.json
     - name: Upgrade a storage account
-      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-account-upgrade.md?toc=/azure/storage/queues/toc.json
     - name: Recover a deleted storage account
-      href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-account-recover.md?toc=/azure/storage/queues/toc.json
+    - name: Migrate a classic account to Azure Resource Manager
+      href: ../common/classic-account-migrate.md?toc=/azure/storage/queues/toc.json
     - name: Get account configuration properties
-      href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-account-get-info.md?toc=/azure/storage/queues/toc.json
   - name: Secure queue data
     items:
     - name: Authorize access to queue data
@@ -135,100 +152,82 @@
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
         href: assign-azure-role-data-access.md
-      - name: Authenticate and authorize with Azure AD
-        items:
-          - name: Get an access token for authorization with Azure AD
-            href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: Authorize from an application running in Azure
-            href: authorize-managed-identity.md
-          - name: Authorize from a native or web application
-            href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Authorize with Shared Key
         items:
         - name: View and manage account keys
-          href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-account-keys-manage.md?toc=/azure/storage/queues/toc.json
         - name: Configure connection strings
-          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-configure-connection-string.md?toc=/azure/storage/queues/toc.json
         - name: Use the Azure Storage REST API
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-rest-api-auth.md?toc=/azure/storage/queues/toc.json
         - name: Prevent authorization with Shared Key
-          href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/shared-key-authorization-prevent.md?toc=/azure/storage/queues/toc.json
     - name: Manage Azure Storage encryption
       items:
       - name: Create an account that supports customer-managed keys
-        href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/account-encryption-key-create.md?toc=/azure/storage/queues/toc.json
       - name: Configure encryption with customer-managed keys
         items:
-        - name: Store customer-managed keys in a key vault
-          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Store customer-managed keys in a managed HSM
-          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Check the encryption key model for the account
-        href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Check the encryption key model for the account
+          href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/queues/toc.json
+        - name: Configure customer-managed keys in Azure Key Vault
+          items:
+          - name: Configure customer-managed keys in the same tenant
+            items:
+            - name: Configure customer-managed keys for a new account
+              href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/queues/toc.json
+            - name: Configure customer-managed keys for an existing account
+              href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/queues/toc.json
+          - name: Configure customer-managed keys in a different tenant
+            items:
+            - name: Configure customer-managed keys for a new account
+              href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/queues/toc.json
+            - name: Configure customer-managed keys for an existing account
+              href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/queues/toc.json
+        - name: Configure customer-managed keys in a managed HSM
+          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/queues/toc.json
       - name: Enable infrastructure encryption for the account
-        href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/queues/toc.json
     - name: Configure client-side encryption
-      items:
-      - name: .NET
-        href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Java
-        href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Python
-        href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: client-side-encryption.md
     - name: Configure network security
-      items:         
+      items:
       - name: Configure firewalls and virtual networks
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-network-security.md?toc=/azure/storage/queues/toc.json
       - name: Require secure transfer
-        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/queues/toc.json
       - name: Manage Transport Layer Security (TLS)
         items:
         - name: Enforce minimum TLS version for incoming requests
-          href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json 
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/queues/toc.json
         - name: Configure TLS version for a client application
-          href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/queues/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
-      href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/queues/toc.json
   - name: Manage data redundancy
     items:
     - name: Change how data is replicated
-      href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/redundancy-migration.md?toc=/azure/storage/queues/toc.json
     - name: Design highly available applications
-      href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/geo-redundant-design.md?toc=/azure/storage/queues/toc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property
-      href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/last-sync-time-get.md?toc=/azure/storage/queues/toc.json
     - name: Initiate account failover
-      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/queues/toc.json
   - name: Use a storage emulator
     items:
     - name: Use the Azurite open-source emulator
-      href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-use-azurite.md?toc=/azure/storage/queues/toc.json
     - name: Use the Azure Storage emulator (deprecated)
-      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Develop with queues
-    items:
-    - name: .NET
-      href: storage-dotnet-how-to-use-queues.md
-    - name: Java
-      href: storage-java-how-to-use-queue-storage.md
-    - name: Python
-      href: storage-python-how-to-use-queue-storage.md
-    - name: Node.js
-      href: storage-nodejs-how-to-use-queues.md
-    - name: C++
-      href: storage-c-plus-plus-how-to-use-queues.md
-    - name: PHP
-      href: storage-php-how-to-use-queues.md
-    - name: Ruby
-      href: storage-ruby-how-to-use-queue-storage.md
+      href: ../common/storage-use-emulator.md?toc=/azure/storage/queues/toc.json
   - name: Manage queues
     items:
     - name: PowerShell for Azure Queues
       href: storage-powershell-how-to-use-queues.md
     - name: PowerShell for China, Government, and German clouds
-      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/queues/toc.json
     - name: Monitor
       items:
       - name: Scenarios and best practices
@@ -236,17 +235,47 @@
       - name: Monitor (classic)
         items:
         - name: Monitor in the Azure portal (classic)
-          href: ../common/manage-storage-analytics-logs.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/manage-storage-analytics-logs.md??toc=/azure/storage/queues/toc.json
   - name: Troubleshoot
     items:
+    - name: Performance
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance
+    - name: Availability
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability
+    - name: Client errors
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors
     - name: Latency issues
-      href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs
 - name: Reference
   items:
-  - name: Azure Queue storage reference
-    href: ../queues/reference.md
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/queue-service-rest-api
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage#management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage#management
   - name: Monitoring Azure Queue storage reference
     href: monitor-queue-storage-reference.md
+  - name: Spring Integration with Azure Storage Queue
+    href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/queues/TOC.json#spring-integration-with-azure-storage-queue
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.storage/allversions
@@ -259,13 +288,13 @@
     - name: Download Storage Explorer
       href: https://azure.microsoft.com/features/storage-explorer/
     - name: Get started with Storage Explorer
-      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/queues/toc.json
     - name: Storage Explorer release notes
       href: https://github.com/microsoft/AzureStorageExplorer/releases
     - name: Troubleshoot Storage Explorer
-      href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting
     - name: Storage Explorer accessibility
-      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/queues/toc.json
   - name: Queue storage on Microsoft Q&A
     href: /answers/topics/azure-queue-storage.html
   - name: Queue storage on Stack Overflow
@@ -295,7 +324,7 @@
     - name: .NET
       items:
       - name: Azure Storage client library
-        items: 
+        items:
         - name: Version 12.x
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
         - name: Version 11.x and earlier
@@ -309,20 +338,32 @@
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
       - name: Blobs, Queues, and Files (version 8)
-        href: /java/api/overview/azure/storage?view=azure-java-legacy
+        href: /java/api/overview/azure/storage
       - name: Azure Storage client library version 8.x and earlier
         href: https://github.com/Azure/azure-storage-java
     - name: Node.js
       items:
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
-      - name: Azure Storage client library version 10.x     
+      - name: Azure Storage client library version 10.x
         href: https://github.com/Azure/azure-storage-node
     - name: Python
-      items: 
+      items:
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
-      - name: Azure Storage client library version 2.1     
+      - name: Azure Storage client library version 2.1
         href: https://github.com/Azure/azure-storage-python
+  - name: Code samples using deprecated SDKs
+    items:
+    - name: .NET
+      items:
+      - name: Version 11.x samples
+        href: queues-v11-samples-dotnet.md
+      - name: Design highly available applications (.NET version 11.x)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
+    - name: Java version 8 samples
+      href: queues-v8-samples-java.md
+    - name: Python version 2 samples
+      href: queues-v2-samples-python.md
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md

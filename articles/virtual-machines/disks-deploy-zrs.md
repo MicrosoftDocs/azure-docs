@@ -3,10 +3,9 @@ title: Deploy a ZRS managed disk
 description: Learn how to deploy a managed disk that uses zone-redundant storage (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 09/01/2021
+ms.date: 05/05/2023
 ms.topic: how-to
-ms.service: virtual-machines
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -21,18 +20,22 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
 
+## Regional availability
+
+[!INCLUDE [disk-storage-zrs-regions](../../includes/disk-storage-zrs-regions.md)]
+
 # [Azure portal](#tab/portal)
 
 ### Create a VM with a ZRS OS disk
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. Select a supported region and set **Availability options** to **No infrastructure redundancy required**.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
 1. Proceed to the **Disks** pane.
-1. Select your disk and select one of the ZRS disks in the drop down.
+1. Select your disk and select one of the ZRS disks in the drop-down.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png" alt-text="Screenshot of the vm creation workflow, disks pane, OS disk dropdown is expanded with the ZRS premium SSD and standard SSD options highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png":::
 
@@ -128,7 +131,7 @@ az vm create -g $rgName \
 --subnet $vmNamePrefix"_subnet"
 
 ```
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```azurecli
 location=westus2
 rgName=yourRGName
@@ -141,7 +144,7 @@ dataDiskSku=Premium_ZRS
 az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
---image UbuntuLTS \
+--image Ubuntu2204 \
 --upgrade-policy automatic \
 --generate-ssh-keys \
 --data-disk-sizes-gb 128 \
@@ -279,7 +282,7 @@ $vm2 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -Man
 update-AzVm -VM $vm1 -ResourceGroupName $rgName
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```powershell
 $vmLocalAdminUser = "yourLocalAdminUser"
 $vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
@@ -399,7 +402,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 -dataDiskType $sharedDataDiskType
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 
 ```
 $vmssName="yourVMSSName"

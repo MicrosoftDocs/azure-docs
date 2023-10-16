@@ -29,13 +29,13 @@ This section lists PowerShell commands that are typically used while setting up 
 New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Cause:** The user specified by the *-SignInName* parameter can't be found in the Azure Active Directory tied to the Azure Virtual Desktop environment.
+**Cause:** The user specified by the *-SignInName* parameter can't be found in the Microsoft Entra tied to the Azure Virtual Desktop environment.
 
 **Fix:** Make sure of the following things.
 
-- The user should be synced to Azure Active Directory.
+- The user should be synced to Microsoft Entra ID.
 - The user shouldn't be tied to business-to-consumer (B2C) or business-to-business (B2B) commerce.
-- The Azure Virtual Desktop environment should be tied to correct Azure Active Directory.
+- The Azure Virtual Desktop environment should be tied to correct Microsoft Entra ID.
 
 ### Error: New-AzRoleAssignment: "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)"
 
@@ -43,7 +43,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 **Fix 1:** A user with Owner permissions needs to execute the role assignment. Alternatively, the user needs to be assigned to the User Access Administrator role to assign a user to an application group.
 
-**Cause 2:** The account being used has Owner permissions but isn't part of the environment's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
+**Cause 2:** The account being used has Owner permissions but isn't part of the environment's Microsoft Entra ID or doesn't have permissions to query the Microsoft Entra ID where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
@@ -73,7 +73,7 @@ New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e4
 - To troubleshoot issues while setting up your Azure Virtual Desktop environment and host pools, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client-windows.md)
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

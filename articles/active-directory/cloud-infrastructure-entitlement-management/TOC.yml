@@ -1,161 +1,173 @@
-  - name: CloudKnox Permissions Management
+  - name: Microsoft Entra Permissions Management
     href: index.yml
   - name: Overview
     expanded: true
     items:
-      - name: What's CloudKnox Permissions Management?
-        href: cloudknox-overview.md       
+      - name: What's Microsoft Entra Permissions Management?
+        href: overview.md       
   - name: How-to guides
     expanded: true
     items:
-    - name: Onboard CloudKnox on the Azure AD tenant
+    - name: Quickstart guide - Microsoft Entra Permissions Management
+      href: permissions-management-quickstart-guide.md  
+    - name: Onboard Permissions Management on the Microsoft Entra tenant
       expanded: true
       items:
-      - name: Enable CloudKnox in your organization 
-        href: cloudknox-onboard-enable-tenant.md
+      - name: Enable Permissions Management in your organization 
+        href: onboard-enable-tenant.md
       - name: Onboard an AWS account
-        href: cloudknox-onboard-aws.md
+        href: onboard-aws.md
       - name: Onboard an Azure subscription
-        href: cloudknox-onboard-azure.MD
+        href: onboard-azure.MD
       - name: Onboard a GCP project
-        href: cloudknox-onboard-gcp.md
+        href: onboard-gcp.md
       - name: Enable or disable the controller after onboarding is complete
-        href: cloudknox-onboard-enable-controller-after-onboarding.md
+        href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
-        href: cloudknox-onboard-add-account-after-onboarding.md
-    - name: View risk metrics in your authorization system
+        href: onboard-add-account-after-onboarding.md
+      - name: Create folders to organize your Authorization Systems
+        href: how-to-create-folders.md
+    - name: Configure third-party integrations 
+      expanded: false
+      items:
+      - name: Configure AWS IAM Identity Center as an identity provider
+        href: how-to-configure-aws-iam.md
+      - name: Configure Okta as an identity provider
+        href: how-to-configure-okta-as-an-identity-provider.md 
+    - name: View information about your Authorization Systems
       expanded: false
       items:
       - name: View key statistics and data about your authorization system
-        href: cloudknox-ui-dashboard.md
+        href: ui-dashboard.md
       - name: View data about the activity in your authorization system
-        href: cloudknox-product-dashboard.md
-    - name: Configure settings for data collection
-      expanded: false
-      items:
+        href: product-dashboard.md  
       - name: View and configure settings for data collection
-        href: cloudknox-product-data-sources.md
-      - name: Display an inventory of created resources and licenses 
-        href: cloudknox-product-data-inventory.md
+        href: product-data-sources.md
+      - name: View current billable resources in your authorization system
+        href: product-data-billable-resources.md
     - name: Manage organizational and personal information
       expanded: false
       items:
       - name: View personal and organization information
-        href: cloudknox-product-account-settings.md
+        href: product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: false
       items:
       - name: View analytic information with the Analytics dashboard
-        href: cloudknox-usage-analytics-home.md
+        href: usage-analytics-home.md
       - name: View analytic information about users
-        href: cloudknox-usage-analytics-users.md
+        href: usage-analytics-users.md
       - name: View analytic information about groups
-        href: cloudknox-usage-analytics-groups.md
+        href: usage-analytics-groups.md
       - name: View analytic information about active resources
-        href: cloudknox-usage-analytics-active-resources.md
+        href: usage-analytics-active-resources.md
       - name: View analytic information about active tasks
-        href: cloudknox-usage-analytics-active-tasks.md
+        href: usage-analytics-active-tasks.md
       - name: View analytic information about access keys
-        href: cloudknox-usage-analytics-access-keys.md
+        href: usage-analytics-access-keys.md
       - name: View analytic information about serverless functions
-        href: cloudknox-usage-analytics-serverless-functions.md
+        href: usage-analytics-serverless-functions.md
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
+      - name: Permissions Management roles and permissions
+        href: product-roles-permissions.md
+      - name: View privileged role assignments in your organization
+        href: product-privileged-role-insights.md
       - name: View roles/policies and requests for permission in the Remediation dashboard
-        href: cloudknox-ui-remediation.md
+        href: ui-remediation.md 
       - name: View information about roles/policies
-        href: cloudknox-howto-view-role-policy.md
+        href: how-to-view-role-policy.md
       - name: View information about active and completed tasks
-        href: cloudknox-ui-tasks.md
+        href: ui-tasks.md
       - name: Create a role/policy
-        href: cloudknox-howto-create-role-policy.md
+        href: how-to-create-role-policy.md
       - name: Clone a role/policy
-        href: cloudknox-howto-clone-role-policy.md
+        href: how-to-clone-role-policy.md
       - name: Modify a role/policy
-        href: cloudknox-howto-modify-role-policy.md
+        href: how-to-modify-role-policy.md
       - name: Delete a role/policy
-        href: cloudknox-howto-delete-role-policy.md
+        href: how-to-delete-role-policy.md
       - name: Attach and detach policies for AWS identities
-        href: cloudknox-howto-attach-detach-permissions.md
+        href: how-to-attach-detach-permissions.md
       - name: Add and remove roles and tasks for Azure and GCP identities
-        href: cloudknox-howto-add-remove-role-task.md
+        href: how-to-add-remove-role-task.md
       - name: Revoke access to high-risk and unused tasks or assign read-only status
-        href: cloudknox-howto-revoke-task-readonly-status.md
+        href: how-to-revoke-task-readonly-status.md
       - name: Create or approve a request for permissions 
-        href: cloudknox-howto-create-approve-privilege-request.md
+        href: how-to-create-approve-privilege-request.md
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
+      - name: Add or remove a user in Permissions Management
+        href: how-to-add-remove-user-to-group.md
       - name: Manage users and groups
-        href: cloudknox-ui-user-management.md
+        href: ui-user-management.md
       # - name: Define and manage users, roles, and access levels
-        # href: cloudknox-product-define-permission-levels.md
+        # href: product-define-permission-levels.md
       - name: Select group-based permissions settings
-        href: cloudknox-howto-create-group-based-permissions.md
+        href: how-to-create-group-based-permissions.md
     - name: Use queries to view information about user access
       expanded: false
       items:
       - name: Use queries to see how users access information 
-        href: cloudknox-ui-audit-trail.md
+        href: ui-audit-trail.md
       - name: Create a custom query
-        href: cloudknox-howto-create-custom-queries.md
-      - name: Generate an on-demand report from a query
-        href: cloudknox-howto-audit-trail-results.md
+        href: how-to-create-custom-queries.md
       - name: Filter and query user activity
-        href: cloudknox-product-audit-trail.md
-    - name: Set activity alerts and triggers 
+        href: product-audit-trail.md
+    - name: Set alerts and alert triggers 
       expanded: false
       items: 
-      - name: View information about activity triggers
-        href: cloudknox-ui-triggers.md
+      - name: View information about alerts and alert triggers
+        href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
-        href: cloudknox-howto-create-alert-trigger.md
-      - name: Create and view rule-based anomalies and anomaly triggers
-        href: cloudknox-product-rule-based-anomalies.md
-      - name: Create and view statistical anomalies and anomaly triggers
-        href: cloudknox-product-statistical-anomalies.md
+        href: how-to-create-alert-trigger.md
+      - name: Create and view rule-based anomaly alerts and alert triggers
+        href: product-rule-based-anomalies.md
+      - name: Create and view statistical anomaly alerts and alert triggers
+        href: product-statistical-anomalies.md
       - name: Create and view permission analytics triggers
-        href: cloudknox-product-permission-analytics.md
+        href: product-permission-analytics.md
     - name: Manage rules for authorization systems
       expanded: false
       items:
       - name: View rules in the Autopilot dashboard
-        href: cloudknox-ui-autopilot.md
+        href: ui-autopilot.md
       - name: Create a rule
-        href: cloudknox-howto-create-rule.md 
+        href: how-to-create-rule.md 
       - name: Generate, view, and apply rule recommendations
-        href: cloudknox-howto-recommendations-rule.md 
+        href: how-to-recommendations-rule.md 
       - name: View notification settings for a rule
-        href: cloudknox-howto-notifications-rule.md
+        href: how-to-notifications-rule.md
     - name: Create and view reports 
       expanded: false
       items: 
+      - name: Generate an on-demand report from a query
+        href: how-to-audit-trail-results.md
       - name: View system reports in the Reports dashboard
-        href: cloudknox-product-reports.md
+        href: product-reports.md
       - name: View a list and description of system reports
-        href: cloudknox-all-reports.md
+        href: all-reports.md
       - name: Generate and view a system report
-        href: cloudknox-report-view-system-report.md
+        href: report-view-system-report.md
       - name: Create, view, and share a custom report
-        href: cloudknox-report-create-custom-report.md
-      - name: Generate and download the Permissions analytics report
-        href: cloudknox-product-permissions-analytics-reports.md
+        href: report-create-custom-report.md
+      - name: View and download the Permissions analytics report
+        href: product-permissions-analytics-reports.md
   - name: Troubleshoot
     expanded: false
     items:
     - name: Troubleshoot issues
-      href: cloudknox-troubleshoot.md
-  - name: Training videos
-    expanded: false
-    items:
-    - name: Get started with CloudKnox training videos
-      href: cloudknox-training-videos.md
+      href: troubleshoot.md
+    - name: Error codes
+      href: error-codes-onboarding.md
   - name: Reference
     expanded: false
     items:
     - name: FAQs
-      href: cloudknox-faqs.md
+      href: faqs.md
     - name: Glossary
-      href: cloudknox-multi-cloud-glossary.md
-
+      href: multi-cloud-glossary.md
+    - name: Microsoft Entra Permissions Management partners
+      href: partner-list.md

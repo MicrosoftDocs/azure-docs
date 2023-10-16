@@ -3,9 +3,9 @@ title: Migrate Log Analytics data for Azure HDInsight
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
-ms.author: ali
-author: AliciaLiMicrosoft
-ms.date: 04/19/2021
+ms.author: sairamyeturi
+author: yeturis
+ms.date: 03/21/2023
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -30,10 +30,8 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 - Faster log delivery
 - Resource-based table grouping and default queries
 
-
-
 > [!NOTE]  
-> New Azure Montitor integration is in Public Preview. It is only available in East US and West Europe regions.
+> New Azure Montitor integration is in Public Preview across all regions where HDInsight is available.
 
 
 ## Benefits of the new Azure Monitor integration
@@ -42,13 +40,11 @@ This document outlines the changes to the Azure Monitor integration and provides
 
 **Redesigned schemas**: The schema formatting for the new Azure Monitor integration is better organized and easy to understand. There are two-thirds fewer schemas to remove as much ambiguity in the legacy schemas as possible.
 
-**Selective Logging (releasing soon)**: There are logs and metrics available through Log Analytics. To help you save on monitoring costs, we'll be releasing a new selective logging feature. Use this feature to turn on and off different logs and metric sources. With this feature, you'll only have to pay for what you use.
+**Selective Logging**: There are logs and metrics available through Log Analytics. To help you save on monitoring costs, we'll be releasing a new selective logging feature. Use this feature to turn on and off different logs and metric sources. With this feature, you'll only have to pay for what you use. For more details see [Selective Logging](selective-logging-analysis.md)
 
 **Logs cluster portal integration**: The **Logs** pane is new to the HDInsight Cluster portal. Anyone with access to the cluster can go to this pane to query any table that the cluster resource sends records to. Users don't need access to the Log Analytics workspace anymore to see the records for a specific cluster resource.
 
 **Insights cluster portal integration**: The **Insights** pane is also new to the HDInsight Cluster portal. After enabling the new Azure Monitor integration, you can select the **Insights** pane and an out-of-box logs and metrics dashboard specific to the cluster's type will automatically populate for you. These dashboards have been revamped from our previous Azure solutions. They give you deep insights into your cluster's performance and health.
-
-**At-scale insights**: You can use the new **At-Scale Insights** workbook in the **Azure Monitor** portal to monitor your clusters' health and performance across different subscriptions.
 
 ## Customer scenarios
 
@@ -121,16 +117,6 @@ Insights are cluster-specific visualization dashboards made using [Azure Workboo
 
 You can create your own Azure workbooks with custom graphs and visualizations. In your cluster's portal page, scroll down to the **Monitoring** section and select the **Workbooks** pane in the menu on the left. You can either start using a blank template or use one of the templates under the **HDInsight Clusters** section. There's a template for each cluster type. Templates are useful if you want to save specific customizations that the default HDInsight Insights don't provide. Feel free to send in requests for new features in the HDInsight Insights if you feel they're lacking something.
 
-#### At-scale workbooks for new Azure Monitor integrations
-
-Use our new at-scale workbook to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have the monitoring pipeline enabled. The workbook also gives you a straightforward way to check the health of multiple clusters at once. To view this workbook:
-
-1. Go to the **Azure Monitor** page in from the Azure portal home page
-2. Once on the **Azure Monitor** page, select **Insights Hub** under the **Insights** section.
-3. Select **HDInsight Clusters** under the **Analytics** section.
-
-   :::image type="content" source="./media/log-analytics-migration/at-scale-workbook.png" lightbox="./media/log-analytics-migration/at-scale-workbook.png" alt-text="Screenshot that shows the at-scale workbook." border="false":::
-
 #### Alerts
 
 You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](../azure-monitor/alerts/alerts-log.md).
@@ -159,20 +145,7 @@ Refer to the [mapping table](#appendix-table-mapping) between the old table/sche
 
 #### Out-of-box dashboards 
 
-We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that you'll find in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
-
-### Use an HDInsight at-scale monitoring dashboard
-
-If you're using the out-of-box monitoring dashboard for HDInsight clusters like HDInsight Spark Monitoring and HDInsight Interactive Monitoring, we're working to provide you the same capabilities on the Azure Monitor portal.
-
-You'll see that there's an HDInsight clusters option in Azure Monitor.
-
-   :::image type="content" source="./media/log-analytics-migration/hdinsight-azure-monitor.png" lightbox="./media/log-analytics-migration/hdinsight-azure-monitor.png" alt-text="Screenshot that shows the HDInsight option in Azure Monitor." border="false":::
-
-The Azure Monitor portal's Insights Hub provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
-
-> [!NOTE]
-> For more information, see the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
+We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. 
 
 ## Enable both integrations to accelerate the migration
 
@@ -189,7 +162,7 @@ If you're using a cluster created after mid-September 2020, you'll see the new p
 
    :::image type="content" source="./media/log-analytics-migration/hdinsight-classic-integration.png" alt-text="Screenshot that shows the link to access the classic integration." border="false":::
 
-Creating new clusters with classic Azure Monitor integration is not available after July 1, 2021.
+Creating new clusters with classic Azure Monitor integration is not available after Jan 1, 2023.
 
 ## Release and support timeline
 
@@ -267,13 +240,6 @@ The following charts show the table mappings from the classic Azure Monitoring I
 | HDInsightHBaseMetrics | <ul><li>**Description**: This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric.</li><li>**Old table**: metrics\_regionserver\_CL, metrics\_regionserver\_wal\_CL, metrics\_regionserver\_ipc\_CL, metrics\_regionserver\_os\_CL, metrics\_regionserver\_replication\_CL, metrics\_restserver\_CL, metrics\_restserver\_jvm\_CL, metrics\_hmaster\_assignmentmanager\_CL, metrics\_hmaster\_ipc\_CL, metrics\_hmaser\_os\_CL, metrics\_hmaster\_balancer\_CL, metrics\_hmaster\_jvm\_CL, metrics\_hmaster\_CL,metrics\_hmaster\_fs\_CL</li></ul>|
 | HDInsightHBaseLogs | <ul><li>**Description**: This table contains logs from HBase and its related components: Phoenix and HDFS.</li><li>**Old table**: log\_regionserver\_CL, log\_restserver\_CL, log\_phoenixserver\_CL, log\_hmaster\_CL, log\_hdfsnamenode\_CL, log\_garbage\_collector\_CL</li></ul>|
 
-## Storm workload
-
-| New Table | Details |
-| --- | --- |
-| HDInsightStormMetrics | <ul><li>**Description**: This table contains the same JMX metrics as the tables in the Old Tables section. Its rows contain one metric per record.</li><li>**Old table**: metrics\_stormnimbus\_CL, metrics\_stormsupervisor\_CL</li></ul>|
-| HDInsightStormTopologyMetrics | <ul><li>**Description**: This table contains topology level metrics from Storm. It's the same shape as the table listed in Old Tables section.</li><li>**Old table**: metrics\_stormrest\_CL</li></ul>|
-| HDInsightStormLogs | <ul><li>**Description**: This table contains all logs generated from Storm.</li><li>**Old table**: log\_supervisor\_CL, log\_nimbus\_CL</li></ul>|
 
 ## Oozie workload
 

@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 
-title: Azure Storage validated partner solutions documentation # < 60 chars
-summary: Azure Storage validated partner solutions enable advanced scenarios on top of Azure Storage.  # < 160 chars
-
+title: Azure Storage solutions from Microsoft partners # < 60 chars
+summary: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.  # < 160 chars
 metadata:
-  title: Azure Storage validated partner solutions # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description:  Azure Storage validated partner solutions enable advanced scenarios on top of Azure Storage. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Storage solutions from Microsoft partners
+  description: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.
   services: storage
-  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
-  ms.subservice: partner
-  ms.topic: landing-page # Required
+  ms.service: azure-storage
+  ms.subservice: storage-partner-integration
+  ms.topic: landing-page
   ms.collection: collection
   author: beber-msft
   ms.author: beber
-  ms.date: 03/15/2021 #Required; mm/dd/yyyy format.
+  ms.date: 06/09/2022
+  ms.custom: kr2b-contr-experiment
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -21,18 +21,18 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Analytics and big data partners
+  - title: Analytics and big data partner solutions
     linkLists:
       - linkListType: overview
         links:
-          - text: Validated analytics partners
+          - text: Overview of analytics partner solutions
             url: .\validated-partners\analytics\partner-overview.md
   # Card
-  - title: Archive, backup and BCDR partners
+  - title: Archive, backup, and BCDR partner solutions
     linkLists:
       - linkListType: overview
         links:
-          - text: Validated archive and BCDR partners
+          - text: Overview of archive and BCDR partner solutions
             url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
       - linkListType: get-started
         links:
@@ -42,19 +42,21 @@ landingContent:
             url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
           - text: DobiProtect getting started guide
             url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+          - text: Tiger Bridge archiving with CDP and DR
+            url: .\validated-partners\backup-archive-disaster-recovery\tiger-bridge-cdp-guide.md
    # Card
-  - title: Container solution partners
+  - title: Partner container solutions
     linkLists:
       - linkListType: overview
         links:
-          - text: Validated container solution partners
+          - text: Overview of partner container solutions
             url: .\validated-partners\container-solutions\partner-overview.md
    # Card
-  - title: Data management and migration partners
+  - title: Data management and migration partner solutions
     linkLists:
       - linkListType: overview
         links:
-          - text: Validated data management and migration partners
+          - text: Overview of data management and migration partner solutions
             url: .\validated-partners\data-management\partner-overview.md
           - text: Migration tools comparison
             url: ./validated-partners/data-management/migration-tools-comparison.md
@@ -71,11 +73,11 @@ landingContent:
           - text: Cirrus Data getting started guide
             url: ./validated-partners/data-management/cirrus-data-migration-guide.md
                      # Card
-  - title: Primary and secondary storage partners
+  - title: Primary and secondary storage partner solutions
     linkLists:
       - linkListType: overview
         links:
-          - text: Validated partners for primary and secondary storage
+          - text: Overview of primary and secondary storage partner solutions
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
             url: .\validated-partners\primary-secondary-storage\isv-file-services.md

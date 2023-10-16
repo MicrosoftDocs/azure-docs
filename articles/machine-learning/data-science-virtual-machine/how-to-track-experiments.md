@@ -4,7 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: data-science-vm
-
+ms.custom: sdkv1, event-tier1-build-2022
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
@@ -39,7 +39,7 @@ The config contains information such as the workspace name, subscription, etc. a
 
 ## Track DSVM runs
 
-Add the following code to your notebook (or script) to set the AzureML workspace object.
+Add the following code to your notebook (or script) to set the Azure Machine Learning workspace object.
 
 ```Python
 import mlflow
@@ -62,7 +62,7 @@ from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-from sklearn.externals import joblib
+import joblib
 
 X, y = load_diabetes(return_X_y = True)
 columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
@@ -126,7 +126,7 @@ In this section, we outline how to deploy models trained on a DSVM to Azure Mach
 
 ### Step 1: Create Inference Compute
 
-On the left-hand menu in [AzureML Studio](https://ml.azure.com) click on __Compute__ and then the __Inference clusters__ tab. Next, click on __+ New__ as discussed below:
+On the left-hand menu in [Azure Machine Learning Studio](https://ml.azure.com) click on __Compute__ and then the __Inference clusters__ tab. Next, click on __+ New__ as discussed below:
 
 ![Create Inference Compute](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
@@ -174,7 +174,9 @@ When the model has deployed successfully, you should see the following (to get t
 
 You should see that the deployment state goes from __transitioning__ to __healthy__. In addition, this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
 
-You can test the endpoint using [Postman](https://www.postman.com/), or you can use the AzureML SDK:
+You can test the endpoint using [Postman](https://www.postman.com/), or you can use the Azure Machine Learning SDK:
+
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Webservice
@@ -199,4 +201,4 @@ Delete the Inference Compute you created in Step 1 so that you don't incur ongoi
 
 ## Next Steps
 
-* Learn more about [deploying models in AzureML](../how-to-deploy-and-where.md)
+* Learn more about [deploying models in Azure Machine Learning](../v1/how-to-deploy-and-where.md)

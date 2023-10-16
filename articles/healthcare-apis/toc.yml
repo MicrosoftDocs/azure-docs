@@ -1,83 +1,66 @@
-items:
-- name: Azure API for FHIR documentation
-  href: ./azure-api-for-fhir/index.yml
 - name: Azure Health Data Services documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About Azure Health Data Services
+    - name: What is Azure Health Data Services?
       href: healthcare-apis-overview.md
-    - name: About workspace
-      href: workspace-overview.md
     - name: FHIR service
-      href: ./fhir/index.yml
+      displayName: FHIR service
+      href: ./fhir/overview.md
     - name: DICOM service
-      href: ./dicom/index.yml
+      displayName: DICOM service
+      href: ./dicom/dicom-services-overview.md
     - name: MedTech service
-      href: ./iot/index.yml
+      displayName: MedTech service
+      href: ./iot/overview.md
+    - name: Events
+      href: ./events/events-overview.md
+    - name: Azure API for FHIR
+      href: ./azure-api-for-fhir/overview.md
+    - name: Business continuity & disaster recovery
+      href: business-continuity-disaster-recovery.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
+  items: 
+    - name: Workspace provisioning
+      href: workspace-overview.md
+    - name: Set up a workspace
+      href: get-started-with-health-data-services.md
+    - name: Deploy services via Azure portal
+      href: healthcare-apis-quickstart.md
+    - name: Deploy services using Bicep
+      href: deploy-healthcare-apis-using-bicep.md
+- name: How-tos
+  expanded: false
   items:
-    - name: Deploy Azure Health Data Services
-      expanded: true
-      items:
-        - name: Using Portal
-          href: healthcare-apis-quickstart.md
-        - name: Using Bicep
-          href: deploy-healthcare-apis-using-bicep.md
-- name: How-to guides
-  expanded: true
-  items:
-    - name: Manage user access and permissions
-      expanded: true
-      items:
-        - name: Authentication & Authorization
-          href: authentication-authorization.md
-        - name: Register a client application
-          expanded: true
-          items:
-           - name: Register application using the portal
-             href: register-application.md
-           - name: Register application using scripts
-             href: register-application-cli-rest.md  
-        - name: Grant access permissions
-          expanded: true
-          items:
-           - name: Grant permissions using the portal
-             href: configure-azure-rbac.md
-           - name: Grant permissions using scripts
-             href: configure-azure-rbac-using-scripts.md
-    - name: Get an Access Token
+    - name: Get an access token
       href: get-access-token.md
+    - name: Manage user access and permissions
+      href: authentication-authorization.md
+    - name: Register an application via Azure portal
+      href: register-application.md
+    - name: Register an application using scripts
+      href: register-application-cli-rest.md
+    - name: Grant permissions via Azure portal
+      href: configure-azure-rbac.md
+    - name: Grant permissions using scripts
+      href: configure-azure-rbac-using-scripts.md
     - name: Access Azure Health Data Services
-      href: access-healthcare-apis.md  
-    - name: Configure settings
-      expanded: true
-      items:
-      - name: Configure Private Link
-        href: healthcare-apis-configure-private-link.md
-      - name: Configure Events
-        href: ./events/events-deploy-portal.md
-    - name: Diagnostic logging
-      expanded: true
-      items:
-      - name: Enable diagnostic logging in Azure Health Data Services
-        href: logging.md
-- name: Concepts
-  expanded: true
-  items:
-  - name: Security controls by Azure Policy
-    href: security-controls-policy.md
+      href: access-healthcare-apis.md
+    - name: Configure Private Link
+      href: healthcare-apis-configure-private-link.md
+    - name: Configure Events
+      href: ./events/events-deploy-portal.md
+    - name: Enable diagnostic logging
+      href: logging.md
 - name: Resources
-  expanded: true
   items:
-  - name: FAQs - Azure Health Data Services
-    href: healthcare-apis-faqs.md
-  - name: GitHub projects
-    href: github-projects.md
-  - name: Release notes
-    href: release-notes.md 
-   
-    
-     
+    - name: GitHub projects
+      href: github-projects.md
+    - name: Known issues
+      href: known-issues.md
+    - name: Release notes
+      href: release-notes.md
+    - name: FAQ
+      href: healthcare-apis-faqs.md

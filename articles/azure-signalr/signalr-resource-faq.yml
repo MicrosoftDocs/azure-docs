@@ -5,8 +5,8 @@ metadata:
   author: vicancy
   ms.service: signalr
   ms.topic: faq
-  ms.custom: devx-track-dotnet
-  ms.date: 11/13/2019
+  ms.custom:
+  ms.date: 03/21/2023
   ms.author: lianwei
 title: Azure SignalR Service FAQ
 summary: |
@@ -30,7 +30,7 @@ sections:
           If one of my application servers is down, how can I find it and get notified?
         answer: |
           Azure SignalR Service monitors heartbeats from application servers.
-          If heartbeats are not received for a specified period of time, the application server is considered offline. All client connections mapped to this application server will be disconnected.
+          If heartbeats aren't received for a specified period of time, the application server is considered offline. All client connections mapped to this application server will be disconnected.
           
       - question: |
           Why does my custom `IUserIdProvider` throw an exception when I'm switching from ASP.NET Core SignalR SDK to Azure SignalR Service SDK?
@@ -56,42 +56,61 @@ sections:
         answer: |
           You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
           
-          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. If you go to the metrics pane, you can
-          take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. You can use [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
           
       - question: |
           What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
         answer: |
-          For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (i.e. use `AddAzureSignalR()` to connect to service). If yes use default mode, otherwise use serverless mode.
+          For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (for example, use `AddAzureSignalR()` to connect to service). If yes use default mode, otherwise use serverless mode.
           
-          Classic mode is designed for backward compatibility for existing applications so should not be used for new applications.
+          Classic mode is designed for backward compatibility for existing applications so shouldn't be used for new applications.
           
           For more information about service mode, see [Service mode in Azure SignalR Service](concept-service-mode.md).
           
       - question: |
           Can I send message from client in serverless mode?
         answer: |
-          You can send message from client if you configure upstream in your SignalR instance. Upstream is a set of endpoints that can receive messages and connection events from SignalR service. If no upstream is configured, messages from client will be ignored.
+          You can send message from client if you configure upstream endpoints in your SignalR instance. Upstream endpoints are a set of endpoints that can receive messages and connection events from SignalR service. If no upstream endpoints are configured, messages from client will be ignored.
           
-          For more information about upstream, see [Upstream settings](concept-upstream.md).
+          For more information.see [Upstream endpoints](concept-upstream.md).
           
-          Upstream is currently in public preview.
+          The upstream endpoints feature is currently in public preview.
           
       - question: |
           Are there any feature differences in using Azure SignalR Service with ASP.NET SignalR?
         answer: |
           When you're using Azure SignalR Service, some APIs and features of ASP.NET SignalR aren't supported:
-          - The ability to pass arbitrary state between clients and the hub (often called `HubState`) is not supported.
-          - The `PersistentConnection` class is not supported.
-          - *Forever Frame transport* is not supported.
+          - The ability to pass arbitrary state between clients and the hub (often called `HubState`) isn't supported.
+          - The `PersistentConnection` class isn't supported.
+          - *Forever Frame transport* isn't supported.
           - Azure SignalR Service no longer replays messages sent to the client when the client is offline.
           - When you're using Azure SignalR Service, the traffic for one client connection is always routed (also called *sticky*) to one app server instance for the duration of the connection.
           
           Support for ASP.NET SignalR is focused on compatibility, so not all new features from ASP.NET Core SignalR are supported. For example, *MessagePack* and *Streaming* are available only for ASP.NET Core SignalR applications.
           
-          You can configure Azure SignalR Service for different service modes: `Classic`, `Default`, and `Serverless`. The `Serverless` mode is not supported for ASP.NET. The data-plane REST API is also not supported.
+          You can configure Azure SignalR Service for different service modes: `Classic`, `Default`, and `Serverless`. The `Serverless` mode isn't supported for ASP.NET. The data-plane REST API is also not supported.
           
       - question: |
           Where does my data reside?
         answer: |
-          Azure SignalR Service works as a data processor service. It won't store any customer content, and data residency is included by design. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+          Azure SignalR Service does not store any customer data. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [Azure Privacy Overview (white paper)](https://go.microsoft.com/fwlink/p/?linkid=2220836) for guidance about how to keep data residency in Azure regions.
+
+      - question: |
+          How do I choose between Azure SignalR service and Azure Web PubSub service?
+        answer: |
+          Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you already use SignalR library to build real-time applications. Instead, if you're looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service isn't a replacement for Azure SignalR Service and vice-versa; they target different scenarios. The following guidance will help you decide which service to use for your scenario.
+          
+          Azure SignalR Service is more suitable if:  
+          
+          - You're already using ASP.NET or ASP.NET Core SignalR, primarily using .NET or need to integrate with .NET ecosystem (like Blazor).
+          - There's a SignalR client available for your platform. 
+          - You need an established protocol that supports a wide variety of:
+            - calling patterns (RPC and streaming) 
+            - transports (WebSocket, server sent events, and long polling) 
+          - You need a client that manages the connection lifetime on your behalf. 
+
+          Azure Web PubSub service is more suitable for situations where:  
+
+          - You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.
+          - You want to build your own subprotocol or use existing advanced protocols over WebSocket (for example, MQTT, AMQP over WebSocket). 
+          - You're looking for a lightweight server, for example, sending messages to client without going through the configured backend.  

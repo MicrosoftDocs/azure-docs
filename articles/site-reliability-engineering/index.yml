@@ -6,14 +6,14 @@ summary: Site reliability engineering is an engineering discipline devoted to he
 brand: azure
 
 metadata:
-  title: Site reliability engineering documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # Required; article description that is displayed in search results. < 160 chars.
+  title: Site reliability engineering documentation
+  description: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products.
   services: site-reliability-engineering
-  ms.service: site-reliability-engineering #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: hub-page # Required
-  author: dnblankedelman #Required; your GitHub user alias, with correct capitalization.
-  ms.author: dnb #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/18/2020 #Required; mm/dd/yyyy format.
+  ms.service: site-reliability-engineering
+  ms.topic: hub-page
+  author: dnblankedelman
+  ms.author: dnb
+  ms.date: 02/18/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -56,9 +56,9 @@ productDirectory:
      - title: SRE online courses
        imageSrc: ./media/index/learn.svg
        links:
-         - url: /learn/modules/intro-to-site-reliability-engineering/
+         - url: /training/modules/intro-to-site-reliability-engineering/
            text: Introduction to site reliability engineering
-         - url: /learn/paths/improve-reliability-modern-operations/
+         - url: /training/paths/improve-reliability-modern-operations/
            text: Improve your reliability with modern operations practices  
      # Card
      - title: SRE resources
@@ -149,11 +149,11 @@ conceptualContent:
           itemType: get-started
           text: Logs with Azure Monitor
 
-        - url: ../azure-monitor/azure-monitor-app-hub.yml
+        - url: ../azure-monitor/app/app-insights-overview.md
           itemType: get-started
           text: Application Performance Management with Application Insights
 
-        - url: ../azure-monitor/app/distributed-tracing.md
+        - url: ../azure-monitor/app/distributed-tracing-telemetry-correlation.md
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
           

@@ -4,7 +4,7 @@ description: How to set up Apache Spark Streaming for a high-availability scenar
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/29/2019
+ms.date: 06/23/2023
 ---
 
 # Create high-availability Apache Spark Streaming jobs with YARN

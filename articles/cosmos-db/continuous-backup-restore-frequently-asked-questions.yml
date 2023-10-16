@@ -1,20 +1,20 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about Azure Cosmos DB continuous backup
+  title: Frequently asked questions about continuous backup
+  titleSuffix: Azure Cosmos DB
   description: This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore feature that's available in continuous backup mode.
   author: kanshiG
-  ms.service: cosmos-db
-  ms.topic: faq
-  ms.date: 04/14/2022
   ms.author: govindk
-  ms.reviewer: wiassaf
+  ms.reviewer: mjbrown
+  ms.topic: faq
+  ms.service: cosmos-db
+  ms.date: 04/19/2023
+  ms.custom: ignite-2022
 title: Frequently asked questions about the Azure Cosmos DB continuous backup
 summary: |
-  [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+  [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
   
   This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore functionality that's available in continuous backup mode.
-  
-
 sections:
   - name: Ignored
     questions:
@@ -22,65 +22,27 @@ sections:
           How much time does it takes to restore?
         answer: |
           Restore time is a function of the data size, the amount of log backup that needs to be replayed, and the number of partitions that need to be restored. Restoring 1 terabyte of data typically takes 30 to 90 minutes.
-
       - question: |
           Can I submit the restore time in local time?
         answer: |
-          The restore might not happen, depending on whether key resources like databases or containers existed at that time. You can verify by entering the time and looking at a selected database or container for that time. If no resources exist to restore, the restore process won't work.
-
+          The restore might not happen, depending on whether key resources like databases or containers existed at that time. You can verify by entering the time and looking at a selected database or container for that time. If that is no resources exist to restore, the restore process doesn't work.
       - question: |
           How can I track the restoration of an account?
         answer: |
-          After you submit the restore command and wait on the page, the status bar shows a message about a successfully restored account when the operation finishes. You can also search for the restored account and [track its status](restore-account-continuous-backup.md#track-restore-status). While the restore is in progress, the account status is **Creating**. After the restore operation finishes, the account status changes to **Online**.
-          
-          For PowerShell and the Azure CLI, you can track the progress of a restore operation by using the `az cosmosdb show` command:
-          
-          ```azurecli-interactive
-          az cosmosdb show --name "accountName" --resource-group "resourceGroup"
-          ```
-          
-          The `provisioningState` value is `Succeeded` when the account is online.
-          
-          ```json
-          {
-          "virtualNetworkRules": [],
-          "writeLocations" : [
-          {
-              "documentEndpoint": "https://<accountname>.documents.azure.com:443/", 
-              "failoverpriority": 0,
-              "id": "accountName" ,
-              "isZoneRedundant" : false, 
-              "locationName": "West US 2", 
-              "provisioningState": "Succeeded"
-          }
-          ]
-          }
-          ```
-          
+          [!INCLUDE[](includes/continuous-backup-restore-frequently-asked-questions-restore-progress-commands.md)]          
       - question: |
           How can I find out whether a continuous backup mode account was restored from another account?
         answer: |
-          You can identify whether an account is restored and get the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).
-          
+          You can identify whether an account is restored and gets the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).          
       - question: |
-          What is the use of instanceId in the account definition?
+          What is "instanceId" in the account definition?
         answer: |
-          At any point in time, an Azure Cosmos DB account's `accountName` property is globally unique while it's alive. After the account is deleted, it's possible to create another account with the same name. If that happens, `accountName` is no longer enough to identify an instance of an account. 
-          
-          The instance ID, or `instanceId`, is a property of an instance of an account. It's used to disambiguate across multiple accounts (live and deleted) if they have same name for restore. You can get the instance ID by running the `Get-AzCosmosDBRestorableDatabaseAccount` or  `az cosmosdb restorable-database-account` command. The name attribute value denotes the instance ID.
-          
+          [!INCLUDE[](includes/continuous-backup-restore-frequently-asked-questions-instanceid.md)]         
       - question: |
-          Is continuous backup supported for Azure Synapse Link enabled accounts?
+          Is continuous backup supported for Azure Synapse Link-enabled accounts?
         answer: |
-
           No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same database account.
-      - question: |
-          Is continuous backup mode supported for Table API and Gremlin API?
-        answer: |
-
-          Yes, currently it is in preview and restore is supported from PowerShell and the Azure CLI.
 additionalContent: |
-
   ## Next steps
   
   * Learn more about [continuous backup](continuous-backup-restore-introduction.md) mode.

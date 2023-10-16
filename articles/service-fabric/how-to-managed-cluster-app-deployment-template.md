@@ -2,9 +2,14 @@
 title: Deploy an application to a managed cluster using Azure Resource Manager
 description: Learn how to deploy, upgrade, or delete a Service Fabric application on an Azure Service Fabric managed cluster using Azure Resource Manager
 ms.topic: how-to
-ms.date: 8/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-arm-template
+services: service-fabric
+ms.date: 05/24/2023
 ---
+
 # Manage application lifecycle on a managed cluster using Azure Resource Manager
 
 You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
@@ -36,25 +41,24 @@ Then, you create a Resource Manager template, update the parameters file with ap
 
 ### Create a storage account
 
-To deploy an application from a Resource Manager template, you must have a storage account. The storage account is used to stage the application image. 
+To deploy an application from a Resource Manager template, you must have a storage account. The storage account is used to stage the application image.
 
-You can reuse an existing storage account or you can create a new storage account for staging your applications. If you use an existing storage account, you can skip this step. 
+You can reuse an existing storage account or you can create a new storage account for staging your applications. If you use an existing storage account, you can skip this step.
 
 ![Create a storage account][CreateStorageAccount]
 
+> [!CAUTION]
+> Anonymous public access to blob data in your storage account presents a security risk. When you create a storage account, we recommend that you disable anonymous public access to blob data at the account level, by setting the **AllowBlobPublicAccess** property to **false**. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](../storage/blobs/anonymous-read-access-prevent.md).
+
 ### Configure your storage account
 
-After the storage account is created, you create a blob container where the applications can be staged. In the Azure portal, go to the Azure Storage account where you want to store your applications. Select **Blobs** > **Add Container**. 
+After the storage account is created, you create a blob container where the applications can be staged. In the Azure portal, go to the Azure Storage account where you want to store your applications. Select **Blobs** > **Add Container**.
 
-Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
+You can grant access to the container in one of the following ways:
 
-* Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
-* Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
-
-The example in the following screenshot uses anonymous read access for blobs.
-
-![Create blob][CreateBlob]
+* You can assign an Azure RBAC role that grants permissions to the container to a security principal, so that that security principal can access data in the container via Microsoft Entra authorization. For more information, see [Authorize access to blobs using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md).
+* You can delegate access to the container with a shared access signature to grant a client access to blobs in the container for a limited period of time and with specific permissions. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
+* You can use the account access keys to authorize access to blob data. This approach is the least secure and so is not recommended.
 
 ### Stage the application in your storage account
 
@@ -170,10 +174,10 @@ To delete a service fabric application that was deployed by using the applicatio
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
+1. Use the [Remove-AzServiceFabricApplication](/powershell/module/az.servicefabric/remove-azservicefabricapplication) cmdlet to delete the application resources:
 
     ```powershell
-    Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
+    Remove-AzServiceFabricApplication -ResourceId <String> [-Force]
     ```
 
 
@@ -181,7 +185,7 @@ To delete a service fabric application that was deployed by using the applicatio
 
 If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
 
-The following items are called out specifically due to frequency of usage, but not not meant to be an exclusive list of differences. 
+The following items are called out specifically due to frequency of usage, but not meant to be an exclusive list of differences. 
 
 * upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
 

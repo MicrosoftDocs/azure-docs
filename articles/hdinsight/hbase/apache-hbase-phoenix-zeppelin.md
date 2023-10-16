@@ -4,7 +4,7 @@ description: Learn how to use Apache Zeppelin to run Apache Base queries with Ph
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/31/2023
 ---
 
 # Use Apache Zeppelin to run Apache Phoenix queries over Apache HBase in Azure HDInsight
@@ -63,29 +63,29 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
    ```sql
    %jdbc(phoenix)
-   UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
-   UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
+   UPSERT INTO Company VALUES(1, 'Microsoft');
+   UPSERT INTO Company (name, company_id) VALUES('Apache', 2);
    ```
 
 1. Query the table.
 
    ```sql
    %jdbc(phoenix)
-   SELECT * FROM dbo.Company;
+   SELECT * FROM Company;
    ```
 
 1. Delete a record.
 
    ```sql
    %jdbc(phoenix)
-   DELETE FROM dbo.Company WHERE COMPANY_ID=1;
+   DELETE FROM Company WHERE COMPANY_ID=1;
    ```
 
 1. Drop the table.
 
    ```sql
    %jdbc(phoenix)
-   DROP TABLE dbo.Company;
+   DROP TABLE Company;
    ```
 
 ## Next steps

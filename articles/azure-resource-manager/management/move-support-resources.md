@@ -2,201 +2,17 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 01/30/2023
 ---
 
 # Move operation support for resources
 
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
+Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Microsoft Entra tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
+
 > [!IMPORTANT]
 > In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.
-
-Jump to a resource provider namespace:
-> [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
-> - [microsoft.aadiam](#microsoftaadiam)
-> - [Microsoft.Addons](#microsoftaddons)
-> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
-> - [Microsoft.Advisor](#microsoftadvisor)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
-> - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft.AppPlatform](#microsoftappplatform)
-> - [Microsoft.AppService](#microsoftappservice)
-> - [Microsoft.Attestation](#microsoftattestation)
-> - [Microsoft.Authorization](#microsoftauthorization)
-> - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.AVS](#microsoftavs)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft.AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
-> - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.Billing](#microsoftbilling)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
-> - [Microsoft.Blockchain](#microsoftblockchain)
-> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
-> - [Microsoft.Blueprint](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
-> - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft.Capacity](#microsoftcapacity)
-> - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft.Commerce](#microsoftcommerce)
-> - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Confluent](#microsoftconfluent)
-> - [Microsoft.Consumption](#microsoftconsumption)
-> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
-> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
-> - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
-> - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
-> - [Microsoft.CustomProviders](#microsoftcustomproviders)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft.Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
-> - [Microsoft.DataExchange](#microsoftdataexchange)
-> - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLake](#microsoftdatalake)
-> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
-> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DataProtection](#microsoftdataprotection)
-> - [Microsoft.DataShare](#microsoftdatashare)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft.DevOps](#microsoftdevops)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
-> - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
-> - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
-> - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Experimentation](#microsoftexperimentation)
-> - [Microsoft.ExtendedLocation](#microsoftextendedlocation)
-> - [Microsoft.Falcon](#microsoftfalcon)
-> - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.Genomics](#microsoftgenomics)
-> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
-> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
-> - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft.HybridNetwork](#microsofthybridnetwork)
-> - [Microsoft.Hydra](#microsofthydra)
-> - [Microsoft.ImportExport](#microsoftimportexport)
-> - [microsoft.insights](#microsoftinsights)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTHub](#microsoftiothub)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
-> - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kubernetes](#microsoftkubernetes)
-> - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
-> - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft.LocationServices](#microsoftlocationservices)
-> - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.Maintenance](#microsoftmaintenance)
-> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
-> - [Microsoft.ManagedServices](#microsoftmanagedservices)
-> - [Microsoft.Management](#microsoftmanagement)
-> - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft.Marketplace](#microsoftmarketplace)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
-> - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
-> - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrate](#microsoftmigrate)
-> - [Microsoft.MixedReality](#microsoftmixedreality)
-> - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Network](#microsoftnetwork)
-> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft.ObjectStore](#microsoftobjectstore)
-> - [Microsoft.OffAzure](#microsoftoffazure)
-> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
-> - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
-> - [Microsoft.ProviderHub](#microsoftproviderhub)
-> - [Microsoft.Quantum](#microsoftquantum)
-> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
-> - [Microsoft.Relay](#microsoftrelay)
-> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
-> - [Microsoft.Resources](#microsoftresources)
-> - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Search](#microsoftsearch)
-> - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
-> - [Microsoft.SerialConsole](#microsoftserialconsole)
-> - [Microsoft.ServerManagement](#microsoftservermanagement)
-> - [Microsoft.ServiceBus](#microsoftservicebus)
-> - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.Services](#microsoftservices)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft.Sql](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
-> - [Microsoft.Subscription](#microsoftsubscription)
-> - [microsoft.support](#microsoftsupport)
-> - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.Token](#microsofttoken)
-> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
-> - [microsoft.visualstudio](#microsoftvisualstudio)
-> - [Microsoft.VMware](#microsoftvmware)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.VnfManager](#microsoftvnfmanager)
-> - [Microsoft.VSOnline](#microsoftvsonline)
-> - [Microsoft.Web](#microsoftweb)
-> - [Microsoft.WindowsESU](#microsoftwindowsesu)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
-> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## Microsoft.AAD
 
@@ -212,8 +28,8 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | diagnosticsettings | No | No | No |
 > | diagnosticsettingscategories | No | No | No |
-> | privatelinkforazuread | Yes | Yes | No |
-> | tenants | Yes | Yes | No |
+> | privatelinkforazuread | **Yes** | **Yes** | No |
+> | tenants | **Yes** | **Yes** | No |
 
 ## Microsoft.Addons
 
@@ -253,13 +69,13 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | actionrules | Yes | Yes | No |
+> | actionrules | **Yes** | **Yes** | No |
 > | alerts | No | No | No |
 > | alertslist | No | No | No |
 > | alertsmetadata | No | No | No |
 > | alertssummary | No | No | No |
 > | alertssummarylist | No | No | No |
-> | smartdetectoralertrules | Yes | Yes | No |
+> | smartdetectoralertrules | **Yes** | **Yes** | No |
 > | smartgroups | No | No | No |
 
 ## Microsoft.AnalysisServices
@@ -267,7 +83,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | Yes | Yes | No |
+> | servers | **Yes** | **Yes** | No |
 
 ## Microsoft.ApiManagement
 
@@ -278,14 +94,21 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | reportfeedback | No | No | No |
-> | service | Yes | Yes | Yes (using template) <br/><br/> [Move API Management across regions](../../api-management/api-management-howto-migrate.md). |
+> | service | **Yes** | **Yes** | **Yes** (using template) <br/><br/> [Move API Management across regions](../../api-management/api-management-howto-migrate.md). |
+
+## Microsoft.App
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | managedenvironments | **Yes** | **Yes** | No |
 
 ## Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | configurationstores | Yes | Yes | No |
+> | configurationstores | **Yes** | **Yes** | No |
 > | configurationstores / eventgridfilters | No | No | No |
 
 ## Microsoft.AppPlatform
@@ -293,7 +116,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | spring | Yes | Yes | No |
+> | spring | **Yes** | **Yes** | No |
 
 ## Microsoft.AppService
 
@@ -303,7 +126,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | apiapps | No | No | Yes (using template)<br/><br/> [Move an App Service app to another region](../../app-service/manage-move-across-regions.md) |
+> | apiapps | No | No | **Yes** (using template)<br/><br/> [Move an App Service app to another region](../../app-service/manage-move-across-regions.md) |
 > | appidentities | No | No | No |
 > | gateways | No | No | No |
 
@@ -312,7 +135,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | attestationproviders | Yes | Yes | No |
+> | attestationproviders | **Yes** | **Yes** | No |
 
 ## Microsoft.Authorization
 
@@ -338,30 +161,29 @@ Jump to a resource provider namespace:
 ## Microsoft.Automation
 
 > [!IMPORTANT]
-> Runbooks must exist in the same resource group as the Automation Account.
->
-> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+> Runbooks must exist in the same resource group as the Automation Account. 
+> The movement of System assigned managed identity, and User-assigned managed identity takes place automatically with the Automation account. For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | automationaccounts | Yes | Yes | Yes (using template) <br/><br/> [Using geo-replication](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |
-> | automationaccounts / configurations | Yes | Yes | No |
-> | automationaccounts / runbooks | Yes | Yes | No |
+> | automationaccounts | **Yes** | **Yes** | **Yes** [PowerShell script](../../automation/automation-disaster-recovery.md)  |
+> | automationaccounts / configurations | **Yes** | **Yes** | No |
+> | automationaccounts / runbooks | **Yes** | **Yes** | No |
 
 ## Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | privateclouds | Yes | Yes | No |
+> | privateclouds | **Yes** | **Yes** | No |
 
 ## Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | b2cdirectories | Yes | Yes | No |
+> | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
 
 ## Microsoft.AzureData
@@ -375,7 +197,7 @@ Jump to a resource provider namespace:
 > | sqlinstances | No | No | No |
 > | sqlmanagedinstances | No | No | No |
 > | sqlserverinstances | No | No | No |
-> | sqlserverregistrations | Yes | Yes | No |
+> | sqlserverregistrations | **Yes** | **Yes** | No |
 
 ## Microsoft.AzureStack
 
@@ -383,7 +205,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | cloudmanifestfiles | No | No | No |
-> | registrations | Yes | Yes | No |
+> | registrations | **Yes** | **Yes** | No |
 
 ## Microsoft.AzureStackHCI
 
@@ -397,7 +219,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | batchaccounts | Yes | Yes | Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/account-move.md) |
+> | batchaccounts | **Yes** | **Yes** | Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/account-move.md) |
 
 ## Microsoft.Billing
 
@@ -458,7 +280,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | botservices | Yes | Yes | No |
+> | botservices | **Yes** | **Yes** | No |
 
 ## Microsoft.Cache
 
@@ -468,7 +290,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | redis | Yes | Yes | No |
+> | redis | **Yes** | **Yes** | No |
 > | redisenterprise | No | No | No |
 
 ## Microsoft.Capacity
@@ -494,10 +316,10 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | cdnwebapplicationfirewallmanagedrulesets | No | No | No |
-> | cdnwebapplicationfirewallpolicies | Yes | Yes | No |
+> | cdnwebapplicationfirewallpolicies | **Yes** | **Yes** | No |
 > | edgenodes | No | No | No |
-> | profiles | Yes | Yes | No |
-> | profiles / endpoints | Yes | Yes | No |
+> | profiles | **Yes** | **Yes** | No |
+> | profiles / endpoints | **Yes** | **Yes** | No |
 
 ## Microsoft.CertificateRegistration
 
@@ -507,7 +329,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | certificateorders | Yes | Yes | No |
+> | certificateorders | **Yes** | **Yes** | No |
 
 ## Microsoft.ClassicCompute
 
@@ -518,11 +340,11 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capabilities | No | No | No |
-> | domainnames | Yes | No | No |
+> | domainnames | **Yes** | No | No |
 > | quotas | No | No | No |
 > | resourcetypes | No | No | No |
 > | validatesubscriptionmoveavailability | No | No | No |
-> | virtualmachines | Yes | Yes | No |
+> | virtualmachines | **Yes** | **Yes** | No |
 
 ## Microsoft.ClassicInfrastructureMigrate
 
@@ -565,7 +387,7 @@ Jump to a resource provider namespace:
 > | osplatformimages | No | No | No |
 > | publicimages | No | No | No |
 > | quotas | No | No | No |
-> | storageaccounts | Yes | No | Yes |
+> | storageaccounts | **Yes** | No | **Yes** |
 > | vmimages | No | No | No |
 
 ## Microsoft.ClassicSubscription
@@ -583,8 +405,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No |
-> | Cognitive Search | Yes | Yes | Supported with manual steps.<br/><br/> Learn about [moving your Azure Cognitive Search service to another region](../../search/search-howto-move-across-regions.md) |
+> | accounts | **Yes** | **Yes** | No |
+> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure Cognitive Search service to another region](../../search/search-howto-move-across-regions.md) |
 
 ## Microsoft.Commerce
 
@@ -594,6 +416,13 @@ Jump to a resource provider namespace:
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
 
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | communicationservices | **Yes** | **Yes** <br/><br/> Note that resources with attached phone numbers cannot be moved to subscriptions in different data locations, nor subscriptions that do not support having phone numbers. | No |
+
 ## Microsoft.Compute
 
 > [!IMPORTANT]
@@ -602,27 +431,42 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | availabilitysets | Yes | Yes |  Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move availability sets. |
+> | availabilitysets | **Yes** | **Yes** |  **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move availability sets. |
 > | diskaccesses | No | No | No |
 > | diskencryptionsets | No | No | No |
-> | disks | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs and related disks. |
+> | disks | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs and related disks. |
 > | galleries | No | No | No |
 > | galleries / images | No | No | No |
 > | galleries / images / versions | No | No | No |
 > | hostgroups | No | No | No |
 > | hostgroups / hosts | No | No | No |
-> | images | Yes | Yes | No |
-> | proximityplacementgroups | Yes | Yes | No |
+> | images | **Yes** | **Yes** | No |
+> | proximityplacementgroups | **Yes** | **Yes** | No |
 > | restorepointcollections | No | No | No |
 > | restorepointcollections / restorepoints | No | No | No |
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | Yes | Yes | No |
+> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> **Yes** - Incremental |
 > | sshpublickeys | No | No | No |
-> | virtualmachines | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
-> | virtualmachines / extensions | Yes | Yes | No |
-> | virtualmachinescalesets | Yes | Yes | No |
+> | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
+> | virtualmachines / extensions | **Yes** | **Yes** | No |
+> | virtualmachinescalesets | **Yes** | **Yes** | No |
+
+
+> [!IMPORTANT]
+> See [Cloud Services (extended support) deployment move guidance](./move-limitations/cloud-services-extended-support.md). Cloud Services (extended support) deployment resources can be moved across subscriptions with an operation specific to that scenario.
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | capabilities | No | No | No |
+> | domainnames | **Yes** | No | No |
+> | quotas | No | No | No |
+> | resourcetypes | No | No | No |
+> | validatesubscriptionmoveavailability | No | No | No |
+> | virtualmachines | **Yes** | **Yes** | No |
+
 
 ## Microsoft.Confluent
 
@@ -671,12 +515,12 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | registries | Yes | Yes | No |
-> | registries / agentpools | Yes | Yes | No |
-> | registries / buildtasks | Yes | Yes | No |
-> | registries / replications | Yes | Yes | No |
-> | registries / tasks | Yes | Yes | No |
-> | registries / webhooks | Yes | Yes | No |
+> | registries | **Yes** | **Yes** | No |
+> | registries / agentpools | **Yes** | **Yes** | No |
+> | registries / buildtasks | **Yes** | **Yes** | No |
+> | registries / replications | **Yes** | **Yes** | No |
+> | registries / tasks | **Yes** | **Yes** | No |
+> | registries / webhooks | **Yes** | **Yes** | No |
 
 ## Microsoft.ContainerService
 
@@ -710,7 +554,7 @@ Jump to a resource provider namespace:
 > | billingaccounts | No | No | No |
 > | budgets | No | No | No |
 > | cloudconnectors | No | No | No |
-> | connectors | Yes | Yes | No |
+> | connectors | **Yes** | **Yes** | No |
 > | departments | No | No | No |
 > | dimensions | No | No | No |
 > | enrollmentaccounts | No | No | No |
@@ -745,7 +589,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | associations | No | No | No |
-> | resourceproviders | Yes | Yes | No |
+> | resourceproviders | **Yes** | **Yes** | No |
 
 ## Microsoft.DataBox
 
@@ -774,7 +618,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | catalogs | Yes | Yes | No |
+> | catalogs | **Yes** | **Yes** | No |
 > | datacatalogs | No | No | No |
 
 ## Microsoft.DataConnect
@@ -797,8 +641,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | datafactories | Yes | Yes | No |
-> | factories | Yes | Yes | No |
+> | datafactories | **Yes** | **Yes** | No |
+> | factories | **Yes** | **Yes** | No |
 
 ## Microsoft.DataLake
 
@@ -812,14 +656,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No |
+> | accounts | **Yes** | **Yes** | No |
 
 ## Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No |
+> | accounts | **Yes** | **Yes** | No |
 
 ## Microsoft.DataMigration
 
@@ -829,66 +673,67 @@ Jump to a resource provider namespace:
 > | services | No | No | No |
 > | services / projects | No | No | No |
 > | slots | No | No | No |
+> | sqlmigrationservices | No | No | No |
 
 ## Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | [Yes](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [Yes](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
+> | backupvaults | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No |
+> | accounts | **Yes** | **Yes** | No |
 
 ## Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | Yes | Yes | No |
-> | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
+> | flexibleServers | **Yes** | **Yes** | No |
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
 
 ## Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | Yes | Yes | No |
+> | flexibleServers | **Yes** | **Yes** | No |
 > | servergroups | No | No | No |
-> | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
-> | serversv2 | Yes | Yes | No |
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
+> | serversv2 | **Yes** | **Yes** | No |
 
 ## Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | artifactsources | Yes | Yes | No |
-> | rollouts | Yes | Yes | No |
-> | servicetopologies | Yes | Yes | No |
-> | servicetopologies / services | Yes | Yes | No |
-> | servicetopologies / services / serviceunits | Yes | Yes | No |
-> | steps | Yes | Yes | No |
+> | artifactsources | **Yes** | **Yes** | No |
+> | rollouts | **Yes** | **Yes** | No |
+> | servicetopologies | **Yes** | **Yes** | No |
+> | servicetopologies / services | **Yes** | **Yes** | No |
+> | servicetopologies / services / serviceunits | **Yes** | **Yes** | No |
+> | steps | **Yes** | **Yes** | No |
 
 ## Microsoft.DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | applicationgroups | Yes | Yes | No |
-> | hostpools | Yes | Yes | No |
-> | workspaces | Yes | Yes | No |
+> | applicationgroups | **Yes** | **Yes** | No |
+> | hostpools | **Yes** | **Yes** | No |
+> | workspaces | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
 
@@ -897,15 +742,15 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | elasticpools | No | No | No. Resource isn't exposed. |
 > | elasticpools / iothubtenants | No | No | No. Resource isn't exposed. |
-> | iothubs | Yes | Yes | Yes. [Learn more](../../iot-hub/iot-hub-how-to-clone.md) |
-> | provisioningservices | Yes | Yes | No |
+> | iothubs | **Yes** | **Yes** | **Yes**. [Learn more](../../iot-hub/iot-hub-how-to-clone.md) |
+> | provisioningservices | **Yes** | **Yes** | No |
 
 ## Microsoft.DevOps
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | pipelines | Yes | Yes | No |
+> | pipelines | **Yes** | **Yes** | No |
 > | controllers | **pending** | **pending** | No |
 
 ## Microsoft.DevSpaces
@@ -913,7 +758,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | controllers | Yes | Yes | No |
+> | controllers | **Yes** | **Yes** | No |
 > | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](/previous-versions/azure/dev-spaces/) about moving to another region.
 
 ## Microsoft.DevTestLab
@@ -922,57 +767,63 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
-> | labs | Yes | No | No |
-> | labs / environments | Yes | Yes | No |
-> | labs / servicerunners | Yes | Yes | No |
-> | labs / virtualmachines | Yes | No | No |
-> | schedules | Yes | Yes | No |
+> | labs | **Yes** | No | No |
+> | labs / environments | **Yes** | **Yes** | No |
+> | labs / servicerunners | **Yes** | **Yes** | No |
+> | labs / virtualmachines | **Yes** | No | No |
+> | schedules | **Yes** | **Yes** | No |
 
 ## Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | digitaltwinsinstances | No | No | Yes, by recreating resources in new region. [Learn more](../../digital-twins/how-to-move-regions.md) |
+> | digitaltwinsinstances | No | No | **Yes**, by recreating resources in new region. [Learn more](../../digital-twins/how-to-move-regions.md) |
 
 ## Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccountnames | No | No | No |
-> | databaseaccounts | Yes | Yes | No |
+> | databaseaccounts | **Yes** | **Yes** | No |
 
 ## Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | domains | Yes | Yes | No |
+> | domains | **Yes** | **Yes** | No |
 > | generatessorequest | No | No | No |
 > | topleveldomains | No | No | No |
 > | validatedomainregistrationinformation | No | No | No |
+
+## Microsoft.Elastic
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | monitors | No | No | No |
 
 ## Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | services | Yes | Yes | No |
+> | services | **Yes** | **Yes** | No |
 
 ## Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | domains | Yes | Yes | No |
+> | domains | **Yes** | **Yes** | No |
 > | eventsubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. | No |
 > | extensiontopics | No | No | No |
-> | partnernamespaces | Yes | Yes | No |
+> | partnernamespaces | **Yes** | **Yes** | No |
 > | partnerregistrations | No | No | No |
-> | partnertopics | Yes | Yes | No |
-> | systemtopics | Yes | Yes | No |
-> | topics | Yes | Yes | No |
+> | partnertopics | **Yes** | **Yes** | No |
+> | systemtopics | **Yes** | **Yes** | No |
+> | topics | **Yes** | **Yes** | No |
 > | topictypes | No | No | No |
 
 ## Microsoft.EventHub
@@ -980,8 +831,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | clusters | Yes | Yes | No |
-> | namespaces | Yes | Yes | Yes (with template)<br/><br/> [Move an Event Hub namespace to another region](../../event-hubs/move-across-regions.md) |
+> | clusters | **Yes** | **Yes** | No |
+> | namespaces | **Yes** | **Yes** | **Yes** (with template)<br/><br/> [Move an Event Hub namespace to another region](../../event-hubs/move-across-regions.md) |
 > | sku | No | No | No |
 
 ## Microsoft.Experimentation
@@ -1003,7 +854,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | Yes | Yes | No |
+> | namespaces | **Yes** | **Yes** | No |
 
 ## Microsoft.Features
 
@@ -1059,29 +910,29 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | clusters | Yes | Yes | No |
+> | clusters | **Yes** | **Yes** | No |
 
 ## Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | services | Yes | Yes | No |
+> | services | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | machines | Yes | Yes | No |
-> | machines / extensions | Yes | Yes | No |
+> | machines | **Yes** | **Yes** | No |
+> | machines / extensions | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | datamanagers | Yes | Yes | No |
+> | datamanagers | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridNetwork
 
@@ -1104,23 +955,26 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | jobs | Yes | Yes | No |
+> | jobs | **Yes** | **Yes** | No |
 
 ## Microsoft.Insights
 
 > [!IMPORTANT]
 > Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
 
+> [!WARNING]
+> Moving or renaming any Application Insights resource changes the resource ID. When the ID changes for a workspace-based resource, data sent for the prior ID is accessible only by querying the underlying Log Analytics workspace. The data will not be accessible from within the renamed or moved Application Insights resource.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No. [Learn more](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
-> | actiongroups | Yes | Yes | No |
+> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/separate-resources.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | actiongroups | **Yes** | **Yes** | No |
 > | activitylogalerts | No | No | No |
-> | alertrules | Yes | Yes | No |
-> | autoscalesettings | Yes | Yes | No |
+> | alertrules | **Yes** | **Yes** | No |
+> | autoscalesettings | **Yes** | **Yes** | No |
 > | baseline | No | No | No |
-> | components | Yes | Yes | No |
+> | components | **Yes** | **Yes** | No |
 > | datacollectionrules | No | No | No |
 > | diagnosticsettings | No | No | No |
 > | diagnosticsettingscategories | No | No | No |
@@ -1144,14 +998,14 @@ Jump to a resource provider namespace:
 > | notificationgroups | No | No | No |
 > | privatelinkscopes | No | No | No |
 > | rollbacktolegacypricingmodel | No | No | No |
-> | scheduledqueryrules | Yes | Yes | No |
+> | scheduledqueryrules | **Yes** | **Yes** | No |
 > | topology | No | No | No |
 > | transactions | No | No | No |
 > | vminsightsonboardingstatuses | No | No | No |
-> | webtests | Yes | Yes | No |
+> | webtests | **Yes** | **Yes** | No |
 > | webtests / gettestresultfile | No | No | No |
-> | workbooks | Yes | Yes | No |
-> | workbooktemplates | Yes | Yes | No |
+> | workbooks | **Yes** | **Yes** | No |
+> | workbooktemplates | **Yes** | **Yes** | No |
 
 ## Microsoft.IoTCentral
 
@@ -1159,21 +1013,21 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | apptemplates | No | No | No |
-> | iotapps | Yes | Yes | No |
+> | iotapps | **Yes** | **Yes** | No |
 
 ## Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | iothub | Yes | Yes | Yes (clone hub) <br/><br/> [Clone an IoT hub to another region](../../iot-hub/iot-hub-how-to-clone.md) |
+> | iothub | **Yes** | **Yes** | **Yes** (clone hub) <br/><br/> [Clone an IoT hub to another region](../../iot-hub/iot-hub-how-to-clone.md) |
 
 ## Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | graph | Yes | Yes | No |
+> | graph | **Yes** | **Yes** | No |
 
 ## Microsoft.KeyVault
 
@@ -1186,7 +1040,7 @@ Jump to a resource provider namespace:
 > | deletedvaults | No | No | No |
 > | hsmpools | No | No | No |
 > | managedhsms | No | No | No |
-> | vaults | Yes | Yes | No |
+> | vaults | **Yes** | **Yes** | No |
 
 ## Microsoft.Kubernetes
 
@@ -1208,7 +1062,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | clusters | Yes | Yes | No |
+> | clusters | **Yes** | **Yes** | No |
 
 ## Microsoft.LabServices
 
@@ -1217,6 +1071,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | labaccounts | No | No | No |
 > | users | No | No | No |
+
+## Microsoft.LoadTestService
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | loadtests | Yes | Yes | No |
 
 ## Microsoft.LocationBasedServices
 
@@ -1238,11 +1099,11 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hostingenvironments | No | No | No |
-> | integrationaccounts | Yes | Yes | No |
-> | integrationserviceenvironments | Yes | No | No |
-> | integrationserviceenvironments / managedapis | Yes | No | No |
+> | integrationaccounts | **Yes** | **Yes** | No |
+> | integrationserviceenvironments | **Yes** | No | No |
+> | integrationserviceenvironments / managedapis | **Yes** | No | No |
 > | isolatedenvironments | No | No | No |
-> | workflows | Yes | Yes | No |
+> | workflows | **Yes** | **Yes** | No |
 
 ## Microsoft.MachineLearning
 
@@ -1250,8 +1111,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | commitmentplans | No | No | No |
-> | webservices | Yes | No | No |
-> | workspaces | Yes | Yes | No |
+> | webservices | **Yes** | No | No |
+> | workspaces | **Yes** | **Yes** | No |
 
 ## Microsoft.MachineLearningCompute
 
@@ -1287,8 +1148,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | configurationassignments | No | No | Yes. [Learn more](../../virtual-machines/move-region-maintenance-configuration.md) |
-> | maintenanceconfigurations | Yes | Yes | Yes. [Learn more](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | configurationassignments | No | No | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration.md) |
+> | maintenanceconfigurations | **Yes** | **Yes** | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
 > | updates | No | No | No |
 
 ## Microsoft.ManagedIdentity
@@ -1335,8 +1196,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No, Azure Maps is a geospatial service. |
-> | accounts / privateatlases | Yes | Yes | No |
+> | accounts | **Yes** | **Yes** | No, Azure Maps is a geospatial service. |
+> | accounts / privateatlases | **Yes** | **Yes** | No |
 
 ## Microsoft.Marketplace
 
@@ -1372,9 +1233,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | mediaservices | Yes | Yes | No |
-> | mediaservices / liveevents | Yes | Yes | No |
-> | mediaservices / streamingendpoints | Yes | Yes | No |
+> | mediaservices | **Yes** | **Yes** | No |
+> | mediaservices / liveevents | **Yes** | **Yes** | No |
+> | mediaservices / streamingendpoints | **Yes** | **Yes** | No |
 
 ## Microsoft.Microservices4Spring
 
@@ -1399,8 +1260,26 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
 > | objectunderstandingaccounts | No | No | No |
-> | remoterenderingaccounts | Yes | Yes | No |
-> | spatialanchorsaccounts | Yes | Yes | No |
+> | remoterenderingaccounts | **Yes** | **Yes** | No |
+> | spatialanchorsaccounts | **Yes** | **Yes** | No |
+
+## Microsoft.MobileNetwork
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ---------- |
+> | mobileNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / dataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / simPolicies | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / sites | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / slices | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups / sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlaneVersions | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
 
 ## Microsoft.NetApp
 
@@ -1423,55 +1302,55 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgateways | No | No | No |
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
-> | applicationsecuritygroups | Yes | Yes | No |
+> | applicationsecuritygroups | **Yes** | **Yes** | No |
 > | azurefirewalls | No | No | No |
 > | bastionhosts | No | No | No |
 > | bgpservicecommunities | No | No | No |
-> | connections | Yes | Yes | No |
-> | ddoscustompolicies | Yes | Yes | No |
+> | connections | **Yes** | **Yes** | No |
+> | ddoscustompolicies | **Yes** | **Yes** | No |
 > | ddosprotectionplans | No | No | No |
-> | dnszones | Yes | Yes | No |
+> | dnszones | **Yes** | **Yes** | No |
 > | expressroutecircuits | No | No | No |
 > | expressroutegateways | No | No | No |
 > | expressrouteserviceproviders | No | No | No |
 > | firewallpolicies | No | No | No |
 > | frontdoors | No | No | No |
-> | ipallocations | Yes | Yes | No |
-> | ipgroups | Yes | Yes | No |
-> | loadbalancers | Yes - Basic SKU<br> Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |
-> | localnetworkgateways | Yes | Yes | No |
+> | ipallocations | **Yes** | **Yes** | No |
+> | ipgroups | No | No | No |
+> | loadbalancers | **Yes** - Basic SKU<br> **Yes** - Standard SKU | **Yes** - Basic SKU<br>No - Standard SKU | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |
+> | localnetworkgateways | **Yes** | **Yes** | No |
 > | natgateways | No | No | No |
 > | networkexperimentprofiles | No | No | No |
-> | networkintentpolicies | Yes | Yes | No |
-> | networkinterfaces | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
+> | networkintentpolicies | **Yes** | **Yes** | No |
+> | networkinterfaces | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NGSs). |
-> | networkwatchers | No | No | No |
-> | networkwatchers / connectionmonitors | Yes | No | No |
-> | networkwatchers / flowlogs | Yes | No | No |
-> | networkwatchers / pingmeshes | Yes | No | No |
+> | networksecuritygroups | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
+> | networkwatchers | **Yes** | No | No |
+> | networkwatchers / connectionmonitors | **Yes** | No | No |
+> | networkwatchers / flowlogs | **Yes** | No | No |
+> | networkwatchers / pingmeshes | **Yes** | No | No |
 > | p2svpngateways | No | No | No |
-> | privatednszones | Yes | Yes | No |
-> | privatednszones / virtualnetworklinks | Yes | Yes | No |
+> | privatednszones | **Yes** | **Yes** | No |
+> | privatednszones / virtualnetworklinks | **Yes** | **Yes** | No |
 > | privatednszonesinternal | No | No | No |
 > | privateendpointredirectmaps | No | No | No |
-> | privateendpoints | Yes | Yes | Yes |
+> | privateendpoints | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
-> | publicipprefixes | Yes | Yes | No |
+> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **Yes**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipprefixes | **Yes** | **Yes** | No |
 > | routefilters | No | No | No |
-> | routetables | Yes | Yes | No |
-> | securitypartnerproviders | Yes | Yes | No |
-> | serviceendpointpolicies | Yes | Yes | No |
+> | routetables | **Yes** | **Yes** | No |
+> | securitypartnerproviders | **Yes** | **Yes** | No |
+> | serviceendpointpolicies | **Yes** | **Yes** | No |
 > | trafficmanagergeographichierarchies | No | No | No |
-> | trafficmanagerprofiles | Yes | Yes | No |
+> | trafficmanagerprofiles | **Yes** | **Yes** | No |
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | Yes | Yes | No |
-> | virtualnetworks | Yes | Yes | No |
+> | virtualnetworkgateways | **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md)| **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
+> | virtualnetworks | **Yes** | **Yes** | No |
 > | virtualnetworktaps | No | No | No |
-> | virtualrouters | Yes | Yes | No |
+> | virtualrouters | **Yes** | **Yes** | No |
 > | virtualwans | No | No |
 > | vpngateways (Virtual WAN) | No | No | No |
 > | vpnserverconfigurations | No | No | No |
@@ -1482,15 +1361,15 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | Yes | Yes | No |
-> | namespaces / notificationhubs | Yes | Yes | No |
+> | namespaces | **Yes** | **Yes** | No |
+> | namespaces / notificationhubs | **Yes** | **Yes** | No |
 
 ## Microsoft.ObjectStore
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | osnamespaces | Yes | Yes | No |
+> | osnamespaces | **Yes** | **Yes** | No |
 
 ## Microsoft.OffAzure
 
@@ -1499,6 +1378,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | hypervsites | No | No | No |
 > | importsites | No | No | No |
+> | mastersites | No | No | No |
 > | serversites | No | No | No |
 > | vmwaresites | No | No | No |
 
@@ -1516,7 +1396,7 @@ Jump to a resource provider namespace:
 > | deletedworkspaces | No | No | No |
 > | linktargets | No | No | No |
 > | storageinsightconfigs | No | No | No |
-> | workspaces | Yes | Yes | No |
+> | workspaces | **Yes** | **Yes** | No |
 
 ## Microsoft.OperationsManagement
 
@@ -1524,9 +1404,9 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managementassociations | No | No | No |
-> | managementconfigurations | Yes | Yes | No |
-> | solutions | Yes | Yes | No |
-> | views | Yes | Yes | No |
+> | managementconfigurations | **Yes** | **Yes** | No |
+> | solutions | **Yes** | **Yes** | No |
+> | views | **Yes** | **Yes** | No |
 
 ## Microsoft.Peering
 
@@ -1536,11 +1416,11 @@ Jump to a resource provider namespace:
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
 > | peeringlocations | No | No | No |
-> | peerings | No | No | No |
+> | peerings | **Yes** | **Yes** | No |
 > | peeringservicecountries | No | No | No |
 > | peeringservicelocations | No | No | No |
 > | peeringserviceproviders | No | No | No |
-> | peeringservices | No | No | No |
+> | peeringservices | **Yes** | **Yes** | No |
 
 ## Microsoft.PolicyInsights
 
@@ -1558,7 +1438,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | consoles | No | No | No |
-> | dashboards | Yes | Yes | No |
+> | dashboards | **Yes** | **Yes** | No |
 > | usersettings | No | No | No |
 
 ## Microsoft.PowerBI
@@ -1566,14 +1446,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | workspacecollections | Yes | Yes | No |
+> | workspacecollections | **Yes** | **Yes** | No |
 
 ## Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | capacities | Yes | Yes | No |
+> | capacities | **Yes** | **Yes** | No |
 
 ## Microsoft.ProjectBabylon
 
@@ -1587,7 +1467,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | accounts | Yes | Yes | No |
+> | accounts | **Yes** | **Yes** | No |
 
 ## Microsoft.ProviderHub
 
@@ -1615,7 +1495,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | replicationeligibilityresults | No | No | No |
-> | vaults | Yes | Yes | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](../../site-recovery/move-vaults-across-regions.md) in the target region. |
+> | vaults | **Yes** | **Yes** | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](../../site-recovery/move-vaults-across-regions.md) in the target region. |
 
 ## Microsoft.RedHatOpenShift
 
@@ -1629,14 +1509,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | Yes | Yes | No |
+> | namespaces | **Yes** | **Yes** | No |
 
 ## Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | queries | Yes | Yes | No |
+> | queries | **Yes** | **Yes** | No |
 > | resourcechangedetails | No | No | No |
 > | resourcechanges | No | No | No |
 > | resources | No | No | No |
@@ -1660,7 +1540,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deployments | No | No | No |
-> | deploymentscripts | No | No | Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | deploymentscripts | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
 > | deploymentscripts / logs | No | No | No |
 > | links | No | No | No |
 > | providers | No | No | No |
@@ -1668,17 +1548,20 @@ Jump to a resource provider namespace:
 > | resources | No | No | No |
 > | subscriptions | No | No | No |
 > | tags | No | No | No |
-> | templatespecs | No | No | Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templatespecs | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
 > | templatespecs / versions | No | No | No |
 > | tenants | No | No | No |
 
 ## Microsoft.SaaS
 
+> [!IMPORTANT]
+> Marketplace offerings that are implemented through the Microsoft.Saas resource provider support resource group and subscription moves. These offerings are represented by the `resources` type below. For example, **SendGrid** is implemented through Microsoft.Saas and supports move operations. However, limitations defined in the [move requirements checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) may limit the supported move scenarios. For example, you can't move the resources from a Cloud Solution Provider (CSP) partner.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | applications | Yes | No | No |
-> | resources | Yes | Yes | No |
+> | applications | **Yes** | No | No |
+> | resources | **Yes** | **Yes** | No |
 > | saasresources | No | No | No |
 
 ## Microsoft.Search
@@ -1690,7 +1573,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | resourcehealthmetadata | No | No | No |
-> | searchservices | Yes | Yes | No |
+> | searchservices | **Yes** | **Yes** | No |
 
 ## Microsoft.Security
 
@@ -1705,7 +1588,7 @@ Jump to a resource provider namespace:
 > | assessmentmetadata | No | No | No |
 > | assessments | No | No | No |
 > | autodismissalertsrules | No | No | No |
-> | automations | Yes | Yes | No |
+> | automations | **Yes** | **Yes** | No |
 > | autoprovisioningsettings | No | No | No |
 > | complianceresults | No | No | No |
 > | compliances | No | No | No |
@@ -1714,7 +1597,7 @@ Jump to a resource provider namespace:
 > | discoveredsecuritysolutions | No | No | No |
 > | externalsecuritysolutions | No | No | No |
 > | informationprotectionpolicies | No | No | No |
-> | iotsecuritysolutions | Yes | Yes | No |
+> | iotsecuritysolutions | **Yes** | **Yes** | No |
 > | iotsecuritysolutions / analyticsmodels | No | No | No |
 > | iotsecuritysolutions / analyticsmodels / aggregatedalerts | No | No | No |
 > | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | No | No | No |
@@ -1775,7 +1658,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | Yes | Yes | No |
+> | namespaces | **Yes** | **Yes** | Yes (with template)<br/><br/> [Move an Azure Service Bus namespace to another region](../../service-bus-messaging/move-across-regions.md) |
 > | premiummessagingregions | No | No | No |
 > | sku | No | No | No |
 
@@ -1785,7 +1668,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | No | No | No |
-> | clusters | Yes | Yes | No |
+> | clusters | **Yes** | **Yes** | No |
 > | containergroups | No | No | No |
 > | containergroupsets | No | No | No |
 > | edgeclusters | No | No | No |
@@ -1799,12 +1682,21 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | applications | Yes | Yes | No |
+> | applications | **Yes** | **Yes** | No |
 > | containergroups | No | No | No |
-> | gateways | Yes | Yes | No |
-> | networks | Yes | Yes | No |
-> | secrets | Yes | Yes | No |
-> | volumes | Yes | Yes | No |
+> | gateways | **Yes** | **Yes** | No |
+> | networks | **Yes** | **Yes** | No |
+> | secrets | **Yes** | **Yes** | No |
+> | volumes | **Yes** | **Yes** | No |
+
+## Microsoft.ServiceNetworking
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | trafficcontrollers | No | No | No |
+> | associations | No | No | No |
+> | frontends | No | No | No |
 
 ## Microsoft.Services
 
@@ -1818,7 +1710,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | signalr | Yes | Yes | No |
+> | signalr | **Yes** | **Yes** | No |
 
 ## Microsoft.SoftwarePlan
 
@@ -1845,15 +1737,15 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | instancepools | No | No | No |
-> | locations | Yes | Yes | No |
-> | managedinstances | No | No | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving managed instances across regions. |
-> | managedinstances / databases | No | No | Yes |
-> | servers | Yes | Yes |Yes |
-> | servers / databases | Yes | Yes | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  |
-> | servers / databases / backuplongtermretentionpolicies | Yes | Yes | No |
-> | servers / elasticpools | Yes | Yes | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  |
-> | servers / jobaccounts | Yes | Yes | No |
-> | servers / jobagents | Yes | Yes | No |
+> | locations | **Yes** | **Yes** | No |
+> | managedinstances | No | No | **Yes** <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving managed instances across regions. |
+> | managedinstances / databases | No | No | **Yes** |
+> | servers | **Yes** | **Yes** | **Yes** |
+> | servers / databases | **Yes** | **Yes** | **Yes** <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  |
+> | servers / databases / backuplongtermretentionpolicies | **Yes** | **Yes** | No |
+> | servers / elasticpools | **Yes** | **Yes** | **Yes** <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  |
+> | servers / jobaccounts | **Yes** | **Yes** | No |
+> | servers / jobagents | **Yes** | **Yes** | No |
 > | virtualclusters | No | No | No |
 
 ## Microsoft.SqlVirtualMachine
@@ -1861,15 +1753,15 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | sqlvirtualmachinegroups | Yes | Yes | No |
-> | sqlvirtualmachines | Yes | Yes | No |
+> | sqlvirtualmachinegroups | **Yes** | **Yes** | No |
+> | sqlvirtualmachines | **Yes** | **Yes** | No |
 
 ## Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storageaccounts | Yes | Yes | Yes<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
+> | storageaccounts | **Yes** | **Yes** | **Yes**<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
 
 ## Microsoft.StorageCache
 
@@ -1883,7 +1775,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storagesyncservices | Yes | Yes | No |
+> | storagesyncservices | **Yes** | **Yes** | No |
 
 ## Microsoft.StorageSyncDev
 
@@ -1915,7 +1807,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
-> | streamingjobs | Yes | Yes | No |
+> | streamingjobs | **Yes** | **Yes** | No |
 
 ## Microsoft.StreamAnalyticsExplorer
 
@@ -1954,16 +1846,16 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | environments | Yes | Yes | No |
-> | environments / eventsources | Yes | Yes | No |
-> | environments / referencedatasets | Yes | Yes | No |
+> | environments | **Yes** | **Yes** | No |
+> | environments / eventsources | **Yes** | **Yes** | No |
+> | environments / referencedatasets | **Yes** | **Yes** | No |
 
 ## Microsoft.Token
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | stores | Yes | Yes | No |
+> | stores | **Yes** | **Yes** | No |
 
 ## Microsoft.VirtualMachineImages
 
@@ -2032,27 +1924,27 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | availablestacks | No | No | No |
 > | billingmeters | No | No | No |
-> | certificates | No | Yes | No |
+> | certificates | No | **Yes** | No |
 > | certificates (managed) | No | No | No |
-> | connectiongateways | Yes | Yes | No |
-> | connections | Yes | Yes | No |
-> | customapis | Yes | Yes | No |
+> | connectiongateways | **Yes** | **Yes** | No |
+> | connections | **Yes** | **Yes** | No |
+> | customapis | **Yes** | **Yes** | No |
 > | deletedsites | No | No | No |
 > | deploymentlocations | No | No | No |
 > | georegions | No | No | No |
 > | hostingenvironments | No | No | No |
-> | kubeenvironments | Yes | Yes | No |
+> | kubeenvironments | **Yes** | **Yes** | No |
 > | publishingusers | No | No | No |
 > | recommendations | No | No | No |
 > | resourcehealthmetadata | No | No | No |
 > | runtimes | No | No | No |
-> | serverfarms | Yes | Yes | No |
+> | serverfarms | **Yes** | **Yes** | No |
 > | serverfarms / eventgridfilters | No | No | No |
-> | sites | Yes | Yes | No |
-> | sites / premieraddons | Yes | Yes | No |
-> | sites / slots | Yes | Yes | No |
+> | sites | **Yes** | **Yes** | No |
+> | sites / premieraddons | **Yes** | **Yes** | No |
+> | sites / slots | **Yes** | **Yes** | No |
 > | sourcecontrols | No | No | No |
-> | staticsites | No | No | No |
+> | staticsites | Yes | Yes | No |
 
 ## Microsoft.WindowsESU
 

@@ -4,7 +4,8 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.custom: devx-track-bicep
+ms.date: 11/09/2022
 ---
 
 # Deployment functions for Bicep
@@ -26,7 +27,7 @@ This function returns the object that is passed during deployment. The propertie
 * deploying a local Bicep file.
 * deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
-When deploying a local Bicep file to a resource group: the function returns the following format:
+When deploying a local Bicep file to a resource group, the function returns the following format:
 
 ```json
 {
@@ -48,7 +49,7 @@ When deploying a local Bicep file to a resource group: the function returns the 
 }
 ```
 
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying a local Bicep file. The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property is not included when deploying a local Bicep file. The format is:
 
 ```json
 {
@@ -109,6 +110,10 @@ The preceding example returns the following object:
 Returns information about the Azure environment used for deployment.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Remarks
+
+To see a list of registered environments for your account, use [az cloud list](/cli/azure/cloud#az-cloud-list) or [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment).
 
 ### Return value
 
@@ -172,11 +177,8 @@ The preceding example returns the following object when deployed to global Azure
   "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
   "resourceManager": "https://management.azure.com/",
   "authentication": {
-    "loginEndpoint": "https://login.windows.net/",
-    "audiences": [
-      "https://management.core.windows.net/",
-      "https://management.azure.com/"
-    ],
+    "loginEndpoint": "https://login.microsoftonline.com/",
+    "audiences": [ "https://management.core.windows.net/", "https://management.azure.com/" ],
     "tenant": "common",
     "identityProvider": "AAD"
   },

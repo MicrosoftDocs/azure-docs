@@ -1,10 +1,10 @@
 ---
 title: Move a Log Analytics workspace to another Azure region by using the Azure portal
 description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
-author: yossi-y
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.author: yossiy
+ms.custom: devx-track-arm-template
+ms.date: 07/02/2023
+ms.reviewer: yossiy
 ---
 
 # Move a Log Analytics workspace to another region by using the Azure portal
@@ -48,7 +48,7 @@ A workspace environment can be complex and include connected sources, managed so
     | sort by ResourceProvider, ResourceType
     ```
 
-  - *Installed solutions*: Select **Solutions** on the workspace navigation pane for a list of installed solutions.
+  - *Installed solutions*: Select **Legacy solutions** on the workspace navigation pane for a list of installed solutions.
   - *Data collector API*: Data arriving through a [Data Collector API](../logs/data-collector-api.md) is stored in custom log tables. For a list of custom log tables, select **Logs** on the workspace navigation pane, and then select **Custom log** on the schema pane.
   - *Linked services*: Workspaces might have linked services to dependent resources such as an Azure Automation account, a storage account, or a dedicated cluster. Remove linked services from your workspace. Reconfigure them manually in the target workspace.
   - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be included in the template. 
@@ -292,7 +292,7 @@ The following procedures show how to prepare the workspace and resources for the
     | summarize max(TimeGenerated) by Type
     ```
 
-After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](./cross-workspace-query.md#performing-a-query-across-multiple-resources). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
+After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](./cross-workspace-query.md). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
 
 Here's an example for a query across two workspaces that have the same name:
 
@@ -317,7 +317,7 @@ If you want to discard the source workspace, delete the exported resources or th
 
 ## Clean up
 
-While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) workspaces. 
+While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](./cross-workspace-query.md) workspaces. 
 
 If you no longer need access to older data in the original workspace:
 

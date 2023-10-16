@@ -3,19 +3,19 @@ title: Configure private endpoints for Azure Cosmos DB analytical store.
 description: Learn how to set up managed private endpoints for Azure Cosmos DB analytical store to restrict network access.
 author: AnithaAdusumilli
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 09/29/2022
 ms.author: anithaa
-
 ---
 
 # Configure Azure Private Link for Azure Cosmos DB analytical store
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. If you are using the transactional store, see [Private endpoints for the transactional store](how-to-configure-private-endpoints.md) article. Using [managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), you can restrict network access of your Azure Cosmos DB analytical store, to a Managed Virtual Network associated with your Azure Synapse workspace. Managed private endpoints establish a private link to your analytical store.
 
 > [!NOTE]
-> If you are using Private DNS Zones for Cosmos DB and wish to create a Synapse managed private endpoint to the analytical store sub-resource, you must first create a DNS zone for the analytical store (`privatelink.analytics.cosmos.azure.com`) linked to your Cosmos DB's virtual network.
+> If you are using Private DNS Zones for Azure Cosmos DB and wish to create a Synapse managed private endpoint to the analytical store sub-resource, you must first create a DNS zone for the analytical store (`privatelink.analytics.cosmos.azure.com`) linked to your Azure Cosmos DB's virtual network.
 
 ## Enable a private endpoint for the analytical store
 
@@ -34,7 +34,7 @@ The following access restrictions are applicable when data-exfiltration protecti
 
 ### Add a managed private endpoint for Azure Cosmos DB analytical store
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the Azure portal, navigate to your Synapse Analytics workspace and open the **Overview** pane.
 
@@ -46,9 +46,9 @@ The following access restrictions are applicable when data-exfiltration protecti
 
    :::image type="content" source="./media/analytical-store-private-endpoints/create-new-private-endpoint.png" alt-text="Create a new private endpoint for analytical store." border="true":::
 
-1. Select **Azure Cosmos DB(SQL API)** account type > **Continue**.
+1. Select **Azure Cosmos DB (API for NoSQL)** account type > **Continue**.
 
-   :::image type="content" source="./media/analytical-store-private-endpoints/select-private-endpoint.png" alt-text="Select Azure Cosmos DB SQL API to create a private endpoint." border="true":::
+   :::image type="content" source="./media/analytical-store-private-endpoints/select-private-endpoint.png" alt-text="Select Azure Cosmos DB API for NoSQL to create a private endpoint." border="true":::
 
 1. Fill out the **New managed private endpoint** form with the following details:
 
@@ -56,9 +56,9 @@ The following access restrictions are applicable when data-exfiltration protecti
    * **Description** - Provide a friendly description to identify your private endpoint.
    * **Azure subscription** - Select an Azure Cosmos DB account from the list of available accounts in your Azure subscriptions.
    * **Azure Cosmos DB account name** - Select an existing Azure Cosmos DB account of type SQL or MongoDB.
-   * **Target sub-resouce** - Select one of the following options:
+   * **Target sub-resource** - Select one of the following options:
      **Analytical**: If you want to add the private endpoint for Azure Cosmos DB analytical store.
-     **Sql** (or **MongoDB**): If you want to add OLTP or transactional account endpoint.
+     **NoSQL** (or **MongoDB**): If you want to add OLTP or transactional account endpoint.
 
    > [!NOTE]
    > You can add both transactional store and analytical store private endpoints to the same Azure Cosmos DB account in an Azure Synapse Analytics workspace. If you only want to run analytical queries, you may only want to map the analytical private endpoint.
@@ -119,7 +119,7 @@ To configure network isolation for this account from a Synapse workspace:
    ```
 
    > [!NOTE]
-   > Azure Cosmos DB account and Azure Synapse Analytics workspace should be under same Azure Active Directory (AD) tenant.
+   > Azure Cosmos DB account and Azure Synapse Analytics workspace should be under same Microsoft Entra tenant.
 
 2. You can now access the account from serverless SQL pools, using T-SQL queries over Azure Synapse Link. However, to ensure network isolation for the data in analytical store, you must add an **analytical** managed private endpoint for this account. Otherwise, the data in the analytical store will not be blocked from public access.
 

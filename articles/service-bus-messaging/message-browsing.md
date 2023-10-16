@@ -2,7 +2,7 @@
 title: Azure Service Bus - message browsing
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 06/08/2023
 ---
 
 # Message browsing
@@ -15,7 +15,7 @@ The Peek operation on a queue or a subscription returns at most the requested nu
 | Active messages | Yes |
 | Dead-lettered messages | No | 
 | Locked messages | Yes |
-| Expired messages |  May be (before they are dead-lettered) |
+| Expired messages |  May be (before they're dead-lettered) |
 | Scheduled messages | Yes for queues. No for subscriptions |
 
 ## Dead-lettered messages
@@ -34,7 +34,7 @@ Peek works on queues, subscriptions, and their dead-letter queues.
 
 When called repeatedly, the peek operation enumerates all messages in the queue or subscription, in order, from the lowest available sequence number to the highest. It’s the order in which messages were enqueued, not the order in which messages might eventually be retrieved.
 
-You can also pass a SequenceNumber to a peek operation. It will be used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
+You can also pass a SequenceNumber to a peek operation. It's used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
 
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
@@ -49,3 +49,4 @@ Find samples for the older .NET and Java client libraries below:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - **Message Browse** sample. 
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

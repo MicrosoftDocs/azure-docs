@@ -1,9 +1,6 @@
 ---
 title: Authentication and authorization in your app
 description: Overview of how to use authentication and authorization with an Azure Fluid Relay service. 
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
@@ -11,9 +8,6 @@ fluid.url: https://fluidframework.com/docs/build/auth/
 ---
 
 # Authentication and authorization in your app
-
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 Security is critical to modern web applications. Fluid Framework, as a part of your web application architecture is an important piece of infrastructure to secure. Fluid Framework is a layered architecture, and auth-related concepts are implemented based on the Fluid service it's connecting to. This means that, although there are common authentication themes across all Fluid services, the details and specifics will differ for each service.
 
@@ -33,8 +27,7 @@ The secret key is how the Azure Fluid Relay service knows that requests are comi
 Azure Fluid Relay uses [JSON Web Tokens (JWTs)](https://jwt.io/) to encode and verify data signed with your secret key. JSON Web Tokens are a signed bit of JSON that can include additional information about rights and permissions.
 
 > [!NOTE]
-> The specifics of JWTs are beyond the scope of this article. For more details about the JWT standard see
-> <https://jwt.io/introduction>.
+> The specifics of JWTs are beyond the scope of this article. For more information about the JWT standard, see [Introduction to JSON Web Tokens](https://jwt.io/introduction).
 
 Though the details of authentication differ between Fluid services, several values must always be present.
 
@@ -97,9 +90,9 @@ One option for building a secure token provider is to create a serverless Azure 
 
 Fluid services authenticate incoming calls using a shared client secret, which is not tied to a specific user. User authentication can be added based on the details of your Fluid service. 
 
-One simple option for user authentication would be to simply use an [Azure Function](../../azure-functions/index.yml) as your token provider, and enforce user authentication as a condition of obtaining a token. If an application tries to call the Function it would fail unless authenticated with your auth system. If you're using Azure Active Directory (Azure AD), for example, you might create an Azure AD application for your Azure Function, and tie it to your organization's auth system.
+One simple option for user authentication would be to simply use an [Azure Function](../../azure-functions/index.yml) as your token provider, and enforce user authentication as a condition of obtaining a token. If an application tries to call the Function it would fail unless authenticated with your auth system. If you're using Microsoft Entra ID, for example, you might create a Microsoft Entra application for your Azure Function, and tie it to your organization's auth system.
 
-In this case the user would sign into your application using Azure AD, through which you would obtain a token to use to call your Azure Function. The Azure Function itself behaves the same, but it's now only accessible to people who have also authenticated with Azure AD.
+In this case the user would sign into your application using Microsoft Entra ID, through which you would obtain a token to use to call your Azure Function. The Azure Function itself behaves the same, but it's now only accessible to people who have also authenticated with Microsoft Entra ID.
 
 Since the Azure Function is now your entry point into obtaining a valid token, only users who have properly authenticated to the Function will then be able to provide that token to the Azure Fluid Relay service from their client application. This two-step approach enables you to use your own custom authentication process in conjunction with the Azure Fluid Relay service.
 

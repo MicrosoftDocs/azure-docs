@@ -2,13 +2,13 @@
 title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 12/17/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template, devx-track-bicep
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for SKU not available
 
-This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az-vm-create) that specify a **size** parameter for a SKU that's not available.
+This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az-vm-create) that specify a `size` parameter for a SKU that's not available.
 
 ## Symptom
 
@@ -184,11 +184,11 @@ To determine which SKUs are available in a **Region**, use the [portal](https://
 
 - To see other available sizes, select **See all sizes**.
 
-  :::image type="content" source="media/error-sku-not-available/create-vm.png" alt-text="Screenshot of Azure portal deployment to select a virtual machine size.":::
+  :::image type="content" source="media/error-sku-not-available/create-vm.png" alt-text="Screenshot of Azure portal deployment interface displaying options to select a virtual machine size from a drop-down menu.":::
 
 - You can filter and scroll through the available sizes. When you find the VM size you want to use, choose **Select**.
 
-  :::image type="content" source="media/error-sku-not-available/available-sizes.png" alt-text="Screenshot of Azure portal that shows available virtual machine sizes.":::
+  :::image type="content" source="media/error-sku-not-available/available-sizes.png" alt-text="Screenshot of Azure portal showing a list of available virtual machine sizes along with filtering options to narrow down the selection.":::
 
 # [REST](#tab/rest)
 

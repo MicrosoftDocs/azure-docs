@@ -2,7 +2,11 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 06/18/2019
+ms.date: 05/08/2023
+ms.service: backup
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -17,7 +21,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 ## Troubleshoot discover and configure issues
 
-After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
+When the creation and configuration of a Recovery Services vault is complete, discovering databases and configuring backup is a two-step process.<br>
 
 ![Backup Goal - SQL Server in Azure VM](./media/backup-azure-sql-database/sql.png)
 
@@ -104,14 +108,14 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Operation cancelled as a conflicting operation was already running on the same database. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
+| Operation canceled as a conflicting operation was already running on the same database. | You may get this error when the triggered on-demand, or the scheduled backup job has conflicts with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the scenarios when this error code might display:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
 
 
 ### UserErrorFileManipulationIsNotAllowedDuringBackup
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | You may get this error when the triggered on-demand, or the scheduled backup job has conflicts with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the scenarios when this error code might display:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
+| Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
 
 
 ### UserErrorSQLPODoesNotExist
@@ -222,7 +226,22 @@ AzureBackup workload extension operation failed. | The VM is shut down, or the V
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Microsoft Entra services.| <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+
+### UserErrorOperationNotAllowedDatabaseMirroringEnabled
+
+| Error message | Possible cause | Recommended action |
+| --- | --- | --- |
+| Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you've the mirrioring operation enabled on a SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
+
+### UserErrorWindowsWLExtFailedToStartPluginService
+
+| Error message | Possible cause | Recommendation |
+| --- | --- | --- |
+| Operation failing with `UserErrorWindowsWLExtFailedToStartPluginService` error. | Azure Backup workload extension is unable to start the workload backup plugin service on the Azure Virtual Machine due to service account misconfiguration. | **Step 1:** <br><br> Verify if **NT Service\AzureWLBackupPluginSvc** user has **Read** permissions on: <br> - C:\windows\Microsoft.NET \assembly\GAC_32 <br> - C:\windows\Microsoft.NET \assembly\GAC_64 <br> - C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config.        <br><br>   If the permissions are missing, assign **Read** permissions on these directories.                 <br><br>   **Step 2:**    <br><br> Verify if **NT Service\AzureWLBackupPluginSvc** has the **Bypass traverse chekcing** rights by going to **Local Security Policy** > **User Right Assignment** > **Bypass traverse checking**. **Everyone** must be selected by default.       <br><br> If **Everyone** and **NT Service\AzureWLBackupPluginSvc** are missing, add **NT Service\AzureWLBackupPluginSvc** user, and then try to restart the service or trigger a backup or restore operation for a datasource. |
+
+
+
 
 ## Re-registration failures
 
@@ -324,4 +343,4 @@ This file should be placed before you trigger the restore operation.
 
 ## Next steps
 
-For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).
+For more information about [Azure Backup for SQL VMs](/azure/azure-sql/virtual-machines/windows/backup-restore#azbackup).

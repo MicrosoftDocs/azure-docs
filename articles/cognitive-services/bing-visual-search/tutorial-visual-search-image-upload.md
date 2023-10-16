@@ -1,6 +1,6 @@
 ---
 title:  "Tutorial: How to upload image using the Bing Visual Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to upload an image to Bing, get insights about it, display the response.
 services: cognitive-services
 
@@ -11,12 +11,12 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Upload images to the Bing Visual Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Visual Search API enables you to search the web for images similar to ones you upload. Use this tutorial to create a web application that can send an image to the API, and display the insights it returns within the webpage. Note that this application does not adhere to all [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) for using the API.
 
@@ -191,7 +191,7 @@ This application has an option to change these values. Add the following `<div>`
                 <option value="fr-CH">Switzerland (French)</option>
                 <option value="de-CH">Switzerland (German)</option>
                 <option value="zh-TW">Taiwan (Traditional Chinese)</option>
-                <option value="tr-TR">Turkey (Turkish)</option>
+                <option value="tr-TR">Türkiye (Turkish)</option>
                 <option value="en-GB">United Kingdom (English)</option>
                 <option value="en-US" selected>United States (English)</option>
                 <option value="es-US">United States (Spanish)</option>

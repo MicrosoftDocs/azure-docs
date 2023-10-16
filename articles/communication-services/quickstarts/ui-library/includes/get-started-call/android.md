@@ -1,81 +1,88 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Android
 author: pavelprystinka
-
 ms.author: pprystinka
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+> [!VIDEO https://www.youtube.com/embed/8hOKCHgSNsg]
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
-
+Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An OS running [Android Studio](https://developer.android.com/studio).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
+- A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
+- An Azure Communication Services [access token](../../../identity/quick-create-identity.md).
 
+## Set up the project
 
-## Setting up
+Complete the following sections to set up the quickstart project.
 
-### Creating an Android app with an empty activity
+### Create a new Android project
 
-In Android Studio, create a new project and select the `Empty Activity`.
+In Android Studio, create a new project:
 
-![Start a new Android Studio Project](../../media/composite-android-new-project.png)
+1. In the **File** menu, select **New** > **New Project**.
 
-Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK `API 21: Android 5.0 (Lollipop)` or greater.
+1. In **New Project**, select the **Empty Activity** project template.
 
-![Screenshot showing the 'Finish' button selected in Android Studio.](../../media/composite-android-new-project-finish.png)
+   :::image type="content" source="../../media/composite-android-new-project.png" alt-text="Screenshot that shows the New Project dialog in Android Studio with Empty Activity selected.":::
 
-Click `Finish`.
+1. Select **Next**.
+
+1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 21: Android 5.0 (Lollipop)** or later.
+
+1. Select **Finish**.
+
+   :::image type="content" source="../../media/composite-android-new-project-finish.png" alt-text="Screenshot that shows new project options and the Finish button selected.":::
 
 ## Install the packages
 
-In your app level (**app folder**) `UILibraryQuickStart/app/build.gradle`, add the following lines to the android and dependencies sections.
+Complete the following sections to install the required application packages.
 
-```groovy
-android {
-    ...
-    packagingOptions {
-        pickFirst  'META-INF/*'
-    }
-    ...
-}
-```
+### Add a dependency
+
+In your app-level *UILibraryQuickStart/app/build.gradle* file (in the app folder), add the following dependency:
 
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:+'
+    implementation 'com.azure.android:azure-communication-ui-calling:+'
     ...
 }
 ```
 
-In your project gradle scripts add following lines to `repositories`.  
-For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
-If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
+### Add Maven repositories
 
-```groovy
-repositories {
-    ...
-    mavenCentral()
-    maven {
-        url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
+Two Maven repositories are required to integrate the library:
+
+- MavenCentral
+- The Azure package repository
+
+To add the repositories:
+
+1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
+
+    ```groovy
+    // dependencyResolutionManagement
+    repositories {
+        ...
+        mavenCentral()
+        maven {
+            url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
+        }
+        ...
     }
-    ...
-}
-```
-Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
+    ```
 
-## Add a button to the activity_main
+1. Sync your project with the Gradle files. To sync the project, on the **File** menu, select **Sync Project With Gradle Files**.
 
-Go to the layout file (`app/src/main/res/layout/activity_main.xml`). Here we'll drop the following code to create a button to start composite.
+## Add a button to Activity_main.xml
+
+In the *app/src/main/res/layout/activity_main.xml* layout file, add the following code to create a button to start the composite:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -99,9 +106,13 @@ Go to the layout file (`app/src/main/res/layout/activity_main.xml`). Here we'll 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## Initialize composite 
+## Initialize the composite
 
-Go to `MainActivity`. Here we'll drop the following code to initialize our Composite Components for Calling. Replace `"GROUP_CALL_ID"` with your group ID for your call, `"DISPLAY_NAME"` with your name, and  `"<USER_ACCESS_TOKEN>"` with your token.
+To initialize the composite:
+
+1. Go to `MainActivity`.
+
+1. Add the following code to initialize your composite components for calling. Replace `"GROUP_CALL_ID"` with the group ID for your call. Replace `"DISPLAY_NAME"` with your name. Replace `"USER_ACCESS_TOKEN"` with your token.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -113,9 +124,11 @@ import android.os.Bundle
 import android.widget.Button
 import com.azure.android.communication.common.CommunicationTokenCredential
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions
-import com.azure.android.communication.ui.CallCompositeBuilder
-import com.azure.android.communication.ui.CallComposite
-import com.azure.android.communication.ui.GroupCallOptions
+import com.azure.android.communication.ui.calling.CallComposite
+import com.azure.android.communication.ui.calling.CallCompositeBuilder
+import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator
+import com.azure.android.communication.ui.calling.models.CallCompositeJoinLocator
+import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions
 import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
@@ -131,14 +144,11 @@ class MainActivity : AppCompatActivity() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 
-        val options = GroupCallOptions(
-            communicationTokenCredential,
-            UUID.fromString("GROUP_CALL_ID"),
-            "DISPLAY_NAME",
-        )
+        val locator: CallCompositeJoinLocator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
+        val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME")
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
-        callComposite.launch(this, options)
+        callComposite.launch(this, remoteOptions)
     }
 
     private fun fetchToken(): String? {
@@ -157,9 +167,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
-import com.azure.android.communication.ui.CallCompositeBuilder;
-import com.azure.android.communication.ui.CallComposite;
-import com.azure.android.communication.ui.GroupCallOptions;
+import com.azure.android.communication.ui.calling.CallComposite;
+import com.azure.android.communication.ui.calling.CallCompositeBuilder;
+import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator;
+import com.azure.android.communication.ui.calling.models.CallCompositeJoinLocator;
+import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -179,17 +191,15 @@ public class MainActivity extends AppCompatActivity {
     private void startCallComposite() {
         CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
                 new CommunicationTokenRefreshOptions(this::fetchToken, true);
-
         CommunicationTokenCredential communicationTokenCredential = 
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
-
-        GroupCallOptions options = new GroupCallOptions(
-                communicationTokenCredential,
-                UUID.fromString("GROUP_CALL_ID"),
-                "DISPLAY_NAME");
+        
+        final CallCompositeJoinLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
+        final CallCompositeRemoteOptions remoteOptions =
+                new CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME");
 
         CallComposite callComposite = new CallCompositeBuilder().build();
-        callComposite.launch(this, options);
+        callComposite.launch(this, remoteOptions);
     }
 
     private String fetchToken() {
@@ -198,51 +208,54 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
------
+---
+
 ## Run the code
 
-Build and start application from Android Studio.
+In Android Studio, build and start the application:
 
-- Click `Launch`.
-- Accept audio permissions and select device, mic, and video settings.
-- Click `Join Call`.
+1. Select **Launch**.
+1. Accept permissions, and then select device, microphone, and video settings.
+1. Select **Join call**.
 
-![Launch](../../media/composite-android.gif)
+:::image type="content" source="../../media/composite-android.gif" alt-text="GIF animation that shows an example of how the project runs on an Android device.":::
 
-## Object Model
+## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Android UI:
+The following classes and interfaces handle some key features of the Azure Communication Services Android UI:
 
-| Name                                                               | Description                                                                                  |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| [CallComposite](#create-call-composite)                            | Composite component that renders a call experience with participant gallery and controls.    |
-| [CallCompositeBuilder](#create-call-composite)                     | Builder to build CallComposite with options.                                                 |
-| [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
-| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
-| [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
-| [LocalizationConfiguration](#apply-localization-configuration)     | Injected as optional in CallCompositeBuilder to set language of composite.       |
+| Name                                                                  | Description                                                                                  |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [CallComposite](#create-callcomposite)                               | Composite component that renders a call experience with participant gallery and controls   |
+| [CallCompositeBuilder](#create-callcomposite)                        | Builder that builds `CallComposite` with options                                                |
+| [CallCompositeJoinMeetingLocator](#set-up-a-group-call)                        | Passed-in `CallComposite` launch to start a group call                                         |
+| [CallCompositeTeamsMeetingLinkLocator](#set-up-a-teams-meeting)                | Passed to `CallComposite` launch to join a Microsoft Teams meeting                                     |
+| [CallCompositeLocalizationOptions](#apply-a-localization-configuration) | Injected as optional in `CallCompositeBuilder` to set the language of the composite      |
 
 ## UI Library functionality
 
-### Create Call Composite
+Get the code to create key communication features for your Android application.
 
-Initialize a `CallCompositeBuilder` instance and a `CallComposite` instance inside the `startCallComposite` function.
+### Create CallComposite
+
+To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeBuilder` instance and a `CallComposite` instance.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
 ```
+
 #### [Java](#tab/java)
 
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
 ```
 
------
-### Setup authentication
+---
+### Set up authentication
 
-Initialize a `CommunicationTokenCredential` instance inside the `startCallComposite` function. Replace `"<USER_ACCESS_TOKEN>"` with your token.
+To set up authentication, inside the `startCallComposite` function, initialize a `CommunicationTokenCredential` instance. Replace `"USER_ACCESS_TOKEN"` with your access token.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -267,175 +280,283 @@ CommunicationTokenCredential communicationTokenCredential =
 
 ```
 
-Refer to the [user access token](../../../identity/quick-create-identity.md) documentation if you don't already have a token available.
+If you don't already have an access token, [create an Azure Communication Services access token](../../../identity/quick-create-identity.md).
 
------
-### Setup Group Call or Teams Meeting Options
+---
+### Set up a group call
 
-Depending on what type of Call/Meeting you would like to set up, use the appropriate options object.
-
-### Group Call
-
-Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
-Replace `"GROUP_CALL_ID"` with your group ID for your call.
-Replace `"DISPLAY_NAME"` with your name.
+To set up a group call, initialize a `CallCompositeGroupCallLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val options = GroupCallOptions(
-            communicationTokenCredential,
-            UUID.fromString("GROUP_CALL_ID"),
-            "DISPLAY_NAME",
-        )
+val locator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
+
+val remoteOptions = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-GroupCallOptions options = new GroupCallOptions(
-    communicationTokenCredential,
-    UUID.fromString("GROUP_CALL_ID"),
-    "DISPLAY_NAME"
-);
-```
------
-### Teams Meeting
+CallCompositeJoinLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
 
-Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with teams meeting url for your call.
-Replace `"DISPLAY_NAME"` with your name.
+CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
+```
+---
+
+### Set up a Teams meeting
+
+To set up a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val options = TeamsMeetingOptions(
-            communicationTokenCredential,
-            "TEAMS_MEETING_LINK",
-            "DISPLAY_NAME",
-        )
+val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK")
+
+val remoteOptions = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-TeamsMeetingOptions options = new TeamsMeetingOptions(
-    communicationTokenCredential,
-    "TEAMS_MEETING_LINK",
-    "DISPLAY_NAME"
-);
+CallCompositeJoinLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK");
+
+CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
 ```
 
------
-### Get a Microsoft Teams meeting link
+#### Get a Microsoft Teams meeting link
 
-A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
+You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
 
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta)
-You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
-### Launch
+---
 
-Call `launch` on the `CallComposite` instance inside the `startCallComposite` function
+### Set up a Rooms call
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+To set up a ACS Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
+`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
+
+
+For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.launch(context, options)
+val locator = CallCompositeRoomLocator("<ROOM_ID>")
+
+val remoteOptions = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
+
+val localOptions = CallCompositeLocalOptions().setRoleHint(participantRole)
+
+val callComposite = CallCompositeBuilder().build()
+callComposite.launch(context, remoteOptions, localOptions)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-callComposite.launch(context, options);
+CallCompositeJoinLocator locator = new CallCompositeRoomLocator("<ROOM_ID>");
+
+CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
+
+CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions().setRoleHint(participantRole);
+
+CallComposite callComposite = new CallCompositeBuilder().build();
+callComposite.launch(context, remoteOptions, localOptions);
 ```
 
------
-### Subscribe to error events from `CallComposite`
+---
 
-To receive error events, inject a handler to the `CallCompositeBuilder`.
+### Launch the composite
+
+To launch the call UI, inside the `startCallComposite` function, call `launch` on the `CallComposite` instance.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val callComposite: CallComposite = CallCompositeBuilder().build()
-callComposite.setOnErrorHandler { communicationUIErrorEvent ->
-    //...
+callComposite.launch(context, remoteOptions)
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.launch(context, remoteOptions);
+```
+
+---
+### Subscribe to CallComposite error events
+
+To receive error events, call `setOnErrorHandler` with `CallComposite`.
+
+The following `errorCode` values might be sent to the error handler:
+
+- `CallCompositeErrorCode.CALL_JOIN_FAILED`
+- `CallCompositeErrorCode.CALL_END_FAILED`
+- `CallCompositeErrorCode.TOKEN_EXPIRED`
+- `CallCompositeErrorCode.CAMERA_FAILURE`
+- `CallCompositeErrorCode.MICROPHONE_PERMISSION_NOT_GRANTED`
+- `CallCompositeErrorCode.NETWORK_CONNECTION_NOT_AVAILABLE`
+
+The following example shows an error event for a failed composite event.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnErrorEventHandler { callCompositeErrorEvent ->
+    println(callCompositeErrorEvent.errorCode)
 }
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite callComposite = new CallCompositeBuilder().build();
-callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
-    //...
+callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
+    System.out.println(callCompositeErrorEvent.getErrorCode());
 });
 ```
 
------
-### Apply theme configuration
+---
+### Apply a theme configuration
 
-To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
+To change the primary color of the composite, create a new theme style in *src/main/res/values/themes.xml* and *src/main/res/values-night/themes.xml* by using `AzureCommunicationUICalling.Theme` as the parent theme. To apply the theme, inject the theme ID in `CallCompositeBuilder`:
 
 ```xml
-<style name="MyCompany.CallComposite" parent="AzureCommunicationUI.Theme.Calling">
-    <item name="azure_communication_ui_communication_primary">@color/purple_500</item>
+<style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme">
+    <item name="azure_communication_ui_calling_primary_color">#27AC22</item>
+    <item name="azure_communication_ui_calling_primary_color_tint10">#5EC65A</item>
+    <item name="azure_communication_ui_calling_primary_color_tint20">#A7E3A5</item>
+    <item name="azure_communication_ui_calling_primary_color_tint30">#CEF0CD</item>
 </style>
 ```
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.ThemeConfiguration
-
 val callComposite: CallComposite =
         CallCompositeBuilder()
-            .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
+            .theme(R.style.MyCompany_CallComposite)
             .build()
 ```
 
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.ThemeConfiguration;
-
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
+        .theme(R.style.MyCompany_CallComposite)
         .build();
 ```
 
------
-### Apply localization configuration
+---
+### Apply a localization configuration
 
-To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LanguageCode.values()` provides list of supported languages.
+To change the language of the composite, use `CallCompositeSupportedLocale` to create `CallCompositeLocalizationOptions` with `Locale`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. You can use `CallCompositeLocalizationOptions` to set a different value for `language`. By default, UI Library includes a set of `language` values that you can use with UI components. `CallCompositeSupportedLocale` provides the supported locales. For example, to access the English locale, you can use `CallCompositeSupportedLocale.EN`. `CallCompositeSupportedLocale.getSupportedLocales()` provides a list of locale objects for supported languages.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.LocalizationConfiguration
+import com.azure.android.communication.ui.calling.models.CallCompositeLocalizationOptions
+import com.azure.android.communication.ui.calling.models.CallCompositeSupportedLocale
 
-// LanguageCode.values() provides list of supported languages
+// CallCompositeSupportedLocale provides list of supported locale
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
-                LocalizationConfiguration("en")
+                CallCompositeLocalizationOptions(CallCompositeSupportedLocale.EN)
             ).build()
 ```
 
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.LocalizationConfiguration;
+import com.azure.android.communication.ui.calling.models.CallCompositeLocalizationOptions;
+import com.azure.android.communication.ui.calling.models.CallCompositeSupportedLocale;
 
-// LanguageCode.values() provides list of supported languages
+// CallCompositeSupportedLocale provides a list of supported locales.
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration("en"))
+        .localization(new CallCompositeLocalizationOptions(CallCompositeSupportedLocale.EN))
         .build();
 ```
 
------
-### Add notifications into your mobile app
+---
+### Subscribe to CallComposite call state changed event
 
-The push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps [follow the link.](../../../../concepts/notifications.md)
+To receive call state changed events, call `addOnCallStateChangedEventHandler` with `CallComposite`.
+
+The following example shows an event for a call state changed.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnCallStateChangedEventHandler { callStateChangedEvent ->
+    println(callStateChangedEvent.code)
+}
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.addOnCallStateChangedEventHandler(callStateChangedEvent -> {
+    System.out.println(callStateChangedEvent.getCode());
+});
+```
+
+---
+### Dismiss CallComposite and subscribe to dismissed event
+
+To receive dismiss, call `addOnDismissedEventHandler` with `CallComposite`. To dismiss CallComposite, call `dismiss`.
+
+The following example shows an event for a call state changed.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnDismissedEventHandler { callCompositeDismissedEvent ->
+    println(callCompositeDismissedEvent.errorCode)
+}
+
+callComposite.dismiss()
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.addOnDismissedEventHandler(callCompositeDismissedEvent -> {
+    System.out.println(callCompositeDismissedEvent.getErrorCode());
+});
+
+callComposite.dismiss();
+```
+
+---
+### More features
+
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
+
+### Add notifications to your mobile app
+
+Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI.

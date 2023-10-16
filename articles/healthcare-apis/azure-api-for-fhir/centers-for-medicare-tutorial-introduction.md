@@ -5,13 +5,14 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 02/15/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 09/27/2023
 ---
 
 # Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule introduction
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the Azure API for FHIR to support these implementation guides.
 
@@ -20,7 +21,7 @@ In this series of tutorials, we'll cover a high-level summary of the Center for 
 
 The CMS released the [Interoperability and Patient Access rule](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) on May 1, 2020. This rule requires free and secure data flow between all parties involved in patient care (patients, providers, and payers) to allow patients to access their health information when they need it. Interoperability has plagued the healthcare industry for decades, resulting in siloed data that causes negative health outcomes with higher and unpredictable costs for care. CMS is using their authority to regulate Medicare Advantage (MA), Medicaid, Children's Health Insurance Program (CHIP), and Qualified Health Plan (QHP) issuers on the Federally Facilitated Exchanges (FFEs) to enforce this rule. 
 
-In August 2020, CMS detailed how organizations can meet the mandate. To ensure that data can be exchanged securely and in a standardized manner, CMS identified FHIR version release 4 (R4) as the foundational standard required for the data exchange. 
+In August 2020, CMS detailed how organizations can meet the mandate. To ensure that data can be exchanged securely and in a standardized manner, CMS identified Fast Healthcare Interoperability Resources (FHIR&#174;) version release 4 (R4) as the foundational standard required for the data exchange. 
 
 There are three main pieces to the Interoperability and Patient Access ruling:
 
@@ -28,7 +29,7 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 * **Provider Directory API (Required July 1, 2021)** – CMS-regulated payers are required by this portion of the rule to make provider directory information publicly available via a standards-based API. Through making this information available, third-party application developers will be able to create services that help patients find providers for specific care needs and clinicians find other providers for care coordination.  
 
-* **Payer-to-Payer Data Exchange (Originally required Jan 1, 2022 - [Currently Delayed](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index))** – CMS-regulated payers are required to exchange certain patient clinical data at the patient’s request with other payers. While there's no requirement to follow any kind of standard, applying FHIR to exchange this data is encouraged. 
+* **Payer-to-Payer Data Exchange (Originally required Jan 1, 2022 - [Currently Delayed](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index))** – CMS-regulated payers are required to exchange certain patient clinical data at the patient’s request with other payers. While there's no requirement to follow any kind of standard, applying FHIR&#174; to exchange this data is encouraged. 
 
 ## Key FHIR concepts
 
@@ -55,7 +56,7 @@ The Patient Access API describes adherence to four FHIR implementation guides:
 
 The Provider Directory API describes adherence to one implementation guide:
 
-* [HL7 Da Vinci PDex Plan Network IG](http://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
+* [HL7 Da Vinci PDex Plan Network IG](https://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
 
 ## Touchstone
 
@@ -66,4 +67,6 @@ To test adherence to the various implementation guides, [Touchstone](https://tou
 Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
->[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)  
+>[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.  

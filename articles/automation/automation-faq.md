@@ -2,16 +2,20 @@
 title: Azure Automation FAQ
 description: This article gives answers to frequently asked questions about Azure Automation.
 services: automation
-ms.subservice: 
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-python
+ms.date: 10/03/2023
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 
 # Azure Automation frequently asked questions
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Automation. If you have any other questions about its capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it's found quickly and easily.
+
+## Why can't I create new Automation job in West Europe region?
+
+You might experience a delay or failure of job creation because of scalability issues in West Europe region. For more information, see [creation of new Automation job in West Europe region](./troubleshoot/runbooks.md#scenario-unable-to-create-new-automation-job-in-west-europe-region).
+
 
 ## Can Update Management prevent unexpected OS-level upgrades?
 

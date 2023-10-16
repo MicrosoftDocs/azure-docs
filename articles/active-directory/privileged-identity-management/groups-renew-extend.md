@@ -1,33 +1,38 @@
 ---
-title: Renew expired group owner or member assignments in Privileged Identity Management - Azure AD | Microsoft Docs
-description: Learn how to extend or renew role-assignable group assignments in Azure AD Privileged Identity Management (PIM).
+title: Extend or renew PIM for groups assignments
+description: Learn how to extend or renew PIM for groups assignments.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.reviewer: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 6/7/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Extend or renew privileged access group assignments (preview) in Privileged Identity Management
+# Extend or renew PIM for groups assignments 
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) provides controls to manage the access and assignment lifecycle for privileged access groups. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
+Privileged Identity Management (PIM) in Microsoft Entra ID provides controls to manage the access and assignment lifecycle for group membership and ownership. Administrators can assign start and end date-time properties for group membership and ownership. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access isn't extended.
 
 ## Who can extend and renew
 
-Only administrators of the resource can extend or renew privileged access group assignments. The affected user or group can request to extend assignments that are about to expire and request to renew assignments that are already expired.
+Only users with permissions to manage groups can extend or renew group membership or ownership time-bound assignments. The affected user or group can request to extend assignments that are about to expire and request to renew assignments that are already expired.
+
+Role-assignable groups can be managed by Global Administrator, Privileged Role Administrator, or Owner of the group. Non-role-assignable groups can be managed by Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator, or Owner of the group. Role assignments for administrators should be scoped at directory level (not Administrative Unit level). 
+
+> [!NOTE]
+> Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Microsoft Entra PIM.
 
 ## When notifications are sent
 
-Privileged Identity Management sends email notifications to administrators and affected users of privileged access group assignments that are expiring:
+Privileged Identity Management sends email notifications to administrators and affected users of PIM for Groups assignments that are expiring:
 
 - Within 14 days prior to expiration
 - One day prior to expiration
@@ -37,26 +42,26 @@ Administrators receive notifications when a user or group requests to extend or 
 
 ## Extend group assignments
 
-The following steps outline the process for requesting, resolving, or administering an extension or renewal of a group assignment.
+The following steps outline the process for requesting, resolving, or administering an extension or renewal of a group membership or ownership assignment.
 
 ### Self-extend expiring assignments
 
-Users assigned to a privileged access group can extend expiring group assignments directly from the **Eligible** or **Active** tab on the **Assignments** page for the group. Users or groups can request to extend eligible and active assignments that expire in the next 14 days.
+Users assigned group membership or ownership can extend expiring group assignments directly from the **Eligible** or **Active** tab on the **Assignments** page for the group. Users or groups can request to extend eligible and active assignments that expire in the next 14 days.
 
-![My roles page listing eligible assgnments with an Action column](media/groups-renew-extend/self-extend-group-assignment.png)
+:::image type="content" source="media/pim-for-groups/pim-group-11.png" alt-text="Screenshot of where to self-extend expiring assignments." lightbox="media/pim-for-groups/pim-group-11.png":::
 
 When the assignment end date-time is within 14 days, the **Extend** command is available. To request an extension of a group assignment, select **Extend** to open the request form.
 
-![Extend group assignment pane with a Reason box and details](media/groups-renew-extend/extend-request-details-group-assignment.png)
+:::image type="content" source="media/pim-for-groups/pim-group-12.png" alt-text="Screenshot of where to extend group assignment pane with a Reason box and details." lightbox="media/pim-for-groups/pim-group-12.png":::
 
 >[!NOTE]
 >We recommend including the details of why the extension is necessary, and for how long the extension should be granted (if you have this information).
 
-In a matter of moments, administrators receive an email notification requesting that they review the extension request. If a request to extend has already been submitted, an Azure notification appears in the portal.
+Administrators receive an email notification requesting that they review the extension request. If a request to extend has already been submitted, an Azure notification appears in the portal.
 
 To view the status of or cancel your request, open the **Pending requests** page for the group assignment.
 
-![Privileged access group assignments - Pending requests page showing the link to Cancel](media/groups-renew-extend/group-assignment-extend-cancel-request.png)
+:::image type="content" source="media/pim-for-groups/pim-group-13.png" alt-text="Screenshot of the pending requests page showing the link to Cancel." lightbox="media/pim-for-groups/pim-group-13.png":::
 
 ### Admin approved extension
 
@@ -64,11 +69,11 @@ When a user or group submits a request to extend a group assignment, administrat
 
 In addition to using following the link from email, administrators can approve or deny requests by going to the Privileged Identity Management administration portal and selecting **Approve requests** in the left pane.
 
-![Privileged access group assignments - Approve requests page listing requests and links to approve or deny](media/groups-renew-extend/group-assignment-extend-admin-approve.png)
+:::image type="content" source="media/pim-for-groups/pim-group-14.png" alt-text="Screenshot of the approve requests page listing requests and links to approve or deny." lightbox="media/pim-for-groups/pim-group-14.png":::
 
 When an Administrator selects **Approve** or **Deny**, the details of the request are shown, along with a field to provide a business justification for the audit logs.
 
-![Approve group assignment request with requestor reason, assignment type, start time, end time, and reason](media/groups-renew-extend/group-assignment-extend-admin-approve-reason.png)
+:::image type="content" source="media/pim-for-groups/pim-group-15.png" alt-text="Screenshot of where to approve group assignment request with requestor reason, assignment type, start time, end time, and reason." lightbox="media/pim-for-groups/pim-group-15.png":::
 
 When approving a request to extend a group assignment, resource administrators can choose a new start date, end date, and assignment type. Changing assignment type might be necessary if the administrator wants to provide limited access to complete a specific task (one day, for example). In this example, the administrator can change the assignment from **Eligible** to **Active**. This means they can provide access to the requestor without requiring them to activate.
 
@@ -78,7 +83,7 @@ If a user assigned to a group doesn't request an extension for the group assignm
 
 To extend a group assignment, browse to the assignment view in Privileged Identity Management. Find the assignment that requires an extension. Then select **Extend** in the action column.
 
-![Assignments page listing eligible group assignments with links to extend](media/groups-renew-extend/group-assignment-extend-admin-approve.png)
+:::image type="content" source="media/pim-for-groups/pim-group-16.png" alt-text="Screenshot of the assignments page listing eligible group assignments with links to extend." lightbox="media/pim-for-groups/pim-group-16.png":::
 
 ## Renew group assignments
 
@@ -88,19 +93,15 @@ While conceptually similar to the process for requesting an extension, the proce
 
 Users who can no longer access resources can access up to 30 days of expired assignment history. To do this, they browse to **My Roles** in the left pane, and then select the **Expired assignments** tab.
 
-![My roles page - Expired assignments tab](media/groups-renew-extend/groups-renew-from-my-roles.png)
-
 The list of assignments shown defaults to **Eligible assignments**. Use the drop-down menu to toggle between Eligible and Active assignments.
 
 To request renewal for any of the group assignments in the list, select the **Renew** action. Then provide a reason for the request. It's helpful to provide a duration in addition to any additional context or a business justification that can help the resource administrator decide to approve or deny.
-
-![Renew group assignment pane showing Reason box](media/groups-renew-extend/groups-renew-request-form.png)
 
 After the request has been submitted, resource administrators are notified of a pending request to renew a group assignment.
 
 ### Admin approves
 
-Resource administrators can access the renewal request from the link in the email notification or by accessing Privileged Identity Management from the Azure portal and selecting **Approve requests** from the left pane.
+Resource administrators can access the renewal request from the link in the email notification or by accessing Privileged Identity Management from the Microsoft Entra admin center and selecting **Approve requests** from the left pane.
 
 When an administrator selects **Approve** or **Deny**, the details of the request are shown along with a field to provide a business justification for the audit logs.
 
@@ -108,5 +109,5 @@ When approving a request to renew a group assignment, resource administrators mu
 
 ## Next steps
 
-- [Approve or deny requests for privileged access group assignments in Privileged Identity Management](groups-approval-workflow.md)
-- [Configure privileged access group settings in Privileged Identity Management](groups-role-settings.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)
+- [Configure PIM for Groups settings](groups-role-settings.md)

@@ -2,15 +2,18 @@
 title: Find identity object IDs for authentication - Azure API for FHIR
 description: This article explains how to locate the identity object IDs needed to configure authentication for Azure API for FHIR
 services: healthcare-apis
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: dseven
+ms.date: 9/27/2023
+ms.author: kesheth
 ---
 
 # Find identity object IDs for authentication configuration for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this article, you'll learn how to find identity object IDs needed when configuring the Azure API for FHIR to [use an external or secondary Active Directory tenant](configure-local-rbac.md) for data plane.
 
@@ -25,7 +28,7 @@ $(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 or you can use the Azure CLI:
 
 ```azurecli-interactive
-az ad user show --id myuser@contoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query id --out tsv
 ```
 
 ## Find service principal object ID
@@ -45,7 +48,7 @@ $(Get-AzureADServicePrincipal -Filter "DisplayName eq 'testapp'").ObjectId
 If you're using the Azure CLI, you can use:
 
 ```azurecli-interactive
-az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query objectId --out tsv
+az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query id --out tsv
 ```
 
 ## Find a security group object ID
@@ -60,12 +63,14 @@ Where `mygroup` is the name of the group you're interested in.
 If you're using the Azure CLI, you can use:
 
 ```azurecli-interactive
-az ad group show --group "mygroup" --query objectId --out tsv
+az ad group show --group "mygroup" --query id --out tsv
 ```
 
 ## Next steps
 
-In this article, you've learned how to find identity object IDs needed to configure the Azure API for FHIR to use an external or secondary Azure Active Directory tenant. Next read about how to use the object IDs to configure local RBAC settings:
+In this article, you've learned how to find identity object IDs needed to configure the Azure API for FHIR to use an external or secondary Microsoft Entra tenant. Next read about how to use the object IDs to configure local RBAC settings:
  
 >[!div class="nextstepaction"]
 >[Configure local RBAC settings](configure-local-rbac.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

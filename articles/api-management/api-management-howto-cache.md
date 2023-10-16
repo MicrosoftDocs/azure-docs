@@ -22,8 +22,7 @@ ms.author: danlep
 APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers.
 
 > [!IMPORTANT]
-> Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
-
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management service. Regardless of the cache type being used (internal or external), if the cache-related operations fail to connect to the cache due to the volatility of the cache or any other reason, the API call that uses the cache related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that that there's a "fallback" mechanism to retrieve data not found in the cache.
 For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 ![cache policies](media/api-management-howto-cache/cache-policies.png)
@@ -38,6 +37,9 @@ What you'll learn:
 
 > [!NOTE]
 > Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead.
+> 
+> For feature availability in the v2 tiers (preview), see the [v2 tiers overview](v2-service-tiers-overview.md).
+
 
 ## Prerequisites
 
@@ -50,7 +52,7 @@ To complete this tutorial:
 
 With caching policies shown in this example, the first request to the **GetSpeakers** operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will have the cached response returned, until the cache duration interval has expired.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to your APIM instance.
 3. Select the **API** tab.
 4. Click **Demo Conference API** from your API list.

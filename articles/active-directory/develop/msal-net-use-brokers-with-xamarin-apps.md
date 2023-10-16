@@ -1,8 +1,7 @@
 ---
-title: Use brokers with Xamarin iOS & Android | Azure
-titleSuffix: Microsoft identity platform
+title: Use brokers with Xamarin iOS & Android
 description: Learn how to setup Xamarin iOS applications that can use the Microsoft Authenticator and the Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET).
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,9 +9,9 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/08/2019
-ms.author: jmprieur
-ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.author: dmwendia
+ms.reviewer: jmprieur, saeeda
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn how to use brokers with my Xamarin iOS or Android application and MSAL.NET.
 ---
 
@@ -162,6 +161,8 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* 
 
 ### Step 7: Add a redirect URI to your app registration
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
 
 ```csharp
@@ -176,18 +177,19 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 Notice that the redirect URI matches the `CFBundleURLSchemes` name that you included in the *Info.plist* file.
 
-Add the redirect URI to the app's registration in the [Azure portal](https://portal.azure.com). To generate a properly formatted redirect URI, use **App registrations** in the Azure portal to generate the brokered redirect URI from the bundle ID.
+Add the redirect URI to the app's registration. To generate a properly formatted redirect URI, use **App registrations** to generate the brokered redirect URI from the bundle ID.
 
 **To generate the redirect URI:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. Select **Azure Active Directory** > **App registrations** > your registered app
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Search for and select the application.
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**.
 
     Copy the generated redirect URI that appears in the **Redirect URI** text box for inclusion in your code:
 
-    :::image type="content" source="media/msal-net-use-brokers-with-xamarin-apps/portal-01-ios-platform-settings.png" alt-text="iOS platform settings with generated redirect URI in Azure portal":::
+    :::image type="content" source="media/msal-net-use-brokers-with-xamarin-apps/portal-01-ios-platform-settings.png" alt-text="iOS platform settings with generated redirect URI":::
 1. Select **Done** to complete generation of the redirect URI.
 
 ## Brokered authentication for Android
@@ -234,7 +236,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### Step 4: Add a redirect URI to your app registration
 
-MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, register a **Redirect URI** for your app by using the [Azure portal](https://portal.azure.com).
+MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, register a **Redirect URI** for your app.
 
 The format of the redirect URI for your application depends on the certificate used to sign the APK. For example:
 
@@ -242,11 +244,11 @@ The format of the redirect URI for your application depends on the certificate u
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
-The last part of the URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, is the Base64-encoded version of the signature that the APK is signed with. While developing your app in Visual Studio, if you're debugging your code without signing the APK with a specific certificate, Visual Studio signs the APK for you for debugging purposes. When Visual Studio signs the APK for you in this way, it gives it a unique signature for the machine it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in the Azure portal in order to authenticate with MSAL.
+The last part of the URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, is the Base64-encoded version of the signature that the APK is signed with. While developing your app in Visual Studio, if you're debugging your code without signing the APK with a specific certificate, Visual Studio signs the APK for you for debugging purposes. When Visual Studio signs the APK for you in this way, it gives it a unique signature for the machine it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in order to authenticate with MSAL.
 
-While debugging, you may encounter an MSAL exception (or log message) stating the redirect URI provided is incorrect. **The exception or log message also indicates the redirect URI you should be using** with the current machine you're debugging on. You can use the provided redirect URI to continue developing your app as long as you update redirect URI in code and add the provided redirect URI to the app's registration in the Azure portal.
+While debugging, you may encounter an MSAL exception (or log message) stating the redirect URI provided is incorrect. **The exception or log message also indicates the redirect URI you should be using** with the current machine you're debugging on. You can use the provided redirect URI to continue developing your app as long as you update redirect URI in code and add the provided redirect URI to the app's registration.
 
-Once you're ready to finalize your code, update the redirect URI in the code and the application's registration in the Azure portal to use the signature of the certificate you sign the APK with.
+Once you're ready to finalize your code, update the redirect URI in the code and the application's registration to use the signature of the certificate you sign the APK with.
 
 In practice, this means you should consider adding a redirect URI for each member of your development team, *plus* a redirect URI for the production signed version of the APK.
 
@@ -335,7 +337,7 @@ As an alternative, you can configure MSAL to fall back to the embedded browser, 
 
 Here are a few tips on avoiding issues when you implement brokered authentication on Android:
 
-- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
+- **Redirect URI** - Add a redirect URI to your application registration. A missing or incorrect redirect URI is a common issue encountered by developers.
 - **Broker version** - Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
   - [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (version 5.0.4689.0 or greater)
   - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (version 6.2001.0140 or greater).

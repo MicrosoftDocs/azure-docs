@@ -4,8 +4,7 @@ description: This article provides an overview of the security features and serv
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 01/20/2023
 ms.author: terrylan
 
 ---
@@ -26,7 +25,6 @@ Azure role-based access control (Azure RBAC) provides detailed access management
 
 Learn more:
 
-* [Active Directory team blog on Azure RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
@@ -35,29 +33,25 @@ With Azure, you can use antimalware software from major security vendors such as
 
 Microsoft Antimalware for Azure Cloud Services and Virtual Machines offers you the ability to install an antimalware agent for both PaaS roles and virtual machines. Based on System Center Endpoint Protection, this feature brings proven on-premises security technology to the cloud.
 
-We also offer deep integration for Trend’s [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) and [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) products in the Azure platform. Deep Security is an antivirus solution, and SecureCloud is an encryption solution. Deep Security is deployed inside VMs through an extension model. By using the Azure portal UI and PowerShell, you can choose to use Deep Security inside new VMs that are being spun up, or existing VMs that are already deployed.
-
 Symantec Endpoint Protection (SEP) is also supported on Azure. Through portal integration, you can specify that you intend to use SEP on a VM. SEP can be installed on a new VM via the Azure portal, or it can be installed on an existing VM via PowerShell.
 
 Learn more:
 
-* [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## Multi-Factor Authentication
+<a name='multi-factor-authentication'></a>
 
-Azure AD Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
+## Multifactor authentication
 
-Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options (phone call, text message, or mobile app notification or verification code) and third-party OATH tokens.
+Microsoft Entra multifactor authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
+
+Multifactor authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options (phone call, text message, or mobile app notification or verification code) and third-party OATH tokens.
 
 Learn more:
 
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Multifactor authentication](../../active-directory/authentication/overview-authentication.md#azure-ad-multi-factor-authentication)
+* [How Microsoft Entra multifactor authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## ExpressRoute
 
@@ -84,20 +78,20 @@ Learn more:
 
 ## Privileged Identity Management
 
-Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations give them permanent privileged access in Azure Active Directory (Azure AD).
+Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations give them permanent privileged access in Microsoft Entra ID.
 
-This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their privileged access. Additionally, if a user account with privileged access is compromised, that one breach can affect an organization's overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk by lowering the exposure time of privileges and increasing visibility into usage.  
+This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their privileged access. Additionally, if a user account with privileged access is compromised, that one breach can affect an organization's overall cloud security. Microsoft Entra Privileged Identity Management helps to resolve this risk by lowering the exposure time of privileges and increasing visibility into usage.  
 
-Privileged Identity Management introduces the concept of a temporary admin for a role or “just in time” administrator access. This kind of admin is a user who needs to complete an activation process for that assigned role. The activation process changes the assignment of the user to a role in Azure AD from inactive to active, for a specified time period.
+Privileged Identity Management introduces the concept of a temporary admin for a role or “just in time” administrator access. This kind of admin is a user who needs to complete an activation process for that assigned role. The activation process changes the assignment of the user to a role in Microsoft Entra ID from inactive to active, for a specified time period.
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
-* [Get started with Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
+* [Microsoft Entra Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+* [Start using Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## Identity Protection
 
-Azure AD Identity Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like:
+Microsoft Entra ID Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like:
 
 * Brute-force attacks.
 * Leaked credentials.
@@ -107,34 +101,27 @@ By providing notifications and recommended remediation, Identity Protection help
 
 Learn more:
 
-* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
-* Channel 9: Azure AD and Identity Show: Identity Protection Preview
+* [Microsoft Entra ID Protection](../../active-directory/identity-protection/concept-identity-protection-security-overview.md)
 
 ## Defender for Cloud
 
 Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
 
-Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
+Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) to provide detailed security recommendations tailored for your environment.
 
 Defender for Cloud helps you optimize and monitor the security of your Azure resources by:
 
 - Enabling you to define policies for your Azure subscription resources according to:
-    - Your organization’s security needs.
+    - Your organization's security needs.
     - The type of applications or sensitivity of the data in each subscription.
-    - Any industry or regulatory standards or benchmarks you apply to your subscriptions. 
+    - Any industry or regulatory standards or benchmarks you apply to your subscriptions.
 - Monitoring the state of your Azure virtual machines, networking, and applications.
 - Providing a list of prioritized security alerts, including alerts from integrated partner solutions. It also provides the information that you need to quickly investigate an attack and recommendations on how to remediate it.
 
 Learn more:
 
-* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
-* [Improve your secure score in Microsoft Defender for Cloud](../../security-center/secure-score-security-controls.md)
-
-## Intelligent Security Graph
-
-Intelligent Security Graph provides real-time threat protection in Microsoft products and services. It uses advanced analytics that link a massive amount of threat intelligence and security data to provide insights that can strengthen organizational security. Microsoft uses advanced analytics—processing more than 450 billion authentications per month, scanning 400 billion emails for malware and phishing, and updating one billion devices—to deliver richer insights. These insights can help your organization detect and respond to attacks quickly.
-
-* [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
+* [Introduction to Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
+* [Improve your secure score in Microsoft Defender for Cloud](../../defender-for-cloud/secure-score-security-controls.md)
 
 ## Next Steps
 Learn about the [shared responsibility model](shared-responsibility.md) and which security tasks are handled by Microsoft and which tasks are handled by you.

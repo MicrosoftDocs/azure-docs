@@ -3,13 +3,17 @@ title: Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
 description: This topic gives guidance on troubleshooting common issues with Azure CLI when using PostgreSQL Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.custom: devx-track-azurecli
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
 # Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This doc will help you troubleshoot common issues with Azure CLI when using PostgreSQL Flexible Server.
 
@@ -24,30 +28,30 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 > - Replace ```examplegroup``` and ```exampledeployment``` with the correct resource group and deployment name for your database server. 
 > - You can see the Deployment name in the deployments page in your resource group. See [how to find the deployment name](../../azure-resource-manager/templates/deployment-history.md?tabs=azure-portal)
 
+1. List the deployments in resource group to identify the PostgreSQL Server deployment.
 
-1. List the deployments in resource group to identify the PostgreSQL Server deployment 
-	```azurecli
-
-		az deployment operation group list \
-		  --resource-group examplegroup \
-		  --name exampledeployment
-	```
+    ```azurecli
+        az deployment operation group list \
+          --resource-group examplegroup \
+          --name exampledeployment
+    ```
 
 2. Get the request content of the PostgreSQL Server deployment 
-	```azurecli
+    ```azurecli
+        az deployment operation group list \
+          --name exampledeployment \
+          -g examplegroup \
+          --query [].properties.request
+    ```
 
-		az deployment operation group list \
-		  --name exampledeployment \
-		  -g examplegroup \
-		  --query [].properties.request
-	```
 3. Examine the response content 
-	```azurecli
-	az deployment operation group list \
-	  --name exampledeployment \
-	  -g examplegroup \
-	  --query [].properties.response
-	```
+
+    ```azurecli
+    az deployment operation group list \
+      --name exampledeployment \
+      -g examplegroup \
+      --query [].properties.response
+    ```
 
 ## Error codes
 
@@ -56,7 +60,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |MissingSubscriptionRegistration|Register your subscription with the resource provider. Run the command ```az provider register --namespace Microsoft.DBPostgreSQL``` to resolve the issue.|
 |InternalServerError| Try to view the activity logs for your server to see if there is more information. Run the command ```az monitor activity-log list --correlation-id <enter correlation-id>```. You can try the same CLI command after a few minutes. If the issues persists, please [report it](https://github.com/Azure/azure-cli/issues) or reach out to Microsoft support.|
 |ResourceNotFound| Resource being reference cannot be found.  You can check resource properties, or check if resource is deleted or check if the resource is another subscription. |
-|LocationNotAvailableForResourceType| - Check availability of Azure Database for PostgreSQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). <br>- Check if Azure DB for PostgreSQL Resource types is registered with your subscription. |
+|LocationNotAvailableForResourceType| - Check availability of Azure Database for PostgreSQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). <br>- Check if Azure Database for PostgreSQL Resource types is registered with your subscription. |
 |ResourceGroupBeingDeleted| Resource group is being deleted. Wait for deletion to complete.|
 |PasswordTooLong| The provided password is too long. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).|
 |PasswordNotComplex| The provided password is not complex enough.  It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).|

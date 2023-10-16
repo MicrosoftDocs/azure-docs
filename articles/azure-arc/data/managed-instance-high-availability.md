@@ -9,14 +9,13 @@ ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
-# High Availability with Azure Arc-enabled SQL Managed Instance (preview)
+# High Availability with Azure Arc-enabled SQL Managed Instance
 
 Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application. It uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. Arc-enabled data service provides this service is provided without user intervention. The service sets up the availability group, configures database mirroring endpoints, adds databases to the availability group, and coordinates failover and upgrade. This document explores both types of high availability.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Azure Arc-enabled SQL Managed Instance provides different levels of high availability depending on whether the SQL managed instance was deployed as a *General Purpose* service tier or *Business Critical* service tier. 
 
@@ -115,7 +114,7 @@ az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s --t
 Example:
 
 ```azurecli
-az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier bc --replicas 3
+az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier BusinessCritical --replicas 3
 ```
 
 Directly connected mode:
@@ -125,12 +124,12 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 ```
 Example:
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier bc --replcias 3
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier BusinessCritical --replcias 3
 ```
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.
 
-## View and monitor availability group status
+## View and monitor high availability status
 
 Once the deployment is complete, connect to the primary endpoint from SQL Server Management Studio.  
 
@@ -148,7 +147,7 @@ kubectl get sqlmi -A
 
 ### Get the primary and secondary endpoints and AG status
 
-Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the primary and secondary endpoints, and availability group status.
+Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the primary and secondary endpoints, and high availability status.
 
 Example:
 
@@ -158,29 +157,33 @@ kubectl describe sqlmi sqldemo -n my-namespace
 or 
 
 ```azurecli
-az sql mi-arc show sqldemo --k8s-namespace my-namespace --use-k8s
+az sql mi-arc show --name sqldemo --k8s-namespace my-namespace --use-k8s
 ```
 
 Example output:
 
 ```console
  "status": {
-    "AGStatus": "Healthy",
-    "logSearchDashboard": "https://10.120.230.404:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqldemo'))",
-    "metricsDashboard": "https://10.120.230.46:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqlmi1-0",
-    "mirroringEndpoint": "10.15.100.150:5022",
+    "endpoints": {
+      "logSearchDashboard": "https://10.120.230.404:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqldemo'))",
+      "metricsDashboard": "https://10.120.230.46:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqldemo-0",
+      "mirroring": "10.15.100.150:5022",
+      "primary": "10.15.100.150,1433",
+      "secondary": "10.15.100.156,1433"
+    },
+    "highAvailability": {
+      "healthState": "OK",
+      "mirroringCertificate": "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"
+    },
     "observedGeneration": 1,
-    "primaryEndpoint": "10.15.100.150,1433",
     "readyReplicas": "2/2",
-    "runningVersion": "v1.2.0_2021-12-15",
-    "secondaryEndpoint": "10.15.100.156,1433",
     "state": "Ready"
   }
 ```
 
 You can connect to the above primary endpoint using SQL Server Management Studio and verify using DMVs as:
 
-```tsql
+```sql
 SELECT * FROM sys.dm_hadr_availability_replica_states
 ```
 
@@ -343,4 +346,3 @@ Azure Arc-enabled SQL Managed Instance availability groups has the same limitati
 ## Next steps
 
 Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
-

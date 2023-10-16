@@ -1,37 +1,37 @@
 ---
-title: Passwordless security key sign-in Windows - Azure Active Directory
-description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys 
+title: Passwordless security key sign-in Windows
+description: Learn how to enable passwordless security key sign-in to Microsoft Entra ID using FIDO2 security keys 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory 
+# Enable passwordless security key sign-in to Windows 10 devices with Microsoft Entra ID 
 
-This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both your Azure AD and hybrid Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
+This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both your Microsoft Entra ID and Microsoft Entra hybrid joined Windows 10 devices with your Microsoft Entra account using a FIDO2 security key.
 
 ## Requirements
 
-| Device Type | Azure AD joined | Hybrid Azure AD joined |
+| Device Type | Microsoft Entra joined | Microsoft Entra hybrid joined |
 | --- | --- | --- |
-| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Microsoft Entra multifactor authentication](howto-mfa-getstarted.md) | X | X |
 | [Combined security information registration](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1903 or higher | X | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
-| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 version 2004 or higher |   | X |
+| [Microsoft Entra joined devices](../devices/concept-directory-join.md) require Windows 10 version 1909 or higher | X |   |
+| [Microsoft Entra hybrid joined devices](../devices/concept-hybrid-join.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
-| [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
-| [Microsoft Endpoint Manager](/intune/fundamentals/what-is-intune) (Optional) | X | X |
+| [Microsoft Entra Hybrid Authentication Management module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/2.1.1.0) |   | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
 
@@ -45,44 +45,47 @@ The following scenarios aren't supported:
 - "Run as" using a security key.
 - Log in to a server using a security key.
 - If you haven't used your security key to sign in to your device while online, you can't use it to sign in or unlock offline.
-- Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario utilizes the last account added to the security key. WebAuthN allows users to choose the account they wish to use.
+- Signing in or unlocking a Windows 10 device with a security key containing multiple Microsoft Entra accounts. This scenario utilizes the last account added to the security key. WebAuthN allows users to choose the account they wish to use.
 - Unlock a device running Windows 10 version 1809. For the best experience, use Windows 10 version 1903 or higher.
 
 ## Prepare devices
 
-Azure AD joined devices must run Windows 10 version 1909 or higher.
+Microsoft Entra joined devices must run Windows 10 version 1909 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
+Microsoft Entra hybrid joined devices must run Windows 10 version 2004 or newer.
 
 ## Enable security keys for Windows sign-in
 
 Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in based on their organization's requirements:
 
-- [Enable with Endpoint Manager](#enable-with-endpoint-manager)
-- [Targeted Endpoint Manager deployment](#targeted-endpoint-manager-deployment)
+- [Enable with Microsoft Intune](#enable-with-microsoft-intune)
+- [Targeted Microsoft Intune deployment](#targeted-intune-deployment)
 - [Enable with a provisioning package](#enable-with-a-provisioning-package)
-- [Enable with Group Policy (Hybrid Azure AD joined devices only)](#enable-with-group-policy)
+- [Enable with Group Policy (Microsoft Entra hybrid joined devices only)](#enable-with-group-policy)
 
 > [!IMPORTANT]
-> Organizations with **hybrid Azure AD joined devices** must **also** complete the steps in the article, [Enable FIDO2 authentication to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md) before Windows 10 FIDO2 security key authentication works.
+> Organizations with **Microsoft Entra hybrid joined devices** must **also** complete the steps in the article, [Enable FIDO2 authentication to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md) before Windows 10 FIDO2 security key authentication works.
 >
-> Organizations with **Azure AD joined devices** must do this before their devices can authenticate to on-premises resources with FIDO2 security keys.
+> Organizations with **Microsoft Entra joined devices** must do this before their devices can authenticate to on-premises resources with FIDO2 security keys.
 
-### Enable with Endpoint Manager
+### Enable with Microsoft Intune
 
-To enable the use of security keys using Endpoint Manager, complete the following steps:
+To enable the use of security keys using Intune, complete the following steps:
 
-1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com).
 1. Browse to **Devices** > **Enroll Devices** > **Windows enrollment** > **Windows Hello for Business**.
 1. Set **Use security keys for sign-in** to **Enabled**.
 
 Configuration of security keys for sign-in isn't dependent on configuring Windows Hello for Business.
 
-### Targeted Endpoint Manager deployment
+> [!NOTE]
+> This will not enable security keys on already provisioned devices. In that case use the next method (Targeted Intune deployment)
 
-To target specific device groups to enable the credential provider, use the following custom settings via Endpoint Manager:
+### Targeted Intune deployment
 
-1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+To target specific device groups to enable the credential provider, use the following custom settings via Intune:
+
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com).
 1. Browse to **Devices** > **Windows** > **Configuration profiles** > **Create profile**.
 1. Configure the new profile with the following settings:
    - Platform: Windows 10 and later
@@ -95,11 +98,11 @@ To target specific device groups to enable the credential provider, use the foll
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Data Type: Integer
       - Value: 1
-1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Endpoint Manager](/intune/device-profile-assign).
+1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/intune/device-profile-assign).
 
 ### Enable with a provisioning package
 
-For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
+For devices not managed by Microsoft Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
 
 1. Launch the Windows Configuration Designer.
 1. Select **File** > **New project**.
@@ -122,7 +125,7 @@ For devices not managed by Intune, a provisioning package can be installed to en
 
 ### Enable with Group Policy
 
-For **hybrid Azure AD joined devices**, organizations can configure the following Group Policy setting to enable FIDO security key sign-in. The setting can be found under **Computer Configuration** > **Administrative Templates** > **System** > **Logon** > **Turn on security key sign-in**:
+For **Microsoft Entra hybrid joined devices**, organizations can configure the following Group Policy setting to enable FIDO security key sign-in. The setting can be found under **Computer Configuration** > **Administrative Templates** > **System** > **Logon** > **Turn on security key sign-in**:
 
 - Setting this policy to **Enabled** allows users to sign in with security keys.
 - Setting this policy to **Disabled** or **Not Configured** stops users from signing in with security keys.
@@ -131,7 +134,7 @@ This Group Policy setting requires an updated version of the `CredentialProvider
 
 ## Sign in with FIDO2 security key
 
-In the example below, a user named Bala Sandhu has already provisioned their FIDO2 security key using the steps in the previous article, [Enable passwordless security key sign in](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). For hybrid Azure AD joined devices, make sure you have also [enabled passwordless security key sign-in to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md). Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
+In the example below, a user named Bala Sandhu has already provisioned their FIDO2 security key using the steps in the previous article, [Enable passwordless security key sign in](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). For Microsoft Entra hybrid joined devices, make sure you have also [enabled passwordless security key sign-in to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md). Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
 
 ![Security key sign-in at the Windows 10 lock screen](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
 
@@ -153,8 +156,8 @@ If you'd like to share feedback or encounter issues about this feature, share vi
 
 ## Next steps
 
-[Enable access to on-premises resources for Azure AD and hybrid Azure AD joined devices](howto-authentication-passwordless-security-key-on-premises.md)
+[Enable access to on-premises resources for Microsoft Entra ID and Microsoft Entra hybrid joined devices](howto-authentication-passwordless-security-key-on-premises.md)
 
 [Learn more about device registration](../devices/overview.md)
 
-[Learn more about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Microsoft Entra multifactor authentication](../authentication/howto-mfa-getstarted.md)

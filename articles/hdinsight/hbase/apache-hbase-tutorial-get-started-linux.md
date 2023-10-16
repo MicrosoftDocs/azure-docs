@@ -4,7 +4,7 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/31/2022
+ms.date: 04/26/2023
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -42,10 +42,10 @@ The following procedure uses an Azure Resource Manager template to create an HBa
     |Resource group|Create an Azure Resource management group or use an existing one.|
     |Location|Specify the location of the resource group. |
     |ClusterName|Enter a name for the HBase cluster.|
-    |Cluster login name and password|The default login name is **admin**.|
-    |SSH username and password|The default username is **sshuser**.|
+    |Cluster login name and password|The default login name is `admin`.|
+    |SSH username and password|The default username is `sshuser`.|
 
-    Other parameters are optional.  
+    Other parameters are optional.
 
     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data stays in the storage account. The cluster default storage account name is the cluster name with "store" appended. It's hardcoded in the template variables section.
 
@@ -222,48 +222,47 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 
 1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
 
+    ```bash
+    #! /bin/bash
 
-	```bash
-	#! /bin/bash
+    THIS_MACHINE=`hostname`
 
-	THIS_MACHINE=`hostname`
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
 
-	if [[ $THIS_MACHINE != wn* ]]
-	then
-		printf 'Script to be executed only on worker nodes'
-		exit 0
-	fi
-
-	RESULT=`pgrep -f RESTServer`
-	if [[ -z $RESULT ]]
-	then
-		echo "Applying mitigation; starting REST Server"
-		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
-	else
-		echo "Rest server already running"
-		exit 0
-	fi
-	```
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "REST server already running"
+        exit 0
+    fi
+    ```
 
 1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 
     ```bash
-    export password='MYPASSWORD'
-    export clustername=MYCLUSTERNAME
+    export PASSWORD='MYPASSWORD'
+    export CLUSTER_NAME=MYCLUSTERNAME
     ```
 
 1. Use the following command to list the existing HBase tables:
 
     ```bash
-    curl -u admin:$password \
-    -G https://$clustername.azurehdinsight.net/hbaserest/
+    curl -u admin:$PASSWORD \
+    -G https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/
     ```
 
 1. Use the following command to create a new HBase table with two-column families:
 
     ```bash
-    curl -u admin:$password \
-    -X PUT "https://$clustername.azurehdinsight.net/hbaserest/Contacts1/schema" \
+    curl -u admin:$PASSWORD \
+    -X PUT "https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/Contacts1/schema" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
@@ -274,8 +273,8 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 1. Use the following command to insert some data:
 
     ```bash
-    curl -u admin:$password \
-    -X PUT "https://$clustername.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+    curl -u admin:$PASSWORD \
+    -X PUT "https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
@@ -293,8 +292,8 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 1. Use the following command to get a row:
 
     ```bash
-    curl -u admin:$password \
-    GET "https://$clustername.azurehdinsight.net/hbaserest/Contacts1/1000" \
+    curl -u admin:$PASSWORD \
+    GET "https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/Contacts1/1000" \
     -H "Accept: application/json" \
     -v
     ```

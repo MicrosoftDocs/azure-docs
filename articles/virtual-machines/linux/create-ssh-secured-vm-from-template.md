@@ -1,13 +1,14 @@
 ---
 title: Create a Linux VM in Azure from a template 
 description: How to use the Azure CLI to create a Linux VM from a Resource Manager template
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.collection: linux
 ms.topic: how-to
 ms.date: 03/22/2019
-ms.author: cynthn
-
+ms.author: mattmcinnes
+ms.reviewer: jamesser
 ---
 # How to create a Linux virtual machine with Azure Resource Manager templates
 

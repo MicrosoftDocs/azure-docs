@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: kgremban
   ms.author: kgremban
-  ms.date: 08/11/2021
+  ms.date: 04/05/2022
 
 landingContent:
  - title: Learn about IoT Hub
@@ -17,94 +17,77 @@ landingContent:
     - linkListType: overview
       links:
       - text: What is IoT Hub?
-        url: about-iot-hub.md
-      - text: Key concepts in IoT
-        url: iot-concepts.md
-
- - title: Get started
-   linkLists:
-    - linkListType: quickstart
+        url: iot-concepts-and-iot-hub.md
+    - linkListType: concept
       links:
-      - text: Create a new hub
-        url: iot-hub-create-through-portal.md
-      - text: Send telemetry to your hub
-        url: quickstart-send-telemetry-cli.md
-      - text: Control your devices
-        url: quickstart-control-device.md
-    - linkListType: get-started
-      links:
-      - text: Route telemetry
-        url: tutorial-routing.md
+      - text: Compare IoT Hub and Event Hubs
+        url: iot-hub-compare-event-hubs.md
+      - text: Choose your IoT Hub tier
+        url: iot-hub-scaling.md
 
- - title: Build your solution
+ - title: Collect data from your devices
    linkLists:
+   - linkListType: quickstart
+     links:
+     - text: Send telemetry to your hub
+       url: quickstart-send-telemetry-cli.md
    - linkListType: concept
      links:
-     - text: Process device data locally using IoT Edge
-       url: ../iot-edge/about-iot-edge.md
-     - text: Model your environment with Azure Digital Twins
-       url: ../digital-twins/overview.md
-     - text: Automatically provision devices with IoT Hub Device Provisioning Service
-       url: ../iot-dps/about-iot-dps.md
-     - text: Manage devices at scale using IoT device management
-       url: iot-hub-automatic-device-management.md
+     - text: Send and receive messages
+       url: iot-hub-devguide-messaging.md
+     - text: Upload video, media, and large data files
+       url: iot-hub-devguide-file-upload.md
+
+ - title: Process data with Azure services
+   linkLists:
+   - linkListType: tutorial
+     links:
+     - text: Route telemetry
+       url: tutorial-routing.md
+     - text: Visualize data in Power BI
+       url: iot-hub-live-data-visualization-in-power-bi.md
+   - linkListType: concept
+     links:
+     - text: Understand Azure IoT Hub message routing
+       url: iot-hub-devguide-messages-d2c.md
+
+ - title: Manage and monitor devices remotely
+   linkLists:
+   - linkListType: quickstart
+     links:
+     - text: Control your devices
+       url: quickstart-control-device.md
+   - linkListType: concept
+     links:
+     - text: Invoke direct methods
+       url: iot-hub-devguide-direct-methods.md
+     - text: Use device twins
+       url: iot-hub-devguide-device-twins.md
+     - text: Monitor IoT Hub
+       url: monitor-iot-hub.md 
      - text: Update devices using Device Update for IoT Hub
        url: ../iot-hub-device-update/understand-device-update.md
-     - text: Interact with your device using Azure IoT Explorer
-       url: ../iot-fundamentals/howto-use-iot-explorer.md
-     - text: Develop using the Azure IoT Tools for VS Code
-       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
 
- - title: Azure IoT SDKs
+ - title: Secure your IoT solution
+   linkLists:
+   - linkListType: tutorial
+     links:
+     - text: Create and upload certificates for testing
+       url: tutorial-x509-test-certs.md
+   - linkListType: concept
+     links:
+     - text: Security best practices
+       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
+     - text: Control access to IoT Hub
+       url: iot-hub-devguide-security.md
+
+ - title: Develop with SDKs and tools
    linkLists:
    - linkListType: concept
      links:
-     - text: Learn about Azure IoT device SDKs
-       url: ../iot-develop/about-iot-sdks.md
-     - text: Learn about Azure IoT service SDKs
+     - text: Learn about Azure IoT SDKs
        url: iot-hub-devguide-sdks.md
-
- -   title: Select your protocol
-     linkLists:
-     -  linkListType: concept
-        links:
-        - text: Supported protocols
-          url: iot-hub-devguide-protocols.md
-        - text: TLS support
-          url: iot-hub-tls-support.md 
-        - text: MQTT support
-          url: iot-hub-mqtt-support.md 
-        - text: IP addressing
-          url: iot-hub-understand-ip-address.md
-        - text: AMQP
-          url: iot-hub-amqp-support.md
-        - text: Protocol gateway
-          url: iot-hub-protocol-gateway.md
-
- -   title: Route device data to another service
-     linkLists:
-     -  linkListType: concept
-        links:
-        - text: Understand Azure IoT Hub message routing
-          url: iot-hub-devguide-messages-d2c.md
-     -  linkListType: tutorial
-        links:
-        - text: Prep with Azure CLI
-          url: tutorial-routing-config-message-routing-cli.md
-        - text: Prep with Azure Resource Manager template
-          url: tutorial-routing-config-message-routing-rm-template.md
-        - text: Run and view routing results
-          url: tutorial-routing-view-message-routing-results.md
-
- -   title: Performance and scalability
-     linkLists:
-      - linkListType: concept
-        links:
-        - text: Choosing the right tier
-          url: iot-hub-scaling.md
-        - text: Understand quotas and throttling
-          url: iot-hub-devguide-quotas-throttling.md
-        - text: Pricing examples
-          url: iot-hub-devguide-pricing.md
-        - text: High availability and disaster recovery
-          url: iot-hub-ha-dr.md
+     - text: Use the Azure IoT Hub extension for VS Code
+       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+     - text: Supported device protocols
+       url: iot-hub-devguide-protocols.md

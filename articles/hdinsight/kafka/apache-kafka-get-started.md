@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 03/30/2022
+ms.date: 10/19/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -46,8 +46,8 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
     |Region    | From the drop-down list, select a region where the cluster is created.  Choose a region closer to you for better performance. |
     |Cluster type| Select **Select cluster type** to open a list. From the list, select **Kafka** as the cluster type.|
     |Version|The default version for the cluster type will be specified. Select from the drop-down list if you wish to specify a different version.|
-    |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
-    |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
+    |Cluster login username and password    | The default login name is `admin`. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lowercase letter, one non-alphanumeric character (except characters ```' ` "```). Make sure you **do not provide** common passwords such as `Pass@word1`.|
+    |Secure Shell (SSH) username | The default username is `sshuser`.  You can provide another name for the SSH username. |
     |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
 
    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-basics.png" alt-text="Azure portal create cluster basics" border="true":::
@@ -71,7 +71,7 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
     Select the **Security + networking** tab.
 
-1. For this Quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
+1. For this Quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Microsoft Entra Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
@@ -89,7 +89,8 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
 1. Review the configuration for the cluster. Change any settings that are incorrect. Finally, select **Create** to create the cluster.
 
-    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png" alt-text="kafka cluster configuration summary" border="true":::
+    :::image type="content" source="./media/apache-kafka-get-started/azure-hdinsight-50-portal-cluster-review-create-kafka.png" alt-text="Screenshot showing kafka cluster configuration summary for HDI version 5.0." border="true":::
+
 
     It can take up to 20 minutes to create the cluster.
 
@@ -140,13 +141,13 @@ In this section, you get the host information from the Apache Ambari REST API on
 1. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
 
     ```bash
-    export password='PASSWORD'
+    export PASSWORD='PASSWORD'
     ```
 
 1. Extract the correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and then store it in a variable. Enter the following command:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    export CLUSTER_NAME=$(curl -u admin:$PASSWORD -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
 
     > [!Note]  
@@ -156,7 +157,7 @@ In this section, you get the host information from the Apache Ambari REST API on
 1. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
 
     ```bash
-    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$PASSWORD -G https://$CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/$CLUSTER_NAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
 
     > [!Note]  
@@ -175,7 +176,7 @@ In this section, you get the host information from the Apache Ambari REST API on
 1. To set an environment variable with Apache Kafka broker host information, use the following command:
 
     ```bash
-    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
+    export KAFKABROKERS=$(curl -sS -u admin:$PASSWORD -G https://$CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/$CLUSTER_NAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
     > [!Note]  

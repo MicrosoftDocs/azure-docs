@@ -3,13 +3,12 @@ title: Perform a point-in-time restore on block blob data
 titleSuffix: Azure Storage
 description: Learn how to use point-in-time restore to restore a set of block blobs to their previous state at a given point in time.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/29/2021
-ms.author: tamram
-ms.subservice: blobs
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,6 +17,9 @@ ms.custom: devx-track-azurepowershell
 You can use point-in-time restore to restore one or more sets of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account and how to perform a restore operation.
 
 To learn more about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+
+> [!NOTE]
+> Point-in-time restore is supported for general-purpose v2 storage accounts in the standard performance tier only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
 > [!CAUTION]
 > Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers and blobs to protect against accidental deletion. For more information, see [Soft delete for containers](soft-delete-container-overview.md) and [Soft delete for blobs](soft-delete-blob-overview.md).
@@ -111,7 +113,10 @@ When you perform a restore operation with PowerShell or Azure CLI, you should sp
 
 You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to ten lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
-The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
+The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum. A few examples for how to structure your restore ranges:
+
+ - To include the entire container named myContainer in the range for a restore use start range _myContainer_ and end range _myContainer-0_. This shows how adding '-0' as a suffix to the container name for the end range value includes everything in the container for the restore.
+ - To include an entire virtual directory hierarchy, such as directory myFolder inside container myContainer, use start range _myContainer/myFolder/_ and end range _myContainer/myFolder0_. Adding '0' as a suffix to virtual directory names for the end range includes all files with a prefix 'myContainer/myFolder/' for the restore.
 
 Wildcard characters are not supported in a lexicographical range. Any wildcard characters are treated as standard characters.
 

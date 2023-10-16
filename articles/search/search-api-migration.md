@@ -7,15 +7,16 @@ manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom: 
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/03/2022
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search
 
 If you're using an earlier version of the [**Search REST API**](/rest/api/searchservice/), this article will help you upgrade your application to the newest generally available API version, **2020-06-30**.
 
-Version 2020-06-30 includes an important new feature ([knowledge store](knowledge-store-concept-intro.md)), and introduces several minor behavior changes. As such, this version is mostly backward compatible so code changes should be minimal if you are upgrading from the previous version (2019-05-06).
+Version 2020-06-30 includes an important new feature ([knowledge store](knowledge-store-concept-intro.md)), and introduces several minor behavior changes. As such, this version is mostly backward compatible so code changes should be minimal if you're upgrading from the previous version (2019-05-06).
 
 > [!NOTE]
 > A search service supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities. Over time, the most outdated versions of the REST API will be deprecated and [no longer supported](search-api-versions.md#unsupported-versions).
@@ -26,7 +27,7 @@ Version 2020-06-30 includes an important new feature ([knowledge store](knowledg
 
 When upgrading to a new version, you probably won't have to make many changes to your code, other than to change the version number. The only situations in which you may need to change code are when:
 
-* Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it does not understand.
+* Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it doesn't understand.
 
 * Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
 
@@ -36,11 +37,11 @@ If any of these situations apply to you, then you may need to change your code a
 
 ## Upgrade to 2020-06-30
 
-Version 2020-06-30 is the new generally available release of the REST API. There is one breaking change and several behavioral differences. 
+Version 2020-06-30 is the new generally available release of the REST API. There's one breaking change and several behavioral differences. 
 
 Features are now generally available in this API version include:
 
-* [Knowledge store](knowledge-store-concept-intro.md), persistent storage of enriched content created through skillsets, created for downstream analysis and processing through other applications. With this capability, an indexer-driven AI enrichment pipeline can populate a knowledge store in addition to a search index. If you used the preview version of this feature, it is equivalent to the generally available version. The only code change required is modifying the api-version.
+* [Knowledge store](knowledge-store-concept-intro.md), persistent storage of enriched content created through skillsets, created for downstream analysis and processing through other applications. With this capability, an indexer-driven AI enrichment pipeline can populate a knowledge store in addition to a search index. If you used the preview version of this feature, it's equivalent to the generally available version. The only code change required is modifying the api-version.
 
 ### Breaking change
 
@@ -61,19 +62,19 @@ Version 2019-05-06 is the previous generally available release of the REST API. 
 * [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
 * [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in search index.
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
-* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
+* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that uses the AI enrichment engines of Azure AI services.
 
 ### Breaking changes
 
 Existing code written against earlier API versions will break on api-version=2019-05-06 and later if code contains the following functionality:
 
-#### Indexer for Azure Cosmos DB - datasource is now "type": "cosmosdb"
+#### Indexer for Azure Cosmos DB - datasource is now `"type": "cosmosdb"`
 
-If you are using a [Cosmos DB indexer](search-howto-index-cosmosdb.md ), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
+If you're using an [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
 
 #### Indexer execution result errors no longer have status
 
-The error structure for indexer execution previously had a `status` element. This element was removed because it was not providing useful information.
+The error structure for indexer execution previously had a `status` element. This element was removed because it wasn't providing useful information.
 
 #### Indexer data source API no longer returns connection strings
 
@@ -87,9 +88,9 @@ If you called the [Name Entity Recognition](cognitive-search-skill-named-entity-
 
 API version 2019-05-06 added formal support for complex types. If your code implemented previous recommendations for complex type equivalency in 2017-11-11-Preview or 2016-09-01-Preview, there are some new and changed limits starting in version 2019-05-06 of which you need to be aware:
 
-+ The limits on the depth of sub-fields and the number of complex collections per index have been lowered. If you created indexes that exceed these limits using the preview api-versions, any attempt to update or recreate them using API version 2019-05-06 will fail. If this applies to you, you will need to redesign your schema to fit within the new limits and then rebuild your index.
++ The limits on the depth of subfields and the number of complex collections per index have been lowered. If you created indexes that exceed these limits using the preview api-versions, any attempt to update or recreate them using API version 2019-05-06 will fail. If you find yourself in this situation, you'll need to redesign your schema to fit within the new limits and then rebuild your index.
 
-+ There is a new limit starting in api-version 2019-05-06 on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version 2019-05-06 will fail. If this applies to you, you will need to reduce the number of complex collection elements per document before reindexing your data.
++ There's a new limit starting in api-version 2019-05-06 on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version 2019-05-06 will fail. If you find yourself in this situation, you'll need to reduce the number of complex collection elements per document before reindexing your data.
 
 For more information, see [Service limits for Azure Cognitive Search](search-limits-quotas-capacity.md).
 
@@ -130,15 +131,15 @@ If your code is using complex types with one of the older preview API versions, 
 }  
 ```
 
-A newer tree-like format for defining index fields was introduced in API version 2017-11-11-Preview. In the new format, each complex field has a fields collection where its sub-fields are defined. In API version 2019-05-06, this new format is used exclusively and attempting to create or update an index using the old format will fail. If you have indexes created using the old format, you'll need to use API version 2017-11-11-Preview to update them to the new format before they can be managed using API version 2019-05-06.
+A newer tree-like format for defining index fields was introduced in API version 2017-11-11-Preview. In the new format, each complex field has a fields collection where its subfields are defined. In API version 2019-05-06, this new format is used exclusively and attempting to create or update an index using the old format will fail. If you have indexes created using the old format, you'll need to use API version 2017-11-11-Preview to update them to the new format before they can be managed using API version 2019-05-06.
 
 You can update "flat" indexes to the new format with the following steps using API version 2017-11-11-Preview:
 
 1. Perform a GET request to retrieve your index. If it’s already in the new format, you’re done.
 
-2. Translate the index from the “flat” format to the new format. You’ll have to write code for this since there is no sample code available at the time of this writing.
+2. Translate the index from the “flat” format to the new format. You’ll have to write code for this task since there's no sample code available at the time of this writing.
 
-3. Perform a PUT request to update the index to the new format. Make sure not to change any other details of the index such as the searchability/filterability of fields, since this is not allowed by the Update Index API.
+3. Perform a PUT request to update the index to the new format. Avoid changing any other details of the index, such as the searchability/filterability of fields, because changes that affect the physical expression of existing index isn't allowed by the Update Index API.
 
 > [!NOTE]
 > It is not possible to manage indexes created with the old "flat" format from the Azure portal. Please upgrade your indexes from the “flat” representation to the “tree” representation at your earliest convenience.

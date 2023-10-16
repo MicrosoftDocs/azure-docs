@@ -2,19 +2,19 @@
 title: Tutorial to export data from Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to export data from an Azure Data Box
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 10/29/2021
-ms.author: alkohli
+ms.date: 09/29/2023
+ms.author: shaas
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box
 
-Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored.
+Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premises storage gets compromised and a back-up needs to be restored.
 
 In this tutorial, you learn about:
 
@@ -63,7 +63,7 @@ Perform the following steps in the Azure portal to order a device.
 
     |Setting  |Value  |
     |---------|---------|
-    |Transfer type     | Select **Export to Azure**.        |
+    |Transfer type     | Select **Export from Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Select an existing resource group. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Source Azure region    |    Select the Azure region where your data currently is.         |
@@ -130,7 +130,7 @@ Perform the following steps in the Azure portal to order a device.
     ![Security screen showing Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
 11. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
-   
+
     ![Security screen, settings for a customer-managed key](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
 
 12. On the **Select key from Azure Key Vault** screen, the subscription is automatically populated.
@@ -175,10 +175,10 @@ Perform the following steps in the Azure portal to order a device.
 
 15. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
-    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md).  
+    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md).
 
     If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
-    
+
     ![Select a user identity](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
     The user identity is shown in **Encryption type** settings.
@@ -187,7 +187,7 @@ Perform the following steps in the Azure portal to order a device.
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
 
-16. If you want to enable software-based double encryption, expand **Double encryption (for high-security environments)**, and select **Enable double encryption for the order**. 
+16. If you want to enable software-based double encryption, expand **Double encryption (for high-security environments)**, and select **Enable double encryption for the order**.
 
     The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
@@ -236,7 +236,7 @@ To use an XML file to export your data:
 
     ![Select Export option, Containers](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-containers-option.png)
 
-3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
+3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/anonymous-read-access-configure.md#set-the-anonymous-access-level-for-a-container).
 
    ![Select Export option, New container settings](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-container-settings.png)
 
@@ -272,7 +272,7 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 
 ### [Sample XML file](#tab/sample-xml-file)
 
-This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. 
+This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order.
 
 - For a XML file requirements, go to the **XML file overview** tab.
 - For more examples of valid blob and file prefixes, go to the **Prefix examples** tab.
@@ -286,11 +286,11 @@ This sample XML file includes examples of each XML tag that is used to select bl
       <BlobPathPrefix>/container</BlobPathPrefix>  <!-- Exports all containers beginning with prefix: "container" -->
 	  <BlobPathPrefix>/container1/2021Q2</BlobPathPrefix> <!-- Exports all blobs in container1 with prefix: "2021Q2" -->
    </BlobList>
-   
+
    <!--AzureFileList selects individual files (FilePath) and multiple files (FilePathPrefix) in Azure File storage for export.-->
    <AzureFileList>
 	  <FilePath>/fileshare1/file.txt</FilePath> <!-- Exports /fileshare1/file.txt -->
-      <FilePathPrefix>/fileshare1/</FilePath> <!-- Exports all directories and files in fileshare1 -->
+      <FilePathPrefix>/fileshare1/</FilePathPrefix> <!-- Exports all directories and files in fileshare1 -->
 	  <FilePathPrefix>/fileshare</FilePathPrefix> <!-- Exports all directories and files in any fileshare with prefix: "fileshare" -->
       <FilePathPrefix>/fileshare2/contosowest</FilePathPrefix> <!-- Exports all directories and files in fileshare2 with prefix: "contosowest" -->
    </AzureFileList>
@@ -378,7 +378,7 @@ Data Box copies data from the source storage account(s). Once the data copy is c
 
 ![Data Box export order, data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
 
-The data export from Azure Storage to your Data Box can sometimes fail. Make sure that the blobs aren't archive blobs as export of these blobs is not supported. 
+The data export from Azure Storage to your Data Box can sometimes fail. Make sure that the blobs aren't archive blobs as export of these blobs is not supported.
 
 > [!NOTE]
 > For archive blobs, you need rehydrate those blobs before they can be exported from Azure Storage account to your Data Box. For more information, see [Rehydrate an archive blob]( ../storage/blobs/storage-blob-rehydration.md).

@@ -14,7 +14,7 @@ ms.date: 04/06/2021
 
 When you buy a Reserved VM Instance, you can choose to optimize for instance size flexibility or capacity priority. For more information about setting or changing the optimize setting for reserved VM instances, see [Change the optimize setting for reserved VM instances](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-With a reserved virtual machine instance that's optimized for instance size flexibility, the reservation you buy can apply to the virtual machines (VMs) sizes in the same instance size flexibility group. For example, if you buy a reservation for a VM size that's listed in the DSv2 Series, like Standard_DS3_v2, the reservation discount can apply to the other sizes that are listed in that same instance size flexibility group:
+With a reserved virtual machine instance that's optimized for instance size flexibility, the reservation you buy can apply to the virtual machines (VMs) sizes in the same instance size flexibility group. In other words, when you buy a reserved VM instance of any size within an instance flexibility group, the instance applies to all sizes within the group. For example, if you buy a reservation for a VM size that's listed in the DSv2 Series, like Standard_DS3_v2, the reservation discount can apply to the other sizes that are listed in that same instance size flexibility group:
 
 - Standard_DS1_v2
 - Standard_DS2_v2
@@ -42,13 +42,13 @@ The following sections show what sizes are in the same size series group when yo
 
 CSV below has the instance size flexibility groups, ArmSkuName and the ratios.  
 
-[Instance size flexibility ratios](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
+[Instance size flexibility ratios](https://aka.ms/isf)
 
 Azure keeps link and schema updated so that you can use the file programmatically.
 
 ## View VM size recommendations
 
-Azure shows VM size recommendations in the purchase experience. To view the smallest size recommendations, select **Group by smallest size**.
+Azure shows VM size recommendations in the purchase experience. When enabled, the **Optimize for instance size flexibility (preview)** option groups and sorts recommendations by instance size flexibility.
 
 :::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Screenshot showing recommended quantities." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 

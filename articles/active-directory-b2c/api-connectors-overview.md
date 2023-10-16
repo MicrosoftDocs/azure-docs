@@ -1,11 +1,11 @@
 ---
 title: About API connectors in Azure AD B2C
-description: Use Azure Active Directory (Azure AD) API connectors to customize and extend your user flows by using REST APIs or outbound webhooks to external identity data sources. 
+description: Use Microsoft Entra API connectors to customize and extend your user flows and custom policies by using REST APIs or outbound webhooks to external identity data sources. 
 services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/16/2022
 
 ms.author: kengaderdus
 author: kengaderdus
@@ -14,7 +14,7 @@ ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Use API connectors to customize and extend sign-up user flows with external identity data sources 
+# Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources 
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -27,7 +27,7 @@ As a developer or IT administrator, you can use API connectors to integrate your
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Verify user identity**. Use an identity verification service or external identity data sources to add an extra level of security to account creation decisions.
 - **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
-- **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
+- **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources that are external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
 - **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
 
@@ -43,7 +43,7 @@ There are three places in a user flow where you can enable an API connector:
 
 ### After federating with an identity provider during sign-up
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, and Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step isn't invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
 
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
 - Implement an allow or blocklist based on social identity.
@@ -55,7 +55,7 @@ An API connector at this step in the sign-up process is invoked after the attrib
 - Validate user input data and ask a user to resubmit data.
 - Block a user sign-up based on data entered by the user.
 - Verify user identity.
-- Query external systems for existing data about the user to return it in the application token or store it in Azure AD.
+- Query external systems for existing data about the user to return it in the application token or store it in Microsoft Entra ID.
 
 ### Before sending the token (preview)
 
@@ -74,15 +74,15 @@ The Identity Experience Framework, which underlies Azure Active Directory B2C (A
 
 Using Azure AD B2C, you can add your own business logic to a user journey by calling your own RESTful service. The Identity Experience Framework can send and receive data from your RESTful service to exchange claims. For example, you can:
 
-- **Use external identity data source to validate user input data**. For example, you can verify that the email address provided by the user exists in your customer's database, and if not, present an error. You can as well think of API connectors as a way of supporting outbound webhooks because the call is made when an event occurs e.g. a sign up.
+- **Use external identity data source to validate user input data**. For example, you can verify that the email address provided by the user exists in your customer's database, and if not, present an error. You can as well think of API connectors as a way of supporting outbound webhooks because the call is made when an event occurs, for example, a sign up.
 - **Process claims**. If a user enters their first name in all lowercase or all uppercase letters, your REST API can format the name with only the first letter capitalized and return it to Azure AD B2C. However, when using a custom policy, [ClaimsTransformations](claimstransformations.md) is preferred over calling a RESTful API. 
-- **Dynamically enrich user data by further integrating with corporate line-of-business applications**. Your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. Then return claims can be stored in the user's Azure AD account, evaluated in the next orchestration steps, or included in the access token.
+- **Dynamically enrich user data by further integrating with corporate line-of-business applications**. Your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. Then return claims can be stored in the user's Microsoft Entra account, evaluated in the next orchestration steps, or included in the access token.
 - **Run custom business logic**. You can send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform any other workflows.
 
 ![Diagram of a RESTful service claims exchange](media/api-connectors-overview/restful-service-claims-exchange.png)
 
 > [!NOTE]
-> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is two times (meaning there are 3 tries in total). The timeout and retry count settings are not currently configurable.
+> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is two times (meaning there are 3 tries in total). Currently, you can't configure the timeout and retry count settings.
 
 ## Calling a RESTful service
 
@@ -149,7 +149,7 @@ The output claims should look like the following xml snippet:
 
 ### Handling null values 
 
-A null value in a database is used when the value in a column is unknown or missing.  Do not include JSON keys with a `null` value. In the following example, the email returns `null` value:
+A null value in a database is used when the value in a column is unknown or missing.  Don't include JSON keys with a `null` value. In the following example, the email returns `null` value:
 
 ```json
 {
@@ -231,7 +231,7 @@ In a RESTful technical profile, you may want to send the current session's langu
 
 ## Handling error messages
 
-Your REST API may need to return an error message, such as "The user was not found in the CRM system." If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code). For more information, see the [RESTful technical profile](restful-technical-profile.md#returning-validation-error-message).
+Your REST API may need to return an error message, such as "The user wasn't found in the CRM system." If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code). For more information, see the [RESTful technical profile](restful-technical-profile.md#returning-validation-error-message).
 
 This behavior can only be achieved by calling a REST API technical profile from a validation technical profile. Letting the user to correct the data on the page and run the validation again upon page submission.
 
@@ -272,3 +272,6 @@ See the following articles for examples of using a RESTful technical profile:
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
 ::: zone-end
+
+- Learn how to build resilience when [Interfacing with external processes](../active-directory/architecture/resilient-external-processes.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json)
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).

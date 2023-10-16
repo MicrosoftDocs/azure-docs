@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory Authentication documentation
-summary: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
+title: Microsoft Entra authentication documentation
+summary: Learn how to manage and deploy Microsoft Entra self-service password reset, multifactor authentication, custom banned password list, and smart lockout.
 
 metadata:
-  title: Azure Active Directory Authentication documentation
-  description: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
+  title: Microsoft Entra authentication documentation
+  description: Learn how to manage and deploy Microsoft Entra self-service password reset, multifactor authentication, custom banned password list, and smart lockout.
   services: active-directory
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
   author: justinha
   ms.author: justinha
-  ms.date: 02/11/2020
+  ms.date: 01/29/2023
   ms.collection: M365-identity-device-management
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -57,27 +57,27 @@ landingContent:
             url: howto-sspr-windows.md
 
   # Card
-  - title: Enable Azure AD Multi-Factor Authentication
+  - title: Enable Microsoft Entra multifactor authentication
     linkLists:
       - linkListType: concept
         links:
-          - text: How Azure AD Multi-Factor Authentication works
+          - text: How Microsoft Entra multifactor authentication works
             url: concept-mfa-howitworks.md
       - linkListType: tutorial
         links:
-          - text: Enable Azure AD Multi-Factor Authentication
+          - text: Enable Microsoft Entra multifactor authentication
             url: tutorial-enable-azure-mfa.md
-          - text: Enable risk-based Azure AD Multi-Factor Authentication
+          - text: Enable risk-based Microsoft Entra multifactor authentication
             url: tutorial-risk-based-sspr-mfa.md
       - linkListType: deploy
         links:
-          - text: Deployment guide for Azure AD Multi-Factor Authentication
+          - text: Deployment guide for Microsoft Entra multifactor authentication
             url: howto-mfa-getstarted.md
           - text: Use NPS extension to integrate on-premises applications
             url: howto-mfa-nps-extension.md
 
   # Card
-  - title: Deploy Azure AD password protection
+  - title: Deploy Microsoft Entra password protection
     linkLists:
       - linkListType: concept
         links:
@@ -91,5 +91,5 @@ landingContent:
             url: ./tutorial-configure-custom-password-protection.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure AD password protection
+          - text: Deploy Microsoft Entra password protection
             url: howto-password-ban-bad-on-premises-deploy.md

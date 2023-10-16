@@ -2,214 +2,220 @@
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
 description: Create an ASP.NET Core app with Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application.
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperf-fy21q1, mode-other
+ms.custom: devx-track-csharp, contperf-fy21q1, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 1/3/2022
-ms.author: alkemper
+ms.date: 03/27/2023
+ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
 # Quickstart: Create an ASP.NET Core app with Azure App Configuration
 
-In this quickstart, you'll use Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more data sources specified by an app. These data sources are known as *configuration providers*. Because App Configuration's .NET Core client is implemented as a configuration provider, the service appears like another data source.
+In this quickstart, you'll use Azure App Configuration to externalize storage and management of your app settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more [configuration providers](/aspnet/core/fundamentals/configuration#configuration-providers). App Configuration offers a .NET configuration provider library. Therefore, you can use App Configuration as an extra configuration source for your app. If you have an existing app, to begin using App Configuration, you'll only need a few small changes to your app startup code.
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
-## Create an App Configuration store
+## Add key-values
 
-[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
-
-    | Key                                | Value                               |
-    |------------------------------------|-------------------------------------|
-    | `TestApp:Settings:BackgroundColor` | *#FFF*                              |
-    | `TestApp:Settings:FontColor`       | *#000*                              |
-    | `TestApp:Settings:FontSize`        | *24*                                |
-    | `TestApp:Settings:Message`         | *Data from Azure App Configuration* |
-
-    Leave **Label** and **Content type** empty for now. Select **Apply**.
+| Key                                | Value                               |
+|------------------------------------|-------------------------------------|
+| *TestApp:Settings:BackgroundColor* | *white*                             |
+| *TestApp:Settings:FontColor*       | *black*                             |
+| *TestApp:Settings:FontSize*        | *24*                                |
+| *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
 
 ## Create an ASP.NET Core web app
 
-Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core MVC project. The [Azure Cloud Shell](https://shell.azure.com) provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
+Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core web app project. The [Azure Cloud Shell](https://shell.azure.com) provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
 
-Run the following command to create an ASP.NET Core MVC project in a new *TestAppConfig* folder:
+Run the following command to create an ASP.NET Core web app in a new *TestAppConfig* folder:
+
+#### [.NET 6.x](#tab/core6x)
 
 ```dotnetcli
-dotnet new mvc --no-https --output TestAppConfig
+dotnet new webapp --output TestAppConfig --framework net6.0
 ```
 
-[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
+#### [.NET Core 3.x](#tab/core3x)
+
+```dotnetcli
+dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
+```
+
+---
 
 ## Connect to the App Configuration store
 
-1. Run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
+1. Navigate into the project's directory *TestAppConfig*, and run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Run the following command in the same directory as the *.csproj* file. The command uses Secret Manager to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** in the Azure portal.
+1. Run the following command. The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** of your App Configuration store in the Azure portal.
 
     ```dotnetcli
+    dotnet user-secrets init
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-    > [!IMPORTANT]
+    > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
-    Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), use the **Connection Strings** application setting in App Service instead of Secret Manager to store the connection string.
+    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Microsoft Entra identities](./concept-enable-rbac.md).
 
-    Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
-
-1. Select the correct syntax based on your environment.
+1. Open *Program.cs* and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
     #### [.NET 6.x](#tab/core6x)
-    In *Program.cs*, replace its content with the following code: 
 
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
-    //Retrieve the Connection String from the secrets manager 
-    var connectionString = builder.Configuration.GetConnectionString("AppConfig");
-    
-    builder.Host.ConfigureAppConfiguration(builder =>
-                    {
-                        //Connect to your App Config Store using the connection string
-                        builder.AddAzureAppConfiguration(connectionString);
-                    })
-                .ConfigureServices(services =>
-                    {
-                        services.AddControllersWithViews();
-                    });
 
-    var app = builder.Build();
-    
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-        app.UseExceptionHandler("/Home/Error");
-    }
-    app.UseStaticFiles(); 
-    
-    app.UseRouting();
-    
-    app.UseAuthorization();
-    
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-    
-    app.Run();
+    // Retrieve the connection string
+    string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+
+    // Load configuration from Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(connectionString);
+
+    // The rest of existing code in program.cs
+    // ... ...
     ```
-    
-    #### [.NET 5.x](#tab/core5x)
-    
-    1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
-    
-        ```csharp
-        using Microsoft.Extensions.Configuration;
-        ```
 
-    1. Update the `CreateHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-    
-        ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.ConfigureAppConfiguration(config =>
-                    {
-                        var settings = config.Build();
-                        var connection = settings.GetConnectionString("AppConfig");
-                        config.AddAzureAppConfiguration(connection);
-                    }).UseStartup<Startup>());
-        ```
     #### [.NET Core 3.x](#tab/core3x)
 
-    > [!IMPORTANT]
-    > `CreateHostBuilder` in .NET 3.x replaces `CreateWebHostBuilder` in .NET Core 2.x. 
+    Update the `CreateHostBuilder` method.
 
-    1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
-    
-        ```csharp
-        using Microsoft.Extensions.Configuration;
-        ```
-    1. Update the `CreateHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-    
-        ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                    webBuilder.ConfigureAppConfiguration(config =>
-                    {
-                        var settings = config.Build();
-                        var connection = settings.GetConnectionString("AppConfig");
-                        config.AddAzureAppConfiguration(connection);
-                    }).UseStartup<Startup>());
-        ```
-    
-    #### [.NET Core 2.x](#tab/core2x)
-    
-    1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
-    
-        ```csharp
-        using Microsoft.Extensions.Configuration;
-        ```
-    
-    1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-    
-        ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration(config =>
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.ConfigureAppConfiguration(config =>
                 {
-                    var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
-                    config.AddAzureAppConfiguration(connection);
-                })
-                .UseStartup<Startup>();
-        ```  
----
+                    // Retrieve the connection string
+                    IConfiguration settings = config.Build();
+                    string connectionString = settings.GetConnectionString("AppConfig");
 
-This code will connect to your App Configuration store using a connection string and load all key-values. For more information on the configuration provider APIs, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
+                    // Load configuration from Azure App Configuration
+                    config.AddAzureAppConfiguration(connectionString);
+                });
+
+                webBuilder.UseStartup<Startup>();
+            });
+    ```
+
+    ---
+
+    This code will connect to your App Configuration store using a connection string and load *all* key-values that have *no labels*. For more information on the App Configuration provider, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 ## Read from the App Configuration store
 
-Complete the following steps to read and display values stored in the App Configuration store. The .NET Core Configuration API will be used to access the store. Razor syntax will be used to display the keys' values.
+In this example, you'll update a web page to display its content using the settings you configured in your App Configuration store.
 
-Open *\<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
+1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project.
 
-```cshtml
-@using Microsoft.Extensions.Configuration
-@inject IConfiguration Configuration
-
-<style>
-    body {
-        background-color: @Configuration["TestApp:Settings:BackgroundColor"]
+    ```csharp
+    namespace TestAppConfig
+    {
+        public class Settings
+        {
+            public string BackgroundColor { get; set; }
+            public long FontSize { get; set; }
+            public string FontColor { get; set; }
+            public string Message { get; set; }
+        }
     }
-    h1 {
-        color: @Configuration["TestApp:Settings:FontColor"];
-        font-size: @Configuration["TestApp:Settings:FontSize"]px;
+    ```
+
+1. Bind the `TestApp:Settings` section in configuration to the `Settings` object.
+
+    #### [.NET 6.x](#tab/core6x)
+
+    Update *Program.cs* with the following code and add the `TestAppConfig` namespace at the beginning of the file.
+
+    ```csharp
+    using TestAppConfig;
+
+    // Existing code in Program.cs
+    // ... ...
+
+    builder.Services.AddRazorPages();
+
+    // Bind configuration "TestApp:Settings" section to the Settings object
+    builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
+
+    var app = builder.Build();
+
+    // The rest of existing code in program.cs
+    // ... ...
+    ```
+
+    #### [.NET Core 3.x](#tab/core3x)
+
+    Open *Startup.cs* and update the `ConfigureServices` method.
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddRazorPages();
+
+        // Bind configuration "TestApp:Settings" section to the Settings object
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
     }
-</style>
+    ```
 
-<h1>@Configuration["TestApp:Settings:Message"]</h1>
-```
+    ---
 
-In the preceding code, the App Configuration store's keys are used as follows:
+1. Open *Index.cshtml.cs* in the *Pages* directory, and update the `IndexModel` class with the following code. Add the `using Microsoft.Extensions.Options` namespace at the beginning of the file, if it's not already there.
 
-* The `TestApp:Settings:BackgroundColor` key's value is assigned to the CSS `background-color` property.
-* The `TestApp:Settings:FontColor` key's value is assigned to the CSS `color` property.
-* The `TestApp:Settings:FontSize` key's value is assigned to the CSS `font-size` property.
-* The `TestApp:Settings:Message` key's value is displayed as a heading.
+    ```csharp
+    public class IndexModel : PageModel
+    {
+        private readonly ILogger<IndexModel> _logger;
+
+        public Settings Settings { get; }
+
+        public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
+        {
+            Settings = options.Value;
+            _logger = logger;
+        }
+    }
+    ```
+
+1. Open *Index.cshtml* in the *Pages* directory, and update the content with the following code.
+
+    ```html
+    @page
+    @model IndexModel
+    @{
+        ViewData["Title"] = "Home page";
+    }
+
+    <style>
+        body {
+            background-color: @Model.Settings.BackgroundColor;
+        }
+
+        h1 {
+            color: @Model.Settings.FontColor;
+            font-size: @(Model.Settings.FontSize)px;
+        }
+    </style>
+
+    <h1>@Model.Settings.Message</h1>
+    ```
 
 ## Build and run the app locally
 
@@ -225,11 +231,14 @@ In the preceding code, the App Configuration store's keys are used as follows:
     dotnet run
     ```
 
-1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000` or as specified in the command output. This address is the default URL for the locally hosted web app. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.
+1. The output of the `dotnet run` command contains two URLs. Open a browser and navigate to either one of these URLs to access your application. For example: `https://localhost:5001`.
 
-    ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
+    If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*. When prompted to configure the port for preview, enter *5000*, and select *Open and browse*.
 
-    When prompted to configure the port for preview, enter *5000* and select **Open and browse**. The web page will read "Data from Azure App Configuration."
+    :::image type="content" source="./media/quickstarts/cloud-shell-web-preview.png" alt-text="Screenshot of Azure Cloud Shell. Locate Web Preview.":::
+
+    The web page looks like this:
+    :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local-navbar.png" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
 
 ## Clean up resources
 
@@ -240,11 +249,11 @@ In the preceding code, the App Configuration store's keys are used as follows:
 In this quickstart, you:
 
 * Provisioned a new App Configuration store.
-* Registered the App Configuration store's .NET Core configuration provider.
-* Read the App Configuration store's keys with the configuration provider.
-* Displayed the App Configuration store's key values using Razor syntax.
+* Connected to your App Configuration store using the App Configuration provider library.
+* Read your App Configuration store's key-values with the configuration provider library.
+* Displayed a web page using the settings you configured in your App Configuration store.
 
-To learn how to configure your ASP.NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
+To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)

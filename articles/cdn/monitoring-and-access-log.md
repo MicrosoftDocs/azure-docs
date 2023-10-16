@@ -7,18 +7,19 @@ manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 02/27/2023
 ms.author: yuajia 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
+
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues. 
 
 * Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.
 * Metrics, which display four key metrics on CDN, including Byte Hit Ratio, Request Count, Response Size and Total Latency. It also provides different dimensions to break down metrics.
 * Alert, which allows customer to set up alert for key metrics
-* Additional metrics, which allow customers to use Azure Log Analytics to enable additional metrics of value. We also provide query samples for a few other metrics under Azure Log Analytics.
+* More metrics, which allow customers to use Azure Log Analytics to enable more metrics of value. We also provide query samples for a few other metrics under Azure Log Analytics.
 
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
@@ -27,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Configuration - Azure portal
 
@@ -87,7 +88,7 @@ Retention data is defined by the **-RetentionInDays** option in the command.
     $diagname = <your-diagnostic-setting-name>
     $days = '30'
 
-    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+    $cdn = Get-AzCdnProfile -ResourceGroupName $rsg -ProfileName $cdnprofile
 
     $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
 
@@ -148,12 +149,12 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 
 | Property  | Description |
 | ------------- | ------------- |
-| BackendHostname | If the request is being forwarded to a backend, this field represents the hostname of the backend. This field will be blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
+| BackendHostname | If the request is being forwarded to a backend, this field represents the hostname of the backend. This field is blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
 | CacheStatus | For caching scenarios, this field defines the cache hit/miss at the POP |
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. |
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |
@@ -181,7 +182,7 @@ The raw log property **isSentToOriginShield** has been deprecated and replaced b
 
 Raw logs include logs generated from both CDN edge (child POP) and origin shield. Origin shield refers to parent nodes that are strategically located across the globe. These nodes communicate with origin servers and reduce the traffic load on origin. 
 
-For every request that goes to origin shield, there are 2-log entries:
+For every request that goes to origin shield, there are two log entries:
 
 * One for edge nodes
 * One for origin shield. 
@@ -221,7 +222,10 @@ For more information, see [Azure Monitor metrics](../azure-monitor/essentials/da
 | ResponseSize | The number of bytes sent as responses from CDN edge to clients. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 | TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 
-***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
+> [!NOTE]
+> If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
+
+***Bytes Hit Ratio = (egress from edge - egress from origin)/egress from edge**
 
 Scenarios excluded in bytes hit ratio calculation:
 
@@ -260,12 +264,13 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
+Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
 
-### Additional Metrics
-You can enable additional metrics using Azure Log Analytics and raw logs for an additional cost.
+### More Metrics
 
-1. Follow steps above in enabling diagnostics to send raw log to log analytics.
+You can enable more metrics using Azure Log Analytics and raw logs for an extra cost.
+
+1. Follow steps in the previous section to enable diagnostics to send raw log to log analytics.
 
 2. Select the Log Analytics workspace you created:
 

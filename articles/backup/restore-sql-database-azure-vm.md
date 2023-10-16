@@ -2,16 +2,19 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 12/09/2021
-author: v-amallick
+ms.date: 08/03/2023
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore SQL Server databases on Azure VMs
 
 This article describes how to restore a SQL Server database that's running on an Azure virtual machine (VM) that the [Azure Backup](backup-overview.md) service has backed up to an Azure Backup Recovery Services vault.
 
 This article describes how to restore SQL Server databases. For more information, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md).
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Restore to a time or a recovery point
 
@@ -25,14 +28,12 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Before you restore a database, note the following:
 
 - You can restore the database to an instance of a SQL Server in the same Azure region.
-- The destination server must be registered to the same vault as the source.
+- The destination server must be registered to the same vault as the source. If you want to restore backups to a different vault, [enable Cross Subscription Restore](#cross-subscription-restore).
 - If you have multiple instances running on a server, all the instances should be up and running. Otherwise the server won't appear in the list of destination servers for you to restore the database to. For more information, refer to [the troubleshooting steps](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
-- Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
-  - The value for **-m** is the name of the client.
-  - Only the specified client name can open the connection.
-- For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
+- We strongly recommended to restore the "master" database using the [Restore as files](#restore-as-files) option and then restore [using T-SQL commands](/sql/relational-databases/backup-restore/restore-the-master-database-transact-sql).
+- For all system databases (model, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
 
 ## Restore a database
@@ -123,7 +124,7 @@ To restore the backup data as .bak files instead of a database, choose **Restore
 
 1. Select **Restore Point**, and select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
-1. All the backup files associated with the selected recovery point are dumped into the destination path. You can restore the files as a database on any machine they're present on using SQL Server Management Studio.
+1. When doing SQL database point-in-time restore using **Restore as files**, it'll store all the recovery points from the *Full backup* to the *selected point-in-time*. Then you can restore using these files as a database on any machine they're present using SQL Server Management Studio.
 
     ![Restored Backup Files in Destination Path](./media/backup-azure-sql-database/sql-backup-files.png)
 
@@ -138,6 +139,36 @@ If you've selected **Logs (Point in Time)** as the restore type, do the followin
 
 1. After you select a date, the timeline graph displays the available recovery points in a continuous range.
 1. Specify a time for the recovery on the timeline graph, or select a time. Then select **OK**.
+
+### Partial restore as files
+
+The Azure Backup service decides the chain of files to be downloaded during restore as files. But there are scenarios where you might not want to download the entire content again.
+
+For eg., when you have a backup policy of weekly fulls, daily differentials and logs, and you already downloaded files for a particular differential. You found that this is not the right recovery point and decided to download the next day's differential. Now you just need the differential file since you already have the starting full. With the partial restore as files ability, provided by Azure Backup, you can now exclude the full from the download chain and download only the differential.
+
+#### Excluding backup file types
+
+The **ExtensionSettingsOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field `RecoveryPointTypesToBeExcludedForRestoreAsFiles` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+
+1. In the target machine where files are to be downloaded, go to "C:\Program Files\Azure Workload Backup\bin" folder
+2. Create a new JSON file named "ExtensionSettingsOverrides.JSON", if it doesn't already exist.
+3. Add the following JSON key value pair
+
+    ```json
+    {
+    "RecoveryPointTypesToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    }
+    ```
+
+4. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain as mentioned in this file.
+
+The `RecoveryPointTypesToBeExcludedForRestoreAsFiles` only takes specific values which denote the recovery points to be excluded during restore. For SQL, these values are:
+
+- ExcludeFull (Other backup types such as differential and logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferential (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferentialAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+
 
 ### Restore to a specific restore point
 
@@ -155,6 +186,44 @@ If you've selected **Full & Differential** as the restore type, do the following
 If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## Recover a database from .bak file using SSMS
+
+You can use *Restore as Files* operation to restore the database files in `.bak` format while restoring from the Azure portal. [Learn more](restore-sql-database-azure-vm.md#restore-as-files). 
+
+When the restoration of the `.bak` file to the Azure virtual machine is complete, you can trigger restore using **TSQL commands** through SSMS. 
+ 
+To restore the database files to the *original path on the source server*, remove the `MOVE` clause from the TSQL restore query. 
+  
+**Example**
+
+  ```azurecli-interactive
+    USE [master] 
+    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'
+  ```
+
+>[!Note]
+>You shouldn’t have the same database files on the target server (restore with replace).  Also, you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16&preserve-view=true).
+
+To relocate the database files from the target restore server, you can frame a TSQL command using the `MOVE` clauses.
+
+  ```azurecli
+    USE [master] 
+    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'  MOVE N'<LogicalName1>' TO N'<TargetFilePath1OnDisk>',  MOVE N'<LogicalName2>' TO N'<TargetFilePath2OnDisk>' GO
+  ```
+
+**Example**
+
+  ```azurecli
+    USE [master] 
+    RESTORE DATABASE [test] FROM  DISK = N'J:\dbBackupFiles\test.bak' WITH  FILE = 1,  MOVE N'test' TO N'F:\data\test.mdf',  MOVE N'test_log' TO N'G:\log\test_log.ldf',  NOUNLOAD,  STATS = 5 
+    GO
+  ```
+
+If there are more than two files for the database, you can add additional `MOVE` clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16&preserve-view=true).
+
+>[!Note]
+>For large database recovery, we recommend you to use TSQL statements. If you want to relocate the specific database files, see the list of database files in the JSON format created during the **Restore as Files** operation.
 
 ## Cross Region Restore
 
@@ -189,6 +258,7 @@ The secondary region restore user experience will be similar to the primary regi
 >[!NOTE]
 >- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
 >- The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _ Backup reader_ is the minimum premission required in the subscription.
+>- The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
 ### Monitoring secondary region restore jobs
 
@@ -196,6 +266,32 @@ The secondary region restore user experience will be similar to the primary regi
 1. Filter operation for **CrossRegionRestore** to view the jobs in the secondary region.
 
    :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="Screenshot showing the filtered Backup jobs." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
+
+
+
+## Cross Subscription Restore
+
+Azure Backup now allows you to restore SQL database to any subscription (as per the following Azure RBAC requirements) from the restore point. By default, Azure Backup restores to the same subscription where the restore points are available. 
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming based backup and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+**Azure RBAC  requirements**
+
+| Operation type | Backup operator | Recovery Services vault | Alternate operator |
+| --- | --- | --- | --- |
+| Restore database or restore as files | `Virtual Machine Contributor` | Source VM that got backed up | Instead of a built-in role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+|            | `Virtual Machine Contributor` | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+|          | `Backup Operator` | Target Recovery Services vault |            |	
+
+By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
+
+:::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png" alt-text="Screenshot shows how to modify the Cross Subscription Restore settings on a Recovery Services vault for SQL database." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png":::
+
 
 ## Next steps
 

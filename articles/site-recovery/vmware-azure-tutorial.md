@@ -3,17 +3,18 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Cl
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Classic.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 02/05/2022
 ms.custom: MVC
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Classic
 
 This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For information about disaster recovery in Azure Site Recovery  Preview, see [this article](vmware-azure-set-up-replication-tutorial-preview.md)
+For information about disaster recovery in Azure Site Recovery Modernized, see [this article](vmware-azure-set-up-replication-tutorial-modernized.md)
 
-This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
+This is the third tutorial in a series that shows how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
 
 
 In this tutorial, you learn how to:
@@ -32,7 +33,7 @@ In this tutorial, you learn how to:
 Complete the previous tutorials:
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises VMware disaster recovery to Azure.
 2. Follow [these steps](vmware-azure-tutorial-prepare-on-premises.md) to prepare your on-premises VMware deployment for disaster recovery to Azure.
-3. In this tutorial we show you how to replicate a single VM. If you're deploying multiple VMware VMs you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner). [Learn more](site-recovery-deployment-planner.md) about this tool.
+3. In this tutorial, we show you how to replicate a single VM. If you're deploying multiple VMware VMs, you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner). [Learn more](site-recovery-deployment-planner.md) about this tool.
 4. This tutorial uses a number of options you might want to do differently:
     - The tutorial uses an OVA template to create the configuration server VMware VM. If you can't do this for some reason, follow [these instructions](physical-manage-configuration-server.md) to set up the configuration server manually.
     - In this tutorial, Site Recovery automatically downloads and installs MySQL to the configuration server. If you prefer, you can set it up manually instead. [Learn more](vmware-azure-deploy-configuration-server.md#configure-settings).
@@ -43,10 +44,10 @@ Complete the previous tutorials:
 ## Select a protection goal
 
 1. In **Recovery Services vaults**, select the vault name. We're using **ContosoVMVault** for this scenario.
-2. In **Getting Started**, select Site Recovery. Then select **Prepare Infrastructure**.
+2. In **Getting Started**, select Site Recovery. Then, select **Prepare Infrastructure**.
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
-5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then select **OK**.
+5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then, select **OK**.
 
 
 
@@ -165,7 +166,8 @@ Select and verify target resources.
 - The policy is automatically associated with the configuration server.
 - A matching policy is automatically created for failback by default. For example, if the replication policy is **rep-policy**, then the failback policy is **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
 
-Note: In VMware-to-Azure scenario the crash-consistent snapshot is taken at 5 min interval.
+> [!Note]
+> In VMware-to-Azure scenario the crash-consistent snapshot is taken at 5 min interval.
 
 ## Enable replication
 

@@ -2,28 +2,24 @@
 title: View and filter Azure resource information
 description: Filter information and use different views to better understand your Azure resources.
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 03/27/2023
 ---
 
 # View and filter Azure resource information
 
 The Azure portal enables you to browse detailed information about resources across your Azure subscriptions. This article shows you how to filter information and use different views to better understand your resources.
 
-The article focuses on the **All resources** screen shown in the following screenshot. Screens for individual resource types, such as virtual machines, have different options, such as starting and stopping a VM.
-
-:::image type="content" source="media/manage-filter-resource-views/all-resources.png" alt-text="Azure portal view of all resources":::
+This article focuses on filtering information the **All resources** screen. Screens for individual resource types, such as virtual machines, may have different options.
 
 ## Filter resources
 
-Start exploring **All resources** by using filters to focus on a subset of your resources. The following screenshot shows filtering on resource groups, selecting two of the six resource groups in a subscription.
+Start exploring **All resources** by using filters to focus on a subset of your resources. The following screenshot shows filtering on resource groups, selecting two of the four resource groups in a subscription.
 
 :::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Filter view based on resource groups":::
 
-You can combine filters, including those based on text searches, as shown in the following screenshot. In this case the results are scoped to resources that contain "SimpleWinVM" in one of the two resource groups already selected.
+You can combine filters, including those based on text searches. For example, after selecting specific resource groups, you can enter text in the filter box, or select a different filter option.
 
-:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Filter view based on text entry":::
-
-To change which columns are included in a view, select **Manage view** then **Edit columns**.
+To change which columns are included in a view, select **Manage view**, then select**Edit columns**.
 
 :::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Edit columns shown in view":::
 
@@ -31,19 +27,21 @@ To change which columns are included in a view, select **Manage view** then **Ed
 
 You can save views that include the filters and columns you've selected. To save and use a view:
 
-1. Select **Manage view** then **Save view**.
+1. Select **Manage view**, then select **Save view**.
 
-1. Enter a name for the view then select **OK**. The saved view now appears in the **Manage view** menu.
+1. Enter a name for the view, then select **OK**. The saved view now appears in the **Manage view** menu.
 
     :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Saved view":::
 
-1. To use a view, switch between **Default** and one of your own views to see how that affects the list of resources displayed.
+Try switching between **Default** and one of your own views to see how that affects the list of resources displayed.
 
-To delete a view:
+You can also select **Choose favorite view** to use one of your views as the default views for **All resources**.
 
-1. Select **Manage view** then **Browse all views**.
+To delete a view you've created:
 
-1. In the **Saved views** pane, select the view then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png).
+1. Select **Manage view**, then select **Browse all views for "All resources"**.
+
+1. In the **Saved views** pane, select the view, then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png). Select **OK** to confirm the deletion.
 
 ## Export information from a view
 
@@ -53,7 +51,7 @@ You can export the resource information from a view. To export information in CS
 
     :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Screenshot of exporting to CSV format":::
 
-1. Save the file locally, then open in Excel or another application that supports the CSV format. 
+1. Save the file locally, then open the file in Excel or another application that supports the CSV format.
 
 As you move around the portal, you'll see other areas where you can export information, such as an individual resource group.
 
@@ -73,7 +71,7 @@ To save and use a summary view:
 
     :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Type summary showing a bar chart":::
 
-1. Select **Manage view** then **Save** to save this view like you did with the list view.
+1. Select **Manage view**, then select **Save view** to save this view, just like you did with the list view.
 
 1. In the summary view, under **Type summary**, select a bar in the chart. Selecting the bar provides a list filtered down to one type of resource.
 
@@ -97,6 +95,5 @@ To run a Resource Graph query:
 
 ## Next steps
 
-[Azure portal overview](azure-portal-overview.md)
-
-[Create and share dashboards in the Azure portal](azure-portal-dashboards.md)
+- Read an [overview of the Azure portal overview](azure-portal-overview.md).
+- Learn how to [create and share dashboards in the Azure portal](azure-portal-dashboards.md).

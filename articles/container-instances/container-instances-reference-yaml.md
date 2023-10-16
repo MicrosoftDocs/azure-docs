@@ -1,28 +1,30 @@
 ---
 title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
-ms.topic: article
-ms.date: 11/11/2021
+author: tomvcassidy
+ms.topic: reference
+ms.service: container-instances
+services: container-instances
+ms.author: tomcassidy
+ms.date: 06/06/2022
 ---
 
 # YAML reference: Azure Container Instances
 
-This article covers the syntax and properties for the YAML file supported by Azure Container Instances to configure a [container group](container-instances-container-groups.md). Use a YAML file to input the group configuration to the [az container create][az-container-create] command in the Azure CLI. 
+This article covers the syntax and properties for the YAML file supported by Azure Container Instances to configure a [container group](container-instances-container-groups.md). Use a YAML file to input the group configuration to the [az container create][az-container-create] command in the Azure CLI.
 
-A YAML file is a convenient way to configure a container group for reproducible deployments. It is a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
+A YAML file is a convenient way to configure a container group for reproducible deployments. It's a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
 
 > [!NOTE]
-> This reference applies to YAML files for Azure Container Instances REST API version `2021-07-01`.
+> This reference applies to YAML files for Azure Container Instances REST API version `2021-10-01`.
 
-## Schema 
+## Schema
 
 The schema for the YAML file follows, including comments to highlight key properties. For a description of the properties in this schema, see the [Property values](#property-values) section.
 
-[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
-
-```yml
+```yaml
 name: string  # Name of the container group
-apiVersion: '2021-07-01'
+apiVersion: '2021-10-01'
 location: string
 tags: {}
 identity: 
@@ -105,6 +107,7 @@ properties: # Properties of container group
     type: string
     ip: string
     dnsNameLabel: string
+    dnsNameLabelReusePolicy: string
   osType: string
   volumes: # Array of volumes available to the instances
   - name: string
@@ -159,21 +162,16 @@ properties: # Properties of container group
 
 The following tables describe the values you need to set in the schema.
 
-
-
 ### Microsoft.ContainerInstance/containerGroups object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Yes | The name of the container group. |
-|  apiVersion | enum | Yes | 2018-10-01 |
+|  apiVersion | enum | Yes | **2021-10-01 (latest)**, 2021-09-01, 2021-07-01, 2021-03-01, 2020-11-01, 2019-12-01, 2018-10-01, 2018-09-01, 2018-07-01, 2018-06-01, 2018-04-01 |
 |  location | string | No | The resource location. |
 |  tags | object | No | The resource tags. |
 |  identity | object | No | The identity of the container group, if configured. - [ContainerGroupIdentity object](#containergroupidentity-object) |
 |  properties | object | Yes | [ContainerGroupProperties object](#containergroupproperties-object) |
-
-
-
 
 ### ContainerGroupIdentity object
 
@@ -181,9 +179,6 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  type | enum | No | The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group. - SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
 |  userAssignedIdentities | object | No | The list of user identities associated with the container group. The user identity dictionary key references will be Azure Resource Manager resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
-
-
-
 
 ### ContainerGroupProperties object
 
@@ -202,18 +197,12 @@ The following tables describe the values you need to set in the schema.
 | encryptionProperties | object | No | The encryption properties for a container group. - [EncryptionProperties object](#encryptionproperties-object) | 
 | initContainers | array | No | The init containers for a container group. - [InitContainerDefinition object](#initcontainerdefinition-object) |
 
-
-
-
 ### Container object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Yes | The user-provided name of the container instance. |
 |  properties | object | Yes | The properties of the container instance. - [ContainerProperties object](#containerproperties-object) |
-
-
-
 
 ### ImageRegistryCredential object
 
@@ -225,9 +214,6 @@ The following tables describe the values you need to set in the schema.
 |  identity | string | No | The resource ID of the user or system-assigned managed identity used to authenticate. |
 |  identityUrl | string | No | The identity URL for the private registry. |
 
-
-
-
 ### IpAddress object
 
 |  Name | Type | Required | Value |
@@ -236,9 +222,6 @@ The following tables describe the values you need to set in the schema.
 |  type | enum | Yes | Specifies if the IP is exposed to the public internet or private VNET. - Public or Private |
 |  ip | string | No | The IP exposed to the public internet. |
 |  dnsNameLabel | string | No | The Dns name label for the IP. |
-
-
-
 
 ### Volume object
 
@@ -250,17 +233,11 @@ The following tables describe the values you need to set in the schema.
 |  secret | object | No | The secret volume. |
 |  gitRepo | object | No | The git repo volume. - [GitRepoVolume object](#gitrepovolume-object) |
 
-
-
-
 ### ContainerGroupDiagnostics object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  logAnalytics | object | No | Container group log analytics information. - [LogAnalytics object](#loganalytics-object) |
-
-
-
 
 ### ContainerGroupSubnetIds object
 
@@ -268,9 +245,6 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  id | string | Yes | The identifier for a subnet. |
 |  name | string | No | The name of the subnet. |
-
-
-
 
 ### DnsConfiguration object
 
@@ -280,22 +254,20 @@ The following tables describe the values you need to set in the schema.
 |  searchDomains | string | No | The DNS search domains for hostname lookup in the container group. |
 |  options | string | No | The DNS options for the container group. |
 
-
 ### EncryptionProperties object
 
-| Name	| Type	| Required	| Value |
+| Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-| vaultBaseUrl	| string	| Yes	| The keyvault base url. |
-| keyName	| string	| Yes	| The encryption key name. |
-| keyVersion	| string	| Yes	| The encryption key version. |
+| vaultBaseUrl | string | Yes | The keyvault base url. |
+| keyName | string | Yes | The encryption key name. |
+| keyVersion | string | Yes | The encryption key version. |
 
 ### InitContainerDefinition object
 
-| Name	| Type	| Required	| Value |
+| Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-| name	| string |	Yes	| The name for the init container. |
-| properties	| object	| Yes	| The properties for the init container. - [InitContainerPropertiesDefinition object](#initcontainerpropertiesdefinition-object)
-
+| name | string | Yes | The name for the init container. |
+| properties | object | Yes | The properties for the init container. - [InitContainerPropertiesDefinition object](#initcontainerpropertiesdefinition-object)
 
 ### ContainerProperties object
 
@@ -310,18 +282,12 @@ The following tables describe the values you need to set in the schema.
 |  livenessProbe | object | No | The liveness probe. - [ContainerProbe object](#containerprobe-object) |
 |  readinessProbe | object | No | The readiness probe. - [ContainerProbe object](#containerprobe-object) |
 
-
-
-
 ### Port object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | No | The protocol associated with the port. - TCP or UDP |
 |  port | integer | Yes | The port number. |
-
-
-
 
 ### AzureFileVolume object
 
@@ -332,9 +298,6 @@ The following tables describe the values you need to set in the schema.
 |  storageAccountName | string | Yes | The name of the storage account that contains the Azure File share. |
 |  storageAccountKey | string | No | The storage account access key used to access the Azure File share. |
 
-
-
-
 ### GitRepoVolume object
 
 |  Name | Type | Required | Value |
@@ -342,8 +305,6 @@ The following tables describe the values you need to set in the schema.
 |  directory | string | No | Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name. |
 |  repository | string | Yes | Repository URL |
 |  revision | string | No | Commit hash for the specified revision. |
-
-
 
 ### LogAnalytics object
 
@@ -355,15 +316,14 @@ The following tables describe the values you need to set in the schema.
 |  logType | enum | No | The log type to be used. - ContainerInsights or ContainerInstanceLogs |
 |  metadata | object | No | Metadata for log analytics. |
 
-
 ### InitContainerPropertiesDefinition object
 
-| Name	| Type	| Required	| Value |
+| Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-| image	| string	| No	| The image of the init container. |
-| command	| array	| No	| The command to execute within the init container in exec form. - string |
-| environmentVariables | array	| No |The environment variables to set in the init container. - [EnvironmentVariable object](#environmentvariable-object)
-| volumeMounts |array	| No	| The volume mounts available to the init container. - [VolumeMount object](#volumemount-object)
+| image | string | No | The image of the init container. |
+| command | array | No | The command to execute within the init container in exec form. - string |
+| environmentVariables | array | No |The environment variables to set in the init container. - [EnvironmentVariable object](#environmentvariable-object)
+| volumeMounts | array | No | The volume mounts available to the init container. - [VolumeMount object](#volumemount-object)
 
 ### ContainerPort object
 
@@ -371,9 +331,6 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | No | The protocol associated with the port. - TCP or UDP |
 |  port | integer | Yes | The port number exposed within the container group. |
-
-
-
 
 ### EnvironmentVariable object
 
@@ -383,18 +340,12 @@ The following tables describe the values you need to set in the schema.
 |  value | string | No | The value of the environment variable. |
 |  secureValue | string | No | The value of the secure environment variable. |
 
-
-
-
 ### ResourceRequirements object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  requests | object | Yes | The resource requests of this container instance. - [ResourceRequests object](#resourcerequests-object) |
 |  limits | object | No | The resource limits of this container instance. - [ResourceLimits object](#resourcelimits-object) |
-
-
-
 
 ### VolumeMount object
 
@@ -403,9 +354,6 @@ The following tables describe the values you need to set in the schema.
 |  name | string | Yes | The name of the volume mount. |
 |  mountPath | string | Yes | The path within the container where the volume should be mounted. Must not contain colon (:). |
 |  readOnly | boolean | No | The flag indicating whether the volume mount is read-only. |
-
-
-
 
 ### ContainerProbe object
 
@@ -419,9 +367,6 @@ The following tables describe the values you need to set in the schema.
 |  successThreshold | integer | No | The success threshold. |
 |  timeoutSeconds | integer | No | The timeout seconds. |
 
-
-
-
 ### ResourceRequests object
 
 |  Name | Type | Required | Value |
@@ -429,9 +374,6 @@ The following tables describe the values you need to set in the schema.
 |  memoryInGB | number | Yes | The memory request in GB of this container instance. |
 |  cpu | number | Yes | The CPU request of this container instance. |
 |  gpu | object | No | The GPU request of this container instance. - [GpuResource object](#gpuresource-object) |
-
-
-
 
 ### ResourceLimits object
 
@@ -441,17 +383,11 @@ The following tables describe the values you need to set in the schema.
 |  cpu | number | No | The CPU limit of this container instance. |
 |  gpu | object | No | The GPU limit of this container instance. - [GpuResource object](#gpuresource-object) |
 
-
-
-
 ### ContainerExec object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  command | array | No | The commands to execute within the container. - string |
-
-
-
 
 ### ContainerHttpGet object
 
@@ -469,13 +405,15 @@ The following tables describe the values you need to set in the schema.
 |  name | string | No | Name of the header. |
 |  value | string | No | Value of the header. |
 
+> [!IMPORTANT]
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
+
 ### GpuResource object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  count | integer | Yes | The count of the GPU resource. |
-|  sku | enum | Yes | The SKU of the GPU resource. - K80, P100, V100 |
-
+|  sku | enum | Yes | The SKU of the GPU resource. - V100 |
 
 ## Next steps
 

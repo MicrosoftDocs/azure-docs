@@ -6,10 +6,10 @@ author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
-
 ---
 # Managed HSM role management
 
@@ -48,18 +48,18 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 
 ### Assign roles for all keys
 
-Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2\@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
+Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto User** role to user identified by user principal name **user2\@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
 
 ```azurecli-interactive
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
+az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto User" --assignee user2@contoso.com  --scope /keys
 ```
 
 ### Assign role for a specific key
 
-Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2\@contoso.com** for a specific key named **myrsakey**.
+Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto User** role to user identified by user principal name **user2\@contoso.com** for a specific key named **myrsakey**.
 
 ```azurecli-interactive
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
+az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto User" --assignee user2@contoso.com  --scope /keys/myrsakey
 ```
 
 ## List existing role assignments

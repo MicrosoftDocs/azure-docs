@@ -1,50 +1,28 @@
 ---
-title: Get resource changes
-description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
-ms.date: 03/08/2022
+title: Get resource configuration changes
+description: Get resource configuration changes at scale
+ms.date: 08/17/2023
 ms.topic: how-to
 ---
-# Get resource changes
 
-Resources get changed through the course of daily use, reconfiguration, and even redeployment.
-Change can come from an individual or by an automated process. Most change is by design, but
-sometimes it isn't. With the **last seven days** of changes, Resource configuration changes enables you to:
+# Get resource configuration changes
 
-- Find when changes were detected on an Azure Resource Manager property
-- For each resource change, see property change details
-- Query changes at scale across your subscriptions, Management group, or tenant
+Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. You can:
 
-Change detection and details are valuable for the following example scenarios:
+- Find when changes were detected on an Azure Resource Manager property.
+- View property change details.
+- Query changes at scale across your subscriptions, management group, or tenant.
 
-- During incident management to understand _potentially_ related changes. Query for change events
-  during a specific window of time and evaluate the change details.
-- Keeping a Configuration Management Database, known as a CMDB, up-to-date. Instead of refreshing
-  all resources and their full property sets on a scheduled frequency, only get what changed.
-- Understanding what other properties may have been changed when a resource changed compliance
-  state. Evaluation of these extra properties can provide insights into other properties that
-  may need to be managed via an Azure Policy definition.
+This article shows how to query resource configuration changes through Resource Graph.
 
-This article shows how to query Resource configuration changes through Resource Graph. To see this
-information in the Azure portal, see [Azure Resource Graph Explorer](../first-query-portal.md), Azure Policy's
-[Change history](../../policy/how-to/determine-non-compliance.md#change-history), or Azure Activity
-Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
-details about changes to your applications from the infrastructure layer all the way to application
-deployment, see
-[Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
-Monitor.
+## Prerequisites
 
-> [!NOTE]
-> Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
-> a virtual machine, see Azure Automation's
-> [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
-> [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
+- To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
+- To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
 
-> [!IMPORTANT]
-> Resource configuration changes is in Public Preview and only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups. Changes are queryable for seven days.
+## Understand change event properties
 
-## Find detected change events and view change details
-
-When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in under five minutes.
+When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes.
 
 Example change resource property bag:
 
@@ -66,6 +44,7 @@ Example change resource property bag:
       "previousValue": "Updating",
       "changeCategory": "System",
       "propertyChangeType": "Update"
+      "isTruncated":"true"
     },
     "tags.key1": {
       "newValue": "NewTagValue",
@@ -79,37 +58,34 @@ Example change resource property bag:
 
 Each change resource has the following properties:
 
-- **targetResourceId** - The resourceID of the resource on which the change occurred.
- - **targetResourceType** - The resource type of the resource on which the change occurred.
-- **changeType** - Describes the type of change detected for the entire change record. Values are: _Create_, _Update_, and _Delete_. The
-  **changes** property dictionary is only included when **changeType** is _Update_. For the _Delete_ case, the change resource will still be maintained as an extension of the deleted resource for seven days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior.
+| Property | Description |
+|:--------:|:-----------:|
+| `targetResourceId` | The resourceID of the resource on which the change occurred. |
+|---|---|
+| `targetResourceType` | The resource type of the resource on which the change occurred. |
+| `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when `changeType` is _Update_. For the delete case, the change resource is maintained as an extension of the deleted resource for 14 days, even if the entire resource group was deleted. The change resource doesn't block deletions or affect any existing delete behavior. |
+| `changes` | Dictionary of the resource properties (with property name as the key) that were updated as part of the change: |
+| `propertyChangeType` | This property is deprecated and can be derived as follows `previousValue` being empty indicates Insert, empty `newValue` indicates Remove, when both are present, it's Update.|
+| `previousValue` | The value of the resource property in the previous snapshot. Value is empty when `changeType` is _Insert_. |
+| `newValue` | The value of the resource property in the new snapshot. This property is empty (absent) when `changeType` is _Remove_. |
+| `changeCategory` | This property was optional and has been deprecated, this field is no longer available. |
+| `changeAttributes` | Array of metadata related to the change: |
+| `changesCount` | The number of properties changed as part of this change record. |
+| `correlationId` | Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template share the same correlation ID. |
+| `timestamp` | The datetime of when the change was detected. |
+| `previousResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the previous state of the resource. |
+| `newResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the new state of the resource. |
+| `isTruncated` | When the number of property changes reaches beyond a certain number, they're truncated and this property becomes present. |
 
+## Get change events using Resource Graph
 
-- **changes** - Dictionary of the resource properties (with property name as the key) that were updated as part of the change:
-  - **propertyChangeType** - Describes the type of change detected for the individual resource property.
-    Values are: _Insert_, _Update_, _Remove_.
-  - **previousValue** - The value of the resource property in the previous snapshot. Value is _null_ when **changeType** is _Insert_.
-  - **newValue** - The value of the resource property in the new snapshot. Value is _null_ when **changeType** is _Remove_.
-  - **changeCategory** - Describes if the property change was the result of a change in value (_User_) or a difference in referenced API versions (_System_). Values are: _System_ and _User_.
+### Run a query
 
-- **changeAttributes** - Array of metadata related to the change:
-  - **changesCount** - The number of properties changed as part of this change record.
-  - **correlationId** - Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID.
-  - **timestamp** - The datetime of when the change was detected.
-  - **previousResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the previous state of the resource.
-  - **newResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the new state of the resource.
+Try out a tenant-based Resource Graph query of the `resourcechanges` table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. You can query by
+[management group](../../management-groups/overview.md) or subscription with the `-ManagementGroup`
+or `-Subscription` parameters respectively.
 
-## How to query changes using Resource Graph
-### Prerequisites
-- To enable Azure PowerShell to query Azure Resource Graph, the [module must be added](../first-query-powershell.md#add-the-resource-graph-module).
-- To enable Azure CLI to query Azure Resource Graph, the [extension must be added](../first-query-azurecli.md#add-the-resource-graph-extension).
-
-### Run your Resource Graph query
-It's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
-[management group](../../management-groups/overview.md) or subscription, use the `-ManagementGroup`
-or `-Subscription` parameters.
-
-1. Run your first Azure Resource Graph query:
+1. Run the following Azure Resource Graph query:
 
 # [Azure CLI](#tab/azure-cli)
   ```azurecli
@@ -118,7 +94,7 @@ or `-Subscription` parameters.
   # Run Azure Resource Graph query
   az graph query -q 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
@@ -126,60 +102,53 @@ or `-Subscription` parameters.
   # Run Azure Resource Graph query
   Search-AzGraph -Query 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
   ```
-   
+
 # [Portal](#tab/azure-portal)
-  Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer
-  following these steps to run your first Resource Graph query:
+  1. Open the [Azure portal](https://portal.azure.com).
 
   1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
 
-  1. In the **Query 1** portion of the window, enter the query
+  1. In the **Query 1** portion of the window, enter the following query.
      ```kusto
-     resourcechanges 
-     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+     resourcechanges
+     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
      | limit 5
-     ``` 
-     and select **Run query**.
+     ```
+  1. Select **Run query**.
 
   1. Review the query response in the **Results** tab. Select the **Messages** tab to see details
-   about the query, including the count of results and duration of the query. Errors, if any, are
+   about the query, including the count of results and duration of the query. Any errors are
    displayed under this tab.
-   
+
 ---
 
-   > [!NOTE]
-   > As this query example doesn't provide a sort modifier such as `order by`, running this query
-   > multiple times is likely to yield a different set of resources per request.
-
-
-2. Update the query to specify a more user-friendly column name for the **timestamp** property: 
+2. Update the query to specify a more user-friendly column name for the **timestamp** property:
 
 # [Azure CLI](#tab/azure-cli)
    ```azurecli
-   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
+   # Run Azure Resource Graph query with 'extend'
    az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
    ```
-   
+
 # [PowerShell](#tab/azure-powershell)
    ```azurepowershell-interactive
-   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
+   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp
    Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
    ```
-   
+
 # [Portal](#tab/azure-portal)
    ```kusto
-   resourcechanges 
-   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
-   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+   resourcechanges
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp)
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
    | limit 5
-   ``` 
-   Then, select **Run query**.
+   ```
+   Then select **Run query**.
 
 ---
 
-
 3. To get the most recent changes, update the query to `order by` the user-defined **changeTime** property:
- 
+
 # [Azure CLI](#tab/azure-cli)
    ```azurecli
    # Run Azure Resource Graph query with 'order by'
@@ -194,45 +163,26 @@ or `-Subscription` parameters.
 
 # [Portal](#tab/azure-portal)
    ```kusto
-   resourcechanges 
-   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
-   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
-   | order by changeTime desc 
+   resourcechanges
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp)
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
+   | order by changeTime desc
    | limit 5
-   ``` 
-   Then, select **Run query**.
-   
+   ```
+   Then select **Run query**.
+
 ---
 
-   > [!NOTE]
-   > The order of the query commands is important. In this example,
-   > the `order by` must come before the `limit` command. This command order first orders the query results by the change time and
-   > then limits them to ensure that you get the five *most recent* results.
-
-
-When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned are consistent and ordered by the **properties.changeAttributes.timestamp** (or your user-defined name of **changeTime**) property, but still limited to the
-top five results.
-
-
 > [!NOTE]
-> If the query does not return results from a subscription you already have access to, then note
-> that the `Search-AzGraph` PowerShell cmdlet defaults to subscriptions in the default context. To see the list of
-> subscription IDs which are part of the default context run this
-> `(Get-AzContext).Account.ExtendedProperties.Subscriptions` If you wish to search across all the
-> subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph`
-> cmdlet by running
-> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> If the query does not return results from a subscription you already have access to, then the `Search-AzGraph` PowerShell cmdlet defaults to subscriptions in the default context.
 
 Resource Graph Explorer also provides a clean interface for converting the results of some queries into a chart that can be pinned to an Azure dashboard.
-- [Create a chart from the Resource Graph query](../first-query-portal.md#create-a-chart-from-the-resource-graph-query)
-- [Pin the query visualization to a dashboard](../first-query-portal.md#pin-the-query-visualization-to-a-dashboard)
 
-## Resource Graph query samples
+### Resource Graph query samples
 
-With Resource Graph, you can query the **resourcechanges** table to filter or sort by any of the change resource properties:
+With Resource Graph, you can query the `resourcechanges` table to filter or sort by any of the change resource properties:
 
-### All changes in the past one day
+#### All changes in the past one day
 ```kusto
 resourcechanges
 | extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
@@ -243,7 +193,7 @@ changedProperties = properties.changes, changeCount = properties.changeAttr
 | project changeTime, targetResourceId, changeType, correlationId, changeCount, changedProperties
 ```
 
-### Resources deleted in a specific resource group
+#### Resources deleted in a specific resource group
 ```kusto
 resourcechanges
 | where resourceGroup == "myResourceGroup"
@@ -254,7 +204,7 @@ changeType = tostring(properties.changeType), correlationId = properties.ch
 | project changeTime, resourceGroup, targetResourceId, changeType, correlationId
 ```
 
-### Changes to a specific property value
+#### Changes to a specific property value
 ```kusto
 resourcechanges
 | extend provisioningStateChange = properties.changes["properties.provisioningState"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)
@@ -263,7 +213,7 @@ resourcechanges
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
-### Query the latest resource configuration for resources created in the last seven days
+#### Latest resource configuration for resources created in the last seven days
 ```kusto
 resourcechanges
 | extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
@@ -274,10 +224,50 @@ resourcechanges
 | project changeTime, changeType, id, resourceGroup, type, properties
 ```
 
+#### Changes in virtual machine size 
+```kusto
+resourcechanges
+|extend vmSize = properties.changes["properties.hardwareProfile.vmSize"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType) 
+| where isnotempty(vmSize) 
+| order by changeTime desc 
+| project changeTime, targetResourceId, changeType, properties.changes, previousSize = vmSize.previousValue, newSize = vmSize.newValue
+```
+
+#### Count of changes by change type and subscription name
+```kusto
+resourcechanges  
+|extend changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceType=tostring(properties.targetResourceType)  
+| summarize count() by changeType, subscriptionId 
+| join (resourcecontainers | where type=='microsoft.resources/subscriptions' | project SubscriptionName=name, subscriptionId) on subscriptionId 
+| project-away subscriptionId, subscriptionId1
+| order by count_ desc  
+```
+
+
+#### Latest resource configuration for resources created with a certain tag
+```kusto
+resourcechanges 
+|extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp) 
+| where createTime > ago(7d) and changeType == "Create" or changeType == "Update" or changeType == "Delete"
+| project  targetResourceId, changeType, createTime 
+| join ( resources | extend targetResourceId=id) on targetResourceId
+| where tags ['Environment'] =~ 'prod' 
+| order by createTime desc 
+| project createTime, id, resourceGroup, type
+```
+
+### Best practices
+
+- Query for change events during a specific window of time and evaluate the change details. This query works best during incident management to understand _potentially_ related changes.
+- Keep a Configuration Management Database (CMDB) up to date. Instead of refreshing all resources and their full property sets on a scheduled frequency, only get what changed.
+- Understand what other properties may have been changed when a resource changed compliance state. Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
+- The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command orders the query results by the change time and then limits them to ensure that you get the five most recent results.
+- Resource configuration changes support changes to resource types from the Resource Graph tables [resources](../reference/supported-tables-resources.md#resources), [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers), and [healthresources](../reference/supported-tables-resources.md#healthresources). Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
+
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md).
-- See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn more about how to [explore resources](../concepts/explore-resources.md).
-- For guidance on working with queries at a high frequency, see
-  [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md).
+- [Starter Resource Graph query samples](../samples/starter.md)
+- [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md)
+- [Azure Automation's change tracking](../../../automation/change-tracking/overview.md)
+- [Azure Policy's machine configuration for VMs](../../machine-configuration/overview.md)
+- [Azure Resource Graph queries by category](../samples/samples-by-category.md)

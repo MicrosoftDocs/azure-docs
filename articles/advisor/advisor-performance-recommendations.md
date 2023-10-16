@@ -2,6 +2,7 @@
 title: Improve performance of Azure apps with Advisor
 description: Use performance recommendations in Azure Advisor to improve the speed and responsiveness of your business-critical applications.
 ms.topic: article
+ms.custom: devx-track-arm-template
 ms.date: 07/29/2020
 ---
 
@@ -22,7 +23,7 @@ Azure Advisor provides a consistent, consolidated view of recommendations for al
 > [!NOTE]
 > Before you can get recommendations, your database needs to be in use for about a week, and within that week there needs to be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
 
-For more information, see [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
+For more information, see [SQL Database Advisor](/azure/azure-sql/database/database-advisor-implement-performance-recommendations).
 
 ## Upgrade your Storage client library to the latest version for better reliability and performance
 
@@ -48,7 +49,7 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ## Remove data skew on your Azure Synapse Analytics tables to increase query performance
 
-Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-is-a-good-choice).
 
 ## Create or update outdated table statistics in your Azure Synapse Analytics tables to increase query performance
 
@@ -83,7 +84,7 @@ Migrate your storage account deployment model to Azure Resource Manager to take 
 Advisor identifies any stand-alone storage accounts that are using the classic deployment model and recommends migrating to the Resource Manager deployment model.
 
 > [!NOTE]
-> Classic alerts in Azure Monitor were retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [classic alerts retirement](../azure-monitor/alerts/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Classic alerts in Azure Monitor were retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [classic alerts retirement](/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## Design your storage accounts to prevent reaching the maximum subscription limit
 
@@ -169,7 +170,7 @@ We have determined that your VMs are located in a region different or far from w
 
 ## Upgrade to the latest version of the Immersive Reader SDK
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
-Learn more about [Immersive reader SDK](../applied-ai-services/immersive-reader/index.yml).
+Learn more about [Immersive reader SDK](../ai-services/immersive-reader/index.yml).
 
 ## Improve VM performance by changing the maximum session limit
 
@@ -186,7 +187,7 @@ Learn more about [Azure Communication Services](../communication-services/overvi
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, select the **Performance** tab.
+2.    On the Advisor dashboard, select the **Performance** tab.
 
 ## Next steps
 

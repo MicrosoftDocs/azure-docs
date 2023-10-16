@@ -26,7 +26,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 By default, published RDP files contain the following properties:
 
-|RDP properties | Desktops | RemoteApps |
+|RDP properties | Desktop session | RemoteApp session |
 |---|---| --- |
 | Multi-monitor mode | Enabled | N/A |
 | Drive redirections enabled | Drives, clipboard, printers, COM ports, USB devices and smartcards| Drives, clipboard, and printers |
@@ -72,5 +72,5 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
+- [Connect with the Windows Desktop client](connect-windows-2019.md)
 - [Connect with the web client](connect-web-2019.md)

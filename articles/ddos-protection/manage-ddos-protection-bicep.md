@@ -1,21 +1,19 @@
 ---
-title: Create and enable an Azure DDoS Protection plan using Bicep.
+title: 'Quickstart: Create and configure Azure DDoS Network Protection - Bicep'
 description: Learn how to create and enable an Azure DDoS Protection plan using Bicep.
 services: ddos-protection
-documentationcenter: na
-author: schaffererin
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.author: v-eschaffer
-ms.date: 04/04/2022
+ms.custom: subject-armqs, mode-arm, ignite-2022, devx-track-bicep
+ms.author: abell
+ms.date: 10/12/2022
 ---
 
-# Quickstart: Create an Azure DDoS Protection Standard using Bicep
+# Quickstart: Create and configure Azure DDoS Network Protection using Bicep
 
-This quickstart describes how to use Bicep to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enable the protection plan for the VNet. An Azure DDoS Protection Standard plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This quickstart describes how to use Bicep to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enable the protection plan for the VNet. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 

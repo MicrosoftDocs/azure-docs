@@ -8,40 +8,39 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/18/2022
+ms.date: 10/21/2022
 ms.author: mbaldwin
 
 ---
 
 # Azure TLS certificate changes  
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements and will be revoked on February 15, 2021.
-
-## When will this change happen?
-
-Existing Azure endpoints have been transitioning in a phased manner since August 13, 2020. All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
-
-All Azure services are impacted by this change. Here are some more details for specific services:
-
-- [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](../../iot-dps/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Azure Cosmos DB](../../cosmos-db/index.yml) will begin this transition in July 2022 with an expected completion in October 2022.
-- For [Azure Storage](../../storage/index.yml), [click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
-- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) Azure Cache for Redis is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
-- For [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md?tabs=linux), see [Azure Instance Metadata Service-Attested data TLS: Critical changes are almost here!](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953) for details.
-
 > [!IMPORTANT]
-> Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure Storage.
-https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581
-## What is changing?
+> This article was published concurrent with the TLS certificate change, and is not being updated. For up-to-date information about CAs, see [Azure Certificate Authority details](azure-ca-details.md).
 
-Today, most of the TLS certificates used by Azure services chain up to the following Root CA:
+Microsoft uses TLS certificates from the set of Root Certificate Authorities (CAs) that adhere to the CA/Browser Forum Baseline Requirements. All Azure TLS/SSL endpoints contain certificates chaining up to the Root CAs provided in this article. Changes to Azure endpoints began transitioning in August 2020, with some services completing their updates in 2022. All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
+
+All Azure services are impacted by this change. Details for some services are listed below:
+
+- [Microsoft Entra ID](../../active-directory/index.yml) (Microsoft Entra ID) services began this transition on July 7, 2020.
+- For the most up-to-date information about the TLS certificate changes for Azure IoT services, refer to [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+  - [Azure IoT Hub](../../iot-hub/iot-hub-tls-support.md) began this transition in February 2023 with an expected completion in October 2023.
+  - [Azure IoT Central](../../iot-central/index.yml) will begin this transition in July 2023.
+  - [Azure IoT Hub Device Provisioning Service](../../iot-dps/tls-support.md) will begin this transition in January 2024.
+- [Azure Cosmos DB](/security/benchmark/azure/baselines/cosmos-db-security-baseline) began this transition in July 2022 with an expected completion in October 2022.
+- Details on [Azure Storage](../../storage/common/transport-layer-security-configure-minimum-version.md) TLS certificate changes can be found in [this Azure Storage blog post](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
+- [Azure Cache for Redis](../../azure-cache-for-redis/cache-overview.md) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
+- [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md) has an expected completion in May 2022, as described in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
+
+## What changed?
+
+Prior to the change, most of the TLS certificates used by Azure services chained up to the following Root CA:
 
 | Common name of the CA | Thumbprint (SHA1) |
 |--|--|
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 
-TLS certificates used by Azure services will chain up to one of the following Root CAs:
+After the change, TLS certificates used by Azure services will chain up to one of the following Root CAs:
 
 | Common name of the CA | Thumbprint (SHA1) |
 |--|--|
@@ -52,21 +51,15 @@ TLS certificates used by Azure services will chain up to one of the following Ro
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
 | [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5 |
 
-## When can I retire the old intermediate thumbprint?
+## <a id="will-this-change-affect-me"></a>Was my application impacted?
 
-The current CA certificates will *not* be revoked until February 15, 2021. After that date you can remove the old thumbprints from your code.
+If your application explicitly specifies a list of acceptable CAs, your application was likely impacted. This practice is known as certificate pinning. Review the [Microsoft Tech Community article on Azure Storage TLS changes](https://techcommunity.microsoft.com/t5/azure-storage-blog/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581) for more information on how to determine if your services were impacted and next steps.
 
-If this date changes, you will be notified of the new revocation date.
+Here are some ways to detect if your application was impacted:
 
-## Will this change affect me? 
+- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs in the [Microsoft PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there's a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days of the change and hence customers relying on pinning need to react swiftly.
 
-We expect that **most Azure customers will not** be impacted.  However, your application may be impacted if it explicitly specifies a list of acceptable CAs. This practice is known as certificate pinning.
-
-Here are some ways to detect if your application is impacted:
-
-- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there is a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days and hence customers relying on pinning need to react swiftly.
-
-- If you have an application that integrates with Azure APIs or other Azure services and you are unsure if it uses certificate pinning, check with the application vendor.
+- If you have an application that integrates with Azure APIs or other Azure services and you're unsure if it uses certificate pinning, check with the application vendor.
 
 - Different operating systems and language runtimes that communicate with Azure services may require more steps to correctly build the certificate chain with these new roots:
     - **Linux**: Many distributions require you to add CAs to /etc/ssl/certs. For specific instructions, refer to the distribution’s documentation.
@@ -75,18 +68,15 @@ Here are some ways to detect if your application is impacted:
     - **Android**: Check the documentation for your device and version of Android.
     - **Other hardware devices, especially IoT**: Contact the device manufacturer.
 
-- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations. You will need to allow the following CRL and OCSP URLs:
+- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs. For a complete list of CRL and OCSP URLs used in Azure, see the [Azure CA details article](azure-CA-details.md#certificate-downloads-and-revocation-lists).
 
     - http://crl3&#46;digicert&#46;com
     - http://crl4&#46;digicert&#46;com
     - http://ocsp&#46;digicert&#46;com
-    - http://www&#46;d-trust&#46;net
-    - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
-    - http://www&#46;microsoft&#46;com/pkiops
 
 ## Next steps
 
-If you have additional questions, contact us through [support](https://azure.microsoft.com/support/options/).
+If you have questions, contact us through [support](https://azure.microsoft.com/support/options/).

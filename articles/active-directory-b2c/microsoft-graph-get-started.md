@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 06/24/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -36,7 +36,7 @@ There are two modes of communication you can use when working with the Microsoft
 
 You enable the **Automated** interaction scenario by creating an application registration shown in the following sections.
 
-Although the OAuth 2.0 client credentials grant flow is not currently directly supported by the Azure AD B2C authentication service, you can set up client credential flow using Azure AD and the Microsoft identity platform /token endpoint for an application in your Azure AD B2C tenant. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.
+Azure AD B2C authentication service directly supports OAuth 2.0 client credentials grant flow (**currently in public preview**), but you can't use it to manage your Azure AD B2C resources via Microsoft Graph API. However, you can set up [client credential flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) using Microsoft Entra ID and the Microsoft identity platform `/token` endpoint for an application in your Azure AD B2C tenant.
 
 ## Register management application
 
@@ -92,11 +92,11 @@ Your application needs a client secret to prove its identity when requesting a t
 
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API. 
 
-* [Get an access token from Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Get an access token from Microsoft Entra ID](/graph/auth-v2-service#4-get-an-access-token)
 * [Use the access token to call Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
 * [Manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md)
-* [Get audit logs with the Azure AD reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
+* [Get audit logs with the Microsoft Entra reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
 [ms-graph]: /graph/

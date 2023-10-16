@@ -1,77 +1,69 @@
 ---
-title: Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights | Microsoft Docs
-description: Overview of auto-instrumentation for Azure Monitor Application Insights - codeless application performance management
+title: Autoinstrumentation for Azure Monitor Application Insights
+description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.custom: devx-track-js
+ms.date: 10/10/2023
+ms.reviewer: abinetabate
 ---
 
-# What is auto-instrumentation for Azure Monitor application insights?
+# What is autoinstrumentation for Azure Monitor Application Insights?
 
-Auto-instrumentation allows you to enable application monitoring with Application Insights without changing your code.  
+Autoinstrumentation enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model-complete.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md). It provides easy access to experiences such as the [application dashboard](overview-dashboard.md) and [application map](app-map.md).
 
-Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry automatically. In no time, you'll see the metrics, requests, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
+If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
 
-> [!NOTE] 
-> Auto-instrumentation used to be known as "codeless attach" before October 2021.
+## What are the autoinstrumentation advantages?
 
+> [!div class="checklist"]
+> - Code changes aren't required.
+> - Access to source code isn't required.
+> - Configuration changes aren't required.
+> - Ongoing [SDK update maintenance](sdk-support-guidance.md) is eliminated.
 
 ## Supported environments, languages, and resource providers
 
-As we're adding new integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
+The following table shows the current state of autoinstrumentation availability.
 
-|Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
-|---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview, Container and Custom Containers are GA  | Public Preview  | Not supported   |
-|Azure App Service on Linux             | N/A             | Public Preview  | GA              | GA              | Not supported   |
-|Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)      |
-|Azure Spring Cloud                     | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
-|Azure Kubernetes Service               | N/A             | Not supported   | Through agent   | Not supported   | Not supported   |
-|Azure VMs Windows                      | Public Preview  | Public Preview  | Through agent   | Not supported   | Not supported   |
-|On-Premises VMs Windows                | GA, opt-in      | Public Preview  | Through agent   | Not supported   | Not supported   |
-|Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
+Links are provided to more information for each supported scenario.
 
-*OnBD is short for On by Default - the Application Insights will be enabled automatically once you deploy your app in supported environments. 
+|Environment/Resource provider                    | .NET Framework                                                                                                                                        | .NET Core / .NET                                                                                                                                      | Java                                                                                                                                                      | Node.js                                                                                                                                                                                      | Python                                                                                           |
+|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+|Azure App Service on Windows - Publish as Code   | [ :white_check_mark: :link: ](azure-web-apps-net.md) ¹                                                                                                | [ :white_check_mark: :link: ](azure-web-apps-net-core.md) ¹                                                                                           | [ :white_check_mark: :link: ](azure-web-apps-java.md) ¹                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md) ¹                                                                                                                                    | :x:                                                                                              |
+|Azure App Service on Windows - Publish as Docker | [ :white_check_mark: :link: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) ²                           | [ :white_check_mark: :link: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) ²                           | [ :white_check_mark: :link: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) ²                               | [ :white_check_mark: :link: ](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/public-preview-application-insights-auto-instrumentation-for/ba-p/3947971) ²                         | :x:                                                                                              |
+|Azure App Service on Linux - Publish as Code     | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-net-core.md?tabs=linux) ¹                                                                                | [ :white_check_mark: :link: ](azure-web-apps-java.md) ¹                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md?tabs=linux)                                                                                                                           | :x:                                                                                              |
+|Azure App Service on Linux - Publish as Docker   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-net-core.md?tabs=linux)                                                                                  | [ :white_check_mark: :link: ](azure-web-apps-java.md)                                                                                                     | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md?tabs=linux)                                                                                                                           | :x:                                                                                              |
+|Azure Functions - basic                          | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                 | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                 | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                     | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                                                        | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                            |
+|Azure Functions - dependencies                   | :x:                                                                                                                                                   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](monitor-functions.md)                                                                                                       | :x:                                                                                                                                                                                          | [ :white_check_mark: :link: ](monitor-functions.md#distributed-tracing-for-python-function-apps) |
+|Azure Spring Cloud                               | :x:                                                                                                                                                   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-java.md)                                                                                                     | :x:                                                                                                                                                                                          | :x:                                                                                              |
+|Azure Kubernetes Service (AKS)                   | :x:                                                                                                                                                   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                          | :x:                                                                                                                                                                                          | :x:                                                                                              |
+|Azure VMs Windows                                | [ :white_check_mark: :link: ](azure-vm-vmss-apps.md) ² ³                                                                                              | [ :white_check_mark: :link: ](azure-vm-vmss-apps.md) ² ³                                                                                              | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                          | :x:                                                                                                                                                                                          | :x:                                                                                              |
+|On-premises VMs Windows                          | [ :white_check_mark: :link: ](application-insights-asp-net-agent.md) ³                                                                                | [ :white_check_mark: :link: ](application-insights-asp-net-agent.md) ² ³                                                                              | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                          | :x:                                                                                                                                                                                          | :x:                                                                                              |
+|Standalone agent - any environment               | :x:                                                                                                                                                   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                          | :x:                                                                                                                                                                                          | :x:                                                                                              |
 
-## Azure App Service
-
-### Windows
-
-Application monitoring on Azure App Service on Windows is available for **[ASP.NET](./azure-web-apps-net.md)** (enabled by default), **[ASP.NET Core](./azure-web-apps-net-core.md)**, **[Java](./azure-web-apps-java.md)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
+**Footnotes**
+- ¹: Application Insights is on by default and enabled automatically.
+- ²: This feature is in public preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- ³: An agent must be deployed and configured.
 
 > [!NOTE]
-> Application monitoring for apps on Windows Containers on App Service [is in public preview for .NET Core, .NET Framework, and Java](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html).
+> Autoinstrumentation was known as "codeless attach" before October 2021.
 
-### Linux
-You can enable monitoring for **[Java](./azure-web-apps-java.md?)**, **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)**, and **[ASP.NET Core](./azure-web-apps-net-core.md?tabs=linux)(Preview)** apps running on Linux in App Service through the portal. 
+## JavaScript (Web) SDK Loader Script injection by configuration
 
-For [Python](./opencensus-python.md), use the SDK.
+When using supported SDKs, you can enable SDK injection in configuration to automatically inject JavaScript (Web) SDK Loader Script onto each page.
 
-## Azure Functions
 
-The basic monitoring for Azure Functions is enabled by default to collect log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview for Windows and you can [enable it in Azure portal](./monitor-functions.md).
+   | Language   
+   |	:---	|
+   | [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
+   | [Node.js](./nodejs.md#automatic-web-instrumentationpreview) |
+   | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
 
-## Azure Spring Cloud
-
-### Java 
-Application monitoring for Java apps running in Azure Spring Cloud is integrated into the portal, you can enable Application Insights directly from the Azure portal, both for the existing and newly created Azure Spring Cloud resources.  
-
-## Azure Kubernetes Service
-
-Codeless instrumentation of Azure Kubernetes Service is currently available for Java applications through the [standalone agent](./java-in-process-agent.md). 
-
-## Azure Windows VMs and virtual machine scale set
-
-Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.NET](./azure-vm-vmss-apps.md) and [Java](./java-in-process-agent.md) - this experience is not integrated into the portal. The monitoring is enabled through a few steps with a stand-alone solution and does not require any code changes.  
-
-## On-premises servers
-You can easily enable monitoring for your [on-premises Windows servers for .NET applications](./status-monitor-v2-overview.md) and for [Java apps](./java-in-process-agent.md).
-
-## Other environments
-The versatile Java standalone agent works on any environment, there's no need to instrument your code. [Follow the guide](./java-in-process-agent.md) to enable Application Insights and read about the amazing capabilities of the Java agent. The agent is in public preview and available on all regions. 
+For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
 
 ## Next steps
 
-* [Application Insights Overview](./app-insights-overview.md)
-* [Application map](./app-map.md)
-* [End-to-end performance monitoring](../app/tutorial-performance.md)
+* [Application Insights overview](app-insights-overview.md)
+* [Application Insights overview dashboard](overview-dashboard.md)
+* [Application map](app-map.md)

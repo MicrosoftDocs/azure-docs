@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data from and to a REST endpoint by using Azure Data Factory 
+title: Copy and transform data from and to a REST endpoint 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 08/10/2023
 ms.author: makromer
 ---
 
@@ -24,12 +24,21 @@ The difference among this REST connector, [HTTP connector](connector-http.md), a
 
 ## Supported capabilities
 
-You can copy data from a REST source to any supported sink data store. You also can copy data from any supported source data store to a REST sink. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+This REST connector is supported for the following capabilities:
+
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 Specifically, this generic REST connector supports:
 
 - Copying data from a REST endpoint by using the **GET** or **POST** methods and copying data to a REST endpoint by using the **POST**, **PUT** or **PATCH** methods.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **user-assigned managed identity**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Service Principal**, **OAuth2 Client Credential**, **System Assigned Managed Identity** and **User Assigned Managed Identity**.
 - **[Pagination](#pagination-support)** in the REST APIs.
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
@@ -48,7 +57,7 @@ Specifically, this generic REST connector supports:
 
 Use the following steps to create a REST linked service in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -79,9 +88,17 @@ The following properties are supported for the REST linked service:
 | type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
-| authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, and **ManagedServiceIdentity**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
+| authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, **OAuth2ClientCredential**, and **ManagedServiceIdentity**. You can additionally configure authentication headers in `authHeaders` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
 | authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
+
+For different authentication types, see the corresponding sections for details.
+- [Basic authentication](#use-basic-authentication)
+- [Service Principal authentication](#use-service-principal-authentication)
+- [OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
+- [Anonymous authentication](#using-authentication-headers)
 
 ### Use basic authentication
 
@@ -116,19 +133,20 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 }
 ```
 
-### Use AAD service principal authentication
+
+### Use Service Principal authentication
 
 Set the **authenticationType** property to **AadServicePrincipal**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
-| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalId | Specify the Microsoft Entra application's client ID. | Yes |
+| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
-| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
-**Example**
+**Example**                                                                          
 
 ```json
 {
@@ -144,6 +162,69 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
                 "type": "SecureString"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+### Use OAuth2 Client Credential authentication
+
+Set the **authenticationType** property to **OAuth2ClientCredential**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| tokenEndpoint| The token endpoint of the authorization server to acquire the access token. | Yes |
+| clientId | The client ID associated with your application. | Yes |
+| clientSecret| The client secret associated with your application. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | Yes |
+| scope | The scope of the access required. It describes what kind of access will be requested. | No |
+| resource | The target service or resource to which the access will be requested. | No |
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "enableServerCertificateValidation": true,
+            "authenticationType": "OAuth2ClientCredential",
+            "clientId": "<client ID>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value": "<client secret>"
+            },
+            "tokenEndpoint": "<token endpoint>",
+            "scope": "<scope>",
+            "resource": "<resource>"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
+
+Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {
@@ -159,7 +240,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 
 
@@ -173,7 +254,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
         "typeProperties": {
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
-            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>",
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
@@ -201,7 +282,7 @@ In addition, you can configure request headers for authentication along with the
         "typeProperties": {
             "url": "<REST endpoint>",
             "authenticationType": "Anonymous",
-            "authHeader": {
+            "authHeaders": {
                 "x-api-key": {
                     "type": "SecureString",
                     "value": "<API key>"
@@ -458,7 +539,7 @@ AlterRow1 sink(allowSchemaDrift: true,
 
 ## Pagination support
 
-When copying data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
+When you copy data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
 
 This generic REST connector supports the following pagination patterns: 
 
@@ -629,14 +710,14 @@ Response 2：
 
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the End Condition setting for Example 4.1."::: 
 
-- **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
+- **Example 4.2: The pagination ends when the value of the specific node in response does not exist** 
 
     The REST API returns the last response in the following structure:
 
     ```json
     {}
     ```
-    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response does not exist.
         
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the End Condition setting for Example 4.2."::: 
 
@@ -799,7 +880,7 @@ The pagination rules should be set as the following screenshot:
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-8.png" alt-text="Screenshot showing how to set the pagination rule for Example 8."::: 
 
-By default, the pagination will stop when body **.{@odata.nextLink}** is null or empty. 
+By default, the pagination will stop when body.{@odata.nextLink}** is null or empty. 
 
 But if the value of **@odata.nextLink** in the last response body is equal to the last request URL, then it will lead to the endless loop. To avoid this condition, define end condition rules.
 
@@ -813,7 +894,7 @@ But if the value of **@odata.nextLink** in the last response body is equal to th
 
 #### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
 
-This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.net/bugfix/test/movie_1.xml*
+This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.NET/bugfix/test/movie_1.xml*
 
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-9-situation.png" alt-text="Screenshot showing the response format is X M L and the next request U R L is from the response body."::: 
@@ -826,78 +907,6 @@ The response schema is shown below:
 The pagination rule syntax is the same as in Example 8 and should be set as below in this example:
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-9.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
-
-
-## Use OAuth
-This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 
-
-### About the solution template
-
-The template contains two activities:
-- **Web** activity retrieves the bearer token and then pass it to subsequent Copy activity as authorization.
-- **Copy** activity copies data from REST to Azure Data Lake Storage.
-
-The template defines two parameters:
-- **SinkContainer** is the root folder path where the data is copied to in your Azure Data Lake Storage. 
-- **SinkDirectory** is the directory path under the root where the data is copied to in your Azure Data Lake Storage. 
-
-### How to use this solution template
-
-1. Go to the **Copy from REST or HTTP using OAuth** template. Create a new connection for Source Connection. 
-    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="Create new connections":::
-
-    Below are key steps for new linked service (REST) settings:
-    
-     1. Under **Base URL**, specify the url parameter for your own source REST service. 
-     2. For **Authentication type**, choose *Anonymous*.
-        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="New REST connection":::
-
-2. Create a new connection for Destination Connection.  
-    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="New Gen2 connection":::
-
-3. Select **Use this template**.
-    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="Use this template":::
-
-4. You would see the pipeline created as shown in the following example:
-    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text="Screenshot shows the pipeline created from the template.":::
-
-5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
-
-    | Property | Description |
-    |:--- |:--- |
-    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
-    | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
-    | Headers | Header is user-defined, which references one header name in the HTTP request. | 
-    | Body | The body for the HTTP request. | 
-
-    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="Pipeline":::
-
-6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
-
-    | Property | Description |
-    |:--- |:--- |
-    | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
-    | Additional headers | Additional HTTP request headers.| 
-
-   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="Copy source Authentication":::
-
-7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
-   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="Pipeline run"::: 
-
-8. When the pipeline run completes successfully, you would see the result similar to the following example:
-   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="Pipeline run result"::: 
-
-9. Click the "Output" icon of WebActivity in **Actions** column, you would see the access_token returned by the service.
-
-   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="Token output"::: 
-
-10. Click the "Input" icon of CopyActivity in **Actions** column, you would see the access_token retrieved by WebActivity is passed to CopyActivity for authentication. 
-
-    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="Token input":::
-        
-    >[!CAUTION] 
-    >To avoid token being logged in plain text, enable "Secure output" in Web activity and "Secure input" in Copy activity.
-
 
 ## Export JSON response as-is
 

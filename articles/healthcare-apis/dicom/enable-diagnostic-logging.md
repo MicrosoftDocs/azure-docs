@@ -1,21 +1,21 @@
 ---
 title: Enable diagnostic logging in the DICOM service - Azure Health Data Services
 description: This article explains how to enable diagnostic logging in the DICOM service.
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/02/2022
-ms.author: aersoy
+ms.date: 10/13/2023
+ms.author: mmitrik
 ---
 
-# Enable Diagnostic Logging in the DICOM service
+# Enable audit and diagnostic logging in the DICOM service
 
 In this article, you'll learn how to enable diagnostic logging in DICOM service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is a must. The feature in DICOM service enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
-## Enable audit logs
+## Enable logs
 
-1. To enable diagnostic logging DICOM service, select your DICOM service in the Azure portal.
+1. To enable logging DICOM service, select your DICOM service in the Azure portal.
 2. Select the **Activity log** blade, and then select **Diagnostic settings**.
 
    [ ![Screenshot of Azure activity log.](media/dicom-activity-log.png) ](media/dicom-activity-log.png#lightbox)
@@ -45,30 +45,82 @@ In this article, you'll learn how to enable diagnostic logging in DICOM service 
  
    For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
 
-## Audit log details
+## Log details
+The log schema used differs based on the destination. Log Analytics has a schema that will differ from other destinations. Each log type will also have a schema that differs.
 
-The DICOM service returns the following fields in the audit log: 
+### Audit log details
+
+#### Raw logs
+
+The DICOM service returns the following fields in the audit log as seen when streamed outside of Log Analytics: 
 
 |Field Name  |Type  |Notes  |
 |---------|---------|---------|
 |correlationId|String|Correlation ID
-|category|String|Log Category (We currently have 'AuditLogs') 
 |operationName|String|Describes the type of operation (for example, Retrieve, Store, Query, etc.) 
 |time|DateTime|Date and time of the event. 
 |resourceId|String| Azure path to the resource.
 |identity|Dynamic|A generic property bag containing identity information (currently doesn't apply to DICOM).
-|callerIpAddress|String|The caller's IP address.
-|Location|String|The location of the server that processed the request.
+|location|String|The location of the server that processed the request.
 |uri|String|The request URI.
 |resultType|String| The available values currently are Started, Succeeded, or Failed.
 |resultSignature|Int|The HTTP Status Code (for example, 200)
-|properties|String|Describes the properties including resource type, resource name, subscription ID, audit action, etc.
 |type|String|Type of log (it's always MicrosoftHealthcareApisAuditLog in this case).
+|level|String|Log level (Informational, Error).
+
+
+#### Log Analytics logs
+
+The DICOM service returns the following fields in the audit log in Log Analytics: 
+
+|Field Name  |Type  |Notes  |
+|---------|---------|---------|
+|CorrelationId|String|Correlation ID
+|OperationName|String|Describes the type of operation (for example, Retrieve, Store, Query, etc.) 
+|TimeGenerated [UTC]|DateTime|Date and time of the event. 
+|_ResourceId|String| Azure path to the resource.
+|Identity|Dynamic|A generic property bag containing identity information (currently doesn't apply to DICOM).
+|Uri|String|The request URI.
+|ResultType|String| The available values currently are Started, Succeeded, or Failed.
+|StatusCode|Int|The HTTP Status Code (for example, 200)
+|Type|String|Type of log (it's always AHDSDicomAuditLogs in this case).
 |Level|String|Log level (Informational, Error).
-|operationVersion|String| Currently empty. Will be utilized to show api version.
+|TenantId|String| Tenant ID.
 
 
-## Sample queries
+### Diagnostic log details
+
+#### Raw logs
+
+The DICOM service returns the following fields in the audit log as seen when streamed outside of Log Analytics: 
+
+|Field Name  |Type  |Notes  |
+|---------|---------|---------|
+|correlationId|String|Correlation ID
+|operationName|String|Describes the type of operation (for example, Retrieve, Store, Query, etc.) 
+|time|DateTime|Date and time of the event. 
+|resultDescription|String|Description of the log entry. An example here is a diagnostic log with a validation warning message when storing a file.
+|resourceId|String| Azure path to the resource.
+|identity|Dynamic|A generic property bag containing identity information (currently doesn't apply to DICOM).
+|location|String|The location of the server that processed the request.
+|properties|String|Additional information about the event in JSON array format. Examples include DICOM identifiers present in the request.
+|level|String|Log level (Informational, Error).
+
+#### Log Analytics logs
+
+The DICOM service returns the following fields in the audit log in Log Analytics: 
+
+|Field Name  |Type  |Notes  |
+|---------|---------|---------|
+|CorrelationId|String|Correlation ID
+|OperationName|String|Describes the type of operation (for example, Retrieve, Store, Query, etc.) 
+|TimeGenerated|DateTime|Date and time of the event. 
+|Message|String|Description of the log entry. An example here is a diagnostic log with a validation warning message when storing a file.
+|Location|String|The location of the server that processed the request.
+|Properties|String|Additional information about the event in JSON array format. Examples include DICOM identifiers present in the request.
+|LogLevel|String|Log level (Informational, Error).
+
+## Sample Log Analytics queries
 
 Below are a few basic Application Insights queries you can use to explore your log data.
 
@@ -93,12 +145,8 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-## Conclusion
-
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. 
-
 ## Next steps
-In this article, you learned how to enable audit logs for the DICOM service. For information about the Azure activity log, see
- 
->[!div class="nextstepaction"]
->[Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

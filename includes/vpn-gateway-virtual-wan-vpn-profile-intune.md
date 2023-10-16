@@ -1,27 +1,23 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
+ ms.topic: include
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 04/26/2021
+ ms.date: 02/28/2023
  ms.author: cherylmc
- ms.custom: include file
 
 # This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 
-You can deploy profiles for Azure VPN clients (Windows 10) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
+You can deploy profiles for Azure VPN clients (Windows 10 or later) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
 
 > [!NOTE]
->* This article applies to deploying profiles that use Azure Active Directory for authentication only.
+>* This article applies to deploying profiles that use Microsoft Entra ID for authentication only.
 
 
 ## Prerequisites
 
 * Devices are already enrolled with Intune MDM.
-* The Azure VPN Client for Windows 10 is already deployed on the client machine.
+* The Azure VPN Client for Windows 10 or later is already deployed on the client machine.
 * Only Windows version 19H2 or higher is supported.
 
 ## <a name="xml"></a>Modify XML
@@ -56,7 +52,7 @@ For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/
 1. Modify the entry between ```<ServerUrlList>``` and ```</ServerUrlList>``` with the entry from your downloaded profile (azurevpnconfig.xml). Change the "TrustedNetworkDetection" FQDN to fit your environment.
 1. Open the Azure downloaded profile (azurevpnconfig.xml) and copy the entire contents to the clipboard by highlighting the text and pressing (ctrl) + C. 
 1. Paste the copied text from the previous step into the file you created in step 2 between the ```<CustomConfiguration>  </CustomConfiguration>``` tags. Save the file with an xml extension.
-1. Write down the value in the ```<name>  </name>``` tags. This is the name of the profile. You will need this name when you create the profile in Intune. Close the file and remember the location where it is saved.
+1. Write down the value in the ```<name>  </name>``` tags. This is the name of the profile. You can also modify this value to something more meaningful, as it will be visible to the end users. You will need this name when you create the profile in Intune. Close the file and remember the location where it is saved.
 
 ## Create Intune profile
 
@@ -69,7 +65,7 @@ In this section, you create a Microsoft Intune profile with custom settings.
 
     * **Name:** Enter a name for the configuration.
     * **Description:** Optional description.
-    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (this information can be found in the azurevpnconfig.xml file in the \<name\> \</name\> tag).
+    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (this information can be found in the azurevpnconfig.xml file in the \<name\> \</name\> tag). You can also use a different value for the name of your connection if desired.
     * **Data type:** String (XML file).
 
    Select the folder icon and pick the file you saved in step 6 in the [XML](#xml) steps. Select **Add**.

@@ -1,32 +1,31 @@
 ---
-title: Azure AD SSPR technical profiles in custom policies
+title: Microsoft Entra SSPR technical profiles in custom policies
 titleSuffix: Azure AD B2C
-description: Custom policy reference for Azure AD SSPR technical profiles in Azure AD B2C.
+description: Custom policy reference for Microsoft Entra SSPR technical profiles in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: build-2023
 ms.topic: reference
-ms.date: 06/23/2020
+ms.date: 11/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Define an Azure AD SSPR technical profile in an Azure AD B2C custom policy
+# Define a Microsoft Entra SSPR technical profile in an Azure AD B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Azure AD SSPR technical profile to generate and send a code to an email address, and then verify the code. The Azure AD SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
+Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Microsoft Entra SSPR technical profile to generate and send a code to an email address, and then verify the code. The Microsoft Entra SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
 
 This technical profile:
 
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
-- Uses the Azure AD SSPR service to generate and send a code to an email address, and then verifies the code.
+- Uses the Microsoft Entra SSPR service to generate and send a code to an email address, and then verifies the code.
 - Validates an email address via a verification code.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Protocol
 
@@ -36,7 +35,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-The following example shows an Azure AD SSPR technical profile:
+The following example shows a Microsoft Entra SSPR technical profile:
 
 ```xml
 <TechnicalProfile Id="AadSspr-SendCode">
@@ -51,17 +50,17 @@ The first mode of this technical profile is to generate a code and send it. The 
 
 ### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD SSPR. You can also map the name of your claim to the name defined in the SSPR technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra SSPR. You can also map the name of your claim to the name defined in the SSPR technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
 | emailAddress | Yes | The identifier for the user who owns the email address. The `PartnerClaimType` property of the input claim must be set to `emailAddress`. |
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure AD SSPR service.
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Microsoft Entra SSPR service.
 
 ### Output claims
 
-The Azure AD SSPR protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Azure AD SSPR protocol provider as long as you set the `DefaultValue` attribute.
+The Microsoft Entra SSPR protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Microsoft Entra SSPR protocol provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -82,7 +81,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 ### Example: send an email
 
-The following example shows an Azure AD SSPR technical profile that is used to send a code via email.
+The following example shows a Microsoft Entra SSPR technical profile that is used to send a code via email.
 
 ```xml
 <TechnicalProfile Id="AadSspr-SendCode">
@@ -103,18 +102,18 @@ The second mode of this technical profile is to verify a code. The following opt
 
 ### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD SSPR. You can also map the name of your claim to the name defined in the SSPR technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra SSPR. You can also map the name of your claim to the name defined in the SSPR technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | ----------- |
 | emailAddress| Yes | Same email address as previously used to send a code. It is also used to locate an email verification session. The `PartnerClaimType` property of the input claim must be set to `emailAddress`.|
 | verificationCode  | Yes | The verification code provided by the user to be verified. The `PartnerClaimType` property of the input claim must be set to `verificationCode`. |
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Azure AD SSPR service.
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Microsoft Entra SSPR service.
 
 ### Output claims
 
-The Azure AD SSPR protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Azure AD SSPR protocol provider as long as you set the `DefaultValue` attribute.
+The Microsoft Entra SSPR protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Microsoft Entra SSPR protocol provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -138,7 +137,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 ### Example: verify a code
 
-The following example shows an Azure AD SSPR technical profile used to verify the code.
+The following example shows a Microsoft Entra SSPR technical profile used to verify the code.
 
 ```xml
 <TechnicalProfile Id="AadSspr-VerifyCode">

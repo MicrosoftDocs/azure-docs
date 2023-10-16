@@ -7,8 +7,8 @@ ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 09/09/2021
-ms.custom: devx-track-azurepowershell, synapse
+ms.date: 10/25/2022
+ms.custom: synapse
 ---
 
 # Compute environments supported by Azure Data Factory and Synapse pipelines
@@ -30,7 +30,10 @@ The following table provides a list of supported compute environments and the ac
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
+| [Azure Synapse Analytics (Artifacts)](#azure-synapse-analytics-artifacts-linked-service) | [Synapse Notebook activity](transform-data-synapse-notebook.md), [Synapse Spark job definition](transform-data-synapse-spark-job-definition.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
+
+
 >  
 
 ## HDInsight compute environment
@@ -148,7 +151,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 #### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 
@@ -177,7 +180,7 @@ You can also specify the following properties for the granular configuration of 
 | stormConfiguration     | Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster. | No       |
 | yarnConfiguration      | Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster. | No       |
 
-* Example – On-demand HDInsight cluster configuration with advanced properties
+* Example - On-demand HDInsight cluster configuration with advanced properties
 
 ```json
 {
@@ -371,7 +374,7 @@ See following articles if you are new to Azure Batch service:
 
 [!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
-You create an Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
+You create a Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
 
 ### Example
 
@@ -559,7 +562,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like "1" means numOfWorker is 1 or "1:10" means autoscale from 1 as min and 10 as max.  | No                |
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads. This field is required for new cluster                | No               |
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
-| newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. Specifying the DBFS path to the init scripts. | No  |
+| newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. You can specify the init scripts in workspace files (recommended) or via the DBFS path (legacy). | No  |
 
 
 ## Azure SQL Database linked service
@@ -573,6 +576,40 @@ You create an Azure Synapse Analytics linked service and use it with the [Stored
 ## SQL Server linked service
 
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
+
+## Azure Synapse Analytics (Artifacts) linked service
+
+You create an Azure Synapse Analytics (Artifacts) linked service and use it with the [Synapse Notebook Activity](transform-data-synapse-notebook.md) and [Synapse Spark job definition Activity](transform-data-synapse-spark-job-definition.md). 
+
+### Example
+
+```json
+{
+    "name": "AzureSynapseArtifacts",
+    "properties": {
+        "description": "AzureSynapseArtifactsDescription",
+        "annotations": [],
+        "type": "AzureSynapseArtifacts",
+        "typeProperties": {
+            "endpoint": "https://<workspacename>.dev.azuresynapse.net",
+            "authentication": "MSI",
+            "workspaceResourceId": "<workspace Resource Id>"
+        }
+    }
+}
+```
+
+### Properties
+
+| **Property** | **Description** | **Required** |
+| --- | --- | --- |
+| name | Name of the Linked Service	 | Yes |
+| description | description of the Linked Service	 | No |
+| annotations | annotations of the Linked Service	 | No |
+| type | The type property should be set to **AzureSynapseArtifacts** | Yes |
+| endpoint | The Azure Synapse Analytics URL	 | Yes |
+| authentication | The default setting is System Assigned Managed Identity | Yes |
+| workspaceResourceId | workspace Resource Id	 | Yes |
 
 ## Azure Function linked service
 

@@ -4,8 +4,9 @@ description: Create your first app to Azure App Service in seconds using a Terra
 author: seligj95
 ms.author: msangapu
 ms.topic: article
-ms.date: 8/26/2021
-ms.custom: subject-terraform
+ms.date: 10/20/2022
+ms.tool: terraform
+ms.custom: subject-terraform, devx-track-terraform
 ---
 
 # Create App Service app using a Terraform template
@@ -29,7 +30,7 @@ The Azure Terraform Visual Studio Code extension enables you to work with Terraf
 
 ## Review the template
 
-The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Windows and a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Linux and a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
 ```hcl
 # Configure the Azure provider
@@ -37,7 +38,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 2.65"
+      version = "~> 3.0.0"
     }
   }
   required_version = ">= 0.14.9"
@@ -45,51 +46,60 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
 # Generate a random integer to create a globally unique name
 resource "random_integer" "ri" {
   min = 10000
   max = 99999
 }
+
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = "myResourceGroup-${random_integer.ri.result}"
   location = "eastus"
 }
+
 # Create the Linux App Service Plan
-resource "azurerm_app_service_plan" "appserviceplan" {
+resource "azurerm_service_plan" "appserviceplan" {
   name                = "webapp-asp-${random_integer.ri.result}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  sku {
-    tier = "Free"
-    size = "F1"
+  os_type             = "Linux"
+  sku_name            = "B1"
+}
+
+# Create the web app, pass in the App Service Plan ID
+resource "azurerm_linux_web_app" "webapp" {
+  name                  = "webapp-${random_integer.ri.result}"
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  service_plan_id       = azurerm_service_plan.appserviceplan.id
+  https_only            = true
+  site_config { 
+    minimum_tls_version = "1.2"
   }
 }
-# Create the web app, pass in the App Service Plan ID, and deploy code from a public GitHub repo
-resource "azurerm_app_service" "webapp" {
-  name                = "webapp-${random_integer.ri.result}"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  app_service_plan_id = azurerm_app_service_plan.appserviceplan.id
-  source_control {
-    repo_url           = "https://github.com/Azure-Samples/nodejs-docs-hello-world"
-    branch             = "master"
-    manual_integration = true
-    use_mercurial      = false
-  }
+
+#  Deploy code from a public GitHub repo
+resource "azurerm_app_service_source_control" "sourcecontrol" {
+  app_id             = azurerm_linux_web_app.webapp.id
+  repo_url           = "https://github.com/Azure-Samples/nodejs-docs-hello-world"
+  branch             = "master"
+  use_manual_integration = true
+  use_mercurial      = false
 }
 ```
 
-Three Azure resources and one subresource are defined in the template. Links to the [Azure Provider Terraform Registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) are given below for further details and usage information:
+Four Azure resources are defined in the template. Links to the [Azure Provider Terraform Registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) are given below for further details and usage information:
 
 * [**Microsoft.Resources/resourcegroups**](/azure/templates/microsoft.resources/resourcegroups?tabs=json): create a Resource Group if one doesn't already exist.
   * [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
-  * [azurerm_app_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_plan)
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
-  * [azurerm_app_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+  * [azurerm_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a Linux App Service app.
+  * [azurerm_linux_web_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app)
 * [**Microsoft.Web/sites/sourcecontrols**](/azure/templates/microsoft.web/sites/sourcecontrols): create an external git deployment configuration.
-  * [source_control](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#source_control)
+  * [azurerm_app_service_source_control](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_source_control)
 
 For further information on how to construct Terraform templates, have a look at the [Terraform Learn documentation](https://learn.hashicorp.com/collections/terraform/azure-get-started?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS).
 

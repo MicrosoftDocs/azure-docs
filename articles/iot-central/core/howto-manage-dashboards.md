@@ -1,9 +1,9 @@
 ---
-title: Create and manage Azure IoT Central dashboards | Microsoft Docs
-description: Learn how to create and manage application and personal dashboards in Azure IoT Central.
+title: Create and manage Azure IoT Central dashboards
+description: Learn how to create and manage application and personal dashboards in Azure IoT Central. Customize dashboards by using tiles.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/28/2021
+ms.date: 11/03/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -20,15 +20,15 @@ All users can create *personal dashboards*, visible only to themselves. Users ca
 
 ## Create a dashboard
 
-The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're in a role with the appropriate permissions, you can customize the default dashboard. To create a new dashboard from scratch, select **+ New dashboard** in the upper-left corner of the page. To create a new dashboard by copying the current dashboard, select **Copy**:
+The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're in a role with the appropriate permissions, you can customize the default dashboard. To create a new dashboard from scratch, select**Go to dashboard catalog** and then **+New**. To create a new dashboard by copying the current dashboard, select **Copy**:
 
-:::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot that shows the New dashboard button.":::
+:::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot that shows the options for creating a new dashboard." lightbox="media/howto-manage-dashboards/dashboard-custom-app.png":::
 
 In the **Create dashboard** or **Duplicate dashboard** panel, give your dashboard a name and select either **Organization** or **Personal** as the dashboard type. If you're creating an organization dashboard, choose the [organization](howto-create-organizations.md) the dashboard is associated with. An organization dashboard and its tiles only show the devices that are visible to the organization and any of its suborganizations.
 
 After you create the dashboard, choose items from the library to add to the dashboard. The library contains the tiles and dashboard primitives you use to customize the dashboard:
 
-:::image type="content" source="media/howto-manage-dashboards/dashboard-library.png" alt-text="Screenshot that shows the dashboard library.":::
+:::image type="content" source="media/howto-manage-dashboards/dashboard-library.png" alt-text="Screenshot that shows the dashboard library." lightbox="media/howto-manage-dashboards/dashboard-library.png":::
 
 If you're an administrator, you can create a personal dashboard or an organization dashboard. Users see the organization dashboards associated with the organization they're assigned to. All users can create personal dashboards, visible only to themselves.
 
@@ -39,27 +39,21 @@ If you're an administrator, you can create a personal dashboard or an organizati
 
 You can have several personal dashboards and switch between them or choose from one of the organization dashboards:
 
-:::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Screenshot that shows how to switch between dashboards.":::
+:::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Screenshot that shows how to switch between dashboards." lightbox="media/howto-manage-dashboards/switch-dashboards.png":::
 
 You can edit your personal dashboards and delete dashboards you don't need. If you have the correct [permissions](howto-manage-users-roles.md#customizing-the-app), you can edit or delete organization dashboards as well.
 
-:::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="Screenshot that shows how to edit or delete a dashboard.":::
-
-To rename a dashboard or see the organization it's assigned to, select **Dashboard settings**:
-
-:::image type="content" source="media/howto-manage-dashboards/rename-dashboards.png" alt-text="Screenshot that shows how to rename a dashboard.":::
+You can also manage the dashboards in the catalog by selecting **Go to dashboard catalog**.
 
 ## Add tiles
 
-The following screenshot shows the dashboard in an application created from the **Custom application** template. To customize the current dashboard, select **Edit**:
+To customize the current dashboard, select **Edit**.
 
-:::image type="content" source="media/howto-manage-dashboards/dashboard-sample-contoso.png" alt-text="Screenshot that shows a dashboard for applications that are based on the Custom Application template.":::
-
-After you select **Edit**, **New dashboard**, or **Copy**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard. You can customize and remove tiles on the dashboard itself. For example, to add a line chart tile to track telemetry values reported by one or more devices over time:
+After you select **Edit**, the dashboard is in *edit* mode. You can use the tools in the **Add a tile** panel to add tiles to the dashboard. You can customize and remove tiles on the dashboard itself. For example, to add a line chart tile to track telemetry values reported by one or more devices over time:
 
 1. Select **Start with a Visual**, **Line chart**, and then **Add tile**, or just drag the tile onto the canvas.
 
-1. To edit the tile, select its **pencil** button. Enter a **Title** and select a **Device Group**. In the **Devices** list, select the devices to show on the tile.
+1. To edit the tile, select its **pencil** icon. Enter a **Title** and select a **Device Group**. In the **Devices** list, select the devices to show on the tile.
 
 1. After you select all the devices to show on the tile, select **Update**.
 
@@ -94,11 +88,12 @@ This table describes the types of tiles you can add to a dashboard:
 | Property         |  Display the current values for properties and cloud properties for one or more devices. For example, you can use this tile to display device properties like the manufacturer or firmware version. |
 | Map (property)   | Display the location of one or more devices on a map.|
 | Map (telemetry)  | Display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display a sampled route of where a device has been in the past week.|
-| Image            | Display a custom image and can be clickable. The URL can be a relative link to another page in the application or an absolute link to an external site.|
+| Image (static)  | Display a custom image and can be clickable. The URL can be a relative link to another page in the application or an absolute link to an external site.|
 | Label            | Display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard, like descriptions, contact details, or Help.|
 | Markdown         | Clickable tiles that display a heading and description text formatted in Markdown. The URL can be a relative link to another page in the application or an absolute link to an external site.|
 | External content |  Let you load content from an external source. |
 | Number of devices | Display the number of devices in a device group.|
+| Data explorer query | Display a saved data explorer query |
 
 Currently, you can add up to 10 devices to tiles that support multiple devices.
 
@@ -108,11 +103,11 @@ By default, line charts show data over a range of time. The selected time range 
 
 For tiles that display aggregate values, select the **gear** button next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose average, sum, maximum, minimum, or count:
 
-:::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Select the aggregation to use.":::
+:::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Screenshot that shows how to select the aggregation to use." lightbox="media/howto-manage-dashboards/aggregate-choice.png":::
 
 For line charts, bar charts, and pie charts, you can customize the colors of the various telemetry values. Select the **palette** button next to the telemetry you want to customize:
 
-:::image type="content" source="media/howto-manage-dashboards/color-customization.png" alt-text="Screenshot that shows the palette button.":::
+:::image type="content" source="media/howto-manage-dashboards/color-customization.png" alt-text="Screenshot that shows the color palette button." lightbox="media/howto-manage-dashboards/color-customization.png":::
 
 For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, select the **gear** button next to the telemetry type or property in the tile configuration.
 
@@ -120,26 +115,20 @@ For numeric KPI, LKV, and property tiles, you can use conditional formatting to 
 
 Next, add your conditional formatting rules:
 
-:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-2.png" alt-text="Screenshot that shows conditional formatting rules for available memory. There are rules for less than, greater than, and greater than or equal to.":::
-
-The following screenshot shows the effect of those conditional formatting rules:
-
-:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-3.png" alt-text="Screenshot that shows a purple background color on the available memory tile.":::
+:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-2.png" alt-text="Screenshot that shows conditional formatting rules for temperature. There are rules for less than, greater than, and greater than or equal to." lightbox="media/howto-manage-dashboards/conditional-formatting-2.png":::
 
 ### Tile formatting
 
 This feature is available on the KPI, LKV, and property tiles. It lets you adjust font size, choose decimal precision, abbreviate numeric values (for example, format 1,700 as 1.7 K), or wrap string values on their tiles.
 
-:::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Screenshot that shows the dialog box for tile formatting.":::
+## Pin data explorer query to dashboard
 
-## Pin analytics to dashboard
+To continuously monitor the data explorer queries, you can pin a query to a dashboard. To pin a query to the dashboard:
 
-To continuously monitor the analytics queries, you can pin the query to dashboard. To pin a query to the dashboard:
-
-1. Navigate to **Data explorer**  in the left pane and select the query you created.
+1. Navigate to **Data explorer** in the left pane and select a query.
 1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
 
-:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard":::
+:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Screenshot that shows how to pin a query to the dashboard." lightbox="media/howto-manage-dashboards/pin-dashboard.png":::
 
 ## Next steps
 

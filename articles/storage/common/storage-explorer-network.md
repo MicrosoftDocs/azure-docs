@@ -1,9 +1,10 @@
 ---
-title: Network Connections in Azure Storage Explorer | Microsoft Docs
+title: Network Connections in Azure Storage Explorer
 description: Documentation on connecting to your network in Azure Storage Explorer
 services: storage
 author: MRayermannMSFT
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm
@@ -11,7 +12,7 @@ ms.author: marayerm
 
 # Network connections in Storage Explorer
 
-When not connecting to a local emulator, Storage Explorer uses your network to make requests to your storage resources and other Azure and Microsoft services.
+Storage Explorer uses your network to make requests to your storage resources and other Azure and Microsoft services.
 
 ## Hostnames accessed by Storage Explorer
 
@@ -19,23 +20,19 @@ Storage Explorer makes requests to various endpoints while in use. The following
 
 - ARM endpoints:
   - `management.azure.com` (global Azure)
-  - `management.chinacloudapi.cn` (Azure China)
-  - `management.microsoftazure.de` (Azure Germany)
+  - `management.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `management.usgovcloudapi.net` (Azure US Government)
 - Login endpoints:
   - `login.microsoftonline.com` (global Azure)
-  - `login.chinacloudapi.cn` (Azure China)
-  - `login.microsoftonline.de` (Azure Germany)
+  - `login.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `login.microsoftonline.us` (Azure US Government)
 - Graph endpoints:
   - `graph.windows.net` (global Azure)
-  - `graph.chinacloudapi.cn` (Azure China)
-  - `graph.cloudapi.de` (Azure Germany)
+  - `graph.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `graph.windows.net` (Azure US Government)
 - Azure Storage endpoints:
   - `(blob|file|queue|table|dfs).core.windows.net` (global Azure)
-  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Azure China)
-  - `(blob|file|queue|table|dfs).core.cloudapi.de` (Azure Germany)
+  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `(blob|file|queue|table|dfs).core.usgovcloudapi.net` (Azure US Government)
 - Storage Explorer updating: `storageexplorerpublish.blob.core.windows.net`
 - Microsoft link forwarding:
@@ -47,10 +44,12 @@ Storage Explorer makes requests to various endpoints while in use. The following
 ## Proxy sources
 
 Storage Explorer has several options for how/where it can source the information needed to connect to your proxy. To change which option is being used, go to **Settings** (gear icon on the left vertical toolbar) > **Application** > **Proxy**. Once you are at the proxy section of settings, you can select how/where you want Storage Explorer to source your proxy settings:
-- Do not use proxy
-- Use environment variables
-- Use app proxy settings
-- Use system proxy (preview)
+- [Do not use proxy](#do-not-use-proxy)
+- [Use environment variables](#use-environment-variables)
+- [Use app proxy settings](#use-app-proxy-settings)
+- [Use system proxy](#use-system-proxy)
+
+In some situations, Storage Explorer may automatically change the proxy source and other proxy related settings. To disable this behavior, go to **Settings** (gear icon on the left vertical toolbar) > **Application** > **Proxy** > **Auto Manage Proxy Settings**. Disabling this setting will prevent Storage Explorer from changing any manually configured proxy settings.
 
 ### Do not use proxy
 
@@ -85,7 +84,7 @@ All settings other than credentials can be managed from either:
 
 To set credentials, you must go to the Proxy Settings dialog (**Edit** > **Configure Proxy**).
 
-### Use system proxy (preview)
+### Use system proxy
 
 When this option is selected, Storage Explorer will use your OS proxy settings. More specifically, it will result in network calls being made using the Chromium networking stack. The Chromium networking stack is much more robust than the NodeJS networking stack normally used by Storage Explorer. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings) on what all it can do:
 
@@ -101,10 +100,6 @@ If your proxy server requires credentials, and those credentials aren't configur
 
 To set credentials, you must go to the Proxy Settings dialog (**Edit** > **Configure Proxy**).
 
-This option is in preview because not all features currently support system proxy. See [features that do not support system proxy](#features-that-do-not-support-system-proxy) for a complete list of features which do not support it. When system proxy is enabled, features that don't support system proxy won't make any attempt to connect to a proxy.
-
-If you come across an issue while using system proxy with a supported feature, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new).
-
 ## Proxy server authentication
 
 If you have configured Storage Explorer to source proxy settings from **environment variables** or **app proxy settings**, then only proxy servers that use basic authentication are supported.
@@ -117,9 +112,7 @@ If you have configured Storage Explorer to use **system proxy**, then proxy serv
 
 ## Which proxy source should I choose?
 
-If you're using features not listed [here](#features-that-do-not-support-system-proxy), then you should first try using [**system proxy**](#use-system-proxy-preview). If you come across an issue while using system proxy with a supported feature, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new).
-
-If you're using features that don't support system proxy, then [**app settings**](#use-app-proxy-settings) is probably the next best option. The GUI-based experience for configuring the proxy configuration helps reduce the chance of entering your proxy information correctly. However, if you already have proxy environment variables configured, then it might be better to use [**environment variables**](#use-environment-variables).
+You should first try using [**system proxy**](#use-system-proxy). After that, [**app settings**](#use-app-proxy-settings) is the next best option. The GUI-based experience for configuring the proxy configuration helps reduce the chance of entering your proxy information correctly. However, if you already have proxy environment variables configured, then it might be better to use [**environment variables**](#use-environment-variables).
 
 ## AzCopy proxy usage
 
@@ -136,23 +129,9 @@ Currently, AzCopy only supports proxy servers that use **basic authentication**.
 By default, Storage Explorer uses the NodeJS networking stack. NodeJS ships with a predefined list of trusted SSL certificates. Some networking technologies, such as proxy servers or anti-virus software, inject their own SSL certificates into network traffic. These certificates are often not present in NodeJS' certificate list. NodeJS won't trust responses that contain such a certificate. When NodeJS doesn't trust a response, then Storage Explorer will receive an error.
 
 You have multiple options for resolving such errors:
-- Use [**system proxy**](#use-system-proxy-preview) as your proxy source.
+- Use [**system proxy**](#use-system-proxy) as your proxy source.
 - Import a copy of the SSL certificate/s causing the error/s.
 - Disable SSL certificate. (**not recommended**)
-
-## Features that do not support system proxy
-
-The following is a list of features that do not support **system proxy**:
-
-- Storage Account Features
-  - Setting default access tier
-- Table Features
-  - Manage access policies
-  - Configure CORS
-  - Generate SAS
-  - Copy & Paste Table
-  - Clone Table
-- All ADLS Gen1 features
 
 ## Next steps
 

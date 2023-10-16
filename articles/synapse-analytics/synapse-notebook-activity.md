@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/19/2021
 ms.author: ruxu 
 ms.reviewer: 
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 
@@ -27,9 +27,22 @@ You can create a Synapse notebook activity directly from the Synapse pipeline ca
 
 Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from the current workspace or add a new one. 
 
-You can also select an Apache Spark pool in the settings. It should be noted that the Apache spark pool set here will replace the Apache spark pool used in the notebook. If Apache spark pool is not selected in the settings of notebook content for current activity, the Apache spark pool selected in that notebook will be used to run.
+If you select an existing notebook from the current workspace, you can click the **Open** button to directly open the notebook's page.
 
-![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+(Optional) You can also reconfigure Spark pool\Executor size\Dynamically allocate executors\Min executors\Max executors\Driver size in settings. It should be noted that the settings reconfigured here will replace the settings of the configure session in Notebook. If nothing is set in the settings of the current notebook activity, it will run with the settings of the configure session in that notebook.
+
+> [!div class="mx-imgBorder"]
+> ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+
+
+|  Property   | Description   |  Required   |
+| ----- | ----- | ----- |  
+|Spark pool| Reference to the Spark pool. You can select Apache Spark pool from the list. If this setting is empty, it will run in the spark pool of the notebook itself.| No |
+|Executor size| Number of cores and memory to be used for executors allocated in the specified Apache Spark pool for the session.| No |
+|Dynamically allocate executors| This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation.| No |
+|Min executors| Min number of executors to be allocated in the specified Spark pool for the job.| No |
+|Max executors| Max number of executors to be allocated in the specified Spark pool for the job.| No |
+|Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.| No |
 
 > [!NOTE]
 > The execution of parallel Spark Notebooks in Azure Synapse pipelines be queued and executed in a FIFO manner, jobs order in the queue is according to the time sequence, the expire time of a job in the queue is 3 days, please notice that queue for notebook only work in synapse pipeline.
@@ -45,19 +58,9 @@ Select the **Add to pipeline** button on the upper right corner to add a noteboo
 
 ### Designate a parameters cell
 
-# [Classic notebook](#tab/classical)
-
-To parameterize your notebook, select the ellipses (...) to access the other cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
-
-[![screenshot-showing-toggle-parameter](./media/synapse-notebook-activity/toggle-parameter-cell.png)](./media/synapse-notebook-activity/toggle-parameter-cell.png#lightbox)
-
-# [Preview notebook](#tab/preview)
-
 To parameterize your notebook, select the ellipses (...) to access the **more commands** at the cell toolbar. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
 [![screenshot-showing-azure-notebook-toggle-parameter](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png)](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png#lightbox)
-
----
 
 Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
@@ -95,21 +98,21 @@ You can reference other notebooks in a Synapse notebook activity via calling [%r
 - [%run magic](./spark/apache-spark-development-using-notebooks.md#notebook-reference) copies all cells from the referenced notebook to the %run cell and shares the variable context. When notebook1 references notebook2 via `%run notebook2` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function, the cell execution in notebook1 will be stopped. We recommend you use %run magic when you want to "include" a notebook file.
 - [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md#notebook-utilities) calls the referenced notebook as a method or a function. The variable context isn't shared. When notebook1 references notebook2 via `mssparkutils.notebook.run("notebook2")` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function, the cell execution in notebook1 will continue. We recommend you use mssparkutils notebook utilities when you want to  "import" a notebook.
 
->[!Note]
-> Run another Synapse notebook from a Synapse pipeline will only work for a notebook with Preview enabled.
-
-
 ## See notebook activity run history
 
 Go to **Pipeline runs** under the **Monitor** tab, you'll see the pipeline you have triggered. Open the pipeline that contains notebook activity to see the run history. 
 
 You can see the latest notebook run snapshot including both cells input and output by selecting the **open notebook** button. 
-![see-notebook-activity-history](./media/synapse-notebook-activity/input-output-open-notebook.png)
 
+![Screenshot that shows the notebook activity history.](./media/synapse-notebook-activity/input-output-open-notebook.png)
+
+Open notebook snapshot:
+
+![Screenshot that shows an open notebook snapshot.](./media/synapse-notebook-activity/open-notebook-snapshot.png)
 
 You can see the notebook activity input or output by selecting the **input** or **Output** button. If your pipeline failed with a user error, select the **output** to check the **result** field to see the detailed user error traceback.
 
-![screenshot-showing-see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![Screenshot that shows the user error details.](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 ## Synapse notebook activity definition
@@ -153,7 +156,7 @@ Here's the sample JSON definition of a Synapse notebook activity:
 Here's the sample JSON of a Synapse notebook activity output:
 
 ```json
-
+{
 {
     "status": {
         "Status": 1,
@@ -197,3 +200,5 @@ Here's the sample JSON of a Synapse notebook activity output:
 }
 
 ```
+## Known issues
+If the notebook name is parametrized in the Pipeline Notebook activity, then the notebook version in unpublished status can't be referenced in the debug runs.

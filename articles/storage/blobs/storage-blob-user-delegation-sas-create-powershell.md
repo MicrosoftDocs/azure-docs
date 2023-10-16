@@ -1,16 +1,15 @@
 ---
 title: Use PowerShell to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
-description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using PowerShell.
+description: Learn how to create a user delegation SAS with Microsoft Entra credentials by using PowerShell.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with Azure PowerShell.
+This article shows how to use Microsoft Entra credentials to create a user delegation SAS for a container or blob with Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -59,11 +58,13 @@ To check which version of the Az.Storage module is installed, run the following 
 Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
-For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
-## Sign in to Azure PowerShell with Azure AD
+<a name='sign-in-to-azure-powershell-with-azure-ad'></a>
 
-Call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to sign in with your Azure AD account:
+## Sign in to Azure PowerShell with Microsoft Entra ID
+
+Call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to sign in with your Microsoft Entra account:
 
 ```powershell
 Connect-AzAccount
@@ -73,9 +74,9 @@ For more information about signing in with PowerShell, see [Sign in with Azure P
 
 ## Assign permissions with Azure RBAC
 
-To create a user delegation SAS from Azure PowerShell, the Azure AD account used to sign into PowerShell must be assigned a role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. This permission enables that Azure AD account to request the *user delegation key*. The user delegation key is used to sign the user delegation SAS. The role providing the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action must be assigned at the level of the storage account, the resource group, or the subscription. For more information about Azure RBAC permissions for creating a user delegation SAS, see the **Assign permissions with Azure RBAC** section in [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+To create a user delegation SAS from Azure PowerShell, the Microsoft Entra account used to sign into PowerShell must be assigned a role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. This permission enables that Microsoft Entra account to request the *user delegation key*. The user delegation key is used to sign the user delegation SAS. The role providing the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action must be assigned at the level of the storage account, the resource group, or the subscription. For more information about Azure RBAC permissions for creating a user delegation SAS, see the **Assign permissions with Azure RBAC** section in [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-If you do not have sufficient permissions to assign Azure roles to an Azure AD security principal, you may need to ask the account owner or administrator to assign the necessary permissions.
+If you do not have sufficient permissions to assign Azure roles to a Microsoft Entra security principal, you may need to ask the account owner or administrator to assign the necessary permissions.
 
 The following example assigns the **Storage Blob Data Contributor** role, which includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. The role is scoped at the level of the storage account.
 
@@ -89,13 +90,15 @@ New-AzRoleAssignment -SignInName <email> `
 
 For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-## Use Azure AD credentials to secure a SAS
+<a name='use-azure-ad-credentials-to-secure-a-sas'></a>
+
+## Use Microsoft Entra credentials to secure a SAS
 
 When you create a user delegation SAS with Azure PowerShell, the user delegation key that is used to sign the SAS is created for you implicitly. The start time and expiry time that you specify for the SAS are also used as the start time and expiry time for the user delegation key.
 
 Because the maximum interval over which the user delegation key is valid is 7 days from the start date, you should specify an expiry time for the SAS that is within 7 days of the start time. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than 7 days will still only be valid for 7 days.
 
-To create a user delegation SAS for a container or blob with Azure PowerShell, first create a new Azure Storage context object, specifying the `-UseConnectedAccount` parameter. The `-UseConnectedAccount` parameter specifies that the command creates the context object under the Azure AD account with which you signed in.
+To create a user delegation SAS for a container or blob with Azure PowerShell, first create a new Azure Storage context object, specifying the `-UseConnectedAccount` parameter. The `-UseConnectedAccount` parameter specifies that the command creates the context object under the Microsoft Entra account with which you signed in.
 
 Remember to replace placeholder values in angle brackets with your own values:
 

@@ -1,11 +1,12 @@
 ---
 title: Deploy a cluster across Availability Zones
 description: Learn how to create an Azure Service Fabric cluster across Availability Zones.
-author: peterpogorski
-
-ms.topic: conceptual
-ms.date: 03/16/2022
-ms.author: ashank
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Deploy an Azure Service Fabric cluster across Availability Zones
@@ -204,11 +205,10 @@ You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 ```
 
 >[!NOTE]
->
 > * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
-> * The Availability Zone that spans virtual machine scale sets should be configured with at least three Availability Zones, no matter the durability level.
-> * Availability Zones that span virtual machine scale sets with Silver or higher durability should have at least 15 VMs.
-> * Availability Zones that span virtual machine scale sets with Bronze durability should have at least six VMs.
+> * An Availability Zone spanning virtual machine scale set should be configured with at least three Availability Zones, no matter the durability level.
+> * An Availability Zone spanning virtual machine scale set with Silver or higher durability should have at least 15 VMs ([5 per region](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)).  
+> * An Availaibility Zone spanning virtual machine scale set with Bronze durability should have at least six VMs.
 
 ### Enable support for multiple zones in the Service Fabric node type
 
@@ -261,6 +261,8 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 > * The `multipleAvailabilityZones` property on the node type can only be defined when the node type is created and can't be modified later. Existing node types can't be configured with this property.
 > * When `sfZonalUpgradeMode` is omitted or set to `Hierarchical`, the cluster and application deployments will be slower because there are more upgrade domains in the cluster. It's important to correctly adjust the upgrade policy timeouts to account for the upgrade time required for 15 upgrade domains. The upgrade policy for both the app and the cluster should be updated to ensure that the deployment doesn't exceed the Azure Resource Service deployment time limit of 12 hours. This means that deployment shouldn't take more than 12 hours for 15 UDs (that is, shouldn't take more than 40 minutes for each UD).
 > * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone-down scenario.
+> * Upgrading the DurabilityLevel for a nodetype with multipleAvailabilityZones, is not supported. Please create a new nodetype with the higher durability instead.
+> * SF supports just 3 AvailabilityZones. Any higher number is not supported right now.
 
 >[!TIP]
 > We recommend setting `sfZonalUpgradeMode` to `Hierarchical` or omitting it. Deployment will follow the zonal distribution of VMs and affect a smaller amount of replicas or instances, making them safer.

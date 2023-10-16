@@ -1,10 +1,10 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linux - Azure AD
+title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linux
 description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -43,19 +43,19 @@ In Data Lake Store, create a new folder and grant our Linux VM system-assigned m
 2. Select the Data Lake Store instance that you want to use.
 3. Select **Data Explorer** on the command bar.
 4. The root folder of the Data Lake Store instance is selected. Select **Access** on the command bar.
-5. Select **Add**.  In the **Select** box, enter the name of your VM--for example, **DevTestVM**. Select your VM from the search results, and then click **Select**.
-6. Click **Select Permissions**.  Select **Read** and **Execute**, add to **This folder**, and add as **An access permission only**. Select **Ok**.  The permission should be added successfully.
+5. Select **Add**.  In the **Select** box, enter the name of your VM--for example, **DevTestVM**. Select your VM from the search results, and then select **Select**.
+6. Select **Select Permissions**.  Select **Read** and **Execute**, add to **This folder**, and add as **An access permission only**. Select **Ok**.  The permission should be added successfully.
 7. Close the **Access** pane.
 8. For this tutorial, create a new folder. Select **New Folder** on the command bar, and give the new folder a name--for example **TestFolder**.  Select **Ok**.
 9. Select the folder that you created, and then select **Access** on the command bar.
-10. Similar to step 5, select **Add**. In the **Select** box, enter the name of your VM. Select your VM from the search results, and then click **Select**.
+10. Similar to step 5, select **Add**. In the **Select** box, enter the name of your VM. Select your VM from the search results, and then select **Select**.
 11. Similar to step 6, select **Select Permissions**. Select **Read**, **Write**, and **Execute**, add to **This folder**, and add as **An access permission entry and a default permission entry**. Select **Ok**.  The permission should be added successfully.
 
 Managed identities for Azure resources can now perform all operations on files in the folder that you created. For more information on managing access to Data Lake Store, see [Access Control in Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
 ## Get an access token 
 
-This section shows how to obtain an access token and call the Data Lake Store file system. Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained via using managed identities for Azure resources. To authenticate to the Data Lake Store file system, you send an access token issued by Azure AD to your Data Lake Store file system endpoint. The access token is in an authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Azure AD authentication, see [Authentication with Data Lake Store using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
+This section shows how to obtain an access token and call the Data Lake Store file system. Azure Data Lake Store natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained via using managed identities for Azure resources. To authenticate to the Data Lake Store file system, you send an access token issued by Microsoft Entra ID to your Data Lake Store file system endpoint. The access token is in an authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Microsoft Entra authentication, see [Authentication with Data Lake Store using Microsoft Entra ID](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 
 In this tutorial, you authenticate to the REST API for the Data Lake Store file system by using cURL to make REST requests.
 

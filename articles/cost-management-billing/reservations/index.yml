@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/22/2022
+  ms.date: 08/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -46,6 +46,11 @@ landingContent:
       links:
       - text: How a reservation discount is applied
         url: reservation-discount-application.md
+    - linkListType: learn
+      links:
+      - text: Save money with Azure reserved instances
+        url: /training/modules/save-money-with-azure-reserved-instances/
+
 
   # Card (optional)
   - title: Manage reservations after purchase
@@ -58,6 +63,8 @@ landingContent:
         url: manage-reserved-vm-instance.md
       - text: Exchange and refund reservations
         url: exchange-and-refund-azure-reservations.md
+      - text: Changes to the reservation exchange policy
+        url: reservation-exchange-policy-changes.md
 
   # Card (optional)
   - title: Report costs after purchase
@@ -68,8 +75,20 @@ landingContent:
         url: charge-back-usage.md
       - text: View reservation purchase and refund transactions
         url: view-purchase-refunds.md
-
     - linkListType: reference
       links:
       - text: Reservation APIs
         url: reservation-apis.md
+
+  # Card (optional)
+  - title: Limited-time offers
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: US West Dv3 VMs
+        url: limited-time-us-west.md
+      - text: Sweden Central select Linux VMs
+        url: limited-time-central-sweden.md
+      - text: Poland Central select VMs
+        url: limited-time-central-poland.md
+

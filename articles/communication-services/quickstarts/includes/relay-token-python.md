@@ -18,7 +18,7 @@ ms.author: rahulva
 ## Prerequisites for Python
 
  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
+- [Python](https://www.python.org/downloads/) 3.7+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting Up
@@ -28,7 +28,7 @@ ms.author: rahulva
 1. Open your terminal or command window create a new directory for your app, and navigate to it.
 
    ```console
-   mkdir access-tokens-quickstart && cd relay-tokens-quickstart
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
 2. Use a text editor to create a file called **issue-relay-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.

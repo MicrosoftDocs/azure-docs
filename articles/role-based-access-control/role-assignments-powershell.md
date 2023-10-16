@@ -3,11 +3,11 @@ title: Assign Azure roles using Azure PowerShell - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2021
+ms.date: 10/26/2022
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,8 +23,8 @@ ms.custom: devx-track-azurepowershell
 To assign roles, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
-- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
-- The account you use to run the PowerShell command must have the Azure Active Directory Graph `Directory.Read.All` and Microsoft Graph `Directory.Read.All` permissions.
+- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
+- The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
 
 ## Steps to assign an Azure role
 
@@ -36,7 +36,7 @@ You can assign a role to a user, group, service principal, or managed identity. 
 
 **User**
 
-For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+For a Microsoft Entra user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
 Get-AzADUser -StartsWith <userName>
@@ -45,7 +45,7 @@ Get-AzADUser -StartsWith <userName>
 
 **Group**
 
-For an Azure AD group, you need the group object ID. To get the object ID, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+For a Microsoft Entra group, you need the group object ID. To get the object ID, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
 Get-AzADGroup -SearchString <groupName>
@@ -54,7 +54,7 @@ Get-AzADGroup -SearchString <groupName>
 
 **Service principal**
 
-For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
+For a Microsoft Entra service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <principalName>
@@ -190,10 +190,10 @@ New-AzRoleAssignment -ObjectId <objectId> `
 
 #### Assign a role for all blob containers in a storage account resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a storage account named *storage12345*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* and Application ID *66666666-6666-6666-6666-666666666666* at a resource scope for a storage account named *storage12345*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 `
+PS C:\> New-AzRoleAssignment -ApplicationId 66666666-6666-6666-6666-666666666666 `
 -RoleDefinitionName "Storage Blob Data Contributor" `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 
@@ -210,10 +210,10 @@ CanDelegate        : False
 
 #### Assign a role for a specific blob container resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* and Application ID *66666666-6666-6666-6666-666666666666* at a resource scope for a blob container named *blob-container-01*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 `
+PS C:\> New-AzRoleAssignment -ApplicationId 66666666-6666-6666-6666-666666666666 `
 -RoleDefinitionName "Storage Blob Data Contributor" `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 

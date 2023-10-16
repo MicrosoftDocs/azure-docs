@@ -1,77 +1,121 @@
 ---
-title: CI/CD for Azure API Management using ARM templates
-description: Introduction to API DevOps with Azure API Management, using Azure Resource Manager templates to manage API deployments in a CI/CD pipeline
+title: Use DevOps and CI/CD to publish APIs
+description: Introduction to API DevOps with Azure API Management
 services: api-management
-author: dlepow
+author: adrianhall
 ms.service: api-management
 
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.author: danlep
+ms.date: 08/15/2022
+ms.author: adhal
 ---
 
-# CI/CD for API Management using Azure Resource Manager templates
+# Use DevOps and CI/CD to publish APIs
 
-This article shows you how to use API DevOps with Azure API Management, through Azure Resource Manager templates. With the strategic value of APIs, a continuous integration and continuous deployment (CI/CD) pipeline has become an important aspect of API development. It allows organizations to automate deployment of API changes without error-prone manual steps, detect issues earlier, and ultimately deliver value to users faster. 
+With the strategic value of APIs in the enterprise, adopting DevOps continuous integration (CI) and deployment (CD) techniques has become an important aspect of API development.  This article discusses the decisions you'll need to make to adopt DevOps principles for the management of APIs.
 
-For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
+API DevOps consists of three parts:
 
-## The problem
+:::image type="content" source="media/devops-api-development-templates/api-management-cicd-flow.png" alt-text="Diagram that illustrates API DevOps flow.":::
 
-Organizations today normally have multiple deployment environments (such as development, testing, and production) and use separate API Management instances for each environment. Some instances are shared by multiple development teams, who are responsible for different APIs with different release cadences.
+Each part of the API DevOps pipeline is discussed below.
 
-As a result, customers face the following challenges:
+## API definition
 
-* How to automate deployment of APIs into API Management
-* How to migrate configurations from one environment to another
-* How to avoid interference between different development teams that share the same API Management instance
+An API developer writes an API definition by providing a specification, settings (such as logging, diagnostics, and backend settings), and policies to be applied to the API. The API definition provides the information required to provision the API on an Azure API Management service. The specification may be based on a standards-based API specification (such as [WSDL][1], [OpenAPI][2], or [GraphQL][3]), or it may be defined using the Azure Resource Manager (ARM) APIs (for example, an ARM template describing the API and operations). The API definition will change over time and should be considered "source code". Ensure that the API definition is stored under source code control and has appropriate review before adoption.  
 
-## Manage configurations in Resource Manager templates
+There are several tools to assist producing the API definition:
 
-The following image illustrates the proposed approach. 
+* The [Azure APIOps Toolkit][5] provides a workflow built on top of a [git][21] source code control system (such as [GitHub][22] or [Azure Repos][23]).  It uses an _extractor_ to produce an API definition that is then applied to a target API Management service by a _publisher_.  APIOps supports REST and GraphQL APIs at this time.
+* The [dotnet-apim][6] tool converts a well-formed YAML definition into an ARM template for later deployment.  The tool is focused on REST APIs.
+* [Terraform][7] is an alternative to Azure Resource Manager to configure resources in Azure.  You can create a Terraform configuration (together with policies) to implement the API in the same way that an ARM template is created.
 
-:::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="Diagram that illustrates DevOps with API Management.":::
+You can also use IDE-based tools for editors such as [Visual Studio Code][8] to produce the artifacts necessary to define the API.  For instance, there are [over 30 plugins for editing OpenAPI specification files][9] on the Visual Studio Code Marketplace.  You can also use code generators to create the artifacts.  The [CADL language][10] lets you easily create high-level building blocks and then compile them into a standard API definition format such as OpenAPI.
 
-In this example, there are two deployment environments: *Development* and *Production*. Each has its own API Management instance. 
+## API approval
 
-* API developers have access to the Development instance and can use it for developing and testing their APIs. 
-* A designated team called the *API publishers* manages the Production instance.
+Once the API definition has been produced, the developer will submit the API definition for review and approval.  If using a git-based source code control system (such as [GitHub][22] or [Azure Repos][23]), the submission can be done via [Pull Request][11].  A pull request informs others of changes that have been proposed to the API definition.  Once the approval gates have been confirmed, an approver will merge the pull request into the main repository to signify that the API definition can be deployed to production.  The pull request process empowers the developer to remediate any issues found during the approval process.
 
-The key in this proposed approach is to keep all API Management configurations in [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). The organization should keep these templates in a source control system such as Git. As illustrated in the image, a Publisher repository contains all configurations of the Production API Management instance in a collection of templates:
+Both GitHub and Azure Repos allow approval pipelines to be configured that run when a pull request is submitted.  You can configure the approval pipelines to run tools such as:
 
-|Template  |Description  |
-|---------|---------|
-|Service template     | Service-level configurations of the API Management instance, such as pricing tier and custom domains.         |
-|Shared templates     |  Shared resources throughout an API Management instance, such as groups, products, and loggers.    |
-|API templates     |  Configurations of APIs and their subresources: operations, policies, diagnostic settings.        |
-|Master (main) template     |   Ties everything together by [linking](../azure-resource-manager/templates/linked-templates.md) to all templates and deploying them in order. To deploy all configurations to an API Management instance, deploy the main template. You can also deploy each template individually.       |
+* API specification linters such as [Spectral][12] to ensure that the definition meets API standards required by the organization.  
+* Breaking change detection using tools such as [openapi-diff][13].
+* Security audit and assessment tools.  [OWASP maintains a list of tools][14] for security scanning.
+* Automated API test frameworks such as [Newman][15], a test runner for [Postman collections][16].
 
-API developers will fork the Publisher repository to a Developer repository and work on the changes for their APIs. In most cases, they focus on the API templates for their APIs and don't need to change the shared or service templates.
+> [!NOTE]
+> Azure APIs must conform to a [strict set of guidelines][26] that you can use as a starting point for your own API guidelines.  There is a [Spectral configuration][27] for enforcing the guidelines.
 
-## Migrate configurations to templates
-API developers face challenges when working with Resource Manager templates:
+Once the automated tools have been run, the API definition is reviewed by the human eye.  Tools won't catch all problems.  A human reviewer ensures that the API definition meets the organizational criteria for APIs, including adherence to security, privacy, and consistency guidelines.
 
-* API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and might not be familiar with Resource Manager schemas. Authoring templates manually might be error-prone. 
+## API publication
 
-   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
+The API definition will be published to an API Management service through a release pipeline.  The tools used to publish the API definition depend on the tool used to produce the API definition:
 
-* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#Extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
+* If using the [Azure APIOps Toolkit][5], the toolkit includes a publisher that writes the API definition to the target service.
+* If using [dotnet-apim][6], the API definition is represented as an ARM template.  Tasks are available for [Azure Pipelines][17] and [GitHub Actions][18] to deploy an ARM template.
+* If using [Terraform][7], CLI tools will deploy the API definition on your service.  There are tasks available for [Azure Pipelines][19] and [GitHub Actions][20].
 
-## Workflow
+> **Can I use other source code control and CI/CD systems?**
+>
+> Yes. The process described works with any source code control system (although APIOps does require that the source code control system is [git][21] based).  Similarly, you can use any CI/CD platform as long as it can be triggered by a check-in and run command line tools that communicate with Azure.
 
-* After API developers have finished developing and testing an API, and have generated the API templates, they can submit a pull request to merge the changes to the publisher repository. 
+## Best practices
 
-* API publishers can validate the pull request and make sure the changes are safe and compliant. For example, they can check if only HTTPS is allowed to communicate with the API. Most validations can be automated as a step in the CI/CD pipeline.
+There's no industry standard for setting up a DevOps pipeline for publishing APIs, and none of the tools mentioned will work in all situations.  However, we see that most situations are covered by using a combination of the following tools and services:
 
-* Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://docs.github.com/en/actions), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
+* [Azure Repos][23] stores the API definitions in a [git][21] repository.
+* [Azure Pipelines][17] runs the automated API approval and API publication processes.
+* [Azure APIOps Toolkit][5] provides tools and workflows for publishing APIs.
 
+We've seen the greatest success in customer deployments, and recommend the following practices:
 
-With this approach, an organization can automate the deployment of API changes into API Management instances, and it's easy to promote changes from one environment to another. Because different API development teams will be working on different sets of API templates and files, it prevents interference between different teams.
+* Set up either [GitHub][22] or [Azure Repos][23] for your source code control system.  This choice will determine your choice of pipeline runner as well.  GitHub can use [Azure Pipelines][17] or [GitHub Actions][18], whereas Azure Repos must use Azure Pipelines.
+* Set up an Azure API Management service for each API developer so that they can develop API definitions along with the API service.  Use the consumption or developer SKU when creating the service.
+* Use [policy fragments][24] to reduce the new policy that developers need to write for each API.
+* Use [named values][29] and [backends][30] to ensure that policies are generic and can apply to any API Management instance.
+* Use the [Azure APIOps Toolkit][5] to extract a working API definition from the developer service.
+* Set up an API approval process that runs on each pull request.  The API approval process should include breaking change detection, linting, and automated API testing. 
+* Use the [Azure APIOps Toolkit][5] publisher to publish the API to your production API Management service.
 
-## Video
+Review [Automated API deployments with APIOps][28] in the Azure Architecture Center for more details on how to configure and run a CI/CD deployment pipeline with APIOps.
 
-> [!VIDEO https://www.youtube.com/embed/4Sp2Qvmg6j8]
+## References
 
-## Next steps
+* [Azure DevOps Services][25] includes [Azure Repos][23] and [Azure Pipelines][17].
+* [Azure APIOps Toolkit][5] provides a workflow for API Management DevOps.
+* [Spectral][12] provides a linter for OpenAPI specifications.
+* [openapi-diff][13] provides a breaking change detector for OpenAPI v3 definitions.
+* [Newman][15] provides an automated test runner for Postman collections.
 
-- See the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) for additional information, tools, and sample templates.
+<!-- Links -->
+[1]: https://www.w3.org/TR/wsdl20/
+[2]: https://www.openapis.org/
+[3]: https://graphql.org/learn/schema/
+[4]: https://github.com/Azure/azure-api-management-devops-resource-kit
+[5]: https://github.com/Azure/APIOps
+[6]: https://github.com/mirsaeedi/dotnet-apim
+[7]: https://www.terraform.io/
+[8]: https://code.visualstudio.com/
+[9]: https://marketplace.visualstudio.com/search?term=OpenAPI&target=VSCode&category=All%20categories&sortBy=Relevance
+[10]: https://github.com/microsoft/cadl
+[11]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+[12]: https://stoplight.io/open-source/spectral
+[13]: https://github.com/Azure/openapi-diff
+[14]: https://owasp.org/www-community/api_security_tools
+[15]: https://github.com/postmanlabs/newman
+[16]: https://learning.postman.com/docs/getting-started/creating-the-first-collection/
+[17]: ../azure-resource-manager/templates/deployment-tutorial-pipeline.md
+[18]: https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template
+[19]: https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform
+[20]: https://learn.hashicorp.com/tutorials/terraform/github-actions
+[21]: https://git-scm.com/
+[22]: https://github.com/
+[23]: /azure/devops/repos/get-started/what-is-repos
+[24]: ./policy-fragments.md
+[25]: https://azure.microsoft.com/services/devops/
+[26]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md
+[27]: https://github.com/Azure/azure-api-style-guide
+[28]: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops
+[29]: ./api-management-howto-properties.md
+[30]: ./backends.md

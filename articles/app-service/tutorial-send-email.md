@@ -1,11 +1,12 @@
 ---
-title: 'Tutorial: send email with Logic Apps'
+title: 'Tutorial: Send email with Azure Logic Apps'
 description: Learn how to invoke business processes from your App Service app. Send emails, tweets, and Facebook posts, add to mailing lists, and much more.
-
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.devlang: csharp, javascript, php, python, ruby
-ms.custom: "devx-track-csharp, mvc"
+ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Tutorial: Send email and invoke other business processes from App Service
@@ -17,7 +18,7 @@ In this tutorial, you learn how to integrate your App Service app with your busi
 - Connect to third-party systems like SAP, Salesforce, etc.
 - Exchange standard B2B messages
 
-In this tutorial, you send emails with Gmail from your App Service app by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
+In this tutorial, you send emails with Gmail from your App Service app by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Azure Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Azure Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
 
 ## Prerequisite
 
@@ -51,13 +52,15 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 ## Create the logic app
 
-1. In the [Azure portal](https://portal.azure.com), create an empty logic app by following the instructions in [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). When you see the **Logic Apps Designer**, return to this tutorial.
-1. In the splash page for Logic Apps Designer, select **When an HTTP request is received** under **Start with a common trigger**.
+1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource by following the instructions in [Create an example Consumption workflow](../logic-apps/quickstart-create-example-consumption-workflow.md). When page with the common triggers and templates gallery opens, return to this tutorial.
 
-    ![Screenshot that shows the splash page for the Logic Apps Designer with When an H T T P request is received highlighted.](./media/tutorial-send-email/receive-http-request.png)
-1. In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
+1. Under the **Start with a common trigger** section, select the trigger named **When an HTTP request is received** .
 
-    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected. ](./media/tutorial-send-email/generate-schema-with-payload.png)
+   ![Screenshot that shows the splash page for the designer with When an H T T P request is received highlighted.](./media/tutorial-send-email/receive-http-request.png)
+
+1. In the trigger information box, select **Use sample payload to generate schema**.
+
+   ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected.](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copy the following sample JSON into the textbox and select **Done**.
 
@@ -69,57 +72,59 @@ Deploy an app with the language framework of your choice to App Service. To foll
     }
     ```
 
-    The schema is now generated for the request data you want. In practice, you can just capture the actual request data your application code generates and let Azure generate the JSON schema for you. 
-1. At the top of the Logic Apps Designer, select **Save**. 
+    The schema is now generated for the request data you want. In practice, you can just capture the actual request data your application code generates and let Azure generate the JSON schema for you.
+
+1. On workflow designer toolbar, select **Save**.
 
     You can now see the URL of your HTTP request trigger. Select the copy icon to copy it for later use.
 
     ![Screenshot that highlights the copy icon to copy the U R L of your H T T P request trigger.](./media/tutorial-send-email/http-request-url.png)
 
-    This HTTP request definition is a trigger to anything you want to do in this logic app, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information on the request trigger, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
+    This HTTP request definition is a trigger to anything you want to do in this logic app workflow, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information on the request trigger, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
-1. At the bottom of the designer, click **New step**, type **Gmail** in the actions search box. Find and select **Send email (V2)**.
-    
-    > [!TIP]
-    > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Logic Apps documentation](../logic-apps/index.yml).
+1. Under the trigger, select **New step**. Under the **Choose an operation** search box, select **All**.
 
-1. In the **Gmail** dialog, select **Sign in** and sign in to the Gmail account you want to send the email from.
+1. In the search box, enter **Gmail**. Find and select the action named **Send email (V2)**.
 
-    ![Screenshot that shows the Gmail dialog box that you use to sign into the Gmail account you want to send email from.](./media/tutorial-send-email/gmail-sign-in.png)
+   > [!TIP]
+   > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-1. Once signed in, click in the **To** textbox, and the dynamic content dialog is automatically opened.
+1. In the **Gmail** action, select **Sign in** to authenticate access to the Gmail account from where you want to send the email.
 
-1. Next to the **When an HTTP request is received** action, select **See more**.
+   ![Screenshot that shows the Gmail action where you sign in to your Gmail account.](./media/tutorial-send-email/gmail-sign-in.png)
 
-    ![Screenshot that shows the See More button next to When an H T T P request is received action.](./media/tutorial-send-email/expand-dynamic-content.png)
+1. After you sign in, select inside the **To** box, which automatically opens the dynamic content list. In this list, next to the **When an HTTP request is received** action, select **See more**.
 
-    You should now see the three properties from your sample JSON data you used earlier. In this step, you use these properties from the HTTP request to construct an email.
-1. Since you're selecting the value for the **To** field, choose **email**. If you want, toggle off the dynamic content dialog by clicking **Add dynamic content**.
+   ![Screenshot that shows the See More button next to When an H T T P request is received action.](./media/tutorial-send-email/expand-dynamic-content.png)
 
-    ![Screenshot that shows the email option and Add dynamic contention option highlighted.](./media/tutorial-send-email/hide-dynamic-content.png)
+   You should now see the three properties from your sample JSON data you used earlier. In this step, you use these properties from the HTTP request to construct an email.
 
-1. In the **Add new parameter** dropdown, select **Subject** and **Body**.
+1. For the **To** field value, select **email**. If you want, close the dynamic content list by selecting **Add dynamic content**.
 
-1. Click in the **Subject** textbox, and in the same way, choose **task**. With the cursor still in the **Subject** box, type *created*. 
+   ![Screenshot that shows the email option and Add dynamic contention option highlighted.](./media/tutorial-send-email/hide-dynamic-content.png)
 
-1. Click in the **Body**, and in the same way, choose **due**. Move the cursor to the left of **due** and type *This work item is due on*.
+1. From the **Add new parameter** list, select **Subject** and **Body**.
 
-    > [!TIP]
-    > If you want to edit HTML content directly in the email body, select **Code view** at the top of the Logic Apps Designer window. Just make sure you preserve the dynamic content code (for example, `@{triggerBody()?['due']}`)
-    >
-    > ![Screenshot that shows the code view for viewing H T M L content directly in the email body.](./media/tutorial-send-email/edit-rich-html-email.png) 
+1. Select inside the **Subject** box, and in the same way, select **task**. With the cursor still in the **Subject** box, type **created**.
 
-1. Next, add an asynchronous HTTP response to the HTTP trigger. Between the HTTP trigger and the Gmail action, click the **+** sign and select **Add a parallel branch**.
+1. Select inside in the **Body** box, and in the same way, select **due**. Move the cursor to the left of **due**, and type **This work item is due on**.
 
-    ![Screenshot that shows the + sign and Add a parallel branch option highlighted.](./media/tutorial-send-email/add-http-response.png)
+   > [!TIP]
+   > If you want to edit HTML content directly in the email body, on the designer toolbar, select **Code view**. Just make sure that you preserve the dynamic content code (for example, `@{triggerBody()?['due']}`)
+   >
+   > ![Screenshot that shows the code view for viewing H T M L content directly in the email body.](./media/tutorial-send-email/edit-rich-html-email.png) 
+
+1. Next, add an asynchronous HTTP response to the HTTP trigger. Between the HTTP trigger and the Gmail action, select the **+** sign, and select **Add a parallel branch**.
+
+   ![Screenshot that shows the + sign and Add a parallel branch option highlighted.](./media/tutorial-send-email/add-http-response.png)
 
 1. In the search box, search for **response**, then select the **Response** action.
 
-    ![Screenshot that shows the the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
+   ![Screenshot that shows the the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
 
-    By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
+   By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
-1. At the top of the Logic Apps Designer, select **Save** again. 
+1. On the designer toolbar, select **Save** again.
 
 ## Add HTTP request code to app
 
@@ -189,7 +194,7 @@ var jsonData = JsonSerializer.Serialize(new
 });
 
 HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
+    // Requires DI configuration to access app settings. See https://learn.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
     _configuration["LOGIC_APP_URL"],
     new StringContent(jsonData, Encoding.UTF8, "application/json"));
     
@@ -311,9 +316,9 @@ If you're testing this code on the sample app for [Build a Ruby and Postgres app
 
 ---
 
-## More resources
+## Next steps
 
-[Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)  
-[HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)  
-[Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+- [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)
+- [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)
+- [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
 - [Environment variables and app settings reference](reference-app-settings.md)

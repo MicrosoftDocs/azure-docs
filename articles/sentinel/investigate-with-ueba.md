@@ -1,16 +1,14 @@
 ---
 title: Investigate incidents with UEBA data | Microsoft Docs
 description: Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
-author: batamig
+author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: bagol
+ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Investigate incidents with UEBA data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
@@ -66,7 +64,7 @@ A common example of a false positive is when impossible travel activity is detec
 
 ### Analyze a false positive
 
-For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly-known locations.
+For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly known locations.
 
 For example:
 
@@ -100,7 +98,7 @@ For example:
     | where Department != "IT"
     ```
 
-- To correlate Azure AD sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
+- To correlate Microsoft Entra sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
 
     ```kusto
     SigninLogs
@@ -111,7 +109,7 @@ For example:
     | where GroupMembership !contains "Developers"
     ```
 
-The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
+The **IdentityInfo** table synchronizes with your Microsoft Entra workspace to create a snapshot of your user profile data, such as user metadata, group information, and Microsoft Entra roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
@@ -127,9 +125,9 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 
 1. Select the administrative user entity in the map, and then select **Insights** on the right to find more details, such as the graph of sign-ins over time.
 
-1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](identify-threats-with-entity-behavior-analytics.md#entity-pages) to drill down further. 
+1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](entity-pages.md) to drill down further. 
 
-    For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign in history to understand whether the failures were anomalous.
+    For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign-in history to understand whether the failures were anomalous.
 
 > [!TIP]
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.
@@ -160,6 +158,6 @@ For example:
 Learn more about UEBA, investigations, and hunting:
 
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
-- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Microsoft Sentinel UEBA reference](ueba-reference.md)
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

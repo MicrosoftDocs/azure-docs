@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc-enabled VMware vSphere
     href: overview.md
+  - name: Switch to the new preview version
+    href: switch-to-new-preview-version.md
 - name: Quickstarts
   items:
   - name: Connect vCenter to Azure Arc
@@ -12,16 +14,35 @@
     href: quick-start-create-a-vm.md 
 - name: How-to guides
   items:
-  - name: Enable VMware vCenter resources in Azure
-    href: browse-and-enable-vcenter-resources-in-azure.md
-  - name: Manage access to VMware resources through Azure RBAC
-    href: manage-access-to-arc-vmware-resources.md
-  - name: Perform operations on VMware VMs in Azure
-    href: manage-vmware-vms-in-azure.md
-  - name: Administer Arc-enabled VMware vSphere
-    href: day2-operations-resource-bridge.md
-  - name: Remove vCenter from Azure Arc
-    href: remove-vcenter-from-arc-vmware.md
+  - name: Deploy
+    items: 
+    - name: Plan for deployment
+      href: support-matrix-for-arc-enabled-vmware-vsphere.md
+    - name: Enable VMware vCenter resources in Azure
+      href: browse-and-enable-vcenter-resources-in-azure.md
+  - name: Use Azure Management services for VMware VMs
+    items: 
+    - name: Install Arc agent at scale for your VMware VMs
+      href: enable-guest-management-at-scale.md
+  - name: Use VM lifecycle and self-service capabilities
+    items: 
+      - name: Set up self service access to vCenter using Azure Arc
+        href: setup-and-manage-self-service-access.md
+      - name: Perform VM operations on VMware VMs through Azure
+        href: perform-vm-ops-through-azure.md
+  - name: Administer
+    items: 
+    - name: Administer Arc-enabled VMware vSphere
+      href: administer-arc-vmware.md
+    - name: Remove vCenter from Azure Arc
+      href: remove-vcenter-from-arc-vmware.md
+    - name: Perform recovery operations
+      displayName: disaster
+      href: recover-from-resource-bridge-deletion.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot Arc agent install failures for Linux VMs
+    href: troubleshoot-guest-management-issues.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -29,4 +50,8 @@
     - name: Azure Arc-enabled VMware vSphere
       href: /cli/azure/connectedvmware
     - name: Azure Arc resource bridge
-      href:  /cli/azure/arcappliance
+      href: /cli/azure/arcappliance
+- name: Resources
+  items:
+   - name: Azure Arc Jumpstart
+     href: https://azurearcjumpstart.io

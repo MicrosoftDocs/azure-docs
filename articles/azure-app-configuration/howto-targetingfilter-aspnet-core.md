@@ -4,8 +4,8 @@ titleSuffix: Azure App Configuration
 description: Learn how to enable staged rollout of features for targeted audiences
 ms.service: azure-app-configuration
 ms.devlang: csharp
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.topic: conceptual
 ms.date: 11/20/2020
 ---
@@ -136,13 +136,19 @@ The entire *ConfigureServices* method will look like this:
 
 1. In the **Edit** screen, select the **Enable feature flag** checkbox if it isn't already selected. Then select the **Use feature filter** checkbox.
 
-1. Select the **Targeting** radio button.
+1. Select the **Create** button.
+
+1. Select the **Targeting filter** in the filter type dropdown.
+
+1. Select the **Override by Groups** and **Override by Users** checkbox.
 
 1. Select the following options:
 
     - **Default percentage**: 0
-    - **Groups**: Enter a **Name** of _contoso.com_ and a **Percentage** of _50_
-    - **Users**: `test@contoso.com`
+    - **Include Groups**: Enter a **Name** of _contoso.com_ and a **Percentage** of _50_
+    - **Exclude Groups**: `contoso-xyz.com`
+    - **Include Users**: `test@contoso.com`
+    - **Exclude Users**: `testuser@contoso.com`
 
     The feature filter screen will look like this:
 
@@ -151,9 +157,13 @@ The entire *ConfigureServices* method will look like this:
 
     These settings result in the following behavior:
 
-    - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the _Users_ section.
-    - The feature flag is enabled for 50% of other users in the _contoso.com_ group, because _contoso.com_ is listed in the _Groups_ section with a _Percentage_ of _50_.
+    - The feature flag is always disabled for user `testuser@contoso.com`, because `testuser@contoso.com` is listed in the _Exclude Users_ section.
+    - The feature flag is always disabled for users in the `contoso-xyz.com`, because `contoso-xyz.com` is listed in the _Exclude Groups_ section.
+    - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the _Include Users_ section.
+    - The feature flag is enabled for 50% of users in the _contoso.com_ group, because _contoso.com_ is listed in the _Include Groups_ section with a _Percentage_ of _50_.
     - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
+
+1. Select **Add** to save the targeting filter.
 
 1. Select **Apply** to save these settings and return to the **Feature manager** screen.
 
@@ -165,12 +175,16 @@ To see the effects of this feature flag, build and run the application. Initiall
 
 Now sign in as `test@contoso.com`, using the password you set when registering. The *Beta* item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
+Now sign in as `testuser@contoso.com`, using the password you set when registering. The *Beta* item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
+
 The following video shows this behavior in action.
 
 > [!div class="mx-imgBorder"]
 > ![TargetingFilter in action](./media/feature-flags-targetingfilter.gif)
 
-You can create additional users with `@contoso.com` email addresses to see the behavior of the group settings. 50% of these users will see the *Beta* item. The other 50% won't see the *Beta* item.
+You can create additional users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
+
+Users with `contoso-xyz.com` email addresses will not see the *Beta* item. While 50% of users with `@contoso.com` email addresses will see the *Beta* item, the other 50% won't see the *Beta* item.
 
 ## Next steps
 

@@ -1,8 +1,13 @@
 ---
 title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
-ms.topic: article
-ms.date: 07/02/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ---
 # Enable a TLS endpoint in a sidecar container
 
@@ -16,7 +21,7 @@ In this example, the container group only exposes port 443 for Nginx with its pu
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

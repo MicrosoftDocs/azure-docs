@@ -1,19 +1,29 @@
 ---
 title: Reference inputs and outputs in skillsets
 titleSuffix: Azure Cognitive Search
-description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
-
+description: Explains the annotation syntax and how to reference inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: 
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 09/16/2022
 ---
-# Reference annotations in an Azure Cognitive Search skillset
+# Reference an annotation in an Azure Cognitive Search skillset
 
-In this article, you learn how to reference annotations in skill definitions, using examples to illustrate various scenarios. As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
- 
-Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the [document cracking](search-indexer-overview.md#document-cracking) phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
+In this article, you'll learn how to reference *annotations* (or an enrichment node) in skill definitions, using examples to illustrate various scenarios. 
+
+Skills read inputs and write outputs to nodes in an [enriched document](cognitive-search-working-with-skillsets.md#enrichment-tree) tree, building the tree as the enrichments progress. Any node can be referenced in an input for further downstream enrichment, or mapped to an output field in an index. This article introduces the syntax and provides examples for specifying a path to a node. For the full syntax, see [Skill context and input annotation language language](cognitive-search-skill-annotation-language.md).
+
+Paths to an annotation are specified in the "context" and "source" properties of a skillset, and in [output field mappings](cognitive-search-output-field-mapping.md) in an indexer. Here's an example of what paths might look like in a skillset:
+
+:::image type="content" source="media/cognitive-search-annotations-syntax/content-source-annotation-path.png" alt-text="Screenshot of a skillset definition with context and source elements highlighted.":::
+
+The example in the screenshot illustrates the path for an item in an Azure Cosmos DB collection.
+
++ "context" path is `/document/HotelId` because the collection is partitioned into documents by the `/HotelId` field.
+
++ "source" path is `/document/Description` because the skill is a translation skill, and the field that you'll want the skill to translate is the `Description` field in each document.
 
 ## Background concepts
 
@@ -21,10 +31,29 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 
 | Term | Description |
 |------|-------------|
-| Enriched Document | An enriched document is an internal structure created and used by the pipeline to hold all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child.<p/>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
-| Enrichment Context | The context in which the enrichment takes place, in terms of which element is enriched. By default, the enrichment context is at the `"/document"` level, scoped to individual documents. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2).|
+| "enriched document" | An enriched document is an internal structure that collects skill output as it's created and it holds all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child. </p>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
+| "annotation" | Within an enriched document, a node that is created and populated by a skill, such as "text" and "layoutText" in the OCR skill, is called an annotation. An enriched document is populated with both annotations and unchanged field values or metadata copied from the source. |
+| "context" | The scope of enrichment, which is either the entire document, a portion of a document, or if you're working with images, the extracted images from a document. By default, the enrichment context is at the `"/document"` level, scoped to individual documents contained in the data source. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2). |
+
+## Paths for different scenarios
+
+Paths are specified in the "context" and "source" properties of a skillset, and in the [output field mappings](cognitive-search-output-field-mapping.md) in an indexer.
+
+All paths start with `/document`. An enriched document is created in the "document cracking" stage of indexer execution, when the indexer opens a document or reads in a row from the data source. Initially, the only node in an enriched document is the [root node (`/document`)](cognitive-search-skill-annotation-language.md#document-root), and it's the node from which all other enrichments occur. 
+
+The following list includes several common examples:
+
++ `/document` is the root node and indicates an entire blob in Azure Storage, or a row in a SQL table.
++ `/document/{key}` is the syntax for a document or item in an Azure Cosmos DB collection, where `{key}` is the actual key, such as `/document/HotelId` in the previous example.
++ `/document/content` specifies the "content" property of a JSON blob. 
++ `/document/{field}` is the syntax for an operation performed on a specific field, such as translating the `/document/Description` field, seen in the previous example.
++ `/document/pages/*` or `/document/sentences/*` become the context if you're breaking a large document into smaller chunks for processing. If "context" is `/document/pages/*`, the skill executes once over each page in the document. Because there might be more than one page or sentence, you'll append `/*` to catch them all.
++ `/document/normalized_images/*` is created during document cracking if the document contains images. All paths to images start with normalized_images. Since there are often multiple images embedded in a document, append `/*`.
+
+Examples in the remainder of this article are based on the "content" field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the [document cracking](search-indexer-overview.md#document-cracking) phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the "content" field is part of the "document".
 
 <a name="example-1"></a>
+
 ## Example 1: Simple annotation reference
 
 In Azure Blob Storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
@@ -57,7 +86,7 @@ Because the default context is `"/document"`, the list of people can now be refe
 
 This example builds on the previous one, showing you how to invoke an enrichment step multiple times over the same document. Assume the previous example generated an array of strings with 10 people names from a single document. A reasonable next step might be a second enrichment that extracts the last name from a full name. Because there are 10 names, you want this step to be called 10 times in this document, once for each person. 
 
-To invoke the right number of iterations, set the context as `"/document/people/*"`, where the asterisk (`"*"`) represents all the nodes in the enriched document as descendants of `"/document/people"`. Although this skill is only defined once in the skills array, it is called for each member within the document until all members are processed.
+To invoke the right number of iterations, set the context as `"/document/people/*"`, where the asterisk (`"*"`) represents all the nodes in the enriched document as descendants of `"/document/people"`. Although this skill is only defined once in the skills array, it's called for each member within the document until all members are processed.
 
 ```json
   {
@@ -89,7 +118,7 @@ When annotations are arrays or collections of strings, you might want to target 
 
 Sometimes you need to group all annotations of a particular type to pass them to a particular skill. Consider a hypothetical custom skill that identifies the most common last name from all the last names extracted in Example 2. To provide just the last names to the custom skill, specify the context as `"/document"` and the input as `"/document/people/*/lastname"`.
 
-Notice that the cardinality of `"/document/people/*/lastname"` is larger than that of document. There may be 10 lastname nodes while there is only one document node for this document. In that case, the system will automatically create an array of  `"/document/people/*/lastname"` containing all of the elements in the document.
+Notice that the cardinality of `"/document/people/*/lastname"` is larger than that of document. There may be 10 lastname nodes while there's only one document node for this document. In that case, the system will automatically create an array of  `"/document/people/*/lastname"` containing all of the elements in the document.
 
 ```json
   {
@@ -112,9 +141,16 @@ Notice that the cardinality of `"/document/people/*/lastname"` is larger than th
   }
 ```
 
+## Tips for annotation path troubleshooting
 
+If you're having trouble with specifying skill inputs, these tips might help you move forward:
+
++ [Run the Import data wizard](search-import-data-portal.md) over your data to review the skillset definitions and field mappings that the wizard generates.
+
++ [Start a debug session](cognitive-search-how-to-debug-skillset.md) on a skillset to view the structure of an enriched document. You can edit the paths and other parts of the skill definition, and then run the skill to validate your changes.
 
 ## See also
+
 + [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

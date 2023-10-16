@@ -3,14 +3,14 @@ title: Debug WASB file operations in Azure HDInsight
 description: Describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/18/2020
+ms.date: 09/19/2023
 ---
 
 # Debug WASB file operations in Azure HDInsight
 
 There are times when you may want to understand what operations the WASB driver started with Azure Storage. For the client side, the WASB driver produces logs for each file system operation at **DEBUG** level. WASB driver uses log4j to control logging level and the default is **INFO** level. For Azure Storage server-side analytics logs, see [Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md).
 
-A produced log will look similar to:
+A produced log looks similar to:
 
 ```log
 18/05/13 04:15:55 DEBUG NativeAzureFileSystem: Moving wasb://xxx@yyy.blob.core.windows.net/user/livy/ulysses.txt/_temporary/0/_temporary/attempt_20180513041552_0000_m_000000_0/part-00000 to wasb://xxx@yyy.blob.core.windows.net/user/livy/ulysses.txt/part-00000
@@ -34,7 +34,7 @@ A produced log will look similar to:
 
 ## Additional logging
 
-The above logs should provide high-level understanding of the file system operations. If the above logs are still not providing useful information, or if you want to investigate blob storage api calls, add `fs.azure.storage.client.logging=true` to the `core-site`. This setting will enable the Java sdk logs for wasb storage driver and will print each call to blob storage server. Remove the setting after investigations because it could fill up the disk quickly and could slow down the process.
+The above logs should provide high-level understanding of the file system operations. If the above logs are still not providing useful information, or if you want to investigate blob storage api calls, add `fs.azure.storage.client.logging=true` to the `core-site`. This setting enables the Java SDK logs for wasb storage driver and print each call to blob storage server. Remove the setting after investigations because it could fill up the disk quickly and could slow down the process.
 
 If the backend is Azure Data Lake based, then use the following log4j setting for the component(for example, spark/tez/hdfs):
 

@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Key Vault
 description: Lists Azure Policy built-in policy definitions for Key Vault. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/08/2022
+ms.date: 10/10/2023
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin

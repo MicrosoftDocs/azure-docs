@@ -36,7 +36,7 @@ The 2202 release has the following features and enhancements:
 - **Multi-Access Edge Computing (MEC) and Virtual Network Functions (VNF) improvements**:
     - In this release, VM create and delete for VNF create and delete were parallelized. This has significantly reduced the creation time for VNFs that contain multiple VMs. 
     - The VHD ingestion job resource clean up was moved out of VNF create and delete. This reduced the VNF creation and deletion times.
-- **Updates for Azure Arc and Edge container registry** - Azure Arc and Edge container registry versions were updated. For more information, see [About updates](azure-stack-edge-gpu-install-update.md#about-latest-update).
+- **Updates for Azure Arc and Edge container registry** - Azure Arc and Edge container registry versions were updated. For more information, see [About updates](azure-stack-edge-gpu-install-update.md#about-latest-updates).
 - **Security fixes** - Starting this release, a pod security policy is set up on the Kubernetes cluster on your Azure Stack Edge device. If you are using root privileges in your containerized solution, you may experience some change in the behavior. No action is required on your part.
 
 

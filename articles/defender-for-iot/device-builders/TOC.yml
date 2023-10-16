@@ -21,32 +21,31 @@
   - name: Add a resource group to your IoT solution
     displayName: resources, monitored, resource
     href: tutorial-configure-your-solution.md
-  - name: Create a DefenderforIoTMicroAgent module twin (Preview)
+  - name: Create a DefenderforIoTMicroAgent module twin
     href: tutorial-create-micro-agent-module-twin.md
-  - name: Install the Microsoft Defender for IoT micro agent (Preview)
+  - name: Install the Microsoft Defender for IoT micro agent 
     displayName: package, authentication, methods, certificate, authenticate, version
     href: tutorial-standalone-agent-binary-installation.md
-  - name: Configure Microsoft Defender for IoT agent-based solution
-    displayName: data, collection, geolocation, log analytics, raw events
-    href: tutorial-configure-agent-based-solution.md
   - name: Investigate security recommendations
     href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts
     href: tutorial-investigate-security-alerts.md
+  - name: Analyze an IoT/OT firmware image
+    href: tutorial-analyze-firmware.md    
 - name: Concepts
   items:
-  - name: Agent portfolio overview and OS support (Preview)
+  - name: Agent portfolio overview and OS support 
     displayName: standalone agent, micro agent, RTOS
     href: concept-agent-portfolio-overview-os-support.md
-  - name: Standalone micro agent overview (Preview)
+  - name: Standalone micro agent overview 
     displayName: endpoint, posture, distribution, flexible, model
     href: concept-standalone-micro-agent-overview.md
   - name: Data processing and residency
     href: concept-data-processing.md
-  - name: Micro agent configurations (Preview)
+  - name: Micro agent configurations 
     displayNAme: collectors, configuration, configurations, event-based, trigger, general
     href: concept-micro-agent-configuration.md
-  - name: Micro agent event collection (Preview)
+  - name: Micro agent event collection 
     displayName: process events, network connection
     href: concept-event-aggregation.md
   - name: Micro agent linux dependencies
@@ -54,7 +53,7 @@
     href: concept-micro-agent-linux-dependencies.md
   - name: Security alerts
     items:
-    - name: Micro agent security alerts (Preview)
+    - name: Micro agent security alerts 
       href: concept-agent-based-security-alerts.md
     - name: Built-in alerts for IoT Hub
       displayName: binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker, 
@@ -63,9 +62,12 @@
       href: concept-customizable-security-alerts.md
   - name: Security recommendations for IoT Hub
     href: concept-recommendations.md
+  - name: Firmware analysis (preview)
+    displayName: IoT, OT, firmware, analysis
+    href: overview-firmware-analysis.md
 - name: How-to guides
   items:
-  - name: Install Defender for IoT micro agent for Edge (Preview)
+  - name: Install Defender for IoT micro agent for Edge
     displayName: Edge, micro agent,
     href: how-to-install-micro-agent-for-edge.md
   - name: Upgrade a Defender for IoT micro agent
@@ -73,23 +75,27 @@
   - name: Configure Microsoft Defender for IoT agent-based solution
     displayName: data, collection, geolocation, log analytics, raw events
     href: how-to-configure-agent-based-solution.md
+  - name: How to configure the DMI Decoder
+    href: how-to-configure-dmi-decoder.md
   - name: Investigate CIS benchmark recommendation
     href: how-to-investigate-cis-benchmark.md
   - name: Configure a micro agent twin
     href: how-to-configure-micro-agent-twin.md
   - name: Configure PAM to audit sign-in events
     href: configure-pam-to-audit-sign-in-events.md
+  - name: Provision micro agent using DPS 
+    href: how-to-provision-micro-agent.md
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md
-  - name: Defender-IoT-micro-agent for Azure RTOS
+  - name: Defender-IoT-micro-agent for Azure RTOS (Preview)
     href: iot-security-azure-rtos.md
     items:
-    - name: Work with Defender-IoT-micro-agent for Azure RTOS
+    - name: Work with Defender-IoT-micro-agent for Azure RTOS (Preview)
       href: how-to-azure-rtos-security-module.md
-    - name: Understand the Defender-IoT-micro-agent for Azure RTOS
+    - name: Understand the Defender-IoT-micro-agent for Azure RTOS (Preview)
       href: concept-rtos-security-module.md
-    - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations 
+    - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations (Preview)
       href: concept-rtos-security-alerts-recommendations.md
   - name: Manage cloud device inventory
     href: how-to-manage-device-inventory-on-the-cloud.md
@@ -98,7 +104,7 @@
     href: how-to-region-move.md
   - name: Troubleshoot
     items:
-    - name: Defender for IoT micro agent troubleshooting (Preview)
+    - name: Defender for IoT micro agent troubleshooting
       displayName: service status, review logs
       href: troubleshoot-defender-micro-agent.md
 - name: Legacy agent
@@ -167,7 +173,7 @@
     href: how-to-investigate-device.md
 - name: Reference
   items:
-  - name: Defender-IoT-micro-agent for Azure RTOS API
+  - name: Defender-IoT-micro-agent for Azure RTOS API (Preview)
     displayNAme: prototype, disable
     href: azure-rtos-security-module-api.md
   - name: Frequently asked questions
@@ -182,8 +188,8 @@
     href: edge-security-module-deprecation.md
 - name: Resource
   items:
-  - name: Build your security skills with Microsoft Learn
-    href: /learn/browse/?term=securityS&terms=securityS
+  - name: Build your security skills with Microsoft training
+    href: /training/browse/?term=securityS&terms=securityS
   - name: Azure security documentation 
     href: ../../security/index.yml
   - name: Azure IoT Security, Privacy, & Compliance blog

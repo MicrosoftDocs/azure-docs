@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Create a virtual network using a Resource Manager template'
+title: 'Quickstart: Create a virtual network - Resource Manager template'
 titleSuffix: Azure Virtual Network
 description: Learn how to use a Resource Manager template to create an Azure virtual network.
 services: virtual-network
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/09/2021
-ms.author: mbender
-ms.custom: devx-track-azurepowershell, mode-arm
+ms.date: 12/12/2022
+ms.author: allensu
+ms.custom: mode-arm, FY23 content-maintenance
 ---
 
 # Quickstart: Create a virtual network - Resource Manager template
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json)
+The template used in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" :::
 
@@ -46,15 +46,15 @@ Deploy Resource Manager template to Azure:
    - **Resource group**: Select **Create new**, type **CreateVNetQS-rg** for the resource group name, and select **OK**.
    - **Virtual Network Name**: Type a name for the new virtual network.
 3. Select **Review + create**, and then select **Create**.
-1. When deployment completes, click on **Go to resource** button to review the resources deployed.
+1. When deployment completes, select on **Go to resource** button to review the resources deployed.
 
 ## Review deployed resources
 
 Explore the resources that were created with the virtual network by browsing the settings blades for **VNet1**. 
 
-1. On the **Overview** tab, you will see the defined address space of **10.0.0.0/16**.
+1. On the **Overview** tab, you'll see the defined address space of **10.0.0.0/16**.
 
-2. On the **Subnets** tab, you will see the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the template.
+2. On the **Subnets** tab, you'll see the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the template.
 
 To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 

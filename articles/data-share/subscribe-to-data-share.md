@@ -1,15 +1,16 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: data-share
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 11/12/2021
+ms.date: 11/30/2022
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
-In this tutorial, you will learn how to accept a data share invitation using Azure Data Share. You will learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
+In this tutorial, you'll learn how to accept a data share invitation using Azure Data Share. You'll learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
 
 > [!div class="checklist"]
 > * How to accept an Azure Data Share invitation
@@ -18,13 +19,13 @@ In this tutorial, you will learn how to accept a data share invitation using Azu
 > * Create a subscription to your data share for scheduled refresh
 
 ## Prerequisites
-Before you can accept a data share invitation, you must create a number of Azure resources, which are listed below. 
+Before you can accept a data share invitation, you must create some Azure resources, which are listed below. 
 
 Ensure that all prerequisites are complete before accepting a data share invitation. 
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
-* Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
+* Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you'll create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 
 ### Receive data into a storage account
 
@@ -39,19 +40,19 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role. 
-* **Azure Active Directory Admin** of the SQL server
+* **Microsoft Entra Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
-    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you're sharing SQL data from Azure portal. You can also add an IP range.
     1. Select **Save**. 
  
 #### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
 
-* An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool is not currently supported.
+* An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool isn't currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. 
     
@@ -61,12 +62,12 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
         exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
         exec sp_addrolemember db_ddladmin, "<share_acc_name>";
         ```                   
-       Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
+       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this pre-requisite later.  
 
 * Synapse workspace Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.
     1. Select **ON** for *Allow Azure services and resources to access this workspace*.
-    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you're sharing SQL data from Azure portal. You can also add an IP range.
     1. Select **Save**. 
 
 ### Receive data into an Azure Data Explorer cluster: 
@@ -88,7 +89,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This action takes you to the list of Data Share invitations.
 
-   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
+   If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it's valid for 12 months.
 
    ![List of Invitations](./media/invitations.png "List of invitations") 
 
@@ -100,12 +101,12 @@ Prepare your Azure CLI environment and then view your invitations.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-Run the [az datashare consumer invitation list](/cli/azure/datashare/invitation#az-datashare-invitation-list) command to see your current invitations:
+Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
 ```azurecli
-az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
+az datashare consumer consumer-invitation list-invitation
 ```
 
 Copy your invitation ID for use in the next section.
@@ -164,13 +165,13 @@ Copy your invitation ID for use in the next section.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az datashare consumer share-subscription create](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-create) command to create the Data Share.
+Use the [az datashare share-subscription create](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-create) command to create the Data Share.
 
 ```azurecli
-az datashare consumer share-subscription create --resource-group share-rg \
-  --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount \
+az datashare share-subscription create --resource-group share-rg \
+  --name "fabrikamsolutions" --account-name FabrikamDataShareAccount \
   --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 \
-  --source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
+  --source-share-location "East US 2"
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -193,99 +194,95 @@ Follow the steps below to configure where you want to receive data.
 
    ![Map to target](./media/dataset-map-target.png "Map to target") 
 
-1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. If you are receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
+1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. If you're receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    For in-place sharing, select a data store in the Location specified. The Location is the Azure data center where data provider's source data store is located at. Once dataset is mapped, you can follow the link in the Target Path to access the data.
 
    ![Target storage account](./media/dataset-map-target-sql.png "Target storage") 
 
-1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. Note that the first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
+1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. The first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
    ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
+   
+   The metadata of copied files isn't persisted after each run. This is by design.
 
 ### [Azure CLI](#tab/azure-cli)
 
 Use these commands to configure where you want to receive data.
 
-1. Run the az datashare consumer share-subscription list-source-dataset command to get the data set ID:
+1. Run the [az datashare consumer-source-data-set list](/cli/azure/datashare/consumer-source-data-set#az-datashare-consumer-source-data-set-list) command to get the data set ID:
 
    ```azurecli
-   az datashare consumer share-subscription list-source-dataset \
-     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
-     --share-subscription-name "Fabrikam Solutions" \
-     --subscription 11111111-1111-1111-1111-111111111111 --query "[0].dataSetId"
+   az datashare consumer-source-data-set list --resource-group "share-rg" \
+    --account-name "FabrikamDataShareAccount" \
+      --share-subscription-name "fabrikamsolutions" \
    ```
 
-1. Run the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a storage account for this Data Share:
+1. If you need a storage account, run the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a storage account for this Data Share:
 
    ```azurecli
-   az storage account create --resource-group "share-rg" --name "FabrikamDataShareAccount" \
-     --subscription 11111111-1111-1111-1111-111111111111
+   az storage account create --resource-group "share-rg" --name "FabrikamDataShareStorageAccount" \
    ```
 
 1. Use the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command to get the storage account ID:
 
    ```azurecli
-   az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
-     --subscription 11111111-1111-1111-1111-111111111111 --query "id"
+   az storage account show --resource-group "share-rg" --name "FabrikamDataShareStorageAccount" \
+    --query "id"
    ```
 
 1. Use the following command to get the account principal ID:
 
    ```azurecli
-   az datashare account show --resource-group "share-rg" --name "cli_test_consumer_account" \
-     --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
+   az datashare account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --query "identity.principalId"
    ```
 
-1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to create a role assignment for the account principal:
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to create a role assignment for the account principal using the account principal ID and your storage account ID:
 
    ```azurecli
-   az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" \
+   az role assignment create --role "Contributor" \
      --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 
-     --assignee-principal-type ServicePrincipal --scope 456789ab-cdef-0123-4567-89abcdef0123 \
-     --subscription 11111111-1111-1111-1111-111111111111
+     --assignee-principal-type ServicePrincipal --scope "your\storage\account\id\path"
    ```
 
-1. Create a variable for the mapping based on the dataset ID:
+1. Create a variable for the mapping based on the data set ID from step 1:
 
    ```azurecli
    $mapping='{\"data_set_id\":\"' + $dataset_id + '\",\"container_name\":\"newcontainer\",
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/data-set-mapping#az-datashare-data-set-mapping-create) command to create the dataset mapping:
+1. Use the [az datashare data-set-mapping create](/cli/azure/datashare/data-set-mapping#az-datashare-data-set-mapping-create) command to create the dataset mapping:
 
    ```azurecli
-   az datashare consumer dataset-mapping create --resource-group "share-rg" \
-     --name "consumer-data-set-mapping" --account-name "FabrikamDataShareAccount" \
-     --share-subscription-name "Fabrikam Solutions" --mapping $mapping \
-     --subscription 11111111-1111-1111-1111-111111111111
-   ```
+   az datashare data-set-mapping create --account-name "FabrikamDataShareAccount" \
+    --data-set-mapping-name "datasetmapping" --resource-group "share-rg" \
+    --share-subscription-name "fabrikamsolutions" --blob-folder-data-set-mapping $mapping
+    ```
 
-1. Run the az datashare consumer share-subscription synchronization start command to start dataset synchronization.
+1. Run the [az datashare share-subscription synchronize](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-synchronize) command to start dataset synchronization.
 
    ```azurecli
-   az datashare consumer share-subscription synchronization start \
+   az datashare share-subscription synchronize \
      --resource-group "share-rg" --account-name "FabrikamDataShareAccount"  \
-     --share-subscription-name "Fabrikam Solutions" --synchronization-mode "Incremental" \
-     --subscription 11111111-1111-1111-1111-111111111111
+     --name "Fabrikam Solutions" --synchronization-mode "Incremental" \
    ```
 
-   Run the az datashare consumer share-subscription synchronization list command to see a list of your synchronizations:
+   Run the [az datashare share-subscription list-synchronization](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-list-synchronization) command to see a list of your synchronizations:
 
    ```azurecli
-   az datashare consumer share-subscription synchronization list \
+   az datashare share-subscription list-synchronization \
      --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
      --share-subscription-name "Fabrikam Solutions" \
-     --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Use the [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-list-source-share-synchronization-setting) command to see synchronization settings set on your share.
+   Use the [az datashare share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-list-source-share-synchronization-setting) command to see synchronization settings set on your share.
 
    ```azurecli
-   az datashare consumer share-subscription list-source-share-synchronization-setting \
+   az datashare share-subscription list-source-share-synchronization-setting \
      --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
-     --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111
+     --share-subscription-name "Fabrikam Solutions"
    ```
 
 ### [PowerShell](#tab/powershell)
@@ -298,7 +295,7 @@ Use these commands to configure where you want to receive data.
    Get-AzDataShareSourceDataSet -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String>
    ```
 
-1. If you do not already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you may skip to the next steps.
+1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you may skip to the next steps.
 
     1. Run the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command to create an Azure Storage account:
 
@@ -316,7 +313,7 @@ Use these commands to configure where you want to receive data.
        New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
        ```
 
-    1. Run the [Set-AzStorageBlobContent](/powershell/module/az.storage/new-azstoragecontainer) command to upload a file. The follow example uploads _textfile.csv_ from the _D:\testFiles_ folder on local memory, to the container you created.
+    1. Run the [Set-AzStorageBlobContent](/powershell/module/az.storage/new-azstoragecontainer) command to upload a file. The following example uploads _textfile.csv_ from the _D:\testFiles_ folder on local memory, to the container you created.
                
        ```azurepowershell
        Set-AzStorageBlobContent -File "D:\testFiles\textfile.csv" -Container $containerName -Blob "textfile.csv" -Context $ctx
@@ -371,18 +368,11 @@ These steps only apply to snapshot-based sharing.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az datashare consumer trigger create](/cli/azure/datashare/trigger#az-datashare-trigger-create) command to trigger a snapshot:
+Run the [az datashare trigger create](/cli/azure/datashare/trigger#az-datashare-trigger-create) command to trigger a snapshot:
 
 ```azurecli
-az datashare consumer trigger create --resource-group "share-rg" \
-  --name "share_test_trigger" --account-name "FabrikamDataShareAccount" \
-  --share-subscription-name "Fabrikam Solutions" --recurrence-interval "Day" \
-  --synchronization-time "2020-04-23 18:00:00 +00:00" --kind ScheduleBased \
-  --subscription 11111111-1111-1111-1111-111111111111
+az datashare trigger create --account-name "FabrikamDataShareAccount" --resource-group "share-rg" --share-subscription-name "Fabrikam Solutions" --scheduled-trigger recurrence-interval="Day" synchronization-mode="Incremental" synchronization-time="2018-11-14T04:47:52.9614956Z" --name "Trigger1"
 ```
-
-> [!NOTE]
-> Use this command only for snapshot-based sharing.
 
 ### [PowerShell](#tab/powershell)
 
@@ -400,7 +390,7 @@ This step only applies to snapshot-based sharing. To view history of your snapsh
 
 ## Clean up resources
 
-When the resource is no longer needed, go to the **Data Share Overview** page and select **Delete** to remove it.
+When the resource is no longer needed, go to the Data Share Overview page, and select **Delete** to remove it.
 
 ## Next steps
 In this tutorial, you learned how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to Azure Data Share Terminology.

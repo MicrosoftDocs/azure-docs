@@ -9,10 +9,10 @@ metadata:
   services: key-vault
   ms.service: key-vault
   ms.subservice: certificates
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 04/07/2020 #Required; mm/dd/yyyy format.
+  ms.date: 01/04/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -56,6 +56,8 @@ landingContent:
             url: quick-create-node.md
           - text: Java
             url: quick-create-java.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
           - text: Import a certificate in Key Vault 
             url: tutorial-import-certificate.md
 
@@ -87,9 +89,9 @@ landingContent:
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
   # Card
-  - title: Microsoft Learn
+  - title: Microsoft Learn training
     linkLists:
       - linkListType: learn
         links:
           - text: Manage secrets in your server apps with Azure Key Vault
-            url: /learn/modules/manage-secrets-with-azure-key-vault/
+            url: /training/modules/manage-secrets-with-azure-key-vault/

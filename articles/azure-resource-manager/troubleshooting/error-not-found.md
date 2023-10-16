@@ -2,15 +2,15 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found. The error might occur when you deploy a Bicep file or Azure Resource Manager template, or when doing management tasks.
 ms.topic: troubleshooting
-ms.date: 11/30/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template, devx-track-bicep
+ms.date: 04/05/2023
 ---
 
-# Resolve resource not found errors
+# Resolve errors for resource not found
 
 This article describes the error you see when a resource can't be found during an operation. Typically, you see this error when deploying resources with a Bicep file or Azure Resource Manager template (ARM template). You also see this error when doing management tasks and Azure Resource Manager can't find the required resource. For example, if you try to add tags to a resource that doesn't exist, you receive this error.
 
-## Symptom
+## Symptoms
 
 There are two error codes that indicate the resource can't be found. The `NotFound` error returns a result similar to:
 
@@ -31,7 +31,7 @@ group {resource group name} was not found.
 
 Resource Manager needs to retrieve the properties for a resource, but can't find the resource in your subscription.
 
-## Solution 1 - check resource properties
+## Solution 1: Check resource properties
 
 When you receive this error while doing a management task, check the values you provided for the resource. The three values to check are:
 
@@ -43,7 +43,7 @@ If you're using PowerShell or Azure CLI, check that you're running commands in t
 
 If you can't verify the properties, sign in to the [Microsoft Azure portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
-## Solution 2 - set dependencies
+## Solution 2: Set dependencies
 
 If you get this error when deploying a template, you may need to add a dependency. Resource Manager optimizes deployments by creating resources in parallel, when possible.
 
@@ -56,13 +56,13 @@ Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependen
 For example, the web app's `serverFarmId` property uses `servicePlan.id` to create a dependency on the App Service plan.
 
 ```bicep
-resource webApp 'Microsoft.Web/sites@2021-02-01' = {
+resource webApp 'Microsoft.Web/sites@2022-03-01' = {
   properties: {
     serverFarmId: servicePlan.id
   }
 }
 
-resource servicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
+resource servicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   name: hostingPlanName
   ...
 ```
@@ -73,12 +73,12 @@ Avoid setting dependencies that aren't needed. Unnecessary dependencies prolong 
 
 # [JSON](#tab/json)
 
-If one resource must be deployed after another resource, you need to use the [dependsOn](../templates/resource-dependency.md#dependson) element in your template.
+If a resource must be deployed after another resource, use the [dependsOn](../templates/resource-dependency.md#dependson) element in your template.
 
 ```json
 {
   "type": "Microsoft.Web/sites",
-  "apiVersion": "2021-02-01",
+  "apiVersion": "2022-03-01",
   "dependsOn": [
     "[variables('hostingPlanName')]"
   ],
@@ -101,21 +101,21 @@ When you see dependency problems, you need to gain insight into the order of res
 1. Sign in to the [portal](https://portal.azure.com).
 1. From the resource group's **Overview**, select the link for the deployment history.
 
-    :::image type="content" source="media/error-not-found/select-deployment.png" alt-text="Screenshot that highlights the link to a resource group's deployment history.":::
+    :::image type="content" source="media/error-not-found/select-deployment.png" alt-text="Screenshot of Azure portal highlighting the link to a resource group's deployment history in the Overview section.":::
 
 1. For the **Deployment name** you want to review, select **Related events**.
 
-    :::image type="content" source="media/error-not-found/select-deployment-events.png" alt-text="Screenshot that highlights the link to a deployment's related events.":::
+    :::image type="content" source="media/error-not-found/select-deployment-events.png" alt-text="Screenshot of Azure portal showing a deployment name with the Related events link highlighted in the deployment history.":::
 
-1. Examine the sequence of events for each resource. Pay attention to the status of each operation and it's time stamp. For example, the following image shows three storage accounts that deployed in parallel. Notice that the three storage accounts are started at the same time.
+1. Examine the sequence of events for each resource. Pay attention to the status of each operation and it's time stamp. For example, the following image shows three storage accounts that deployed in parallel. Notice that the three storage account deployments started at the same time.
 
-    :::image type="content" source="media/error-not-found/deployment-events-parallel.png" alt-text="Screenshot of activity log for resources deployed in parallel.":::
+    :::image type="content" source="media/error-not-found/deployment-events-parallel.png" alt-text="Screenshot of Azure portal activity log displaying three storage accounts deployed in parallel, with their timestamps and statuses.":::
 
    The next image shows three storage accounts that aren't deployed in parallel. The second storage account depends on the first storage account, and the third storage account depends on the second storage account. The first storage account is labeled **Started**, **Accepted**, and **Succeeded** before the next is started.
 
-    :::image type="content" source="media/error-not-found/deployment-events-sequence.png" alt-text="Screenshot of activity log for resources deployed in sequential order.":::
+    :::image type="content" source="media/error-not-found/deployment-events-sequence.png" alt-text="Screenshot of Azure portal activity log displaying three storage accounts deployed in sequential order, with their timestamps and statuses.":::
 
-## Solution 3 - get external resource
+## Solution 3: Get external resource
 
 # [Bicep](#tab/bicep)
 
@@ -124,12 +124,12 @@ Bicep uses the symbolic name to create an [implicit dependency](../bicep/resourc
 In this example, a web app is deployed that uses an existing App Service plan from another resource group.
 
 ```bicep
-resource servicePlan 'Microsoft.Web/serverfarms@2021-02-01' existing = {
+resource servicePlan 'Microsoft.Web/serverfarms@2022-03-01' existing = {
   name: hostingPlanName
   scope: resourceGroup(rgname)
 }
 
-resource webApp 'Microsoft.Web/sites@2021-02-01' = {
+resource webApp 'Microsoft.Web/sites@2022-03-01' = {
   name: siteName
   properties: {
     serverFarmId: servicePlan.id
@@ -154,7 +154,7 @@ The following example gets the resource ID for a resource that exists in a diffe
 
 ---
 
-## Solution 4 - get managed identity from resource
+## Solution 4: Get managed identity from resource
 
 # [Bicep](#tab/bicep)
 
@@ -188,18 +188,18 @@ The pattern is:
 For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 
 ```json
-"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2021-07-01', 'Full').identity.principalId]",
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2022-03-01', 'Full').identity.principalId]",
 ```
 
 Or, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
 
 ```json
-"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2021-07-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2022-03-01', 'Full').Identity.tenantId]"
 ```
 
 ---
 
-## Solution 5 - check functions
+## Solution 5: Check functions
 
 # [Bicep](#tab/bicep)
 
@@ -208,7 +208,7 @@ You can use a resource's symbolic name to get values from a resource. You can re
 The following example references an existing storage account in a different resource group.
 
 ```bicep
-resource stgAcct 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
+resource stgAcct 'Microsoft.Storage/storageAccounts@2022-05-01' existing = {
   name: stgname
   scope: resourceGroup(rgname)
 }
@@ -216,18 +216,18 @@ resource stgAcct 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
 
 # [JSON](#tab/json)
 
-When deploying a template, look for expressions that use the [reference](../templates/template-functions-resource.md#reference) or [listKeys](../templates/template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
+When you deploy a template, look for expressions that use the [reference](../templates/template-functions-resource.md#reference) or [listKeys](../templates/template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
 
 ```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2021-06-01')]"
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2022-05-01')]"
 ```
 
 ---
 
-## Solution 6 - after deleting resource
+## Solution 6: After deleting resource
 
 When you delete a resource, there might be a short amount of time when the resource appears in the portal but isn't available. If you select the resource, you'll get an error that the resource is **Not found**.
 
-:::image type="content" source="media/error-not-found/resource-not-found-portal.png" alt-text="Screenshot of deleted resource in portal that shows resource not found.":::
+:::image type="content" source="media/error-not-found/resource-not-found-portal.png" alt-text="Screenshot of Azure portal showing a deleted resource with a 'Not found' error message in the resource's Overview section.":::
 
 Refresh the portal and the deleted resource should be removed from your list of available resources. If a deleted resource continues to be shown as available for more than a few minutes, [contact support](https://azure.microsoft.com/support/options/).

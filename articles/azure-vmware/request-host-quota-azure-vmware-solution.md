@@ -3,7 +3,8 @@ title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 09/27/2021
+ms.service: azure-vmware
+ms.date: 06/20/2023
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
 
@@ -16,7 +17,7 @@ In this how-to, you'll request host quota/capacity for [Azure VMware Solution](i
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
->It can take up to five business days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
+>It can take up to five business days to allocate the hosts, depending on the number requested. Therefore, request what you need for provisioning to avoid the delays associated with making additional quota increase requests.
 
 ## Eligibility criteria
 
@@ -24,9 +25,9 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
-- A [Microsoft Customer Agreement](../cost-management-billing/understand/mca-overview.md) with Microsoft.
+- A [Microsoft Customer Agreement (MCA)](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 
-## Request host quota for EA customers
+## Request host quota for EA and MCA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
    - **Issue type:** Technical
@@ -34,14 +35,15 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
    - **Service:** All services > Azure VMware Solution
    - **Resource:** General question 
    - **Summary:** Need capacity
-   - **Problem type:** Capacity Management Issues
-   - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
+   - **Problem type:** Deployment
+   - **Problem subtype:** AVS Quota request
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
  
    - Region Name
    - Number of hosts
-   - Any other details
+   - Host SKU type
+   - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
 
    >[!NOTE]
    >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
@@ -56,7 +58,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
 
 >[!IMPORTANT] 
->Azure VMware Solution service does not provide a multi-tenancy required. Hosting partners requiring it are not supported. 
+>Azure VMware Solution service does not provide multi-tenancy support. Hosting partners requiring it are not supported. 
 
 1. Configure the CSP Azure plan:
 
@@ -93,7 +95,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
       - Region Name
       - Number of hosts
-      - Any other details
+      - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
       - Is intended to host multiple customers?
    
       >[!NOTE]

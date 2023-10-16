@@ -1,29 +1,40 @@
 ---
-title: Use blob index tags to find data in Azure Blob Storage (.NET)
+title: Use blob index tags to manage and find data with .NET
+titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the .NET client library.  
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
-# Use blob index tags to manage and find data in Azure Blob Storage (.NET)
+# Use blob index tags to manage and find data with .NET
+
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
+This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob index tags. To learn more, see the authorization guidance for the following REST API operations:
+    - [Get Blob Tags](/rest/api/storageservices/get-blob-tags#authorization)
+    - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
+    - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
+
+## About blob index tags
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-## Set and retrieve index tags
+## Set tags
 
-You can set and get index tags if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
-
-#### Set tags
+[!INCLUDE [storage-dev-guide-auth-set-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-set-blob-tags.md)]
 
 You can set tags by using either of the following methods:
 
@@ -60,7 +71,9 @@ await blobClient.SetTagsAsync(noTags);
 | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 | [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API) |
 
-#### Get tags
+## Get tags
+
+[!INCLUDE [storage-dev-guide-auth-get-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-get-blob-tags.md)]
 
 You can get tags by using either of the following methods: 
 
@@ -84,7 +97,7 @@ public static async Task GetTags(BlobClient blobClient)
 
 ## Filter and find data with blob index tags
 
-You can use index tags to find and filter data if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+[!INCLUDE [storage-dev-guide-auth-filter-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-filter-blob-tags.md)]
 
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
@@ -121,8 +134,21 @@ public static async Task FindBlobsbyTags(BlobServiceClient serviceClient)
 
 ```
 
-## See also
+## Resources
+
+To learn more about how to use index tags to manage and find data using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for managing and using blob index tags use the following REST API operations:
+
+- [Get Blob Tags](/rest/api/storageservices/get-blob-tags) (REST API)
+- [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API)
+- [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
-- [Get Blob Tags](/rest/api/storageservices/get-blob-tags) (REST API)
-- [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) (REST API)
+- [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)

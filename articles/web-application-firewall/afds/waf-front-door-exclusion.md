@@ -1,80 +1,117 @@
 ---
-title: Web application firewall exclusion lists in Azure Front Door - Azure portal
-description: This article provides information on  exclusion lists configuration in Azure Front with the Azure portal.
+title: Web application firewall exclusion lists in Azure Front Door
+description: This article provides information on exclusion list configuration in Azure Front Door.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/10/2022
+ms.date: 03/07/2023
 ms.author: victorh
 ms.topic: conceptual
 ---
 
-# Web Application Firewall (WAF) with Front Door Service exclusion lists 
+# Web Application Firewall with Azure Front Door exclusion lists
 
-Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
+Sometimes Azure Web Application Firewall in Azure Front Door might block a legitimate request. As part of tuning your web application firewall (WAF), you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
-For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
+For example, Microsoft Entra ID provides tokens that are used for authentication. When these tokens are used in a request header, they can contain special characters that might trigger a false positive detection by one or more WAF rules. You can add the header to an exclusion list, which tells the WAF to ignore the header. The WAF still inspects the rest of the request for suspicious content.
 
-An exclusion list can be configured using  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal. The following example shows the Azure portal configuration. 
+## Exclusion scopes
 
-## Configure exclusion lists using the Azure portal
+You can create exclusions at the following scopes:
 
-**Manage exclusions** is accessible from WAF portal under **Managed rules**
+- **Rule set**: These exclusions apply to all rules within a rule set.
+- **Rule group**: These exclusions apply to all the rules of a particular category within a rule set. For example, you can configure an exclusion that applies to all the SQL injection rules.
+- **Rule**: These exclusions apply to a single rule.
 
-![Manage exclusion](../media/waf-front-door-exclusion/exclusion1.png)
-![Manage exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
+## Exclusion selectors
 
- An example exclusion list:
-![Manage exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+Exclusion selectors identify the parts of requests to which the exclusion applies. The WAF ignores any detections that it finds in the specified parts of the request. You can specify multiple exclusion selectors in a single exclusion.
 
-This example excludes the value in the *user* header field. A valid request may include the *user* field that contains a string that triggers a SQL injection rule. You can exclude the *user* parameter in this case so that the WAF rule doesn't evaluate anything in the field.
+Each exclusion selector specified a match variable, an operator, and a selector.
 
-The following attributes can be added to exclusion lists by name. The values of the fields you use  aren't evaluated against WAF rules, but their names are evaluated. The exclusion lists remove inspection of the field's value.
+### Match variables
+
+You can add the following request attributes to an exclusion:
 
 * Request header name
 * Request cookie name
 * Query string args name
-* Request body post args name
+* Request body POST args name
+* Request body JSON args name *(supported on DRS 2.0 or greater)*
 
-You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following operators are the supported match criteria:
+The values of the fields you use aren't evaluated against WAF rules, but their names are evaluated. The exclusion lists disable inspection of the field's value. However, the field names are still evaluated. For more information, see [Exclude other request attributes](#exclude-other-request-attributes).
 
-- **Equals**:  This operator is used for an exact match. For example, to select a header named **bearerToken**, use the equals operator with the selector set as **bearerToken**.
-- **Starts with**: This operator matches all fields that start with the specified selector value.
-- **Ends with**:  This operator matches all request fields that end with the specified selector value.
-- **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * is the selector value.
+### Operators
 
-Header and cookie names are case insensitive.
+You can specify an exact request header, body, cookie, or query string attribute to match. Or you can optionally specify partial matches. The following operators are supported for match criteria:
 
-If a header value, cookie value, post argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from consideration by the rule:
+- **Equals**: Match all request fields that exactly match the specified selector value. For example, to select a header named **bearerToken**, use the `Equals` operator with the selector set to **bearerToken**.
+- **Starts with**: Match all request fields that start with the specified selector value.
+- **Ends with**: Match all request fields that end with the specified selector value.
+- **Contains**: Match all request fields that contain the specified selector value.
+- **Equals any**: Match all request fields. When you use the `Equals any` operator, the selector value is automatically set to `*`. For example, you can use the `Equals any` operator to configure an exclusion that applies to all request headers.
 
+### Case sensitivity
 
-|matchVariableName from WAF logs  |Rule exclusion in Portal  |
-|---------|---------|
-|CookieValue:SOME_NAME        |Request cookie name Equals SOME_NAME|
-|HeaderValue:SOME_NAME        |Request header name Equals SOME_NAME|
-|PostParamValue:SOME_NAME     |Request body post args name Equals SOME_NAME|
-|QueryParamValue:SOME_NAME    |Query string args name Equals SOME_NAME|
+Header and cookie names are case insensitive. Query strings, POST arguments, and JSON arguments are case sensitive.
 
+### Body contents inspection
 
-We currently only support rule exclusions for the above matchVariableNames in their WAF logs. For any other matchVariableNames, you must either disable rules that give false positives, or create a custom rule that explicitly allows those requests. In particular, when the matchVariableName is CookieName, HeaderName, PostParamName, or QueryParamName, it means the name itself is triggering the rule. Rule exclusion has no support for these matchVariableNames at this time.
+Some of the managed rules evaluate the raw payload of the request body before it's parsed into POST arguments or JSON arguments. So in some situations, you might see log entries with a `matchVariableName` value of `InitialBodyContents` or `DecodedInitialBodyContents`.
 
+For example, suppose you create an exclusion with a match variable of `Request body POST args` and a selector to identify and ignore POST arguments named `FOO`. You no longer see any log entries with a `matchVariableName` value of `PostParamValue:FOO`. However, if a POST argument named `FOO` contains text that triggers a rule, the log might show the detection in the initial body contents. You can't currently create exclusions for initial body contents.
 
-If you exclude a Request body post args named *FOO*, no rule should show PostParamValue:FOO as the matchVariableName in your WAF logs. However, you may still see a rule with matchVariableName InitialBodyContents which matches on the value of the post param FOO since post param values are part of the InitialBodyContents.
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a> Define exclusion rules based on Azure Web Application Firewall logs
 
-You can apply exclusion lists to all rules within the managed rule set, to rules for a specific rule group, or to a single rule as shown in the previous example.
+You can use logs to view the details of a blocked request, including the parts of the request that triggered the rule. For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
 
-## Define exclusion based on Web Application Firewall Logs
- [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) shows matched details of a blocked request. If a header value, cookie value, post argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from being considered by the rule. The following table shows example values from WAF logs and the corresponding exclusion conditions.
+Sometimes a specific WAF rule produces false positive detections from the values included in a request header, cookie, POST argument, query string argument, or JSON field in a request body. If these false positive detections happen, you can configure the rule to exclude the relevant part of the request from its evaluation.
 
-|matchVariableName from WAF logs	|Rule exclusion in Portal|
-|--------|------|
-|CookieValue:SOME_NAME	|Request cookie name Equals SOME_NAME|
-|HeaderValue:SOME_NAME	|Request header name Equals SOME_NAME|
-|PostParamValue:SOME_NAME|	Request body post args name Equals SOME_NAME|
-|QueryParamValue:SOME_NAME|	Query string args name Equals SOME_NAME|
+The following table shows example values from WAF logs and the corresponding exclusion selectors that you could create.
 
+| matchVariableName from WAF logs | Rule exclusion in portal |
+|-|-|
+| CookieValue:SOME_NAME	| Request cookie name Equals SOME_NAME |
+| HeaderValue:SOME_NAME	| Request header name Equals SOME_NAME |
+| PostParamValue:SOME_NAME | Request body POST args name Equals SOME_NAME |
+| QueryParamValue:SOME_NAME | Query string args name Equals SOME_NAME |
+| SOME_NAME | Request body JSON args name Equals SOME_NAME |
+
+### Exclusions for JSON request bodies
+
+From DRS version 2.0, JSON request bodies are inspected by the WAF. For example, consider this JSON request body:
+
+```json
+{
+  "posts": [
+    {
+      "id": 1,
+      "comment": ""
+    },
+    {
+      "id": 2,
+      "comment": "\"1=1\""
+    }
+  ]
+}
+```
+
+The request includes a SQL comment character sequence, which the WAF detects as a potential SQL injection attack.
+
+If you determine that the request is legitimate, you could create an exclusion with a match variable of `Request body JSON args name`, an operator of `Equals`, and a selector of `posts.comment`.
+
+## Exclude other request attributes
+
+If your WAF log entry shows a `matchVariableName` value that isn't in the preceding table, you can't create an exclusion. For example, you can't currently create exclusions for cookie names, header names, POST parameter names, or query parameter names.
+
+Instead, consider taking one of the following actions:
+
+- Disable the rules that give false positives.
+- Create a custom rule that explicitly allows those requests. The requests bypass all WAF inspection.
+
+In particular, when the `matchVariableName` value is `CookieName`, `HeaderName`, `PostParamName`, or `QueryParamName`, it means the name of the field, rather than its value, has triggered the rule. Rule exclusion has no support for these `matchVariableName` values at this time.
 
 ## Next steps
 
-After you configure your WAF settings, learn how to view your WAF logs. For more information, see [Front Door diagnostics](../afds/waf-front-door-monitor.md).
+- [Configure exclusion lists on your Azure Front Door WAF](waf-front-door-exclusion-configure.md).
+- After you configure your WAF settings, learn how to view your WAF logs. For more information, see [Azure Front Door diagnostics](../afds/waf-front-door-monitor.md).

@@ -1,40 +1,45 @@
 ---
-title: Connect to a SQL pool in Azure Synapse 
-description: Get connected to SQL pool.
-author: joannapea 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 04/17/2018
+title: Connect to a SQL pool in Azure Synapse
+description: Learn how to connect to an SQL pool in Azure Synapse.
+author: joannapea
 ms.author: joanpo
-ms.reviewer: igorstan
-ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.reviewer: wiassaf
+ms.date: 06/13/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
+  - seo-lt-2019
+  - devx-track-csharp
+  - kr2b-contr-experiment
 ---
 
-# Connect to a SQL pool in Azure Synapse 
+# Connect to a SQL pool in Azure Synapse
 
 Get connected to a SQL pool in Azure Synapse.
 
 ## Find your server name
 
-The server name in the following example is sqlpoolservername.database.windows.net. To find the fully qualified server name:
+The server name in the following example is `sqlpoolservername.database.windows.net`. To find the fully qualified server name:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Click on **Azure Synapse Analytics**.
-3. Click on the SQL pool you want to connect to.
+2. Select **Azure Synapse Analytics**.
+3. Select the SQL pool you want to connect to.
 4. Locate the full server name.
 
    ![Full server name](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## Supported drivers and connection strings
 
-SQL pool supports [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). To find the latest version and documentation, click on one of the preceding drivers.
+SQL pool works with various drivers. Select any of the following drivers for the latest documentation and version information: [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+You can automatically generate a connection string for your driver. Select a driver from the previous list and then select **Show database connection strings**.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
+
+Here are examples of connection strings for popular drivers:
 
 ### ADO.NET connection string example
 
@@ -62,7 +67,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Connection settings
 
-SQL pool standardizes some settings during connection and object creation. These settings cannot be overridden and include:
+SQL pool standardizes certain settings during connection and object creation. These settings cannot be overridden. They include:
 
 | SQL pool setting | Value |
 |:--- |:--- |

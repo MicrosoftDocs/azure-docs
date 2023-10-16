@@ -3,34 +3,34 @@ title: InvalidNetworkConfigurationErrorCode error - Azure HDInsight
 description: Various reasons for failed cluster creations with InvalidNetworkConfigurationErrorCode in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/12/2021
+ms.date: 09/27/2023
 ---
 
 # Cluster creation fails with InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-If you see error code `InvalidNetworkConfigurationErrorCode` with the description "Virtual Network configuration isn't compatible with HDInsight Requirement", it usually indicates a problem with the [virtual network configuration](../hdinsight-plan-virtual-network-deployment.md) for your cluster. Based on the rest of the error description, follow the below sections to resolve your problem.
+If you see error code `InvalidNetworkConfigurationErrorCode` with the description "Virtual Network configuration isn't compatible with HDInsight Requirement," it usually indicates a problem with the [virtual network configuration](../hdinsight-plan-virtual-network-deployment.md) for your cluster. Based on the rest of the error description, follow the below sections to resolve your problem.
 
 ## "HostName Resolution failed"
 
 ### Issue
 
-Error description contains "HostName Resolution failed".
+Error description contains "HostName Resolution failed."
 
 ### Cause
 
-This error points to a problem with custom DNS configuration. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network (see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) for details). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16. This IP is only accessible from the Azure VMs. So it won't work if you're using an OnPrem DNS server, or your DNS server is an Azure VM, which isn't part of the cluster's virtual network.
+This error points to a problem with custom DNS configuration. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network (see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) for details). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16. This IP is only accessible from the Azure VMs. It is nonfunctional if you are using an OnPrem DNS server, or your DNS server is an Azure VM, which is not part of the cluster's virtual network.
 
 ### Resolution
 
-1. Ssh into the VM that is part of the cluster, and run the command `hostname -f`. This will return the host's fully qualified domain name (referred to as `<host_fqdn>` in the below instructions).
+1. Ssh into the VM that is part of the cluster, and run the command `hostname -f`. This command returns the host's fully qualified domain name (referred to as `<host_fqdn>` in the below instructions).
 
-1. Then, run the command `nslookup <host_fqdn>` (for example, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). If this command resolves the name to an IP address, it means your DNS server is working correctly. In this case, raise a support case with HDInsight, and we'll investigate your issue. In your support case, include the troubleshooting steps you executed. This will help us resolve the issue faster.
+1. Then, run the command `nslookup <host_fqdn>` (for example, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). If this command resolves the name to an IP address, it means your DNS server is working correctly. In this case, raise a support case with HDInsight, and we investigate your issue. In your support case, include the troubleshooting steps you executed. It helps to resolve the issue faster.
 
 1. If the above command doesn't return an IP address, then run `nslookup <host_fqdn> 168.63.129.16` (for example, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). If this command is able to resolve the IP, it means that either your DNS server isn't forwarding the query to Azure's DNS, or it isn't a VM that is part of the same virtual network as the cluster.
 
-1. If you don't have an Azure VM that can act as a custom DNS server in the cluster's virtual network, then you need to add this first. Create a VM in the virtual network, which will be configured as DNS forwarder.
+1. If you don't have an Azure VM that can act as a custom DNS server in the cluster's virtual network, then you need to add this first. Create a VM in the virtual network, which is configured as DNS forwarder.
 
 1. Once you have a VM deployed in your virtual network, configure the DNS forwarding rules on this VM. Forward all iDNS name resolution requests to 168.63.129.16, and the rest to your DNS server. [Here](../hdinsight-plan-virtual-network-deployment.md) is an example of this setup for a custom DNS server.
 
@@ -42,7 +42,7 @@ This error points to a problem with custom DNS configuration. DNS servers within
 
 ### Issue
 
-Error description contains "Failed to connect to Azure Storage Account" or "Failed to connect to Azure SQL".
+Error description contains "Failed to connect to Azure Storage Account" or "Failed to connect to Azure SQL."
 
 ### Cause
 
@@ -60,11 +60,11 @@ Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outboun
 
     If there are routes defined, make sure that there are routes for IP addresses for the region where the cluster was deployed, and the **NextHopType** for each route is **Internet**. There should be a route defined for each required IP Address documented in the aforementioned article.
 
-## "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed."
+## "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Ensure that outbound connectivity is allowed."
 
 ### Issue
 
-Error description contains "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed."
+Error description contains "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Ensure that outbound connectivity is allowed."
 
 ### Cause
 
@@ -94,7 +94,7 @@ Likely an issue with the custom DNS setup.
 
 Validate that 168.63.129.16 is in the custom DNS chain. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network. For more information, see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16.
 
-1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the following command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -122,17 +122,17 @@ Validate that 168.63.129.16 is in the custom DNS chain. DNS servers within a vir
 Add 168.63.129.16 as the first custom DNS for the virtual network using the steps described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md). These steps are applicable only if your custom DNS server runs on Linux.
 
 **Option 2**  
-Deploy a DNS server VM for the virtual network. This involves the following steps:
+Deploy a DNS server VM for the virtual network. It involves the following steps:
 
-* Create a VM in the virtual network, which will be configured as DNS forwarder (it can be a Linux or windows VM).
+* Create a VM in the virtual network, which is configured as DNS forwarder (it can be a Linux or windows VM).
 * Configure DNS forwarding rules on this VM (forward all iDNS name resolution requests to 168.63.129.16, and the rest to your DNS server).
 * Add the IP Address of this VM as first DNS entry for Virtual Network DNS configuration.
 
 #### 168.63.129.16 is in the list
 
-In this case, please create a support case with HDInsight, and we'll investigate your issue. Include the result of the below commands in your support case. This will help us investigate and resolve the issue quicker.
+In this case, create a support case with HDInsight, and we investigate your issue. Include the result of the below commands in your support case. It helps to investigate and resolve the issue quickly.
 
-From an ssh session on the head node, edit and then run the following:
+From an ssh session on the head node, edit and then run the following command:
 
 ```bash
 hostname -f

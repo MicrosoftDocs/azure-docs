@@ -2,11 +2,12 @@
 title: 'Tutorial: Deploy Spring Boot Application on AKS cluster with MySQL Flexible Server within a VNet'
 description: Learn how to quickly build and deploy a Spring Boot Application on AKS with Azure Database for MySQL - Flexible Server, with secure connectivity within a VNet.
 ms.service: mysql
+ms.subservice: flexible-server
 author: shreyaaithal
 ms.author: shaithal
 ms.topic: tutorial
 ms.date: 11/11/2021
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, build-2023, build-2023-dataai
 ---
 
 # Tutorial: Deploy a Spring Boot application on AKS cluster with MySQL Flexible Server in a VNet
@@ -306,7 +307,7 @@ az acr login && mvn compile jib:build
 
 We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*. 
 
-In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md#create-a-service-principal-and-assign-permissions).  
+In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md).  
 
 1. Create a subnet *subnet-aks* for the AKS cluster to use.
 
@@ -454,7 +455,7 @@ az group delete --name rg-mysqlaksdemo
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
@@ -463,5 +464,3 @@ az group delete --name rg-mysqlaksdemo
 
 > [!div class="nextstepaction"]
 > [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
-
-

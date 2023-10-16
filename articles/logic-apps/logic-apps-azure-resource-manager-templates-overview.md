@@ -5,10 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.custom: devx-track-arm-template
+ms.date: 08/20/2022
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you're ready to automate creating and deploying your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). This template defines the infrastructure, resources, parameters, and other information for provisioning and deploying your logic app. By defining parameters for values that vary at deployment, also known as *parameterizing*, you can repeatedly and consistently deploy logic apps based on different deployment needs.
 
@@ -78,7 +81,7 @@ Your logic app template uses this file name format:
 A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
 * Your logic app
-* Connections that your logic app uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
+* Connections that your logic app uses to access other services and systems through [managed connectors](../connectors/managed.md)
 * Other resources that your logic app needs for deployment
 
   For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
@@ -328,7 +331,7 @@ Here are the attributes that are specific to your logic app resource definition:
 | `state` | Yes | String | Your logic app's state at deployment where `Enabled` means your logic app is live and `Disabled` means that your logic app is inactive. For example, if you're not ready for your logic app to go live but want to deploy a draft version, you can use the `Disabled` option. |
 | `integrationAccount` | No | Object | If your logic app uses an integration account, which stores artifacts for business-to-business (B2B) scenarios, this object includes the `id` attribute, which specifies the ID for the integration account. |
 | `definition` | Yes | Object | Your logic app's underlying workflow definition, which is the same object that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. In this workflow definition, the `parameters` object declares parameters for the values to use at logic app runtime. For more information, see [Workflow definition and parameters](#workflow-definition-parameters). <p><p>To view the attributes in your logic app's workflow definition, switch from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | No | Object | The [workflow definition parameter values](#workflow-definition-parameters) to use at logic app runtime. The parameter definitions for these values appear inside your [workflow definition's parameters object](#workflow-definition-parameters). Also, if your logic app uses [managed connectors](../connectors/apis-list.md) for accessing other services and systems, this object includes a `$connections` object that sets the connection values to use at runtime. |
+| `parameters` | No | Object | The [workflow definition parameter values](#workflow-definition-parameters) to use at logic app runtime. The parameter definitions for these values appear inside your [workflow definition's parameters object](#workflow-definition-parameters). Also, if your logic app uses [managed connectors](../connectors/managed.md) for accessing other services and systems, this object includes a `$connections` object that sets the connection values to use at runtime. |
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 | `runtimeConfiguration` | No | Object | For specifying any `operationOptions` properties that control the way that your logic app behaves at run time. For example, you can run your logic app in [high throughput mode](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
 |||||
@@ -363,7 +366,7 @@ For more information about resource definitions for these Logic Apps objects, se
 
 ## Workflow definition and parameters
 
-Your logic app's workflow definition appears in the `definition` object, which appears in the `properties` object inside your logic app's resource definition. This `definition` object is the same object that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. Your workflow definition includes an inner `parameters` declaration object where you can define new or edit existing parameters for the values that are used by your workflow definition at runtime. You can then reference these parameters inside the trigger or actions in your workflow. By default, this `parameters` object is empty unless your logic app creates connections to other services and systems through [managed connectors](../connectors/apis-list.md).
+Your logic app's workflow definition appears in the `definition` object, which appears in the `properties` object inside your logic app's resource definition. This `definition` object is the same object that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. Your workflow definition includes an inner `parameters` declaration object where you can define new or edit existing parameters for the values that are used by your workflow definition at runtime. You can then reference these parameters inside the trigger or actions in your workflow. By default, this `parameters` object is empty unless your logic app creates connections to other services and systems through [managed connectors](../connectors/managed.md).
 
 To set the values for workflow definition parameters, use the `parameters` object that's *outside* your workflow definition but still *inside* your logic app's resource definition. In this outer `parameters` object, you can then reference your previously declared template parameters, which can accept values at deployment from a parameters file.
 
@@ -606,7 +609,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/managed.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {
@@ -950,7 +953,7 @@ Here is an example that provides the account name and access key for an Azure Bl
 
 After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
-Some connections support using an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template declares these parameters:
+Some connections support using a Microsoft Entra [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template declares these parameters:
 
 **Connection resource definition**
 
@@ -980,7 +983,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 |-----------|-------------|
 | `token:clientId` | The application or client ID associated with your service principal |
 | `token:clientSecret` | The key value associated with your service principal |
-| `token:TenantId` | The directory ID for your Azure AD tenant |
+| `token:TenantId` | The directory ID for your Microsoft Entra tenant |
 | `token:grantType` | The requested grant type, which must be `client_credentials`. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
 |||
 

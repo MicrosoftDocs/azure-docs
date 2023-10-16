@@ -1,14 +1,14 @@
 ---
-title: Accelerated lab account setup guide (deprecated)
-description: This guide helps administrators quickly set up a lab account for use within their school. (deprecated)
+title: Accelerated lab account setup guide
+description: This guide helps administrators quickly set up a lab account for use within their school. 
 ms.topic: how-to
 ms.date: 03/15/2022
 ms.custom: devdivchpfy22
 ---
 
-# Lab account setup guide (deprecated)
+# Lab account setup guide
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+[!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
 
@@ -30,7 +30,7 @@ To create a lab account, you need access to an Azure subscription that's already
 
 It's important to know how many [virtual machines (VMs) and which VM sizes](./administrator-guide-1.md#vm-sizing) your school lab requires.
 
-For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+For guidance on structuring your labs and images, see [Moving from a physical lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 
 For more information on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#lab).
 
@@ -59,23 +59,23 @@ To plan your lab account settings, consider the following questions.
 
 ### Who should be the Owners and Contributors of the lab account?
 
-Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. These roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add more Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription.
+Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. These roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add more Owners and Contributors from the Microsoft Entra tenant that's associated with your subscription.
 
 For more information about the lab account Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#manage-identity).
 
 [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
-Lab users see only a single list of the VMs that they have access to across Azure AD tenants in Azure Lab Services.
+Lab users see only a single list of the VMs that they have access to across Microsoft Entra tenants in Azure Lab Services.
 
 ### Who will be allowed to create labs?
 
-You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab account. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
+You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab account. You ordinarily assign this role from the Microsoft Entra tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
 
 For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#manage-identity).
 
 ### Who will be allowed to own and manage labs?
 
-You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs. In this case, users from your subscription's Azure AD tenant are assigned either the Owner or Contributor for existing labs.  
+You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs. In this case, users from your subscription's Microsoft Entra tenant are assigned either the Owner or Contributor for existing labs.  
 
 For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#manage-identity).
 

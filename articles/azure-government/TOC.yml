@@ -41,12 +41,6 @@
       href: documentation-government-plan-compliance.md
     - name: Identity
       href: documentation-government-plan-identity.md
-  - name: Manage
-    items:
-    - name: Azure Monitor logs
-      href: documentation-government-manage-oms.md
-    - name: Marketplace
-      href: documentation-government-manage-marketplace.md
   - name: Industry segments
     items:
     - name: Department of Defense
@@ -67,9 +61,9 @@
       href: documentation-government-developer-guide.md
     - name: Azure Storage
       href: documentation-government-get-started-connect-to-storage.md
-    - name: Cognitive Services
+    - name: Azure AI services
       href: documentation-government-cognitiveservices.md
-    - name: Integrate Azure AD authentication
+    - name: Integrate Microsoft Entra authentication
       href: documentation-government-aad-auth-qs.md
     - name: SQL Server Management Studio
       href: documentation-government-connect-ssms.md
@@ -87,6 +81,14 @@
       href: connect-with-azure-pipelines.md
     - name: Use DISA CAP
       href: documentation-government-ase-disa-cap.md
+  - name: Manage
+    items:
+    - name: Azure Monitor logs
+      href: documentation-government-manage-oms.md
+    - name: Marketplace
+      href: documentation-government-manage-marketplace.md
+    - name: Access EA billing account
+      href: documentation-government-how-to-access-enterprise-agreement-billing-account.md
 - name: Compliance
   items:
   - name: Trusted Internet Connections with Azure
@@ -126,4 +128,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Trial
-    href: https://azure.microsoft.com/en-us/global-infrastructure/government/request/
+    href: https://azure.microsoft.com/global-infrastructure/government/request/

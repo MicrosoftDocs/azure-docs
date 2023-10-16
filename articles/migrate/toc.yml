@@ -12,9 +12,13 @@
       href: resources-faq.md
     - name: Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Server Assessment tool/dependency analysis
+    - name: Discovery and dependency analysis
+      href: common-questions-discovery-dependency-analysis.md
+    - name: Assessment
       href: common-questions-discovery-assessment.md
-    - name: Server Migration tool
+    - name: Business case
+      href: common-questions-business-case.md
+    - name: Migration and modernization tool
       href: common-questions-server-migration.md
 - name: Quickstarts
   items:
@@ -34,6 +38,12 @@
       href: tutorial-discover-aws.md
     - name: Discover GCP instances
       href: tutorial-discover-gcp.md
+    - name: Discover Spring Boot apps
+      href: tutorial-discover-spring-boot.md
+  - name: Decide
+    items:
+    - name: Build a business case
+      href: how-to-build-a-business-case.md
   - name: Assess
     items:
     - name: Assess servers in VMware environment
@@ -42,19 +52,29 @@
         href: tutorial-assess-vmware-azure-vm.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps.md
       - name: Assess servers for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
-    - name: Assess servers in Hyper-V environment for migration to Azure VMs
-      href: tutorial-assess-hyper-v.md
-    - name: Assess physical servers for migration to Azure
-      href: tutorial-assess-physical.md
+    - name: Assess servers in Hyper-V environment 
+      items:
+      - name: Assess servers for migration to Azure VMs
+        href: tutorial-assess-hyper-v.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md
+    - name: Assess physical servers
+      items:
+      - name: Assess servers for migration to Azure VMs
+        href: tutorial-assess-physical.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md 
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
-    - name: Assess imported servers for migration to Azure
+    - name: Assess ASP.NET web apps for migration to App Service
+      href: tutorial-assess-webapps.md
+    - name: Assess Spring Boot web apps for migration
+      href: tutorial-assess-spring-boot.md
+    - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
   - name: Migrate
     items:
@@ -76,16 +96,20 @@
       href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate GCP instances
       href: tutorial-migrate-gcp-virtual-machines.md
-  - name: Containerize
+  - name: Modernize
     items:
     - name: Containerize ASP.NET apps and migrate to AKS
       href: tutorial-app-containerization-aspnet-kubernetes.md
     - name: Containerize Java web apps and migrate to AKS
       href: tutorial-app-containerization-java-kubernetes.md
-    - name: Containerize ASP.NET apps and migrate to App Service
+    - name: Containerize ASP.NET apps and migrate to App Service containers
       href: tutorial-app-containerization-aspnet-app-service.md
-    - name: Containerize Java web apps and migrate to App Service
+    - name: Containerize Java web apps and migrate to App Service containers
       href: tutorial-app-containerization-java-app-service.md
+    - name: Modernize ASP.NET web apps to App Service code
+      href: tutorial-modernize-asp-net-appservice-code.md
+    - name: Modernize ASP.NET web apps to AKS
+      href: tutorial-modernize-asp-net-aks.md
     - name: CI/CD for Day 2 operations
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
@@ -97,7 +121,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
+      href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/migrate-context
   - name: Discover
     items:
     - name: VMware discovery support
@@ -112,6 +136,10 @@
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
+  - name: Decide
+    items:
+    - name: Business case overview
+      href: concepts-business-case-calculation.md
   - name: Assess
     items:
     - name: Assessments overview (migrate to Azure VMs)
@@ -120,6 +148,8 @@
       href: concepts-azure-sql-assessment-calculation.md
     - name: Assessments overview (migrate to App Service)
       href: concepts-azure-webapps-assessment-calculation.md
+    - name: Assessments overview (migrate to Azure Spring Apps)
+      href: concepts-azure-spring-apps-assessment-calculation.md
     - name: Assessments overview (migrate to AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Assessment best practices
@@ -145,11 +175,13 @@
       href: hyper-v-migration-architecture.md
     - name: VMware agent-based migration architecture
       href: agent-based-migration-architecture.md
+    - name: Web apps migration support
+      href: concepts-migration-webapps.md
 - name: How-to guides
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Use Azure Migrate with private endpoints
+  - name: Use Azure Migrate with private endpoints 
     items:
       - name: Support requirements and considerations
         href: how-to-use-azure-migrate-with-private-endpoints.md
@@ -177,16 +209,24 @@
         href: deploy-appliance-script-government.md
     - name: Limit discovery scope for servers in VMware environment
       href: set-discovery-scope.md
+    - name: Create least privilege credentials for SQL Server discovery
+      href: least-privilege-credentials.md  
     - name: How to add server credentials
       href: add-server-credentials.md
     - name: Discover applications/roles/features
       href: how-to-discover-applications.md
-    - name: Discover SQL instances and ASP.NET web apps in an existing project
+    - name: Discover SQL instances and web apps in an existing project
       href: how-to-discover-sql-existing-project.md
     - name: Analyze machine dependencies (agent-based)
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
+  - name: Decide
+    items:
+    - name: Build a business case
+      href: how-to-build-a-business-case.md
+    - name: Review a business case
+      href: how-to-view-a-business-case.md
   - name: Assess
     items:
     - name: Add assessment tools
@@ -199,6 +239,8 @@
       href: how-to-create-azure-sql-assessment.md
     - name: Create an Azure App Service assessment
       href: how-to-create-azure-app-service-assessment.md
+    - name: Create an Azure Spring Apps assessment
+      href: how-to-create-azure-spring-apps-assessment.md
     - name: Create an AVS assessment
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
@@ -229,6 +271,8 @@
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Test migration
       href: how-to-test-replicating-virtual-machines.md
+    - name: Upgrade Windows OS
+      href: how-to-upgrade-windows.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method
@@ -261,6 +305,8 @@
       href: troubleshoot-appliance.md
     - name: Troubleshoot with appliance diagnostics
       href: troubleshoot-appliance-diagnostic.md
+    - name: Troubleshoot Spring Boot discovery and assessment
+      href: troubleshoot-spring-boot-discovery.md
     - name: Troubleshoot discovery
       href: troubleshoot-discovery.md
     - name: Troubleshoot dependency visualization
@@ -273,6 +319,12 @@
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
       href: troubleshoot-changed-block-tracking-replication.md
+    - name: Troubleshoot stuck replication and slow migration issues in agentless VMware
+      href: troubleshoot-replication-vmware.md
+    - name: Troubleshoot web app migration issues
+      href: troubleshoot-webapps-migration.md
+    - name: Troubleshoot Windows OS upgrade issues
+      href: troubleshoot-upgrade.md  
 - name: Reference
   items:
   - name: Azure CLI

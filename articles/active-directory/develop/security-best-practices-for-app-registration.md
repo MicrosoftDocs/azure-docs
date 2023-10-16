@@ -1,125 +1,106 @@
 ---
-title: Best practices for Azure AD application registration configuration - Microsoft identity platform
-description: Learn about a set of best practices and general guidance on Azure AD application registration configuration.
+title: Security best practices for application properties
+description: Learn about the best practices and general guidance for security related application properties in Microsoft Entra ID.
 services: active-directory
-author: Chrispine-Chiedo
+author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/8/2021
+ms.date: 01/06/2023
 ms.custom: template-concept
-ms.author: cchiedo
-ms.reviewer: saumadan, marsma
+ms.author: davidmu
+ms.reviewer: saumadan
 ---
 
-# Azure AD application registration security best practices
+# Security best practices for application properties in Microsoft Entra ID
 
-An Azure Active Directory (Azure AD) application registration is a critical part of your business application. Any misconfiguration or lapse in hygiene of your application can result in downtime or compromise.
+Security is an important concept when registering an application in Microsoft Entra ID and is a critical part of its business use in the organization. Any misconfiguration of an application can result in downtime or compromise. Depending on the permissions added to an application, there can be organization-wide effects.
 
-It's important to understand that your application registration has a wider impact than the business application because of its surface area. Depending on the permissions added to your application, a compromised app can have an organization-wide effect.
-Since an application registration is essential to getting your users logged in, any downtime to it can affect your business or some critical service that your business depends upon. So, it's important to allocate time and resources to ensure your application registration stays in a healthy state always. We recommend that you conduct a periodical security and health assessment of your applications much like a Security Threat Model assessment for your code. For a broader perspective on security for organizations, check the [security development lifecycle](https://www.microsoft.com/securityengineering/sdl) (SDL).
+Because secure applications are essential to the organization, any downtime to them because of security issues can affect the business or some critical service that the business depends upon. So, it's important to allocate time and resources to ensure applications always stay in a healthy and secure state. Conduct a periodic security and health assessment of applications, much like a Security Threat Model assessment for code. For a broader perspective on security for organizations, see the [security development lifecycle](https://www.microsoft.com/securityengineering/sdl) (SDL).
 
-This article describes security best practices for the following application registration properties.
+This article describes security best practices for the following application properties:
 
 - Redirect URI
-- Implicit grant flow for access token
-- Credentials
-- AppId URI
+- Access tokens (used for implicit flows)
+- Certificates and secrets
+- Application ID URI
 - Application ownership
-- Checklist
 
-## Redirect URI configuration
+## Redirect URI
 
-It's important to keep Redirect URIs of your application up to date. A lapse in the ownership of one of the redirect URIs can lead to an application compromise. Ensure that all DNS records are updated and monitored periodically for changes. Along with maintaining ownership of all URIs, don't use wildcard reply URLs or insecure URI schemes such as http, or URN.
+It's important to keep Redirect URIs of your application up to date. Under **Authentication** for the application in the Azure portal, a platform must be selected for the application and then the **Redirect URI** property can be defined.
 
-![redirect URI](media/active-directory-application-registration-best-practices/redirect-uri.png)
+:::image type="content" source="./media/application-registration-best-practices/redirect-uri.png" alt-text="Screenshot that shows where the redirect U R I property is located.":::
 
-### Redirect URI summary
+Consider the following guidance for redirect URIs:
 
-| Do                                    | Don't          |
-| ------------------------------------- | -------------- |
-| Maintain ownership of all URIs        | Use wildcards  |
-| Keep DNS up to date                   | Use URN scheme |
-| Keep the list small                   |   -----        |
-| Trim any unnecessary URIs             |   -----        |
-| Update URLs from Http to Https scheme |   -----        |
+- Maintain ownership of all URIs. A lapse in the ownership of one of the redirect URIs can lead to application compromise.
+- Make sure all DNS records are updated and monitored periodically for changes.
+- Don't use wildcard reply URLs or insecure URI schemes such as http, or URN.
+- Keep the list small. Trim any unnecessary URIs. If possible, update URLs from Http to Https.
 
-## Implicit flow token configuration
+## Access tokens (used for implicit flows)
 
-Scenarios that required **implicit flow** can now use **Auth code flow** to reduce the risk of compromise associated with implicit grant flow misuse. If you configured your application registration to get Access tokens using implicit flow, but don't actively use it, we recommend you turn off the setting to protect from misuse.
+Scenarios that required **implicit flow** can now use **Auth code flow** to reduce the risk of compromise associated with implicit flow misuse. Under **Authentication** for the application in the Azure portal, a platform must be selected for the application and then the **Access tokens (used for implicit flows)** property can be set.
 
-![access tokens used for implicit flows](media/active-directory-application-registration-best-practices/implict-grant-flow.png)
+:::image type="content" source="./media/application-registration-best-practices/implict-grant-flow.png" alt-text="Screenshot that shows where the implicit flow property is located.":::
 
-### Implicit grant flow summary
+Consider the following guidance related to implicit flow:
 
-| Do                                                                    | Don't                                                                  |
-| --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) | Use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) |
-| Separate app registration for (valid) implicit flow scenarios |   -----                                                |
-| Turn off unused implicit flow | -----              |
+- Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). Don't use implicit flow unless explicitly required.
+- If the application was configured to receive access tokens using implicit flow, but doesn't actively use them, turn off the setting to protect from misuse.
+- Use separate applications for valid implicit flow scenarios.
 
-## Credential configuration
+## Certificates and secrets
 
-Credentials are a vital part of an application registration when your application is used as a confidential client. If your app registration is used only as a Public Client App (allows users to sign in using a public endpoint), ensure that you don't have any credentials on your application object. Review the credentials used in your applications for freshness of use and their expiration. An unused credential on an application can result in security breach.
-While it's convenient to use password secrets as a credential, we strongly recommend that you use x509 certificates as the only credential type for getting tokens for your application. Monitor your production pipelines to ensure credentials of any kind are never committed into code repositories. If using Azure, we strongly recommend using Managed Identity so application credentials are automatically managed. Refer to the [managed identities documentation](../managed-identities-azure-resources/overview.md) for more details. [Credential Scanner](../../security/develop/security-code-analysis-overview.md#credential-scanner) is a static analysis tool that you can use to detect credentials (and other sensitive content) in your source code and build output.
+Certificates and secrets, also known as credentials, are a vital part of an application when it's used as a confidential client. Under **Certificates and secrets** for the application in the Azure portal, certificates and secrets can be added or removed.
 
-![certificates and secrets on Azure portal](media/active-directory-application-registration-best-practices/credentials.png)
+:::image type="content" source="./media/application-registration-best-practices/credentials.png" alt-text="Screenshot that shows where the certificates and secrets are located.":::
 
-| Do                                                                     | Don't                             |
-| ---------------------------------------------------------------------- | --------------------------------- |
-| Use [certificate credentials](./active-directory-certificate-credentials.md)              | Use Password credentials          |
-| Use Key Vault with [Managed identities](../managed-identities-azure-resources/overview.md) | Share credentials across apps     |
-| Rollover frequently                                                    | Have many credentials on one app  |
-|     -----                                                              | Leave stale credentials available |
-|     -----                                                              | Commit credentials in code        |
+Consider the following guidance related to certificates and secrets:
 
-## AppId URI configuration
+- Always use [certificate credentials](./certificate-credentials.md) whenever possible and don't use password credentials, also known as *secrets*. While it's convenient to use password secrets as a credential, when possible use x509 certificates as the only credential type for getting tokens for an application.
+  - Configure [application authentication method policies](/graph/api/resources/applicationauthenticationmethodpolicy) to govern the use of secrets by limiting their lifetimes or blocking their use altogether.
+- Use Key Vault with [managed identities](../managed-identities-azure-resources/overview.md) to manage credentials for an application.
+- If an application is used only as a Public Client App (allows users to sign in using a public endpoint), make sure that there are no credentials specified on the application object.
+- Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in a security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.
+- Monitor your production pipelines to prevent credentials of any kind from being committed into code repositories.
+- [Credential Scanner](../../security/develop/security-code-analysis-overview.md#credential-scanner) is a static analysis tool that can be used to detect credentials (and other sensitive content) in source code and build output.
 
-Certain applications can expose resources (via WebAPI) and as such need to define an AppId URI that uniquely identifies the resource in a tenant. We recommend using either of the following URI schemes: api or https, and set the AppId URI in the following formats to avoid URI collisions in your organization.
-The AppId URI acts as the prefix for the scopes referenced in the API's code, and it must use a verified customer owned domain. For multi-tenant applications the value must also be globally unique.
+## Application ID URI
+
+The **Application ID URI** property of the application specifies the globally unique URI used to identify the web API. It's the prefix for scopes and in access tokens, it's also the value of the audience claim and it must use a verified customer owned domain. For multi-tenant applications, the value must also be globally unique. It's also referred to as an identifier URI. Under **Expose an API** for the application in the Azure portal, the **Application ID URI** property can be defined.
+
+:::image type="content" source="./media/application-registration-best-practices/app-id-uri.png" alt-text="Screenshot that shows where the Application I D U R I is located.":::
+
+Consider the following guidance related to defining the Application ID URI:
+
+- The api or https URI schemes are recommended. Set the property in the supported formats to avoid URI collisions in your organization. Don't use wildcards.
+- Use a verified domain in Line of Business (LoB) applications.
+- Keep an inventory of the URIs in your organization to help maintain security.
+- Use the Application ID URI to expose the WebApi in the organization. Don't use the Application ID URI to identify the application, and instead use the Application (client) ID property.
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
-![Application ID URI](media/active-directory-application-registration-best-practices/app-id-uri.png)
-
-### AppId URI summary
-
-| Do                                           | Don't                  |
-| -------------------------------------------- | ---------------------- |
-| Avoid collisions by using valid URI formats. | Use wildcard AppId URI |
-| Use verified domain in Line of Business (LoB) apps | Malformed URI    |
-| Inventory your AppId URIs                    |      -----             |
-| Use AppId URI to expose WebApi in your organization| Use AppId URI to identify the application, instead use the appId property|
-
 ## App ownership configuration
 
-Ensure app ownership is kept to a minimal set of people within the organization. It's recommended to run through the owners list once every few months to ensure owners are still part of the organization and their charter accounts for ownership of the application registration. Check out [Azure AD access reviews](../governance/access-reviews-overview.md) for more details.
+Owners can manage all aspects of a registered application. It's important to regularly review the ownership of all applications in the organization. For more information, see [Microsoft Entra access reviews](../governance/access-reviews-overview.md). Under **Owners** for the application in the Azure portal, the owners of the application can be managed.
 
-![users provisioning service - owners](media/active-directory-application-registration-best-practices/app-ownership.png)
+:::image type="content" source="./media/application-registration-best-practices/app-ownership.png" alt-text="Screenshot that shows where owners of the application are managed.":::
 
-### App ownership summary
+Consider the following guidance related to specifying application owners:
 
-| Do                  | Don't |
-| ------------------- | ----- |
-| Keep it small       | ----- |
-| Monitor owners list | ----- |
+- Application ownership should be kept to a minimal set of people within the organization.
+- An administrator should review the owners list once every few months to make sure that owners are still part of the organization and should still own an application.
 
-## Checklist
+## Integration assistant
 
-App developers can use the _Checklist_ available in Azure portal to ensure their app registration meets a high quality bar and provides guidance to integrate securely. The integration assistant highlights best practices and recommendation that help avoid common oversights when integrating with Microsoft identity platform.
+The **Integration assistant** in Azure portal can be used to make sure that an application meets a high quality bar and to provide secure integration. The integration assistant highlights best practices and recommendation that help avoid common oversights when integrating with the Microsoft identity platform.
 
-![Integration assistant checklist on Azure portal](media/active-directory-application-registration-best-practices/checklist.png)
-
-### Checklist summary
-
-| Do                                                 | Don't |
-| -------------------------------------------------- | ----- |
-| Use checklist to get scenario-based recommendation | ----- |
-| Deep link into app registration blades             | ----- |
-
+:::image type="content" source="./media/application-registration-best-practices/checklist.png" alt-text="Screenshot that shows where to find the integration assistant.":::
 
 ## Next steps
-For more information on Auth code flow, see the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md).
+
+- For more information about the Auth code flow, see the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md).

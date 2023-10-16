@@ -1,11 +1,14 @@
 ---
 title: Set up a Windows development environment
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
-author: peterpogorski
-ms.topic: conceptual
-ms.date: 06/16/2020
-ms.custom: sfrev, devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 03/02/2023
 ---
+
 # Prepare your development environment on Windows
 
 > [!div class="op_single_selector"]
@@ -22,34 +25,26 @@ To build and run [Azure Service Fabric applications][1] on your Windows developm
 Ensure you are using a supported [Windows version](service-fabric-versions.md#supported-windows-versions-and-support-end-date).
 
 ## Install the SDK and tools
+> [!NOTE]
+> WebPI used previously for SDK/Tools installation was deprecated on July 1 2022 
 
-Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
+For latest Runtime and SDK you can download from below:
+
+| Package |Version|
+| --- | --- |
+|[Install Service Fabric Runtime for Windows](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.10.0.1816.9590.exe) | 10.0.1816.9590 |
+|[Install Service Fabric SDK](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.7.0.1816.msi) | 7.0.1816 |
+
+You can find direct links to the installers for previous releases on [Service Fabric Releases](https://github.com/microsoft/service-fabric/tree/master/release_notes)
+
+For supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
 > [!NOTE]
-> Local Service Fabric development cluster upgrades are not supported.
+> Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade.
 
-### To use Visual Studio 2017 or 2019
+### To use Visual Studio 2017 or 2019 
 
-The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2019 and 2017. Enable this workload as part of your Visual Studio installation.
-In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
-
-* [Install the Microsoft Azure Service Fabric SDK][core-sdk]
-
-### SDK installation only
-
-If you only need the SDK, you can install this package:
-
-* [Install the Microsoft Azure Service Fabric SDK][core-sdk]
-
-The current versions are:
-
-* Service Fabric SDK and Tools 5.2.1571
-* Service Fabric runtime 8.2.1571
-
-For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
-
-> [!NOTE]
-> Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade. 
+The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2019 and 2017. Enable this workload as part of your Visual Studio installation. In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime as described above [Install the SDK and tools](#install-the-sdk-and-tools)
 
 ## Enable PowerShell script execution
 

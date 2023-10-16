@@ -3,7 +3,7 @@ title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
 documentationcenter: na
-author: TomSh
+author: TerryLanfear
 manager: rkarlin
 
 ms.assetid:
@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2021
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---
@@ -27,37 +27,37 @@ This article outlines how Azure provides isolation against both malicious and no
 
 One of the primary benefits of cloud computing is concept of a shared, common infrastructure across numerous customers simultaneously, leading to economies of scale. This concept is called multi-tenancy. Microsoft works continuously to ensure that the multi-tenant architecture of Microsoft Cloud Azure supports security, confidentiality, privacy, integrity, and availability standards.
 
-In the cloud-enabled workplace, a tenant can be defined as a client or organization that owns and manages a specific instance of that cloud service. With the identity platform provided by Microsoft Azure, a tenant is simply a dedicated instance of Azure Active Directory (Azure AD) that your organization receives and owns when it signs up for a Microsoft cloud service.
+In the cloud-enabled workplace, a tenant can be defined as a client or organization that owns and manages a specific instance of that cloud service. With the identity platform provided by Microsoft Azure, a tenant is simply a dedicated instance of Microsoft Entra ID that your organization receives and owns when it signs up for a Microsoft cloud service.
 
-Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information from co-mingling. This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
+Each Microsoft Entra directory is distinct and separate from other Microsoft Entra directories. Just like a corporate office building is a secure asset specific to only your organization, a Microsoft Entra directory was also designed to be a secure asset for use by only your organization. The Microsoft Entra architecture isolates customer data and identity information from co-mingling. This means that users and administrators of one Microsoft Entra directory can't accidentally or maliciously access data in another directory.
 
 ### Azure Tenancy
 
-Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](../../active-directory/develop/quickstart-create-new-tenant.md) in [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [Azure role-based access control](../../role-based-access-control/overview.md) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
+Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](../../active-directory/develop/quickstart-create-new-tenant.md) in [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). Tenant level isolation in Microsoft Azure is achieved using Microsoft Entra ID and [Azure role-based access control](../../role-based-access-control/overview.md) offered by it. Each Azure subscription is associated with one Microsoft Entra directory.
 
-Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
+Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. A Microsoft Entra tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Microsoft Entra ID runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
 :::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
 
-- Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
+- Access to data in Microsoft Entra ID requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
-- Tenants are discrete containers and there is no relationship between these.
+- Tenants are discrete containers and there's no relationship between these.
 
 - No access across tenants unless tenant admin grants it through federation or provisioning user accounts from other tenants.
 
-- Physical access to servers that comprise the Azure AD service, and direct access to Azure AD’s back-end systems, is restricted.
+- Physical access to servers that comprise the Microsoft Entra service, and direct access to Microsoft Entra ID’s back-end systems, is restricted.
 
-- Azure AD users have no access to physical assets or locations, and therefore it is not possible for them to bypass the logical Azure RBAC policy checks stated following.
+- Microsoft Entra users have no access to physical assets or locations, and therefore it isn't possible for them to bypass the logical Azure RBAC policy checks stated following.
 
-For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](../../active-directory/privileged-identity-management/pim-configure.md) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
+For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Microsoft Entra Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](../../active-directory/privileged-identity-management/pim-configure.md) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
-![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
+![Microsoft Entra Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
-Azure Active Directory hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
+Microsoft Entra ID hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
 
 The concept of tenant containers is deeply ingrained in the directory service at all layers, from portals all the way to persistent storage.
 
-Even when metadata from multiple Azure Active Directory tenants is stored on the same physical disk, there is no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
+Even when metadata from multiple Microsoft Entra tenants is stored on the same physical disk, there's no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
 
 ### Azure role-based access control (Azure RBAC)
 
@@ -73,21 +73,21 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 ![Azure role-based access control (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
-The rest of the Azure roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
+The rest of the Azure roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It doesn't give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 
 [Azure built-in roles](../../role-based-access-control/built-in-roles.md) list the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](../../role-based-access-control/custom-roles.md).
 
-Some other capabilities for Azure Active Directory include:
+Some other capabilities for Microsoft Entra ID include:
 
-- Azure AD enables SSO to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
+- Microsoft Entra ID enables SSO to SaaS applications, regardless of where they're hosted. Some applications are federated with Microsoft Entra ID, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
 
 - Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](../../storage/common/storage-account-create.md), or SAK) and a secondary secret key (the shared access signature, or SAS).
 
-- Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
+- Microsoft Entra ID provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Multi-Factor Authentication Server, and also with custom applications and directories using the SDK.
+- [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Microsoft Entra ID to help secure on-premises resources with the Multi-Factor Authentication Server, and also with custom applications and directories using the SDK.
 
-- [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
+- [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating credentials.
 
@@ -95,14 +95,14 @@ Some other capabilities for Azure Active Directory include:
 
 Microsoft takes strong measures to protect your data from inappropriate access or use by unauthorized persons. These operational processes and controls are backed by the [Online Services Terms](https://aka.ms/Online-Services-Terms), which offer contractual commitments that govern access to your data.
 
-- Microsoft engineers do not have default access to your data in the cloud. Instead, they are granted access, under management oversight, only when necessary. That access is carefully controlled and logged, and revoked when it is no longer needed.
-- Microsoft may hire other companies to provide limited services on its behalf. Subcontractors may access customer data only to deliver the services for which, we have hired them to provide, and they are prohibited from using it for any other purpose. Further, they are contractually bound to maintain the confidentiality of our customers’ information.
+- Microsoft engineers don't have default access to your data in the cloud. Instead, they're granted access, under management oversight, only when necessary. That access is carefully controlled and logged, and revoked when it's no longer needed.
+- Microsoft may hire other companies to provide limited services on its behalf. Subcontractors may access customer data only to deliver the services for which, we have hired them to provide, and they're prohibited from using it for any other purpose. Further, they're contractually bound to maintain the confidentiality of our customers’ information.
 
 Business services with audited certifications such as ISO/IEC 27001 are regularly verified by Microsoft and accredited audit firms, which perform sample audits to attest that access, only for legitimate business purposes. You can always access your own customer data at any time and for any reason.
 
 If you delete any data, Microsoft Azure deletes the data, including any cached or backup copies. For in-scope services, that deletion will occur within 90 days after the end of the retention period. (In-scope services are defined in the Data Processing Terms section of our [Online Services Terms](https://aka.ms/Online-Services-Terms).)
 
-If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://microsoft.com/trustcenter/privacy/you-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is overwritten to ensure that the data cannot be recovered by any means.
+If a disk drive used for storage suffers a hardware failure, it's securely [erased or destroyed](https://microsoft.com/trustcenter/privacy/you-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is overwritten to ensure that the data can't be recovered by any means.
 
 ## Compute Isolation
 
@@ -118,13 +118,13 @@ In addition to the isolated hosts described in the preceding section, Azure also
 
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 
-Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
+Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there's a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
 
 ![Hyper-V & Root OS Isolation Between Root VM & Guest VMs](./media/isolation-choices/azure-isolation-fig4.jpg)
 
 Each node also has one special Root VM, which runs the Host OS. A critical boundary is the isolation of the root VM from the guest VMs and the guest VMs from one another, managed by the hypervisor and the root OS. The hypervisor/root OS pairing leverages Microsoft's decades of operating system security experience, and more recent learning from Microsoft's Hyper-V, to provide strong isolation of guest VMs.
 
-The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server.
+The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that don't have access to a physical host server.
 
 The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VM Bus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
 
@@ -160,7 +160,7 @@ By default, all traffic is blocked when a virtual machine is created, and then t
 
 There are two categories of rules that are programmed:
 
-- **Machine configuration or infrastructure rules:** By default, all communication is blocked. There are exceptions to allow a virtual machine to send and receive DHCP and DNS traffic. Virtual machines can also send traffic to the “public” internet and send traffic to other virtual machines within the same Azure Virtual Network and the OS activation server. The virtual machines’ list of allowed outgoing destinations does not include Azure router subnets, Azure management, and other Microsoft properties.
+- **Machine configuration or infrastructure rules:** By default, all communication is blocked. There are exceptions to allow a virtual machine to send and receive DHCP and DNS traffic. Virtual machines can also send traffic to the “public” internet and send traffic to other virtual machines within the same Azure Virtual Network and the OS activation server. The virtual machines’ list of allowed outgoing destinations doesn't include Azure router subnets, Azure management, and other Microsoft properties.
 - **Role configuration file:** This defines the inbound Access Control Lists (ACLs) based on the tenant's service model.
 
 ### VLAN Isolation
@@ -181,11 +181,11 @@ Communication is permitted from the FC VLAN to the main VLAN, but cannot be init
 
 As part of its fundamental design, Microsoft Azure separates VM-based computation from storage. This separation enables computation and storage to scale independently, making it easier to provide multi-tenancy and isolation.
 
-Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically. This means that when a virtual disk is created, disk space is not allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it is placed in the table.**
+Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically. This means that when a virtual disk is created, disk space isn't allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it's placed in the table.**
 
 ### Isolation Using Storage Access control
 
-**Access Control in Azure Storage** has a simple access control model. Each Azure subscription can create one or more Storage Accounts. Each Storage Account has a single secret key that is used to control access to all data in that Storage Account.
+**Access Control in Azure Storage** has a simple access control model. Each Azure subscription can create one or more Storage Accounts. Each Storage Account has a single secret key that's used to control access to all data in that Storage Account.
 
 ![Isolation Using Storage Access control](./media/isolation-choices/azure-isolation-fig9.png)
 
@@ -197,7 +197,7 @@ The SAS means that we can grant a client limited permissions, to objects in our 
 
 You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](../../storage/blobs/security-recommendations.md).
 
-IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
+IP storage data can be protected from unauthorized users via a networking mechanism that's used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
 
 ### Encryption
 
@@ -208,27 +208,29 @@ Azure offers the following types of Encryption to protect data:
 
 #### Encryption in Transit
 
-Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
+Encryption in transit is a mechanism of protecting data when it's transmitted across networks. With Azure Storage, you can secure data using:
 
 - [Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
 - [Wire encryption](../../storage/blobs/security-recommendations.md), such as SMB 3.0 encryption for Azure File shares.
-- [Client-side encryption](../../storage/blobs/security-recommendations.md), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
+- [Client-side encryption](../../storage/blobs/security-recommendations.md), to encrypt the data before it's transferred into storage and to decrypt the data after it's transferred out of storage.
 
 #### Encryption at Rest
 
-For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
+For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that's "at rest":
 
 - [Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 - [Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.
-- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+- [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md).
+
+For more information, see [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
 
 #### Azure Disk Encryption
 
-[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) help you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
+The solution supports the following scenarios for IaaS VMs when they're enabled in Microsoft Azure:
 
 - Integration with Azure Key Vault
 - Standard tier VMs: A, D, DS, G, GS, and so forth, series IaaS VMs
@@ -242,7 +244,7 @@ The solution supports the following scenarios for IaaS VMs when they are enabled
 - Enabling encryption on Windows VMs that are configured by using storage spaces
 - All Azure public regions are supported
 
-The solution does not support the following scenarios, features, and technology in the release:
+The solution doesn't support the following scenarios, features, and technology in the release:
 
 - Basic tier IaaS VMs
 - Disabling encryption on an OS drive for Linux IaaS VMs
@@ -256,7 +258,7 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### SQL Database Application Model
 
-[Microsoft SQL Database](../../azure-sql/database/single-database-create-quickstart.md) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
+[Microsoft SQL Database](/azure/azure-sql/database/single-database-create-quickstart) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective, SQL Database provides the following hierarchy:
 Each level has one-to-many containment of levels below.
@@ -267,7 +269,7 @@ The account and subscription are Microsoft Azure platform concepts to associate 
 
 Logical SQL servers and databases are SQL Database-specific concepts and are managed by using SQL Database, provided OData and TSQL interfaces or via the Azure portal.
 
-Servers in SQL Database are not physical or VM instances, instead they are collections of databases, sharing management and security policies, which are stored in so called “logical master” database.
+Servers in SQL Database aren't physical or VM instances, instead they 're collections of databases, sharing management and security policies, which are stored in so called “logical master” database.
 
 ![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
 
@@ -276,7 +278,7 @@ Logical master databases include:
 - SQL logins used to connect to the server
 - Firewall rules
 
-Billing and usage-related information for databases from the same server are not guaranteed to be on the same physical instance in the cluster, instead applications must provide the target database name when connecting.
+Billing and usage-related information for databases from the same server aren't guaranteed to be on the same physical instance in the cluster, instead applications must provide the target database name when connecting.
 
 From a customer perspective, a server is created in a geo-graphical region while the actual creation of the server happens in one of the clusters in the region.
 
@@ -284,7 +286,7 @@ From a customer perspective, a server is created in a geo-graphical region while
 
 When a server is created and its DNS name is registered, the DNS name points to the so called “Gateway VIP” address in the specific data center where the server was placed.
 
-Behind the VIP (virtual IP address), we have a collection of stateless gateway services. In general, gateways get involved when there is coordination needed between multiple data sources (master database, user database, etc.). Gateway services implement the following:
+Behind the VIP (virtual IP address), we have a collection of stateless gateway services. In general, gateways get involved when there's coordination needed between multiple data sources (master database, user database, etc.). Gateway services implement the following:
 
 - **TDS connection proxying.** This includes locating user database in the backend cluster, implementing the login sequence and then forwarding the TDS packets to the backend and back.
 - **Database management.** This includes implementing a collection of workflows to do CREATE/ALTER/DROP database operations. The database operations can be invoked by either sniffing TDS packets or explicit OData APIs.
@@ -295,11 +297,11 @@ Behind the VIP (virtual IP address), we have a collection of stateless gateway s
 
 The tier behind the gateways is called “back-end”. This is where all the data is stored in a highly available fashion. Each piece of data is said to belong to a “partition” or “failover unit”, each of them having at least three replicas. Replicas are stored and replicated by SQL Server engine and managed by a failover system often referred to as “fabric”.
 
-Generally, the back-end system does not communicate outbound to other systems as a security precaution. This is reserved to the systems in the front-end (gateway) tier. The gateway tier machines have limited privileges on the back-end machines to minimize the attack surface as a defense-in-depth mechanism.
+Generally, the back-end system doesn't communicate outbound to other systems as a security precaution. This is reserved to the systems in the front-end (gateway) tier. The gateway tier machines have limited privileges on the back-end machines to minimize the attack surface as a defense-in-depth mechanism.
 
 ### Isolation by Machine Function and Access
 
-SQL Database (is composed of services running on different machine functions. SQL Database is divided into “backend” Cloud Database and “front-end” (Gateway/Management) environments, with the general principle of traffic only going into back-end and not out. The front-end environment can communicate to the outside world of other services and in general, has only limited permissions in the back-end (enough to call the entry points it needs to invoke).
+SQL Database is composed of services running on different machine functions. SQL Database is divided into “backend” Cloud Database and “front-end” (Gateway/Management) environments, with the general principle of traffic only going into back-end and not out. The front-end environment can communicate to the outside world of other services and in general, has only limited permissions in the back-end (enough to call the entry points it needs to invoke).
 
 ## Networking Isolation
 

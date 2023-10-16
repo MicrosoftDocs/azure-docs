@@ -1,256 +1,264 @@
 ---
-title: Manage the on-premises management console 
+title: Maintain the on-premises management console from the GUI - Microsoft Defender for IoT
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-ms.date: 11/09/2021
-ms.topic: article
+ms.date: 05/17/2023
+ms.topic: how-to
 ---
 
-# Manage the on-premises management console
+# Maintain the on-premises management console
 
-This article covers on-premises management console options like backup and restore, downloading committee device activation file, updating certificates, and setting up a proxy to sensors.
+This article describes extra on-premises management console activities that you might perform outside of a larger deployment process.
 
-You onboard the on-premises management console from the Azure portal.
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+
+## Prerequisites
+
+Before performing the procedures in this article, make sure that you have:
+
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md).
+
+- Access to the on-premises management console as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- An [SSL/TLS certificate prepared](ot-deploy/create-ssl-certificates.md) if you need to update your sensor's certificate.
+
+- If you're adding a secondary NIC, you'll need access to the CLI as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Download software for the on-premises management console
 
-This procedure describes how to use the Azure portal to download software for you to install on your own appliances for an on-premises management console.
+You may need to download software for your on-premises management console if you're [installing Defender for IoT software](ot-deploy/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console**.
+In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
-1. Make sure that you have a supported appliance available. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+- For a new installation or standalone update, select **Getting started** > **On-premises management console**.
 
-1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+   - For a new installation, select a version in the **Purchase an appliance and install software** area, and then select **Download**.
+   - For an update, select your update scenario in the **On-premises management console** area and then select **Download**.
 
-1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
+- If you're updating your on-premises management console together with connected OT sensors, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
 
-1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+## Add a secondary NIC after installation
 
-## Upload an activation file
+Enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
-When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
+This procedure describes how to add a secondary NIC after [installing your on-premises management console](ot-deploy/install-software-on-premises-management-console.md).
 
-After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This event might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
+**To add a secondary NIC**:
 
-**To upload an activation file:**
+1. Sign into your on-premises management console via SSH to access the [CLI](../references-work-with-defender-for-iot-cli-commands.md), and run:
 
-1. Go to the Microsoft Defender for IoT **Pricing** page.
-1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
+1. Enter the following responses to the following questions:
 
-1. Select **System Settings** from the management console.
-1. Select **Activation**.
-1. Select **Choose a File** and select the file that you saved.
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
 
-## Manage certificates
+    | Parameters | Response to enter |
+    |--|--|
+    | **Management Network IP address** | `N` |
+    | **Subnet mask** | `N` |
+    | **DNS** | `N` |
+    | **Default gateway IP Address** | `N` |
+    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y`, and select a possible value |
+    | **An IP address for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
+    | **A subnet mask for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
+    | **Hostname** | Enter the hostname |
 
-Following on-premises management console installation, a local self-signed certificate is generated and used to access the web application. When logging in to the on-premises management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
+1. Review all choices and enter `Y` to accept the changes. The system reboots.
 
-Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
+## Upload a new activation file
 
-**To update a certificate:**
+You'd activated your on-premises management console as part of your deployment.
 
-1. Select **System Settings**.
+You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](billing.md).
 
-1. Select **SSL/TLS Certificates.**
+**To upload a new activation file to your on-premises management console**:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="Upload a certificate":::
+1. In Defender for IoT on the Azure portal, select **Plans and pricing**.
 
-1. In the SSL/TLS Certificates dialog box, delete the existing certificate and add a new one.
+1. Select your plan and then select **Download on-premises management console activation file**.
 
-    - Add a certificate name.
-    - Upload a CRT file and key file.
-    - Upload a PEM file if necessary.
+   Save your downloaded file in a location that's accessible from the on-premises management console.
 
-If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-**To change the certificate validation setting:**
+1. Sign into your on-premises management console and select **System Settings** > **Activation**.
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+1. In the **Activation** dialog, select **CHOOSE FILE** and browse to the activation file you'd downloaded earlier.
 
-1. Select **Save**.
+1. Select **Close** to save your changes.
 
-For more information about first-time certificate upload see,
-[First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
+## Manage SSL/TLS certificates
 
-## Define backup and restore settings
+If you're working with a production environment, you'd deployed a [CA-signed SSL/TLS certificate](ot-deploy/activate-deploy-management.md#deploy-an-ssltls-certificate) as part of your on-premises management console deployment. We recommend using self-signed certificates only for testing purposes.
 
-The on-premises management console system backup is performed automatically, daily. The data is saved on a different disk. The default location is `/var/cyberx/backups`. 
+The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
-You can automatically transfer this file to the internal network. 
+# [Deploy a CA-signed certificate](#tab/ca-signed)
 
-> [!NOTE]
-> You can perform the backup and restore procedure on the same version only. 
+**To deploy a CA-signed certificate**:
 
-To back up the on-premises management console machine: 
+1. Sign into your on-premises management console and select **System Settings** > **SSL/TLS Certificates**.
 
-- Sign in to an administrative account and enter `sudo cyberx-management-backup -full`.
+1. In the **SSL/TLS Certificates** dialog, select **+ Add Certificate** and enter the following values:
 
-To restore the latest backup file:
+   | Parameter  | Description  |
+   |---------|---------|
+   | **Certificate Name**     |   Enter your certificate name.      |
+   | **Passphrase** - *Optional*    |  Enter a [passphrase](best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).       |
+   | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
+   | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
+   | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |
 
-- Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
+   For example:
 
-To save the backup to an external SMB server:
+   :::image type="content" source="media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
 
-1. Create a shared folder in the external SMB server.  
+   If the upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
-   Get the folder path, username, and password required to access the SMB server. 
+1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing [Certificate Authority](ot-deploy/create-ssl-certificates.md#create-a-ca-signed-ssltls-certificate) and [Certificate Revocation Lists](ot-deploy/create-ssl-certificates.md#verify-crl-server-access).
 
-2. In Defender for IoT, make a directory for the backups:
+    If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
-   - `sudo mkdir /<backup_folder_name_on_ server>` 
+1. Select **Save** to save your changes.
 
-   - `sudo chmod 777 /<backup_folder_name_on_c_server>/` 
+# [Create and deploy a self-signed certificate](#tab/self-signed)
 
-3. Edit fstab:  
+Each on-premises management console is installed with a self-signed certificate that we recommend you use only for testing purposes. In production environments, we recommend that you always use a CA-signed certificate.
 
-   - `sudo nano /etc/fstab` 
+Self-signed certificates lead to a less secure environment, as the owner of the certificate can't be validated and the security of your system can't be maintained.
 
-   - `add - //<server_IP>/<folder_path> /<backup_folder_name_on_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0` 
+To create a self-signed certificate, download the certificate file from your on-premises management console and then use a certificate management platform to create the certificate files you'll need to upload back to the on-premises management console.
 
-4. Edit or create credentials for the SMB server to share: 
+**To create a self-signed certificate**:
 
-   - `sudo nano /etc/samba/user` 
+Go to the on-premises management console's IP address in a browser and then:
 
-5. Add: 
+[!INCLUDE [self-signed-certificate](includes/self-signed-certificate.md)]
 
-   - `username=<user name>`
+When you're done, use the following procedures to validate your certificate files:
 
-   - `password=<password>` 
+- [Verify CRL server access](ot-deploy/create-ssl-certificates.md#verify-crl-server-access)
+- [Import the SSL/TLS certificate to a trusted store](ot-deploy/create-ssl-certificates.md#import-the-ssltls-certificate-to-a-trusted-store)
+- [Test your SSL/TLS certificates](ot-deploy/create-ssl-certificates.md#test-your-ssltls-certificates)
 
-6. Mount the directory: 
+**To deploy a self-signed certificate**:
 
-   - `sudo mount -a` 
+1. Sign into your on-premises management console and select **System settings** > **SSL/TLS Certificates**.
 
-7. Configure a backup directory to the shared folder on the Defender for IoT on-premises management console:  
+1. In the **SSL/TLS Certificates** dialog, keep the default **Locally generated self-signed certificate (insecure, not recommended)** option selected.
 
-   - `sudo nano /var/cyberx/properties/backup.properties` 
+1. Select **I CONFIRM** to acknowledge the warning.
 
-   - `set Backup.shared_location to <backup_folder_name_on_server>`
+1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](ot-deploy/create-ssl-certificates.md#verify-crl-server-access). The certificate is checked once during the import process.
 
-## Edit the host name
+   If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
-To edit the management console's host name configured in the organizational DNS server:
+1. Select **Save** to save your certificate settings.
 
-1. In the management console's left pane, select **System Settings**.  
+---
 
-2. In the console's networking section, select **Network**. 
+### Troubleshoot certificate upload errors
 
-3. Enter the host name configured in the organizational DNS server. 
-
-4. Select **Save**.
-
-## Define VLAN names
-
-VLAN names are not synchronized between the sensor and the management console. Define identical names on components.
-
-In the networking area, select **VLAN** and add names to the discovered VLAN IDs. Then select **Save**.
-
-## Define a proxy to sensors
-
-Enhance system security by preventing user sign-in directly to the sensor. Instead, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This enhancement narrows the possibility of unauthorized access to the network environment beyond the sensor.
-
-Use a proxy in environments where there's no direct connectivity to sensors.
-
-:::image type="content" source="media/how-to-access-sensors-using-a-proxy/proxy-diagram.png" alt-text="User.":::
-
-The following procedure connects a sensor to the on-premises management console and enables tunneling on that console:
-
-1. Sign in to the on-premises management console appliance CLI with administrative credentials.
-
-2. Type `sudo cyberx-management-tunnel-enable` and select **Enter**.
-
-4. Type `--port 10000` and select **Enter**.
-
-## Adjust system properties
-
-System properties control various operations and settings in the management console. Editing or modifying them might damage the management console's operation. Consult with [Microsoft Support](https://support.microsoft.com) before changing your settings.
-
-To access system properties: 
-
-1. Sign in to the on-premises management console or the sensor.
-
-2. Select **System Settings**.
-
-3. Select **System Properties** from the **General** section.
+[!INCLUDE [troubleshoot-ssl](includes/troubleshoot-ssl.md)]
 
 ## Change the name of the on-premises management console
 
-You can change the name of the on-premises management console. The new names appear in the console web browser, in various console windows, and in troubleshooting logs. The default name is **management console**.
+The default name of your on-premises management console is **Management console**, and is shown in the on-premises management console GUI and troubleshooting logs.
 
-To change the name:
+To change the name of your on-premises management console:
 
-1. In the bottom of the left pane, select the current name.
+1. Sign into your on-premises management console and select the name on the bottom-left, just above the version number.
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/console-name.png" alt-text="Screenshot of the on-premises management console version.":::
+1. In the **Edit management console configuration** dialog, enter your new name. The name must have a maximum of 25 characters. For example:
 
-2. In the **Edit management console configuration** dialog box, enter the new name. The name can't be longer than 25 characters.
+    :::image type="content" source="media/how-to-manage-the-on-premises-management-console/change-name.png" alt-text="Screenshot of how to change the name of your on-premises management console.":::
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of editing the Defender for IoT platform configuration.":::
+1. Select **Save** to save your changes.
 
-3. Select **Save**. The new name is applied.
+## Recover a privileged user password
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Screenshot that shows the changed name of the console.":::
+If you no longer have access to your on-premises management console as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users), recover access from the Azure portal.
 
-## Password recovery
+**To recover privileged user access**:
 
-Password recovery for your on-premises management console is tied to the subscription that the device is attached to. You can't recover a password if you don't know which subscription a device is attached to.
+1. Go to the sign-in page for your on-premises management console and select **Password Recovery**.
 
-To reset your password:
+1. Select the user that you want to recover access for, either the **Support** or **CyberX** user.
 
-1. Go to the on-premises management console's sign-in page.
-1. Select **Password Recovery**.
-1. Copy the unique identifier.
-1. Go to the Defender for IoT **Sites and sensors** page and select the **Recover my password** tab.
-1. Enter the unique identifier and select **Recover**. The activation file is downloaded.
-1. Go to the **Password Recovery** page and upload the activation file.
-1. Select **Next**.
- 
-   You're now given your username and a new system-generated password.
+1. Copy the identifier that's displayed in the **Password Recovery** dialog to a secure location.
 
-> [!NOTE]
-> The sensor is linked to the subscription that it was originally connected to. You can recover the password only by using the same subscription that it's attached to.
+1. Go to Defender for IoT in the Azure portal, and make sure that you're viewing the subscription that was used to onboard the OT sensors currently connected to the on-premises management console.
 
-## Update the software version
+1. Select **Sites and sensors** > **More actions** > **Recover an on-premises management console password**.
 
-The following procedure describes how to update the on-premises management console software version. The update process takes about 30 minutes.
+1. Enter the secret identifier you'd copied earlier from your on-premises management console and select **Recover**.
 
-If you are working with an on-premises management console and managed sensors, **update the management console first**.
+    A `password_recovery.zip` file is downloaded from your browser.
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-1. Go to Defender for IoT.
+1. In the **Password Recovery** dialog on the on-premises management console, select **Upload** and select the `password_recovery.zip` file you'd downloaded.
 
-1. Go to the **Updates** page.
+Your new credentials are displayed.
 
-1. Select a version from the on-premises management console section.
+## Edit the host name
 
-1. Select **Download** and save the file.
+The on-premises management console's hostname must match the hostname configured in the organizational DNS server.
 
-1. Log into on-premises management console and select **System Settings** from the side menu.
+**To edit the hostname saved on the on-premises management console**:
 
-1. On the **Version Update** pane, select **Update**.
+1. Sign into the on-premises management console and select **System Settings**.
 
-1. Select the file that you downloaded from the Defender for IoT **Updates** page.
+1. In the **Management console networking** area, select **Network**.
 
-## Mail server settings
+1. Enter the new hostname and select **SAVE** to save your changes.
 
-Define SMTP mail server settings for the on-premises management console.
+## Define VLAN names
 
-To define:
+VLAN names aren't synchronized between an OT sensor and the on-premises management console. If you've [defined VLAN names on your OT sensor](how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name), we recommend that you define identical VLAN names on the on-premises management console.
 
-1. Sign in to the CLI for the on-premises management with administrative credentials.
-1. Type ```nano /var/cyberx/properties/remote-interfaces.properties```.
-1. Select enter. The following prompts appear.
-   `mail.smtp_server=`
-   `mail.port=25`
-   `mail.sender=`
-1. Enter the SMTP server name  and sender and select enter.
+**To define VLAN names**:
+
+1. Sign into the on-premises management console and select **System Settings**.
+
+1. In the **Management console networking** area, select **VLAN**.
+
+1. In the **Edit VLAN Configuration** dialog, select **Add VLAN** and then enter your VLAN ID and name, one at a time.
+
+1. Select **SAVE** to save your changes.
+
+## Configure SMTP mail server settings
+
+Define SMTP mail server settings on your on-premises management console so that you configure the on-premises management console to send data to other servers and partner services.
+
+For example, you'll need an SMTP mail server configured to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+
+**Prerequisites**:
+
+Make sure you can reach the SMTP server from the on-premises management console.
+
+**To configure an SMTP server on your on-premises management console**:
+
+1. Sign into your on-premises management console as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users) via SSH/Telnet.
+
+1. Run:
+
+    ```bash
+    nano /var/cyberx/properties/remote-interfaces.properties
+    ```
+
+1. Enter the following SMTP server details as prompted:
+
+   - `mail.smtp_server`
+   - `mail.port`. The default port is `25`.
+   - `mail.sender`
 
 ## Next steps
 
 For more information, see:
 
+- [Update OT system software](update-ot-software.md)
 - [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
-
-- [Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)

@@ -50,7 +50,7 @@ Configuration documents (MOF files) can be applied to the machine using the `Sta
 
 The following are the parameters you pass to the PowerShell script to use.
 
-- `TenantId`: The unique identifier (GUID) that represents your dedicated instance of Azure AD.
+- `TenantId`: The unique identifier (GUID) that represents your dedicated instance of Microsoft Entra ID.
 
 - `SubscriptionId`: The subscription ID (GUID) of your Azure subscription that you want the machines in.
 
@@ -86,4 +86,4 @@ The [CompositeResource](https://www.powershellgallery.com/packages/compositereso
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

@@ -3,15 +3,15 @@
 title: Azure Synapse Analytics  # < 60 chars
 summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources—at scale. # < 160 chars
 metadata:
-  title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
+  title: Azure Synapse Analytics
+  description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale.
+  ms.service: synapse-analytics
   ms.subservice: overview 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
-  ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/01/2020 #Required; mm/dd/yyyy format.
+  author: WilliamDAssafMSFT
+  ms.author: wiassaf
+  ms.date: 08/09/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -45,7 +45,10 @@ landingContent:
             url: quickstart-sql-on-demand.md
           - text: Create a dedicated SQL pool using Synapse Studio
             url: quickstart-create-sql-pool-studio.md
-
+      - linkListType: deploy
+        links:
+          - text: Migration guides
+            url: migration-guides/index.yml
 
   - title: Get started with Azure Synapse Analytics
     linkLists:
@@ -115,11 +118,18 @@ landingContent:
         links:
           - text: Azure Synapse Link for Azure Cosmos DB
             url: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+          - text: Azure Synapse Link for SQL
+            url: ./synapse-link/sql-synapse-link-overview.md
+                        
       - linkListType: quickstart
         links:
           - text: Connect to Azure Synapse Link for Azure Cosmos DB
             url: quickstart-connect-synapse-link-cosmos-db.md
-
+          - text: Connect to Azure Synapse Link for Azure SQL DB
+            url: ./synapse-link/connect-synapse-link-sql-database.md
+          - text: Connect to Azure Synapse Link for SQL Server 2022
+            url: ./synapse-link/connect-synapse-link-sql-server-2022.md
+            
   # Card
   - title: Machine Learning
     linkLists:
@@ -162,7 +172,7 @@ landingContent:
   #         - text: Dedicated SQL pool (formerly SQL DW) architecture
   #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
   #         - text: Reference Architecture
-  #           url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  #           url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
 
 
@@ -238,7 +248,7 @@ landingContent:
   #         #   url: file2.md
   #     - linkListType: how-to-guide
   #       links:
-  #         - text: Configure Azure Active Directory authentication
+  #         - text: Configure Microsoft Entra authentication
   #           url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
   #     #     - text: linktext2
   #     #       url: file2.md

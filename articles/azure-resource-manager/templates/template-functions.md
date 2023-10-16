@@ -2,7 +2,8 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.custom: devx-track-arm-template
+ms.date: 08/03/2023
 ---
 
 # ARM template functions
@@ -67,6 +68,14 @@ For Bicep files, use the [array](../bicep/bicep-functions-array.md) functions.
 <a id="greater" aria-hidden="true"></a>
 <a id="greaterorequals" aria-hidden="true"></a>
 
+## CIDR functions
+
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+
+* [parseCidr](./template-functions-cidr.md#parsecidr)
+* [cidrSubnet](./template-functions-cidr.md#cidrsubnet)
+* [cidrHost](./template-functions-cidr.md#cidrhost)
+
 ## Comparison functions
 
 Resource Manager provides several functions for making comparisons in your templates.
@@ -85,6 +94,8 @@ For Bicep files, use the [coalesce](../bicep/operators-logical.md) logical opera
 Resource Manager provides the following functions for working with dates.
 
 * [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](template-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](template-functions-date.md#datetimetoepoch)
 * [utcNow](template-functions-date.md#utcnow)
 
 For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.
@@ -162,6 +173,7 @@ Resource Manager provides several functions for working with objects.
 * [createObject](template-functions-object.md#createobject)
 * [empty](template-functions-object.md#empty)
 * [intersection](template-functions-object.md#intersection)
+* [items](template-functions-object.md#items)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
 * [null](template-functions-object.md#null)
@@ -190,6 +202,7 @@ Resource Manager provides the following functions for getting resource values:
 * [pickZones](template-functions-resource.md#pickzones)
 * [providers (deprecated)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
+* [references](template-functions-resource.md#references)
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
@@ -260,6 +273,7 @@ Resource Manager provides the following functions for working with strings:
 * [format](template-functions-string.md#format)
 * [guid](template-functions-string.md#guid)
 * [indexOf](template-functions-string.md#indexof)
+* [join](template-functions-string.md#join)
 * [last](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)

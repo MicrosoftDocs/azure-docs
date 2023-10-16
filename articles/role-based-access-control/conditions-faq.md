@@ -1,39 +1,38 @@
 ---
-title: FAQ for Azure role assignment conditions (preview)
-description: Frequently asked questions for Azure role assignment conditions (preview)
+title: FAQ for Azure role assignment conditions - Azure ABAC
+description: Frequently asked questions for Azure role assignment conditions
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/09/2023
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# FAQ for Azure role assignment conditions (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# FAQ for Azure role assignment conditions
 
 ## Frequently asked questions
 
-**Can you pick the storage container names or blob path in the condition builder in the Azure portal?**
+**Can you pick the storage container names or blob path in the visual ABAC condition builder in the Azure portal?**
 
 You must write the storage container name, blob path, tag name, or values in the condition. There is no picking experience for the attribute values.
+
+**Can you check for the existence of an attribute from a condition?**
+
+You can use the `Exists` operator with any ABAC attribute, but it is only supported in the visual ABAC condition builder for a few of them. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-rest.md), and the condition code editor in the Azure portal. For a list of attributes for which it is supported in the visual condition builder, see [the *Exists* function operator](conditions-format.md#exists). To add the exists operator to an attribute when building an expression in a condition, select the supported source and attribute, then select the box next to **Exists** under it. See [Build expressions in the portal](conditions-role-assignments-portal.md#step-5-build-expressions) for more details.
 
 **Can you group expressions?**
 
 If you add three or more expressions for a targeted action, you must define the logical grouping of those expressions in the code editor, Azure PowerShell, or Azure CLI. A logical grouping of `a AND b OR c` can be either `(a AND b) OR c` or `a AND (b OR c )`.
 
-**Are conditions supported via Privileged Identity Management (PIM) for Azure resources in preview?**
+**Are conditions supported via Microsoft Entra Privileged Identity Management (Microsoft Entra PIM) for Azure resources?**
 
-Yes. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+Yes, for specific roles. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 **Are conditions supported for classic administrators?**
 
@@ -64,7 +63,7 @@ A condition is only applied to the specific targeted actions.
 
 **What are the limits for a condition?**
 
-A condition can be up to to 8 KB long.
+A condition can be up to 8 KB long.
 
 **What are the limits for a description?**
 
@@ -80,5 +79,5 @@ No, conditions in role assignments do not have an explicit deny effect. Conditio
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)

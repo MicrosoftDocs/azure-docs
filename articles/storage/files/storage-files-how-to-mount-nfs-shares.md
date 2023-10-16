@@ -1,20 +1,19 @@
 ---
-title: Mount an Azure NFS file share - Azure Files
-description: Learn how to mount a Network File System share.
+title: Mount an NFS Azure file share on Linux
+description: Learn how to mount a Network File System (NFS) Azure file share on Linux.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 10/03/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
-# How to mount an NFS file share
+# Mount NFS Azure file share on Linux
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using either the Server Message Block protocol (SMB) or the Network File System (NFS) protocol. This article is focused on mounting with NFS, for details on mounting with SMB, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
+Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB Azure file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
 
-## Limitations
+## Support
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
@@ -25,12 +24,13 @@ ms.custom: references_regions
 ## Prerequisites
 
 - [Create an NFS share](storage-files-how-to-create-nfs-shares.md).
-- Open port 2049 on any client you want to mount your NFS share to.
+- Open port 2049 on the client you want to mount your NFS share to.
 
     > [!IMPORTANT]
-    > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
-- Use one of the following networking solutions:
-    - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+    > NFS shares can only be accessed from trusted networks.
+
+- Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+- To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
@@ -44,21 +44,48 @@ ms.custom: references_regions
 
     :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
-## Mount an NFS share
+## Mount options
+
+The following mount options are recommended or required when mounting NFS Azure file shares.
+
+| **Mount option** | **Recommended value** | **Description** |
+|******************|***********************|*****************|
+| `vers` | 4 | Required. Specifies which version of the NFS protocol to use. Azure Files only supports NFS v4.1. |
+| `minorversion` | 1 | Required. Specifies the minor version of the NFS protocol. Some Linux distros don't recognize minor versions on the `vers` parameter. So instead of `vers=4.1`, use `vers=4,minorversion=1`. |
+| `sec` | sys | Required. Specifies the type of security to use when authenticating an NFS connection. Setting `sec=sys` uses the local UNIX UIDs and GIDs that use AUTH_SYS to authenticate NFS operations. |
+| `rsize` | 1048576 | Recommended. Sets the maximum number of bytes to be transferred in a single NFS read operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
+| `wsize` | 1048576 | Recommended. Sets the maximum number of bytes to be transferred in a single NFS write operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
+| `noresvport` | n/a | Recommended. Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is strongly recommended for achieving high availability. |
+| `actimeo` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
+
+## Mount an NFS share using the Azure portal
+
+> [!NOTE]
+> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nconnect).
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
-1. Connect to your client and use the provided mounting script.
+1. Connect to your client and use the provided mounting script. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade.":::
 
 You have now mounted your NFS share.
 
+## Mount an NFS share using /etc/fstab
+
+If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. Replace `YourStorageAccountName` and `FileShareName` with your information.
+
+```bash
+<YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,sec=sys 0 0
+```
+
+For more information, enter the command `man fstab` from the Linux command line.
+
 ### Validate connectivity
 
-If your mount failed, it's possible that your private endpoint was not setup correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
+If your mount failed, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
 ## Next steps
 
-- Learn more about Azure Files with our article, [Planning for an Azure Files deployment](storage-files-planning.md).
-- If you experience any issues, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
+- Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
+- If you experience any issues, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json).

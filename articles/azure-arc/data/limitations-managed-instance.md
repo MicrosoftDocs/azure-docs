@@ -3,9 +3,10 @@ title: Limitations of Azure Arc-enabled SQL Managed Instance
 description: Limitations of Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/07/2021
 ms.topic: conceptual
@@ -15,9 +16,7 @@ ms.topic: conceptual
 
 This article describes limitations of Azure Arc-enabled SQL Managed Instance. 
 
-At this time, the business critical service tier is public preview. The general purpose service tier is generally available.
-
-## Backup and restore
+## Back up and restore
 
 ### Automated backups 
 
@@ -27,14 +26,15 @@ At this time, the business critical service tier is public preview. The general 
 ### Point-in-time restore (PITR)
 
 -  Doesn't support restore from one Azure Arc-enabled SQL Managed Instance to another Azure Arc-enabled SQL Managed Instance.  The database can only be restored to the same Arc-enabled SQL Managed Instance where the backups were created.
--  Renaming of a databases is currently not supported, for point in time restore purposes.
+-  Renaming databases is currently not supported, during point in time restore.
 -  No support for restoring a TDE enabled database currently.
 -  A deleted database cannot be restored currently.
 
 ## Other limitations 
 
--  Transactional replication is currently not supported.
--  Log shipping is currently blocked.
+- Transactional replication is currently not supported.
+- Log shipping is currently blocked.
+- All user databases need to be in a full recovery model because they participate in an always-on-availability group
 
 ## Roles and responsibilities
 
@@ -42,7 +42,7 @@ The roles and responsibilities between Microsoft and its customers differ betwee
 
 ### Frequently asked questions
 
-The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
+This table summarizes answers to frequently asked questions regarding support roles and responsibilities.
 
 | Question                          | Azure Platform As A Service (PaaS) | Azure Arc hybrid services |
 |:----------------------------------|:------------------------------------:|:---------------------------:|
@@ -54,7 +54,7 @@ The table below summarizes answers to frequently asked questions regarding suppo
 
 \* Azure services
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Customers and their partners own and operate the infrastructure that Azure Arc hybrid services run on so Microsoft can't provide the SLA.
 
 ## Next steps
 

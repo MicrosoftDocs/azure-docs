@@ -1,31 +1,39 @@
 ---
-title: Create WebAssembly System Interface(WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly(WASM) workload (preview)
-description: Learn how to create a WebAssembly System Interface(WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly(WASM) workload on Kubernetes.
-services: container-service
+title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
+description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
 ms.topic: article
-ms.date: 10/12/2021
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 05/17/2023
 ---
 
 # Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 
-[WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssemblies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssemblies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssemblies to the environment and resources outside the host using a capabilities model. [Krustlet][krustlet] is an open-source project that allows WASM modules to be run on Kubernetes. Krustlet creates a kubelet that runs on nodes with a WASM/WASI runtime. AKS allows you to create node pools that run WASM assemblies using nodes with WASM/WASI runtimes and Krustlets.
+[WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssemblies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssemblies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssemblies to the environment and resources outside the host using a capabilities model.
+
+> [!IMPORTANT]
+> WASI nodepools now use [containerd shims][wasm-containerd-shims] to run WASM workloads. Previously, AKS used [Krustlet][krustlet] to allow WASM modules to be run on Kubernetes. If you are still using Krustlet-based WASI nodepools, you can migrate to containerd shims by creating a new WASI nodepool and migrating your workloads to the new nodepool.
 
 ## Before you begin
 
-WASM/WASI node pools are currently in preview.
+You must have the latest version of Azure CLI installed.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Install the aks-preview Azure CLI extension
 
-This article uses [Helm 3][helm] to install the *nginx* chart on a supported version of Kubernetes. Make sure that you are using the latest release of Helm and have access to the *bitnami* Helm repository. The steps outlined in this article may not be compatible with previous versions of the Helm chart or Kubernetes.
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-You must also have the following resource installed:
+To install the aks-preview extension, run the following command:
 
-* The latest version of the Azure CLI.
-* The `aks-preview` extension version 0.5.34 or later
+```azurecli-interactive
+az extension add --name aks-preview
+```
 
-### Register the `WasmNodePoolPreview` preview feature
+Run the following command to update to the latest version of the extension released:
 
-To use the feature, you must also enable the `WasmNodePoolPreview` feature flag on your subscription.
+```azurecli-interactive
+az extension update --name aks-preview
+```
+
+## Register the 'WasmNodePoolPreview' feature flag
 
 Register the `WasmNodePoolPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -33,38 +41,25 @@ Register the `WasmNodePoolPreview` feature flag by using the [az feature registe
 az feature register --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WasmNodePoolPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### Install the `aks-preview` Azure CLI
+## Limitations
 
-You also need the *aks-preview* Azure CLI extension version 0.5.34 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Limitations
-
-* You can't run WebAssemblies and containers in the same node pool.
-* Only the WebAssembly(WASI) runtime is available, using the Wasmtime provider.
+* Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.  
+* You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 * The WASM/WASI node pools can't be used for system node pool.
 * The *os-type* for WASM/WASI node pools must be Linux.
-* Krustlet doesn't work with Azure CNI at this time. For more information, see the [CNI Support for Kruslet GitHub issue][krustlet-cni-support].
-* Krustlet doesn't provide networking configuration for WebAssemblies. The WebAssembly manifest must provide the networking configuration, such as IP address.
+* You can't use the Azure portal to create WASM/WASI node pools.
 
 ## Add a WASM/WASI node pool to an existing AKS Cluster
 
@@ -76,7 +71,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mywasipool \
     --node-count 1 \
-    --workload-runtime wasmwasi 
+    --workload-runtime WasmWasi 
 ```
 
 > [!NOTE]
@@ -85,204 +80,132 @@ az aks nodepool add \
 Verify the *workloadRuntime* value using `az aks nodepool show`. For example:
 
 ```azurecli-interactive
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool
+az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
 ```
 
 The following example output shows the *mywasipool* has the *workloadRuntime* type of *WasmWasi*.
 
-```output
-{
-  ...
-  "name": "mywasipool",
-  ..
-  "workloadRuntime": "WasmWasi"
-}
+```azurecli-interactive
+az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
 ```
-
-For a WASM/WASI node pool, verify the taint is set to `kubernetes.io/arch=wasm32-wagi:NoSchedule` and `kubernetes.io/arch=wasm32-wagi:NoExecute`, which will prevent container pods from being scheduled on this node pool. Also, you should see nodeLabels to be `kubernetes.io/arch: wasm32-wasi`, which prevents WASM pods from being scheduled on regular container(OCI) node pools.
-
-> [!NOTE]
-> The taints for a WASI node pool are not visible using `az aks nodepool list`. Use `kubectl` to verify the taints are set on the nodes in the WASI node pool.
+```output
+"WasmWasi"
+```
 
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:  
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials -n myakscluster -g myresourcegroup
 ```
 
 Use `kubectl get nodes` to display the nodes in your cluster.
 
+```bash
+kubectl get nodes -o wide
+```
 ```output
-$ kubectl get nodes -o wide
-NAME                                 STATUS   ROLES   AGE   VERSION         INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
-aks-mywasipool-12456878-vmss000000   Ready    agent    9m   1.0.0-alpha.1   WASINODE_IP   <none>        <unknown>            <unknown>          mvp
-aks-nodepool1-12456878-vmss000000    Ready    agent   13m   v1.20.9         NODE1_IP      <none>        Ubuntu 18.04.6 LTS   5.4.0-1059-azure   containerd://1.4.9+azure
+NAME                                 STATUS   ROLES   AGE    VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+aks-mywasipool-12456878-vmss000000   Ready    agent   123m   v1.23.12   <WASINODE_IP> <none>        Ubuntu 22.04.1 LTS   5.15.0-1020-azure   containerd://1.5.11+azure-2
+aks-nodepool1-12456878-vmss000000    Ready    agent   133m   v1.23.12   <NODE_IP>     <none>        Ubuntu 22.04.1 LTS   5.15.0-1020-azure   containerd://1.5.11+azure-2
 ```
 
-Save the value of *WASINODE_IP* as it is used in later step.
+Use `kubectl describe node` to show the labels on a node in the WASI node pool. The following example shows the details of *aks-mywasipool-12456878-vmss000000*.
 
-Use `kubectl describe node` to show the labels and taints on a node in the WASI node pool. The following example shows the details of *aks-mywasipool-12456878-vmss000000*.
-
+```bash
+kubectl describe node aks-mywasipool-12456878-vmss000000
+```
 ```output
-$ kubectl describe node aks-mywasipool-12456878-vmss000000
-
 Name:               aks-mywasipool-12456878-vmss000000
 Roles:              agent
 Labels:             agentpool=mywasipool
 ...
-                    kubernetes.io/arch=wasm32-wagi
+                    kubernetes.azure.com/wasmtime-slight-v1=true
+                    kubernetes.azure.com/wasmtime-spin-v1=true
 ...
-Taints:             kubernetes.io/arch=wasm32-wagi:NoExecute
-                    kubernetes.io/arch=wasm32-wagi:NoSchedule
 ```
-
 
 ## Running WASM/WASI Workload
 
-To run a workload on a WASM/WASI node pool, add a node selector and tolerations to your deployment. For example:
+Create a file named *slight.yaml* with the following content:
 
 ```yml
-...
-spec:
-  nodeSelector:
-    kubernetes.io/arch: "wasm32-wagi"
-  tolerations:
-    - key: "node.kubernetes.io/network-unavailable"
-      operator: "Exists"
-      effect: "NoSchedule"
-    - key: "kubernetes.io/arch"
-      operator: "Equal"
-      value: "wasm32-wagi"
-      effect: "NoExecute"
-    - key: "kubernetes.io/arch"
-      operator: "Equal"
-      value: "wasm32-wagi"
-      effect: "NoSchedule"
-...
-```
-
-To run a sample deployment, create a `wasi-example.yaml` file using the following YAML definition:
-
-```yml
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: krustlet-wagi-demo
-  labels:
-    app: krustlet-wagi-demo
-  annotations:
-    alpha.wagi.krustlet.dev/default-host: "0.0.0.0:3001"
-    alpha.wagi.krustlet.dev/modules: |
-      {
-        "krustlet-wagi-demo-http-example": {"route": "/http-example", "allowed_hosts": ["https://api.brigade.sh"]},
-        "krustlet-wagi-demo-hello": {"route": "/hello/..."},
-        "krustlet-wagi-demo-error": {"route": "/error"},
-        "krustlet-wagi-demo-log": {"route": "/log"},
-        "krustlet-wagi-demo-index": {"route": "/"}
-      }
+  name: wasm-slight
 spec:
-  hostNetwork: true
-  nodeSelector:
-    kubernetes.io/arch: wasm32-wagi
-  containers:
-    - image: webassembly.azurecr.io/krustlet-wagi-demo-http-example:v1.0.0
-      imagePullPolicy: Always
-      name: krustlet-wagi-demo-http-example
-    - image: webassembly.azurecr.io/krustlet-wagi-demo-hello:v1.0.0
-      imagePullPolicy: Always
-      name: krustlet-wagi-demo-hello
-    - image: webassembly.azurecr.io/krustlet-wagi-demo-index:v1.0.0
-      imagePullPolicy: Always
-      name: krustlet-wagi-demo-index
-    - image: webassembly.azurecr.io/krustlet-wagi-demo-error:v1.0.0
-      imagePullPolicy: Always
-      name: krustlet-wagi-demo-error
-    - image: webassembly.azurecr.io/krustlet-wagi-demo-log:v1.0.0
-      imagePullPolicy: Always
-      name: krustlet-wagi-demo-log
-  tolerations:
-    - key: "node.kubernetes.io/network-unavailable"
-      operator: "Exists"
-      effect: "NoSchedule"
-    - key: "kubernetes.io/arch"
-      operator: "Equal"
-      value: "wasm32-wagi"
-      effect: "NoExecute"
-    - key: "kubernetes.io/arch"
-      operator: "Equal"
-      value: "wasm32-wagi"
-      effect: "NoSchedule"
-```
-
-Use `kubectl` to run your example deployment:
-
-```azurecli-interactive
-kubectl apply -f wasi-example.yaml
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wasm-slight
+  template:
+    metadata:
+      labels:
+        app: wasm-slight
+    spec:
+      runtimeClassName: wasmtime-slight-v1
+      containers:
+        - name: hello-slight
+          image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:v0.3.3
+          command: ["/"]
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wasm-slight
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: wasm-slight
 ```
 
 > [!NOTE]
-> The pod for the example deployment may stay in the *Registered* status. This behavior is expected, and you and proceed to the next step.
+> When developing applications, modules should be build against the `wasm32-wasi` target. For more details, see the [spin][spin] and [slight][slight] documentation.
 
-Create `values.yaml` using the example yaml below, replacing *WASINODE_IP* with the value from the earlier step.
+Use `kubectl` to run your example deployment:
 
-```yml
-serverBlock: |-
-  server {
-    listen 0.0.0.0:8080;
-    location / {
-            proxy_pass http://WASINODE_IP:3001;
-    }
-  }
+```bash
+kubectl apply -f slight.yaml
 ```
 
-Using [Helm][helm], add the *bitnami* repository and install the *nginx* chart with the `values.yaml` file you created in the previous step. Installing NGINX with the above `values.yaml` creates a reverse proxy to the example deployment, allowing you to access it using an external IP address.
+Use `kubectl get svc` to get the external IP address of the service.
 
->[!NOTE]
-> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.][dockerhub-callout]
-
-```console
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo update
-helm install hello-wasi bitnami/nginx -f values.yaml
+```bash
+kubectl get svc
+```
+```output
+NAME          TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)        AGE
+kubernetes    ClusterIP      10.0.0.1       <none>         443/TCP        10m
+wasm-slight   LoadBalancer   10.0.133.247   <EXTERNAL-IP>  80:30725/TCP   2m47s
 ```
 
-Use `kubectl get service` to display the external IP address of the *hello-wasi-ngnix* service.
+Access the example application at `http://EXTERNAL-IP/hello`. The following example uses `curl`.
 
 ```output
-$ kubectl get service
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)        AGE
-hello-wasi-nginx   LoadBalancer   10.0.58.239   EXTERNAL_IP      80:32379/TCP   112s
-kubernetes         ClusterIP      10.0.0.1      <none>           443/TCP        145m
+curl http://EXTERNAL-IP/hello
+hello
 ```
 
-Verify the example deployment is running by the `curl` command against the `/hello` path of *EXTERNAL_IP*.
-
-```azurecli-interactive
-curl EXTERNAL_IP/hello
-```
-
-The follow example output confirms the example deployment is running.
-
-```output
-$ curl EXTERNAL_IP/hello
-hello world
-```
-
-> [!NOTE] 
-> To publish the service on your own domain, see [Azure DNS][azure-dns-zone] and the [external-dns][external-dns] project.
+> [!NOTE]
+> If your request times out, use `kubectl get pods` and `kubectl describe pod <POD_NAME>` to check the status of the pod. If the pod is not running, use `kubectl get rs` and `kubectl describe rs <REPLICA_SET_NAME>` to see if the replica set is having issues creating a new pod.
 
 ## Clean up
 
-To remove NGINX, use `helm delete`.
-
-```console
-helm delete hello-wasi
-```
-
 To remove the example deployment, use `kubectl delete`.
 
-```azurecli-interactive
-kubectl delete -f wasi-example.yaml
+```bash
+kubectl delete -f slight.yaml
 ```
 
 To remove the WASM/WASI node pool, use `az aks nodepool delete`.
@@ -300,7 +223,10 @@ az aks nodepool delete --name mywasipool -g myresourcegroup --cluster-name myaks
 [wasi]: https://wasi.dev/
 [azure-dns-zone]: https://azure.microsoft.com/services/dns/
 [external-dns]: https://github.com/kubernetes-sigs/external-dns
-
+[wasm-containerd-shims]: https://github.com/deislabs/containerd-wasm-shims
+[spin]: https://spin.fermyon.dev/
+[slight]: https://github.com/deislabs/spiderlightning#spiderlightning-or-slight
+[wasmtime]: https://wasmtime.dev/
 <!-- INTERNAL LINKS -->
 
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -313,9 +239,9 @@ az aks nodepool delete --name mywasipool -g myresourcegroup --cluster-name myaks
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [dockerhub-callout]: ../container-registry/buffer-gate-public-content.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-multiple-node-pools]: use-multiple-node-pools.md

@@ -2,17 +2,17 @@
 title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template (ARM template) to create multiple Azure resource instances.
 author: mumian
-ms.date: 04/23/2020
+ms.date: 09/28/2022
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create multiple resource instances with ARM templates
 
 Learn how to iterate in your Azure Resource Manager template (ARM template) to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
 
-![Azure Resource Manager creates multiple instances diagram](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png" alt-text="Diagram showing Azure Resource Manager creating multiple instances.":::
 
 This tutorial covers the following tasks:
 
@@ -23,7 +23,7 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+For a Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ To complete this article, you need:
     ```
 
 1. Select **Open** to open the file.
-1. There is a `Microsoft.Storage/storageAccounts` resource defined in the template. Compare the template to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts). It's helpful to get some basic understanding of the template before customizing it.
+1. There's a `Microsoft.Storage/storageAccounts` resource defined in the template. Compare the template to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts). It's helpful to get some basic understanding of the template before customizing it.
 1. Select **File** > **Save As** to save the file as _azuredeploy.json_ to your local computer.
 
 ## Edit the template
@@ -52,12 +52,28 @@ The existing template creates one storage account. You customize the template to
 
 From Visual Studio Code, make the following four changes:
 
-![Azure Resource Manager creates multiple instances](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="Screenshot of Visual Studio Code with Azure Resource Manager creating multiple instances.":::
 
 1. Add a `copy` element to the storage account resource definition. In the `copy` element, you specify the number of iterations and a variable for this loop. The count value must be a positive integer and can't exceed 800.
-2. The `copyIndex()` function returns the current iteration in the loop. You use the index as the name prefix. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the `copyIndex()` function. For example, `copyIndex(1)`.
-3. Delete the `variables` element, because it's not used anymore.
-4. Delete the `outputs` element. It's no longer needed.
+
+    ```json
+    "copy": {
+      "name": "storageCopy",
+      "count": 3
+    },
+    ```
+
+1. The `copyIndex()` function returns the current iteration in the loop. You use the index as the name prefix. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the `copyIndex()` function. For example, `copyIndex(1)`.
+
+    ```json
+    "name": "[format('{0}storage{1}', copyIndex(), uniqueString(resourceGroup().id))]",
+    ```
+
+    ```
+
+1. Delete the `storageAccountName` parameter definition, because it's not used anymore.
+1. Delete the `outputs` element. It's no longer needed.
+1. Delete the `metadata` element.
 
 The completed template looks like:
 
@@ -70,10 +86,14 @@ The completed template looks like:
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
-        "Standard_LRS",
+        "Premium_LRS",
+        "Premium_ZRS",
         "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
+        "Standard_GZRS",
+        "Standard_LRS",
+        "Standard_RAGRS",
+        "Standard_RAGZRS",
+        "Standard_ZRS"
       ],
       "metadata": {
         "description": "Storage Account type"
@@ -83,22 +103,22 @@ The completed template looks like:
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "Location for all resources."
+        "description": "Location for the storage account."
       }
     }
   },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "apiVersion": "2021-06-01",
+      "name": "[format('{0}storage{1}', copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('storageAccountType')]"
       },
       "kind": "StorageV2",
       "copy": {
-        "name": "storagecopy",
+        "name": "storageCopy",
         "count": 3
       },
       "properties": {}
@@ -106,6 +126,8 @@ The completed template looks like:
   ]
 }
 ```
+
+Save the changes.
 
 For more information about creating multiple instances, see [Resource iteration in ARM templates](./copy-resources.md)
 
@@ -146,7 +168,7 @@ For more information about creating multiple instances, see [Resource iteration 
 
     ---
 
-After a successful template deployment you can display the three storage accounts created in the specified resource group. Compare the storage account names with the name definition in the template.
+After a successful template deployment, you can display the three storage accounts created in the specified resource group. Compare the storage account names with the name definition in the template.
 
 # [CLI](#tab/azure-cli)
 

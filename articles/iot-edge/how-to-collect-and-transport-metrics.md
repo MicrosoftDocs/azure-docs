@@ -1,31 +1,33 @@
 ---
-title: Collect and transport metrics - Azure IoT Edge
+title: Collect and transport Azure IoT Edge metrics
 description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics
-author: veyalla
+author: PatAltimore
 
 ms.author: veyalla
-ms.date: 08/11/2021
+ms.date: 06/07/2023
 ms.topic: conceptual
-ms.reviewer: kgremban
+ms.reviewer: veyalla
 ms.service: iot-edge 
 services: iot-edge
 ---
 
 # Collect and transport metrics
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration. To enable this capability on your device, add the metrics-collector module to your deployment and configure it to collect and transport module metrics to Azure Monitor.
 
+To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md). You learn how to add the metrics-collector module to your device. This article gives you an overview of the monitoring architecture and explains your options on configuring metrics on your device.
+
 > [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
 
-<a href="/_themes/docs.theme/master/_themes/global/video-embed.html?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
+<a href="https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
 
 ## Architecture
 
 # [IoT Hub](#tab/iothub)
 
-[![Metrics monitoring architecture with IoT Hub](./media/how-to-collect-and-transport-metrics/arch.png)](./media/how-to-collect-and-transport-metrics/arch.png#lightbox)
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/arch.png" alt-text="Screenshot of the metrics monitoring architecture with IoT Hub." lightbox="./media/how-to-collect-and-transport-metrics/arch.png":::
 
 | Note | Description |
 |-|-|
@@ -40,7 +42,7 @@ You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in me
 
 # [IoT Central](#tab/iotcentral)
 
-[![Metrics monitoring architecture with IoT Central](./media/how-to-collect-and-transport-metrics/arch-iot-central.png)](./media/how-to-collect-and-transport-metrics/arch-iot-central.png#lightbox)
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/arch-iot-central.png" alt-text="Screenshot of metrics monitoring architecture with IoT Central." lightbox="./media/how-to-collect-and-transport-metrics/arch-iot-central.png":::
 
 | Note | Description |
 |-|-|
@@ -62,7 +64,7 @@ It also available in the [IoT Edge Module Marketplace](https://aka.ms/edgemon-mo
 
 ## Metrics collector configuration
 
-All configuration for the metrics-collector is done using environment variables. Minimally, the variables noted in the table below marked as **Required** need to be specified.
+All configuration for the metrics-collector is done using environment variables. Minimally, the variables noted in this table marked as **Required** need to be specified.
 
 # [IoT Hub](#tab/iothub)
 
@@ -74,8 +76,8 @@ All configuration for the metrics-collector is done using environment variables.
 | `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
 | `ScrapeFrequencyInSecs` | Recurring time interval in seconds at which to collect and transport metrics.<br><br>  Example: *600* <br><br>  **Not required** <br><br> Default value: *300* |
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
-| `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
-| `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric won't be reported if it's included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
+| `AllowedMetrics` | List of metrics to collect, all other metrics are ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
+| `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric isn't reported if it's included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
 | `CompressForUpload` | Controls if compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
 | `AzureDomain` | Specifies the top-level Azure domain to use when ingesting metrics directly to Log Analytics. <br><br>  Example: *azure.us* <br><br>    **Not required** <br><br>  Default value: *azure.com* |
 
@@ -89,8 +91,8 @@ All configuration for the metrics-collector is done using environment variables.
 | `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
 | `ScrapeFrequencyInSecs` | Recurring time interval in seconds at which to collect and transport metrics.<br><br>  Example: *600* <br><br>  **Not required** <br><br> Default value: *300* |
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
-| `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
-| `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric won't be reported if it's included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
+| `AllowedMetrics` | List of metrics to collect, all other metrics are ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
+| `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric is reported if it's included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
 | `CompressForUpload` | Controls if compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
 | `AzureDomain` | Specifies the top-level Azure domain to use when ingesting metrics directly to Log Analytics. <br><br>  Example: *azure.us* <br><br>    **Not required** <br><br>  Default value: *azure.com* |
 
@@ -112,7 +114,7 @@ The resource ID takes the following format:
 
 You can find the resource ID in the **Properties** page of the IoT hub in the Azure portal.
 
-:::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/hub-id.png" alt-text="Screenshot the shows how to retrieve your resource ID from the IoT Hub properties." lightbox="./media/how-to-collect-and-transport-metrics/hub-id.png":::
 
 Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
@@ -148,7 +150,7 @@ az resource show -g <resource group> -n <application name> --resource-type "Micr
 
 The **UploadTarget** configuration option controls whether metrics are sent directly to Azure Monitor or to IoT Hub.
 
-If you set **UploadTarget** to **IoTMessage**, then your module metrics are published as IoT messages. These messages are emitted as UTF8-encoded json from the endpoint `/messages/modules/<module name>/outputs/metricOutput`. The format is as follows:
+If you set **UploadTarget** to **IoTMessage**, then your module metrics are published as IoT messages. These messages are emitted as UTF8-encoded json from the endpoint `/messages/modules/<metrics collector module name>/outputs/metricOutput`. For example, if your IoT Edge Metrics Collector module is named **IoTEdgeMetricsCollector**, the endpoint is `/messages/modules/IoTEdgeMetricsCollector/outputs/metricOutput`. The format is as follows:
 
 ```json
 [{
@@ -172,7 +174,7 @@ If you set **UploadTarget** to **IoTMessage**, then your module metrics are publ
 
 The **UploadTarget** configuration option controls whether metrics are sent directly to Azure Monitor or to IoT Central.
 
-If you set **UploadTarget** to **IoTMessage**, then your module metrics are published as IoT messages. These messages are emitted as UTF8-encoded json from the endpoint `/messages/modules/<module name>/outputs/metricOutput`. The format is as follows:
+If you set **UploadTarget** to **IoTMessage**, then your module metrics are published as IoT messages. These messages are emitted as UTF8-encoded json from the endpoint `/messages/modules/<metrics collector module name>/outputs/metricOutput`. For example, if your IoT Edge Metrics Collector module is named **IoTEdgeMetricsCollector**, the endpoint is `/messages/modules/IoTEdgeMetricsCollector/outputs/metricOutput`. The format is as follows:
 
 ```json
 [{
@@ -196,7 +198,7 @@ If you set **UploadTarget** to **IoTMessage**, then your module metrics are publ
 
 ### Allow and disallow lists
 
-The `AllowedMetrics` and `BlockedMetrics` configuration options take space- or comma-separated lists of metric selectors. A metric will match the list and be included or excluded if it matches one or more metrics in either list.
+The `AllowedMetrics` and `BlockedMetrics` configuration options take space- or comma-separated lists of metric selectors. A metric matches the list and is included or excluded if it matches one or more metrics in either list.
 
 Metric selectors use a format similar to a subset of the [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language.
 
@@ -214,13 +216,13 @@ Metric name (`metricToSelect`).
 Label-based selectors (`{quantile=0.5,otherLabel=~Re[ge]*|x}`).
 
 * Multiple metric values can be included in the curly brackets. The values should be comma-separated.
-* A metric will be matched if at least all labels in the selector are present and also match.
+* A metric is matched if at least all labels in the selector are present and also match.
 * Like PromQL, the following matching operators are allowed.
   * `=` Match labels exactly equal to the provided string (case sensitive).
   * `!=` Match labels not exactly equal to the provided string.
   * `=~` Match labels to a provided regex. ex: `label=~CPU|Mem|[0-9]*`
   * `!~` Match labels that don't fit a provided regex.
-  * Regex is fully anchored (A ^ and $ are automatically added to the start and end of each regex)
+  * Regex is fully anchored (A `^` and `$` are automatically added to the start and end of each regex)
   * This component is optional in a metrics selector.
 
 Endpoint selector (`[http://VeryNoisyModule:9001/metrics]`).
@@ -261,25 +263,25 @@ Set `NO_PROXY` value to a comma-separated list of hostnames that should be exclu
 
 # [IoT Hub](#tab/iothub)
 
-Sometimes it's necessary to ingest metrics though IoT Hub instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with outbound network access only to IoT Hub.
+Sometimes it's necessary to ingest metrics through IoT Hub instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with *outbound network access only* to IoT Hub.
 
 To enable monitoring in this scenario, the metrics-collector module can be configured to send metrics as device-to-cloud (D2C) messages via the edgeHub module. The capability can be turned on by setting the `UploadTarget` environment variable to `IoTMessage` in the collector [configuration](#metrics-collector-configuration).
 
 >[!TIP]
 >Remember to add an edgeHub route to deliver metrics messages from the collector module to IoT Hub. It looks like `FROM /messages/modules/replace-with-collector-module-name/* INTO $upstream`.
 
-This option does require [extra setup](how-to-collect-and-transport-metrics.md#sample-cloud-workflow) to deliver metrics messages arriving at IoT Hub to the Log Analytics workspace. Without this set up, the other portions of the integration such as [curated visualizations](how-to-explore-curated-visualizations.md) and [alerts](how-to-create-alerts.md) won't work.
+This option does require extra setup, a cloud workflow, to deliver metrics messages arriving at IoT Hub to the Log Analytics workspace. Without this set up, the other portions of the integration such as [curated visualizations](how-to-explore-curated-visualizations.md) and [alerts](how-to-create-alerts.md) don't work.
 
 >[!NOTE]
 >Be aware of additional costs with this option. Metrics messages will count against your IoT Hub message quota. You will also be charged for Log Analytics ingestion and cloud workflow resources.
 
 ### Sample cloud workflow
 
-A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution#monitoring-architecture-reference). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
+A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/CloudWorkflow.md). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
 
 # [IoT Central](#tab/iotcentral)
 
-Sometimes it's necessary to ingest metrics though IoT Central instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with outbound network access only to IoT Central.
+Sometimes it's necessary to ingest metrics through IoT Central instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with *outbound network access only* to IoT Central.
 
 To enable monitoring in this scenario, the metrics-collector module can be configured to send metrics as device-to-cloud (D2C) messages via the edgeHub module. The capability can be turned on by setting the `UploadTarget` environment variable to `IoTMessage` in the collector [configuration](#metrics-collector-configuration).
 
@@ -384,11 +386,11 @@ To view the metrics from your IoT Edge device in your IoT Central application:
 
 * Add the **IoT Edge Metrics standard interface** as an inherited interface to your [device template](../iot-central/core/concepts-device-templates.md):
 
-    :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Add the IoT Edge Metrics standard interface.":::
+  :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Screenshot that shows how to add the IoT Edge Metrics standard interface." lightbox="media/how-to-collect-and-transport-metrics/add-metrics-interface.png":::
 
 * Use the telemetry values defined in the interface to build any [dashboards](../iot-central/core/howto-manage-dashboards.md) you need to monitor your IoT Edge devices:
 
-    :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="IoT Edge metrics available as telemetry.":::
+  :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="Screenshot that shows the IoT Edge metrics available as telemetry." lightbox="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png":::
 
 >[!NOTE]
 >Be aware of additional costs with this option. Metrics messages will count against your IoT Central message quota.

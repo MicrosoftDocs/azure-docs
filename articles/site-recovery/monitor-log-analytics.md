@@ -3,31 +3,32 @@ title: Monitor Azure Site Recovery with Azure Monitor Logs
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/15/2019
-
+ms.date: 08/31/2023
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 # Monitor Site Recovery with Azure Monitor Logs
 
 This article describes how to monitor machines replicated by Azure [Site Recovery](site-recovery-overview.md), using [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md), and [Log Analytics](../azure-monitor/logs/log-query-overview.md).
 
-Azure Monitor Logs provide a log data platform that collects activity and resource logs, along with other monitoring data. Within Azure Monitor Logs, you use Log Analytics to write and test log queries, and to interactively analyze log data. You can visualize and query log results, and configure alerts to take actions based on monitored data.
+Azure Monitor Logs provide a log data platform that collects activity and resource logs, along with other monitoring data. Within Azure Monitor Logs, you use Log Analytics to write and test log queries and interactively analyze log data. You can visualize and query log results, and configure alerts to take actions based on monitored data.
 
 For Site Recovery, you can use Azure Monitor Logs to help you do the following:
 
 - **Monitor Site Recovery health and status**. For example, you can monitor replication health, test failover status, Site Recovery events, recovery point objectives (RPOs) for protected machines, and disk/data change rates.
 - **Set up alerts for Site Recovery**. For example, you can configure alerts for machine health, test failover status, or Site Recovery job status.
 
-Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** replication, and **VMware VM/physical server to Azure** replication.
+Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** replication and **VMware VM/physical server to Azure** replication.
 
 > [!NOTE]
-> To get the churn data logs and upload rate logs for VMware and physical machines, you need to install a Microsoft monitoring agent on the Process Server. This agent sends the logs of the replicating machines to the workspace. This capability is available only for 9.30 mobility agent version onwards.
+> To get the churn data logs and upload rate logs for VMware and physical machines, you need to install a Microsoft monitoring agent on the Process Server. This agent sends the logs of the replicating machines to the workspace. This capability is available only for the 9.30 mobility agent version onwards.
 
-## Before you start
+## Prerequisites
 
 Here's what you need:
 
-- At least one machine protected in a Recovery Services vault.
+- At least one machine is protected in a Recovery Services vault.
 - A Log Analytics workspace to store Site Recovery logs. [Learn about](../azure-monitor/logs/quick-create-workspace.md) setting up a workspace.
 - A basic understanding of how to write, run, and analyze log queries in Log Analytics. [Learn more](../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -35,14 +36,14 @@ We recommend that you review [common monitoring questions](monitoring-common-que
 
 ## Configure Site Recovery to send logs
 
-1. In the vault, click **Diagnostic settings** > **Add diagnostic setting**.
+1. In the vault, select **Diagnostic settings** > **Add diagnostic setting**.
 
     ![Screenshot showing the Add diagnostic setting option.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. In **Diagnostic settings**, specify a name, and check the box **Send to Log Analytics**.
-3. Select the Azure Monitor Logs subscription, and the Log Analytics workspace.
+3. Select the Azure Monitor Logs subscription and the Log Analytics workspace.
 4. Select **Azure Diagnostics** in the toggle.
-5. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then click **OK**.
+5. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then select **OK**.
 
     ![Screenshot of the Diagnostics setting screen.](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -52,14 +53,14 @@ The Site Recovery logs start to feed into a table (**AzureDiagnostics**) in the 
 
 You can capture the data churn rate information and source data upload rate information for your VMware/physical machines at on-premises. To enable this, a Microsoft monitoring agent is required to be installed on the Process Server.
 
-1. Go to the Log Analytics workspace and click on **Advanced Settings**.
-2. Click on **Connected Sources** page and further select **Windows Servers**.
-3. Download the Windows Agent (64 bit) on the Process Server. 
+1. Go to the Log Analytics workspace and select **Advanced Settings**.
+2. Select **Connected Sources** page and further select **Windows Servers**.
+3. Download the Windows Agent (64-bit) on the Process Server. 
 4. [Obtain the workspace ID and key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key)
 5. [Configure agent to use TLS 1.2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Complete the agent installation](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) by providing the obtained workspace ID and key.
-7. Once the installation is complete, go to Log Analytics workspace and click on **Advanced Settings**. Go to the **Data** page and further click on **Windows Performance Counters**. 
-8. Click on **'+'** to add the following two counters with sample interval of 300 seconds:
+6. [Complete the agent installation](../azure-monitor/agents/agent-windows.md#install-the-agent) by providing the obtained workspace ID and key.
+7. Once the installation is complete, go to Log Analytics workspace and select **Legacy agents management**. Go to the **Data** page and select **Windows Performance Counters**. 
+8. Select **'+'** to add the following two counters with a sample interval of 300 seconds:
 
     - ASRAnalytics(*)\SourceVmChurnRate
     - ASRAnalytics(*)\SourceVmThrpRate
@@ -72,7 +73,7 @@ The churn and upload rate data will start feeding into the workspace.
 You retrieve data from logs using log queries written with the [Kusto query language](../azure-monitor/logs/get-started-queries.md). This section provides a few examples of common queries you might use for Site Recovery monitoring.
 
 > [!NOTE]
-> Some of the examples use **replicationProviderName_s** set to **A2A**. This retrieves Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageAzureV2**, if you want to retrieve on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
+> Some of the examples use **replicationProviderName_s** set to **A2A**. This retrieves Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageRcm**, if you want to retrieve on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
 
 
 ### Query replication health
@@ -207,7 +208,7 @@ Category contains "Upload", "UploadRate", "none") 
 > [!Note]
 > Ensure you set up the monitoring agent on the Process Server to fetch these logs. Refer [steps to configure monitoring agent](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
 
-This query plots a trend graph for a specific disk **disk0** of a replicated item **win-9r7sfh9qlru**, that represents the data change rate (Write Bytes per Second), and data upload rate. You can find the disk name on **Disks** blade of the replicated item in the recovery services vault. Instance name to be used in the query is DNS name of the machine followed by _ and disk name as in this example.
+This query plots a trend graph for a specific disk, **disk0**, of a replicated item, **win-9r7sfh9qlru**, which represents the data change rate (Write Bytes per Second) and data upload rate. You can find the disk name on the **Disks** blade of the replicated item in the recovery services vault. The instance name to be used in the query is the DNS name of the machine followed by _ and the disk name as in this example.
 
 ```
 Perf
@@ -221,7 +222,7 @@ Process Server pushes this data every 5 minutes to the Log Analytics workspace. 
 
 ### Query disaster recovery summary (Azure to Azure)
 
-This query plots a summary table for Azure VMs replicated to a secondary Azure region.  It shows VM name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the source location.
+This query plots a summary table for Azure VMs replicated to a secondary Azure region.  It shows the VM name, replication, and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the source location.
 
 ```
 AzureDiagnostics 
@@ -233,11 +234,11 @@ AzureDiagnostics 
 
 ### Query disaster recovery summary (VMware/physical servers)
 
-This query plots a summary table for VMware VMs and physical servers replicated to Azure.  It shows  machine name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the relevant process server.
+This query plots a summary table for VMware VMs and physical servers replicated to Azure.  It shows the machine name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the relevant process server.
 
 ```
 AzureDiagnostics  
-| where replicationProviderName_s == "InMageAzureV2"   
+| where replicationProviderName_s == "InMageRcm"   
 | where isnotempty(name_s) and isnotnull(name_s)   
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, ProcessServer = processServerName_g  
@@ -248,7 +249,7 @@ AzureDiagnostics 
 You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/alerts/alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal) about setting up log alerts. 
 
 > [!NOTE]
-> Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.
+> Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageRcm** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.
 
 ### Multiple machines in a critical state
 
@@ -262,7 +263,7 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count() 
 ```
-For the alert, set **Threshold value** to 20.
+For the alert, set **Threshold value** to `20`.
 
 ### Single machine in a critical state
 
@@ -277,7 +278,7 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-For the alert, set **Threshold value** to 1.
+For the alert, set **Threshold value** to `1`.
 
 ### Multiple machines exceed RPO
 
@@ -291,7 +292,7 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-For the alert, set **Threshold value** to 20.
+For the alert, set **Threshold value** to `20`.
 
 ### Single machine exceeds RPO
 
@@ -307,7 +308,7 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-For the alert, set **Threshold value** to 1.
+For the alert, set **Threshold value** to `1`.
 
 ### Test failover for multiple machines exceeds 90 days
 
@@ -322,9 +323,9 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-For the alert, set **Threshold value** to 20.
+For the alert, set **Threshold value** to `20`.
 
-### Test failover for single machine exceeds 90 days
+### Test failover for a single machine exceeds 90 days
 
 Set up an alert if the last successful test failover for a specific VM was more than 90 days ago.
 ```
@@ -337,7 +338,7 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-For the alert, set **Threshold value** to 1.
+For the alert, set **Threshold value** to `1`.
 
 ### Site Recovery job fails
 

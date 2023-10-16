@@ -1,34 +1,32 @@
 ---
-title: Manage your personal preferences on IoT Central | Microsoft Docs
+title: Manage your personal preferences on IoT Central
 description: How to manage your personal application preferences such as changing language, theme, and default organization in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/04/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
 
 # This article applies to operators, builders, and administrators.
 ---
 # Manage your personal application preferences
 
-IoT Central provides the flexibility to customize your applications to fit your need. IoT Central also provides some flexibility on a per-user basis to customize your own view. This article describes the various customization options that a user can apply to their profile.
+IoT Central provides the flexibility to customize your applications to meet your needs. IoT Central also provides some flexibility on a per-user basis to customize your own views. This article describes the various customization options available to a user.
 
 ## Change language
 
-IoT Central is supported in multiple languages. You can switch your preferred language by using the **language picker** on the settings icon on the top navigation bar. Once you've changed your language, IoT Central remembers your selection and applies it across all your applications. Customization within the application such dashboard images aren't localized.
+IoT Central is supported in multiple languages. You can switch your preferred language by using the **language picker** on the settings icon on the top navigation bar. Once you've changed your language, IoT Central remembers your selection and applies it across all your applications. Customization within the application such as dashboard images aren't localized.
 
 ## Change theme
 
-We have support for both dark theme and light theme. While the light theme is the default, you can change the theme by selecting the settings icon on the top navigation bar.
+IoT Central supports both a dark theme and a light theme. The light theme is the default and you can change it by selecting the settings icon on the top navigation bar.
 
-![IoT Central theme picker](media/howto-manage-preferences/settings.png)
+:::image type="content" source="media/howto-manage-preferences/settings.png" alt-text="Screenshot that shows how to access the theme settings." lightbox="media/howto-manage-preferences/settings.png":::
 
 > [!NOTE]
 > The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
 
 ## Change default organization
 
-If your application uses organizations, you can select a default organization to use whenever you need to select an organization. For example, the default organization pre-populates the organization field when you add a new device to your application.
-
+If your application uses organizations, you can select a default organization to use whenever you need to select an organization. For example, the default organization prepopulates the organization field when you add a new device to your application.

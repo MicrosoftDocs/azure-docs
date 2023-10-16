@@ -11,7 +11,7 @@ Within namespaces, Azure Service Bus supports [creating topologies of chained qu
 
 Many sophisticated solutions also require messages to be replicated across namespace boundaries in order to implement these and other patterns. Messages may have to flow between namespaces associated with multiple, different application tenants, or across multiple, different Azure regions. 
 
-Your solution will maintain multiple Service Bus namespaces in different regions and replicate messages between Queues and Topics, and/or that you will exchange messages with sources and targets like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
+Your solution will maintain multiple Service Bus namespaces in different regions and replicate messages between Queues and Topics, and/or that you will exchange messages with sources and targets like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure IoT Hub](../iot/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
 
 These scenarios are the focus of this article. 
 
@@ -19,7 +19,7 @@ These scenarios are the focus of this article.
 
 There are numerous potential motivations for why you may want to move messages between Service Bus entities like Queues or Topics, or between Service Bus and other sources and targets. 
 
-Compared with the similar set of patterns for [Event Hubs](../service-bus-messaging/service-bus-federation-overview.md), federation for queue-like entities is more complex because message queues promise their consumers exclusive ownership over any single message, are expected to preserve arrival order in message delivery, and for the broker to coordinate fair distribution of messages between [competing consumers](/azure/architecture/patterns/competing-consumers). 
+Compared with the similar set of patterns for [Event Hubs](../event-hubs/event-hubs-federation-overview.md), federation for queue-like entities is more complex because message queues promise their consumers exclusive ownership over any single message, are expected to preserve arrival order in message delivery, and for the broker to coordinate fair distribution of messages between [competing consumers](/azure/architecture/patterns/competing-consumers). 
 
 There are practical impediments, including the constraints of the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), that make it difficult to provide a unified view of a queue that is simultaneously available in multiple regions, and which allows for regionally distributed, [competing consumers](/azure/architecture/patterns/competing-consumers) to take exclusive ownership of messages. Such a geo-distributed queue would require fully consistent replication not only of messages, but also of the delivery state of every message before messages can be made available to consumers. A goal of a full consistency for a hypothetical, regionally distributed queue is in direct conflict with the key goal that practically all Azure Service Bus customers have when considering federation scenarios: Maximum availability and reliability for their solutions. 
 
@@ -50,7 +50,7 @@ A subscription with a respective rule can be easily added to any topic using the
 ```azurecli
 
 az servicebus topic subscription rule create --resource-group myresourcegroup \
-   --namespace mynamespace --topic-name mytopic 
+   --namespace mynamespace --topic-name mytopic \
    --subscription-name replication --name replication \
    --action-sql-expression "set replication = 1" \
    --filter-sql-expression "replication IS NULL"
@@ -161,6 +161,10 @@ Most importantly, Azure Functions has prebuilt, scalable triggers and output bin
 With the Azure Functions consumption plan, the prebuilt triggers can even scale down to zero while no messages are available for replication, which means you incur no costs for keeping the configuration ready to scale back up. The key downside of using the consumption plan is that the latency for replication tasks "waking up" from this state is significantly higher than with the hosting plans where the infrastructure is kept running.  
 
 In contrast to all of this, most common replication engines for messaging and eventing, such as Apache Kafka's [MirrorMaker](http://kafka.apache.org/documentation/#basic_ops_mirror_maker) require you to provide a hosting environment and scale the replication engine yourself. That includes configuring and integrating the security and networking features and facilitating the flow of monitoring data, and then you still don't have an opportunity to inject custom replication tasks into the flow. 
+
+### Replication tasks with Azure Logic Apps
+
+A non-coding alternative to doing replication using Functions would be to use [Logic Apps](../logic-apps/logic-apps-overview.md) instead. Logic Apps have [predefined replication tasks](../logic-apps/create-replication-tasks-azure-resources.md) for Service Bus. These can help with setting up replication between different instances, and can be adjusted for further customization.
 
 ## Next Steps
 

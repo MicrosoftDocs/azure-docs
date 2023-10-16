@@ -8,21 +8,21 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
 
 # Azure Key Vault logging
 
-After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide. For step by step guidance on setting this up, see [How to enable Key Vault logging](howto-logging.md).
+After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. Enabling logging for Azure Key Vault saves this information in an Azure storage account that you provide. For step by step guidance, see [How to enable Key Vault logging](howto-logging.md).
 
-You can access your logging information 10 minutes (at most) after the key vault operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
+You can access your logging information 10 minutes (at most) after the key vault operation. In most cases, it will be quicker.  It's up to you to manage your logs in your storage account:
 
 * Use standard Azure access control methods in your storage account to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 
-For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
+For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../key-vault-insights-overview.md).
 
 ## Interpret your Key Vault logs
 
@@ -58,17 +58,17 @@ The following table lists the field names and descriptions:
 | Field name | Description |
 | --- | --- |
 | **time** |Date and time in UTC. |
-| **resourceId** |Azure Resource Manager resource ID. For Key Vault logs, this is always the Key Vault resource ID. |
+| **resourceId** |Azure Resource Manager resource ID. For Key Vault logs, it is always the Key Vault resource ID. |
 | **operationName** |Name of the operation, as documented in the next table. |
 | **operationVersion** |REST API version requested by the client. |
 | **category** |Type of result. For Key Vault logs, `AuditEvent` is the single, available value. |
 | **resultType** |Result of the REST API request. |
 | **resultSignature** |HTTP status. |
-| **resultDescription** |Additional description about the result, when available. |
-| **durationMs** |Time it took to service the REST API request, in milliseconds. This does not include the network latency, so the time you measure on the client side might not match this time. |
+| **resultDescription** |More description about the result, when available. |
+| **durationMs** |Time it took to service the REST API request, in milliseconds. The time does not include the network latency, so the time you measure on the client side might not match this time. |
 | **callerIpAddress** |IP address of the client that made the request. |
 | **correlationId** |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
-| **identity** |Identity from the token that was presented in the REST API request. This is usually a "user," a "service principal," or the combination "user+appId," as in the case of a request that results from an Azure PowerShell cmdlet. |
+| **identity** | Identity from the token that was presented in the REST API request. Usually a "user," a "service principal," or the combination "user+appId", for instance when the request comes from an Azure PowerShell cmdlet. |
 | **properties** |Information that varies based on the operation (**operationName**). In most cases, this field contains client information (the user agent string passed by the client), the exact REST API request URI, and the HTTP status code. In addition, when an object is returned as a result of a request (for example, **KeyCreate** or **VaultGet**), it also contains the key URI (as `id`), vault URI, or secret URI. |
 
 The **operationName** field values are in *ObjectVerb* format. For example:
@@ -85,7 +85,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **Authentication** |Authenticate via Azure Active Directory endpoint |
+| **Authentication** |Authenticate via Microsoft Entra endpoint |
 | **VaultGet** |[Get information about a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultPut** |[Create or update a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultDelete** |[Delete a key vault](/rest/api/keyvault/keyvault/vaults) |
@@ -95,7 +95,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultRecover** |Recover deleted vault|
 | **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/keyvault/vaults/get-deleted) |
 | **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/keyvault/vaults/list-deleted) |
-| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Keys](#tab/Keys)
 
@@ -120,14 +120,19 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyRecover** |[Recover a key](/rest/api/keyvault/keys/recover-deleted-key) |
 | **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/keys/get-deleted-key) |
 | **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/keys/get-deleted-keys) |
-| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
-| **KeyExpiredEventGridNotification** |Key expired event published |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published.  It is logged regardless if an Event Grid subscription exists. |
+| **KeyExpiredEventGridNotification** |Key expired event published.  It is logged regardless if an Event Grid subscription exists. |
+| **KeyRotate** |[Rotate key](/rest/api/keyvault/keys/rotate-key) |
+| **KeyRotateIfDue** |Scheduled automated key rotation operation based on defined rotation policy |
+| **KeyRotationPolicyGet** |[Get Key Rotation Policy](/rest/api/keyvault/keys/get-key-rotation-policy) |
+| **KeyRotationPolicySet** |[Update Key Rotation Policy](/rest/api/keyvault/keys/update-key-rotation-policy) |
+
 
 # [Secrets](#tab/Secrets)
 
 | operationName | REST API command |
 | --- | --- |
-| **SecretSet** |[Create a secret](/rest/api/keyvault/certificates/update-certificate) |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/secrets/set-secret) |
 | **SecretGet** |[Get a secret](/rest/api/keyvault/secrets/get-secret) |
 | **SecretUpdate** |[Update a secret](/rest/api/keyvault/secrets/update-secret) |
 | **SecretDelete** |[Delete a secret](/rest/api/keyvault/secrets/delete-secret) |
@@ -139,8 +144,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretRecover** |[Recover a secret](/rest/api/keyvault/secrets/recover-deleted-secret) |
 | **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/secrets/get-deleted-secret) |
 | **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/secrets/get-deleted-secrets) |
-| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
-| **SecretExpiredEventGridNotification** |Secret expired event published |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published.  It is logged regardless if an Event Grid subscription exists. |
+| **SecretExpiredEventGridNotification** |Secret expired event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Certificates](#tab/Cerificates)
 
@@ -176,18 +181,18 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificatePendingMerge** | The merger of the certificate is pending |
 | **CertificatePendingUpdate** | The update of the certificate is pending |
 | **CertificatePendingDelete** |Delete pending certificate |
-| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
-| **CertificateExpiredEventGridNotification** |Certificate expired event published |
+| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published. It is logged regardless if an Event Grid subscription exists. |
+| **CertificateExpiredEventGridNotification** |Certificate expired event published. It is logged regardless if an Event Grid subscription exists. |
 
 ---
 
 ## Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
+You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
 
-For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+For more information, including how to set it up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 
-For understanding how to analyze logs, see [Sample kusto log queries](./monitor-key-vault.md#analyzing-logs)
+For understanding how to analyze logs, see [Sample Kusto log queries](./monitor-key-vault.md#analyzing-logs)
 
 ## Next steps
 

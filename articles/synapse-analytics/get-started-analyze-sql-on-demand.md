@@ -3,11 +3,12 @@ title: 'Tutorial: Get started analyze data with a serverless SQL pool'
 description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
 author: saveenr
 ms.author: saveenr
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
+ms.custom: 
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2023
 ---
 
 # Analyze data with a serverless SQL pool
@@ -38,7 +39,7 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
             FORMAT='PARQUET'
         ) AS [result]
     ```
-1. Click **Run**. 
+1. Select **Run**. 
 
 Data exploration is just a simplified scenario where you can understand the basic characteristics of your data. Learn more about data exploration and analysis in this [tutorial](sql/tutorial-data-analyst.md).
 
@@ -59,16 +60,15 @@ However, as you continue data exploration, you might want to create some utility
    ```
 
    > [!IMPORTANT]
-   > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
-   > the best performance in the queries that read data from Parquet files and cosmos Db containers.
+   > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides the best performance in the queries that read data from Parquet files and Azure Cosmos DB containers. For more information on changing collations, refer to [Collation types supported for Synapse SQL](sql/reference-collation-types.md).
 
-1. Switch from master to `DataExplorationDB` using the following command. You can also use the UI control **use database** to switch your current database:
+1. Switch the database context from `master` to `DataExplorationDB` using the following command. You can also use the UI control **use database** to switch your current database:
 
    ```sql
    USE DataExplorationDB
    ```
 
-1. From the 'DataExplorationDB', create utility objects such as credentials and data sources.
+1. From `DataExplorationDB`, create utility objects such as credentials and data sources.
 
    ```sql
    CREATE EXTERNAL DATA SOURCE ContosoLake
@@ -78,13 +78,13 @@ However, as you continue data exploration, you might want to create some utility
    > [!NOTE]
    > An external data source can be created without a credential. If a credential does not exist, the caller's identity will be used to access the external data source.
 
-1. Optionally, use the newly created 'DataExplorationDB' database to create a login for a user in DataExplorationDB that will access external data:
+1. Optionally, use the newly created `DataExplorationDB` database to create a login for a user in `DataExplorationDB` that will access external data:
 
    ```sql
    CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
    ```
 
-   Next create a database user in 'DataExplorationDB' for the above login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
+   Next create a database user in `DataExplorationDB` for the above login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
 
    ```sql
    CREATE USER data_explorer FOR LOGIN data_explorer;
@@ -108,7 +108,7 @@ However, as you continue data exploration, you might want to create some utility
 
 1. **Publish** your changes to the workspace.
 
-Data exploration database is just a simple placeholder where you can store your utility objects. Synapse SQL pool enables you to do much more and create a Logical Data Warehouse - a relational layer built on top of Azure data sources. Learn more about building Logical Data Warehouse in this [tutorial](sql/tutorial-data-analyst.md).
+Data exploration database is just a simple placeholder where you can store your utility objects. Synapse SQL pool enables you to do much more and create a Logical Data Warehouse - a relational layer built on top of Azure data sources. Learn more about [building a logical data warehouse in this tutorial](sql/tutorial-data-analyst.md).
 
 ## Next steps
 

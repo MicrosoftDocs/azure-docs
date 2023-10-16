@@ -3,13 +3,14 @@ title: Microsoft Azure Data Box overview | Microsoft Docs in data
 description: Describes Azure Data Box, a cloud solution that enables you to transfer massive amounts of data into Azure
 services: databox
 documentationcenter: NA
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 04/06/2022
-ms.author: alkohli
+ms.date: 05/06/2022
+ms.author: shaas
+ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
 # What is Azure Data Box?
@@ -107,7 +108,7 @@ The Data Box includes the following components:
     | Portuguese - Portugal| pt-pt| Russian                 | ru     | Swedish                 | sv           |
     | Turkish              | tr   | Chinese - simplified    | zh-hans|    |       |    
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-portal-ui-admin.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-local-web-ui-admin.md).
 
 ## The workflow
 
@@ -142,7 +143,7 @@ Throughout the export process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, the country or region you ship the device to, and the target storage account where you transfer the data.
+Data Box can transfer data based on the region in which service is deployed, the country/region you ship the device to, and the target storage account where you transfer the data.
 
 ### For import
 
@@ -161,7 +162,7 @@ In the extreme event of any Azure region being affected by a disaster, the Data 
 
 For regions paired with a region within the same country or commerce boundary, no action is required. Microsoft is responsible for recovery, which could take up to 72 hours.
 
-For regions that don’t have a paired region within the same geographic or commerce boundary, the customer will be notified to create a new Data Box order from a different, available region and copy their data to Azure in the new region. New orders would be required for the Brazil South and Southeast Asia regions.
+For regions that don’t have a paired region within the same geographic or commerce boundary, the customer will be notified to create a new Data Box order from a different, available region and copy their data to Azure in the new region. New orders would be required for the Brazil South, Southeast Asia, and East Asia regions.
 
 For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 

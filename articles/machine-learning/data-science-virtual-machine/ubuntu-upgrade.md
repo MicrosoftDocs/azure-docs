@@ -1,19 +1,21 @@
 ---
-title: How to upgrade your Data Science Virtual Machine to Ubuntu 18.04
+title: How to upgrade your Data Science Virtual Machine to Ubuntu 20.04
 titleSuffix: Azure Data Science Virtual Machine 
-description: Learn how to upgrade from CentOS and Ubuntu 16.04 to the latest Ubuntu 18.04 Data Science Virtual Machine.
+description: Learn how to upgrade from CentOS and Ubuntu 18.04 to the latest Ubuntu 20.04 Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, team data science process
 services: machine-learning
 ms.service: data-science-vm
-author: samkemp
-ms.author: samkemp
+ms.custom: devx-track-linux
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.reviewer: mattmcinnes
+ms.date: 04/19/2023
 ---
 
-# Upgrade your Data Science Virtual Machine to Ubuntu 18.04
+# Upgrade your Data Science Virtual Machine to Ubuntu 20.04
 
-If you have a Data Science Virtual Machine running an older release such as Ubuntu 16.04 or CentOS, you should migrate your DSVM to Ubuntu 18.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS. 
+If you have a Data Science Virtual Machine running an older release such as Ubuntu 18.04 or CentOS, you should migrate your DSVM to Ubuntu 20.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS. 
 
 ## Prerequisites
 
@@ -23,8 +25,8 @@ If you have a Data Science Virtual Machine running an older release such as Ubun
 
 There are two possible ways to migrate:
 
-- In-place migration, also called "same server" migration. This migration upgrades the existing VM without creating a new virtual machine. In-place migration is the easier way to migrate from Ubuntu 16.04 to Ubuntu 18.04.
-- Side-by-side migration, also called "inter-server" migration. This migration transfers data from the existing virtual machine to a newly created VM. Side-by-side migration is the way to migrate from Centos to Ubuntu 18.04. You may prefer side-by-side migration for upgrading between Ubuntu versions if you feel your old install has become needlessly cluttered.
+- In-place migration, also called "same server" migration. This migration upgrades the existing VM without creating a new virtual machine. In-place migration is the easier way to migrate from Ubuntu 18.04 to Ubuntu 20.04.
+- Side-by-side migration, also called "inter-server" migration. This migration transfers data from the existing virtual machine to a newly created VM. Side-by-side migration is the way to migrate from Centos to Ubuntu 20.04. You may prefer side-by-side migration for upgrading between Ubuntu versions if you feel your old install has become needlessly cluttered.
 
 ## Snapshot your VM in case you need to roll back
 
@@ -166,7 +168,7 @@ Whether you did an in-place or side-by-side migration, confirm that you've succe
 cat /etc/os-release
 ```
 
-And you should see that you're running Ubuntu 18.04.
+And you should see that you're running Ubuntu 20.04.
 
 :::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot of Ubuntu terminal showing OS version data":::
 

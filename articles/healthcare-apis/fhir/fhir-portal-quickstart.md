@@ -1,11 +1,11 @@
 ---
 title: Deploy a FHIR service within Azure Health Data Services
 description: This article teaches users how to deploy a FHIR service in the Azure portal.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: quickstart
-ms.date: 03/01/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -19,7 +19,7 @@ Before getting started, you should have already deployed Azure Health Data Servi
 
 ## Create a new FHIR service
 
-From the workspace, select **Deploy FHIR Services**.
+From the workspace, select **Deploy FHIR service**.
 
 [ ![Deploy FHIR service](media/fhir-service/deploy-fhir-services.png) ](media/fhir-service/deploy-fhir-services.png#lightbox)
 
@@ -37,13 +37,13 @@ Before you select **Create**, review the properties of the **Basics** and **Addi
 
 ## Additional settings (optional)
 
-You can also select the **Additional settings** tab to view the authentication settings. The default configuration for Azure API for FHIR is to **use Azure RBAC for assigning data plane roles**. When it's configured in this mode, the "Authority" for FHIR service will be set to the Azure Active Directory tenant of the subscription.
+You can also select the **Additional settings** tab to view the authentication settings. The default configuration for Azure API for FHIR is to **use Azure RBAC for assigning data plane roles**. When it's configured in this mode, the "Authority" for FHIR service will be set to the Microsoft Entra tenant of the subscription.
 
 [ ![Additional settings FHIR service](media/fhir-service/additional-settings-tab.png) ](media/fhir-service/additional-settings-tab.png#lightbox)
 
 Notice that the box for entering **Allowed object IDs** is grayed out. This is because we use Azure RBAC for configuring role assignments in this case.
 
-If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server.
+If you wish to configure the FHIR service to use an external or secondary Microsoft Entra tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server.
 
 ## Fetch FHIR API capability statement
 
@@ -51,7 +51,9 @@ To validate that the new FHIR API account is provisioned, fetch a capability sta
 
 ## Next steps
 
-In this article, you learned how to deploy FHIR service within Azure Health Data Services  using the Azure portal. For more information about accessing FHIR service using Postman, see
+In this article, you learned how to deploy FHIR service within Azure Health Data Services using the Azure portal. For more information about accessing FHIR service using Postman, see
 
 >[!div class="nextstepaction"]
 >[Access FHIR service using Postman](../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -3,6 +3,7 @@ title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise-wide design principles.
 ms.date: 08/17/2021
 ms.topic: tutorial
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Tutorial: Create and manage policies to enforce compliance
 
@@ -93,7 +94,7 @@ resources missing the tag.
    automatically based on the policy definition. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
-   [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+   [how remediation access control works](../how-to/remediate-resources.md#how-remediation-access-control-works).
 
 1. Select the **Non-compliance messages** tab at the top of the wizard.
 
@@ -436,7 +437,7 @@ overview](../overview.md).
    Since it's added twice, the _Add or replace a tag on resources_ policy definitions each get a
    different _reference ID_.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot of the selected policy definitions with their reference id and group on the initiative definition page.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot of the selected policy definitions with their reference ID and group on the initiative definition page.":::
 
    > [!NOTE]
    > The selected policy definitions can be added to groups by selecting one or more added
@@ -480,7 +481,7 @@ overview](../overview.md).
    list. For the two instances of the _Add or replace a tag on resources_ policy definitions, set
    the **Tag Name** parameters to 'Env' and 'CostCenter and the **Tag Value** parameters to 'Test'
    and 'Lab' as shown below. Leave the others as 'Default value'. Using the same definition twice in
-   the initiative but with different parameters, this configuration adds or replace an 'Env' tag
+   the initiative but with different parameters, this configuration adds or replaces an 'Env' tag
    with the value 'Test' and a 'CostCenter' tag with the value of 'Lab' on resources in scope of the
    assignment.
 
@@ -575,7 +576,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
    leave it blank. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
-   [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+   [how remediation access control works](../how-to/remediate-resources.md#how-remediation-access-control-works).
 
 1. Select the **Review + create** tab at the top of the wizard.
 
@@ -629,7 +630,7 @@ that was denied by the policy definition.
 :::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Screenshot of the Events tab and policy event details on the Initiative compliance page." border="false":::
 
 In this example, Trent Baker, one of Contoso's Sr. Virtualization specialists, was doing required
-work. We need to grant Trent a space for an exception. Created a new resource group,
+work. We need to grant Trent a space for an exception. Create a new resource group,
 **LocationsExcluded**, and next grant it an exception to this policy assignment.
 
 ### Update assignment with exclusion

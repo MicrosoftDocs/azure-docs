@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Sign in users in JavaScript React single-page apps (SPA) with auth code and call Microsoft Graph | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users in JavaScript React single-page apps (SPA) with auth code and call Microsoft Graph"
 description: In this quickstart, learn how a JavaScript React single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow and call Microsoft Graph.
 services: active-directory
-author: j-mantu
+author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/12/2021
+ms.date: 09/25/2023
 ROBOTS: NOINDEX
-ms.author: jamesmantu
+ms.author: henrymbugua
+ms.reviewer: jamesmantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-other
 #Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -21,7 +21,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: React single-page app with user sign-in](single-page-app-quickstart.md?pivots=devlang-react)
+> > [Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using React](quickstart-single-page-app-react-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -96,4 +96,4 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > Next, try a step-by-step tutorial to learn how to build a React SPA from scratch that signs in users and calls the > Microsoft Graph API to get user profile data:
 > 
 > > [!div class="nextstepaction"]
-> > [Tutorial: Sign in users and call Microsoft Graph](tutorial-v2-react.md)
+> > [Tutorial: Sign in users and call Microsoft Graph](./tutorial-single-page-app-react-register-app.md)

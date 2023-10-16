@@ -6,8 +6,9 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Updating ML Studio (classic) models using Update Resource Activity
@@ -82,7 +83,7 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-You can get values for place holders in the URL when querying the web service on the [ML Studio (classic) Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey** in the Studio (classic) linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
+You can get values for place holders in the URL when querying the web service on the [ML Studio (classic) Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires a Microsoft Entra token. Specify **servicePrincipalId** and **servicePrincipalKey** in the Studio (classic) linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
 
 ```json
 {

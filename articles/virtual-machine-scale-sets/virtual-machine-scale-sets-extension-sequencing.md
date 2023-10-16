@@ -1,30 +1,28 @@
 ---
-title: Use extension sequencing with Azure virtual machine scale sets
-description: Learn how to sequence extension provisioning when deploying multiple extensions on virtual machine scale sets.
+title: Use extension sequencing with Azure Virtual Machine Scale Sets
+description: Learn how to sequence extension provisioning when deploying multiple extensions on Virtual Machine Scale Sets.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 01/30/2019
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
-# Sequence extension provisioning in virtual machine scale sets
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+# Sequence extension provisioning in Virtual Machine Scale Sets
 
 Azure virtual machine extensions provide capabilities such as post-deployment configuration and management, monitoring, security, and more. Production deployments typically use a combination of multiple extensions configured for the VM instances to achieve desired results.
 
 When using multiple extensions on a virtual machine, it's important to ensure that extensions requiring the same OS resources aren't trying to acquire these resources at the same time. Some extensions also depend on other extensions to provide required configurations such as environment settings and secrets. Without the correct ordering and sequencing in place, dependent extension deployments can fail.
 
-This article details how you can sequence extensions to be configured for the VM instances in virtual machine scale sets.
+This article details how you can sequence extensions to be configured for the VM instances in Virtual Machine Scale Sets.
 
 ## Prerequisites
 This article assumes that you're familiar with:
 -	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
--	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) virtual machine scale sets
+-	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) Virtual Machine Scale Sets
 
 ## When to use extension sequencing
 Sequencing extensions in not mandatory for scale sets, and unless specified, extensions can be provisioned on a scale set instance in any order.
@@ -181,7 +179,7 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
   }                  
 }
 ```
-Changes to existing scale set instances are applied on the next [upgrade](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Changes to existing scale set instances are applied on the next [upgrade](virtual-machine-scale-sets-upgrade-policy.md).
 
 ### Azure PowerShell
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition. Extension sequencing requires the use of Az PowerShell 1.2.0 or above.
@@ -249,4 +247,4 @@ ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
 Ensure that the extensions being removed are not listed under provisionAfterExtensions for any other extensions.
 
 ## Next steps
-Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on virtual machine scale sets.
+Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on Virtual Machine Scale Sets.

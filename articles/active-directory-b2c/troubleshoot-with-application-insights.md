@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2021
+ms.date: 08/04/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -45,16 +45,16 @@ If you don't already have one, create an instance of Application Insights in you
 To use an existing instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the Azure AD directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the Microsoft Entra directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Open the Application Insights resource that you created earlier.
 1. On the **Overview** page, and record the **Instrumentation Key**
 
 To create an instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the Azure AD directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the Microsoft Entra directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Select **Create a resource** in the left-hand navigation menu.
 1. Search for and select **Application Insights**, then select **Create**.
 1. Complete the form, select **Review + create**, and then select **Create**.
@@ -72,7 +72,7 @@ To create an instance of Application Insights in your subscription, follow these
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`. See [RelyingParty schema reference](./relyingparty.md) for a complete order of the **RelyingParty** child elements.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Instrumentation Key** that you recorded earlier.
 
     ```xml
@@ -96,6 +96,10 @@ To create an instance of Application Insights in your subscription, follow these
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
+      <Endpoints>
+         <!--points to refresh token journey when app makes refresh token request-->
+         <Endpoint Id="Token" UserJourneyReferenceId="RedeemRefreshToken" />
+      </Endpoints>
       <UserJourneyBehaviors>
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
@@ -144,7 +148,7 @@ After you set up the Application Insights, and configure the custom policy, you 
 To get Application Insights ID and key:
 
 1. In Azure portal, open the Application Insights resource for your application.
-1. Select **Settings**, then select **API Access**.
+1. Select **Configure**, then select **API Access**.
 1. Copy the **Application ID**
 1. Select **Create API Key**
 1. Check the **Read telemetry** box.

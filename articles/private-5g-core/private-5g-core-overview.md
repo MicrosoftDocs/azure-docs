@@ -1,17 +1,17 @@
 ---
-title: What is Azure Private 5G Core Preview?
-description: Azure Private 5G Core Preview is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
-author: djrmetaswitch
-ms.author: drichards
+title: What is Azure Private 5G Core?
+description: Azure Private 5G Core is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: overview 
 ms.date: 02/20/2022
 ms.custom: template-overview
 ---
 
-# What is Azure Private 5G Core Preview?
+# What is Azure Private 5G Core?
 
-*Azure Private 5G Core Preview* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
+*Azure Private 5G Core* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
 
 Azure Private 5G Core provides: 
 
@@ -27,7 +27,7 @@ Azure Private 5G Core provides:
 
 - **Azure visibility** 
 
-  Azure Private 5G Core integrates with Azure Monitor and Log Analytics to collect data from across the sites and provide real-time monitoring of the entire private mobile network. You can extend this capability to capture radio analytics to provide a complete network view from Azure.
+  Azure Private 5G Core integrates with Azure Monitor to collect data from across the sites and provide real-time monitoring of the entire private mobile network. You can extend this capability to capture radio analytics to provide a complete network view from Azure.
 
 You'll also need the following to deploy a private mobile network using Azure Private 5G Core. These aren't included as part of the service.
 
@@ -41,7 +41,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
   The Azure private multi-access edge compute (MEC) solution offers an ecosystem of technology solution partners, including the following: 
 
-  - Radio vendors who can connect Azure Private 5G Core to a gNodeB (for 5G deployments) or eNodeB (for 4G deployments), allowing you to choose from a broad range of shared or licensed spectrum options available in different countries.
+  - Radio vendors who can connect Azure Private 5G Core to a gNodeB (for 5G deployments) or eNodeB (for 4G deployments), allowing you to choose from a broad range of shared or licensed spectrum options available in different countries/regions.
   - SIM vendors offering physical SIM and eSIM services. These vendors can integrate directly with Azure Private 5G Core through the SIM manager to securely provision physical SIMs and eSIMs.
 
    For more information, see [What is Azure private multi-access edge compute?](../private-multi-access-edge-compute-mec/overview.md).
@@ -72,22 +72,22 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 
 Azure Private 5G Core instantiates a single private mobile network distributed across one or more enterprise sites across the world. Each site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
 
-- A high performance and highly programmable 5G User Plane Function (UPF).
+- A high performance (25 Gbps rated load) and highly programmable 5G User Plane Function (UPF).
 - Core control plane functions including policy and subscriber management.
 - A portfolio of service-based architecture elements.
 - Management components for network monitoring.
 
 You can also deploy packet core instances in 4G mode to support Private Long-Term Evolution (LTE) use cases. For example, you can use the 4G Citizens Broadband Radio Service (CBRS) spectrum. 4G mode uses the same cloud-native components as 5G mode (such as the UPF). This is in contrast to other solutions that need to revert to a legacy 4G stack.
 
-The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components. Note that when running in 4G mode, the Unified Data Repository (UDR) performs the role that would usually be performed by a Home Subscriber Store (HSS).
+The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components.
 
-:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported network functions and their interfaces.":::
-   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes S 11 I W F and M M E network functions. The S 11 I W F communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 C interface. 
+:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Diagram of the packet core architecture displaying each of the supported network functions and their interfaces.":::
+   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the AMF, the SMF, the UPF, the UDR, the PCF, the UDM, and the AUSF. The AMF communicates with 5G user equipment over the N1 interface. A g NodeB provided by a Microsoft partner communicates with the AMF over the N2 interface and the UPF over the N3 interface. The UPF communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes MME Proxy and MME network functions. The MME Proxy communicates with the MME over the S11 interface. An e NodeB provided by a Microsoft partner communicates with the MME over the S1-MME interface. 
 :::image-end:::
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
 
-## Support for 5GC features
+## Feature support
 
 ### Supported 5G network functions
 
@@ -98,18 +98,31 @@ Each packet core instance is connected to the local RAN network to provide cover
 - Authentication Server Function (AUSF)
 - Unified Data Management (UDM)
 - Unified Data Repository (UDR)
-- Network Repository Function (NRF)
 
-### Supported 5G procedures
+### Supported 4G network functions
 
-For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
+Azure Private 5G Core uses the following network functions when supporting 4G UEs, in addition to the 5G network functions listed above.
+
+- Mobile Management Entity (MME)
+- MME-Proxy - The MME-Proxy works to allow 4G UEs to be served by 5G network functions.
+
+The following 5G network functions perform specific roles when supporting 4G UEs.
+
+- The UDR operates as a Home Subscriber Store (HSS).
+- The UPF operates as a System Architecture Evolution Gateway (SAEGW-U).
+
+### Supported 5G and 4G procedures
+
+For information on Azure Private 5G Core's support for standards-based 5G and 4G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
 
 ### User equipment (UE) authentication and security context management
 
 Azure Private 5G Core supports the following authentication methods:
 
-- Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).
-- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.
+- Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI) for 5G user equipment (UEs).
+- Authentication using International Mobile Subscriber Identities (IMSI) and Globally Unique Temporary Identities (GUTI) for 4G UEs.
+- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between 5G UEs and the network.
+- Evolved Packet System based Authentication and Key Agreement (EPS-AKA) for mutual authentication between 4G UEs and the network.
 
 The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.
 
@@ -119,13 +132,25 @@ Azure Private 5G Core supports the following algorithms for ciphering and integr
 - 128-bit Snow3G
 - 128-bit Advanced Encryption System (AES) encryption
 
+### UE-to-UE traffic
+
+Azure Private 5G Core supports traffic flow from UE to UE through the user plane, allowing machine-to-machine (M2M) communication between 5G devices for a range of applications including robot control.
+
+An external router is responsible for hairpinning traffic from UE to UE over the N6 interface. This means that traffic leaving the UPF destined to a UE IP address will be routed back to the UPF’s N6 IP address.
+
 ### Index to RAT/Frequency Selection Priority (RFSP)
 
 The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.
 
+### Multi-Operator Core Network (MOCN)
+
+Multi-operator Core Network (MOCN) aims to maximize resource usage by sharing a RAN between multiple core networks. Azure Private 5G Core supports MOCN, allowing multiple public land mobile networks (PLMNs) to be shared by a gNodeB (for 5G deployments) or eNodeB (for 4G deployments).
+
+In the context of private mobile networks, a single RAN can connect to both a private and a standard macro network, with traffic automatically routed to the appropriate core network based on the PLMN ID.
+
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
-Each packet core instance is standards-compliant and compatible with several radio access network (RAN) partners in the Azure private MEC ecosystem.
+Each packet core instance is standards-compliant and compatible with several RAN partners in the Azure private MEC ecosystem.
 
 Azure Private 5G Core exposes an N2 and N3 interface for the 5G control plane and user plane respectively. It complies with the following 3GPP Technical Specifications, allowing you to integrate with a wide range of RAN models:
 
@@ -145,7 +170,7 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 - Deploy and configure a packet core instance on your Azure Stack Edge device in minutes.
 - Create a virtual representation of your physical mobile network through Azure using mobile network and site resources.
 - Provision SIM resources to authenticate devices in the network, while also supporting redundancy.
-- Employ Log Analytics and other observability services to view the health of your network and take corrective action through Azure.
+- Employ Azure Monitor and other observability services to view the health of your network and take corrective action through Azure.
 - Use Azure role-based access control (RBAC) to allow granular access to the private mobile network to different personnel or teams within your organization, or even a managed service provider.
 - Use an Azure Stack Edge device's compute capabilities to run applications that can benefit from low-latency networks.
 - Seamlessly connect your existing Azure deployments to your new private mobile network using Azure hybrid compute, networking, and IoT services.
@@ -154,11 +179,16 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 
 ## Azure centralized monitoring
 
-Azure Private 5G Core is integrated with Log Analytics in Azure Monitor, as described in [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md). You can write queries to retrieve records or visualize data in charts. This lets you monitor and analyze activity in your private mobile network directly from the Azure portal.
+Azure Private 5G Core is integrated with Azure Monitor Metrics Explorer, allowing you to monitor and analyze activity in your private mobile network directly from the Azure portal. You can write queries to retrieve records or visualize data in dashboards.
 
-:::image type="content" source="media/azure-private-5g-core/log-analytics-tool.png" alt-text="Screenshot of Log Analytics showing a query made on devices registered with the private mobile network." lightbox="media/azure-private-5g-core/log-analytics-tool.png":::
+For more information on using Azure Monitor to analyze metrics in your deployment, see [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md).
+
+Azure Private 5G Core can be configured to integrate with Azure Monitor Event Hubs, allowing you to monitor UE usage.
+
+For more information on using Event Hubs to monitor UE usage in your deployment, see [Monitor UE usage via Azure Event Hubs (preview)](ue-usage-event-hub.md).
 
 ## Next steps
 
 - [Learn more about the key components of a private mobile network](key-components-of-a-private-mobile-network.md)
+- [Learn more about the design requirements for deploying a private mobile network](private-mobile-network-design-requirements.md)
 - [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)

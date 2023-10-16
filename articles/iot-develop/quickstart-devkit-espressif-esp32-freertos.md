@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 12/02/2021
-ms.custom: mode-other
+ms.date: 11/29/2022
+ms.custom: 
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to Azure IoT, sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -32,6 +32,7 @@ Hardware:
 - ESPRESSIF [ESP32-Azure IoT Kit](https://www.espressif.com/products/devkits/esp32-azure-kit/overview)
 - USB 2.0 A male to Micro USB male cable
 - Wi-Fi 2.4 GHz
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -142,7 +143,7 @@ To flash the image:
     ```
 
 To confirm that the device connects to Azure IoT Central:
-1. In **ESP-IDF PowerShell**, run the following command to start the monitoring tool. As you did in a previous command, replace the *\<Your-COM-port\>* placeholder and brackets with the COM port that the device is connected to.
+1. In **ESP-IDF PowerShell**, run the following command to start the monitoring tool. As you did in a previous command, replace the \<Your-COM-port\> placeholder, and brackets with the COM port that the device is connected to.
 
     ```shell
     idf.py -B "C:\espbuild" -p <Your-COM-port> monitor

@@ -1,11 +1,11 @@
 ---
 title: What is Azure App Configuration?
 description: Read an overview of the Azure App Configuration service. Understand why you would want to use App Configuration, and learn how you can use it.
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 03/30/2022
+ms.date: 03/20/2023
 ---
 
 # What is Azure App Configuration?
@@ -44,21 +44,26 @@ App Configuration complements [Azure Key Vault](https://azure.microsoft.com/serv
 
 ## Use App Configuration
 
-The easiest way to add an App Configuration store to your application is through a client library provided by Microsoft. The following methods are available to connect with your application, depending on your chosen language and framework
+The easiest way to add an App Configuration store to your application is through a client library provided by Microsoft. The following methods are available to connect with your application, depending on your chosen language and framework.
 
-| Programming language and framework | How to connect |
-|---|---|
-| .NET Core and ASP.NET Core | App Configuration provider for .NET Core |
-| .NET Framework and ASP.NET | App Configuration builder for .NET |
-| Java Spring | App Configuration client for Spring Cloud |
-| Others | App Configuration REST API |
+|Programming language and framework | How to connect                                                                                                   | Quickstart                                                 |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| .NET Core                         | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET Core | .NET Core [quickstart](./quickstart-dotnet-core-app.md)    |
+| ASP.NET Core                      | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET Core | ASP.NET Core [quickstart](./quickstart-aspnet-core-app.md) |
+| .NET Framework and ASP.NET        | App Configuration [builder](https://go.microsoft.com/fwlink/?linkid=2074663) for .NET                            | .NET Framework [quickstart](./quickstart-dotnet-app.md)    |
+| Java Spring                       | App Configuration [provider](https://go.microsoft.com/fwlink/?linkid=2180917) for Spring Cloud                   | Java Spring [quickstart](./quickstart-java-spring-app.md)  |
+| JavaScript/Node.js                | App Configuration [client](https://go.microsoft.com/fwlink/?linkid=2103664) for JavaScript                       | Javascript/Node.js [quickstart](./quickstart-javascript.md)|
+| Python                            | App Configuration [client](https://go.microsoft.com/fwlink/?linkid=2103727) for Python                           | Python [quickstart](./quickstart-python.md)                |
+| Other                             | App Configuration [REST API](/rest/api/appconfiguration/)                                                        | None                                                       |
 
 ## Next steps
 
-* [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
-* [.NET Core quickstart](./quickstart-dotnet-core-app.md)
-* [.NET Framework quickstart](./quickstart-dotnet-app.md)
-* [Azure Functions quickstart](./quickstart-azure-functions-csharp.md)
-* [Java Spring quickstart](./quickstart-java-spring-app.md)
-* [ASP.NET Core feature flag quickstart](./quickstart-feature-flag-aspnet-core.md)
-* [Spring Boot feature flag quickstart](./quickstart-feature-flag-spring-boot.md)
+> [!div class="nextstepaction"]
+> [Best practices](howto-best-practices.md)
+
+> [!div class="nextstepaction"]
+> [FAQ](faq.yml)
+> 
+> [!div class="nextstepaction"]
+> [Create an App Configuration store](quickstart-azure-app-configuration-create.md) 
+

@@ -1,14 +1,14 @@
 ### YamlMime:FAQ
 metadata:
   title: Cost Management + Billing frequently asked questions (FAQ)
-  titleSuffix: Azure Cost Management + Billing
+  titleSuffix: Microsoft Cost Management
   description: Frequently asked questions and answers.
   author: bandersmsft
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 02/17/2022
+  ms.date: 06/07/2023
   ms.author: banders
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
@@ -21,6 +21,9 @@ sections:
       - question: How do I pay my bill?
         answer: |
           See [Resolve past due balance for your Azure subscription](manage/resolve-past-due-balance.md).
+      - question: How long does it take for my payment to be posted?
+        answer: |
+          See [Wire transfer payment processing time](manage/pay-by-invoice.md#wire-transfer-payment-processing-time).
       - question: How do I find my invoice?
         answer: |
           See [View and download your Microsoft Azure invoice](understand/download-azure-invoice.md).
@@ -42,6 +45,14 @@ sections:
       - question: How do I cancel my Azure subscription?
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
+      - question: When does Azure finalize or close the billing cycle of a closed month?
+        answer: |
+          Azure finalizes or closes the current billing period up to 72 hours (three calendar days) after the billing period ends. The following examples illustrate how billing periods could end:
+          
+            - Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+            - Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
+          
+          For more information, see [Cost and usage data updates and retention](costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
 
   - name: Cost Management questions
     questions:
@@ -71,10 +82,10 @@ sections:
           See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).
       - question: How do I create a budget?
         answer: |
-          See the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md) tutorial.
+          See the [Create and manage budgets](costs/tutorial-acm-create-budgets.md) tutorial.
       - question: How do I create a budget for a specific filter or tag?
         answer: |
-          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
+          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
       - question: How do I export cost management data?
         answer: |
           See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
@@ -111,9 +122,6 @@ sections:
       - question: Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
         answer: |
           <a name="why-admin"></a>Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). Permissions to make changes at these scopes requires billing administrator privileges.
-      - question: Why are cost allocation sources and targets limited to 25 per rule?
-        answer: |
-          <a name="source-target-rule-limit"></a>The limit is a preview limitation to ensure good cost allocation performance and scalability. The limits will likely increase or get removed when cost allocation transitions to general availability (GA).
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
           <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
@@ -125,13 +133,13 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          The Cost Management + Billing team hasn't announced a deprecation timeline for the APIs. The APIs are no longer in active development. We recommend that you plan any needed work to migrate away from them.
+          The Cost Management + Billing team has formally announced the retirement of the APIs with a timeline of Oct 2023. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
-          See [Migrate from EA reporting to Azure Resource Manager APIs](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md).
+          See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: Why do I get Usage Details API timeouts?
         answer: |
-          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
+          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usagedetails/list) might timeout before your data is provided. If your encounter timeouts or has processes that frequently need to pull a large number of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
       - question: How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
         answer: |
           See [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](costs/migrate-cost-management-api.md).
@@ -140,7 +148,7 @@ sections:
     questions:
       - question: Why do I get Usage Details API timeouts?
         answer: |
-          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated JSON Usage Details API might timeout before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
+          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated JSON Usage Details API might timeout before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large number of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
       - question: What is the difference between legacy and modern usage details?
         answer: |
           A legacy versus modern usage details record is identified by the *kind* field in the [Usage Details API](/rest/api/consumption/usage-details). The field is used to distinguish between data that’s returned for different customer types. The call patterns to obtain legacy and modern usage details are essentially the same. The granularity of the data is the same. The main difference is the fields available in the usage details records themselves. If you’re an EA customer, you’ll always get legacy usage details records. If you’re a Microsoft Customer Agreement customer, you will always get modern usage details records.
@@ -150,9 +158,9 @@ sections:
       - question: Where can I see tax information in Usage Details?
         answer: |
           Usage details data is all pre tax. Tax related charges are only available on your invoice.
-      - question: Why is PAYGPrice zero in my usage details file?
+      - question: Why is PAYGPrice zero for some of the records in my usage details file?
         answer: |
-          If you’re an EA customer, we don’t currently support showing pay-as-you-go prices directly in the usage details data. To see the pricing, use the [Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) API.
+          If you’re an EA customer, `PAYGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. `PAYGprice` isn't populated when `PricingModel = Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
       - question: Does Usage Details have Reservation charges?
         answer: |
           Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
@@ -195,7 +203,7 @@ sections:
           If you're sure that you've been set up as the EA administrator, you don't have to wait to receive the activation email to sign in to the Azure EA portal. Instead, you can go to https://ea.azure.com and sign in with your email address (work, school, or Microsoft account) and your password.
       - question: How do I add a new EA administrator to my enrollment?
         answer: |
-          A new enterprise admin can be added by existing enterprise admins. If you are the EA administrator, please sign in to the EA portal > Click **Manage** > Click **+ Add Administrator** in the top-right corner to add a new EA administrator. Please ensure you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID to have the users added.
+          A new enterprise admin can be added by existing enterprise admins. If you are the EA administrator, please sign in to the EA portal > Select **Manage** > Select **+ Add Administrator** in the top-right corner to add a new EA administrator. Please ensure you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID to have the users added.
           
           If you're the EA administrator of a direct enrollment, sign in to the Azure portal > select **Billing scope** > navigate to **Access control(IAM)** > select **+ Add** in the top-left corner to add a new EA administrator. Ensure that you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID, available.
           
@@ -226,7 +234,7 @@ sections:
           Please note that if there are other EA administrators on the enrollment, we will reach out to the EA administrators to request for approval on administrative changes on the enrollment.
       - question: My enrollment is showing in pending status. How do I activate my enrollment?
         answer: |
-          Enrollments will be in pending status if the initial EA administrator has not logged on to the enrollment before. If you are the EA administrator, please sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you may not see your pending enrollment. Please uncheck the "active" box on the top-right corner of your EA portal, this action would display the pending enrollment. Please click on the enrollment to access the information and once you have reached the Manage page of the enrollment, the status will be updated from Pending to Active.
+          Enrollments will be in pending status if the initial EA administrator has not logged on to the enrollment before. If you are the EA administrator, please sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you may not see your pending enrollment. Please uncheck the "active" box on the top-right corner of your EA portal, this action would display the pending enrollment. Please select the enrollment to access the information and once you have reached the Manage page of the enrollment, the status will be updated from Pending to Active.
           
           If you're a direct enterprise customer, sign in to Azure portal. On the billing scope page, select your billing account. When you're on the enrollment overview page, the status is updated from **Pending** to **Active**. Navigate to the **Properties** menu to view the update status.
       - question: Why is my account stuck in pending status?
@@ -257,9 +265,9 @@ sections:
           1. Open Internet Explorer.
           1. Press F12, which will open a box at the bottom of IE.
           1. Select the **Network** Tab.
-          1. Click on **Start Capturing**.
+          1. Select **Start Capturing**.
           1. Perform the action that is causing the error.
-          1. Once you get the error, click on **Stop Capturing**.
+          1. Once you get the error, select **Stop Capturing**.
           1. Save the file and include the information in the support request.
           1. Ensure that you provide your enrollment number and email address within the support request.
       - question: What is the difference between a work/school account and Microsoft account?
@@ -332,7 +340,7 @@ sections:
           
           After you have created departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
           
-          You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/ea-portal-rest-apis.md).
+          You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/enterprise-rest-apis.md).
           
           Direct enterprise customers can view usage and spending at different department levels in the Azure portal. Navigate to the **Department** menu to view charges.
       - question: Can I set a spending quota and get alerts as I approach my limit?
@@ -344,7 +352,7 @@ sections:
         answer: |
           If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
           
-          You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/ea-portal-rest-apis.md).
+          You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/enterprise-rest-apis.md).
           
           > [!NOTE]
           > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
@@ -354,7 +362,7 @@ sections:
 
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |
-          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, MPN, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
+          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, and more. You will lose monthly credit when converting such subscriptions.
       - question: How many Azure account owners can you have per subscription?
         answer: |
           Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
@@ -373,7 +381,7 @@ sections:
           No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department it's aligned with under the EA enrollment in the Azure EA Portal.
       - question: Can an Azure account owner be listed as a security group?
         answer: |
-          No, a subscription owner must be a unique Microsoft account (MSA) or Azure Active Directory (Azure AD) authentication. To account for succession within your organization, you may consider creating generic accounts and using Azure AD to manage subscription access.
+          No, a subscription owner must be a unique Microsoft account (MSA) or Microsoft Entra authentication. To account for succession within your organization, you may consider creating generic accounts and using Microsoft Entra ID to manage subscription access.
       - question: Can an individual user own multiple subscriptions?
         answer: |
           An Azure account owner can create and manage an unlimited number of subscriptions.
@@ -463,15 +471,15 @@ sections:
       - question: Can other partners or customers edit or remove the link to the partner ID?
         answer: |
           The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
-      - question: Which MPN ID should I use if my company has multiple?
+      - question: Which Partner ID should I use if my company has multiple?
         answer: |
-          Be sure to use the **Associated MPN ID** shown in your partner profile. It's usually the local account ID association with your organization.
+          Be sure to use the **Associated Partner ID** shown in your partner profile. It's usually the local account ID association with your organization.
       - question: How do I explain PAL to my customer?
         answer: |
-          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
+          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Partner ID is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
       - question: What data does PAL collect?
         answer: |
           The PAL association to existing credentials provides no new customer data to Microsoft. It provides the information to Microsoft where a partner is actively involved in a customer's Power Apps environments. Microsoft can attribute usage and influence from customer environment to partner organization based on the account's permissions (Power Apps role) and scope (tenant, Resource Group, Resource) provided to the partner by customer.
       - question: Does PAL association affect the security of a customer's Power Apps environment?
         answer: |
-          PAL association only adds partner's MPN ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.
+          PAL association only adds the partner's Partner ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.

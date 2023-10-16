@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Invoke Spark programs from Azure Data Factory pipelines
@@ -48,7 +48,7 @@ Here are the typical steps to create a data factory pipeline with a Spark activi
 
 1. Create a Spark cluster in HDInsight by following the instructions in the tutorial [Create a Spark cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the storage account you created in step 1 with this cluster.
 
-1. Download and review the Python script file **test.py** located at [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+1. Download and review the Python script file **test.py** located at ```https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py```.
 
 1. Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your blob storage. Create the container and the folder if they don't exist.
 

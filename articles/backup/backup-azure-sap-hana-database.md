@@ -1,29 +1,21 @@
 ---
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
-ms.topic: conceptual
-ms.date: 04/01/2022
-author: v-amallick
+ms.topic: how-to
+ms.date: 05/24/2023
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up SAP HANA databases in Azure VMs
 
+This article describes how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
+
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SAP HANA databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
-This article shows how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
-
-In this article, you'll learn how to:
-> [!div class="checklist"]
->
-> * Create and configure a vault
-> * Discover databases
-> * Configure backups
-> * Run an on-demand backup job
-
 >[!NOTE]
-Refer to the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -31,7 +23,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and t
 
 ### Establish network connectivity
 
-For all operations, an SAP HANA database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
+For all operations, an SAP HANA database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
 
 The following table lists the various alternatives you can use for establishing connectivity:
 
@@ -40,9 +32,9 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
-| [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
-| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage*. However, for *Azure Backup* and *Microsoft Entra ID*, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.   |
+| [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage.     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can't be used for Microsoft Entra ID, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Microsoft Entra ID, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Microsoft Entra ID: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
@@ -51,11 +43,11 @@ More details around using these options are shared below:
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 > [!NOTE]
-> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for AAD so that no outbound connectivity is required for HANA VMs. Refer to the [proxy support section](#use-an-http-proxy-server-to-route-traffic) for more details.
+> Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -65,7 +57,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Select **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
+You can similarly create NSG outbound security rules for Azure Storage and Microsoft Entra ID. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
 
 #### Azure Firewall tags
 
@@ -73,7 +65,7 @@ If you're using Azure Firewall, create an application rule by using the *AzureBa
 
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Azure Active Directory.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 
@@ -81,20 +73,22 @@ You can also use the following FQDNs to allow access to the required services fr
 
 | Service    | Domain  names to be accessed                             |   Ports        |
 | -------------- | ------------------------------------------------------------ | ---------------------- |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |  443       |
+| Azure  Backup  |  `*.backup.windowsazure.com`                             |  443       |
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |   443    |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |    As applicable      |
+| Azure  AD      | `*.australiacentral.r.login.microsoft.com` <br><br> Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |   443 <br><br> As applicable      |
 
 #### Use an HTTP proxy server to route traffic
 
 > [!NOTE]
-> Currently, we only support HTTP Proxy for Azure Active Directory (Azure AD) traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
+> Currently, we only support HTTP Proxy for Microsoft Entra traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
 
-##### Using an HTTP proxy server for AAD traffic
+<a name='using-an-http-proxy-server-for-azure-ad-traffic'></a>
+
+##### Using an HTTP proxy server for Microsoft Entra traffic
 
 1. Go to the "opt/msawb/bin" folder
-2. Create a new JSON file named "ExtensionSettingOverrides.JSON"
-3. Add a key-value pairs to the JSON file as follows:
+2. Create a new JSON file named "ExtensionSettingsOverrides.json"
+3. Add a key-value pair to the JSON file as follows:
 
     ```json
     {
@@ -112,23 +106,23 @@ You can also use the following FQDNs to allow access to the required services fr
     chown root:msawb ExtensionSettingsOverrides.json
     ```
 
-5. No restart of any service is required. The Azure Backup service will attempt to route the AAD traffic via the proxy server mentioned in the JSON file.
+5. No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra traffic via the proxy server mentioned in the JSON file.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Enable Cross Region Restore
 
-At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
+At the Recovery Services vault, you can enable Cross Region Restore. Learn [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
 [Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 
 ## Discover the databases
 
-1. In the Azure portal, go to **Backup center** and click **+Backup**.
+1. In the Azure portal, go to **Backup center** and select **+Backup**.
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Screenshot showing to start checking for SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
 
-1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then click **Continue**.
+1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then select **Continue**.
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot showing to select an SAP HANA database in Azure VM.":::
 
@@ -233,31 +227,11 @@ Specify the policy settings as follows:
 
 ## Run an on-demand backup
 
-Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
+Backups run in accordance with the policy schedule. Learn how to [run an on-demand backup](sap-hana-database-manage.md#run-on-demand-backups).
 
-1. In the vault menu, select **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
-4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+## Run SAP HANA native clients backup on a database with Azure Backup
 
-By default, the retention of on-demand backups is 45 days.
-
-## Run SAP HANA Studio backup on a database with Azure Backup enabled
-
-If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
-
-1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio / Cockpit.
-1. Disable log backups, and set the backup catalog to the file system for relevant database.
-1. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-1. Set **enable_auto_log_backup** to **No**.
-1. Set **log_backup_using_backint** to **False**.
-1. Set **catalog_backup_using_backint** to **False**.
-1. Take an on-demand full backup of the database.
-1. Wait for the full backup and catalog backup to finish.
-1. Revert the previous settings back to those for Azure:
-    * Set **enable_auto_log_backup** to **Yes**.
-    * Set **log_backup_using_backint** to **True**.
-    * Set **catalog_backup_using_backint** to **True**.
+You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 ## Next steps
 

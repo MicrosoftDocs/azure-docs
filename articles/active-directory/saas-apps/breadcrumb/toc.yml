@@ -10,6 +10,6 @@
       tocHref: /azure/azure-databricks/administration-guide/
       topicHref: /azure/active-directory/manage-apps/
       items: 
-      - name: SaaS application tutorials
+      - name: Application tutorials
         tocHref: /azure/azure-databricks/administration-guide/users-groups/scim/
         topicHref: /azure/active-directory/saas-apps/tutorial-list/

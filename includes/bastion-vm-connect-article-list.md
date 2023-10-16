@@ -1,14 +1,18 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 03/16/2022
+ms.date: 06/12/2023
 ms.service: bastion
 ms.topic: include
 
 ---
-* [Windows - RDP](../articles/bastion/bastion-connect-vm-rdp-windows.md)
-* [Windows - SSH](../articles/bastion/bastion-connect-vm-ssh-windows.md)
-* [Linux - SSH](../articles/bastion/bastion-connect-vm-ssh-linux.md)
-* [Linux - RDP](../articles/bastion/bastion-connect-vm-rdp-linux.md)
-* [Connect from a local computer using a native client](../articles/bastion/connect-native-client-windows.md)
+* Connect to a Windows VM
+  * [RDP](../articles/bastion/bastion-connect-vm-rdp-windows.md)
+  * [SSH](../articles/bastion/bastion-connect-vm-ssh-windows.md)
+* Connect to a Linux VM
+  * [SSH](../articles/bastion/bastion-connect-vm-ssh-linux.md)
 * [Connect to a scale set](../articles/bastion/bastion-connect-vm-scale-set.md)
+* [Connect via IP address](../articles/bastion/connect-ip-address.md)
+* Connect from a native client
+  * [Windows client](../articles/bastion/connect-vm-native-client-windows.md)
+  * [Linux/SSH client](../articles/bastion/connect-vm-native-client-linux.md)

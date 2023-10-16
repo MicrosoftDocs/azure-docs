@@ -3,7 +3,7 @@ title: Cluster creation fails with DomainNotFound error in Azure HDInsight
 description: Troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/23/2020
+ms.date: 05/23/2023
 ---
 
 # Scenario: Cluster creation fails with DomainNotFound error in Azure HDInsight
@@ -35,7 +35,7 @@ When the domain joined clusters are deployed, HDI creates an internal user name 
 * Deploy an Ubuntu VM in the same subnet and domain join the machine
   * SSH into the machine
   * sudo su
-  * Run the script with username and password
+  * Run the [script](./sample-script.md) with username and password
   * The script will ping, create the required configuration files and then domain. If it succeeds, your DNS settings are good.
 
 ## Next steps

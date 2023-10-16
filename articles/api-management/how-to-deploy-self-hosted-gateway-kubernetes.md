@@ -7,14 +7,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.topic: article
 ms.author: danlep
-ms.date: 05/25/2021
+ms.date: 05/22/2023
 ---
 # Deploy a self-hosted gateway to Kubernetes with YAML
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
 
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
+
 > [!NOTE]
 > You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -26,6 +30,9 @@ This article describes the steps for deploying the self-hosted gateway component
 
 ## Deploy to Kubernetes
 
+> [!TIP]
+> The following steps deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using a gateway access token (authentication key). You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Microsoft Entra ID](self-hosted-gateway-enable-azure-ad.md).
+
 1. Select **Gateways** under **Deployment and infrastructure**.
 2. Select the self-hosted gateway resource that you want to deploy.
 3. Select **Deployment**.
@@ -33,30 +40,11 @@ This article describes the steps for deploying the self-hosted gateway component
 5. Select the **Kubernetes** tab under **Deployment scripts**.
 6. Select the **\<gateway-name\>.yml** file link and download the YAML file.
 7. Select the **copy** icon at the lower-right corner of the **Deploy** text box to save the `kubectl` commands to the clipboard.
-8. Paste commands to the terminal (or command) window. The first command creates a Kubernetes secret that contains the access token generated in step 4. The second command applies the configuration file downloaded in step 6 to the Kubernetes cluster and expects the file to be in the current directory.
-9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry.
-10. Run the following command to check if the deployment succeeded. Note that it might take a little time for all the objects to be created and for the pods to initialize.
+8. When using Azure Kubernetes Service (AKS), run `az aks get-credentials --resource-group <resource-group-name> --name <resource-name> --admin` in a new terminal session.
+9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/shgw/registry-portal) downloaded from the Microsoft Artifact Registry.
+   - The first step creates a Kubernetes secret that contains the access token generated in step 4. Next, it creates a Kubernetes deployment for the self-hosted gateway which uses a ConfigMap with the configuration of the gateway.
 
-    ```console
-    kubectl get deployments
-    NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-    <gateway-name>   1/1     1            1           18s
-    ```
-11. Run the following command to check if the service was successfully created. Note that your service IPs and ports will be different.
-
-    ```console
-    kubectl get services
-    NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-    <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
-    ```
-1. Go back to the Azure portal and select **Overview**.
-1. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
-
-    ![Gateway status](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
-
-> [!TIP]
-> Run the `kubectl logs deployment/<gateway-name>` command to view logs from a randomly selected pod if there's more than one.
-> Run `kubectl logs -h` for a complete set of command options, such as how to view logs for a specific pod or container.
+[!INCLUDE [api-management-self-hosted-gateway-kubernetes-services](../../includes/api-management-self-hosted-gateway-kubernetes-services.md)]
 
 ## Next steps
 

@@ -1,13 +1,14 @@
 ---
-title: APIs for Azure reservation automation | Microsoft Docs
+title: APIs for Azure reservation automation
 description: Learn about the Azure APIs that you can use to programmatically get reservation information.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 tags: billing
+ms.custom: ignite-2022
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -58,8 +59,8 @@ You can also buy a reservation in the Azure portal. For more information, see th
 
 Service plans:
 - [Virtual machine](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 
 Software plans:
 - [SUSE Linux software](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)

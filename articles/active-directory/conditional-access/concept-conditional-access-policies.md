@@ -1,16 +1,16 @@
 ---
-title: Building a Conditional Access policy - Azure Active Directory
+title: Building a Conditional Access policy
 description: What are all of the options available to build a Conditional Access policy and what do they mean?
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -23,24 +23,27 @@ How does an organization create these policies? What is required? How are they a
 
 ![Conditional Access (Signals + Decisions + Enforcement = Policies)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-Multiple Conditional Access policies may apply to an individual user at any time. In this case, all policies that apply must be satisfied. For example, if one policy requires multi-factor authentication (MFA) and another requires a compliant device, you must complete MFA, and use a compliant device. All assignments are logically **ANDed**. If you've more than one assignment configured, all assignments must be satisfied to trigger a policy.
+Multiple Conditional Access policies may apply to an individual user at any time. In this case, all policies that apply must be satisfied. For example, if one policy requires multifactor authentication and another requires a compliant device, you must complete MFA, and use a compliant device. All assignments are logically **ANDed**. If you've more than one assignment configured, all assignments must be satisfied to trigger a policy.
 
 If a policy where "Require one of the selected controls" is selected, we prompt in the order defined, as soon as the policy requirements are satisfied, access is granted.
 
 All policies are enforced in two phases:
 
-- Phase 1: Collect session details 
+- **Phase 1**: Collect session details 
    - Gather session details, like network location and device identity that will be necessary for policy evaluation. 
    - Phase 1 of policy evaluation occurs for enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
-- Phase 2: Enforcement 
+- **Phase 2**: Enforcement 
    - Use the session details gathered in phase 1 to identify any requirements that haven't been met. 
    - If there's a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
    - The user will be prompted to complete more grant control requirements that weren't satisfied during phase 1 in the following order, until policy is satisfied:  
-      - Multi-factor authentication​ 
-      - Approved client app/app protection policy​ 
-      - Managed device (compliant or hybrid Azure AD join)​ 
-      - Terms of use 
-      - Custom controls  
+      1. [Multifactor authentication​](concept-conditional-access-grant.md#require-multifactor-authentication)
+      2. [Device to be marked as compliant](./concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant)
+      3. [Microsoft Entra hybrid joined device](./concept-conditional-access-grant.md#require-hybrid-azure-ad-joined-device)
+      4. [Approved client app](./concept-conditional-access-grant.md#require-approved-client-app)
+      5. [App protection policy](./concept-conditional-access-grant.md#require-app-protection-policy)
+      6. [Password change](./concept-conditional-access-grant.md#require-password-change)
+      7. [Terms of use](concept-conditional-access-grant.md#terms-of-use)
+      8. [Custom controls](./concept-conditional-access-grant.md#custom-controls-preview)
    - Once all grant controls have been satisfied, apply session controls (App Enforced, Microsoft Defender for Cloud Apps, and token Lifetime) 
    - Phase 2 of policy evaluation occurs for all enabled policies. 
 
@@ -62,7 +65,7 @@ A policy can contain multiple [conditions](concept-conditional-access-conditions
 
 #### Sign-in risk
 
-For organizations with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), the risk detections generated there can influence your Conditional Access policies.
+For organizations with [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md), the risk detections generated there can influence your Conditional Access policies.
 
 #### Device platforms
 
@@ -72,17 +75,13 @@ The information used to calculate the device platform comes from unverified sour
 
 #### Locations
 
-Location data is provided by IP geolocation data. Administrators can choose to define locations and choose to mark some as trusted like those for their organization's network locations.
+Locations connect IP addresses, geographies, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md) to Conditional Access policy decisions. Administrators can choose to define locations and  mark some as trusted like those for their organization's primary network locations.
 
 #### Client apps
 
-By default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition isn't configured.
+The software the user is employing to access the cloud app. For example, 'Browser', and 'Mobile apps and desktop clients'. By default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition isn't configured.
 
 The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they'll remain unchanged. However, if you select on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
-
-#### Device state
-
-This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
 
 #### Filter for devices
 
@@ -104,9 +103,9 @@ Block access does just that, it will block access under the specified assignment
 
 The grant control can trigger enforcement of one or more controls. 
 
-- Require multi-factor authentication (Azure AD Multi-Factor Authentication)
+- Require multifactor authentication
 - Require device to be marked as compliant (Intune)
-- Require Hybrid Azure AD joined device
+- Require Microsoft Entra hybrid joined device
 - Require approved client app
 - Require app protection policy
 - Require password change
@@ -123,7 +122,7 @@ Administrators can choose to require one of the previous controls or all selecte
 
 - Use app enforced restrictions
    - Currently works with Exchange Online and SharePoint Online only.
-      - Passes device information to allow control of experience granting full or limited access.
+   - Passes device information to allow control of experience granting full or limited access.
 - Use Conditional Access App Control
    - Uses signals from Microsoft Defender for Cloud Apps to do things like: 
       - Block download, cut, copy, and print of sensitive documents.
@@ -133,6 +132,8 @@ Administrators can choose to require one of the previous controls or all selecte
    - Ability to change the default sign in frequency for modern authentication.
 - Persistent browser session
    - Allows users to remain signed in after closing and reopening their browser window.
+- Customize continuous access evaluation
+- Disable resilience defaults 
 
 ## Simple policies
 
@@ -151,11 +152,11 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 ## Next steps
 
-[Create a Conditional Access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json#create-a-conditional-access-policy)
+[Create a Conditional Access policy](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json#create-a-conditional-access-policy)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 
-[Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
+[Planning a cloud-based Microsoft Entra multifactor authentication deployment](../authentication/howto-mfa-getstarted.md)
 
 [Managing device compliance with Intune](/intune/device-compliance-get-started)
 

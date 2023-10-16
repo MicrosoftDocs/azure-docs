@@ -1,31 +1,30 @@
 ---
-title: Acquire a token to call a web API using integrated Windows authentication (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API using integrated Windows authentication (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using integrated Windows authentication
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
-ms.author: sahmalik
-ms.custom: aaddev, devx-track-python
+ms.date: 10/07/2022
+ms.author: dmwendia
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Acquire a token using integrated Windows authentication
 
-To sign in a domain user on a domain or Azure AD joined machine, use integrated Windows authentication (IWA).
+To sign in a domain user on a domain or Microsoft Entra joined machine, use integrated Windows authentication (IWA).
 
 ## Constraints
 
-- Integrated Windows authentication is available for *federated+* users only, that is, users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
+- Integrated Windows authentication is available for *federated+* users only, that is, users created in Active Directory and backed by Microsoft Entra ID. Users created directly in Microsoft Entra ID without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
 - IWA doesn't bypass [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
 
-    IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
+    IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Microsoft Entra ID uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
 
 - The authority passed in `PublicClientApplicationBuilder` needs to be:
   - Tenanted of the form `https://login.microsoftonline.com/{tenant}/`, where `tenant` is either the GUID that represents the tenant ID or a domain associated with the tenant.
@@ -38,12 +37,12 @@ To sign in a domain user on a domain or Azure AD joined machine, use integrated 
   - In other words:
     - Either you as a developer selected the **Grant** button in the Azure portal for yourself.
     - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
-    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./v2-permissions-and-consent.md#requesting-individual-user-consent).
-    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./permissions-consent-overview.md#requesting-individual-user-consent).
+    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./permissions-consent-overview.md#requesting-consent-for-an-entire-tenant).
 
 - This flow is enabled for .NET desktop, .NET Core, and UWP apps.
 
-For more information on consent, see the [Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
+For more information on consent, see the [Microsoft identity platform permissions and consent](./permissions-consent-overview.md).
 
 ## Learn how to use it
 
@@ -139,54 +138,70 @@ For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthenticat
 
 # [Java](#tab/java)
 
-This extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
+This extract is from the [MSAL Java code samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/msal4j-sdk/src/samples/public-client/IntegratedWindowsAuthenticationFlow.java).
 
 ```java
-private static IAuthenticationResult acquireTokenIwa() throws Exception {
+   PublicClientApplication pca = PublicClientApplication.builder(clientId)
+                .authority(authority)
+                .build();
 
-    // Load token cache from file and initialize token cache aspect. The token cache will have
-    // dummy data, so the acquireTokenSilently call will fail.
-    TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
+        Set<IAccount> accountsInCache = pca.getAccounts().join();
+        IAccount account = getAccountByUsername(accountsInCache, username);
 
-    PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
-            .authority(AUTHORITY)
-            .setTokenCacheAccessAspect(tokenCacheAspect)
-            .build();
+        //Attempt to acquire token when user's account is not in the application's token cache
+        IAuthenticationResult result = acquireTokenIntegratedWindowsAuth(pca, scope, account, username);
+        System.out.println("Account username: " + result.account().username());
+        System.out.println("Access token:     " + result.accessToken());
+        System.out.println("Id token:         " + result.idToken());
+        System.out.println();
 
-    Set<IAccount> accountsInCache = pca.getAccounts().join();
-    // Take first account in the cache. In a production application, you would filter
-    // accountsInCache to get the right account for the user authenticating.
-    IAccount account = accountsInCache.iterator().next();
+        //Get list of accounts from the application's token cache, and search them for the configured username
+        //getAccounts() will be empty on this first call, as accounts are added to the cache when acquiring a token
+        accountsInCache = pca.getAccounts().join();
+        account = getAccountByUsername(accountsInCache, username);
 
-    IAuthenticationResult result;
-    try {
-        SilentParameters silentParameters =
-                SilentParameters
-                        .builder(SCOPE, account)
-                        .build();
-
-        // try to acquire token silently. This call will fail since the token cache
-        // does not have any data for the user you are trying to acquire a token for
-        result = pca.acquireTokenSilently(silentParameters).join();
-    } catch (Exception ex) {
-        if (ex.getCause() instanceof MsalException) {
-
-            IntegratedWindowsAuthenticationParameters parameters =
-                    IntegratedWindowsAuthenticationParameters
-                            .builder(SCOPE, USER_NAME)
-                            .build();
-
-            // Try to acquire a IWA. You will need to generate a Kerberos ticket.
-            // If successful, you should see the token and account information printed out to
-            // console
-            result = pca.acquireToken(parameters).join();
-        } else {
-            // Handle other exceptions accordingly
-            throw ex;
-        }
+        //Attempt to acquire token again, now that the user's account and a token are in the application's token cache
+        result = acquireTokenIntegratedWindowsAuth(pca, scope, account, username);
+        System.out.println("Account username: " + result.account().username());
+        System.out.println("Access token:     " + result.accessToken());
+        System.out.println("Id token:         " + result.idToken());
     }
-    return result;
-}
+
+    private static IAuthenticationResult acquireTokenIntegratedWindowsAuth( PublicClientApplication pca,
+                                                                            Set<String> scope,
+                                                                            IAccount account,
+                                                                            String username) throws Exception {
+
+        IAuthenticationResult result;
+        try {
+            SilentParameters silentParameters =
+                    SilentParameters
+                            .builder(scope)
+                            .account(account)
+                            .build();
+            // Try to acquire token silently. This will fail on the first acquireTokenIntegratedWindowsAuth() call
+            // because the token cache does not have any data for the user you are trying to acquire a token for
+            result = pca.acquireTokenSilently(silentParameters).join();
+            System.out.println("==acquireTokenSilently call succeeded");
+        } catch (Exception ex) {
+            if (ex.getCause() instanceof MsalException) {
+                System.out.println("==acquireTokenSilently call failed: " + ex.getCause());
+                IntegratedWindowsAuthenticationParameters parameters =
+                        IntegratedWindowsAuthenticationParameters
+                                .builder(scope, username)
+                                .build();
+
+                // Try to acquire a token using Integrated Windows Authentication (IWA). You will need to generate a Kerberos ticket.
+                // If successful, you should see the token and account information printed out to console
+                result = pca.acquireToken(parameters).join();
+                System.out.println("==Integrated Windows Authentication flow succeeded");
+            } else {
+                // Handle other exceptions accordingly
+                throw ex;
+            }
+        }
+        return result;
+    }
 ```
 
 # [macOS](#tab/macOS)

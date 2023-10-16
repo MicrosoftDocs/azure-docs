@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/27/2021
+ms.date: 07/20/2023
 ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 
@@ -36,7 +36,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
+* [An application in Microsoft Entra ID](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
 
 ## Create and upload an input file
 
@@ -71,7 +71,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
     > [!NOTE] 
     > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
-    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](/azure/developer/python/azure-sdk-sovereign-domain)
+    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](/azure/developer/python/sdk/azure-sdk-sovereign-domain)
     
     
 ## Create a data factory client
@@ -196,7 +196,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 ```python
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(reference_name=ls_name)
+    ds_ls = LinkedServiceReference(type="LinkedServiceReference",reference_name=ls_name)
     blob_path = '<container>/<folder path>'
     blob_filename = '<file name>'
     ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
@@ -370,7 +370,7 @@ def main():
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(reference_name=ls_name)
+    ds_ls = LinkedServiceReference(type="LinkedServiceReference",reference_name=ls_name)
     blob_path = '<container>/<folder path>'
     blob_filename = '<file name>'
     ds_azure_blob = DatasetResource(properties=AzureBlobDataset(

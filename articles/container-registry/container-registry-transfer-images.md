@@ -2,8 +2,10 @@
 title: ACR Transfer with Arm Templates
 description: ACR Transfer with Az CLI with ARM templates
 ms.topic: article
-ms.date: 10/07/2020
-ms.custom:
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+ms.custom: devx-track-azurecli
 ---
 
 # ACR Transfer with ARM templates
@@ -17,9 +19,12 @@ Please complete the prerequisites outlined [here](./container-registry-transfer-
 - You have an existing Keyvault with a secret containing a valid SAS token with the necessary permissions in both clouds.
 - You have a recent version of Az CLI installed in both clouds.
 
+> [!IMPORTANT]
+- The ACR Transfer supports artifacts with the layer size limits to 8 GB due to the technical limitations.
+
 ## Consider using the Az CLI extension
 
-For most non-automated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
+For most nonautomated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
 
 ## Create ExportPipeline with Resource Manager
 
@@ -202,7 +207,7 @@ az storage blob list \
 
 Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-v10.md#transfer-data) from the source storage account to the target storage account.
 
-For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
+For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens aren't shown.)
 
 ```console
 azcopy copy \
@@ -269,7 +274,7 @@ az acr repository list --name <target-registry-name>
 
 ## Redeploy PipelineRun resource
 
-If redeploying a PipelineRun resource with *identical properties*, you must leverage the **forceUpdateTag** property. This property indicates that the PipelineRun resource should be recreated even if the configuration has not changed. Please ensure forceUpdateTag is different each time you redeploy the PipelineRun resource. The example below recreates a PipelineRun for export. The current datetime is used to set forceUpdateTag, thereby ensuring this property is always unique.
+If redeploying a PipelineRun resource with *identical properties*, you must leverage the **forceUpdateTag** property. This property indicates that the PipelineRun resource should be recreated even if the configuration has not changed. Ensure forceUpdateTag is different each time you redeploy the PipelineRun resource. The example below recreates a PipelineRun for export. The current datetime is used to set forceUpdateTag, thereby ensuring this property is always unique.
 
 ```console
 CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`

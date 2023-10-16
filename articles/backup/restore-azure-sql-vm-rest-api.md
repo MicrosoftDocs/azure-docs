@@ -2,10 +2,10 @@
 title: Restore SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to restore SQL server databases in Azure VM from a restore point created by Azure Backup
 ms.topic: conceptual
-ms.date: 11/30/2021
-author: v-amallick
+ms.date: 08/11/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SQL Server databases in Azure VMs with REST API
@@ -16,6 +16,9 @@ By the end of this article, you'll learn how to perform the following operations
 
 - View the restore points for a backed-up SQL database.
 - Restore a full SQL database.
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -292,6 +295,9 @@ If you've enabled Cross-region restore, then the recovery points will be replica
 1. Choose a target server, which is registered to a vault within the secondary paired region.
 1. Trigger restore to that server and track it using *JobId*.
 
+>[!Note]
+>The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
+
 ### Fetch distinct recovery points from the secondary region
 
 Use the [List Recovery Points API](/rest/api/backup/recovery-points-crr/list) to fetch the list of available recovery points for the database in the secondary region. In the following example, an optional filter is applied to fetch full and differential recovery points in a given time range.
@@ -351,7 +357,7 @@ The recovery point is identified with the `{name}` field in the response above.
 
 To perform Cross-region restore, you will require an access token to enable proper communication between the Azure Backup services. To get an access token, follow these steps:
 
-1. Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to fetch Azure Active Directory (AAD) properties for the secondary region (*westus* in the below example).
+1. Use the [Microsoft Entra Properties API](/rest/api/backup/aad-properties/get) to fetch Microsoft Entra properties for the secondary region (*westus* in the below example).
 
     ```http
     GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
@@ -375,7 +381,7 @@ To perform Cross-region restore, you will require an access token to enable prop
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20
     ```
 
-   For the request body, paste the contents of the response returned by the AAD Properties API in the previous step.
+   For the request body, paste the contents of the response returned by the Microsoft Entra Properties API in the previous step.
 
    The response returned format is as follows:
 

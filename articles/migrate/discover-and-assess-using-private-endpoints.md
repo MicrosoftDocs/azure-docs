@@ -1,14 +1,15 @@
 ---
 title: Discover and assess using Azure Private Link
 description: Create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration.
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.service: azure-migrate
+ms.date: 09/15/2023
+ms.custom: engagement-fy23
 ---
  
-# Discover and assess servers for migration using Private Link
+# Discover and assess servers for migration using Private Link 
 
 This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
@@ -72,7 +73,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.
@@ -108,31 +109,38 @@ Open a browser on any machine that can connect to the appliance server. Open the
 
 1. Read the third-party information, and accept the **license terms**.
 
-1. In the configuration manager under **Set up prerequisites**, do the following:
-   - **Connectivity**: The appliance checks for access to the required URLs. If the server uses a proxy:
-     - Select **Set up proxy** to specify the proxy address `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
-     - Specify credentials if the proxy needs authentication. Only HTTP proxy is supported.
-     - You can add a list of URLs or IP addresses that should bypass the proxy server.
-        ![Adding to bypass proxy list](./media/how-to-use-azure-migrate-with-private-endpoints/bypass-proxy-list.png)
-     - Select **Save** to register the configuration if you've updated the proxy server details or added URLs or IP addresses to bypass proxy.
+#### Set up prerequisites and register the appliance
 
-        > [!Note]
-        > If you get an error with the aka.ms/* link during the connectivity check and you don't want the appliance to access this URL over the internet, disable the auto-update service on the appliance. Follow the steps in [Turn off auto-update](./migrate-appliance.md#turn-off-auto-update). After you've disabled auto-update, the aka.ms/* URL connectivity check will be skipped.
+In the configuration manager, select **Set up prerequisites**, and then complete these steps:
+1. **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
+    - Select **Setup proxy** to specify the proxy address (in the form `http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
+    - Enter credentials if the proxy needs authentication.
+    - If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity and check connectivity again.
+    
+        Only HTTP proxy is supported.
+1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
+1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
-   - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
-   - **Install updates**: The appliance ensures that the latest updates are installed. After the check completes, select **View appliance services** to see the status and versions of the services running on the appliance server.
-        > [!Note]
-        > If you disabled auto-update on the appliance, you can update the appliance services manually to get the latest versions of the services. Follow the steps in [Manually update an older version](./migrate-appliance.md#manually-update-an-older-version).
-   - **Install VDDK**: _(Needed only for VMware appliance.)_ The appliance checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zipped contents to the specified location on the appliance, as provided in the installation instructions.
+    :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
-### Register the appliance and start continuous discovery
+    > [!NOTE]
+    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-After the prerequisites check has completed, follow the steps to register the appliance and start continuous discovery for the respective scenarios:
-- [VMware VMs](./tutorial-discover-vmware.md#register-the-appliance-with-azure-migrate)
-- [Hyper-V VMs](./tutorial-discover-hyper-v.md#register-the-appliance-with-azure-migrate)
-- [Physical servers](./tutorial-discover-physical.md#register-the-appliance-with-azure-migrate)
-- [AWS VMs](./tutorial-discover-aws.md#register-the-appliance-with-azure-migrate)
-- [GCP VMs](./tutorial-discover-gcp.md#register-the-appliance-with-azure-migrate)
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+    
+        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+    4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
+	    > [!NOTE]
+        > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
+	5. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+
+        After the appliance is successfully registered, to see the registration details, select **View details**.
+
+4. **Install VDDK**: _(Needed only for VMware appliance.)_ The appliance checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zipped contents to the specified location on the appliance, as provided in the installation instructions.
+
+You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
 >[!Note]
 > If you get DNS resolution issues during appliance registration or at the time of starting discovery, ensure that Azure Migrate resources created during the **Generate key** step in the portal are reachable from the on-premises server that hosts the Azure Migrate appliance. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md).

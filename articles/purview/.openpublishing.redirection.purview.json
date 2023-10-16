@@ -1,5 +1,5 @@
 {
-    "redirections": [
+  "redirections": [
     {
         "source_path_from_root": "/articles/purview/scan-sqlresource-firewall.md",
         "redirect_url": "/azure/purview/register-scan-azure-sql-database",
@@ -46,14 +46,44 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/how-to-access-policies-storage.md",
-        "redirect_url": "/azure/purview/tutorial-data-owner-policies-storage",
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-storage.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-storage",
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/tutorial-access-policies-resource-group.md",
-        "redirect_url": "/azure/purview/tutorial-data-owner-policies-resource-group",
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-resource-group.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-resource-group",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-arc-sql-server.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-arc-sql-server",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-azure-sql-db.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-azure-sql-db",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policy-authoring-generic.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-authoring-generic",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-data-owner-policies.md",
+        "redirect_url": "/azure/purview/concept-policies-data-owner",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-policies-purview-account-delete.md",
+        "redirect_url": "/azure/purview/concept-policies-purview-account-delete",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/troubleshoot-policy-distribution.md",
+        "redirect_url": "/rest/api/purview/pdsdataplane/policy-elements",
+        "redirect_document_id": false
       },
       {
         "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
@@ -146,14 +176,1069 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-resource-group.md",
-        "redirect_url": "/azure/purview/how-to-data-owner-policies-resource-group",
-        "redirect_document_id": true
-      },
-      {
         "source_path_from_root": "/articles/purview/how-to-enable-data-use-governance.md",
         "redirect_url": "/azure/purview/how-to-enable-data-use-management",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/azure-purview-connector-overview.md",
+        "redirect_url": "/azure/purview/microsoft-purview-connector-overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/register-scan-azure-sql-database-managed-instance.md",
+        "redirect_url": "/azure/purview/register-scan-azure-sql-managed-instance",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-dotnet.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-dotnet",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-portal-faq.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-portal-faq",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-python.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-python",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-catalog-powershell.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-powershell",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-catalog-portal.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-portal",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-ARM-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-ARM-create-microsoft-purview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/use-azure-purview-studio.md",
+        "redirect_url": "/azure/purview/use-microsoft-purview-governance-portal",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-bicep-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-bicep-create-microsoft-purview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/reference-azure-purview-glossary.md",
+        "redirect_url": "/azure/purview/reference-microsoft-purview-glossary",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-create-import-export-glossary.md",
+        "redirect_url": "/azure/purview/how-to-create-manage-glossary-term",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/enable-disable-data-estate-insights.md",
+        "redirect_url": "/azure/purview/disable-data-estate-insights",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-default-purview-account.md",
+        "redirect_url": "/azure/purview/concept-best-practices-accounts",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-monitor-scan-runs.md",
+        "redirect_url": "/azure/purview/how-to-monitor-data-map-population",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-spark-atlas-connector.md",
+        "redirect_url": "/azure/purview/catalog-lineage-user-guide",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/abap-functions-deployment-guide.md",
+        "redirect_url": "/purview/abap-functions-deployment-guide",
+        "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/account-upgrades.md",
+          "redirect_url": "/purview/account-upgrades",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/apply-classifications.md",
+          "redirect_url": "/purview/apply-classifications",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/asset-insights.md",
+          "redirect_url": "/purview/asset-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/available-metadata.md",
+          "redirect_url": "/purview/available-metadata",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-adoption-insights.md",
+          "redirect_url": "/purview/catalog-adoption-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-asset-details.md",
+          "redirect_url": "/purview/catalog-asset-details",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-conditional-access.md",
+          "redirect_url": "/purview/catalog-conditional-access",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-firewall.md",
+          "redirect_url": "/purview/catalog-firewall",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-lineage-user-guide.md",
+          "redirect_url": "/purview/catalog-lineage-user-guide",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-managed-vnet.md",
+          "redirect_url": "/purview/catalog-managed-vnet",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-permissions.md",
+          "redirect_url": "/purview/catalog-permissions",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-private-link.md",
+          "redirect_url": "/purview/catalog-private-link",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-private-link-account-portal.md",
+          "redirect_url": "/purview/catalog-private-link-account-portal",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-private-link-end-to-end.md",
+          "redirect_url": "/purview/catalog-private-link-end-to-end",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-private-link-faqs.md",
+          "redirect_url": "/purview/catalog-private-link-faqs",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-private-link-name-resolution.md",
+          "redirect_url": "/purview/catalog-private-link-name-resolution",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/catalog-private-link-troubleshoot.md",
+          "redirect_url": "/purview/catalog-private-link-troubleshoot",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/classification-insights.md",
+          "redirect_url": "/purview/classification-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-asset-normalization.md",
+          "redirect_url": "/purview/concept-asset-normalization",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-accounts.md",
+          "redirect_url": "/purview/concept-best-practices-accounts",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-annotating-data.md",
+          "redirect_url": "/purview/concept-best-practices-annotating-data",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-asset-lifecycle.md",
+          "redirect_url": "/purview/concept-best-practices-asset-lifecycle",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-automation.md",
+          "redirect_url": "/purview/concept-best-practices-automation",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-classification.md",
+          "redirect_url": "/purview/concept-best-practices-classification",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-collections.md",
+          "redirect_url": "/purview/concept-best-practices-collections",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-glossary.md",
+          "redirect_url": "/purview/concept-best-practices-glossary",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-governing-domains.md",
+          "redirect_url": "/purview/concept-best-practices-governing-domains",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-lineage-azure-data-factory.md",
+          "redirect_url": "/purview/concept-best-practices-lineage-azure-data-factory",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-migration.md",
+          "redirect_url": "/purview/concept-best-practices-migration",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-network.md",
+          "redirect_url": "/purview/concept-best-practices-network",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-scanning.md",
+          "redirect_url": "/purview/concept-best-practices-scanning",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-security.md",
+          "redirect_url": "/purview/concept-best-practices-security",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-best-practices-sensitivity-labels.md",
+          "redirect_url": "/purview/concept-best-practices-sensitivity-labels",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-business-glossary.md",
+          "redirect_url": "/purview/concept-business-glossary",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-classification.md",
+          "redirect_url": "/purview/concept-classification",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-data-lineage.md",
+          "redirect_url": "/purview/concept-data-lineage",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-data-share.md",
+          "redirect_url": "/purview/concept-data-share",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-elastic-data-map.md",
+          "redirect_url": "/purview/concept-elastic-data-map",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-guidelines-pricing.md",
+          "redirect_url": "/purview/concept-guidelines-pricing",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-guidelines-pricing-data-estate-insights.md",
+          "redirect_url": "/purview/concept-guidelines-pricing-data-estate-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-guidelines-pricing-data-map.md",
+          "redirect_url": "/purview/concept-guidelines-pricing-data-map",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-insights.md",
+          "redirect_url": "/purview/concept-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-metamodel.md",
+          "redirect_url": "/purview/concept-metamodel",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-policies-data-owner.md",
+          "redirect_url": "/purview/concept-policies-data-owner",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-policies-data-owner-action-update.md",
+          "redirect_url": "/purview/concept-policies-data-owner-action-update",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-policies-devops.md",
+          "redirect_url": "/purview/concept-policies-devops",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-policies-purview-account-delete.md",
+          "redirect_url": "/purview/concept-policies-purview-account-delete",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-resource-sets.md",
+          "redirect_url": "/purview/concept-resource-sets",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-scans-and-ingestion.md",
+          "redirect_url": "/purview/concept-scans-and-ingestion",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-self-service-data-access-policy.md",
+          "redirect_url": "/purview/concept-self-service-data-access-policy",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/concept-workflow.md",
+          "redirect_url": "/purview/concept-workflow",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/configure-event-hubs-for-kafka.md",
+          "redirect_url": "/purview/configure-event-hubs-for-kafka",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-a-custom-classification-and-classification-rule.md",
+          "redirect_url": "/purview/create-a-custom-classification-and-classification-rule",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-a-scan-rule-set.md",
+          "redirect_url": "/purview/create-a-scan-rule-set",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-microsoft-purview-dotnet.md",
+          "redirect_url": "/purview/create-microsoft-purview-dotnet",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-microsoft-purview-portal.md",
+          "redirect_url": "/purview/create-microsoft-purview-portal",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-microsoft-purview-portal-faq.md",
+          "redirect_url": "/purview/create-microsoft-purview-portal-faq",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-microsoft-purview-powershell.md",
+          "redirect_url": "/purview/create-microsoft-purview-powershell",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-microsoft-purview-python.md",
+          "redirect_url": "/purview/create-microsoft-purview-python",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-sensitivity-label.md",
+          "redirect_url": "/purview/create-sensitivity-label",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/create-service-principal-azure.md",
+          "redirect_url": "/purview/create-service-principal-azure",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/data-stewardship.md",
+          "redirect_url": "/purview/data-stewardship",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/deployment-best-practices.md",
+          "redirect_url": "/purview/deployment-best-practices",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/disable-data-estate-insights.md",
+          "redirect_url": "/purview/disable-data-estate-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/disaster-recovery.md",
+          "redirect_url": "/purview/disaster-recovery",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/frequently-asked-questions.yml",
+          "redirect_url": "/purview/frequently-asked-questions",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/glossary-insights.md",
+          "redirect_url": "/purview/glossary-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-automatically-label-your-content.md",
+          "redirect_url": "/purview/how-to-automatically-label-your-content",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-browse-catalog.md",
+          "redirect_url": "/purview/how-to-browse-catalog",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-bulk-edit-assets.md",
+          "redirect_url": "/purview/how-to-bulk-edit-assets",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-certify-assets.md",
+          "redirect_url": "/purview/how-to-certify-assets",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-create-and-manage-collections.md",
+          "redirect_url": "/purview/how-to-create-and-manage-collections",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-create-manage-glossary.md",
+          "redirect_url": "/purview/how-to-create-manage-glossary",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-create-manage-glossary-term.md",
+          "redirect_url": "/purview/how-to-create-manage-glossary-term",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-data-share-faq.md",
+          "redirect_url": "/purview/how-to-data-share-faq",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-delete-self-service-data-access-policy.md",
+          "redirect_url": "/purview/how-to-delete-self-service-data-access-policy",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-deploy-profisee-purview-integration.md",
+          "redirect_url": "/purview/how-to-deploy-profisee-purview-integration",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-enable-data-use-management.md",
+          "redirect_url": "/purview/how-to-enable-data-use-management",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-import-export-glossary.md",
+          "redirect_url": "/purview/how-to-import-export-glossary",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-integrate-with-azure-security-products.md",
+          "redirect_url": "/purview/how-to-integrate-with-azure-security-products",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-lineage-azure-synapse-analytics.md",
+          "redirect_url": "/purview/how-to-lineage-azure-synapse-analytics",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-lineage-powerbi.md",
+          "redirect_url": "/purview/how-to-lineage-powerbi",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-lineage-purview-data-sharing.md",
+          "redirect_url": "/purview/how-to-lineage-purview-data-sharing",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-lineage-sql-server-integration-services.md",
+          "redirect_url": "/purview/how-to-lineage-sql-server-integration-services",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-link-azure-data-factory.md",
+          "redirect_url": "/purview/how-to-link-azure-data-factory",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-link-azure-data-share.md",
+          "redirect_url": "/purview/how-to-link-azure-data-share",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-managed-attributes.md",
+          "redirect_url": "/purview/how-to-managed-attributes",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-manage-quotas.md",
+          "redirect_url": "/purview/how-to-manage-quotas",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-manage-term-templates.md",
+          "redirect_url": "/purview/how-to-manage-term-templates",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-metamodel.md",
+          "redirect_url": "/purview/how-to-metamodel",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-monitor-data-map-population.md",
+          "redirect_url": "/purview/how-to-monitor-data-map-population",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-monitor-with-azure-monitor.md",
+          "redirect_url": "/purview/how-to-monitor-with-azure-monitor",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-data-owner-arc-sql-server.md",
+          "redirect_url": "/purview/how-to-policies-data-owner-arc-sql-server",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-data-owner-authoring-generic.md",
+          "redirect_url": "/purview/how-to-policies-data-owner-authoring-generic",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-data-owner-azure-sql-db.md",
+          "redirect_url": "/purview/how-to-policies-data-owner-azure-sql-db",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-data-owner-resource-group.md",
+          "redirect_url": "/purview/how-to-policies-data-owner-resource-group",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-data-owner-storage.md",
+          "redirect_url": "/purview/how-to-policies-data-owner-storage",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-devops-arc-sql-server.md",
+          "redirect_url": "/purview/how-to-policies-devops-arc-sql-server",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-devops-authoring-generic.md",
+          "redirect_url": "/purview/how-to-policies-devops-authoring-generic",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-devops-azure-sql-db.md",
+          "redirect_url": "/purview/how-to-policies-devops-azure-sql-db",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-devops-resource-group.md",
+          "redirect_url": "/purview/how-to-policies-devops-resource-group",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-self-service-azure-sql-db.md",
+          "redirect_url": "/purview/how-to-policies-self-service-azure-sql-db",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-policies-self-service-storage.md",
+          "redirect_url": "/purview/how-to-policies-self-service-storage",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-receive-share.md",
+          "redirect_url": "/purview/how-to-receive-share",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-request-access.md",
+          "redirect_url": "/purview/how-to-request-access",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-resource-set-pattern-rules.md",
+          "redirect_url": "/purview/how-to-resource-set-pattern-rules",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-schedule-data-estate-insights.md",
+          "redirect_url": "/purview/how-to-schedule-data-estate-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-search-catalog.md",
+          "redirect_url": "/purview/how-to-search-catalog",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-share-data.md",
+          "redirect_url": "/purview/how-to-share-data",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-use-workflow-connectors.md",
+          "redirect_url": "/purview/how-to-use-workflow-connectors",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-use-workflow-dynamic-content.md",
+          "redirect_url": "/purview/how-to-use-workflow-dynamic-content",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-use-workflow-http-connector.md",
+          "redirect_url": "/purview/how-to-use-workflow-http-connector",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-view-self-service-data-access-policy.md",
+          "redirect_url": "/purview/how-to-view-self-service-data-access-policy",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-workflow-asset-curation.md",
+          "redirect_url": "/purview/how-to-workflow-asset-curation",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-workflow-business-terms-approval.md",
+          "redirect_url": "/purview/how-to-workflow-business-terms-approval",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-workflow-manage-requests-approvals.md",
+          "redirect_url": "/purview/how-to-workflow-manage-requests-approvals",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-workflow-manage-runs.md",
+          "redirect_url": "/purview/how-to-workflow-manage-runs",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/how-to-workflow-self-service-data-access-hybrid.md",
+          "redirect_url": "/purview/how-to-workflow-self-service-data-access-hybrid",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/index.yml",
+          "redirect_url": "/purview/index",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/insights-permissions.md",
+          "redirect_url": "/purview/insights-permissions",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/manage-credentials.md",
+          "redirect_url": "/purview/manage-credentials",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/manage-data-sources.md",
+          "redirect_url": "/purview/manage-data-sources",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/manage-integration-runtimes.md",
+          "redirect_url": "/purview/manage-integration-runtimes",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/manage-kafka-dotnet.md",
+          "redirect_url": "/purview/manage-kafka-dotnet",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/manually-apply-classifications.md",
+          "redirect_url": "/purview/manually-apply-classifications",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/microsoft-purview-connector-overview.md",
+          "redirect_url": "/purview/microsoft-purview-connector-overview",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/overview.md",
+          "redirect_url": "/purview/governance-solutions-overview",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/quickstart-ARM-create-microsoft-purview.md",
+          "redirect_url": "/purview/quickstart-ARM-create-microsoft-purview",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/quickstart-bicep-create-microsoft-purview.md",
+          "redirect_url": "/purview/quickstart-bicep-create-microsoft-purview",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/quickstart-create-collection.md",
+          "redirect_url": "/purview/quickstart-create-collection",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/quickstart-data-share.md",
+          "redirect_url": "/purview/quickstart-data-share",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/quickstart-data-share-dotnet.md",
+          "redirect_url": "/purview/quickstart-data-share-dotnet",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/reference-microsoft-purview-glossary.md",
+          "redirect_url": "/purview/reference-microsoft-purview-glossary",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-adls-gen1.md",
+          "redirect_url": "/purview/register-scan-adls-gen1",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-adls-gen2.md",
+          "redirect_url": "/purview/register-scan-adls-gen2",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-amazon-rds.md",
+          "redirect_url": "/purview/register-scan-amazon-rds",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-amazon-s3.md",
+          "redirect_url": "/purview/register-scan-amazon-s3",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-arc-enabled-sql-server.md",
+          "redirect_url": "/purview/register-scan-azure-arc-enabled-sql-server",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-blob-storage-source.md",
+          "redirect_url": "/purview/register-scan-azure-blob-storage-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-cosmos-database.md",
+          "redirect_url": "/purview/register-scan-azure-cosmos-database",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-databricks.md",
+          "redirect_url": "/purview/register-scan-azure-databricks",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-data-explorer.md",
+          "redirect_url": "/purview/register-scan-azure-data-explorer",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-files-storage-source.md",
+          "redirect_url": "/purview/register-scan-azure-files-storage-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-machine-learning.md",
+          "redirect_url": "/purview/register-scan-azure-machine-learning",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-multiple-sources.md",
+          "redirect_url": "/purview/register-scan-azure-multiple-sources",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-mysql-database.md",
+          "redirect_url": "/purview/register-scan-azure-mysql-database",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-postgresql.md",
+          "redirect_url": "/purview/register-scan-azure-postgresql",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-sql-database.md",
+          "redirect_url": "/purview/register-scan-azure-sql-database",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-sql-managed-instance.md",
+          "redirect_url": "/purview/register-scan-azure-sql-managed-instance",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-azure-synapse-analytics.md",
+          "redirect_url": "/purview/register-scan-azure-synapse-analytics",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-cassandra-source.md",
+          "redirect_url": "/purview/register-scan-cassandra-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-db2.md",
+          "redirect_url": "/purview/register-scan-db2",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-erwin-source.md",
+          "redirect_url": "/purview/register-scan-erwin-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-google-bigquery-source.md",
+          "redirect_url": "/purview/register-scan-google-bigquery-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-hdfs.md",
+          "redirect_url": "/purview/register-scan-hdfs",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-hive-metastore-source.md",
+          "redirect_url": "/purview/register-scan-hive-metastore-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-looker-source.md",
+          "redirect_url": "/purview/register-scan-looker-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-mongodb.md",
+          "redirect_url": "/purview/register-scan-mongodb",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-mysql.md",
+          "redirect_url": "/purview/register-scan-mysql",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-on-premises-sql-server.md",
+          "redirect_url": "/purview/register-scan-on-premises-sql-server",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-oracle-source.md",
+          "redirect_url": "/purview/register-scan-oracle-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-postgresql.md",
+          "redirect_url": "/purview/register-scan-postgresql",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-power-bi-tenant.md",
+          "redirect_url": "/purview/register-scan-power-bi-tenant",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-power-bi-tenant-cross-tenant.md",
+          "redirect_url": "/purview/register-scan-power-bi-tenant-cross-tenant",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-power-bi-tenant-troubleshoot.md",
+          "redirect_url": "/purview/register-scan-power-bi-tenant-troubleshoot",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-salesforce.md",
+          "redirect_url": "/purview/register-scan-salesforce",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-sap-bw.md",
+          "redirect_url": "/purview/register-scan-sap-bw",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-sapecc-source.md",
+          "redirect_url": "/purview/register-scan-sapecc-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-sap-hana.md",
+          "redirect_url": "/purview/register-scan-sap-hana",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-saps4hana-source.md",
+          "redirect_url": "/purview/register-scan-saps4hana-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-snowflake.md",
+          "redirect_url": "/purview/register-scan-snowflake",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-synapse-workspace.md",
+          "redirect_url": "/purview/register-scan-synapse-workspace",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/register-scan-teradata-source.md",
+          "redirect_url": "/purview/register-scan-teradata-source",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/scan-data-sources.md",
+          "redirect_url": "/purview/scan-data-sources",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/scanning-shir-troubleshooting.md",
+          "redirect_url": "/purview/scanning-shir-troubleshooting",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/self-hosted-integration-runtime-version.md",
+          "redirect_url": "/purview/self-hosted-integration-runtime-version",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/sensitivity-insights.md",
+          "redirect_url": "/purview/sensitivity-insights",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/sensitivity-labels-frequently-asked-questions.yml",
+          "redirect_url": "/purview/sensitivity-labels-frequently-asked-questions",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/supported-browsers.md",
+          "redirect_url": "/purview/supported-browsers",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/supported-classifications.md",
+          "redirect_url": "/purview/supported-classifications",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/troubleshoot-connections.md",
+          "redirect_url": "/purview/troubleshoot-connections",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/troubleshoot-policy-sql.md",
+          "redirect_url": "/purview/troubleshoot-policy-sql",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-atlas-2-2-apis.md",
+          "redirect_url": "/purview/tutorial-atlas-2-2-apis",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-azure-purview-checklist.md",
+          "redirect_url": "/purview/tutorial-azure-purview-checklist",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-azure-purview-tools.md",
+          "redirect_url": "/purview/tutorial-azure-purview-tools",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-custom-types.md",
+          "redirect_url": "/purview/tutorial-custom-types",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-storage.md",
+          "redirect_url": "/purview/tutorial-data-owner-policies-storage",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-data-sources-readiness.md",
+          "redirect_url": "/purview/tutorial-data-sources-readiness",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-metadata-policy-collections-apis.md",
+          "redirect_url": "/purview/tutorial-metadata-policy-collections-apis",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-msi-configuration.md",
+          "redirect_url": "/purview/tutorial-msi-configuration",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-purview-audit-logs-diagnostics.md",
+          "redirect_url": "/purview/tutorial-purview-audit-logs-diagnostics",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-register-scan-on-premises-sql-server.md",
+          "redirect_url": "/purview/tutorial-register-scan-on-premises-sql-server",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-using-python-sdk.md",
+          "redirect_url": "/purview/tutorial-using-python-sdk",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/tutorial-using-rest-apis.md",
+          "redirect_url": "/purview/tutorial-using-rest-apis",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/purview/use-microsoft-purview-governance-portal.md",
+          "redirect_url": "/purview/use-microsoft-purview-governance-portal",
+          "redirect_document_id": false
       }
-]
+  ]
 }

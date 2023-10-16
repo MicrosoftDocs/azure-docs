@@ -4,11 +4,11 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/06/2022
+ms.date: 04/05/2023
 ms.author: rolyon
 ms.custom:
 ---
@@ -148,7 +148,7 @@ Role-based access control for control plane actions is specified in the `Actions
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Control plane access is not inherited to your data plane provided that the container authentication method is set to "Azure AD User Account" and not "Access Key". This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Control plane access is not inherited to your data plane provided that the container authentication method is set to **Azure AD User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
 Previously, role-based access control was not used for data actions. Authorization for data actions varied across resource providers. The same role-based access control authorization model used for control plane actions has been extended to data plane actions.
 
@@ -254,7 +254,7 @@ To view and work with data actions, you must have the correct versions of the to
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
+| [Azure PowerShell](/powershell/azure/install-azure-powershell) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 or later |
@@ -335,9 +335,13 @@ The following table shows two examples of the effective date plane permissions f
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) where this role definition can be assigned. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
+The `AssignableScopes` property specifies the scopes (root, management group, subscriptions, or resource groups) where a role definition can be assigned. You can make a custom role available for assignment in only the management group, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
-Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
+For example, if `AssignableScopes` is set to a subscription, that means that the custom role is available for assignment at subscription scope for the specified subscription, resource group scope for any resource group in the subscription, or resource scope for any resource in the subscription.
+
+Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes.
+
+Examples of valid assignable scopes include:
 
 > [!div class="mx-tableFixed"]
 > | Role is available for assignment | Example |
@@ -349,10 +353,15 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
+You can define only one management group in `AssignableScopes` of a custom role.
+
+Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
+
+For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
 ## Next steps
 
+* [Understand role assignments](role-assignments.md)
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
 * [Azure resource provider operations](resource-provider-operations.md)

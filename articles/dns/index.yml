@@ -9,9 +9,9 @@ metadata:
   services: dns
   ms.service: dns
   ms.topic: landing-page
-  author: rohinkoul
-  ms.author: rohink
-  ms.date: 07/07/2021
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 09/27/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,11 +28,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure DNS
-            url: /learn/modules/intro-to-azure-dns
+            url: /training/modules/intro-to-azure-dns
           - text: Host your domain on Azure DNS?
-            url: /learn/modules/host-domain-azure-dns/    
+            url: /training/modules/host-domain-azure-dns/    
   # Card
-  - title: Create an Azure DNS zone and record
+  - title: Create Azure DNS zones and records
     linkLists:
       - linkListType: quickstart
         links:
@@ -42,8 +42,10 @@ landingContent:
         links:
           - text: Host your domain in Azure DNS
             url: dns-delegate-domain-azure-dns.md
-          - text: Creating a Child DNS zone
+          - text: Create a child DNS zone
             url: tutorial-public-dns-zones-child.md
+          - text: Create DNS records in a custom domain for a web app
+            url: dns-web-sites-custom-domain.md
 
   # Card
   - title: Deploy a private DNS zone
@@ -63,6 +65,28 @@ landingContent:
           - text: Create an Azure DNS private zone using the Azure portal
             url: ./private-dns-getstarted-portal.md
 
+  # Card
+  - title: Deploy a DNS resolver
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DNS Private Resolver?
+            url: dns-private-resolver-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure DNS Private Resolver endpoints and rulesets
+            url: private-resolver-endpoints-rulesets.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure DNS Private Resolver using the Azure portal
+            url: ./dns-private-resolver-get-started-portal.md
+          - text: Create an Azure DNS Private Resolver using Windows PowerShell
+            url: ./dns-private-resolver-get-started-powershell.md
+      - linkListType: tutorial
+        links:
+          - text: Set up DNS failover using private resolvers
+            url: tutorial-dns-private-resolver-failover.md
+
 # Card
   - title: Use alias records
     linkLists:
@@ -72,9 +96,9 @@ landingContent:
             url: dns-alias.md
       - linkListType: tutorial
         links:
-          - text: Configure an alias record to support apex domain names with Traffic Manager
-            url: tutorial-alias-tm.md
-          - text: Configure an alias record to refer to an Azure public IP address
-            url: tutorial-alias-pip.md
           - text: Create an alias record to refer to a zone resource record
             url: tutorial-alias-rr.md
+          - text: Create an alias record to refer to an Azure public IP address
+            url: tutorial-alias-pip.md
+          - text: Create an alias record to support apex domain names with Traffic Manager
+            url: tutorial-alias-tm.md

@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 03/07/2023
 ms.author: danlep
 
 ---
@@ -52,7 +52,7 @@ The policy XML configuration is divided into `inbound`, `backend`, `outbound`, a
 </policies> 
 ```
 
-For policy XML examples, see [API Management policy samples](./policies/index.md). 
+For policy XML examples, see [API Management policy snippets repo](https://github.com/Azure/api-management-policy-snippets). 
 
 ### Error handling
 
@@ -83,7 +83,8 @@ Policy expressions provide a sophisticated means to control traffic and modify A
 API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
 
 * Global (all APIs)
-* Product (APIs associated with a selected product)
+* Workspace (all APIs associated with a selected workspace)
+* Product (all APIs associated with a selected product)
 * API (all operations in an API)
 * Operation (single operation in an API) 
 
@@ -98,6 +99,16 @@ When configuring a policy, you must first select the scope at which the policy a
 * When configuring policy definitions at more than one scope, you control the policy evaluation order in each policy section by placement of the `base` element 
 
 For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
+
+### GraphQL resolver policies
+
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
+
+* Currently, API Management supports GraphQL resolvers that specify either HTTP API, Cosmos DB, or Azure SQL data sources. For example, configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
+* You can't include a resolver policy in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
+* The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
 ## Examples
 
@@ -119,14 +130,14 @@ Example policy definition at API scope:
 
 In the example policy definition above:
 * The `cross-domain` statement would execute first.
-* The [`find-and-replace` policy](api-management-transformation-policies.md#Findandreplacestringinbody) would execute after any policies at a broader scope. 
+* The [`find-and-replace` policy](find-and-replace-policy.md) would execute after any policies at a broader scope. 
 
 >[!NOTE]
 > If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
 
 ### Use policy expressions to modify requests
 
-The following example uses [policy expressions][Policy expressions] and the [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
+The following example uses [policy expressions][Policy expressions] and the [`set-header`](set-header-policy.md) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
 
 ```xml
 <policies>
@@ -149,7 +160,7 @@ The following example uses [policy expressions][Policy expressions] and the [`se
 [Operation]: ./mock-api-responses.md
 
 [Advanced policies]: ./api-management-advanced-policies.md
-[Control flow]: ./api-management-advanced-policies.md#choose
-[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Control flow]: choose-policy.md
+[Set variable]: set-variable-policy.md
 [Policy expressions]: ./api-management-policy-expressions.md
 

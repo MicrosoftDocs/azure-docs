@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 08/10/2023
 ---
 
 # Bulk copy from a database with a control table
@@ -63,33 +63,33 @@ The last three parameters, which define the path in your destination store are o
 
 2. Go to the **Bulk Copy from Database** template. Create a **New** connection to the external control table that you created in step 1.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png" alt-text="Create a new connection to the control table":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-2.png" alt-text="Screenshot showing the creation of a new connection to the control table.":::
 
 3. Create a **New** connection to the source database that you're copying data from.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png" alt-text="Create a new connection to the source database":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-3.png" alt-text="Screenshot showing the creation of a new connection to the source database.":::
 	
 4. Create a **New** connection to the destination data store that you're copying the data to.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png" alt-text="Create a new connection to the destination store":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-4.png" alt-text="Screenshot showing the creation of a new connection to the destination store.":::
 
 5. Select **Use this template**.
 
 6. You see the pipeline, as shown in the following example:
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png" alt-text="Review the pipeline":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-6.png" alt-text="Screenshot showing the pipeline.":::
 
 7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png" alt-text="Click **Debug**":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png" alt-text="Screenshot showing the Debug button.":::
 
 8. You see results that are similar to the following example:
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png" alt-text="Review the result":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png" alt-text="Screenshot showing the result of the pipeline run.":::
 
 9. (Optional) If you chose "Azure Synapse Analytics" as the data destination, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
 	
-	:::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png" alt-text="Polybase setting":::
+	:::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png" alt-text="Screenshot showing the Polybase setting.":::
 	   
 ## Next steps
 

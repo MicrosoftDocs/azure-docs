@@ -1,16 +1,16 @@
 ---
-title: Investigate risk Azure Active Directory Identity Protection
-description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
+title: Investigate risk Microsoft Entra ID Protection
+description: Learn how to investigate risky users, detections, and sign-ins in Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 11/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 Identity Protection provides organizations with three reports they can use to investigate identity risks in their environment. These reports are the **risky users**, **risky sign-ins**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy.
 
-All three reports allow for downloading of events in .CSV format for further analysis outside of the Azure portal. The risky users and risky sign-ins reports allow for downloading the most recent 2500 entries, while the risk detections report allows for downloading the most recent 5000 records.
+All three reports allow for downloading of events in .CSV format for further analysis. The risky users and risky sign-ins reports allow for downloading the most recent 2500 entries, while the risk detections report allows for downloading the most recent 5000 records.
 
 Organizations can take advantage of the Microsoft Graph API integrations to aggregate data with other sources they may have access to as an organization.
 
-The three reports are found in the **Azure portal** > **Azure Active Directory** > **Security**.
+The three reports are found in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Identity Protection**.
 
 ## Navigating the reports
 
@@ -35,7 +35,24 @@ Selecting individual entries expands a details window below the detections. The 
 
 ## Risky users
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Risky users report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
+The risky users report lists all users whose accounts are currently or were considered at risk of compromise. Risky users should be investigated and remediated to prevent unauthorized access to resources. 
+
+### Why is a user at risk?  
+
+A user becomes a risky user when:
+
+- They have one or more risky sign-ins.
+- There are one or more [risks](concept-identity-protection-risks.md) detected on the user’s account, like Leaked Credentials. 
+
+### How to investigate risky users? 
+
+To view and investigate a user’s risky sign-ins, select the “Recent risky sign-ins” tab or the “Users risky sign-ins” link. 
+
+To view and investigate risks on a user’s account, select the “Detections not linked to a sign-in” tab or the “User’s risk detections” link. 
+
+The Risk history tab also shows all the events that have led to a user risk change in the last 90 days. This list includes risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
+
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Screenshot of the Risky users report." lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
 With the information provided by the risky users report, administrators can find:
 
@@ -50,11 +67,11 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm user compromise
 - Dismiss user risk
 - Block user from signing in
-- Investigate further using Azure ATP
+- [Investigate further using Microsoft Defender for Identity](#investigate-risk-with-microsoft-365-defender)
 
 ## Risky sign-ins
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Risky sign-ins report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Screenshot of the Risky sign-ins report." lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
 
 The risky sign-ins report contains filterable data for up to the past 30 days (one month).
 
@@ -79,7 +96,7 @@ Administrators can then choose to take action on these events. Administrators ca
 
 ## Risk detections
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Risk detections report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Screenshot of the Risk detections report." lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
 
 The risk detections report contains filterable data for up to the past 90 days (three months).
 
@@ -100,13 +117,16 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 Organizations may use the following frameworks to begin their investigation into any suspicious activity. Investigations may require having a conversation with the user in question, review of the [sign-in logs](../reports-monitoring/concept-sign-ins.md), or review of the [audit logs](../reports-monitoring/concept-audit-logs.md) to name a few.
 
 1. Check the logs and validate whether the suspicious activity is normal for the given user.
-   1. Look at the user’s past activities including at least the following properties to see if they are normal for the given user. 
+   1. Look at the user’s past activities including at least the following properties to see if they're normal for the given user. 
       1. Application
       1. Device - Is the device registered or compliant?
       1. Location - Is the user traveling to a different location or accessing devices from multiple locations?
       1. IP address 
       1. User agent string
    1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
+   1. Organizations with access to [Microsoft 365 Defender](/defender-for-identity/understanding-security-alerts) can follow a user risk event through other related alerts and incidents and the MITRE ATT&CK chain. 
+       1. Select the user in the Risky users report.
+       1. Select the **ellipsis (...)** in the toolbar then choose **Investigate with Microsoft 365 Defender**.
 1. Reach out to the user to confirm if they recognize the sign-in. Methods such as email or Teams may be compromised.
    1. Confirm the information you have such as:
       1. Application
@@ -114,9 +134,11 @@ Organizations may use the following frameworks to begin their investigation into
       1. Location 
       1. IP address 
 
-### Investigate Azure AD threat intelligence detections
+<a name='investigate-azure-ad-threat-intelligence-detections'></a>
 
-To investigate an Azure AD Threat Intelligence risk detection, follow these steps: 
+### Investigate Microsoft Entra threat intelligence detections
+
+To investigate a Microsoft Entra Threat Intelligence risk detection, follow these steps: 
 
 If more information is shown for the detection:
 
@@ -133,11 +155,47 @@ If more information is shown for the detection:
       1. Protocol
       1. Ranges of IPs/ASNs
       1. Time and frequency of sign-ins
+  1. This detection was triggered by a real-time rule
+      1. Validate that no other users in your directory are targets of the same attack. This can be found by the TI_RI_#### number assigned to the rule.
+      1. Real-time rules protect against novel attacks identified by Microsoft's threat intelligence. If multiple users in your directory were targets of the same attack, investigate unusual patterns in other attributes of the sign in.
+
+## Investigate risk with Microsoft 365 Defender
+
+Organizations who have deployed [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Defender for Identity](/defender-for-identity/what-is) gain extra value from Identity Protection signals. This value comes in the form of enhanced correlation with other data from other parts of the organization and extra [automated investigation and response](/microsoft-365/security/defender/m365d-autoir).
+
+:::image type="content" source="media/howto-identity-protection-investigate-risk/investigate-user-in-microsoft-365-defender.png" alt-text="Screenshot showing alerts for a risky user in the Microsoft 365 Defender portal." lightbox="media/howto-identity-protection-investigate-risk/alert-details-in-microsoft-365-defender.png":::
+
+In Microsoft 365 Defender Security Professionals and Administrators can make connections to suspicious activity from areas like: 
+
+- Alerts in Defender for Identity 
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Cloud
+- Microsoft Defender for Cloud Apps
+ 
+For more information about how to investigate suspicious activity using Microsoft 365 Defender, see the articles [Investigate assets in Microsoft Defender for Identity](/defender-for-identity/investigate-assets#investigation-steps-for-suspicious-users) and [Investigate incidents in Microsoft 365 Defender](/microsoft-365/security/defender/investigate-incidents).
+
+For more information about these alerts and their structure, see the article [Understanding security alerts](/defender-for-identity/understanding-security-alerts).
+
+### Investigation status
+
+When security personnel investigate risks in Microsoft 365 Defender and Defender for Identity the following states and reasons are returned to Identity Protection in the portal and APIs.
+
+| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Microsoft Entra ID Protection risk state |  Risk detail in Microsoft Entra ID Protection |
+| --- | --- | --- | --- |
+| New | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| New | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| New | True positive | Confirmed compromised | `M365DAdminDismissedDetection` |
+| In Progress | Not set | At risk |  |
+| In Progress | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| In Progress | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| In Progress | True positive | Confirmed compromised | `M365DAdminDismissedDetection` |
+| Resolved | Not set | Dismissed | `M365DAdminDismissedDetection` |
+| Resolved | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| Resolved | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| Resolved | True positive | Remediated | `M365DAdminDismissedDetection` |
 
 ## Next steps
 
 - [Remediate and unblock users](howto-identity-protection-remediate-unblock.md)
-
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
-
 - [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)

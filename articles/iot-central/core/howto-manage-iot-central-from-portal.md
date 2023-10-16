@@ -1,11 +1,11 @@
 ---
-title: Manage and monitor IoT Central in the Azure portal | Microsoft Docs
+title: Manage and monitor IoT Central in the Azure portal
 description: This article describes how to create, manage, and monitor your IoT Central applications and enable managed identities from the Azure portal.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 07/14/2023
 ms.topic: how-to
 ---
 
@@ -13,64 +13,32 @@ ms.topic: how-to
 
 You can use the [Azure portal](https://portal.azure.com) to create, manage, and monitor IoT Central applications.
 
-## Create IoT Central applications
-
-[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
-
-To create an application, navigate to the [IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
-
-![Create IoT Central form](media/howto-manage-iot-central-from-portal/create-form.png)
-
-* **Resource name** is a unique name you can choose for your IoT Central application in your Azure resource group.
-
-* **Application URL** is the URL you can use to access your application.
-
-* **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
-
-* **Location** is the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-
-  * Australia East
-  * Canada Central
-  * Central US
-  * East US
-  * East US 2
-  * Japan East
-  * North Europe
-  * South Central US
-  * Southeast Asia
-  * UK South
-  * West Europe
-  * West US
-
-  Once you choose a location, you can't later move your application to a different location.
-
-After filling out all fields, select **Create**. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
+To learn how to create an IoT Central application, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
 ## Manage existing IoT Central applications
 
 If you already have an Azure IoT Central application, you can delete it, or move it to a different subscription or resource group in the Azure portal.
 
-> [!NOTE]
-> Applications created using the *free* plan do not require an Azure subscriptions, and therefore you won't find them listed in your Azure subscription on the Azure portal. You can only see and manage free apps from the IoT Central portal.
-
 To get started, search for your application in the search bar at the top of the Azure portal. You can also view all your applications by searching for _IoT Central Applications_ and selecting the service:
 
-![Screenshot that shows the search results for "IoT Central Applications" with the first service selected.](media/howto-manage-iot-central-from-portal/search-iot-central.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/search-iot-central.png" alt-text="Screenshot that shows the search results for I o T Central Applications with the first service selected.":::
 
 When you select an application in the search results, the Azure portal shows you its overview. You can navigate to the application by selecting the **IoT Central Application URL**:
 
-![Screenshot that shows the "Overview" page with the "IoT Central Application URL" highlighted.](media/howto-manage-iot-central-from-portal/highlight-application.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/highlight-application.png" alt-text="Screenshot that shows the Overview page with the I o T Central Application URL highlighted.":::
 
 > [!NOTE]
 > Use the **IoT Central Application URL** to access the application for the first time.
 
-To move the application to a different resource group, select **change** beside the resource group. On the **Move resources** page, choose the resource group you'd like to move this application to:
+To move the application to a different resource group, select **move** beside **Resource group**. On the **Move resources** page, choose the resource group you'd like to move this application to.
 
-![Screenshot that shows the "Overview" page with the "Resource group (change)" highlighted.](media/howto-manage-iot-central-from-portal/highlight-resource-group.png)
+To move the application to a different subscription, select **move** beside **Subscription**. On the **Move resources** page, choose the subscription you'd like to move this application to:
 
-To move the application to a different subscription, select  **change** beside the subscription. On the **Move resources** page, choose the subscription you'd like to move this application to:
+:::image type="content" source="media/howto-manage-iot-central-from-portal/highlight-resource-group-subscription.png" alt-text="Screenshot that shows the Overview page with the Resource group (move) highlighted.":::
 
-![Management portal: resource management](media/howto-manage-iot-central-from-portal/highlight-subscription.png)
+## Manage networking
+
+You can use private IP addresses from a virtual network address space to manage your devices in IoT Central application to eliminate exposure on the public internet. To learn more, see [Create and configure a private endpoint for IoT Central](../core/howto-create-private-endpoint.md)
 
 ## Configure a managed identity
 
@@ -83,7 +51,7 @@ When you configure a data export in your IoT Central application, you can choose
 IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
 
 > [!NOTE]
-> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region.
 
 When you configure a managed identity, the configuration includes a *scope* and a *role*:
 
@@ -94,40 +62,42 @@ When you configure a managed identity, the configuration includes a *scope* and 
 
 You can configure role assignments in the Azure portal or use the Azure CLI:
 
-* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using data export](howto-export-data.md).
+* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using blob storage](howto-export-to-blob-storage.md).
 * To learn more about how to configure role assignments using the Azure CLI, see [Manage IoT Central from Azure CLI or PowerShell](howto-manage-iot-central-from-cli.md).
 
 ## Monitor application health
 
 You can use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 
+> [!NOTE]
+> IoT Central applications have an internal [audit log](howto-use-audit-logs.md) to track activity within the application. 
+
 Metrics are enabled by default for your IoT Central application and you access them from the [Azure portal](https://portal.azure.com/). The [Azure Monitor data platform exposes these metrics](../../azure-monitor/essentials/data-platform-metrics.md) and provides several ways for you to interact with them. For example, you can use charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI.
 
-> [!TIP]
-> Applications that use the free trial plan don't have an associated Azure subscription and so don't support Azure Monitor metrics. You can [convert an application to a standard pricing plan](./howto-faq.yml#how-do-i-move-from-a-free-to-a-standard-pricing-plan-) and get access to these metrics.
+Access to metrics in the Azure portal is managed by [Azure role based access control](../../role-based-access-control/overview.md). Use the Azure portal to add users to the IoT Central application/resource group/subscription to grant them access. You must add a user in the portal even they're already added to the IoT Central application. Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for finer grained access control.
 
 ### View metrics in the Azure portal
 
-The following steps assume you have an [IoT Central application](./howto-create-iot-central-application.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-data.md).
+The following example **Metrics** page shows a plot of the number of devices connected to your IoT Central application. For a list of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
 
 To view IoT Central metrics in the portal:
 
 1. Navigate to your IoT Central application resource in the portal. By default, IoT Central resources are located in a resource group called **IOTC**.
 1. To create a chart from your application's metrics, select **Metrics** in the **Monitoring** section.
 
-![Azure Metrics](media/howto-manage-iot-central-from-portal/metrics.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/metrics.png" alt-text="Screenshot that shows example metrics in the Azure portal.":::
 
-### Azure portal permissions
+### Export logs and metrics
 
-Access to metrics in the Azure portal is managed by [Azure role based access control](../../role-based-access-control/overview.md). Use the Azure portal to add users to the IoT Central application/resource group/subscription to grant them access. You must add a user in the portal even they're already added to the IoT Central application. Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for finer grained access control.
+Use the **Diagnostics settings** page to configure exporting metrics and logs to different destinations. To learn more, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
 
-### IoT Central metrics
+### Analyze logs and metrics
 
-For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
+Use the **Workbooks** page to analyze logs and create visual reports. To learn more, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 ### Metrics and invoices
 
-Metrics may differ from the numbers shown on your Azure IoT Central invoice. This situation occurs for a number of reasons such as:
+Metrics may differ from the numbers shown on your Azure IoT Central invoice. This situation occurs for reasons such as:
 
 * IoT Central [standard pricing plans](https://azure.microsoft.com/pricing/details/iot-central/) include two devices and varying message quotas for free. While the free items are excluded from billing, they're still counted in the metrics.
 
@@ -141,7 +111,7 @@ To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and bui
 
 ## Next steps
 
-Now that you've learned how to manage and monitor Azure IoT Central applications from the Azure portal, here is the suggested next step:
+Now that you've learned how to manage and monitor Azure IoT Central applications from the Azure portal, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [Administer your application](howto-administer.md)

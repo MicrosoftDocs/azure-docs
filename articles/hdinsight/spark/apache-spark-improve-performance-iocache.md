@@ -3,10 +3,13 @@ title: Apache Spark performance - Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/23/2019
+ms.date: 11/16/2022
 ---
 
 # Improve performance of Apache Spark workloads using Azure HDInsight IO Cache
+
+> [!NOTE]
+> * IO Cache was supported till Spark 2.3 and will not be supported in Spark 2.4 (HDInsight 4.0) and Spark 3.1.2 (HDInsight 5.0)
 
 IO Cache is a data caching service for Azure HDInsight that improves the performance of Apache Spark jobs. IO Cache also works with [Apache TEZ](https://tez.apache.org/) and [Apache Hive](https://hive.apache.org/) workloads, which can be run on [Apache Spark](https://spark.apache.org/) clusters. IO Cache uses an open-source caching component called RubiX. RubiX is a local disk cache for use with big data analytics engines that access data from cloud storage systems. RubiX is unique among caching systems, because it uses Solid-State Drives (SSDs) rather than reserve operating memory for caching purposes. The IO Cache service launches and manages RubiX Metadata Servers on each worker node of the cluster. It also configures all services of the cluster for transparent use of RubiX cache.
 

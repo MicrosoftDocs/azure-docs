@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ms.author: yexu
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
@@ -42,42 +42,46 @@ To configure fault tolerance in a Copy activity in a pipeline with UI, complete 
 When you copy binary files between storage stores, you can enable fault tolerance as followings: 
 
 ```json
-"typeProperties": { 
-    "source": { 
-        "type": "BinarySource", 
-        "storeSettings": { 
-            "type": "AzureDataLakeStoreReadSettings", 
-            "recursive": true 
-            } 
-    }, 
-    "sink": { 
-        "type": "BinarySink", 
-        "storeSettings": { 
-            "type": "AzureDataLakeStoreWriteSettings" 
-        } 
-    }, 
-    "skipErrorFile": { 
-        "fileMissing": true, 
-        "fileForbidden": true, 
-        "dataInconsistency": true,
-        "invalidFileName": true        
-    }, 
-    "validateDataConsistency": true, 
+{
+  "name": "CopyActivityFaultTolerance",
+  "type": "Copy",
+  "typeProperties": {
+    "source": {
+      "type": "BinarySource",
+      "storeSettings": {
+        "type": "AzureDataLakeStoreReadSettings",
+        "recursive": true
+      }
+    },
+    "sink": {
+      "type": "BinarySink",
+      "storeSettings": {
+        "type": "AzureDataLakeStoreWriteSettings"
+      }
+    },
+    "skipErrorFile": {
+      "fileMissing": true,
+      "fileForbidden": true,
+      "dataInconsistency": true,
+      "invalidFileName": true
+    },
+    "validateDataConsistency": true,
     "logSettings": {
-        "enableCopyActivityLog": true,
-        "copyActivityLogSettings": {            
-            "logLevel": "Warning",
-            "enableReliableLogging": false
+      "enableCopyActivityLog": true,
+      "copyActivityLogSettings": {
+        "logLevel": "Warning",
+        "enableReliableLogging": false
+      },
+      "logLocationSettings": {
+        "linkedServiceName": {
+          "referenceName": "ADLSGen2",
+          "type": "LinkedServiceReference"
         },
-        "logLocationSettings": {
-            "linkedServiceName": {
-               "referenceName": "ADLSGen2",
-               "type": "LinkedServiceReference"
-            },
-            "path": "sessionlog/"
-        }
+        "path": "sessionlog/"
+      }
     }
-} 
+  }
+}
 ```
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 

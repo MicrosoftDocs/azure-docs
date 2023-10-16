@@ -2,13 +2,12 @@
 title: Managed identity in ACR task
 description: Enable a managed identity for Azure Resources in an Azure Container Registry task to allow the task to access other Azure resources including other private container registries.
 services: container-registry
-author: dlepow
-manager: gwallace
-
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 01/14/2020
-ms.author: danlep
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Use an Azure-managed identity in ACR Tasks 
@@ -24,7 +23,7 @@ For illustration purposes, the example commands in this article use [az acr task
 
 ## Why use a managed identity?
 
-A managed identity for Azure resources provides selected Azure services with an automatically managed identity in Azure Active Directory. You can configure an ACR task with a managed identity so that the task can access other secured Azure resources, without passing credentials in the task steps.
+A managed identity for Azure resources provides selected Azure services with an automatically managed identity in Microsoft Entra ID. You can configure an ACR task with a managed identity so that the task can access other secured Azure resources, without passing credentials in the task steps.
 
 Managed identities are of two types:
 
@@ -122,6 +121,8 @@ az acr task credential add \
 ```
 
 You can get the client ID of the identity by running the [az identity show][az-identity-show] command. The client ID is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
+The `--use-identity` parameter is not optional, if the registry has public network access disabled and relies only on certain trusted services to run ACR tasks. See, [example of ACR Tasks](allow-access-trusted-services.md#example-acr-tasks) as a trusted service.
 
 ### 5. Run the task
 

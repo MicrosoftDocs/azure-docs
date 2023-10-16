@@ -4,7 +4,7 @@ description: Guidance for getting started with Storage on Azure Government
 ms.service: azure-government
 ms.topic: article
 author: yujhongmicrosoft
-ms.author: stevevi
+ms.author: eliotgra
 ms.date: 10/01/2021
 ---
 
@@ -174,4 +174,3 @@ These endpoint differences must be taken into account when you connect to storag
 - Read more about [Azure Storage](../storage/index.yml). 
 - Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 - Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
-

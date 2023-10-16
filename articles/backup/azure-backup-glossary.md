@@ -2,7 +2,10 @@
 title: Azure Backup glossary
 description: This article defines terms helpful for use with Azure Backup.
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
 ms.date: 12/21/2020
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup glossary
@@ -75,7 +78,7 @@ Refer to [Azure Resource Manager documentation](../azure-resource-manager/manage
 
 ## Azure Disk Encryption (ADE)
 
-Refer to [Azure Disk Encryption documentation](../security/fundamentals/azure-disk-encryption-vms-vmss.md).
+Refer to [Azure Disk Encryption documentation](../virtual-machines/disk-encryption-overview.md).
 
 ## Backend storage / Cloud storage / Backup storage
 
@@ -293,7 +296,7 @@ Backs up operating system files. This backup allows you to recover when a comput
 
 ## Tenant
 
-A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
+A tenant is a representation of an organization. It's a dedicated instance of Microsoft Entra ID that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
 
 ## Tier
 

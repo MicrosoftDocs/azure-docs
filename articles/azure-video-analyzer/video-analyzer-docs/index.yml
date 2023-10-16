@@ -4,15 +4,15 @@ title: Azure Video Analyzer documentation # < 60 chars
 summary: Learn how to use Azure Video Analyzer # < 160 chars
 
 metadata:
-  title: Azure Video Analyzer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Video Analyzer # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Video Analyzer documentation
+  description: Learn how to use Azure Video Analyzer
   services: azure-video-analyzer
-  ms.service: azure-video-analyzer  #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: azure-video-analyzer
+  ms.topic: landing-page
   ms.collection: collection
-  author: Juliako #Required; your GitHub user alias, with correct capitalization.
-  ms.author:  juliako #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/03/2022 #Required; mm/dd/yyyy format.
+  author: Juliako
+  ms.author:  juliako
+  ms.date: 01/03/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,67 +24,65 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Video Analyzer (preview)
-            url: overview.md
           - text: Terminology
-            url: terminology.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/terminology
       - linkListType: quickstart
         links:
           - text: Get started using the portal
-            url: get-started-detect-motion-emit-events-portal.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal
           - text: Get started using an ARM template
-            url: get-started-detect-motion-emit-events.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events
       - linkListType: concept
         links:
           - text: Analyze live video
-            url: analyze-live-video-without-recording.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording
         
   - title: Create and deploy pipelines and topologies
     linkLists:
       - linkListType: concept
         links:
           - text: Video pipelines
-            url: pipeline.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/pipeline
           - text: List of topologies
-            url: pipeline-topologies-list.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list
       - linkListType: tutorial
         links:
           - text: Detect object crossing virtual line
-            url: edge/use-line-crossing.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing
           - text: Detect object using Open VINO DL Streamer
-            url: edge/use-intel-openvino-tutorial.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial
 
   - title: Create intelligent video applications on the edge
     linkLists:
       - linkListType: concept
         links:            
           - text: Event-based video recording    
-            url: event-based-video-recording-concept.md 
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept
       - linkListType: quickstart
         links:
           - text: Analyze live video with your own model - HTTP 
-            url: edge/analyze-live-video-use-your-model-http.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http
           - text: Detect motion and record video on edge devices
-            url: edge/detect-motion-record-video-edge-devices.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices
       - linkListType: tutorial
         links:     
           - text: Event-based video recording and playback
-            url: edge/record-event-based-live-video.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video
 
   - title: Create video applications in the service
     linkLists:
       - linkListType: concept
         links:
           - text: Enable camera video recording to cloud
-            url: cloud/connect-cameras-to-cloud.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud
       - linkListType: quickstart
         links:  
           - text: Build pipeline in the service
-            url: cloud/get-started-livepipelines-portal.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal
       - linkListType: tutorial
         links:  
           - text: Export a video clip with portal
-            url: cloud/export-portion-of-video-as-mp4.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4
 
   - title: Engage with community
     linkLists:
@@ -100,13 +98,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Monitor and logging of an edge video pipeline 
-            url: edge/monitor-log-edge.md 
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge
           - text: Monitor and logging of a video pipeline in the service
-            url: cloud/monitor-log-cloud.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud
           - text: Troubleshoot an edge video pipeline
-            url: edge/troubleshoot.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot
           - text: Troubleshoot a video pipeline in the service
-            url: cloud/troubleshoot.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot
 
   - title: Discover APIs
     linkLists:
@@ -119,18 +117,18 @@ landingContent:
           - text: REST API
             url: /rest/api/videoanalyzer/
           - text: SDKs
-            url: sdk.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/sdk
           - text: Direct Methods VS Code
-            url: edge/direct-methods.md #should we move it to the AVA root?
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/edge/direct-methods #should we move it to the AVA root?
 
   - title: Resources
     linkLists:
       - linkListType: learn
         links:
           - text: Release notes
-            url: release-notes.md
+            url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/release-notes
           - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/video-analyzer/
+            url: /azure/azure-video-analyzer/video-analyzer-docs/
           - text: Edge module FAQ
             url: edge/faq.yml
           - text: Service FAQ

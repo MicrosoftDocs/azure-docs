@@ -6,23 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
-author: lostmygithubaccount
-ms.author: copeters
+author: jesscioffi
+ms.author: jcioffi
 ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) compute instance YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -42,6 +42,9 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `network_settings` | object | Network security settings. | | |
 | `network_settings.vnet_name` | string | Name of the virtual network (VNet) when creating a new one or referencing an existing one. | | |
 | `network_settings.subnet` | string | Either the name of the subnet when creating a new VNet or referencing an existing one, or the fully qualified resource ID of a subnet in an existing VNet. Do not specify `network_settings.vnet_name` if the subnet ID is specified. The subnet ID can refer to a VNet/subnet in another resource group. | | |
+| `identity` | object | The managed identity configuration to assign to the compute. AmlCompute clusters support only one system-assigned identity or multiple user-assigned identities, not both concurrently. | | |
+| `identity.type` | string | The type of managed identity to assign to the compute. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
+| `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |
 
 ## Remarks
 

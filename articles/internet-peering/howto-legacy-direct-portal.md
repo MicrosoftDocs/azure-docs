@@ -1,24 +1,27 @@
 ﻿---
-title: Convert a legacy Direct peering to an Azure resource by using the Azure portal
-titleSuffix: Azure
-description: Convert a legacy Direct peering to an Azure resource by using the Azure portal
-services: internet-peering
-author: prmitiki
+title: Convert a legacy Direct peering to an Azure resource - Azure portal
+titleSuffix: Internet Peering
+description: Learn how to convert a legacy Direct peering to an Azure resource using the Azure portal.
+author: halkazwini
+ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 11/27/2019
-ms.author: prmitiki
+ms.date: 10/04/2023
 ---
 
-# Convert a legacy Direct peering to an Azure resource by using the Azure portal
+# Convert a legacy Direct peering to an Azure resource using the Azure portal
+
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-legacy-direct-portal.md)
+> - [PowerShell](howto-legacy-direct-powershell.md)
 
 This article describes how to convert an existing legacy Direct peering to an Azure resource by using the Azure portal.
 
 If you prefer, you can complete this guide by using [PowerShell](howto-legacy-direct-powershell.md).
 
 ## Before you begin
-* Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
 
+* Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
 
 ## Convert a legacy Direct peering to an Azure resource
 
@@ -45,10 +48,10 @@ As an Internet Service Provider, you can convert legacy direct peering connectio
 >[!NOTE]
 >The region where a resource group resides is independent of the location where you want to create peering with Microsoft. But it's a best practice to organize your peering resources within resource groups that reside in the closest Azure regions. For example, for peerings in Ashburn, you can create a resource group in East US or East US2.
 
-* Select your ASN in the **PeerASN** box.
+* Select your ASN in the **Peer ASN** box.
 
 >[!IMPORTANT] 
->You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+>You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your Peer ASN request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created Peer ASN by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 #### Launch the resource and configure basic settings
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
@@ -59,10 +62,7 @@ As an Internet Service Provider, you can convert legacy direct peering connectio
 ### <a name=get></a>Verify Direct peering
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-## Additional resources
+## Related content
 
-For more information, see [Internet peering FAQs](faqs.md).
-
-## Next steps
-
-* [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

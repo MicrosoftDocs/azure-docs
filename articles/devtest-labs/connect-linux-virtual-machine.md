@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/17/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Connect to a Linux VM in your lab (Azure DevTest Labs)
@@ -34,7 +35,7 @@ This article shows you how to connect to Linux VM in your lab.
 
     You can use tools such as [Putty](https://www.putty.org/) or any other SSH client to connect to the VM. 
 
-    After you connect using SSH, you can install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)).  For detailed information, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    After you connect using SSH, you can install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp.org/)).  For detailed information, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
 
 ## Next Steps
 [How to: connect to a Windows VM](connect-windows-virtual-machine.md)

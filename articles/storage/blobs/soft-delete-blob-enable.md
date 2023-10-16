@@ -2,14 +2,12 @@
 title: Enable soft delete for blobs
 titleSuffix: Azure Storage
 description: Enable soft delete for blobs to protect blob data from accidental deletes or overwrites.
-services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/29/2021
-ms.author: tamram
-ms.subservice: blobs  
+ms.date: 07/21/2022
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -19,13 +17,15 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
-Blob soft delete is disabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
-
 ## Enable blob soft delete
+
+You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
-To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
+Blob soft delete is enabled by default when you create a new storage account with the Azure portal. The setting to enable or disable blob soft delete when you create a new storage account is on the **Data protection** tab. For more information about creating a storage account, see [Create a storage account](../common/storage-account-create.md).
+
+To enable blob soft delete for an existing storage account by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 1. Locate the **Data Protection** option under **Data management**.
@@ -37,7 +37,9 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 ### [PowerShell](#tab/azure-powershell)
 
-To enable blob soft delete with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command, specifying the retention period in days.
+Blob soft delete is not enabled when you create a new storage account with PowerShell. You can enable blob soft delete after the new account has been created.
+
+To enable blob soft delete for an existing storage account with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command, specifying the retention period in days.
 
 The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
 
@@ -58,7 +60,9 @@ $properties.DeleteRetentionPolicy.Days
 
 ### [Azure CLI](#tab/azure-CLI)
 
-To enable blob soft delete with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, specifying the retention period in days.
+Blob soft delete is not enabled when you create a new storage account with Azure CLI. You can enable blob soft delete after the new account has been created.
+
+To enable blob soft delete for an existing storage account with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, specifying the retention period in days.
 
 The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
 
@@ -102,7 +106,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 1. Install the latest **PowershellGet** module. Then, close and reopen the PowerShell console.
 
     ```powershell
-    install-Module PowerShellGet -Repository PSGallery -Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 2. Install **Az.Storage** preview module.
@@ -111,9 +115,9 @@ To enable blob soft delete for your storage account by using the Azure portal, f
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.7.1-preview -AllowClobber -AllowPrerelease -Force
     ```
 
-    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
-3. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
+3. Obtain storage account authorization by using either a storage account key, a connection string, or Microsoft Entra ID. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 
@@ -148,7 +152,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 3. Connect to your storage account. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
 
    > [!NOTE]
-   > The example presented in this article show Azure Active Directory (Azure AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
+   > The example presented in this article show Microsoft Entra authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
 4. To enable soft delete with Azure CLI, call the `az storage fs service-properties update` command, specifying the retention period in days.
 

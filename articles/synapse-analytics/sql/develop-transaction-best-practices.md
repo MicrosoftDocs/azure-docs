@@ -1,14 +1,13 @@
 ---
 title: Optimize transactions for dedicated SQL pool
 description: Learn how to optimize the performance of your transactional code in dedicated SQL pool.
-author: mstehrani   
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
+author: mstehrani
+ms.author: emtehran
+ms.reviewer: wiassaf
 ms.date: 04/15/2020
-ms.author: emtehran   
-ms.reviewer: igorstan
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Optimize transactions with dedicated SQL pool in Azure Synapse Analytics 

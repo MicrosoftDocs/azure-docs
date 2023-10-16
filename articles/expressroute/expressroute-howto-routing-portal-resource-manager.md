@@ -3,13 +3,11 @@ title: 'Tutorial: Configure peering for ExpressRoute circuit - Azure portal'
 description: This tutorial shows you how to create and provision ExpressRoute private and Microsoft peering using the Azure portal.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 01/11/2021
+ms.date: 08/31/2023
 ms.author: duau
-
-
+ms.custom: template-tutorial
 ---
 # Tutorial: Create and modify peering for an ExpressRoute circuit using the Azure portal
 
@@ -27,6 +25,8 @@ This tutorial shows you  how to create and manage routing configuration for an A
 
 You can configure private peering and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md). For information about public peering, see [ExpressRoute public peering](about-public-peering.md).
 
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Configure, update, and delete Microsoft peering for a circuit
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
     * [Routing requirements](expressroute-routing.md)
     * [Workflows](expressroute-workflows.md)
 * You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you continue. To configure peering(s), the ExpressRoute circuit must be in a provisioned and enabled state. 
-* If you plan to use a shared key/MD5 hash, be sure to use the key on both sides of the tunnel. The limit is a maximum of 25 alphanumeric characters. Special characters are not supported. 
+* If you plan to use a shared key/MD5 hash, be sure to use the key on both sides of the tunnel. The limit is a maximum of 25 alphanumeric characters. Special characters aren't supported. 
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you're using a service provider that offers managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider configures and manages the routing for you. 
 
@@ -64,15 +64,15 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    **Circuit - Provider status: Not provisioned**
 
-    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/not-provisioned.png" alt-text="Screenshot that shows the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status set to Not provisioned":::
+    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/not-provisioned.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status set to Not provisioned.":::
 
    **Circuit - Provider status: Provisioned**
 
-    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/provisioned.png" alt-text="Screenshot that shows the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status set to Provisioned":::
+    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/provisioned.png" alt-text="Screenshot that showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status set to Provisioned.":::
 
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
 
-   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
        * IPv4: Two /30 subnets. These must be valid public IPv4 prefixes.
        * IPv6: Two /126 subnets. These must be valid public IPv6 prefixes.
        * Both: Two /30 subnets and two /126 subnets.
@@ -84,37 +84,33 @@ This section helps you create, get, update, and delete the Microsoft peering con
    * **Optional -** An MD5 hash if you choose to use one.
 1. You can select the peering you wish to configure, as shown in the following example. Select the Microsoft peering row.
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Select the Microsoft peering row":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Screenshot showing how to select the Microsoft peering row.":::
 
 4. Configure Microsoft peering. **Save** the configuration once you've specified all parameters. The following image shows an example configuration:
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Configure Microsoft peering validation needed":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
 
-> [!IMPORTANT]
-> Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
->
-> If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket. 
->
+    > [!IMPORTANT]
+    > Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
+    >
+    > If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket. 
+    >
 
-   If your circuit gets to a 'Validation needed' state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
+   If your circuit gets to a **Validation needed** state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png" alt-text="Validation Needed - support ticket":::
-
-5. After the configuration has been accepted successfully, you'll see something similar to the following image:
-
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/microsoft-peering-validation-configured.png" alt-text="Peering status: Configured":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png" alt-text="Screenshot showing new support ticket request to submit proof of ownership for public prefixes.":::
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
 You can view the properties of Microsoft peering by selecting the row for the peering.
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png" alt-text="View Microsoft peering properties":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png" alt-text="Screenshot showing how to view Microsoft peering properties.":::
 
 ### <a name="updatemsft"></a>To update Microsoft peering configuration
 
 You can select the row for the peering that you want to modify, then modify the peering properties and save your modifications.
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png" alt-text="Select peering row":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png" alt-text="Screenshot showing how to update Microsoft peering configuration.":::
 
 ## <a name="private"></a>Azure private peering
 
@@ -128,15 +124,15 @@ This section helps you create, get, update, and delete the Azure private peering
 
    **Circuit - Provider status: Not provisioned**
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-private.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to Not provisioned":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/not-provisioned.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status that is set to Not provisioned.":::
 
    **Circuit - Provider status: Provisioned**
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/provisioned-private-peering.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to Provisioned":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/provisioned.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status that is set to Provisioned.":::
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+   * A pair of subnets that aren't part of any address space reserved for virtual networks. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
        * IPv4: Two /30 subnets.
        * IPv6: Two /126 subnets.
        * Both: Two /30 subnets and two /126 subnets.
@@ -146,27 +142,23 @@ This section helps you create, get, update, and delete the Azure private peering
    * **Optional -** An MD5 hash if you choose to use one.
 3. Select the Azure private peering row, as shown in the following example:
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-private-peering.png" alt-text="Select the private peering row":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-private-peering.png" alt-text="Screenshot showing how to select the private peering row.":::
 
 4. Configure private peering. **Save** the configuration once you've specified all parameters.
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/private-peering-configuration.png" alt-text="Configure private peering":::
-
-5. After the configuration has been accepted successfully, you see something similar to the following example:
-
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/save-private-peering.png" alt-text="Saved private peering":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/private-peering-configuration.png" alt-text="Screenshot showing private peering configuration.":::
 
 ### <a name="getprivate"></a>To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png" alt-text="View private peering properties":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/view-private-peering.png" alt-text="Screenshot showing how to view private peering properties.":::
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can select the row for peering and modify the peering properties. After updating, save your changes.
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/update-private-peering.png" alt-text="Update private peering":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/update-private-peering.png" alt-text="Screenshot showing how to update private peering configuration.":::
 
 ## Clean up resources
 
@@ -174,17 +166,17 @@ You can select the row for peering and modify the peering properties. After upda
 
 You can remove your Microsoft peering configuration by right-clicking the peering and selecting **Delete** as shown in the following image:
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-microsoft-peering.png" alt-text="Delete Microsoft peering":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-microsoft-peering.png" alt-text="Screenshot showing how to delete Microsoft peering.":::
 
 ### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your private peering configuration by right-clicking the peering and selecting **Delete** as shown in the following image:
 
 > [!WARNING]
-> You must ensure that all virtual networks and ExpressRoute Global Reach connections are removed before running this operation. 
+> You must ensure that all virtual network connections and ExpressRoute Global Reach connections are removed before running this operation. 
 > 
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-private-peering.png" alt-text="Delete private peering":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-private-peering.png" alt-text="Screenshot showing how to delete private peering.":::
 
 ## Next steps
 

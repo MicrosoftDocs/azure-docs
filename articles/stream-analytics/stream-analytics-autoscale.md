@@ -1,79 +1,142 @@
 ---
-title: Autoscale Stream Analytics jobs
-description: This article describes how to autoscale Stream Analytics job based on a predefined schedule or values of job metrics
-author: sidramadoss
-ms.author: sidram
-
+title: Azure Stream Analytics autoscale streaming units
+description: This article explains how you can use different scaling methods for your Stream Analytics job to make sure you have the right number of streaming units.
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 05/10/2022
 ---
-# Autoscale Stream Analytics jobs using Azure Automation
 
-You can optimize the cost of your Stream Analytics jobs by configuring autoscale. Autoscaling increases or decreases your job's Streaming Units (SUs) to match the change in your input load. Instead of over-provisioning your job, you can scale up or down as needed. There are two ways to configure your jobs to autoscale:
-1. **Pre-define a schedule** when you have a predictable input load. For example, you expect a higher rate of input events during the daytime and want your job to run with more SUs.
-2. **Trigger scale up and scale down operations based on job metrics** when you don't have a predictable input load. You can dynamically change the number of SUs based on your job metrics such as the number of input events or backlogged input events.
+# Autoscale streaming units 
 
-## Prerequisites
-Before you start to configure autoscaling for your job, complete the following steps.
-1. Your job is optimized to have a [parallel topology](./stream-analytics-parallelization.md). If you can change the scale of your job while it is running, then your job has a parallel topology and can be configured to autoscale.
-2. [Create an Azure Automation account](../automation/automation-create-standalone-account.md) with the option "RunAsAccount" enabled. This account must have permissions to manage your Stream Analytics jobs.
+Streaming units (SUs) represent the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated to your job. Stream Analytics offers two types of scaling, which allows you to have the right number of [Streaming Units](stream-analytics-streaming-unit-consumption.md) (SUs) running to handle the load of your job.
 
-## Set up Azure Automation
-### Configure variables
-Add the following variables inside the Azure Automation account. These variables will be used in the runbooks that are described in the next steps.
+This article explains how you can use these different scaling methods for your Stream Analytics job in the Azure portal.
 
-| Name | Type | Value |
-| --- | --- | --- |
-| **jobName** | String | Name of your Stream Analytics job that you want to autoscale. |
-| **resourceGroupName** | String | Name of the resource group in which your job is present. |
-| **subId** | String | Subscription ID in which your job is present. |
-| **increasedSU** | Integer | The higher SU value you want your job to scale to in a schedule. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
-| **decreasedSU** | Integer | The lower SU value you want your job to scale to in a schedule. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
-| **maxSU** | Integer | The maximum SU value you want your job to scale to in steps when autoscaling by load. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
-| **minSU** | Integer | The minimum SU value you want your job to scale to in steps when autoscaling by load. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+The two types of scaling supported by Stream Analytics are _manual scale_ and _custom autoscale_.
 
-![Add variables in Azure Automation](./media/autoscale/variables.png)
+_Manual scale_ allows you to maintain and adjust a fixed number of streaming units for your job.
 
-### Create runbooks
-The next step is to create two PowerShell runbooks. One for scale up and the other for scale down operations.
-1. In your Azure Automation account, go to **Runbooks** under **Process Automation**  and select **Create Runbook**.
-2. Name the first runbook *ScaleUpRunbook* with the type set to PowerShell. Use the [ScaleUpRunbook PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) available in GitHub. Save and publish it.
-3. Create another runbook called *ScaleDownRunbook* with the type PowerShell. Use the [ScaleDownRunbook PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) available in GitHub. Save and publish it.
+_Custom autoscale_ allows you to specify the minimum and maximum number of streaming units for your job to dynamically adjust based on your rule definitions. Custom autoscale examines the preconfigured set of rules. Then it determines to add SUs to handle increases in load or to reduce the number of SUs when computing resources are sitting idle. For more information about autoscale in Azure Monitor, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
-![Autoscale runbooks in Azure Automation](./media/autoscale/runbooks.png)
+> [!NOTE]
+> Although you can use manual scale regardless of the job's state, custom autoscale can only be enabled when the job is in the `running` state.
 
-You now have runbooks that can automatically trigger scale up and scale down operations on your Stream Analytics job. These runbooks can be triggered using a pre-defined schedule or can be set dynamically based on job metrics.
+Examples of custom autoscale rules include:
 
-## Autoscale based on a schedule
-Azure Automation allows you to configure a schedule to trigger your runbooks.
-1. In your Azure Automation account, select **Schedules** under **Shared resources**. Then, select **Add a schedule**.
-2. For example, you can create two schedules. One that represents when you want your job to scale up and another that represents when you want your job to scale down. You can define a recurrence for these schedules.
+- Increase streaming units when the average SU% utilization of the job over the last 2 minutes goes above 75%.
+- Decrease streaming units when the average SU% utilization of the job over the last 15 minutes is below 30%.
+- Use more streaming units during business hours and fewer during off hours.
 
-   ![Schedules in Azure Automation](./media/autoscale/schedules.png)
+## Autoscale limits
 
-3. Open your **ScaleUpRunbook** and then select **Schedules** under **Resources**. You can then link your runbook to a schedule you created in the previous steps. You can have multiple schedules linked with the same runbook which can be helpful when you want to run the same scale operation at different times of the day.
+All Stream Analytics jobs can autoscale between 1/3, 2/3 and 1 SU V2. Autoscaling beyond 1 SU V2 requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization.md#embarrassingly-parallel-jobs). Parallel jobs created with less than or equal to 1 streaming unit can autoscale to the maximum SU value for that job based on the number of partitions.
 
-![Scheduling runbooks in Azure Automation](./media/autoscale/schedulerunbook.png)
+## Scaling your Stream Analytics job
 
-1. Repeat the previous step for **ScaleDownRunbook**.
+First, follow these steps to navigate to the **Scale** page for your Azure Stream Analytics job.
 
-## Autoscale based on load
-There might be cases where you cannot predict input load. In such cases, it is more optimal to scale up/down in steps within a minimum and maximum bound. You can configure alert rules in your Stream Analytics jobs to trigger runbooks when job metrics go above or below a threshold.
-1. In your Azure Automation account, create two more Integer variables called **minSU** and **maxSU**. This sets the bounds within which your job will scale in steps.
-2. Create two new runbooks. You can use the [StepScaleUp PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) that 
- increases the SUs of your job in increments until **maxSU** value. You can also use the [StepScaleDown PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) that decreases the SUs of your job in steps until **minSU** value is reached. Alternatively, you can use the runbooks from the previous section if you have specific SU values you want to scale to.
-3. In your Stream Analytics job, select **Alert rules** under **Monitoring**. 
-4. Create two action groups. One to be used for scale up operation and another for scale down operation. Select **Manage Actions** and then click on **Add action group**. 
-5. Fill out the required fields. Choose **Automation Runbook** when you select the **Action Type**. Select the runbook you want to trigger when the alert fires. Then, create the action group.
+1. Sign in to [Azure portal](https://portal.azure.com/)
+2. In the list of resources, find the Stream Analytics job that you want to scale and then open it.
+3. In the job page, under the **Configure** heading, select **Scale**.  
+    :::image type="content" source="./media/stream-analytics-autoscale/configure-scale.png" alt-text="Screenshot showing navigation to Scale." lightbox="./media/stream-analytics-autoscale/configure-scale.png" :::
+1. Under **Configure** , you'll see two options for scaling: **Manual scale** and **Custom autoscale**.  
+    :::image type="content" source="./media/stream-analytics-autoscale/configure-manual-custom-autoscale.png" alt-text="Screenshot showing the Configure area where you select Manual scale or custom autoscale." lightbox="./media/stream-analytics-autoscale/configure-manual-custom-autoscale.png" :::
 
-   ![Create action group](./media/autoscale/create-actiongroup.png)
-6. Create a [**New alert rule**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) in your job. Specify a condition based on a metric of your choice. [*Input Events*, *SU% Utilization* or *Backlogged Input Events*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) are recommended metrics to use for defining autoscaling logic. It is also recommended to use 1 minute *Aggregation granularity* and *Frequency of evaluation* when triggering scale up operations. Doing so ensures your job has ample resources to cope with large spikes in input volume.
-7. Select the Action Group created in the last step, and create the alert.
-8. Repeat steps 2 through 4 for any additional scale operations you want to trigger based on condition of job metrics.
+## Manual scale
 
-It's a best practice to run scale tests before running your job in production. When you test your job against varying input loads, you get a sense of how many SUs your job needs for different input throughput. This can inform the conditions you define in your alert rules that trigger scale up and scale down operations. 
+This setting allows you to set a fixed number of streaming units for your job. Notice that the default number of SUs is 1 when creating a job.
+
+### To manually scale your job
+
+1. Select **Manual scale** if it isn't already selected.
+2. Use the **Slider** to set the SUs for the job or type directly into the box. You're limited to specific SU settings when the job is running. The limitation is dependent on your job configuration.  
+    :::image type="content" source="./media/stream-analytics-autoscale/manual-scale-slider.png" alt-text="Screenshot showing Manual scale where you select the number of streaming units with a slider." lightbox="./media/stream-analytics-autoscale/manual-scale-slider.png" :::
+3. Select **Save** on the toolbar to save the setting.  
+    :::image type="content" source="./media/stream-analytics-autoscale/save-manual-scale-setting.png" alt-text="Screenshot showing the Save option in the Configure area." lightbox="./media/stream-analytics-autoscale/save-manual-scale-setting.png" :::
+ 
+## Custom autoscale - default condition
+
+You can configure automatic scaling of streaming units by using conditions. The **Default** scale condition is executed when none of the other scale conditions match. As such, you must select a Default condition for your job. You may choose a name for your Default condition or leave it as `Auto created scale condition`, which is pre-populated.
+
+:::image type="content" source="./media/stream-analytics-autoscale/configure-custom-autoscale-default-scale-condition.png" alt-text="Screenshot showing the Custom autoscale default condition that you edit." lightbox="./media/stream-analytics-autoscale/configure-custom-autoscale-default-scale-condition.png" :::
+
+Set the **Default** condition by choosing one of the following scale modes:
+
+- **Scale based on a metric** (such as CPU or memory usage)
+- **Scale to specific number of streaming units**
+
+> [!NOTE]
+> You can't set a **Schedule** within the Default condition. The Default is only executed when none of the other schedule conditions are met.
+
+### Scale based on a metric
+
+The following procedure shows you how to add a condition to automatically increase streaming units (scale out) when the SU (memory) usage is greater than 75%. Or how to decrease streaming units (scale in) when the SU usage is less than 25%. Increments are made from fractional units (1/3 and 2/3) to a full streaming unit (1 SU V2). Similarly, decrements are made from 1 to 2/3 to 1/3.
+
+1. On the **Scale** page, select **Custom autoscale**.
+2. In the **Default** section of the page, specify a **name** for the default condition. Select the **pencil** symbol to edit the text.
+3. Select **Scale based on a metric** for **Scale mode**.
+4. Select **+ Add a rule**.  
+    :::image type="content" source="./media/stream-analytics-autoscale/scale-metric-add-role.png" alt-text="Screenshot showing the add scale rule option." lightbox="./media/stream-analytics-autoscale/scale-metric-add-role.png" :::
+5. On the **Scale rule** page, follow these steps:
+    1. Under **Metric Namespace**, select a metric from the **Metric name** drop-down list. In this example, it's **SU % Utilization**.
+    2. Select an Operator and threshold values. In this example, they're **Greater than** and **75** for **Metric threshold to trigger scale action**.
+    3. Select an **operation** in the **Action** section. In this example, it's set to **Increase**.
+    4. Then, select **Add**.  
+        :::image type="content" source="./media/stream-analytics-autoscale/rule-metric-operators-add.png" alt-text="Screenshot showing adding a rule metric options." lightbox="./media/stream-analytics-autoscale/rule-metric-operators-add.png" :::
+6. Select **+ Add a rule** again, and follow these steps on the **Scale rule** page:
+    1. Select a metric from the **Metric name** drop-down list. In this example, it's **SU % Utilization**.
+    2. Select an operator and threshold values. In this example, they're **Less than** and **25** for **Metric threshold to trigger scale action**.
+    3. Select an **operation** in the **Action** section. In this example, it's set to **Decrease**.
+    4. Then, select **Add**.
+7. The autoscale feature decreases the streaming units for the namespace if the overall SU usage goes below 25% in this example.
+8. Set the **minimum** and **maximum** and **default** number of streaming units. The minimum and maximum streaming units represent the scaling limitations for your job. The **default** value is used in the rare instance that scaling failed. We recommended that you set the **default** value to the number of SUs that the job is currently running with.
+9. Select **Save**.  
+    :::image type="content" source="./media/stream-analytics-autoscale/save-scale-rule-streaming-units-limits.png" alt-text="Screenshot showing the Save option for a rule." lightbox="./media/stream-analytics-autoscale/save-scale-rule-streaming-units-limits.png" :::
+
+### Scale to specific number of streaming units
+
+Follow these steps to configure the rule to scale the job to use specific number of streaming units. Again, the default condition is applied when none of the other scale conditions match.
+
+1. On the **Scale** page, select **Custom autoscale**.
+2. In the **Default** section of the page, specify a **name** for the default condition.
+3. Select **Scale to specific streaming units** for **Scale mode**.
+4. For **Streaming units**, select the number of default streaming units.
+
+### Custom autoscale – Add more scale conditions
+
+The previous section shows you how to add a default condition for the autoscale setting. This section shows you how to add more conditions to the autoscale setting. For these other non-default conditions, you can set a schedule based on specific days of the week or a date range.
+
+### Scale based on a metric
+
+1. On the **Scale** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
+2. Select **Add a scale condition** under the **Default** block.  
+    :::image type="content" source="./media/stream-analytics-autoscale/save-custom-autoscale-add-condition.png" alt-text="Screenshot showing the custom autoscale scale condition." lightbox="./media/stream-analytics-autoscale/save-custom-autoscale-add-condition.png" :::
+3. Specify a **name** for the condition.
+4. Confirm that the **Scale based on a metric** option is selected.
+5. Select **+ Add a rule** to add a rule to increase streaming units when the overall SU % utilization goes above 75%. Follow steps from the preceding **Default condition** section.
+6. Set the **minimum** and **maximum** and **default** number of streaming units.
+7. Set **Schedule**, **Timezone**, **Start date**, and **End date** on the custom condition (but not on the default condition). You can either specify start and end dates for the condition (or) select **Repeat specific days** (Monday, Tuesday, and so on.) of a week.
+    - If you select **Specify start/end dates**, select the **Timezone**, **Start date and time**, and **End date and time** for the condition to be in effect.
+    - If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
+
+### Scale to specific number of streaming units
+
+1. On the **Scale** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
+2. Select **Add a scale condition** under the **Default** block.
+3. Specify a **name** for the condition.
+4. Select **scale to specific streaming units** option for **Scale mode**.
+5. Type in the number of **streaming units**.
+6. For the **Schedule**, specify either start and end dates for the condition (or) select specific days (Monday, Tuesday, and so on.) of a week and times.
+    1. If you select **Specify start/end dates**, select the **Timezone**, **Start date and time**, and **End date and time** for the condition to be in effect.
+    2. If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
+
+To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).
 
 ## Next steps
-* [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
-* [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
+
+- [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
+- [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
+- [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)

@@ -1,11 +1,12 @@
 ---
 title: Deploy Azure Health Data Services FHIR service using ARM template
 description: Learn how to deploy FHIR service by using an Azure Resource Manager template (ARM template)
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
+ms.custom: devx-track-arm-template
 ms.topic: tutorial
-ms.author: dseven
-ms.date: 03/01/2022
+ms.author: kesheth
+ms.date: 06/06/2022
 ---
 
 # Deploy a FHIR service within Azure Health Data Services - using ARM template
@@ -20,7 +21,7 @@ An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](/powershell/azure/install-az-ps).
+    * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
@@ -39,6 +40,9 @@ The template defines three Azure resources:
 - Microsoft.HealthcareApis/workspaces
 - Microsoft.HealthcareApis/workspaces/fhirservices      
 - Microsoft.Storage/storageAccounts
+
+> [!NOTE]
+> Local RBAC will be deprecated on September 9th, 2023. Access Policies configuration associated with Local RBAC in ARM template will be deprecated. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 You can deploy the FHIR service resource by **removing** the workspaces resource, the storage resource, and the `dependsOn` property in the “Microsoft.HealthcareApis/workspaces/fhirservices” resource.
 
@@ -281,3 +285,5 @@ In this quickstart guide, you've deployed the FHIR service within Azure Health D
 
 >[!div class="nextstepaction"]
 >[Supported FHIR Features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

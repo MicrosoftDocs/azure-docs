@@ -2,7 +2,10 @@
 title: Policy to retain untagged manifests
 description: Learn how to enable a retention policy in your Premium Azure container registry, for automatic deletion of untagged manifests after a defined period.
 ms.topic: article
-ms.date: 04/26/2021
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Set a retention policy for untagged manifests
@@ -59,7 +62,7 @@ If you enable the preceding policy with a retention period of 0 days, you can qu
     az acr repository untag \
       --name myregistry --image hello-world:latest
     ```
-1. Within a few seconds, the untagged manifest is deleted. You can verify the deletion by listing manifests in the repository, for example, using the [az acr repository show-manifests][az-acr-repository-show-manifests] command. If the test image was the only one in the repository, the repository itself is deleted.
+1. Within a few seconds, the untagged manifest is deleted. You can verify the deletion by listing manifests in the repository, for example, using the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command. If the test image was the only one in the repository, the repository itself is deleted.
 
 ### Manage a retention policy
 
@@ -110,5 +113,5 @@ You can also set a registry's retention policy in the [Azure portal](https://por
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-config-retention-update]: /cli/azure/acr/config/retention#az_acr_config_retention_update
 [az-acr-config-retention-show]: /cli/azure/acr/config/retention#az_acr_config_retention_show
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

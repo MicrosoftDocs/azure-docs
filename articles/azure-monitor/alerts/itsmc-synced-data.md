@@ -1,27 +1,24 @@
 ---
 title: Data synced from your ITSM product to LA Workspace
-description: This article provides an overview of Data synced from your ITSM product to LA Workspace.
+description: This article provides an overview of data synced from your ITSM product to LA Workspace.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 06/19/2023
 ms.custom: references_regions
+ms.reviewer: nolavime
 
 ---
 
 # Data synced from your ITSM product
 
-Incidents and change requests are synced from your ITSM tool to your Log Analytics workspace, based on the connection's configuration (using "Sync Data" field):
- - [ServiceNow](./itsmc-connections-servicenow.md)
- - [System Center Service Manager](./itsmc-connections-scsm.md)
-  >[!NOTE]
-  > As of March 1, 2022, System Center ITSM integrations with Azure alerts is no longer enabled for new customers. New System Center ITSM Connections are not supported.
-  > Existing ITSM connections are supported.
+Incidents and change requests are synced from [ServiceNow](./itsmc-connections-servicenow.md) to your Log Analytics workspace based on the connection's configuration by using the **Sync Data** field.
+
 ## Synced data
 
-This section shows some examples of data gathered by ITSMC.
+This section shows some examples of data gathered by ITSM Connector.
 
-The fields in **ServiceDesk_CL** vary depending on the work item type that you import into Log Analytics. Here's a list of fields for two work item types:
+The fields in **ServiceDesk_CL** vary depending on the work item type that you import into Log Analytics. Here are fields for two work item types:
 
-**Work item:** **Incidents**  
+**Work item:** **Incidents**
 ServiceDeskWorkItemType_s="Incident"
 
 **Fields**
@@ -99,7 +96,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  Short description |
 | Description_s|  Notes |
 | CreatedDate_t|  Opened |
-| ClosedDate_t| closed|
+| ClosedDate_t| Closed|
 | ResolvedDate_t|Resolved|
 | Computer  | Configuration item |
 
@@ -126,8 +123,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Actual start date |
 | WorkEndDate_t | Actual end date|
 | Description_s | Description |
-| Computer  | Configuration Item |
+| Computer  | Configuration item |
 
 ## Next steps
 
-* [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
+[Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)

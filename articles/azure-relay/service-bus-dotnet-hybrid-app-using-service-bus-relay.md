@@ -2,8 +2,8 @@
 title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.date: 06/23/2021
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 08/10/2023
 ---
 
 # Expose an on-premises WCF service to a web application in the cloud by using Azure Relay
@@ -182,11 +182,12 @@ Make the following code changes to your solution:
     }
     ```
 
-1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element, but still within `<system.ServiceModel>`, add the following XML code. Be sure to replace `yourServiceNamespace` with the name of your namespace, and `yourKey` with the SAS key you retrieved earlier from the portal:
+1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element, but still within `<system.ServiceModel>`, add the following XML code. 
+
+    > [!IMPORTANT]
+    > Replace `yourServiceNamespace` with the name of your namespace, and `yourKey` with the SAS key you retrieved earlier from the portal:
 
     ```xml
-    <system.serviceModel>
-    ...
       <services>
          <service name="ProductsServer.ProductsService">
            <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts" behaviorConfiguration="products"/>
@@ -203,13 +204,14 @@ Make the following code changes to your solution:
            </behavior>
          </endpointBehaviors>
       </behaviors>
-    </system.serviceModel>
     ```
 
     > [!NOTE]
     > The error caused by `transportClientEndpointBehavior` is just a warning and isn't a blocking issue for this example.
 
 1. Still in *App.config*, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
+
+        
 
     ```xml
     <appSettings>
@@ -240,7 +242,7 @@ In this section, you build a simple ASP.NET application that displays data retri
     ![Specify authentication][18]
 
 1. Back in **Create a new ASP.NET Web Application**, select **Create** to create the MVC app.
-1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnetcore.md?tabs=netframework48#publish-your-web-app). Then, return to this tutorial and continue to the next step.
+1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnetcore.md?tabs=netframework48#2-publish-your-web-app). Then, return to this tutorial and continue to the next step.
 1. In **Solution Explorer**, right-click **Models** and then select **Add** > **Class**.
 1. Name the class *Product.cs*, then select **Add**.
 
@@ -353,7 +355,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
    ![Add as a link][24]
 
-1. Now open the *HomeController.cs* file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This code lets the client to call the on-premises service, returning the result of the call.
+1. Now open the *HomeController.cs* file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your Relay namespace, and `yourKey` with your SAS key. This code lets the client call the on-premises service, returning the result of the call.
 
    ```csharp
    namespace ProductsWeb.Controllers

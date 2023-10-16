@@ -3,17 +3,15 @@
 title: Hybrid identity documentation
 summary:  Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.
 
-
-
 metadata:
   author: billmath
-  description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD.
-  manager: karenhoran
+  description: Integrate your on-premises directories with Microsoft Entra ID. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Microsoft Entra ID.
+  manager: amycolannino
   ms.author: billmath
   ms.collection: na
-  ms.date: 08/15/2019
+  ms.date: 05/01/2023
   ms.service: active-directory
-  ms.subservice: na
+  ms.subservice: hybrid
   ms.topic: landing-page
   services: active-directory
 
@@ -27,80 +25,98 @@ landingContent:
         links:
           - text: What is hybrid identity?
             url: whatis-hybrid-identity.md
+          - text: What is provisioning?
+            url: what-is-provisioning.md  
           - text: What is inter-directory provisioning?
             url: what-is-inter-directory-provisioning.md  
- 
   # Card
-  - title: Determine the best solution to manage the lifecycle of your users and groups
+  - title: Getting started
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
-          - text: What is Azure AD Connect and Connect Health?
-            url: whatis-azure-ad-connect.md
-      - linkListType: tutorial
-        links:
-          - text: Integrate a single AD forest using password hash sync (PHS)
-            url: tutorial-password-hash-sync.md
-          - text: Integrate a single AD forest using pass-through authentication (PTA)
-            url: tutorial-passthrough-authentication.md
-          - text: Integrate a single AD forest using federation
-            url: tutorial-federation.md
-          - text: Set up PHS as backup for AD FS in Azure AD Connect
-            url: tutorial-phs-backup.md
-
-  
-  # Card
-  - title: Choose the authentication method that works best for your organization
+          - text: Common scenarios
+            url: common-scenarios.md
+          - text: Choose the right sync client
+            url: https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
+          - text: Steps to start
+            url: get-started.md
+   # Card
+  - title: Manage your deployment
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
+        links:
+          - text: Install your sync tool
+            url: install.md
+          - text: Configure synchronization
+            url: configure.md
+          - text: Configure account settings
+            url: accounts.md
+          - text: Migrate your sync tool
+            url: cloud-sync/migrate-azure-ad-connect-to-cloud-sync.md
+    # Card
+  - title: Manage users and groups
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Provision users on-demand
+            url: on-demand-provision.md
+          - text: Scheduling imports
+            url: connect/how-to-connect-sync-feature-scheduler.md
+          - text: Prevent accidental deletions
+            url: accidental-deletes.md
+    # Card
+  - title: Manage passwords
+    linkLists:
+      - linkListType: get-started
         links:
           - text: What is password hash sync?
-            url: whatis-phs.md
-          - text: What is passthrough authentication?
-            url: how-to-connect-pta.md
+            url: connect/whatis-phs.md
+          - text: What is pass-through authentication?
+            url: connect/how-to-connect-pta.md
           - text: What is federation?
-            url: whatis-fed.md
+            url: connect/whatis-fed.md
+  # Card
+  - title: Manage single sign-on
+    linkLists:
+      - linkListType: get-started
+        links:
           - text: What is single sign-on?
-            url: how-to-connect-sso.md
+            url: connect/how-to-connect-sso.md
+          - text: Get started
+            url: sso.md
+          - text: Single sign-on FAQ
+            url: connect/how-to-connect-sso-faq.yml
+  # Card
+  - title: Manage attributes
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Attribute mapping in cloud sync
+            url: cloud-sync/how-to-attribute-mapping.md
+          - text: Overview of the default configuration in  connect sync
+            url: connect/concept-azure-ad-connect-sync-default-configuration.md
+          - text: How to change the default configuration in  connect sync
+            url: connect/how-to-connect-sync-change-the-configuration.md
+          - text: Attributes synchronized to AD
+            url: connect/reference-connect-sync-attributes-synchronized.md
+
+  
+  
+  
+  # Card
+  - title: Cloud sync reference
+    linkLists:
       - linkListType: concept
         links:
-          - text: Determine which authentication method is right for you
-            url: ./choose-ad-authn.md
-
-
+          - text: What is cloud sync?
+            url: cloud-sync/what-is-cloud-sync.md
+          - text: What is the provisioning agent?
+            url: cloud-sync/what-is-provisioning-agent.md
 
   # Card
-  - title: Get started with hybrid identity
+  - title: Connect sync reference
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
-          - text: Install Azure AD Connect with express settings
-            url: how-to-connect-install-express.md
-          - text: Install Azure AD Connect with custom settings
-            url: how-to-connect-install-custom.md
-          - text: Configure the AD DS Connector account
-            url: how-to-connect-configure-ad-ds-connector-account.md
-          - text: Change the ADSync service account password
-            url: how-to-connect-sync-change-serviceacct-pass.md
-          - text: Change the Azure AD Connector account password
-            url: how-to-connect-azureadaccount.md   
-          - text: Change the AD DS account password
-            url: how-to-connect-sync-change-addsacct-pass.md
-      - linkListType: reference
-        links:
-          - text: Required ports and protocols
-            url: reference-connect-ports.md
-          - text: Accounts and permissions
-            url: reference-connect-accounts-permissions.md
-          - text: Azure AD Connect version history
-            url: reference-connect-version-history.md
- 
-
-
-
-
-
-
-
-
-
+          - text: What is connect sync?
+            url: connect/whatis-azure-ad-connect-v2.md

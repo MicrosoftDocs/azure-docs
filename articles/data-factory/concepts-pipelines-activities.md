@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/24/2022
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
@@ -35,14 +35,18 @@ An input dataset represents the input for an activity in the pipeline, and an ou
 
 ## Data movement activities
 
-Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
+Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. 
 
 For more information, see [Copy Activity - Overview](copy-activity-overview.md) article.
 
+Click a data store to learn how to copy data to and from that store.
+
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
+
 ## Data transformation activities
 Azure Data Factory and Azure Synapse Analytics support the following transformation activities that can be added either individually or chained with another activity.
+
+For more information, see the [data transformation activities](transform-data.md) article.
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
@@ -60,8 +64,6 @@ Data transformation activity | Compute environment
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
-
-For more information, see the [data transformation activities](transform-data.md) article.
 
 ## Control flow activities
 The following control flow activities are supported:
@@ -213,7 +215,7 @@ Policies affect the run-time behavior of an activity, giving configuration optio
 
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
-timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 7 days.
+timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 12 hours, minimum 10 minutes.
 retry | Maximum retry attempts | Integer | No. Default is 0
 retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 30 seconds
 secureOutput | When set to true, the output from activity is considered as secure and aren't logged for monitoring. | Boolean | No. Default is false.

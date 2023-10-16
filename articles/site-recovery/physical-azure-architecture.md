@@ -3,6 +3,9 @@ title: Physical server disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used during disaster recovery of on-premises physical servers to Azure with the Azure Site Recovery service.
 ms.topic: conceptual
 ms.date: 02/11/2020
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.service: site-recovery
 ---
 
 # Physical server to Azure disaster recovery architecture
@@ -16,8 +19,7 @@ The following table and graphic provides a high-level view of the components use
 | **Component** | **Requirement** | **Details** |
 | --- | --- | --- |
 | **Azure** | An Azure subscription and an Azure network. | Replicated data from on-premises physical machines is stored in Azure managed disks. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created. |
-| **Process server** | Installed by default together with the configuration server. | Acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage.<br/><br/> The process server also installs the Mobility service on servers you want to replicate.<br/><br/> As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic. |
-| **Master target server** | Installed by default together with the configuration server. | Handles replication data during fail back from Azure.<br/><br/> For large deployments, you can add an additional, separate master target server for failback. |
+| **Configuration server machine** | A single on-premises machine. We recommend that you run it as a VMware VM that can be deployed from a downloaded OVF template.<br/><br/> The machine runs all on-premises Site Recovery components, which include the configuration server, process server, and master target server. | **Configuration server**: Coordinates communications between on-premises and Azure, and manages data replication.<br/><br/> **Process server**: Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. The process server also installs Azure Site Recovery Mobility Service on VMs you want to replicate, and performs automatic discovery of on-premises machines. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.<br/><br/> **Master target server**: Installed by default on the configuration server. It handles replication data during failback from Azure. For large deployments, you can add an additional, separate master target server for failback. |
 | **Replicated servers** | The Mobility service is installed on each server you replicate. | We recommend you allow automatic installation from the process server. Or, you can install the service manually, or use an automated deployment method such as Configuration Manager. |
 
 **Physical to Azure architecture**
@@ -38,7 +40,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
@@ -57,6 +59,8 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
    > [!NOTE]
    > Replication isn't supported over a site-to-site VPN from an on-premises site or Azure ExpressRoute [private peering](concepts-expressroute-with-site-recovery.md#on-premises-to-azure-replication-with-expressroute).
+
+For information related to troubleshooting, see [this article](vmware-azure-troubleshoot-replication.md).
 
 **Physical to Azure replication process**
 

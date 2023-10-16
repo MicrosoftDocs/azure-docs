@@ -111,7 +111,7 @@ azure_storage_sas_token = r""
 container_name = "nyctlc"
 folder_name = "yellow"
 
-from azure.storage.blob import BlockBlobServicefrom azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
 if azure_storage_account_name is None or azure_storage_sas_token is None:
     raise Exception(
@@ -161,7 +161,7 @@ Sample not available for this platform/package combination.
 
 ```python
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 from azureml.opendatasets import NycTlcYellow
 
 from datetime import datetime
@@ -187,7 +187,7 @@ Sample not available for this platform/package combination.
 blob_account_name = "azureopendatastorage"
 blob_container_name = "nyctlc"
 blob_relative_path = "yellow"
-blob_sas_token = r"
+blob_sas_token = "r"
 
 # Allow SPARK to read from Blob remotely
 wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)

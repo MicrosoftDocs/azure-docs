@@ -6,9 +6,9 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 07/23/2019
+ms.date: 04/27/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA
@@ -161,7 +161,7 @@ The following configuration is an example [NGINX server block](https://nginx.org
    ![Trusted root certificates](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > It's assumed that DNS has been configured to point the web server name (in this example, www.fabrikam.com) to your web server's IP address. If not, you can edit the [hosts file](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) to resolve the name.
+   > It's assumed that DNS has been configured to point the web server name (in this example, `www.fabrikam.com`) to your web server's IP address. If not, you can edit the [hosts file](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) to resolve the name.
 1. Browse to your website, and click the lock icon on your browser's address box to verify the site and certificate information.
 
 ## Verify the configuration with OpenSSL
@@ -180,10 +180,9 @@ To upload the certificate in Application Gateway, you must export the .crt certi
 
 ### Azure portal
 
-To upload the trusted root certificate from the portal, select the **HTTP Settings** and choose the **HTTPS** protocol.
+To upload the trusted root certificate from the portal, select the **Backend Settings** and select **HTTPS**  in the **Backend protocol**.
 
-![Add a certificate using the portal](media/self-signed-certificates/portal-cert.png)
-
+:::image type="content" source="./media/self-signed-certificates/portal-cert.png" alt-text="Screenshot of adding a certificate using the portal.":::
 ### Azure PowerShell
 
 Or, you can use Azure CLI or Azure PowerShell to upload the root certificate. The following code is an Azure PowerShell sample.

@@ -1,38 +1,89 @@
 ---
-title: Built-in triggers and actions
-description: Use built-in triggers and actions to create automated workflows that integrate apps, data, services, and systems, to control workflows, and to manage data using Azure Logic Apps.
+title: Built-in connector overview
+description: Learn about built-in connectors that run natively in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.custom: engagement-fy23
+ms.date: 09/14/2022
 ---
 
-# Built-in triggers and actions in Azure Logic Apps
+# Built-in connectors in Azure Logic Apps
 
-[Built-in triggers and actions](apis-list.md) provide ways for you to [control your workflow's schedule and structure](#control-workflow), [run your own code](#run-code-from-workflows), [manage or manipulate data](#manage-or-manipulate-data), and complete other tasks in your workflows. Different from [managed connectors](managed.md), many built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively in Azure Logic Apps, and most don't require that you create a connection before you use them.
+Built-in connectors provide ways for you to control your workflow's schedule and structure, run your own code, manage or manipulate data, and complete other tasks in your workflows. Different from managed connectors, some built-in connectors aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in connectors run natively on the Azure Logic Apps runtime. Some don't require that you create a connection before you use them.
 
-For a smaller number of services, systems and protocols, Azure Logic Apps provides built-in operations, such as Azure API Management, Azure App Services, Azure Functions, and for calling other Azure Logic Apps logic app workflows. The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For a smaller number of services, systems, and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multi-tenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type and not the other.
 
-For example, if you create a single-tenant logic app, both built-in operations and [managed connector operations](managed.md) are available for a few services, specifically Azure Blob, Azure Event Hubs, Azure Cosmos DB, Azure Service Bus, DB2, MQ, and SQL Server. In few cases, some built-in operations are available only for one logic app resource type. For example, Batch operations are currently available only for Consumption logic app workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server. A Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors.
 
-The following list describes only some of the tasks that you can accomplish with [built-in triggers and actions](#general-built-in-triggers-and-actions):
+Also, in Standard workflows, some [built-in connectors with specific attributes are informally known as *service providers*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity. All built-in connectors run in the same process as the Azure Logic Apps runtime. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
-- Run workflows using custom and advanced schedules. For more information about scheduling, review the [recurrence behavior section in the connector overview for Azure Logic Apps](apis-list.md#recurrence-behavior).
+This article provides a general overview about built-in connectors in Consumption workflows versus Standard workflows.
 
-- Organize and control your workflow's structure, for example, using loops and conditions.
+<a name="built-in-connectors"></a>
 
-- Work with variables, dates, data operations, content transformations, and batch operations.
+## Built-in connectors in Consumption versus Standard
 
-- Communicate with other endpoints using HTTP triggers and actions.
+The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard workflows. For Standard workflows, an asterisk (**\***) marks [built-in connectors based on the *service provider* model](#service-provider-interface-implementation), which is described in more detail later.
 
-- Receive and respond to requests.
+| Consumption | Standard |
+|-------------|----------|
+| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure Automation* <br>Azure Blob* <br>Azure Cosmos DB* <br>Azure File Storage* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Key Vault* <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SMTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
+|||
 
-- Call your own functions (Azure Functions), web apps (Azure App Services), APIs (Azure API Management), other Azure Logic Apps workflows that can receive requests, and so on.
+<a name="service-provider-interface-implementation"></a>
 
-## General built-in triggers and actions
+## Service provider-based built-in connectors
 
-Azure Logic Apps provides the following built-in triggers and actions:
+In Standard workflows, a built-in connector that has the following attributes is informally known as a *service provider*:
+
+* Is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
+
+* Provides access from a Standard workflow to a service, such as Azure Blob Storage, Azure Service Bus, Azure Event Hubs, SFTP, and SQL Server.
+
+  Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity.
+
+* Runs in the same process as the redesigned Azure Logic Apps runtime.
+
+Service provider-based built-in connectors are available alongside their [managed connector versions](managed.md).
+
+In contrast, a built-in connector that's *not a service provider* has the following attributes:
+
+* Isn't based on the Azure Functions extensibility model.
+
+* Is directly implemented as a job within the Azure Logic Apps runtime, such as Schedule, HTTP, Request, and XML operations.
+
+<a name="custom-built-in"></a>
+
+## Custom built-in connectors
+
+For Standard workflows, you can create your own built-in connector with the same [built-in connector extensibility model](../logic-apps/custom-connector-overview.md#built-in-connector-extensibility-model) that's used by service provider-based built-in connectors, such as Azure Blob, Azure Event Hubs, Azure Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard workflows.
+
+For Consumption workflows, you can't create your own built-in connectors, but you create your own managed connectors.
+
+For more information, review the following documentation:
+
+* [Custom connectors in Azure Logic Apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
+* [Create custom built-in connectors for Standard workflows](../logic-apps/create-custom-built-in-connector-standard.md)
+
+<a name="general-built-in"></a>
+
+## General built-in connectors
+
+You can use the following built-in connectors to perform general tasks, for example:
+
+* Run workflows using custom and advanced schedules. For more information about scheduling, review the [Recurrence behavior for connectors in Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-behavior).
+
+* Organize and control your workflow's structure, for example, using loops and conditions.
+
+* Work with variables, dates, data operations, content transformations, and batch operations.
+
+* Communicate with other endpoints using HTTP triggers and actions.
+
+* Receive and respond to requests.
+
+* Call your own functions (Azure Functions) or other Azure Logic Apps workflows that can receive requests, and so on.
 
 :::row:::
     :::column:::
@@ -45,7 +96,7 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [**Recurrence**][schedule-recurrence-doc]: Trigger a workflow based on the specified recurrence.
         \
         \
-        [**Sliding Window**][schedule-sliding-window-doc]: Trigger a workflow that needs to handle data in continuous chunks.
+        [**Sliding Window**][schedule-sliding-window-doc]<br>(*Consumption workflow only*): <br>Trigger a workflow that needs to handle data in continuous chunks.
         \
         \
         [**Delay**][schedule-delay-doc]: Pause your workflow for the specified duration.
@@ -83,7 +134,7 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [![Batch icon][batch-icon]][batch-doc]
         \
         \
-        [**Batch**][batch-doc]<br>(*Consumption logic app only*)
+        [**Batch**][batch-doc]<br>(*Consumption workflow only*)
         \
         \
         [**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
@@ -94,48 +145,57 @@ Azure Logic Apps provides the following built-in triggers and actions:
 :::row-end:::
 :::row:::
     :::column:::
-        [![FTP icon][ftp-icon]][ftp-doc]
+        ![FTP icon][ftp-icon]
         \
         \
-        [**FTP**][ftp-doc]<br>(*Standard logic app only*)
+        **FTP**<br>(*Standard workflow only*)
         \
         \
-        Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
+        Connect to FTP or FTPS servers that you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        ![SFTP-SSH icon][sftp-ssh-icon]
         \
         \
-        [**SFTP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        **SFTP**<br>(*Standard workflow only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
     :::column:::
+        ![SMTP icon][smtp-icon]
+        \
+        \
+        **SMTP**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to SMTP servers that you can send email.
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-## Service-based built-in trigger and actions
+<a name="service-built-in"></a>
 
-Azure Logic Apps provides the following built-in actions for the following services:
+## Built-in connectors for specific services and systems
+
+You can use the following built-in connectors to access specific services and systems. In Standard workflows, some of these built-in connectors are also informally known as *service providers*, which can differ from their managed connector counterparts in some ways.
 
 :::row:::
     :::column:::
         [![Azure API Management icon][azure-api-management-icon]][azure-api-management-doc]
         \
         \
-        [**Azure API Management**][azure-api-management-doc]
+        [**Azure API Management**][azure-api-management-doc]<br>(*Consumption workflow only*)
         \
         \
-        Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <p><p>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
+        Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <br><br>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
         [![Azure App Services icon][azure-app-services-icon]][azure-app-services-doc]
         \
         \
-        [**Azure App Services**][azure-app-services-doc]
+        [**Azure App Services**][azure-app-services-doc]<br>(*Consumption workflow only*)
         \
         \
         Call apps that you create and host on [Azure App Service](../app-service/overview.md), for example, API Apps and Web Apps.
@@ -144,25 +204,43 @@ Azure Logic Apps provides the following built-in actions for the following servi
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
-        [![Azure Blob icon icon][azure-blob-storage-icon]][azure-app-services-doc]
+        ![Azure Blob icon][azure-blob-storage-icon]
         \
         \
-        [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
+        **Azure Blob**<br>(*Standard workflow only*)
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
-        [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        ![Azure Cosmos DB icon][azure-cosmos-db-icon]
         \
         \
-        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard logic app only*)
+        **Azure Cosmos DB**<br>(*Standard workflow only*)
         \
         \
         Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
 :::row-end:::
 :::row:::
+    :::column:::
+        ![Azure Event Hubs icon][azure-event-hubs-icon]
+        \
+        \
+        **Azure Event Hubs**<br>(*Standard workflow only*)
+        \
+        \
+        Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
+    :::column-end:::
+    :::column:::
+        ![Azure File Storage icon][azure-file-storage-icon]
+        \
+        \
+        **Azure File Storage**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to your Azure Storage account so that you can create, update, and manage files.
+    :::column-end:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         \
@@ -173,10 +251,21 @@ Azure Logic Apps provides the following built-in actions for the following servi
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
     :::column:::
+        ![Azure Key Vault icon][azure-key-vault-icon]
+        \
+        \
+        **Azure Key Vault**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to Azure Key Vault to store, access, and manage secrets.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
-        [**Azure Logic Apps**][nested-logic-app-doc]
+        [**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption workflow*) <br><br>-or-<br><br>**Workflow operations**<br>(*Standard workflow*)
         \
         \
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
@@ -185,7 +274,7 @@ Azure Logic Apps provides the following built-in actions for the following servi
         [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
-        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard logic app only*)
+        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard workflow only*)
         \
         \
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
@@ -194,36 +283,45 @@ Azure Logic Apps provides the following built-in actions for the following servi
         ![Azure Table Storage icon][azure-table-storage-icon]
         \
         \
-        **Azure Table Storage**<br>(*Standard logic app only*)
+        **Azure Table Storage**<br>(*Standard workflow only*)
         \
         \
-        Connect to your Azure Table Storage account so you can create and manage tables.
+        Connect to your Azure Storage account so that you can create, update, query, and manage tables.
+    :::column-end:::
+    :::column:::
+        ![Azure Queue Storage][azure-queue-storage-icon]
+        \
+        \
+        **Azure Queue Storage**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to your Azure Storage account so that you can create, update, and manage queues.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
+        ![IBM DB2 icon][ibm-db2-icon]
         \
         \
-        [**DB2**][ibm-db2-doc]<br>(*Standard logic app only*)
+        **IBM DB2**<br>(*Standard workflow only*)
         \
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
     :::column:::
-        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        ![IBM Host File icon][ibm-host-file-icon]
         \
         \
-        [**Event Hubs**][azure-event-hubs-doc]<br>(*Standard logic app only*)
+        **IBM Host File**<br>(*Standard workflow only*)
         \
         \
-        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+        Connect to IBM Host File and generate or parse contents.
     :::column-end:::
     :::column:::
-        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
+        ![IBM MQ icon][ibm-mq-icon]
         \
         \
-        [**MQ**][ibm-mq-doc]<br>(*Standard logic app only*)
+        **IBM MQ**<br>(*Standard workflow only*)
         \
         \
         Connect to IBM MQ on-premises or in Azure to send and receive messages.
@@ -232,10 +330,10 @@ Azure Logic Apps provides the following built-in actions for the following servi
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
         \
-        [**SQL Server**][sql-server-doc]<br>(*Standard logic app only*)
+        [**SQL Server**][sql-server-doc]<br>(*Standard workflow only*)
         \
         \
-        Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. <p>**Note**: Single-tenant Azure Logic Apps provides both SQL built-in and managed connector operations, while multi-tenant Azure Logic Apps provides only managed connector operations. <p>For more information, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+        Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
     :::column-end:::
 :::row-end:::
 
@@ -318,7 +416,7 @@ Azure Logic Apps provides the following built-in actions for structuring and con
         [**Terminate**][terminate-doc]
         \
         \
-        Stop an actively running logic app workflow.
+        Stop an actively running workflow.
     :::column-end:::
     :::column:::
         [![Until action icon][until-icon]][until-doc]
@@ -428,19 +526,52 @@ Azure Logic Apps provides the following built-in actions for working with data o
     :::column-end:::
 :::row-end:::
 
-## Integration account built-in actions
+<a name="integration-account-built-in"></a>
 
-Azure Logic Apps provides the following built-in actions, which either require an integration account when using multi-tenant, Consumption plan-based Azure Logic Apps or don't require an integration account when using single-tenant, Standard plan-based Azure Logic Apps:
+## Integration account built-in connectors
 
-> [!NOTE]
-> Before you can use integration account action in multi-tenant, Consumption plan-based Azure Logic Apps, you must 
-> [link your logic app resource to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
-> However, in single-tenant, Standard plan-based Azure Logic Apps, some integration account operations don't require linking your 
-> logic app resource to an integration account, for example, Liquid operations and XML operations. To use these actions, you need 
-> to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to 
-> your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+Integration account operations support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, and others, you can use integration account built-in actions to encode and decode messages, transform content, and more.
+
+* Consumption workflows
+
+  Before you use any integration account operations in a workflow, [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+
+* Standard workflows
+
+  While most integration account operations don't require that you link your logic app resource to your integration account, linking lets you share artifacts across multiple Standard workflows and their child workflows. Based on the integration account operation that you want to use, complete one of the following steps before you use the operation:
+
+  * For operations that require maps or schemas, you can either:
+
+    * Upload these artifacts to your logic app resource using the Azure portal or Visual Studio Code. You can then use these artifacts across all child workflows in the *same* logic app resource. For more information, review [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard) and [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-schemas.md?tabs=standard).
+
+    * [Link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+
+  * For operations that require a connection to your integration account, create the connection when you add the operation to your workflow.
+
+For more information, review the following documentation:
+
+* [Business-to-business (B2B) enterprise integration workflows](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Create and manage integration accounts for B2B workflows](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 :::row:::
+    :::column:::
+        [![AS2 Decode v2 icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Decode (v2)**][as2-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Decode messages received using the AS2 protocol.
+    :::column-end:::
+    :::column:::
+        [![AS2 Encode (v2) icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Encode (v2)**][as2-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Encode messages sent using the AS2 protocol.
+    :::column-end:::
     :::column:::
         [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
         \
@@ -459,11 +590,13 @@ Azure Logic Apps provides the following built-in actions, which either require a
         \
         Decode XML after receiving the content from a trading partner.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![Integration account icon][integration-account-icon]][integration-account-doc]
         \
         \
-        [**Integration Account Artifact Lookup**<br>(*Multi-tenant only*)][integration-account-doc]
+        [**Integration Account Artifact Lookup**][integration-account-doc]<br>(*Consumption workflow only*)
         \
         \
         Get custom metadata for artifacts, such as trading partners, agreements, schemas, and so on, in your integration account.
@@ -475,10 +608,8 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [**Liquid operations**][json-liquid-transform-doc]
         \
         \
-        Convert the following formats by using Liquid templates: <p><p>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
+        Convert the following formats by using Liquid templates: <br><br>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
         \
@@ -497,8 +628,6 @@ Azure Logic Apps provides the following built-in actions, which either require a
         \
         Validate XML documents against the specified schema.
     :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
 ## Next steps
@@ -512,8 +641,11 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
+[azure-file-storage-icon]: ./media/apis-list/azure-file-storage.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
+[azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[azure-queue-storage-icon]: ./media/apis-list/azure-queues.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [azure-table-storage-icon]: ./media/apis-list/azure-table-storage.png
 [batch-icon]: ./media/apis-list/batch.png
@@ -528,11 +660,13 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
 [http-webhook-icon]: ./media/apis-list/http-webhook.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
+[ibm-host-file-icon]: ./media/apis-list/ibm-host-file.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
 [sftp-ssh-icon]: ./media/apis-list/sftp.png
+[smtp-icon]: ./media/apis-list/smtp.png
 [sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
@@ -540,6 +674,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [variables-icon]: ./media/apis-list/variables.png
 
 <!--Built-in integration account connector icons -->
+[as2-v2-icon]: ./media/apis-list/as2-v2.png
 [flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
 [flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
 [integration-account-icon]: ./media/apis-list/integration-account.png
@@ -549,44 +684,46 @@ Azure Logic Apps provides the following built-in actions, which either require a
 
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic apps with App Service API Apps"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic app workflows with App Service API Apps"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure Blob storage connector"
 [azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic app workflows and Event Hubs"
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic app workflows with Azure Functions"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Manage messages from Service Bus queues, topics, and topic subscriptions"
+[azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Process messages in groups, or as batches"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Perform the same actions on every item in an array"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP or FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
-[http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic apps"
-[http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic apps"
-[http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"
-[http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic apps"
+[http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic app workflows"
+[http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic app workflows"
+[http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic app workflows"
+[http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic app workflows"
 [http-webhook-doc]: ./connectors-native-webhook.md "Wait for specific events from HTTP or HTTPS endpoints"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
-[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic apps"
-[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic app workflows"
+[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic app workflows with nested workflows"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Select and filter arrays with the Query action"
-[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Run logic apps based a schedule"
+[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Run logic app workflows based a schedule"
 [schedule-delay-doc]: ./connectors-native-delay.md "Delay running the next action"
 [schedule-delay-until-doc]: ./connectors-native-delay.md "Delay running the next action"
-[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic apps on a recurring schedule"
-[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Run logic apps that need to handle data in contiguous chunks"
+[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic app workflows on a recurring schedule"
+[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Run logic app workflows that need to handle data in contiguous chunks"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
 [sftp-ssh-doc]: ./connectors-sftp-ssh.md "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
-[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"
+[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app workflow"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
 
 <!--Built-in integration account doc links-->
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Decode XML content with a flat file schema"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Encode XML content with a flat file schema"
 [integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Manage metadata for integration account artifacts"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON with Liquid templates"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON or XML content with Liquid templates"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML content"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML content"

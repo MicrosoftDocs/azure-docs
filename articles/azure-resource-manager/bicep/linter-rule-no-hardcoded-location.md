@@ -1,11 +1,12 @@
 ---
-title: Linter rule - no hard-coded locations
-description: Linter rule - no hard-coded locations
+title: Linter rule - no hardcoded locations
+description: Linter rule - no hardcoded locations
 ms.topic: conceptual
-ms.date: 1/6/2022
+ms.custom: devx-track-bicep
+ms.date: 02/10/2023
 ---
 
-# Linter rule - no hard-coded locations
+# Linter rule - no hardcoded locations
 
 This rule finds uses of Azure location values that aren't parameterized.
 
@@ -17,9 +18,9 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Template users may have limited access to regions where they can create resources. A hard-coded resource location might block users from creating a resource, thus preventing them from using the template. By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
+Template users may have limited access to regions where they can create resources. A hardcoded resource location might block users from creating a resource, thus preventing them from using the template. By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
 
-Rather than using a hard-coded string or variable value, use a parameter, the string 'global', or an expression (but not `resourceGroup().location` or `deployment().location`, see [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)). Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. This parameter may default to the resource group or deployment location (`resourceGroup().location` or `deployment().location`).
+Rather than using a hardcoded string or variable value, use a parameter, the string 'global', or an expression (but not `resourceGroup().location` or `deployment().location`, see [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)). Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. This parameter may default to the resource group or deployment location (`resourceGroup().location` or `deployment().location`).
 
 The following example fails this test because the resource's `location` property uses a string literal:
 
@@ -28,6 +29,7 @@ The following example fails this test because the resource's `location` property
       location: 'westus'
   }
 ```
+
 You can fix it by creating a new `location` string parameter (which may optionally have a default value - resourceGroup().location is frequently used as a default):
 
 ```bicep
@@ -36,6 +38,10 @@ You can fix it by creating a new `location` string parameter (which may optional
       location: location
   }
 ```
+
+Use **Quick Fix** to create a location parameter and replace the string literal with the parameter name. See the following screenshot:
+
+:::image type="content" source="./media/linter-rule-no-hardcoded-location/linter-rule-no-hardcoded-location-quick-fix.png" alt-text="The screenshot of No hardcoded location linter rule warning with quickfix.":::
 
 The following example fails this test because the resource's `location` property uses a variable with a string literal.
 
@@ -61,11 +67,13 @@ The following example fails this test because a string literal is being passed i
 module m1 'module1.bicep' = {
   name: 'module1'
   params: {
-    location: 'westus'    
+    location: 'westus'
   }
 }
 ```
+
 where module1.bicep is:
+
 ```bicep
 param location string
 
@@ -80,6 +88,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 ```
 
 You can fix the failure by creating a new parameter for the value:
+
 ```bicep
 param location string // optionally with a default value
 module m1 'module1.bicep' = {

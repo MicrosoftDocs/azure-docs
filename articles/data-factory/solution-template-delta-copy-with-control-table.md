@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 08/10/2023
 ---
 
 # Delta copy from a database with a control table
@@ -85,37 +85,37 @@ The template defines following parameters:
 
 4. Go to the **Delta copy from Database** template. Create a **New** connection to the source database that you want to data copy from.
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="Create a new connection to the source table":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/delta-copy-from-db-with-control-table-4.png" alt-text="Screenshot showing the creation of a new connection to the source table.":::
 
 5. Create a **New** connection to the destination data store that you want to copy the data to.
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png" alt-text="Create a new connection to the destination table":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/delta-copy-from-db-with-control-table-5.png" alt-text="Screenshot showing the creation of a new connection to the destination table.":::
 
 6. Create a **New** connection to the external control table and stored procedure that you created in steps 2 and 3.
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png" alt-text="Create a new connection to the control table data store":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/delta-copy-from-db-with-control-table-6.png" alt-text="Screenshot showing the creation of a new connection to the control table data store.":::
 
 7. Select **Use this template**.
 	
 8. You see the available pipeline, as shown in the following example:
   
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png" alt-text="Review the pipeline":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/delta-copy-from-db-with-control-table-8.png" alt-text="Screenshot showing the pipeline.":::
 
 9. Select **Stored Procedure**. For **Stored procedure name**, choose **[dbo].[update_watermark]**. Select **Import parameter**, and then select **Add dynamic content**.  
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png" alt-text="Set the stored procedure activity":::	
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/delta-copy-from-db-with-control-table-9.png" alt-text="Screenshot showing where to set the stored procedure activity.":::	
 
 10. Write the content **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, and then select **Finish**.  
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png" alt-text="Write the content for the parameters of the stored procedure":::		 
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/delta-copy-from-db-with-control-table-10.png" alt-text="Screenshot showing where to write the content for the parameters of the stored procedure.":::		 
 	 
 11. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png" alt-text="Select **Debug**":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png" alt-text="Screenshot showing the Debug button.":::
 
 12. Results similar to the following example are displayed:
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="Review the result":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="Sreenshot showing the result of the pipeline run.":::
 
 13. You can create new rows in your source table. Here is sample SQL language to create new rows:
 
@@ -133,7 +133,7 @@ The template defines following parameters:
 
 15. (Optional:) If you select Azure Synapse Analytics as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by Azure Synapse Analytics Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
     
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png" alt-text="Configure Polybase":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png" alt-text="Screenshot showing where to configure Polybase.":::
 	
 ## Next steps
 

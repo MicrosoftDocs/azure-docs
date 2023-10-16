@@ -1,0 +1,48 @@
+items:
+- name: Azure Automanage Machine Configuration documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Automanage Machine Configuration?
+    href: ./overview.md
+  - name: What's new with the machine configuration agent?
+    href: ./agent-release-notes.md
+- name: Concepts
+  items:
+  - name: Understand machine configuration assignments
+    href: ./assignments.md
+  - name: Azure Automation DSC to machine configuration migration planning
+    href: ./migrate-from-azure-automation.md
+  - name: Planning a change from DSC extension for Linux to machine configuration
+    href: ./migrate-from-dsc-extension.md
+  - name: Remediation options for machine configuration
+    href: ./remediation-options.md
+  - name: Changes to behavior in PowerShell DSC for machine configuration
+    href: ./dsc-in-machine-configuration.md
+- name: Quickstarts
+  items:
+  - name: How to setup a machine configuration authoring environment
+    href: ./how-to-set-up-authoring-environment.md
+  - name: How to create custom machine configuration package artifacts
+    href: ./how-to-create-package.md
+  - name: How to test machine configuration package artifacts
+    href: ./how-to-test-package.md
+  - name: How to publish custom machine configuration package artifacts
+    href: ./how-to-publish-package.md
+  - name: How to sign machine configuration packages
+    href: ./how-to-sign-package.md
+  - name: Understand machine configuration assignment resources
+    href: ./assignments.md
+  - name: How to create a machine configuration assignment using templates
+    href: ./how-to-create-assignment.md
+  - name: How to create custom machine configuration policy definitions
+    href: ./how-to-create-policy-definition.md
+  - name: Remediation options for machine configuration
+    href: ./remediation-options.md
+  - name: Changes to behavior in PowerShell DSC for machine configuration
+    href: ./dsc-in-machine-configuration.md
+  - name:  Azure Automation state configuration to machine configuration migration planning
+    href: ./migrate-from-azure-automation.md
+  - name: Planning a change from DSC extension for Linux to machine configuration
+    href: ./migrate-from-dsc-extension.md

@@ -1,28 +1,29 @@
 ---
-title: PowerShell script to list and get Azure Cosmos DB Cassandra API resources
-description: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
-author: markjbrown
+title: PowerShell script to list and get Azure Cosmos DB for Apache Cassandra resources
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for API for Cassandra
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: sample
 ms.date: 03/18/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# List and get keyspaces and tables for Azure Cosmos DB - Cassandra API
-[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+# List and get keyspaces and tables for Azure Cosmos DB - API for Cassandra
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-list-get.ps1 "List or get keyspace or table for Cassandra API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-list-get.ps1 "List or get keyspace or table for API for Cassandra")]
 
 ## Clean up deployment
 
@@ -39,9 +40,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
-| [Get-AzCosmosDBCassandraKeyspace](/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspace) | Lists Cosmos DB Cassandra API Keyspaces in an Account, or gets a specified Cosmos DB Cassandra API Keyspace in an Account. |
-| [Get-AzCosmosDBCassandraTable](/powershell/module/az.cosmosdb/get-azcosmosdbcassandratable) | Lists Cosmos DB Cassandra API Tables in a Keyspace, or gets a specified Cosmos DB Cassandra API Table in a Keyspace. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Azure Cosmos DB Accounts, or gets a specified Azure Cosmos DB Account. |
+| [Get-AzCosmosDBCassandraKeyspace](/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspace) | Lists Azure Cosmos DB for Apache Cassandra Keyspaces in an Account, or gets a specified Azure Cosmos DB for Apache Cassandra Keyspace in an Account. |
+| [Get-AzCosmosDBCassandraTable](/powershell/module/az.cosmosdb/get-azcosmosdbcassandratable) | Lists Azure Cosmos DB for Apache Cassandra Tables in a Keyspace, or gets a specified Azure Cosmos DB for Apache Cassandra Table in a Keyspace. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

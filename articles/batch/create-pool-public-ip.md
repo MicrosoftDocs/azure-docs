@@ -2,21 +2,22 @@
 title: Create a Batch pool with specified public IP addresses
 description: Learn how to create an Azure Batch pool that uses your own static public IP addresses.
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.custom: devx-track-linux
+ms.date: 05/26/2023
 ---
 
 # Create an Azure Batch pool with specified public IP addresses
 
-In Azure Batch, you can [create a Batch pool in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). Virtual machines (VMs) in the Batch pool are accessible through public IP addresses that Batch creates. These public IP addresses can change over the lifetime of the pool. If the IP addresses aren't refreshed, your network settings might become outdated. 
+In Azure Batch, you can [create a Batch pool in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). Virtual machines (VMs) in the Batch pool are accessible through public IP addresses that Batch creates. These public IP addresses can change over the lifetime of the pool. If the IP addresses aren't refreshed, your network settings might become outdated.
 
-You can create a list of static public IP addresses to use with the VMs in your pool instead. In some cases, you might need to control the list of public IP addresses to make sure they don't change unexpectedly.  For example, you might be working with an external service, such as a database, which restricts access to specific IP addresses. 
+You can create a list of static public IP addresses to use with the VMs in your pool instead. In some cases, you might need to control the list of public IP addresses to make sure they don't change unexpectedly.  For example, you might be working with an external service, such as a database, which restricts access to specific IP addresses.
 
-For information about creating pools without public IP addresses, read [Create an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
+For information about creating pools without public IP addresses, read [Create an Azure Batch pool without public IP addresses](./simplified-node-communication-pool-no-public-ip.md).
 
 ## Prerequisites
 
-- The Batch client API must use [Azure Active Directory (AD) authentication](batch-aad-auth.md) to use a public IP address.
-- An [Azure VNet](batch-virtual-network.md) from the same subscription where you're creating your pool and IP addresses. You can only use Azure Resource Manager-based VNets. Verify that the VNet meets all of the [general VNet requirements](batch-virtual-network.md#vnet-requirements).
+- The Batch client API must use [Microsoft Entra authentication](batch-aad-auth.md) to use a public IP address.
+- An [Azure VNet](batch-virtual-network.md) from the same subscription where you're creating your pool and IP addresses. You can only use Azure Resource Manager-based VNets. Verify that the VNet meets all of the [general VNet requirements](batch-virtual-network.md#general-virtual-network-requirements).
 - At least one existing Azure public IP address. Follow the [public IP address requirements](#public-ip-address-requirements) to create and configure the IP addresses.
 
 > [!NOTE]
@@ -27,7 +28,7 @@ For information about creating pools without public IP addresses, read [Create a
 Create one or more public IP addresses through one of these methods:
 - Use the [Azure portal](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address)
 - Use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/network/public-ip#az-network-public-ip-create)
-- Use [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). 
+- Use [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress).
 
 Make sure your public IP addresses meet the following requirements:
 
@@ -35,11 +36,11 @@ Make sure your public IP addresses meet the following requirements:
 - Set the **IP address assignment** to **Static**.
 - Set the **SKU** to **Standard**.
 - Specify a DNS name.
-- Make sure no other resources use these public IP addresses, or the pool might experience allocation failures. Only use these public IP addresses for the VM configuration pools. 
+- Make sure no other resources use these public IP addresses, or the pool might experience allocation failures. Only use these public IP addresses for the VM configuration pools.
 - Make sure that no security policies or resource locks restrict user access to the public IP address.
-- Create enough public IP addresses for the pool to accommodate the number of target VMs. 
-    - This number must equal at least the sum of the **targetDedicatedNodes** and **targetLowPriorityNodes** properties of the pool. 
-    - If you don't create enough IP addresses, the pool partially allocates the compute nodes, and a resize error happens. 
+- Create enough public IP addresses for the pool to accommodate the number of target VMs.
+    - This number must equal at least the sum of the **targetDedicatedNodes** and **targetLowPriorityNodes** properties of the pool.
+    - If you don't create enough IP addresses, the pool partially allocates the compute nodes, and a resize error happens.
     - Currently, Batch uses one public IP address for every 100 VMs.
 - Also create a buffer of public IP addresses. A buffer helps Batch with internal optimization for scaling down. A buffer also allows quicker scaling up after an unsuccessful scale up or scale down. We recommend adding one of the following amounts of buffer IP addresses; choose whichever number is greater.
     - Add at least one more IP address.
@@ -69,9 +70,9 @@ Request body:
         "imageReference": {
           "publisher": "Canonical",
           "offer": "UbuntuServer",
-          "sku": "16.04.0-LTS"
+          "sku": "20.04-LTS"
         },
-        "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 20.04"
       },
 "networkConfiguration": {
           "subnetId": "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/virtualNetworks/<vNetId>/subnets/<subnetId>",

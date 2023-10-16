@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/22/2022
+ms.date: 07/21/2022
 ms.author: alkohli
 ---
 
@@ -37,12 +37,12 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
 4. After the prepare to ship is successfully complete (with no errors), follow these steps:
 
-    1. Make a note of the completion reference number. Depending on the country in which you are, this number may be required for different operations.
+    1. Make a note of the completion reference number. Depending on the country/region in which you are, this number may be required for different operations.
     2. Download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure. For more information, see [Inspect BOM files during Prepare to ship](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
         ![Prepare to ship 5](media/data-box-prepare-to-ship/prepare-to-ship-5.png)
-    3. Select and download the shipping instructions for the device. The shipping instructions are different depending on the country in which you are located.
-    4. If the E-ink is not displaying the shipping label, you can download the reverse shipment label here. 
+    3. Select and download the shipping instructions for the device. The shipping instructions are different depending on the country/region in which you are located.
+    4. If the E-ink is not displaying the shipping label, you can download the [reverse shipment label](../articles/databox/data-box-portal-admin.md). Make sure you have the shipping label before you shut down and disconnect the device.
 
 5. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
 

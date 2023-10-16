@@ -2,12 +2,12 @@
 title: "Azure Storage Analytics metrics (classic)"
 description: Learn how to use Storage Analytics metrics in Azure Storage. Learn about transaction and capacity metrics, how metrics are stored, enabling metrics, and more.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: "monitoring, devx-track-csharp"
 ---
 
@@ -88,7 +88,6 @@ The capacity used by the metrics tables is also billable. Use the following info
 
 ## Next steps
 
-- [Monitor a storage account](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)
 - [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 - [Storage Analytics logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 - [Storage Analytics logging](storage-analytics-logging.md)

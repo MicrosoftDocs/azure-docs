@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
- ms.service: storage
+ author: khdownie
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 5/11/2020
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file, devx-track-azurepowershell
 ---
 To create a private endpoint for your storage account, you first need to get a reference to your storage account and the virtual network subnet to which you want to add the private endpoint. Replace `<storage-account-resource-group-name>`,  `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<vnet-subnet-name>` below:

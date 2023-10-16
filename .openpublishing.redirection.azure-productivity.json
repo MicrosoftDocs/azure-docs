@@ -1,34 +1,209 @@
 {
-    "redirections": [
-        {
-            "source_path_from_root": "/articles/lab-services/classroom-labs-overview.md",
-            "redirect_url": "/azure/lab-services/lab-services-overview",
-            "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/devtest-labs/scripts/add-external-user-to-lab.md",
-          "redirect_url": "/azure/devtest-labs/samples-powershell",
-          "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/devtest-labs/scripts/add-marketplace-images-to-lab.md",
-          "redirect_url": "/azure/devtest-labs/samples-powershell",
-          "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/devtest-labs/scripts/create-custom-image-from-vhd.md",
-          "redirect_url": "/azure/devtest-labs/samples-powershell",
-          "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/devtest-labs/scripts/create-custom-role-in-lab.md",
-          "redirect_url": "/azure/devtest-labs/samples-powershell",
-          "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/devtest-labs/scripts/set-allowed-vm-sizes-in-lab.md",
-          "redirect_url": "/azure/devtest-labs/samples-powershell",
-          "redirect_document_id": false
-        }
-    ]
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/lab-services/classroom-labs-overview.md",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/scripts/add-external-user-to-lab.md",
+      "redirect_url": "/azure/devtest-labs/samples-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/scripts/add-marketplace-images-to-lab.md",
+      "redirect_url": "/azure/devtest-labs/samples-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/scripts/create-custom-image-from-vhd.md",
+      "redirect_url": "/azure/devtest-labs/samples-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/scripts/create-custom-role-in-lab.md",
+      "redirect_url": "/azure/devtest-labs/samples-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/scripts/set-allowed-vm-sizes-in-lab.md",
+      "redirect_url": "/azure/devtest-labs/samples-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-schedules-within-teams.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-delete-lab-within-teams.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-user-lists-within-teams.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-vm-pool-within-teams.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-get-started-create-lab-within-teams.md",
+      "redirect_url": "/azure/lab-services/how-to-configure-teams-for-lab-plans",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-get-started-create-lab-within-canvas.md",
+      "redirect_url": "/azure/lab-services/how-to-configure-canvas-for-lab-plans",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-schedules-within-canvas.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-delete-lab-within-canvas.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-user-lists-within-canvas.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-vm-pool-within-canvas.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-enable-nested-virtualization-template-vm.md",
+      "redirect_url": "/azure/lab-services/concept-nested-virtualization-template-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/troubleshoot.md",
+      "redirect_url": "/azure/lab-services/troubleshoot-lab-creation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-portal.md",
+      "redirect_url": "/azure/lab-services/quick-create-connect-lab",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/tutorial-setup-lab-plan.md",
+      "redirect_url": "/azure/lab-services/quick-create-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-portal.md",
+      "redirect_url": "/azure/lab-services/quick-create-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-bicep.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-bicep",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-bicep.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-bicep",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-powershell.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-python.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-powershell.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-python.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs-faq.yml",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-enable-nested-virtualization-template-vm-ui.md",
+      "redirect_url": "/azure/lab-services/how-to-enable-nested-virtualization-template-vm-using-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-use-lab.md",
+      "redirect_url": "/azure/lab-services/how-to-access-lab-virtual-machine",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-configure-student-usage.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-lab-users",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-labs-within-canvas.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-labs-within-teams.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-access-vm-for-students-within-canvas.md",
+      "redirect_url": "/azure/lab-services/tutorial-access-lab-virtual-machine-teams-canvas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-access-vm-for-students-within-teams.md",
+      "redirect_url": "/azure/lab-services/tutorial-access-lab-virtual-machine-teams-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/lab-creator-support-information.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/lab-user-support-information.md",
+      "redirect_url": "/azure/lab-services/how-to-access-lab-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-lab-plan-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-lab-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-bicep",
+      "redirect_document_id": false
+    }
+  ]
 }

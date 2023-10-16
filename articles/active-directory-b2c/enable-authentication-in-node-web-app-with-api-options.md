@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 02/10/2022
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: b2c-support, devx-track-js
 ---
 
 # Enable Node.js web API authentication options using Azure Active Directory B2C
@@ -29,7 +29,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 In the `.env` file of your web app, do the following:
 
 - Replace all instances of `tenant-name.b2clogin.com` with your custom domain. For example, replace `tenant-name.b2clogin.com`, to `login.contoso.com`.
-- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following configuration shows the app settings before the change: 
 
@@ -61,7 +61,7 @@ In the `index.js` file of your web API, do the following:
 
 - Replace all instances of `tenant-name.b2clogin.com` with your custom domain. For example, replace `tenant-name.b2clogin.com`, to `login.contoso.com`.
 
-- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following configuration shows the app settings before the change: 
 
@@ -154,7 +154,7 @@ return confidentialClientApplication.getAuthCodeUrl(authCodeRequest)
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *index.js*, configure the following keys:
+To configure [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/logging.md), in *index.js*, configure the following keys:
 
 - `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.
 - `piiLoggingEnabled` enables the input of personal data. Possible values: `true` or `false`.
@@ -179,4 +179,3 @@ The following code snippet demonstrates how to configure MSAL logging:
 ## Next steps
 
 Learn more about [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).
-

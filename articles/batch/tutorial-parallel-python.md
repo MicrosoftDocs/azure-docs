@@ -1,53 +1,53 @@
 ---
-title: Tutorial - Run a parallel workload using the Python API
-description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
+title: "Tutorial: Run a parallel workload using the Python API"
+description: Learn how to process media files in parallel using ffmpeg in Azure Batch with the Batch Python client library.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/13/2021
-ms.custom: mvc, devx-track-python
+ms.date: 05/25/2023
+ms.custom: mvc, devx-track-python, devx-track-linux
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API
 
-Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial walks through a Python example of running a parallel workload using Batch. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
+Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial walks through a Python example of running a parallel workload using Batch. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources.
 
 > [!div class="checklist"]
-> * Authenticate with Batch and Storage accounts
-> * Upload input files to Storage
-> * Create a pool of compute nodes to run an application
-> * Create a job and tasks to process input files
-> * Monitor task execution
-> * Retrieve output files
+> * Authenticate with Batch and Storage accounts.
+> * Upload input files to Storage.
+> * Create a pool of compute nodes to run an application.
+> * Create a job and tasks to process input files.
+> * Monitor task execution.
+> * Retrieve output files.
 
-In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
+In this tutorial, you convert MP4 media files to MP3 format, in parallel, by using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Python version 2.7 or 3.6+](https://www.python.org/downloads/)
+* [Python version 3.7 or later](https://www.python.org/downloads/)
 
-* [pip](https://pip.pypa.io/en/stable/installing/) package manager
+* [pip package manager](https://pip.pypa.io/en/stable/installation/)
 
-* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstart guides for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
-## Download and run the sample
+## Download and run the sample app
 
-### Download the sample
+### Download the sample app
 
 [Download or clone the sample app](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
 ```
 
-Navigate to the directory that contains the file `batch_python_tutorial_ffmpeg.py`.
+Navigate to the directory that contains the file *batch_python_tutorial_ffmpeg.py*.
 
 In your Python environment, install the required packages using `pip`.
 
@@ -55,13 +55,13 @@ In your Python environment, install the required packages using `pip`.
 pip install -r requirements.txt
 ```
 
-Open the file `config.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Use a code editor to open the file *config.py*. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
-_BATCH_ACCOUNT_NAME = 'mybatchaccount'
+_BATCH_ACCOUNT_NAME = 'yourbatchaccount'
 _BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
-_BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
+_BATCH_ACCOUNT_URL = 'https://yourbatchaccount.yourbatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
@@ -70,7 +70,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 To run the script:
 
-```
+```bash
 python batch_python_tutorial_ffmpeg.py
 ```
 
@@ -97,13 +97,13 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks. For example, to see a heat map of the compute nodes in your pool, click **Pools** > *LinuxFFmpegPool*.
+Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks. For example, to see a heat map of the compute nodes in your pool, select **Pools** > **LinuxFFmpegPool**.
 
 When tasks are running, the heat map is similar to the following:
 
-![Pool heat map](./media/tutorial-parallel-python/pool.png)
+:::image type="content" source="./media/tutorial-parallel-python/pool.png" alt-text="Screenshot of Pool heat map.":::
 
-Typical execution time is approximately **5 minutes** when you run the application in its default configuration. Pool creation takes the most time. 
+Typical execution time is approximately *5 minutes* when you run the application in its default configuration. Pool creation takes the most time. 
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -121,7 +121,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=_STORAGE_ACCOUNT_KEY)
 ```
 
-The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md), to authenticate individual users or an unattended application.
+The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Microsoft Entra ID](batch-aad-auth.md), to authenticate individual users or an unattended application.
 
 ```python
 credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
@@ -134,7 +134,7 @@ batch_client = batch.BatchServiceClient(
 
 ### Upload input files
 
-The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local `InputFiles` directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
+The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local *InputFiles* directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -155,9 +155,9 @@ input_files = [
 
 ### Create a pool of compute nodes
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 18.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 Spot nodes in size *Standard_A1_v2*. 
+The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*. 
 
 In addition to physical node properties, this pool configuration includes a [StartTask](/python/api/azure-batch/azure.batch.models.starttask) object. The StartTask executes on each node as that node joins the pool, and each time a node is restarted. In this example, the StartTask runs Bash shell commands to install the ffmpeg package and dependencies on the nodes.
 
@@ -170,10 +170,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="18.04-LTS",
+            sku="20.04-LTS",
             version="latest"
         ),
-        node_agent_sku_id="batch.node.ubuntu 18.04"),
+        node_agent_sku_id="batch.node.ubuntu 20.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,
@@ -259,22 +259,18 @@ while datetime.datetime.now() < timeout_expiration:
 
 After it runs the tasks, the app automatically deletes the input storage container it created, and gives you the option to delete the Batch pool and job. The BatchClient's [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) and [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) classes both have delete methods, which are called if you confirm deletion. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
 
-When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete resource group**.
+When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and choose **Delete resource group**.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Authenticate with Batch and Storage accounts
-> * Upload input files to Storage
-> * Create a pool of compute nodes to run an application
-> * Create a job and tasks to process input files
-> * Monitor task execution
-> * Retrieve output files
+> * Authenticate with Batch and Storage accounts.
+> * Upload input files to Storage.
+> * Create a pool of compute nodes to run an application.
+> * Create a job and tasks to process input files.
+> * Monitor task execution.
+> * Retrieve output files.
 
-For more examples of using the Python API to schedule and process Batch workloads, see the samples on GitHub.
-
-> [!div class="nextstepaction"]
-> [Batch Python samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
+For more examples of using the Python API to schedule and process Batch workloads, see the [Batch Python samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch) on GitHub.

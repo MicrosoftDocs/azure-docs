@@ -2,16 +2,16 @@
 title: Create an Azure Stream Analytics Cluster quickstart
 description: Learn how to create an Azure Stream Analytics cluster.
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
-ms.date: 04/09/2021
+ms.custom: mvc, mode-ui, event-tier1-build-2022
+ms.date: 08/11/2023
 ---
 
 # Quickstart: Create a dedicated Azure Stream Analytics cluster using Azure portal
 
-Use the Azure portal to create an Azure Stream Analytics cluster. A [Stream Analytics cluster](cluster-overview.md) is a single-tenant deployment that can be used for complex and demanding streaming use cases. You can run multiple Stream Analytics jobs on a Stream Analytics cluster.
+A [Stream Analytics cluster](cluster-overview.md) is a single-tenant deployment that can be used for complex and demanding streaming use cases. You can run multiple Stream Analytics jobs on a Stream Analytics cluster. This article shows you how to use the Azure portal to create an Azure Stream Analytics cluster. 
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ In this section, you create a Stream Analytics cluster resource.
    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
    |Cluster Name|A unique name|Enter a name to identify your Stream Analytics cluster.|
    |Location|The region closest to your data sources and sinks|Select a geographic location to host your Stream Analytics cluster. Use the location that is closest to your data sources and sinks for low latency analytics.|
-   |Streaming Unit Capacity|36 through 216 |Determine the size of the cluster by estimating how many Stream Analytics job you plan to run and the total SUs the job will require. You can start with 36 SUs and later scale up or down as required.|
+   |Streaming Unit Capacity| 12 through 132 |Determine the size of the cluster by estimating how many Stream Analytics job you plan to run and the total SUs the job will require. You can start with 12 SUs and later scale up or down as required.|
 
-   ![Create cluster](./media/create-cluster/create-cluster.png)
+    :::image type="content" source="./media/create-cluster/create-cluster.png" alt-text="Screenshot showing the Create Stream Analytics cluster page. ":::
 
 1. Select **Review + create**. You can skip the **Tags** sections.
 

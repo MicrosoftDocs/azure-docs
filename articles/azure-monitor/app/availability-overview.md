@@ -2,7 +2,8 @@
 title: Application Insights availability tests 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 04/24/2023
+ms.reviewer: shyamala
 ---
 
 # Application Insights availability tests
@@ -15,27 +16,38 @@ You can set up availability tests for any HTTP or HTTPS endpoint that's accessib
 
 There are four types of availability tests:
 
-* [URL ping test (classic)](monitor-web-app-availability.md): You can create this simple test through the portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
-* [Standard test (Preview)](availability-standard-tests.md): This single request test is similar to the URL ping test. It includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`, `HEAD`, or `POST`), custom headers, and custom data associated with your HTTP request.
-* [Multi-step web test (classic)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
+* [Standard test](availability-standard-tests.md): This single request test is similar to the URL ping test. It includes TLS/SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`, `HEAD`, or `POST`), custom headers, and custom data associated with your HTTP request.
 * [Custom TrackAvailability test](availability-azure-functions.md): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
+* Classic tests (**older versions of availability tests**)
+    * [URL ping test](monitor-web-app-availability.md): You can create this test through the Azure portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
+    * [Multi-step web test (deprecated)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
 
 > [!IMPORTANT]
-> Both the [URL ping test](monitor-web-app-availability.md) and the [multi-step web test](availability-multistep.md) rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can resolve every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
+> The older classic tests, [URL ping test](monitor-web-app-availability.md) and [multi-step web test](availability-multistep.md), rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can resolve every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
 
 You can create up to 100 availability tests per Application Insights resource.
 
 > [!NOTE]
-> Availability tests are stored encrypted, according to [Microsoft Azure Data Encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
+> Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](troubleshoot-availability.md).
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I run Availability web tests on an intranet server?
+
+Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
+          
+* **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](./ip-addresses.md).
+* **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
 
 ## Next steps
 
 * [Availability alerts](availability-alerts.md)
-* [Multi-step web tests](availability-multistep.md)
-* [URL tests](monitor-web-app-availability.md)
+* [Standard tests](availability-standard-tests.md)
 * [Create and run custom availability tests using Azure Functions](availability-azure-functions.md)
-* [Web Tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Web tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)

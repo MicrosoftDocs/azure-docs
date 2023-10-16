@@ -2,8 +2,9 @@
 title: Run Apache Sqoop jobs with Azure HDInsight (Apache Hadoop) 
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
 ms.service: hdinsight
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 09/18/2023
 ---
 
 # Use Apache Sqoop with Hadoop in HDInsight
@@ -17,7 +18,7 @@ Although Apache Hadoop is a natural choice for processing unstructured and semi-
 [Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Apache Hive, and then export the data back into an RDBMS. In this article, you're using Azure SQL Database for your relational database.
 
 > [!IMPORTANT]  
-> This article sets up a test environment to perform the data transfer. You then choose a data transfer method for this environment from one of the methods in section [Run Sqoop jobs](#run-sqoop-jobs), further below.
+> This article sets up a test environment to perform the data transfer. You then choose a data transfer method for this environment from one of the methods in section [Run Sqoop jobs](#run-sqoop-jobs).
 
 For Sqoop versions that are supported on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)
 
@@ -25,7 +26,7 @@ For Sqoop versions that are supported on HDInsight clusters, see [What's new in 
 
 HDInsight cluster comes with some sample data. You use the following two samples:
 
-* An Apache Log4j log file, which is located at `/example/data/sample.log`. The following logs are extracted from the file:
+* An Apache `Log4j` log file, which is located at `/example/data/sample.log`. The following logs are extracted from the file:
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
@@ -54,7 +55,7 @@ In this article, you use these two datasets to test Sqoop import and export.
 
 ## <a name="create-cluster-and-sql-database"></a>Set up test environment
 
-The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to a SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to an SQL database. If you want to use a private container for the bacpac files, use the following values in the template:
 
 ```json
 "storageKeyType": "Primary",
@@ -87,7 +88,7 @@ The cluster, SQL database, and other objects are created through the Azure porta
     |Bacpac File Name |Use the default value unless you want to use your own bacpac file.|
     |Location |Use the default value.|
 
-    The [logical SQL server](../../azure-sql/database/logical-servers.md) name will be  `<ClusterName>dbserver`. The database name will be `<ClusterName>db`. The default storage account name will be `e6qhezrh2pdqu`.
+    The [logical SQL server](/azure/azure-sql/database/logical-servers) name is `<ClusterName>dbserver`. The database name is `<ClusterName>db`. The default storage account name is `e6qhezrh2pdqu`.
 
 3. Select **I agree to the terms and conditions stated above**.
 
@@ -95,7 +96,7 @@ The cluster, SQL database, and other objects are created through the Azure porta
 
 ## Run Sqoop jobs
 
-HDInsight can run Sqoop jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
+HDInsight can run Sqoop jobs by using various methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
 | **Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |

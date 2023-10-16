@@ -1,23 +1,22 @@
 ---
-title: List Azure AD role assignments for a user - Azure Active Directory
-description: Learn how to list Azure AD roles assignments of a user
+title: List Microsoft Entra role assignments for a user
+description: Learn how to list Microsoft Entra roles assignments of a user
 services: active-directory
-author: abhijeetsinha
-manager: vincesm
+author: rolyon
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 02/04/2022
-ms.author: absinh
-ms.reviewer: rolyon
+ms.author: rolyon
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# List Azure AD role assignments for a user
+# List Microsoft Entra role assignments for a user
 
-A role can be assigned to a user directly or transitively via a group. This article describes how to list the Azure AD roles assigned to a user. For information about assigning roles to groups, see [Use Azure AD groups to manage role assignments](groups-concept.md).
+A role can be assigned to a user directly or transitively via a group. This article describes how to list the Microsoft Entra roles assigned to a user. For information about assigning roles to groups, see [Use Microsoft Entra groups to manage role assignments](groups-concept.md).
 
 ## Prerequisites
 
@@ -27,12 +26,17 @@ A role can be assigned to a user directly or transitively via a group. This arti
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
-Follow these steps to list Azure AD roles for a user using the Azure portal. Your experience will be different depending on whether you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
+## Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-2. Select **Azure Active Directory** > **Users** > *user name* > **Assigned roles**.
+Follow these steps to list Microsoft Entra roles for a user using the Microsoft Entra admin center. Your experience will be different depending on whether you have [Microsoft Entra Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Browse to **Identity** > **Users** > **All users**.
+
+1. Select *user name* > **Assigned roles**.
 
     You can see the list of roles assigned to the user at different scopes. Additionally, you can see whether the role has been assigned directly or via group.
     
@@ -44,7 +48,7 @@ Follow these steps to list Azure AD roles for a user using the Azure portal. You
 
 ## PowerShell
 
-Follow these steps to list Azure AD roles assigned to a user using PowerShell.
+Follow these steps to list Microsoft Entra roles assigned to a user using PowerShell.
 
 1. Install Microsoft.Graph module using [Install-module](/powershell/azure/active-directory/install-adv2).
   
@@ -71,7 +75,7 @@ Follow these steps to list Azure AD roles assigned to a user using PowerShell.
 
 ## Microsoft Graph API
 
-Follow these steps to list Azure AD roles assigned to a user using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+Follow these steps to list Microsoft Entra roles assigned to a user using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 
@@ -87,6 +91,6 @@ Follow these steps to list Azure AD roles assigned to a user using the Microsoft
 
 ## Next steps
 
-* [List Azure AD role assignments](view-assignments.md).
-* [Assign Azure AD roles to users](manage-roles-portal.md).
-* [Assign Azure AD roles to groups](groups-assign-role.md)
+* [List Microsoft Entra role assignments](view-assignments.md).
+* [Assign Microsoft Entra roles to users](manage-roles-portal.md).
+* [Assign Microsoft Entra roles to groups](groups-assign-role.md)

@@ -2,14 +2,14 @@
 title: Azure Service Bus - message deferral
 description: This article explains how to defer delivery of Azure Service Bus messages. The message remains in the queue or subscription, but it's set aside.
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 06/08/2023
 ---
 
 # Message deferral
 When a queue or subscription client receives a message that it's willing to process, but the processing isn't currently possible because of special circumstances, it has the option of "deferring" retrieval of the message to a later point. The message remains in the queue or subscription, but it's set aside.
 
 > [!NOTE]
-> Deferred messages won't be automatically moved to the dead-letter queue [after they expire](./service-bus-dead-letter-queues.md#time-to-live). This behaviour is by design.
+> Deferred messages won't be automatically moved to the dead-letter queue [after they expire](./service-bus-dead-letter-queues.md#time-to-live). This behavior is by design.
 
 ## Sample scenarios
 Deferral is a feature created specifically for workflow processing scenarios. Workflow frameworks may require certain operations to be processed in a particular order. They may have to postpone processing of some received messages until prescribed prior work that's informed by other messages has been completed.
@@ -34,6 +34,12 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - see the **advanced/deferral.js** sample. 
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - see the **advanced/deferral.ts** sample. 
 
-Find samples for the older .NET and Java client libraries below:
+See samples for the older .NET and Java client libraries here:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - See the **Deferral** sample. 
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
+## Related resources
+
+- [Tutorial showing the use of message deferral as a part of a workflow, using NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/2-timeouts/)

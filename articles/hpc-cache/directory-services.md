@@ -1,11 +1,11 @@
 ---
 title: Use extended groups in Azure HPC Cache
 description: How to configure directory services for client access to storage targets in Azure HPC Cache
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
-ms.author: femila
+ms.date: 07/27/2022
+ms.author: rohogue
 ---
 
 # Configure directory services
@@ -16,7 +16,7 @@ You might need to enable **Extended groups** if your workflow includes NFS stora
 
 After you click the button to enable extended groups, you must choose the source that Azure HPC Cache will use to get user and group credentials.
 
-* [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. You can't use Azure Active Directory for this task.
+* [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. You can't use Microsoft Entra ID for this task.
 * [Flat file](#configure-file-download) - Download `/etc/group` and `/etc/passwd` files from a network location.
 * [LDAP](#configure-ldap) - Get credentials from a Lightweight Directory Access Protocol (LDAP)-compatible source.
 
@@ -25,7 +25,9 @@ After you click the button to enable extended groups, you must choose the source
 
 The **Username downloaded** field shows the status of the most recent group information download.
 
-![screenshot of directory services page settings page in portal, with the Yes option selected for extended groups, and the drop-down menu labeled Download source open](media/directory-services-select-group-source.png)
+![Screenshot of directory services page settings page in portal, with the Yes option selected for extended groups, and the drop-down menu labeled 'Download source' open.](media/directory-services-select-group-source.png)
+
+HPC Cache checks the source for updates once an hour. There isn't a direct way to request an immediate poll for updates, but as a workaround you might consider disabling extended groups (change the **Enable extended groups** setting to **No**) and then re-enabling it. This action causes HPC Cache to re-read the settings, but it also can disrupt client access while the group information is unavailable.
 
 ## Configure Active Directory
 

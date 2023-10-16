@@ -14,12 +14,8 @@
       href: add-application-portal.md
     - name: Assign a user
       href: add-application-portal-assign-users.md
-    - name: Enable single sign-on
-      href: add-application-portal-setup-sso.md
     - name: View applications
       href: view-applications-portal.md
-    - name: Delete applications
-      href: delete-application-portal.md
   - name: Tutorials
     items:
     - name: Manage access and security
@@ -36,8 +32,10 @@
       href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
     - name: Export secrets and certs (enterprise apps)
       href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-    - name: Export expiring secrets and certs
-      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+    - name: Export expiring secrets and certs (app registrations)
+      href: ./scripts/powershell-export-apps-with-expiring-secrets.md
+    - name: Export expiring secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-enterprise-apps-with-expiring-secrets.md
     - name: Export secrets and certs expiring beyond required date
       href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
   - name: Concepts
@@ -45,6 +43,10 @@
     items: 
     - name: Application gallery
       href: overview-application-gallery.md
+    - name: Request to publish applications
+      href: v2-howto-app-gallery-listing.md
+    - name: Application integration
+      href: plan-an-application-integration.md
     - name: Application ownership
       href: overview-assign-app-owners.md
     - name: Application properties
@@ -57,6 +59,8 @@
         href: certificate-signing-options.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
       - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
       - name: End-user portals
@@ -65,12 +69,8 @@
         href: cloud-app-security.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
-    - name: Planning a cloud app integration
-      items:
-      - name: Get started with app integration
-        href: plan-an-application-integration.md
-      - name: Plan a My Apps deployment
-        href: my-apps-deployment-plan.md
+    - name: My Apps overview
+      href: myapps-overview.md
     - name: Single sign-on
       items:
       - name: What is single sign-on?
@@ -79,23 +79,49 @@
         href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
-      - name: Consent and permissions overview
-        href: consent-and-permissions-overview.md
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
       - name: Admin consent workflow overview
         href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
         href: manage-consent-requests.md
       - name: Protect against consent phishing
         href: protect-against-consent-phishing.md
+    - name: Migrate apps from ADFS
+      items:
+      - name: ADFS migration concepts
+        items:
+        - name: Migration process
+          href: migrate-adfs-apps-stages.md
+        - name: SAML-based single sign-on
+          href: migrate-adfs-saml-based-sso.md
+        - name: Represent ADFS security policies
+          href: migrate-adfs-represent-security-policies.md
+        - name: Use the ADFS application activity report
+          href: migrate-adfs-application-activity.md
+      - name: ADFS migration guidelines
+        items:
+        - name: Migration phases
+          href: migrate-adfs-apps-phases-overview.md
+        - name: Phase 1 - Discover and Scope
+          href: migrate-adfs-discover-scope-apps.md
+        - name: Phase 2 - Classify apps and plan pilot
+          href: migrate-adfs-classify-apps-plan-pilot.md
+        - name: Phase 3 - Plan migration and testing
+          href: migrate-adfs-plan-migration-test.md
+        - name: Phase 4 - Manage and gain insights
+          href: migrate-adfs-plan-management-insights.md
   - name: How-to guides
     expanded: false
     items:
-    - name: Application integration guidance
+    - name: Integrate SaaS applications
       href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
     - name: Configure properties
       href: add-application-portal-configure.md
+    - name: Add enterprise app for multi-tenant app
+      href: create-service-principal-cross-tenant.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
@@ -110,6 +136,8 @@
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
+        - name: Manage app consent policies for group owner
+          href: manage-group-owner-consent-policies.md
         - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
         - name: Review admin consent requests
@@ -120,97 +148,111 @@
           href: grant-consent-single-user.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
+        - name: Restore revoked permissions
+          href: restore-permissions.md
       - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes
         href: custom-security-attributes-apps.md
-      - name: Create collections on My Apps
-        href: access-panel-collections.md
-      - name: Enable self-service app access
-        href: manage-self-service-access.md
-      - name: Hide an app
-        href: hide-application-from-user-portal.md
-      - name: Disable user sign-on
+      - name: Disable user sign-in
         href: disable-user-sign-in-portal.md
       - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
       - name: Prevent sign-in auto-acceleration
         href: prevent-domain-hints-with-home-realm-discovery.md
+    - name: Manage My Apps
+      items:
+      - name: Create collections
+        href: access-panel-collections.md
+      - name: Enable self-service access
+        href: manage-self-service-access.md
+      - name: Hide an application
+        href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate an AD FS app to Azure
-        href: migrate-adfs-apps-to-azure.md
-      - name: Migrate application authentication to Azure Active Directory
-        href: migrate-application-authentication-to-azure-active-directory.md
-      - name: Use the AD FS application activity report
-        href: migrate-adfs-application-activity.md
-      - name: Migration resources
-        href: migration-resources.md
-      - name: Migrate applications from Okta to Azure AD 
+      - name: Migrate applications from Okta to Microsoft Entra ID 
         items:
-        - name: Migrate applications from Okta to Azure AD
-          href: migrate-applications-from-okta-to-azure-active-directory.md
-        - name: Migrate Okta sign on policies to Azure AD Conditional Access
-          href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
-        - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
-          href: migrate-okta-sync-provisioning-to-azure-active-directory.md
-        - name: Migrate Okta federation to Azure AD managed authentication
-          href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Publish applications
-      href: v2-howto-app-gallery-listing.md
-    - name: Secure legacy apps 
+        - name: Migrate applications from Okta to Microsoft Entra ID
+          href: migrate-applications-from-okta.md
+        - name: Migrate Okta sign on policies to Microsoft Entra Conditional Access
+          href: migrate-okta-sign-on-policies-conditional-access.md
+        - name: Migrate Okta sync provisioning to Microsoft Entra Connect based synchronization
+          href: migrate-okta-sync-provisioning.md
+        - name: Migrate Okta federation to Microsoft Entra ID managed authentication
+          href: migrate-okta-federation.md
+    - name: Secure legacy apps
       items:
-      - name: Secure hybrid access with Azure AD 
+      - name: Secure hybrid access with Microsoft Entra ID 
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
-      - name: Datawiza
-        href: datawiza-with-azure-ad.md 
-    - name: F5
-      items:
-      - name: Deploy F5 BIG-IP in Azure
-        href: f5-bigip-deployment-guide.md
-      - name: F5 BIG-IP and Azure AD integration
+      - name: Cloudflare
         items:
-        - name: Integrate F5 BIG-IP with Azure AD
-          href: f5-aad-integration.md
-        - name: Easy Button guided configuration
-          items:
-          - name: Kerberos
-            href: f5-big-ip-kerberos-easy-button.md
-          - name: Headers
-            href: f5-big-ip-headers-easy-button.md
-          - name: Headers and LDAP
-            href: f5-big-ip-ldap-header-easybutton.md
+        - name: Configure Cloudflare with Microsoft Entra ID
+          href: cloudflare-integration.md
+        - name: Configure Conditional Access policies in Cloudflare Access
+          href: cloudflare-conditional-access-policies.md
+      - name: Datawiza
+        items:
+        - name: Integrate Datawiza with Microsoft Entra ID
+          href: datawiza-configure-sha.md
+        - name: Guided configuration 
+          items: 
+          - name: Oracle JDE  
+            href: datawiza-sso-oracle-jde.md
+          - name: Oracle PeopleSoft  
+            href: datawiza-sso-oracle-peoplesoft.md
           - name: Oracle EBS
-            href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
-          - name: Oracle JDE
-            href: f5-big-ip-oracle-jde-easy-button.md
-          - name: Oracle PeopleSoft
-            href: f5-big-ip-oracle-peoplesoft-easy-button.md
-          - name: SAP ERP
-            href: f5-big-ip-sap-erp-easy-button.md
-        - name: Advanced configuration
+            href: datawiza-sso-mfa-oracle-ebs.md
+          - name: Outlook Web Access
+            href: datawiza-sso-mfa-to-owa.md
+      - name: F5
+        items:
+        - name: Deploy F5 BIG-IP in Azure
+          href: f5-bigip-deployment-guide.md
+        - name: F5 BIG-IP and Microsoft Entra integration
           items:
-            - name: Headers
-              href: f5-big-ip-header-advanced.md
+          - name: Integrate F5 BIG-IP with Microsoft Entra ID
+            href: f5-integration.md
+          - name: Easy Button guided configuration
+            items:
             - name: Kerberos
-              href: f5-big-ip-kerberos-advanced.md
-            - name: Form-based
-              href: f5-big-ip-forms-advanced.md 
-            - name: SSL-VPN
-              href: f5-aad-password-less-vpn.md  
-            - name: B2C
-              href: ../../active-directory-b2c/partner-f5.md
-    - name: Silverfort
-      href: silverfort-azure-ad-integration.md
+              href: f5-big-ip-kerberos-easy-button.md
+            - name: Headers
+              href: f5-big-ip-headers-easy-button.md
+            - name: Headers and LDAP
+              href: f5-big-ip-ldap-header-easybutton.md
+            - name: Oracle EBS
+              href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+            - name: Oracle JDE
+              href: f5-big-ip-oracle-jde-easy-button.md
+            - name: Oracle PeopleSoft
+              href: f5-big-ip-oracle-peoplesoft-easy-button.md
+            - name: SAP ERP
+              href: f5-big-ip-sap-erp-easy-button.md
+          - name: Advanced configuration
+            items:
+              - name: Headers
+                href: f5-big-ip-header-advanced.md
+              - name: Kerberos
+                href: f5-big-ip-kerberos-advanced.md
+              - name: Form-based
+                href: f5-big-ip-forms-advanced.md 
+              - name: SSL-VPN
+                href: f5-passwordless-vpn.md  
+              - name: B2C
+                href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+      - name: Silverfort
+        href: silverfort-integration.md
     - name: Single sign-on
       items:
-      - name: Linked
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
-      - name: OpenID Connect
+      - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password
+      - name: Enable Password based single sign-on
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
@@ -232,8 +274,22 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
+    - name: Delete and restore apps
+      items:
+      - name: Delete an enterprise application
+        href: delete-application-portal.md
+      - name: Restore an enterprise application
+        href: restore-application.md   
   - name: Reference
     items:
+    - name: Application API - Microsoft Graph
+      href: /graph/api/resources/application?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Service principals API - Microsoft Graph
+      href: /graph/api/resources/serviceprincipal?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Manage apps using Microsoft Graph
+      href: /graph/tutorial-applications-basics?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Deletion and recovery FAQ
+      href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
@@ -246,6 +302,10 @@
       href: methods-for-removing-user-access.md
   - name: Resources
     items:
+        - name: Video learning
+          href: app-management-videos.md
+        - name: Migration resources
+          href: migration-resources.md
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
@@ -258,5 +318,3 @@
           href: https://azure.microsoft.com/updates/?product=active-directory
         - name: Stack Overflow
           href: https://stackoverflow.com/questions/tagged/azure-active-directory
-        - name: Videos
-          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

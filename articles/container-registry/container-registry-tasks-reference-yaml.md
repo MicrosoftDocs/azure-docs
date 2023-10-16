@@ -2,7 +2,10 @@
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
 ms.topic: reference
-ms.date: 07/08/2020
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # ACR Tasks reference: YAML
@@ -134,7 +137,16 @@ steps:
     [property]: [value]
 ```
 
+Run the [az acr run][az-acr-run]command to get the docker version.
+
+```azurecli
+az acr run -r $ACR_NAME --cmd "docker version" /dev/null
+```
+
+Add environment variable `DOCKER_BUILDKIT=1` in yaml file to enable `buildkit` and use `secret` with `buildkit`.
+
 The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
+
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
@@ -573,10 +585,10 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 
 | Alias | Image |
 | ----- | ----- |
-| `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |
-| `bash` | `mcr.microsoft.com/acr/bash:a80af84` |
-| `curl` | `mcr.microsoft.com/acr/curl:a80af84` |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.5` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:7ee1d7f` |
+| `bash` | `mcr.microsoft.com/acr/bash:7ee1d7f` |
+| `curl` | `mcr.microsoft.com/acr/curl:7ee1d7f` |
 
 The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 

@@ -1,11 +1,11 @@
 ---
 title: Updates and component upgrades in Azure Site Recovery
-description: Provides an overview of Azure Site Recovery service updates, and component upgrades.
-author: Sharmistha-Rai
+description: Provides an overview of Azure Site Recovery service updates, MARS agent and component upgrades.
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: ankitadutta
 ms.date: 08/11/2021
 ---
 # Service updates in Site Recovery
@@ -30,7 +30,6 @@ We recommend always upgrading to the latest component versions:
 ### Links to currently supported update rollups
 
  Review the latest update rollup (version N) in [this article](site-recovery-whats-new.md). Remember that Site Recovery provides support for N-4 versions.
-
 
 
 ## Component expiry
@@ -122,12 +121,13 @@ The example in the table shows how this works.
 
 
 ## Between an on-premises VMM site and Azure
+
 1. Download the update for the Microsoft Azure Site Recovery Provider.
 2. Install the Provider on the VMM server. If VMM is deployed in a cluster, install the Provider on all cluster nodes.
-3. Install the latest Microsoft Azure Recovery Services agent on all Hyper-V hosts or cluster nodes.
-
+3. Install the latest Microsoft Azure Recovery Services agent (MARS for Azure Site Recovery) on all Hyper-V hosts or cluster nodes.
 
 ## Between two on-premises VMM sites
+
 1. Download the latest update for the Microsoft Azure Site Recovery Provider.
 2. Install the latest Provider on the VMM server managing the secondary recovery site. If VMM is deployed in a cluster, install the Provider on all cluster nodes.
 3. After the recovery site is updated, install the Provider on the VMM server that's managing the primary site.

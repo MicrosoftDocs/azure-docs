@@ -4,14 +4,15 @@ description: In this tutorial, you learn how to access Azure Storage for a JavaS
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 02/16/2022
+ms.date: 07/31/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: javascript, azurecli
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet, devx-track-js, AppServiceConnectivity
+ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
 

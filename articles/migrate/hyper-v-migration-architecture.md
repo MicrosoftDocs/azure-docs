@@ -1,28 +1,29 @@
 ---
 title: How does Hyper-V migration work in Azure Migrate?
 description: Learn about Hyper-V migration with Azure Migrate 
-author: bsiva
-ms.author: bsiva
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/19/2019
-
+ms.service: azure-migrate
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 
 # How does Hyper-V replication work?
 
-This article provides an overview of the architecture and processes used when you migrate Hyper-V VMs with the Azure Migrate Server Migration tool.
+This article provides an overview of the architecture and processes used when you migrate Hyper-V VMs with the Migration and modernization tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 ## Agentless migration
 
-The Azure Migrate Server Migration tool provides agentless replication for on-premises Hyper-V VMs, using a migration workflow that's optimized for Hyper-V. You install a software agent only on Hyper-V hosts or cluster nodes. Nothing needs to be installed on Hyper-V VMs.
+The Migration and modernization tool provides agentless replication for on-premises Hyper-V VMs, using a migration workflow that's optimized for Hyper-V. You install a software agent only on Hyper-V hosts or cluster nodes. Nothing needs to be installed on Hyper-V VMs.
 
-## Server Migration and Azure Site Recovery
+## Migration and modernization and Azure Site Recovery
 
-Azure Migrate Server Migration is a tool for migrating on-premises workloads, and cloud-based VMs, to Azure. Site Recovery is a disaster recovery tool. The tools share some common technology components used for data replication, but serve different purposes. 
+Migration and modernization is a tool for migrating on-premises workloads, and cloud-based VMs, to Azure. Site Recovery is a disaster recovery tool. The tools share some common technology components used for data replication, but serve different purposes. 
 
 
 ## Architectural components
@@ -33,11 +34,11 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 
 **Component** | **Deployment** | 
 --- | --- 
-**Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with Azure Migration Server Migration.<br/> The provider orchestrates replication for Hyper-V VMs.
-**Recovery Services agent** | The Microsoft Azure Recovery Service agent handles data replication. It works with the provider to replicate data from Hyper-V VMs to Azure.<br/> The replicated data is uploaded to a storage account in your Azure subscription. The Server Migration tool the processes the replicated data, and applies it to replica disks in the subscription. The replica disks are used to create the Azure VMs when you migrate.
+**Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with the Migration and modernization tool.<br/> The provider orchestrates replication for Hyper-V VMs.
+**Recovery Services agent** | The Microsoft Azure Recovery Service agent handles data replication. It works with the provider to replicate data from Hyper-V VMs to Azure.<br/> The replicated data is uploaded to a storage account in your Azure subscription. The Migration and modernization tool the processes the replicated data, and applies it to replica disks in the subscription. The replica disks are used to create the Azure VMs when you migrate.
 
-- Components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
-- The provider and appliance use outbound HTTPS port 443 connections to communicate with Azure Migrate Server Migration.
+- Components are installed by a single setup file, downloaded from the Migration and modernization tool in the portal.
+- The provider and appliance use outbound HTTPS port 443 connections to communicate with the Migration and modernization tool.
 - Communications from the provider and agent are secure and encrypted.
 
 
@@ -84,4 +85,4 @@ If you have spare bandwidth for replication, and want to increase uploads, you c
 
 ## Next steps
 
-Try out [Hyper-V migration](tutorial-migrate-hyper-v.md) using Azure Migrate Server Migration.
+Try out [Hyper-V migration](tutorial-migrate-hyper-v.md) using the Migration and modernization tool.

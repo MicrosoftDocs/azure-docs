@@ -1,11 +1,10 @@
 ---
 title: Set up a lab to teach MATLAB with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab to teach MATLAB with Azure Lab Services.
-author: emaher
 ms.topic: how-to
 ms.date: 04/06/2022
 ms.custom: devdivchpfy22
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Setup a lab to teach MATLAB
@@ -14,7 +13,7 @@ ms.author: enewman
 
 [MATLAB](https://www.mathworks.com/products/matlab.html) is a programming platform from [MathWorks](https://www.mathworks.com/), which combines computational power and visualization. MATLAB is a popular tool for mathematics, engineering, physics, and chemistry.
 
-If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-support-program/administrators.html), see directions at [download MATLAB installation files](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine) to download the MATLAB installer files on the template machine.  
+If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-support-program/administrators.html), see directions at [download MATLAB installation files](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine) to download the MATLAB installer files on the template machine.
 
 In this article, we'll show you how to set up a class that uses MATLAB client software with a license server.
 
@@ -22,18 +21,18 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ## License server
 
-Before creating the lab plan, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software. These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys. You'll also need to save the license file and file installation key for later. For detailed instructions on how to download a license file, see the first step in [Install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html).
+Before creating the lab plan, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software. These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys. You'll also need to save the license file and file installation key for later. For detailed instructions on how to download a license file, see the first step in [Install License Manager on License Server](https://www.mathworks.com/help/install/ug/install-license-manager-on-license-server.html).
 
-For detailed instructions on how to install a licensing server, see [Install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html). To enable borrowing, see [Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html).
+For detailed instructions on how to install a licensing server, see [Install License Manager on License Server](https://www.mathworks.com/help/install/ug/install-license-manager-on-license-server.html). To enable borrowing, see [Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html).
 
-Assuming the license server is located in an on-premise network or a private network within Azure, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./tutorial-setup-lab-plan.md).
+Assuming the license server is located in an on-premises network or a private network within Azure, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./quick-create-resources.md).
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan. It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md) must be enabled during the creation of your lab plan. It can't be added later.
 
 ## Lab configuration
 
-Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). If you're using a [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plan. You can also use an existing lab plan.
 
 ### Lab settings
 
@@ -67,14 +66,14 @@ You must be a license administrator to get the installation files, license file,
 1. Under the **My Software** section of the account page, select the license attached to the Network License Manager setup for the lab.
 1. On the license detail page, select **Download Products**.
 1. Wait for the installer to self-extract.
-1. Start the installer.  
+1. Start the installer.
 1. On the **Sign in to your MathWorks Account** page, enter your MathWorks account details.
 1. On the **MathWorks License Agreement** page, accept the terms and select the **Next** button.
 1. Select the **Advanced Options** drop-down and choose the **I want to download without installing** option.
 1. On the **Select destination folder**, select **Next**.
 1. Select **Windows** as the computer platform to install MATLAB.
 1. On the **Select product** page, ensure that MATLAB is selected along with any other MathWorks products you want to install.
-1. On the **Confirm Selections and Download** page, select **Begin Download**.  
+1. On the **Confirm Selections and Download** page, select **Begin Download**.
 1. Wait for the selected products to download, and then select **Finish**.
 
 You can also download an ISO image from the MathWorks website.
@@ -111,7 +110,7 @@ For a class of 25 students with 20 hours of scheduled class time and 10 hours of
 25 students \* (20 scheduled hours + 10 quota hours) \* 55 lab units \*  0.01 USD per hour  = 412.50 USD
 
 >[!IMPORTANT]
-> Cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
+> Cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Next steps
 

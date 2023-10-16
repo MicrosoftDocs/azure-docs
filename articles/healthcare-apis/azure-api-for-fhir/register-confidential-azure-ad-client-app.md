@@ -1,25 +1,27 @@
 ---
-title: Register a confidential client app in Azure AD - Azure API for FHIR
-description: Register a confidential client application in Azure Active Directory that authenticates on a user's behalf and requests access to resource applications.
-author: matjazl
+title: Register a confidential client app in Microsoft Entra ID - Azure API for FHIR
+description: Register a confidential client application in Microsoft Entra ID that authenticates on a user's behalf and requests access to resource applications.
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: mikaelw
+ms.date: 09/27/2023
+ms.author: kesheth
 ---
 
-# Register a confidential client application in Azure Active Directory for Azure API for FHIR
+# Register a confidential client application in Microsoft Entra ID for Azure API for FHIR
 
-In this tutorial, you'll learn how to register a confidential client application in Azure Active Directory (Azure AD).  
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-A client application registration is an Azure AD representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications. 
+In this tutorial, you'll learn how to register a confidential client application in Microsoft Entra ID.  
+
+A client application registration is a Microsoft Entra representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications. 
 
 To register a new confidential client application, refer to the steps below. 
 
 ## Register a new application
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID**.
 
 1. Select **App registrations**. 
 
@@ -64,7 +66,9 @@ Permissions for Azure API for FHIR are managed through RBAC. For more details, v
  
 ## Next steps
 
-In this article, you were guided through the steps of how to register a confidential client application in the Azure AD. You were also guided through the steps of how to add API permissions in Azure AD for Azure API for FHIR. Lastly, you were shown how to create an application secret. Furthermore, you can learn how to access your FHIR server using Postman.
+In this article, you were guided through the steps of how to register a confidential client application in the Microsoft Entra ID. You were also guided through the steps of how to add API permissions in Microsoft Entra ID for Azure API for FHIR. Lastly, you were shown how to create an application secret. Furthermore, you can learn how to access your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

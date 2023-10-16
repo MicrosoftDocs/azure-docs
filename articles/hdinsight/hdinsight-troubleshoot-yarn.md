@@ -3,7 +3,7 @@ title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/15/2019
+ms.date: 02/27/2023
 ---
 
 # Troubleshoot Apache Hadoop YARN by using Azure HDInsight
@@ -50,7 +50,7 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 These changes are visible immediately on the YARN Scheduler UI.
 
-### Additional reading
+### Further reading
 
 - [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
@@ -58,7 +58,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### Resolution steps
 
-1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Additional reading](#additional-reading-2).
+1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Further reading](#additional-reading-2).
 
 1. To list all the application IDs of the YARN applications that are currently running, run the following command:
 
@@ -125,6 +125,35 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 - [Connect to HDInsight (Apache Hadoop) by using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
+
+## How do I check Yarn Application Diagnostics Information?
+
+Diagnostics in Yarn UI is a feature that allows you to view the status and logs of your applications running on Yarn. Diagnostics can help you troubleshoot and debug your applications, as well as monitor their performance and resource usage.
+
+To view the diagnostics of a specific application, you can click on the application ID in the applications list. On the application details page, you can also see a list of all the attempts that have been made to run the application. You can click on any attempt to see more details, such as the attempt ID, container ID, node ID, start time, finish time, and diagnostics
+
+:::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-application-diagnostics.png" alt-text="Screenshot showing Yarn Application Diagnostics."::: 
+
+## How do I troubleshoot YARN common issues?
+
+### Yarn UI isn't loading
+
+If your YARN UI isn't loading or is unreachable, and it returns "HTTP Error 502.3 - Bad Gateway," it highly indicates your Resource Manager service is unhealthy. To mitigate the issue, follow these steps:
+
+1. Go to **Ambari UI** > **YARN** > **SUMMARY** and check to see if only the active Resource Manager is in the **Started** state. If not, try to mitigate by restarting the unhealthy or stopped Resource Manager.
+2. If step 1 doesn't resolve the issue, SSH the active Resource Manager head node and check the garbage collection status using `jstat -gcutil <Resource Manager pid> 1000 100`. If you see the **FGCT** increase significantly in just a few seconds, it indicates Resource Manager is busy in *Full GC*, and is unable to process the other requests.
+3. Go to **Ambari UI** > **YARN** > **CONFIGS** > **Advanced** and increase `Resource Manager java heap size`.
+4. Restart required services in Ambari UI.
+
+### Both resource managers are in standby
+
+1. Check Resource Manager log to see if similar error exists. 
+```
+Service RMActiveServices failed in state STARTED; cause: org.apache.hadoop.service.ServiceStateException: com.google.protobuf.InvalidProtocolBufferException: Could not obtain block: BP-452067264-10.0.0.16-1608006815288:blk_1074235266_494491 file=/yarn/node-labels/nodelabel.mirror
+```
+2. If the error exists, check to see if some files are under replication or if there are missing blocks in the HDFS. You can run `hdfs fsck hdfs://mycluster/`
+
+3. Run `hdfs fsck hdfs://mycluster/ -delete` too forcefully cleanup the HDFS and to get rid of the standby RM issue. Alternatively, run [PatchYarnNodeLabel](https://hdiconfigactions.blob.core.windows.net/hadoopcorepatchingscripts/PatchYarnNodeLabel.sh) on one of headnodes to patch the cluster.
 
 ## Next steps
 

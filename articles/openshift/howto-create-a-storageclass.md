@@ -3,9 +3,9 @@ title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 10/16/2020
-author: georgewallace
-ms.author: gwallace
+ms.date: 08/28/2023
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure file
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a StorageClass on Azure Red Hat OpenShift using Azure File dynamic provisioner
@@ -19,7 +19,7 @@ In this article, you’ll create a StorageClass for Azure Red Hat OpenShift 4 th
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 StorageClass with the Azure File provisioner
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -28,9 +28,9 @@ Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create 
 
 ### Set up Azure storage account
 
-This step will create a resource group outside of the Azure Red Hat OpenShift (ARO) cluster’s resource group. This resource group will contain the Azure Files shares that are created by Azure Red Hat OpenShift’s dynamic provisioner.
+This step creates a resource group outside of the Azure Red Hat OpenShift (ARO) cluster’s resource group. This resource group contains the Azure Files shares that created Azure Red Hat OpenShift’s dynamic provisioner.
 
-```bash
+```azurecli
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files
 LOCATION=eastus
 
@@ -50,7 +50,7 @@ az storage account create \
 
 The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this.
 
-```bash
+```azurecli
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
 ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
@@ -60,8 +60,8 @@ az role assignment create --role Contributor --scope /subscriptions/mySubscripti
 
 ### Set ARO cluster permissions
 
-The OpenShift persistent volume binder service account will require the ability to read secrets. Create and assign an OpenShift cluster role to achieve this.
-```bash
+The OpenShift persistent volume binder service account requires the ability to read secrets. Create and assign an OpenShift cluster role to achieve this.
+```azurecli
 ARO_API_SERVER=$(az aro list --query "[?contains(name,'$CLUSTER')].[apiserverProfile.url]" -o tsv)
 
 oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $ARO_API_SERVER
@@ -75,9 +75,9 @@ oc adm policy add-cluster-role-to-user azure-secret-reader system:serviceaccount
 
 ## Create StorageClass with Azure Files provisioner
 
-This step will create a StorageClass with an Azure Files provisioner. Within the StorageClass manifest, the details of the storage account are required so that the ARO cluster knows to look at a storage account outside of the current resource group.
+This step creates a StorageClass with an Azure Files provisioner. Within the StorageClass manifest, the details of the storage account are required so that the ARO cluster knows to look at a storage account outside of the current resource group.
 
-During storage provisioning, a secret named by secretName is created for the mounting credentials. In a multi-tenancy context, it is strongly recommended to set the value for secretNamespace explicitly, otherwise the storage account credentials may be read by other users.
+During storage provisioning, a secret named by secretName is created for the mounting credentials. In a multi-tenancy context, it's strongly recommended to set the value for secretNamespace explicitly, otherwise the storage account credentials may be read by other users.
 
 ```bash
 cat << EOF >> azure-storageclass-azure-file.yaml
@@ -85,7 +85,16 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: azure-file
-provisioner: kubernetes.io/azure-file
+provisioner: file.csi.azure.com
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=0
+  - gid=0
+  - mfsymlinks
+  - cache=strict
+  - actimeo=30
+  - noperm
 parameters:
   location: $LOCATION
   secretNamespace: kube-system
@@ -98,6 +107,17 @@ EOF
 
 oc create -f azure-storageclass-azure-file.yaml
 ```
+
+Mount options for Azure Files will generally be dependent on the workload that you're deploying and the requirements of the application. Specifically for Azure files, there are other parameters that you should consider using.
+
+Mandatory parameters: 
+- "mfsymlinks" to map symlinks to a form the client can use
+- "noperm" to disable permission checks on the client side
+
+Recommended parameters: 
+- "nossharesock" to disable reusing sockets if the client is already connected via an existing mount point
+- "actimeo=30" (or higher) to increase the time the CIFS client caches file and directory attributes
+- "nobrl" to disable sending byte range lock requests to the server and for applications which have challenges with posix locks
 
 ## Change the default StorageClass (optional)
 

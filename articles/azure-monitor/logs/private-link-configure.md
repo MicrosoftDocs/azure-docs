@@ -1,128 +1,135 @@
 ---
-title: Configure your Private Link
-description: Configure Private Link
-author: noakup
-ms.author: noakuper
+title: Configure your private link
+description: This article shows the steps to configure a private link.
+ms.reviewer: mahesh.sundaram
 ms.topic: conceptual
-ms.date: 1/5/2022
+ms.date: 07/25/2023
 ---
 
-# Configure your Private Link
-Configuring a Private Link requires a few steps: 
-* Creating a Private Link Scope with resources
-* Creating a Private Endpoint on your network and connecting it to the scope
-* Configuring the required access on your Azure Monitor resources.
+# Configure your private link
+Configuring an instance of Azure Private Link requires you to:
 
-This article reviews how it's done through the Azure portal and provides an example Azure Resource Manager (ARM) template to automate the process. 
+* Create an Azure Monitor Private Link Scope (AMPLS) with resources.
+* Create a private endpoint on your network and connect it to the scope.
+* Configure the required access on your Azure Monitor resources.
 
-## Create a Private Link connection through the Azure portal
-In this section, we review the process of setting up a Private Link through the Azure portal, step by step. See [Use APIs and command line](#use-apis-and-command-line) to create and manage a Private Link using the command line or an Azure Resource Manager template (ARM template).
+This article reviews how configuration is done through the Azure portal. It provides an example Azure Resource Manager template (ARM template) to automate the process.
+
+## Create a private link connection through the Azure portal
+In this section, we review the step-by-step process of setting up a private link through the Azure portal. To create and manage a private link by using the command line or an ARM template, see [Use APIs and the command line](#use-apis-and-the-command-line).
 
 ### Create an Azure Monitor Private Link Scope
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
 
-   ![Find Azure Monitor Private Link Scope](./media/private-link-security/ampls-find-1c.png)
+   :::image type="content" source="./media/private-link-security/ampls-find-1c.png" lightbox="./media/private-link-security/ampls-find-1c.png" alt-text="Screenshot showing finding Azure Monitor Private Link Scope.":::
 
-2. Select **create**.
-3. Pick a Subscription and Resource Group.
-4. Give the AMPLS a name. It's best to use a meaningful and clear name, such as "AppServerProdTelem".
-5. Select **Review + Create**. 
+1. Select **Create**.
+1. Select a subscription and resource group.
+1. Give the AMPLS a name. Use a meaningful and clear name like *AppServerProdTelem*.
+1. Select **Review + create**.
 
-   ![Create Azure Monitor Private Link Scope](./media/private-link-security/ampls-create-1d.png)
+   ![Screenshot that shows creating an Azure Monitor Private Link Scope.](./media/private-link-security/ampls-create-1d.png)
 
-6. Let the validation pass, and then select **Create**.
+1. Let the validation pass and select **Create**.
 
 ### Connect Azure Monitor resources
 
-Connect Azure Monitor resources (Log Analytics workspaces, Application Insights components and [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md)) to your AMPLS.
+Connect Azure Monitor resources like Log Analytics workspaces, Application Insights components, and [data collection endpoints](../essentials/data-collection-endpoint-overview.md)) to your Azure Monitor Private Link Scope (AMPLS).
 
-1. In your Azure Monitor Private Link scope, select **Azure Monitor Resources** in the left-hand menu. Select the **Add** button.
-2. Add the workspace or component. Selecting the **Add** button brings up a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups, or you can type in their name to filter down to them. Select the workspace or component and select **Apply** to add them to your scope.
+1. In your AMPLS, select **Azure Monitor Resources** in the menu on the left. Select **Add**.
+1. Add the workspace or component. Selecting **Add** opens a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups. You can also enter their names to filter down to them. Select the workspace or component and select **Apply** to add them to your scope.
 
-    ![Screenshot of select a scope UX](./media/private-link-security/ampls-select-2.png)
+    ![Screenshot that shows selecting a scope.](./media/private-link-security/ampls-select-2.png)
 
 > [!NOTE]
-> Deleting Azure Monitor resources requires that you first disconnect them from any AMPLS objects they are connected to. It's not possible to delete resources connected to an AMPLS.
+> Deleting Azure Monitor resources requires that you first disconnect them from any AMPLS objects they're connected to. It's not possible to delete resources connected to an AMPLS.
 
 ### Connect to a private endpoint
 
-Now that you have resources connected to your AMPLS, create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints), or inside your Azure Monitor Private Link Scope, as done in this example.
+Now that you have resources connected to your AMPLS, create a private endpoint to connect your network. You can do this task in the [Azure portal Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) or inside your AMPLS, as done in this example.
 
-1. In your scope resource, select **Private Endpoint connections** in the left-hand resource menu. Select **Private Endpoint** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and selecting **Approve**.
+1. In your scope resource, select **Private Endpoint connections** from the resource menu on the left. Select **Private Endpoint** to start the endpoint creation process. You can also approve connections that were started in the Private Link Center here by selecting them and selecting **Approve**.
 
-    ![Screenshot of Private Endpoint Connections UX](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
+    :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-connect-3.png"  lightbox="./media/private-link-security/ampls-select-private-endpoint-connect-3.png" alt-text="Screenshot that shows Private Endpoint connections.":::
 
-2. Pick the subscription, resource group, and name of the endpoint, and the region it should live in. The region needs to be the same region as the VNet you connect it to.
+1. On the **Basics** tab, select the **Subscription** and  **Resource group**
 
-3. Select **Next: Resource**. 
+1. Enter the **Name** of the endpoint, and **Network Interface Name**
+1. Select the **Region** the private endpoint should live in. The region must be the same region as the virtual network to which you connect it.
+1. Select **Next: Resource**.
 
-4. In the Resource screen,
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-basics.png" alt-text="A screenshot showing the create private endpoint basics tab." lightbox="./media/private-link-security/create-private-endpoint-basics.png":::
 
-   a. Pick the **Subscription** that contains your Azure Monitor Private Scope resource. 
+1. On the **Resource** tab,select the *Subscription* that contains your Azure Monitor Private Link Scope resource.
+1. For **Resource type**, select *Microsoft.insights/privateLinkScopes*.
+1. From the **Resource** dropdown, select the Private Link Scope you created earlier.
 
-   b. For **resource type**, choose **Microsoft.insights/privateLinkScopes**. 
+1. Select **Next: Virtual Network**.
 
-   c. From the **resource** drop-down, choose your Private Link scope you created earlier. 
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-resource.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Resource tab selected." lightbox="./media/private-link-security/create-private-endpoint-resource.png":::
 
-   d. Select **Next: Configuration >**.
-      ![Screenshot of select Create Private Endpoint](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
+1. On the **Virtual Network** tab, select the **Virtual network** and **Subnet** that you want to connect to your Azure Monitor resources.
+1. For **Network policy for private endpoints**, select **edit** if you want to apply network security groups or Route tables to the subnet that contains the private endpoint.  
 
-5. On the configuration pane,
+    In **Edit subnet network policy**, select the checkboxes next to **Network security groups** and **Route tables**, and select **Save**.  For more information, see [Manage network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md).
 
-   a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
- 
-   b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
-   > [!NOTE]
-   > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
- 
-   c.    Select **Review + create**.
- 
-   d.    Let validation pass. 
- 
-   e.    Select **Create**. 
+1. For **Private IP configuration**, by default, **Dynamically allocate IP address** is selected. If you want to assign a static IP address, select **Statically allocate IP address**. Then enter a name and private IP.    
+   Optionally, you can select or create an **Application security group**. You can use application security groups to group virtual machines and define network security policies based on those groups.
+1. Select **Next: DNS**.
+   
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-virtual-network.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/create-private-endpoint-virtual-network.png":::
 
-    ![Screenshot of select Private Endpoint details.](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
+1. On the **DNS** tab, select **Yes** for **Integrate with private DNS zone**, and let it automatically create a new private DNS zone. The actual DNS zones might be different from what's shown in the following screenshot.
 
-You've now created a new private endpoint that is connected to this AMPLS.
+    > [!NOTE]
+    > If you select **No** and prefer to manage DNS records manually, first finish setting up your private link. Include this private endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure private endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your private link setup. The DNS records you create can override existing settings and affect your connectivity with Azure Monitor.
 
+1. Select **Next: Tags**, then select **Review + create**.
+
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the DNS tab selected." lightbox="./media/private-link-security/create-private-endpoint-dns.png":::
+
+1. On the **Review + create** , once the validation passes select **Create**.
+
+You've now created a new private endpoint that's connected to this AMPLS.
 
 ## Configure access to your resources
-So far we covered the configuration of your network, but you should also consider how you want to configure network access to your monitored resources - Log Analytics workspaces, Application Insights components and [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md).
+So far we've covered the configuration of your network. But you should also consider how you want to configure network access to your monitored resources like Log Analytics workspaces, Application Insights components, and [data collection endpoints](../essentials/data-collection-endpoint-overview.md).
 
-Go to the Azure portal. In your resource's menu, there's a menu item called **Network Isolation** on the left-hand side. This page controls both which networks can reach the resource through a Private Link, and whether other networks can reach it or not.
+Go to the Azure portal. On your resource's menu, find **Network Isolation** on the left side. This page controls which networks can reach the resource through a private link and whether other networks can reach it or not.
 
+![Screenshot that shows Network Isolation.](./media/private-link-security/ampls-network-isolation.png)
 
-![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
+### Connected Azure Monitor Private Link Scopes
+Here you can review and configure the resource's connections to an AMPLS. Connecting to an AMPLS allows traffic from the virtual network connected to each AMPLS to reach the resource. It has the same effect as connecting it from the scope as we did in the section [Connect Azure Monitor resources](#connect-azure-monitor-resources).
 
-### Connected Azure Monitor Private Link scopes
-Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach the resource. It has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). 
+To add a new connection, select **Add** and select the AMPLS. Select **Apply** to connect it. Your resource can connect to five AMPLS objects, as mentioned in [Consider AMPLS limits](./private-link-design.md#consider-ampls-limits).
 
-To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to five AMPLS objects, as mentioned in [Consider AMPLS limits](./private-link-design.md#consider-ampls-limits).
+### Virtual networks access configuration: Manage access from outside of a Private Link Scope
+The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes.
 
-### Virtual networks access configuration - Managing access from outside of private links scopes
-The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes (AMPLSs).
+If you set **Accept data ingestion from public networks not connected through a Private Link Scope** to **No**, clients like machines or SDKs outside of the connected scopes can't upload data or send logs to the resource.
 
-If you set **Allow public network access for ingestion** to **No**, then clients (machines, SDKs, etc.) outside of the connected scopes can't upload data or send logs to the resource.
+If you set **Accept queries from public networks not connected through a Private Link Scope** to **No**, clients like machines or SDKs outside of the connected scopes can't query data in the resource.
 
-If you set **Allow public network access for queries** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
+That data includes access to logs, metrics, and the live metrics stream. It also includes experiences built on top such as workbooks, dashboards, query API-based client experiences, and insights in the Azure portal. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked virtual network.
 
+## Use APIs and the command line
 
-## Use APIs and command line
+You can automate the process described earlier by using ARM templates, REST, and command-line interfaces.
 
-You can automate the process described earlier using Azure Resource Manager templates, REST, and command-line interfaces.
+### Create and manage Private Link Scopes
+To create and manage Private Link Scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or the [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-### Create and manage Azure Monitor Private Link Scopes (AMPLS)
-To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
+#### Create an AMPLS with Open access modes: CLI example
+The following CLI command creates a new AMPLS resource named `"my-scope"`, with both query and ingestion access modes set to `Open`.
 
-#### Create AMPLS with Open access modes - CLI example
-The below CLI command creates a new AMPLS resource named "my-scope", with both query and ingestion access modes set to Open.
 ```
 az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
 ```
 
-#### Create AMPLS with mixed access modes - PowerShell example
-The below PowerShell script creates a new AMPLS resource named "my-scope", with the query access mode Open but the ingestion access modes set to PrivateOnly (meaning it will allow ingestion only to resources in the AMPLS).
+#### Create an AMPLS with mixed access modes: PowerShell example
+The following PowerShell script creates a new AMPLS resource named `"my-scope"`, with the query access mode set to `Open` but the ingestion access modes set to `PrivateOnly`. This setting means it will allow ingestion only to resources in the AMPLS.
 
 ```
 # scope details
@@ -146,14 +153,15 @@ Select-AzSubscription -SubscriptionId $scopeSubscriptionId
 $scope = New-AzResource -Location "Global" -Properties $scopeProperties -ResourceName $scopeName -ResourceType "Microsoft.Insights/privateLinkScopes" -ResourceGroupName $scopeResourceGroup -ApiVersion "2021-07-01-preview" -Force
 ```
 
-#### Create AMPLS - Azure Resource Manager template (ARM template)
-The below Azure Resource Manager template creates:
-* A private link scope (AMPLS) named "my-scope", with query and ingestion access modes set to Open.
-* A Log Analytics workspace named "my-workspace"
-* Adds a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
+#### Create an AMPLS: ARM template
+The following ARM template creates:
+
+* An AMPLS named `"my-scope"`, with query and ingestion access modes set to `Open`.
+* A Log Analytics workspace named `"my-workspace"`.
+* And adds a scoped resource to the `"my-scope"` AMPLS named `"my-workspace-connection"`.
 
 > [!NOTE]
-> Make sure you use a new API version (2021-07-01-preview or later) for the creation of the Private Link Scope object (type 'microsoft.insights/privatelinkscopes' below). The ARM template documented in the past used an old API version, which results in an AMPLS set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly".
+> Make sure you use a new API version (2021-07-01-preview or later) for the creation of the AMPLS object (type `microsoft.insights/privatelinkscopes` as follows). The ARM template documented in the past used an old API version, which results in an AMPLS set with `QueryAccessMode="Open"` and `IngestionAccessMode="PrivateOnly"`.
 
 ```
 {
@@ -212,10 +220,10 @@ The below Azure Resource Manager template creates:
 }
 ```
 
-### Set AMPLS access modes - PowerShell example
-To set the access mode flags on your AMPLS, you can use the following PowerShell script. The following script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
+### Set AMPLS access modes: PowerShell example
+To set the access mode flags on your AMPLS, you can use the following PowerShell script. The following script sets the flags to `Open`. To use the Private Only mode, use the value `"PrivateOnly"`.
 
-Allow ~10 minutes for the AMPLS access modes update to take effect.
+Allow about 10 minutes for the AMPLS access modes update to take effect.
 
 ```
 # scope details
@@ -239,67 +247,72 @@ $scope | Set-AzResource -Force
 ```
 
 ### Set resource access flags
-To manage the workspace or component access flags, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
+To manage the workspace or component access flags, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace) or [az monitor app-insights component](/cli/azure/monitor/app-insights/component).
 
+## Review and validate your private link setup
 
-## Review and validate your Private Link setup
+Follow the steps in this section to review and validate your private link setup.
 
-### Reviewing your Endpoint's DNS settings
-The Private Endpoint you created should now have an five DNS zones configured:
+### Review your endpoint's DNS settings
+The private endpoint you created should now have five DNS zones configured:
 
-* privatelink-monitor-azure-com
-* privatelink-oms-opinsights-azure-com
-* privatelink-ods-opinsights-azure-com
-* privatelink-agentsvc-azure-automation-net
-* privatelink-blob-core-windows-net
+* `privatelink.monitor.azure.com`
+* `privatelink.oms.opinsights.azure.com`
+* `privatelink.ods.opinsights.azure.com`
+* `privatelink.agentsvc.azure.automation-net`
+* `privatelink.blob.core.windows.net`
 
-> [!NOTE]
-> Each of these zones maps specific Azure Monitor endpoints to private IPs from the VNet's pool of IPs. The IP addresses shown in the below images are only examples. Your configuration should instead show private IPs from your own network.
+Each of these zones maps specific Azure Monitor endpoints to private IPs from the virtual network's pool of IPs. The IP addresses shown in the following images are only examples. Your configuration should instead show private IPs from your own network.
 
 > [!IMPORTANT]
-> AMPLS and Private Endpoint resources created starting December 1, 2021, use a mechanism called Endpoint Compression. This means resource-specific endpoints (such as the OMS, ODS and AgentSVC endpoints) share the same IP address, per region and per DNS zone. This mechanism means less IPs are taken from the VNet's IP pool, and many more resources can be added to the AMPLS.
+> AMPLS and private endpoint resources created starting December 1, 2021, use a mechanism called Endpoint Compression. Now resource-specific endpoints, such as the OMS, ODS, and AgentSVC endpoints, share the same IP address, per region and per DNS zone. This mechanism means fewer IPs are taken from the virtual network's IP pool, and many more resources can be added to the AMPLS.
 
 #### Privatelink-monitor-azure-com
-This zone covers the global endpoints used by Azure Monitor, meaning endpoints that serve requests globally/regionally and not resource-specific requests. This zone should have endpoints mapped for:
-* **in.ai** - Application Insights ingestion endpoint (both a global and a regional entry)
-* **api** - Application Insights and Log Analytics API endpoint
-* **live** - Application Insights live metrics endpoint
-* **profiler** - Application Insights profiler endpoint
-* **snapshot** - Application Insights snapshots endpoint
+This zone covers the global endpoints used by Azure Monitor, which means endpoints serve requests globally/regionally and not resource-specific requests. This zone should have endpoints mapped for:
 
-This zone also covers the resource specific endpoints for [Data Collection Endpoints](../essentials/data-collection-endpoint-overview.md):
-* `<unique-dce-identifier>.<regionname>.handler.control` - Private configuration endpoint, part of a Data Collection Endpoint (DCE) resource 
-* `<unique-dce-identifier>.<regionname>.ingest` - Private ingestion endpoint, part of a Data Collection Endpoint (DCE) resource
+* **in.ai**: Application Insights ingestion endpoint (both a global and a regional entry).
+* **api**: Application Insights and Log Analytics API endpoint.
+* **live**: Application Insights live metrics endpoint.
+* **profiler**: Application Insights profiler endpoint.
+* **snapshot**: Application Insights snapshot endpoint.
+* **diagservices-query**: Application Insights Profiler and Snapshot Debugger (used when accessing profiler/debugger results in the Azure portal).
 
-[![Screenshot of Private DNS zone monitor-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-with-endpoint.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded-with-endpoint.png#lightbox)
+This zone also covers the resource-specific endpoints for [data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md):
 
+* `<unique-dce-identifier>.<regionname>.handler.control`: Private configuration endpoint, part of a DCE resource.
+* `<unique-dce-identifier>.<regionname>.ingest`: Private ingestion endpoint, part of a DCE resource.
+
+[![Screenshot that shows Private DNS zone monitor-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-with-endpoint.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded-with-endpoint.png#lightbox)
 
 #### Log Analytics endpoints
 > [!IMPORTANT]
-> AMPLSs and Private Endpoints created starting December 1, 2021, use a mechanism called Endpoint Compression. This means each resource-specific endpoint (such as OMS, ODS and AgentSVC) now uses a single IP address, per region and per DNS zone, for all workspaces in that region. This mechanism means less IPs are taken from the VNet's IP pool, and many more resources can be added to the AMPLS.
-Log Analytics uses 4 DNS zones:
-* **privatelink-oms-opinsights-azure-com** - covers workspace-specific mapping to OMS endpoints. You should see an entry for each workspace linked to the AMPLS connected with this Private Endpoint.
-* **privatelink-ods-opinsights-azure-com** - covers workspace-specific mapping to ODS endpoints - the ingestion endpoint of Log Analytics. You should see an entry for each workspace linked to the AMPLS connected with this Private Endpoint.
-* **privatelink-agentsvc-azure-automation-net** - covers workspace-specific mapping to the agent service automation endpoints. You should see an entry for each workspace linked to the AMPLS connected with this Private Endpoint.
-* **privatelink-blob-core-windows-net** - configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs (also known as management packs). Only one entry is required to handle all Log Analytics agents, no matter how many workspaces are used. This entry is only added to Private Links setups created at or after April 19, 2021 (or starting June 2021, on Azure Sovereign clouds)
+> AMPLSs and private endpoints created starting December 1, 2021, use a mechanism called Endpoint Compression. Now each resource-specific endpoint, such as OMS, ODS, and AgentSVC, uses a single IP address, per region and per DNS zone, for all workspaces in that region. This mechanism means fewer IPs are taken from the virtual network's IP pool, and many more resources can be added to the AMPLS.
 
-The below screenshot shows endpoints mapped for an AMPLS with two workspaces in East US and one workspace in West Europe. Notice the East US workspaces share the IP addresses, while the West Europe workspace endpoint is mapped to a different IP address. (the blob endpoint isn't showing in this image, but is configured).
+Log Analytics uses four DNS zones:
 
-[![Screenshot of Private Link compressed endpoints](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png)](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png#lightbox)
+* **privatelink-oms-opinsights-azure-com**: Covers workspace-specific mapping to OMS endpoints. You should see an entry for each workspace linked to the AMPLS connected with this private endpoint.
+* **privatelink-ods-opinsights-azure-com**: Covers workspace-specific mapping to ODS endpoints, which are the ingestion endpoints of Log Analytics. You should see an entry for each workspace linked to the AMPLS connected with this private endpoint.
+* **privatelink-agentsvc-azure-automation-net**: Covers workspace-specific mapping to the agent service automation endpoints. You should see an entry for each workspace linked to the AMPLS connected with this private endpoint.
+* **privatelink-blob-core-windows-net**: Configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs, which are also known as management packs. Only one entry is required to handle all Log Analytics agents, no matter how many workspaces are used. This entry is only added to private link setups created at or after April 19, 2021 (or starting June 2021 on Azure sovereign clouds).
 
+The following screenshot shows endpoints mapped for an AMPLS with two workspaces in East US and one workspace in West Europe. Notice the East US workspaces share the IP addresses. The West Europe workspace endpoint is mapped to a different IP address. The blob endpoint doesn't appear in this image but it's configured.
 
-### Validating you are communicating over a Private Link
-* To validate your requests are now sent through the Private Endpoint, you can review them with a network tracking tool or even your browser. For example, when attempting to query your workspace or application, make sure the request is sent to the private IP mapped to the API endpoint, in this example it's *172.17.0.9*.
+[![Screenshot that shows private link compressed endpoints.](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png)](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png#lightbox)
 
-    Note: Some browsers may use other DNS settings (see [Browser DNS settings](./private-link-design.md#browser-dns-settings)). Make sure your DNS settings apply.
+### Validate that you're communicating over a private link
 
-* To make sure your workspace or component aren't receiving requests from public networks (not connected through AMPLS), set the resource's public ingestion and query flags to *No* as explained in [Configure access to your resources](#configure-access-to-your-resources).
+Make sure that your private link is in good working order:
 
+* To validate that your requests are now sent through the private endpoint, you can review them with a network tracking tool or even your browser. For example, when you attempt to query your workspace or application, make sure the request is sent to the private IP mapped to the API endpoint. In this example, it's *172.17.0.9*.
+
+  > [!Note]
+  > Some browsers might use other DNS settings. For more information, see [Browser DNS settings](./private-link-design.md#browser-dns-settings). Make sure your DNS settings apply.
+
+* To make sure your workspaces or components aren't receiving requests from public networks (not connected through AMPLS), set the resource's public ingestion and query flags to **No** as explained in [Configure access to your resources](#configure-access-to-your-resources).
 * From a client on your protected network, use `nslookup` to any of the endpoints listed in your DNS zones. It should be resolved by your DNS server to the mapped private IPs instead of the public IPs used by default.
-
 
 ## Next steps
 
-- Learn about [private storage](private-storage.md) for Custom Logs and Customer managed keys (CMK)
-- Learn about [Private Link for Automation](../../automation/how-to/private-link-security.md)
-- Learn about the new [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md)
+- Learn about [private storage](private-storage.md) for custom logs and customer-managed keys.
+- Learn about [Private Link for Azure Automation](../../automation/how-to/private-link-security.md).
+- Learn about the new [data collection endpoints](../essentials/data-collection-endpoint-overview.md).

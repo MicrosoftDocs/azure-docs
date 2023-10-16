@@ -1,22 +1,18 @@
 ---
-title: Azure glossary - Azure dictionary | Microsoft Docs
+title: Azure glossary - Azure dictionary
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
-services: na
-documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: ''
-
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.topic: article
 ms.date: 09/17/2021
 ms.author: monicar
-
 ---
+
 # Microsoft Azure glossary: A dictionary of cloud terminology on the Azure platform
 
 The Microsoft Azure glossary is a short dictionary of cloud terminology for the Azure platform. See also:
@@ -37,7 +33,7 @@ The compute resources that [Azure App Service](app-service/overview.md) provides
 
 ## availability set
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
-See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/windows/toc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/linux/toc.json)
 
 ## <a name="classic-model"></a>Azure classic deployment model
 One of two [deployment models](./azure-resource-manager/management/deployment-models.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
@@ -54,20 +50,20 @@ One of two [deployment models](./azure-resource-manager/management/deployment-mo
 
 ## fault domain
 The collection of virtual machines in an availability set that can possibly fail at the same time. An example is a group of machines in a rack that share a common power source and network switch. In Azure, the virtual machines in an availability set are automatically separated across multiple fault domains.  
-See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/windows/toc.json) or [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/linux/toc.json)  
 
 ## geo
-A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
+A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national/regional borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
 See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
 The process of automatically replicating content such as blobs, tables, and queues within a regional pair.  
-See [Active Geo-Replication for Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md)
+See [Active Geo-Replication for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-overview)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## image
 A file that contains the operating system and application configuration that can be used to create any number of virtual machines. In Azure there are two types of images: VM image and OS image. A VM image includes an operating system and all disks attached to a virtual machine when the image is created. An OS image contains only a generalized operating system with no data disk configurations.  
-See [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+See [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines/windows/cli-ps-findimage.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## limits
 The number of resources that can be created or the performance benchmark that can be achieved. Limits are typically associated with subscriptions, services, and offerings.  
@@ -87,7 +83,7 @@ See the [Azure offer details page](https://azure.microsoft.com/support/legal/off
 The secure web portal used to deploy and manage Azure services.
 
 ## region
-An area within a geo that does not cross national borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
+An area within a geo that does not cross national/regional borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
 See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## resource
@@ -115,7 +111,7 @@ The agreement that describes Microsoft's commitments for uptime and connectivity
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
-A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#security-tokens) to grant devices permission to send telemetry.
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#sas-tokens) to grant devices permission to send telemetry.
 
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  
@@ -123,27 +119,26 @@ See [About Azure storage accounts](./storage/common/storage-account-create.md)
 
 ## subscription
 A customer's agreement with Microsoft that enables them to obtain Azure services. The subscription pricing and related terms are governed by the offer chosen for the subscription.
-See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Microsoft Entra ID](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](./azure-resource-manager/management/tag-resources.md)
 
-## Tenant
-A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Azure Active Directory a tenant is an instance of Azure Active Directory that an organization receives when it signs up for a cloud application like Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
+## tenant
+A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Microsoft Entra ID a tenant is an instance of Microsoft Entra ID that an organization receives when it signs up for a cloud application like Microsoft 365. Each Microsoft Entra tenant is distinct and separate from other Microsoft Entra tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  
-See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/windows/toc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/linux/toc.json)
 
 ## <a name="vm"></a>virtual machine
-The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes.  
-See [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/)
+The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes. For more information, see [Virtual Machines documentation](./virtual-machines/index.yml)
 
 ## <a name="vm-extension"></a>virtual machine extension
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
-See [About virtual machine extensions and features (Windows)](./virtual-machines/extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [About virtual machine extensions and features (Linux)](./virtual-machines/extensions/features-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See [About virtual machine extensions and features (Windows)](./virtual-machines/extensions/features-windows.md?toc=/azure/virtual-machines/windows/toc.json) or [About virtual machine extensions and features (Linux)](./virtual-machines/extensions/features-linux.md?toc=/azure/virtual-machines/linux/toc.json)
 
 ## <a name="vnet"></a>virtual network
 A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. An [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) lets you establish connections between virtual networks and between a virtual network and an on-premises network. You can fully control the IP address blocks, DNS settings, security policies, and route tables within a virtual network.  

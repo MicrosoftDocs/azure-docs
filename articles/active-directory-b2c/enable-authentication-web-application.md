@@ -84,7 +84,7 @@ public void ConfigureServices(IServiceCollection services)
         // This lambda determines whether user consent for non-essential cookies is needed for a given request.
         options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
-        // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/core/security/samesite?view=aspnetcore-3.1
+        // Handling SameSite cookie according to https://learn.microsoft.com/aspnet/core/security/samesite?view=aspnetcore-3.1
         options.HandleSameSiteCookieCompatibility();
     });
 
@@ -260,15 +260,15 @@ Azure AD B2C identity provider settings are stored in the *appsettings.json* fil
   "Instance": "https://<your-tenant-name>.b2clogin.com",
   "ClientId": "<web-app-application-id>",
   "Domain": "<your-b2c-domain>",
-  "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
+  "SignedOutCallbackPath": "/signout-oidc",
   "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
 }
 ```
 
 The required information is described in the [Configure authentication in a sample web app](configure-authentication-sample-web-app.md) article. Use the following settings:
 
-* **Instance**: Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).
-* **Domain**: Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).
+* **Instance**: Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).
+* **Domain**: Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).
 * **Client ID**: Replace `<web-app-application-id>` with the Application ID from [Step 2](configure-authentication-sample-web-app.md#step-2-register-a-web-application).
 * **Policy name**: Replace `<your-sign-up-in-policy>` with the user flows you created in [Step 1](configure-authentication-sample-web-app.md#step-1-configure-your-user-flow).
 

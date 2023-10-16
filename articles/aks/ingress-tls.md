@@ -1,249 +1,246 @@
 ---
-title: Create ingress with automatic TLS
+title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
-ms.topic: article
-ms.date: 03/04/2022
-
-
-#Customer intent: As a cluster operator or developer, I want to use an ingress controller to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates
+description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
+ms.subservice: aks-networking
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
+author: asudbring
+ms.author: allensu
+ms.topic: how-to
+ms.date: 01/20/2023
+#Customer intent: As a cluster operator or developer, I want to use TLS with an ingress controller to handle the flow of incoming traffic and secure my apps using my own certificates or automatically generated certificates.
 ---
 
-# Create an HTTPS ingress controller on Azure Kubernetes Service (AKS)
+# Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 
-An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
+The transport layer security (TLS) protocol uses certificates to provide security for communication, encryption, authentication, and integrity. Using TLS with an ingress controller on AKS allows you to secure communication between your applications and experience the benefits of an ingress controller.
 
-This article shows you how to deploy the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. The [cert-manager][cert-manager] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, two applications are run in the AKS cluster, each of which is accessible over a single IP address.
+You can bring your own certificates and integrate them with the Secrets Store CSI driver. Alternatively, you can use [cert-manager][cert-manager], which automatically generates and configures [Let's Encrypt][lets-encrypt] certificates. Two applications run in the AKS cluster, each of which is accessible over a single IP address.
 
-You can also:
-
-- [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-- [Enable the HTTP application routing add-on][aks-http-app-routing]
-- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
-- [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
+> [!NOTE]
+> There are two open source ingress controllers for Kubernetes based on Nginx: one is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article uses the *Kubernetes community ingress controller*.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+* This article assumes you have an ingress controller and applications set up. If you need an ingress controller or example applications, see [Create an ingress controller][aks-ingress-basic].
 
-This article also assumes you have [a custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
+* This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure you're using the latest release of Helm and have access to the `ingress-nginx` and `jetstack` Helm repositories. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
 
-This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure that you are using the latest release of Helm and have access to the `ingress-nginx` and `jetstack` Helm repositories. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
+  * For more information on configuring and using Helm, see [Install applications with Helm in AKS][use-helm]. For upgrade instructions, see the [Helm install docs][helm-install].
 
-For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm]. For upgrade instructions, see the [Helm install docs][helm-install].
+* This article assumes you have an existing AKS cluster with an integrated Azure Container Registry (ACR). For more information on creating an AKS cluster with an integrated ACR, see [Authenticate with ACR from AKS][aks-integrated-acr].
 
-### [Azure CLI](#tab/azure-cli)
+* If you're using Azure CLI, this article requires that you're running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
+* If you're using Azure PowerShell, this article requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
-This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+## Use TLS with your own certificates with Secrets Store CSI Driver
 
-### [Azure PowerShell](#tab/azure-powershell)
+To use TLS with your own certificates with Secrets Store CSI Driver, you need an AKS cluster with the Secrets Store CSI Driver configured and an Azure Key Vault instance.
 
-In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr-ps].
+For more information, see [Set up Secrets Store CSI Driver to enable NGINX Ingress Controller with TLS][aks-nginx-tls-secrets-store].
 
-This article also requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+## Use TLS with Let's Encrypt certificates
 
----
+To use TLS with [Let's Encrypt][lets-encrypt] certificates, you'll deploy [cert-manager][cert-manager], which automatically generates and configures Let's Encrypt certificates.
 
-## Import the images used by the Helm chart into your ACR
-
-This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. 
+### Import the cert-manager images used by the Helm chart into your ACR
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use `az acr import` to import those images into your ACR.
+* Use `az acr import` to import the following images into your ACR.
 
-```azurecli
-REGISTRY_NAME=<REGISTRY_NAME>
-SOURCE_REGISTRY=k8s.gcr.io
-CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v1.0.4
-PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
-PATCH_TAG=v1.1.1
-DEFAULTBACKEND_IMAGE=defaultbackend-amd64
-DEFAULTBACKEND_TAG=1.5
-CERT_MANAGER_REGISTRY=quay.io
-CERT_MANAGER_TAG=v1.5.4
-CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
-CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
-CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
+    ```azurecli
+    REGISTRY_NAME=<REGISTRY_NAME>
+    CERT_MANAGER_REGISTRY=quay.io
+    CERT_MANAGER_TAG=v1.8.0
+    CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
+    CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
+    CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
 
-az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
-az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
-az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
-az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
-az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
-az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
-```
+    az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
+    az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
+    az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Use `Import-AzContainerRegistryImage` to import those images into your ACR.
+* Use `Import-AzContainerRegistryImage` to import the following images into your ACR.
 
-```azurepowershell
-$RegistryName = "<REGISTRY_NAME>"
-$ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
-$ControllerRegistry = "k8s.gcr.io"
-$ControllerImage = "ingress-nginx/controller"
-$ControllerTag = "v1.0.4"
-$PatchRegistry = "docker.io"
-$PatchImage = "jettech/kube-webhook-certgen"
-$PatchTag = "v1.5.1"
-$DefaultBackendRegistry = "k8s.gcr.io"
-$DefaultBackendImage = "defaultbackend-amd64"
-$DefaultBackendTag = "1.5"
-$CertManagerRegistry = "quay.io"
-$CertManagerTag = "v1.3.1"
-$CertManagerImageController = "jetstack/cert-manager-controller"
-$CertManagerImageWebhook = "jetstack/cert-manager-webhook"
-$CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
+    ```azurepowershell
+    $RegistryName = "<REGISTRY_NAME>"
+    $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
+    $CertManagerRegistry = "quay.io"
+    $CertManagerTag = "v1.8.0"
+    $CertManagerImageController = "jetstack/cert-manager-controller"
+    $CertManagerImageWebhook = "jetstack/cert-manager-webhook"
+    $CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
 
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $DefaultBackendRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
-
-```
+    Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
+    Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
+    Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
+    ```
 
 ---
 
 > [!NOTE]
-> In addition to importing container images into your ACR, you can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure container registry][acr-helm].
+> You can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an ACR][acr-helm].
 
-## Create an ingress controller
+## Ingress controller configuration options
 
-To create the ingress controller, use the `helm` command to install *nginx-ingress*. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
+You can configure your NGINX ingress controller using either a static public IP address or a dynamic public IP address. If you're using a custom domain, you need to add an A record to your DNS zone. If you're not using a custom domain, you can configure a fully qualified domain name (FQDN) for the ingress controller IP address.
 
-The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
+### Create a static or dynamic public IP address
 
-> [!TIP]
-> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic* and is intended to work within that namespace. Specify a namespace for your own environment as needed.
+#### Use a static public IP address
 
-> [!TIP]
-> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
+You can configure your ingress controller with a static public IP address. The static public IP address remains if you delete your ingress controller. The IP address *doesn't* remain if you delete your AKS cluster.
 
-### [Azure CLI](#tab/azure-cli)
-
-```console
-# Add the ingress-nginx repository
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-# Set variable for ACR location to use for pulling images
-ACR_URL=<REGISTRY_URL>
-
-# Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --version 4.0.13 \
-    --namespace ingress-basic --create-namespace \
-    --set controller.replicaCount=2 \
-    --set controller.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.image.registry=$ACR_URL \
-    --set controller.image.image=$CONTROLLER_IMAGE \
-    --set controller.image.tag=$CONTROLLER_TAG \
-    --set controller.image.digest="" \
-    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
-    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
-    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
-    --set controller.admissionWebhooks.patch.image.digest="" \
-    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
-    --set defaultBackend.image.registry=$ACR_URL \
-    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
-    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
-    --set defaultBackend.image.digest=""
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
-
-# Add the ingress-nginx repository
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-# Set variable for ACR location to use for pulling images
-$AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
-
-# Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx `
-    --namespace ingress-basic `
-    --set controller.replicaCount=2 `
-    --set controller.nodeSelector."kubernetes\.io/os"=linux `
-    --set controller.image.registry=$AcrUrl `
-    --set controller.image.image=$ControllerImage `
-    --set controller.image.tag=$ControllerTag `
-    --set controller.image.digest="" `
-    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
-    --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
-    --set controller.admissionWebhooks.patch.image.image=$PatchImage `
-    --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
-    --set controller.admissionWebhooks.patch.image.digest="" `
-    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux `
-    --set defaultBackend.image.registry=$AcrUrl `
-    --set defaultBackend.image.image=$DefaultBackendImage `
-    --set defaultBackend.image.tag=$DefaultBackendTag `
-    --set defaultBackend.image.digest=""
-```
-
----
-
-During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
-
-To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
-
-```console
-$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
-
-NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
-```
-
-No ingress rules have been created yet. If you browse to the public IP address, the NGINX ingress controller's default 404 page is displayed.
-
-## Add an A record to your DNS zone
+When you upgrade your ingress controller, you must pass a parameter to the Helm release to ensure the ingress controller service is made aware of the load balancer that will be allocated to it. For the HTTPS certificates to work correctly, you use a DNS label to configure an FQDN for the ingress controller IP address.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
+1. Get the resource group name of the AKS cluster with the [`az aks show`][az-aks-show] command.
 
-```azurecli
-az network dns record-set a add-record \
-    --resource-group myResourceGroup \
-    --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name "*" \
-    --ipv4-address MY_EXTERNAL_IP
-```
+    ```azurecli-interactive
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    ```
+
+2. Create a public IP address with the *static* allocation method using the [`az network public-ip create`][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
+
+    ```azurecli-interactive
+    az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
+    ```
+
+> [!NOTE]
+> Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
+>
+> * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
+> * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
+
+3. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
+
+4. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
+
+    ```azurecli-interactive
+    DNS_LABEL="<DNS_LABEL>"
+    NAMESPACE="ingress-basic"
+    STATIC_IP=<STATIC_IP>
+
+    helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+      --namespace $NAMESPACE \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
+      --set controller.service.loadBalancerIP=$STATIC_IP \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [New-AzDnsRecordSet][new-az-dns-recordset-create-a-record].
+1. Get the resource group name of the AKS cluster with the [`Get-AzAksCluster`][get-az-aks-cluster] command.
 
-```azurepowershell
-$Records = @()
-$Records += New-AzDnsRecordConfig -IPv4Address <External IP>
-New-AzDnsRecordSet -Name "*" `
-    -RecordType A `
-    -ResourceGroupName <Name of Resource Group for the DNS Zone> `
-    -ZoneName <Custom Domain Name> `
-    -TTL 3600 `
-    -DnsRecords $Records
-```
+    ```azurepowershell-interactive
+    (Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
+    ```
+
+2. Create a public IP address with the *static* allocation method using the [`New-AzPublicIpAddress`][new-az-public-ip-address] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
+
+    ```azurepowershell-interactive
+    (New-AzPublicIpAddress -ResourceGroupName MC_myResourceGroup_myAKSCluster_eastus -Name myAKSPublicIP -Sku Standard -AllocationMethod Static -Location eastus).IpAddress
+    ```
+
+> [!NOTE]
+> Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
+>
+> * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
+> * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
+
+3. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
+
+4. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
+
+    ```azurepowershell-interactive
+    $DnsLabel = "<DNS_LABEL>"
+    $Namespace = "ingress-basic"
+    $StaticIP = "<STATIC_IP>"
+
+    helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
+      --namespace $Namespace `
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
+      --set controller.service.loadBalancerIP=$StaticIP `
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+    ```
 
 ---
 
-### Configure an FQDN for the ingress controller
-Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain.  Your FQDN will be of the form `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`.
+For more information, see [Use a static public IP address and DNS label with the AKS load balancer][aks-static-ip].
 
-There are two methods for this configuration described below.
+#### Use a dynamic public IP address
 
-#### Method 1: Set the DNS label using the Azure CLI
-Note that this sample is for a Bash shell.
+An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address *doesn't* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address. Your output should look similar to the following sample output.
+
+* Use the `kubectl get service` command to get the public IP address for your ingress controller.
+
+    ```console
+    # Get the public IP address for your ingress controller
+
+    kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+    # Sample output
+
+    NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+    nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
+    ```
+
+### Add an A record to your DNS zone
+
+If you're using a custom domain, you need to add an *A* record to your DNS zone. If you're not using a custom domain, you can configure the public IP address with an FQDN.
+
+### [Azure CLI](#tab/azure-cli)
+
+* Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`az network dns record-set a add-record`][az-network-dns-record-set-a-add-record].
+
+    ```azurecli
+    az network dns record-set a add-record \
+        --resource-group myResourceGroup \
+        --zone-name MY_CUSTOM_DOMAIN \
+        --record-set-name "*" \
+        --ipv4-address MY_EXTERNAL_IP
+    ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+* Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`New-AzDnsRecordSet`][new-az-dns-recordset-create-a-record].
+
+    ```azurepowershell
+    $Records = @()
+    $Records += New-AzDnsRecordConfig -IPv4Address <External IP>
+    New-AzDnsRecordSet -Name "*" `
+        -RecordType A `
+        -ResourceGroupName <Name of Resource Group for the DNS Zone> `
+        -ZoneName <Custom Domain Name> `
+        -TTL 3600 `
+        -DnsRecords $Records
+    ```
+
+---
+
+### Configure an FQDN for your ingress controller
+
+Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain by setting a DNS label. Your FQDN should follow this form: `<CUSTOM DNS LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`.
+
+> [!IMPORTANT]
+> Your DNS label must be unique within its Azure location.
+
+You can configure your FQDN using one of the following methods:
+
+* Set the DNS label using Azure CLI or Azure PowerShell.
+* Set the DNS label using Helm chart settings.
+
+For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#dns-name-label).
+
+#### Set the DNS label using Azure CLI or Azure PowerShell
+
+Make sure to replace `<DNS_LABEL>` with your unique DNS label.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -252,13 +249,13 @@ Note that this sample is for a Bash shell.
 IP="MY_EXTERNAL_IP"
 
 # Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
+DNSLABEL="<DNS_LABEL>"
 
-# Get the resource-id of the public ip
+# Get the resource-id of the public IP
 PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
 
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+# Update public IP address with DNS name
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSLABEL
 
 # Display the FQDN
 az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
@@ -270,11 +267,11 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
 # Public IP address of your ingress controller
 $AksIpAddress = "MY_EXTERNAL_IP"
 
-# Get the Public IP Address for the ingress controller
+# Get the public IP address for the ingress controller
 $PublicIp = Get-AzPublicIpAddress | Where-Object {$_.IpAddress -eq $AksIpAddress}
 
-# Update public ip address with DNS name
-$PublicIp.DnsSettings = @{"DomainNameLabel" = "demo-aks-ingress"}
+# Update public IP address with DNS name
+$PublicIp.DnsSettings = @{"DomainNameLabel" = "<DNS_LABEL>"}
 $UpdatedPublicIp = Set-AzPublicIpAddress -PublicIpAddress $publicIp
 
 # Display the FQDN
@@ -283,45 +280,50 @@ Write-Output $UpdatedPublicIp.DnsSettings.Fqdn
 
 ---
 
-#### Method 2: Set the DNS label using helm chart settings
-You can pass an annotation setting to your helm chart configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
-The following example shows how to update this setting after the controller has been deployed.
+#### Set the DNS label using Helm chart settings
+
+You can pass an annotation setting to your Helm chart configuration using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter. This parameter can be set when the ingress controller is first deployed, or it can be configured later.
+
+The following example shows how to update this setting after the controller has been deployed. Make sure to replace `<DNS_LABEL>` with your unique DNS label.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```bash
-DNS_LABEL="demo-aks-ingress"
-NAMESPACE="nginx-basic"
+DNSLABEL="<DNS_LABEL>"
+NAMESPACE="ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
-
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$DnsLabel = "demo-aks-ingress"
-$Namespace = "nginx-basic"
+$DnsLabel = "<DNS_LABEL>"
+$Namespace = "ingress-basic"
 
-helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
-  --namespace $Namespace \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
-
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
+  --namespace $Namespace `
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ---
 
 ## Install cert-manager
 
-The NGINX ingress controller supports TLS termination. There are several ways to retrieve and configure certificates for HTTPS. This article demonstrates using [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+The NGINX ingress controller supports TLS termination. There are several ways to retrieve and configure certificates for HTTPS. This article uses [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
-To install the cert-manager controller:
+To install the cert-manager controller, use the following commands.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```bash
+# Set variable for ACR location to use for pulling images
+ACR_URL=<REGISTRY_URL>
+
 # Label the ingress-basic namespace to disable resource validation
 kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
@@ -334,7 +336,7 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version $CERT_MANAGER_TAG \
+  --version=$CERT_MANAGER_TAG \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CONTROLLER \
@@ -348,6 +350,9 @@ helm install cert-manager jetstack/cert-manager \
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+# Set variable for ACR location to use for pulling images
+$AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
+
 # Label the ingress-basic namespace to disable resource validation
 kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
@@ -377,301 +382,234 @@ For more information on cert-manager configuration, see the [cert-manager projec
 
 ## Create a CA cluster issuer
 
-Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. These Kubernetes resources are identical in functionality, however `Issuer` works in a single namespace, and `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
+Before certificates can be issued, cert-manager requires one of the following issuers:
 
-Create a cluster issuer, such as `cluster-issuer.yaml`, using the following example manifest. Update the email address with a valid address from your organization:
+* An [Issuer][cert-manager-issuer], which works in a single namespace.
+* A [ClusterIssuer][cert-manager-cluster-issuer] resource, which works across all namespaces.
 
-```yaml
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: MY_EMAIL_ADDRESS
-    privateKeySecretRef:
+For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
+
+1. Create a cluster issuer, such as `cluster-issuer.yaml`, using the following example manifest. Replace `MY_EMAIL_ADDRESS` with a valid address from your organization.
+
+    ```yaml
+    apiVersion: cert-manager.io/v1
+    kind: ClusterIssuer
+    metadata:
       name: letsencrypt
-    solvers:
-    - http01:
-        ingress:
-          class: nginx
-          podTemplate:
-            spec:
-              nodeSelector:
-                "kubernetes.io/os": linux
-```
-
-To create the issuer, use the `kubectl apply` command.
-
-```console
-kubectl apply -f cluster-issuer.yaml
-```
-
-## Run demo applications
-
-An ingress controller and a certificate management solution have been configured. Now let's run two demo applications in your AKS cluster. In this example, Helm is used to deploy two instances of a simple *Hello world* application.
-
-To see the ingress controller in action, run two demo applications in your AKS cluster. In this example, you use `kubectl apply` to deploy two instances of a simple *Hello world* application.
-
-Create a *aks-helloworld-one.yaml* file and copy in the following example YAML:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: aks-helloworld-one
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-helloworld-one
-  template:
-    metadata:
-      labels:
-        app: aks-helloworld-one
     spec:
-      containers:
-      - name: aks-helloworld-one
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
-        ports:
-        - containerPort: 80
-        env:
-        - name: TITLE
-          value: "Welcome to Azure Kubernetes Service (AKS)"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-helloworld-one
-spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-  selector:
-    app: aks-helloworld-one
-```
+      acme:
+        server: https://acme-v02.api.letsencrypt.org/directory
+        email: MY_EMAIL_ADDRESS
+        privateKeySecretRef:
+          name: letsencrypt
+        solvers:
+        - http01:
+            ingress:
+              class: nginx
+              podTemplate:
+                spec:
+                  nodeSelector:
+                    "kubernetes.io/os": linux
+    ```
 
-Create a *aks-helloworld-two.yaml* file and copy in the following example YAML:
+2. Apply the issuer using the `kubectl apply` command.
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: aks-helloworld-two
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-helloworld-two
-  template:
-    metadata:
-      labels:
-        app: aks-helloworld-two
-    spec:
-      containers:
-      - name: aks-helloworld-two
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
-        ports:
-        - containerPort: 80
-        env:
-        - name: TITLE
-          value: "AKS Ingress Demo"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-helloworld-two
-spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-  selector:
-    app: aks-helloworld-two
-```
+    ```console
+    kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+    ```
 
-Run the two demo applications using `kubectl apply`:
+## Update your ingress routes
 
-```console
-kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
-kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
-```
+You need to update your ingress routes to handle traffic to your FQDN or custom domain.
 
-## Create an ingress route
+In the following example, traffic is routed as such:
 
-Both applications are now running on your Kubernetes cluster. However they're configured with a service of type `ClusterIP` and aren't accessible from the internet. To make them publicly available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
-
-In the following example, traffic to the address *hello-world-ingress.MY_CUSTOM_DOMAIN* is routed to the *aks-helloworld-one* service. Traffic to the address *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* is routed to the *aks-helloworld-two* service. Traffic to *hello-world-ingress.MY_CUSTOM_DOMAIN/static* is routed to the service named *aks-helloworld-one* for static assets.
+* Traffic to *hello-world-ingress.MY_CUSTOM_DOMAIN* is routed to the *aks-helloworld-one* service.
+* Traffic to *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* is routed to the *aks-helloworld-two* service.
+* Traffic to *hello-world-ingress.MY_CUSTOM_DOMAIN/static* is routed to the service named *aks-helloworld-one* for static assets.
 
 > [!NOTE]
-> If you configured an FQDN for the ingress controller IP address instead of a custom domain, use the FQDN instead of *hello-world-ingress.MY_CUSTOM_DOMAIN*. For example if your FQDN is *demo-aks-ingress.eastus.cloudapp.azure.com*, replace *hello-world-ingress.MY_CUSTOM_DOMAIN* with *demo-aks-ingress.eastus.cloudapp.azure.com* in `hello-world-ingress.yaml`.
+> If you configured an FQDN for the ingress controller IP address instead of a custom domain, use the FQDN instead of *hello-world-ingress.MY_CUSTOM_DOMAIN*.
+>
+> For example, if your FQDN is *demo-aks-ingress.eastus.cloudapp.azure.com*, replace *hello-world-ingress.MY_CUSTOM_DOMAIN* with *demo-aks-ingress.eastus.cloudapp.azure.com* in `hello-world-ingress.yaml`.
+>
 
-Create a file named `hello-world-ingress.yaml` using below example YAML. Update the *hosts* and *host* to the DNS name you created in a previous step.
+1. Create or update the `hello-world-ingress.yaml` file using the following example YAML file. Update the `spec.tls.hosts` and `spec.rules.host` to the DNS name you created in a previous step.
 
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: hello-world-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    cert-manager.io/cluster-issuer: letsencrypt
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-    - hello-world-ingress.MY_CUSTOM_DOMAIN
-    secretName: tls-secret
-  rules:
-  - host: hello-world-ingress.MY_CUSTOM_DOMAIN
-    http:
-      paths:
-      - path: /hello-world-one(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-one
-            port:
-              number: 80
-      - path: /hello-world-two(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-two
-            port:
-              number: 80
-      - path: /(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-one
-            port:
-              number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: hello-world-ingress-static
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /static/$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    cert-manager.io/cluster-issuer: letsencrypt
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-    - hello-world-ingress.MY_CUSTOM_DOMAIN
-    secretName: tls-secret
-  rules:
-  - host: hello-world-ingress.MY_CUSTOM_DOMAIN
-    http:
-      paths:
-      - path: /static(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-one
-            port: 
-              number: 80
-```
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: hello-world-ingress
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /$2
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        cert-manager.io/cluster-issuer: letsencrypt
+    spec:
+      ingressClassName: nginx
+      tls:
+      - hosts:
+        - hello-world-ingress.MY_CUSTOM_DOMAIN
+        secretName: tls-secret
+      rules:
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+        http:
+          paths:
+          - path: /hello-world-one(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
+          - path: /hello-world-two(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-two
+                port:
+                  number: 80
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
+    ---
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: hello-world-ingress-static
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+        nginx.ingress.kubernetes.io/rewrite-target: /static/$2
+    spec:
+      ingressClassName: nginx
+      tls:
+      - hosts:
+        - hello-world-ingress.MY_CUSTOM_DOMAIN
+        secretName: tls-secret
+      rules:
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+        http:
+          paths:
+          - path: /static(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port: 
+                  number: 80
+    ```
 
-Create the ingress resource using the `kubectl apply` command.
+2. Update the ingress resource using the `kubectl apply` command.
 
-```console
-kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
-```
+    ```console
+    kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+    ```
 
 ## Verify a certificate object has been created
 
-Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see [cert-manager certificates][cert-manager-certificates]. Cert-manager has automatically created a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
+Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see [cert-manager certificates][cert-manager-certificates].
 
-To verify that the certificate was created successfully, use the `kubectl get certificate --namespace ingress-basic` command and verify *READY* is *True*, which may take several minutes.
+Cert-manager automatically creates a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
+
+To verify that the certificate was created successfully, use the `kubectl get certificate --namespace ingress-basic` command and verify *READY* is *True*. It may take several minutes to get the output.
 
 ```console
-$ kubectl get certificate --namespace ingress-basic
+kubectl get certificate --namespace ingress-basic
+```
 
+The following output shows the certificate's status.
+
+```
 NAME         READY   SECRET       AGE
 tls-secret   True    tls-secret   11m
 ```
 
 ## Test the ingress configuration
 
-Open a web browser to *hello-world-ingress.MY_CUSTOM_DOMAIN* of your Kubernetes ingress controller. Notice you are redirect to use HTTPS and the certificate is trusted and the demo application is shown in the web browser. Add the */hello-world-two* path and notice the second demo application with the custom title is shown.
+Open a web browser to *hello-world-ingress.MY_CUSTOM_DOMAIN* or the FQDN of your Kubernetes ingress controller. Ensure the following are true:
+
+* You're redirected to use HTTPS.
+* The certificate is *trusted*.
+* The demo application is shown in the web browser.
+* Add */hello-world-two* to the end of the domain and ensure the second demo application with the custom title is shown.
 
 ## Clean up resources
 
-This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, you can either delete the entire sample namespace, or the individual resources.
+This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, many Kubernetes resources are created. These resources include pods, deployments, and services. To clean up these resources, you can either delete the entire sample namespace or the individual resources.
 
 ### Delete the sample namespace and all resources
 
-To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace are deleted.
+Deleting the sample namespace also deletes all the resources in the namespace.
 
-```console
-kubectl delete namespace ingress-basic
-```
+* Delete the entire sample namespace using the `kubectl delete` command and specifying your namespace name.
+
+    ```console
+    kubectl delete namespace ingress-basic
+    ```
 
 ### Delete resources individually
 
-Alternatively, a more granular approach is to delete the individual resources created. First, remove the cluster issuer resources:
+Alternatively, you can delete the resource individually.
 
-```console
-kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
-```
+1. Remove the cluster issuer resources.
 
-List the Helm releases with the `helm list` command. Look for charts named *nginx* and *cert-manager*, as shown in the following example output:
+    ```console
+    kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
+    ```
 
-```console
-$ helm list --namespace ingress-basic
+2. List the Helm releases with the `helm list` command. Look for charts named *nginx* and *cert-manager*, as shown in the following example output.
 
-NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
-nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
-```
+    ```console
+    $ helm list --namespace ingress-basic
 
-Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.
+    NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+    cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
+    nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
+    ```
 
-```console
-$ helm uninstall cert-manager nginx --namespace ingress-basic
+3. Uninstall the releases using the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.
 
-release "cert-manager" uninstalled
-release "nginx" uninstalled
-```
+    ```console
+    $ helm uninstall cert-manager nginx --namespace ingress-basic
 
-Next, remove the two sample applications:
+    release "cert-manager" uninstalled
+    release "nginx" uninstalled
+    ```
 
-```console
-kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
-kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
-```
+4. Remove the two sample applications.
 
-Remove the ingress route that directed traffic to the sample apps:
+    ```console
+    kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
+    kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
+    ```
 
-```console
-kubectl delete -f hello-world-ingress.yaml --namespace ingress-basic
-```
+5. Remove the ingress route that directed traffic to the sample apps.
 
-Finally, you can delete the itself namespace. Use the `kubectl delete` command and specify your namespace name:
+    ```console
+    kubectl delete -f hello-world-ingress.yaml --namespace ingress-basic
+    ```
 
-```console
-kubectl delete namespace ingress-basic
-```
+6. Delete the itself namespace. Use the `kubectl delete` command and specify your namespace name.
+
+    ```console
+    kubectl delete namespace ingress-basic
+    ```
 
 ## Next steps
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:
 
-- [Helm CLI][helm-cli]
-- [NGINX ingress controller][nginx-ingress]
-- [cert-manager][cert-manager]
+* [Helm CLI][helm-cli]
+* [NGINX ingress controller][nginx-ingress]
+* [cert-manager][cert-manager]
 
 You can also:
 
-- [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-- [Enable the HTTP application routing add-on][aks-http-app-routing]
-- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
-- [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
+* [Enable the HTTP application routing add-on][aks-http-app-routing]
 
 <!-- LINKS - external -->
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
@@ -687,6 +625,7 @@ You can also:
 [cert-manager-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[nginxinc/kubernetes-ingress]: https://github.com/nginxinc/kubernetes-ingress
 [helm-install]: https://helm.sh/docs/helm/helm_install
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
@@ -695,18 +634,21 @@ You can also:
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
-[aks-ingress-internal]: ingress-internal-ip.md
-[aks-ingress-static-tls]: ingress-static-ip.md
+[aks-nginx-tls-secrets-store]: csi-secrets-store-nginx-tls.md
+[aks-tls-configure-ingress-controller]: ingress-tls.md#configure-your-ingress-controller
+[aks-ingress-static-ip]: ingress-tls.md#use-a-static-ip-address
 [aks-ingress-basic]: ingress-basic.md
+[aks-ingress-run-demo-applications]: ingress-basic.md#run-demo-applications
+[aks-static-ip]: static-ip.md
 [aks-http-app-routing]: http-application-routing.md
-[aks-ingress-own-tls]: ingress-own-tls.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md
-[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
-[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+[get-az-aks-cluster]: /powershell/module/az.aks/get-azakscluster
+[new-az-public-ip-address]: /powershell/module/az.network/new-azpublicipaddress

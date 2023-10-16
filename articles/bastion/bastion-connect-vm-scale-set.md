@@ -1,39 +1,41 @@
 ---
-title: 'Connect to a Windows virtual machine scale set using Azure Bastion'
+title: 'Connect to a virtual machine scale set using Azure Bastion'
 description: Learn how to connect to an Azure virtual machine scale set using Azure Bastion.
-services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 06/23/2023
 ms.author: cherylmc
 
 ---
 
 # Connect to a virtual machine scale set using Azure Bastion
 
-This article shows you how to securely and seamlessly RDP to your Windows virtual machine scale set instance in an Azure virtual network using Azure Bastion. You can connect to a virtual machine scale set instance directly from the Azure portal. When using Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
+This article shows you how to securely and seamlessly connect to your virtual machine scale set instance in an Azure virtual network directly from the Azure portal using Azure Bastion. When you use Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md). For more information about virtual machine scale sets, see [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
 
 ## Prerequisites
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the virtual machine scale set resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to a virtual machine scale set instance in this virtual network. Bastion assumes that you are using RDP to connect to a Windows virtual machine scale set, and SSH to connect to your Linux virtual machine scale set. For information about connection to a Linux VM, see [Connect to a VM - Linux](bastion-connect-vm-ssh-linux.md).
+Make sure that you have set up an Azure Bastion host for the virtual network in which the virtual machine scale set resides. For more information, see [Create an Azure Bastion host](tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to a virtual machine scale set instance in this virtual network.
 
-## <a name="rdp"></a>Connect using RDP
+## <a name="rdp"></a>Connect
+
+This section shows you the basic steps to connect to your virtual machine scale set.
 
 1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine scale set that you want to connect to.
 
-   ![navigate](./media/bastion-connect-vm-scale-set/1.png)
-2. Go to the virtual machine scale set instance that you want to connect to, then select **Connect**. When using an RDP connection, the virtual machine scale set should be a Windows virtual machine scale set.
+   :::image type="content" source="./media/bastion-connect-vm-scale-set/select-scale-set.png" alt-text="Screenshot shows virtual machine scale sets." lightbox="./media/bastion-connect-vm-scale-set/select-scale-set.png":::
 
-   ![virtual machine scale set](./media/bastion-connect-vm-scale-set/2.png)
-3. After you select **Connect**, a side bar appears that has three tabs – RDP, SSH, and Bastion. Select the **Bastion** tab from the side bar. If you didn't provision Bastion for the virtual network, you can select the link to configure Bastion. For configuration instructions, see [Configure Bastion](./tutorial-create-host-portal.md).
+1. Go to the virtual machine scale set instance that you want to connect to.
 
-   ![Bastion tab](./media/bastion-connect-vm-scale-set/3.png)
-4. On the Bastion tab, enter the username and password for your virtual machine scale set, then select **Connect**.
+   :::image type="content" source="./media/bastion-connect-vm-scale-set/select-instance.png" alt-text="Screenshot shows virtual machine scale set instances." lightbox="./media/bastion-connect-vm-scale-set/select-instance.png":::
 
-   ![connect](./media/bastion-connect-vm-scale-set/4.png)
-5. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
+1. Select **Connect** at the top of the page, then choose **Bastion** from the dropdown.
+
+   :::image type="content" source="./media/bastion-connect-vm-scale-set/select-connect.png" alt-text="Screenshot shows select the connect button and choose Bastion from the dropdown." lightbox="./media/bastion-connect-vm-scale-set/select-connect.png":::
+
+1. On the **Bastion** page, fill in the required settings. The settings you can select depend on the virtual machine to which you're connecting, and the [Bastion SKU](configuration-settings.md#skus) tier that you're using. The Standard SKU gives you more connection options than the Basic SKU. For more information about settings, see [Bastion configuration settings](configuration-settings.md).
+
+1. After filling in the values on the Bastion page, select **Connect** to connect to the instance.
 
 ## Next steps
 

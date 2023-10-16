@@ -2,49 +2,54 @@
 title: Log alerts from Container insights | Microsoft Docs
 description: This article describes how to create custom log alerts for memory and CPU utilization from Container insights.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 
 ---
 
-# How to create log alerts from Container insights
+# Create log alerts from Container insights
 
-Container insights monitors the performance of container workloads that are deployed to managed or self-managed Kubernetes clusters. To alert on what matters, this article describes how to create log-based alerts for the following situations with AKS clusters:
+Container insights monitors the performance of container workloads that are deployed to managed or self-managed Kubernetes clusters. To alert on what matters, this article describes how to create log-based alerts for the following situations with Azure Kubernetes Service (AKS) clusters:
 
 - When CPU or memory utilization on cluster nodes exceeds a threshold
 - When CPU or memory utilization on any container within a controller exceeds a threshold as compared to a limit that's set on the corresponding resource
-- *NotReady* status node counts
-- *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded* pod-phase counts
+- `NotReady` status node counts
+- `Failed`, `Pending`, `Unknown`, `Running`, or `Succeeded` pod-phase counts
 - When free disk space on cluster nodes exceeds a threshold
 
-To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. While metric alerts have lower latency than log alerts, log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the *now* operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time (UTC) format.)
+To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts, but log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the `now` operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time [UTC] format.)
 
 > [!IMPORTANT]
-> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you create any alert rules.
+> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create alert rules, see the "Alert rules" section in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
+If you aren't familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Log query measurements
 [Log alerts](../alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor virtual machines in different scenarios:
 
-- [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query, and can be used to work with events such as Windows event logs, syslog, application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column, and can be used to include any number of resources. For example, CPU percentage.
-### Targeting resources and dimensions
+- [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
+- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column and can be used to include any number of resources. An example is CPU percentage.
 
-You can monitor multiple instances’ values with one rule using dimensions. For example, you would use dimensions if you want to monitor the CPU usage on multiple instances running your web site or app, and create an alert for CPU usage of over 80%. 
+### Target resources and dimensions
 
-To create resource-centric alerts at scale for a subscription or resource group, you can **Split by dimensions**.  When you want to monitor the same condition on multiple Azure resources, splitting by dimensions splits the alerts into separate alerts by grouping unique combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
+You can use one rule to monitor the values of multiple instances by using dimensions. For example, you would use dimensions if you wanted to monitor the CPU usage on multiple instances running your website or app, and create an alert for CPU usage of over 80%.
 
-You may also decide not to split when you want a condition on multiple resources in the scope. For example, if you want to create an alert if at least five machines in the resource group scope have CPU usage over 80%.
+To create resource-centric alerts at scale for a subscription or resource group, you can *split by dimensions*. When you want to monitor the same condition on multiple Azure resources, splitting by dimensions splits the alerts into separate alerts by grouping unique combinations by using numerical or string columns. Splitting an Azure resource ID column makes the specified resource into the alert target.
 
-:::image type="content" source="../vm/media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of a new log alert rule with split by dimensions.":::
+You might also decide not to split when you want a condition on multiple resources in the scope. For example, you might want to create an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-You might want to see a list of the alerts by affected computer. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
+:::image type="content" source="../vm/media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot that shows a new log alert rule with split by dimensions." lightbox="../vm/media/monitor-virtual-machines/log-alert-rule.png":::
+
+You might want to see a list of the alerts by affected computer. You can use a custom workbook that uses a custom [resource graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
+
 ## Create a log query alert rule
-[This example of a log query alert](../vm/monitor-virtual-machine-alerts.md#example-log-query-alert) provides a complete walkthrough of creating a log query alert rule. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article.
+To create a log query alert rule by using the portal, see [this example of a log query alert](../alerts/tutorial-log-alert.md), which provides a complete walkthrough. You can use these same processes to create alert rules for AKS clusters by using queries similar to the ones in this article.
 
-## Resource utilization 
+To create a query alert rule by using an Azure Resource Manager (ARM) template, see [Resource Manager template samples for log alert rules in Azure Monitor](../alerts/resource-manager-alerts-log.md). You can use these same processes to create ARM templates for the log queries in this article.
 
-**Average CPU utilization as an average of member nodes' CPU utilization every minute (metric measurement)**
+## Resource utilization
+
+Average CPU utilization as an average of member nodes' CPU utilization every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -79,7 +84,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-**Average memory utilization as an average of member nodes' memory utilization every minute (metric measurement)**
+Average memory utilization as an average of member nodes' memory utilization every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -114,11 +119,10 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-
 >[!IMPORTANT]
 >The following queries use the placeholder values \<your-cluster-name> and \<your-controller-name> to represent your cluster and controller. Replace them with values specific to your environment when you set up alerts.
 
-**Average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute (metric measurement)**
+Average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -158,7 +162,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-**Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute (metric measurement)**
+Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -198,9 +202,9 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-## Resource availability 
+## Resource availability
 
-**Nodes and counts that have a status of Ready and NotReady (metric measurement)**
+Nodes and counts that have a status of Ready and NotReady (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -227,7 +231,8 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-The following query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
+
+The following query returns pod phase counts based on all phases: `Failed`, `Pending`, `Unknown`, `Running`, or `Succeeded`.
 
 ```kusto
 let endDateTime = now(); 
@@ -264,7 +269,7 @@ KubePodInventory
 ```
 
 >[!NOTE]
->To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown*, modify the last line of the query. For example, to alert on *FailedCount* use: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>To alert on certain pod phases, such as `Pending`, `Failed`, or `Unknown`, modify the last line of the query. For example, to alert on `FailedCount`, use `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.
 
 The following query returns cluster nodes disks that exceed 90% free space used. To get the cluster ID, first run the following query and copy the value from the `ClusterId` property:
 
@@ -293,12 +298,8 @@ InsightsMetrics
 | where AggregatedValue >= 90
 ```
 
+Individual container restarts (number of results) alert when the individual system container restart count exceeds a threshold for the last 10 minutes:
 
-
-**Individual container restarts (number of results)**<br>
-Alerts when the individual system container restart count exceeds a threshold for last 10 minutes.
-
- 
 ```kusto
 let _threshold = 10m; 
 let _alertThreshold = 2;
@@ -316,6 +317,5 @@ KubePodInventory
 
 ## Next steps
 
-- View [log query examples](container-insights-log-query.md) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
-
+- View [log query examples](container-insights-log-query.md) to see predefined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
 - To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](./container-insights-overview.md).

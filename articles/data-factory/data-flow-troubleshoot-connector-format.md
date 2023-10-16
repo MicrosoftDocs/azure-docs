@@ -6,8 +6,9 @@ ms.author: jianleishen
 ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
+ms.custom: ignite-2022
 ms.topic: troubleshooting 
-ms.date: 01/21/2022
+ms.date: 07/17/2023
 ---
 
 
@@ -60,7 +61,7 @@ To solve this issue, refer to the following recommendations:
 ### Support customized schemas in the source
 
 #### Symptoms
-When you want to use the ADF data flow to move or transfer data from Cosmos DB/JSON into other data stores, some columns of the source data may be missed. 
+When you want to use the ADF data flow to move or transfer data from Azure Cosmos DB/JSON into other data stores, some columns of the source data may be missed. 
 
 #### Cause 
 For the schema-free connectors (the column number, column name and column data type of each row can be different when comparing with others), by default, ADF uses sample rows (for example, top 100 or 1000 rows data) to infer the schema, and the inferred result will be used as a schema to read data. So if your data stores have extra columns that don't appear in sample rows, the data of these extra columns are not read, moved, or transferred into sink data stores.
@@ -94,17 +95,17 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 ### Support map type in the source
 
 #### Symptoms
-In ADF data flows, map data type cannot be directly supported in Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
+In ADF data flows, map data type cannot be directly supported in Azure Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
 
 #### Cause
-For Cosmos DB and JSON, they are schema-free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
+For Azure Cosmos DB and JSON, they are schema-free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Azure Cosmos DB/JSON source schema. When inferring the schema, the Azure Cosmos DB/JSON Spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
 
 #### Recommendation 
-To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Cosmos DB/JSON source to get the map data type support.
+To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Azure Cosmos DB/JSON source to get the map data type support.
 
 **Examples**:
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Azure Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
     
 **Step-1**: Open the script of the data flow activity.
 
@@ -121,7 +122,7 @@ The map type support:
 |Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
 |Orc, Avro |Yes |None.|
 |JSON|Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
-|Cosmos DB |Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Azure Cosmos DB |Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
 |Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
 |XML |No |None.|
 
@@ -255,7 +256,7 @@ You can try to use copy activities to unblock this issue.
 
 #### Symptoms
 
-Your Azure SQL Database can work well in the data copy, dataset preview-data, and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
+Your Azure SQL Database can work well in the data copy, dataset preview-data, and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access.'`
 
 #### Cause
 
@@ -337,7 +338,7 @@ You use the Azure Synapse Analytics and the linked service actually is a Synapse
 1. When you select 'enable staging' in the Source, you face the following error:
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax near 'IDENTITY'.`
 1. When you want to fetch data from an external table, you face the following error: `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External table 'dbo' is not accessible because location does not exist or it is used by another process.`
-1. When you want to fetch data from Cosmos DB through Serverless pool by query/from view, you face the following error: 
+1. When you want to fetch data from Azure Cosmos DB through Serverless pool by query/from view, you face the following error: 
  `Job failed due to reason: Connection reset.`
 1. When you want to fetch data from a view, you may face with different errors.
 
@@ -346,7 +347,7 @@ Causes of the symptoms are stated below respectively:
 1. Serverless pool cannot be used as a sink. It doesn't support write data into the database.
 1. Serverless pool doesn't support staged data loading, so 'enable staging' is not supported. 
 1. The authentication method that you use doesn't have a correct permission to the external data source where the external table referring to.
-1. There is a known limitation in Synapse serverless pool, blocking you to fetch Cosmos DB data from data flows.
+1. There is a known limitation in Synapse serverless pool, blocking you to fetch Azure Cosmos DB data from data flows.
 1. View is a virtual table based on an SQL statement. The root cause is inside the statement of the view.
 
 #### Recommendation
@@ -358,7 +359,7 @@ You can apply the following steps to solve your issues correspondingly.
     >[!Note]
     > The user-password authentication can not query external tables. For more information, see [Security model](../synapse-analytics/metadata/database.md#security-model).
 
-1. You can use copy activity to fetch Cosmos DB data from the serverless pool.
+1. You can use copy activity to fetch Azure Cosmos DB data from the serverless pool.
 1. You can provide the SQL statement that creates the view to the engineering support team, and they can help analyze if the statement hits an authentication issue or something else.
 
 
@@ -407,7 +408,7 @@ When you use the Synapse as a source/sink in the data flow to preview data, debu
 Confirm the SQL pool was created from the Azure Synapse workspace.
 
 - If the SQL pool was created from the Azure Synapse workspace, no additional steps are necessary. You no longer need to re-register the Managed Identity (MI) of the workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
-- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps).
+- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
 
 ### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
 
@@ -424,7 +425,7 @@ Currently folder names that contain certain special characters are not supported
 
 #### Recommendation
 
-For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps) to solve this issue.
+For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps) to solve this issue.
 
 For Cause 2, work around it with one of the following options:
 
@@ -650,25 +651,11 @@ If you still want to transfer files such as CSV and Excel files with different s
     - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1`, `c_2`, `c_3` while file_2 has columns `c_3`, `c_4`, ... `c_10`, so the merged and full schema is `c_1`, `c_2`, ... `c_10`. Then make other files also have the same schema even though it does not have data, for example, file_x with sheet "SHEET_1" only has columns `c_1`, `c_2`, `c_3`, `c_4`, please add columns `c_5`, `c_6`, ... `c_10` in the sheet too, and then it can work.
     - **Option-2**: Use **range (for example, A1:G100) + firstRowAsHeader=false**, and then it can load data from all Excel files even though the column name and count is different.
 
-## Delta format
 
-### The sink does not support the schema drift with upsert or update
 
-#### Symptoms
-You may face the issue that the delta sink in mapping data flows does not support schema drift with upsert/update. The problem is that the schema drift does not work when the delta is the target in a mapping data flow and user configure an update/upsert. 
 
-If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
 
-#### Error message
-`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
 
-#### Cause
-This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
-
-#### Recommendation
-To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
-1. Create one data flow that includes an insert-only delta sink with the merge schema option to update the schema. 
-1. After Step 1, use delete/upsert/update to modify the target sink without changing the schema. <br/>
 
 
 
@@ -831,7 +818,7 @@ For the Snowflake VARIANT, it can only accept the data flow value that is struct
 For more help with troubleshooting, see these resources:
 
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

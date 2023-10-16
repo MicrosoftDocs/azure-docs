@@ -1,21 +1,21 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: normesta
-
-ms.author: normesta
-ms.date: 12/03/2021
-ms.service: storage
-ms.subservice: common
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 09/19/2023
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
 # Use the Azurite emulator for local Azure Storage development
 
-The Azurite open-source emulator provides a free local environment for testing your Azure blob, queue storage, and table storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
+The Azurite open-source emulator provides a free local environment for testing your Azure Blob, Queue Storage, and Table Storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
 
-Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
+Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md), and continues to be updated to support the latest versions of Azure Storage APIs.
 
 There are several different ways to install and run Azurite on your local system. Select any of these tabs.
 
@@ -23,7 +23,7 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
-Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you are running an earlier version of Visual Studio, you'll need to install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite github repository. 
+Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). The Azurite executable is updated as part of Visual Studio new version releases. If you're running an earlier version of Visual Studio, you can install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -39,21 +39,24 @@ To configure Azurite within Visual Studio Code, select the extensions pane. Sele
 
 The following settings are supported:
 
-   - **Azurite: Blob Host** - The Blob service listening endpoint. The default setting is 127.0.0.1.
-   - **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
-   - **Azurite: Cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
-   - **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
-   - **Azurite: Key** - Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
-   - **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
-   - **Azurite: Loose** - Enable loose mode, which ignores unsupported headers and parameters.
-   - **Azurite: Oauth** - Optional OAuth level.
-   - **Azurite: Pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
-   - **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
-   - **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
-   - **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
-   - **Azurite: Skip Api Version Check** - Skip the request API version check. The default value is **false**.
-   - **Azurite: Table Host** - The Table service listening endpoint, by default setting is 127.0.0.1.
-   - **Azurite: Table Port** - The Table service listening port, by default 10002.
+   - **azurite.blobHost** - The Blob service listening endpoint. The default setting is 127.0.0.1.
+   - **azurite.blobPort** - The Blob service listening port. The default port is 10000.
+   - **azurite.queueHost** - The Queue service listening endpoint. The default setting is 127.0.0.1.
+   - **azurite.queuePort** - The Queue service listening port. The default port is 10001.
+   - **azurite.tableHost** - The Table service listening endpoint, by default setting is 127.0.0.1.
+   - **azurite.tablePort** - The Table service listening port, by default 10002.
+   - **azurite.cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
+   - **azurite.debug** - Output the debug log to the Azurite channel. The default value is **false**.
+   - **azurite.key** - Path to a locally trusted PEM key file, required when 
+   - **azurite.location** - The workspace location path. The default is the Visual Studio Code working folder.
+   - **azurite.loose** - Enable loose mode, which ignores unsupported headers and parameters.
+   - **azurite.oauth** - Optional OAuth level.
+   - **azurite.pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
+
+   - **azurite.silent** - Silent mode disables the access log. The default value is **false**.
+   - **azurite.skipApiVersionCheck** - Skip the request API version check. The default value is **false**.
+   - **azurite.disableProductStyleUrl** Force the parsing of the storage account name from request Uri path, instead of from request Uri host.
+
 
 ### [npm](#tab/npm)
 
@@ -70,6 +73,118 @@ Use [DockerHub](https://hub.docker.com/) to pull the [latest Azurite image](http
 ```console
 docker pull mcr.microsoft.com/azure-storage/azurite
 ```
+
+### [GitHub](#tab/github)
+
+This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 8.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
+
+```console
+git clone https://github.com/Azure/Azurite.git
+```
+
+After cloning the source code, execute following commands from the root of the cloned repo to build and install Azurite.
+
+```console
+npm install
+npm run build
+npm install -g
+```
+
+---
+
+## Run Azurite
+
+### [Visual Studio](#tab/visual-studio)
+
+To use Azurite with most project types in Visual Studio, you first need to run the Azurite executable. Once the executable is running, Azurite listens for connection requests from the application. To learn more, see [Running Azurite from the command line](#running-azurite-from-the-command-line).
+
+For **Azure Functions** projects and **ASP.NET** projects, you can choose to configure the project to start Azurite automatically. This configuration is done during the project setup. While this project configuration starts Azurite automatically, Visual Studio doesn't expose detailed Azurite configuration options. To customize detailed Azurite configuration options, [run the Azurite executable](#running-azurite-from-the-command-line) before launching Visual Studio.
+
+To learn more about configuring **Azure Functions** projects and **ASP.NET** projects to start Azurite automatically, see the following guidance:
+
+- [Running Azurite from an Azure Functions project](#running-azurite-from-an-azure-functions-project)
+- [Running Azurite from an ASP.NET project](#running-azurite-from-an-aspnet-project)
+
+#### Azurite executable file location
+
+The following table shows the location of the Azurite executable for different versions of Visual Studio running on a Windows machine:
+
+| Visual Studio version | Azurite executable location |
+| --- | --- |
+| Visual Studio Community 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` |
+| Visual Studio Professional 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` |
+| Visual Studio Enterprise 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` | 
+
+#### Running Azurite from the command line
+
+You can find the Azurite executable file in the extensions folder of your Visual Studio installation, as detailed in the [Azurite executable file location table](#azurite-executable-file-location).
+
+Navigate to the appropriate location and start `azurite.exe`. After you run the executable file, Azurite listens for connections. 
+
+> [!div class="mx-imgBorder"]
+> ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)
+
+To learn more about available command line options to configure Azurite, see [Command line options](#command-line-options).
+
+#### Running Azurite from an Azure Functions project
+
+In Visual Studio 2022, create an **Azure Functions** project. While setting the project options, mark the box labeled **Use Azurite for runtime storage account**.
+
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions.png":::
+
+After you create the project, Azurite starts automatically. The location of the Azurite executable file is detailed in the [Azurite executable file location table](#azurite-executable-file-location). The output looks similar to the following screenshot:
+
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions-output.png":::
+
+This configuration option can be changed later by modifying the project's **Connected Services** dependencies.
+
+#### Running Azurite from an ASP.NET project
+
+In Visual Studio 2022, create an **ASP.NET Core Web App** project. Then, open the **Connected Services** dialog box, select **Add a service dependency**, and then select **Storage Azurite emulator**.
+
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connect.png" alt-text="A screenshot showing how to add Azurite as a dependency to an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connect.png":::
+
+In the **Configure Storage Azurite emulator** dialog box, set the **Connection string name** field to `StorageConnectionString`, and then select **Finish**.
+
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connection-string.png":::
+
+When the configuration completes, select **Close**, and the Azurite emulator starts automatically. The location of the Azurite executable file is detailed in the [Azurite executable file location table](#azurite-executable-file-location). The output looks similar to the following screenshot:
+
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-output.png" alt-text="A screenshot showing output after connecting an ASP.NET project to the Azurite emulator." lightbox="media/storage-use-azurite/azurite-aspnet-output.png":::
+
+This configuration option can be changed later by modifying the project's **Connected Services** dependencies.
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+> [!NOTE]
+> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette.
+
+The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code.
+
+   - **Azurite: Clean** - Reset all Azurite services persistency data
+   - **Azurite: Clean Blob Service** - Clean blob service
+   - **Azurite: Clean Queue Service** - Clean queue service
+   - **Azurite: Clean Table Service** - Clean table service
+   - **Azurite: Close** - Close all Azurite services
+   - **Azurite: Close Blob Service** - Close blob service
+   - **Azurite: Close Queue Service** - Close queue service
+   - **Azurite: Close Table Service** - Close table service
+   - **Azurite: Start** - Start all Azurite services
+   - **Azurite: Start Blob Service** - Start blob service
+   - **Azurite: Start Queue Service** - Start queue service
+   - **Azurite: Start Table Service** - Start table service
+
+### [npm](#tab/npm)
+
+Launch Azurite by issuing the following command:
+
+```console
+azurite --silent --location c:\azurite --debug c:\azurite\debug.log
+```
+
+This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it uses the current working directory.
+
+### [Docker Hub](#tab/docker-hub)
 
 **Run the Azurite Docker image**:
 
@@ -100,116 +215,13 @@ For more information about configuring Azurite at start-up, see [Command-line op
 
 ### [GitHub](#tab/github)
 
-This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 8.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
-
-```console
-git clone https://github.com/Azure/Azurite.git
-```
-
-After cloning the source code, execute following commands from the root of the cloned repo to build and install Azurite.
-
-```console
-npm install
-npm run build
-npm install -g
-```
-
----
-
-## Run Azurite
-
-### [Visual Studio](#tab/visual-studio)
-
-With a few configurations, Azure Functions or ASP.NET projects start Azurite automatically. For all other project types, you'll have to start Azurite from the command line. 
-
-#### Running Azurite from the command line
-
-You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio you have installed. For example, if you've installed Visual Studio 2022 professional edition on a Windows computer or Virtual Machine (VM), you would find the Azurite executable file at this location: `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
-
-After you run the executable file, Azurite listens for connections. 
-
-> [!div class="mx-imgBorder"]
-> ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)
-
-#### Running Azurite from an Azure Functions project
-
-In Visual Studio 2022, create an **Azure Functions** project. As you create the project, choose the **Storage Emulator**.
-
-> [!div class="mx-imgBorder"]
-> ![Storage emulator option in Azure Functions project](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
-
-After you create the project, Azurite starts automatically. 
-
-> [!div class="mx-imgBorder"]
-> ![Azurite command-line output in Azure Functions project](media/storage-use-azurite/output-window-azure-functions-project.png)
-
-#### Running Azurite from an ASP.NET project
-
-In Visual Studio 2022, create an **ASP.NET Core Web App** project. Then, open the **Connected Services** dialog box, select **Add a service dependency**, and then select **Storage Azurite emulator**.
-
-> [!div class="mx-imgBorder"]
-> ![Connected services dialog box in ASP.NET Core Web App project](media/storage-use-azurite/connected-service-storage-emulator.png)
-
-In the **Configure Storage Azurite emulator** dialog box, set the **Connection string name** field to `StorageConnectionString`, and then select **Finish**.
-
-> [!div class="mx-imgBorder"]
-> ![Configure Storage Azurite emulator dialog box](media/storage-use-azurite/connection-string-for-azurite-emulator-configuration.png)
-
-When the configuration completes, select **Close**. The Azurite emulator starts automatically.
-
-> [!div class="mx-imgBorder"]
-> ![Azurite command-line output in ASP.NET project](media/storage-use-azurite/output-window-asp-net-project.png) 
-
-### [Visual Studio Code](#tab/visual-studio-code)
-
-> [!NOTE]
-> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette.
-
-The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code.
-
-   - **Azurite: Clean** - Reset all Azurite services persistency data
-   - **Azurite: Clean Blob Service** - Clean blob service
-   - **Azurite: Clean Queue Service** - Clean queue service
-   - **Azurite: Clean Table Service** - Clean table service
-   - **Azurite: Close** - Close all Azurite services
-   - **Azurite: Close Blob Service** - Close blob service
-   - **Azurite: Close Queue Service** - Close queue service
-   - **Azurite: Close Table Service** - Close table service
-   - **Azurite: Start** - Start all Azurite services
-   - **Azurite: Start Blob Service** - Start blob service
-   - **Azurite: Start Queue Service** - Start queue service
-   - **Azurite: Start Table Service** - Start table service
-
-### [npm](#tab/npm)
-
-Launch Azurite by issuing the following command:
-
-```console
-azurite --silent --location c:\azurite --debug c:\azurite\debug.log
-```
-
-This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
-
-### [Docker Hub](#tab/docker-hub)
-
-**Run just the blob service**
-
-```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
-    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
-```
-
-For more information about configuring Azurite at start-up, see [Command-line options](#command-line-options).
-
-### [GitHub](#tab/github)
-
 To get started immediately with the command line, create a directory called *c:\azurite*, then launch Azurite by issuing the following command:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
+This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it uses the current working directory.
 
 ---
 
@@ -228,7 +240,7 @@ azurite --help
 
 ### Blob listening host
 
-**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite listens to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -247,7 +259,7 @@ azurite --blobHost 0.0.0.0
 
 ### Blob listening port configuration
 
-**Optional** - By default, Azurite will listen for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite listens for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -268,7 +280,7 @@ The port in use is displayed during Azurite startup.
 
 ### Queue listening host
 
-**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite listens to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -287,7 +299,7 @@ azurite --queueHost 0.0.0.0
 
 ### Queue listening port configuration
 
-**Optional** - By default, Azurite will listen for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite listens for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -308,7 +320,7 @@ The port in use is displayed during Azurite startup.
 
 ### Table listening host
 
-**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--tableHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite listens to 127.0.0.1 as the local server. Use the `--tableHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -327,7 +339,7 @@ azurite --tableHost 0.0.0.0
 
 ### Table listening port configuration
 
-**Optional** - By default, Azurite will listen for the Table service on port 10002. Use the `--tablePort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite listens for the Table service on port 10002. Use the `--tablePort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -348,7 +360,7 @@ The port in use is displayed during Azurite startup.
 
 ### Workspace path
 
-**Optional** - Azurite stores data to the local disk during execution. Use the `-l` or `--location` switch to specify a path as the workspace location. By default, the current process working directory will be used. Note the lowercase 'l'.
+**Optional** - Azurite stores data to the local disk during execution. Use the `-l` or `--location` switch to specify a path as the workspace location. By default, the current process working directory is used. Note the lowercase 'l'.
 
 ```console
 azurite -l c:\azurite
@@ -409,6 +421,8 @@ When `--cert` is provided for a PFX file, you must provide a corresponding `--pw
 azurite --cert path/server.pfx --pwd pfxpassword
 ```
 
+#### HTTPS setup
+
 For detailed information on creating PEM and PFX files, see [HTTPS Setup](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
 
 ### OAuth configuration
@@ -422,7 +436,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > [!NOTE]
 > OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
 
-Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite will do basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite won't check the token signature or permissions.
+Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Authorization for tools and SDKs](#connect-to-azurite-with-sdks-and-tools).
 
 ### Skip API Version Check
 
@@ -432,11 +446,19 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 azurite --skipApiVersionCheck
 ```
 
-## Authorization for tools and SDKs
+### Disable Production Style Url
 
-Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
+**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite parses the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
 
-If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert --key/--pwd` options.
+```cmd
+azurite --disableProductStyleUrl
+```
+
+## Connect to Azurite with SDKs and tools
+
+You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
+
+If you're using the Azure SDKs, start Azurite with the `--oauth basic`` and `--cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
 
 ### Well-known storage account and key
 
@@ -447,7 +469,7 @@ Azurite accepts the same well-known account and key used by the legacy Azure Sto
 
 ### Custom storage accounts and keys
 
-Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`.
+Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`. 
 
 For example, use a custom storage account that has one key:
 
@@ -458,6 +480,9 @@ set AZURITE_ACCOUNTS="account1:key1"
 ```bash
 export AZURITE_ACCOUNTS="account1:key1"
 ```
+
+> [!NOTE]
+> The account keys must be a base64 encoded string.
 
 Or use multiple storage accounts with two keys each:
 
@@ -473,6 +498,8 @@ Azurite refreshes custom account names and keys from the environment variable ev
 
 > [!NOTE]
 > The default `devstoreaccount1` storage account is disabled when you set custom storage accounts.
+
+The account keys must be a base64 encoded string.
 
 ### Connection strings
 
@@ -490,7 +517,7 @@ You can pass the following connection strings to the [Azure SDKs](https://aka.ms
 
 The full connection string is:
 
-`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;`
 
 To connect to the blob service only, the connection string is:
 
@@ -500,11 +527,15 @@ To connect to the queue service only, the connection string is:
 
 `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
 
+To connect to the table service only, the connection string is:
+
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;`
+
 #### HTTPS connection strings
 
 The full HTTPS connection string is:
 
-`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;`
 
 To use the blob service only, the HTTPS connection string is:
 
@@ -514,9 +545,13 @@ To use the queue service only, the HTTPS connection string is:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
+To use the table service only, the HTTPS connection string is:
+
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;`
+
 If you used `dotnet dev-certs` to generate your self-signed certificate, use the following connection string.
 
-`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;TableEndpoint=https://localhost:10002/devstoreaccount1;`
 
 Update the connection string when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
 
@@ -524,15 +559,19 @@ For more information, see [Configure Azure Storage connection strings](storage-c
 
 ### Azure SDKs
 
-To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth and HTTPS options:
+To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth with HTTPS options:
 
 ```console
 azurite --oauth basic --cert certname.pem --key certname-key.pem
 ```
 
+To learn more about configuring OAuth for Azurite, see [OAuth configuration](#oauth-configuration). To learn about certificate configuration and HTTPS setup, see [Certificate configuration (HTTPS)](#certificate-configuration-https).
+
 #### Azure Blob Storage
 
-You can then instantiate a BlobContainerClient, BlobServiceClient, or BlobClient.
+To interact with Blob Storage resources, you can instantiate a `BlobContainerClient`, `BlobServiceClient`, or `BlobClient`. 
+
+The following examples show how to authorize a `BlobContainerClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With container URL and DefaultAzureCredential
@@ -542,7 +581,7 @@ var client = new BlobContainerClient(
 
 // With connection string
 var client = new BlobContainerClient(
-    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "container-name"
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;", "container-name"
   );
 
 // With account name and key
@@ -554,7 +593,9 @@ var client = new BlobContainerClient(
 
 #### Azure Queue Storage
 
-You can also instantiate a QueueClient or QueueServiceClient.
+To interact with Queue Storage resources, you can instantiate a `QueueClient` or `QueueServiceClient`. 
+
+The following examples show how to create and authorize a `QueueClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With queue URL and DefaultAzureCredential
@@ -564,12 +605,36 @@ var client = new QueueClient(
 
 // With connection string
 var client = new QueueClient(
-    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "queue-name"
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "queue-name"
   );
 
 // With account name and key
 var client = new QueueClient(
     new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"),
+    new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
+  );
+```
+
+#### Azure Table Storage
+
+To interact with Table Storage resources, you can instantiate a `TableClient` or `TableServiceClient`. 
+
+The following examples show how to create and authorize a `TableClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
+
+```csharp
+// With table URL and DefaultAzureCredential
+var client = new Client(
+    new Uri("https://127.0.0.1:10002/devstoreaccount1/table-name"), new DefaultAzureCredential()
+  );
+
+// With connection string
+var client = new TableClient(
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;", "table-name"
+  );
+
+// With account name and key
+var client = new TableClient(
+    new Uri("https://127.0.0.1:10002/devstoreaccount1/table-name"),
     new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
   );
 ```
@@ -592,14 +657,14 @@ In Storage Explorer, connect to Azurite by following these steps:
 
 #### Connect to Azurite using HTTPS
 
-By default Storage Explorer won't open an HTTPS endpoint that uses a self-signed certificate. If you're running Azurite with HTTPS, you're likely using a self-signed certificate. In Storage Explorer, import SSL certificates via the **Edit** -> **SSL Certificates** -> **Import Certificates** dialog.
+By default, Storage Explorer doesn't open an HTTPS endpoint that uses a self-signed certificate. If you're running Azurite with HTTPS, you're likely using a self-signed certificate. In Storage Explorer, import SSL certificates via the **Edit** -> **SSL Certificates** -> **Import Certificates** dialog.
 
 ##### Import Certificate to Storage Explorer
 
 1. Find the certificate on your local machine.
 1. In Storage Explorer, go to **Edit** -> **SSL Certificates** -> **Import Certificates** and import your certificate.
 
-If you don't import a certificate, you'll get an error:
+If you don't import a certificate, you get an error:
 
 `unable to verify the first certificate` or `self signed certificate in chain`
 
@@ -623,10 +688,13 @@ The following files and folders may be created in the workspace location when in
 
 - `__blobstorage__` - Directory containing Azurite blob service persisted binary data
 - `__queuestorage__` - Directory containing Azurite queue service persisted binary data
+- `__tablestorage__` - Directory containing Azurite table service persisted binary data
 - `__azurite_db_blob__.json` - Azurite blob service metadata file
 - `__azurite_db_blob_extent__.json` - Azurite blob service extent metadata file
 - `__azurite_db_queue__.json` - Azurite queue service metadata file
 - `__azurite_db_queue_extent__.json` - Azurite queue service extent metadata file
+- `__azurite_db_table__.json` - Azurite table service metadata file
+- `__azurite_db_table_extent__.json` - Azurite table service extent metadata file
 
 To clean up Azurite, delete above files and folders and restart the emulator.
 
@@ -646,13 +714,48 @@ The following URI is a valid address for a blob in an Azure Storage account:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-Since the local computer doesn't do domain name resolution, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in Azurite:
+
+#### IP-style URL
+
+Since the local computer doesn't resolve domain names, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in Azurite:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
 The following address might be used for accessing a blob in Azurite:
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
+
+#### Production-style URL
+
+Optionally, you could modify your hosts file to access an account with _production-style_ URL.
+
+First, add one or more lines to your hosts file. For example:
+
+```
+127.0.0.1 account1.blob.localhost
+127.0.0.1 account1.queue.localhost
+127.0.0.1 account1.table.localhost
+```
+
+Next, set environment variables to enable customized storage accounts and keys:
+
+```
+set AZURITE_ACCOUNTS="account1:key1:key2"
+```
+
+You could add more accounts. See the [Custom storage accounts and keys](#custom-storage-accounts-and-keys) section of this article.
+
+Start Azurite and use a customized connection string to access your account. In the following example, the connection string assumes that the default ports are used. 
+
+```
+DefaultEndpointsProtocol=http;AccountName=account1;AccountKey=key1;BlobEndpoint=http://account1.blob.localhost:10000;QueueEndpoint=http://account1.queue.localhost:10001;TableEndpoint=http://account1.table.localhost:10002;
+```
+
+Don't access default account in this way with Azure Storage Explorer. There's a bug that Storage Explorer is always adding account name in URL path, causing failures.
+
+By default, when using Azurite with a production-style URL, the account name should be the host name in fully qualified domain name such as "http://devstoreaccount1.blob.localhost:10000/container". To use production-style URL with account name in the URL path such as "http://foo.bar.com:10000/devstoreaccount1/container", make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
+
+If you use `host.docker.internal` as request Uri host (For example: `http://host.docker.internal:10000/devstoreaccount1/container`), Azurite gets the account name from the request Uri path. This behavior is true regardless of whether you use the `--disableProductStyleUrl` parameter when you start Azurite. 
 
 ### Scaling and performance
 

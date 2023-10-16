@@ -2,10 +2,10 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 04/01/2022
-author: v-amallick
+ms.date: 05/16/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -75,8 +75,8 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 4. Change the permissions and ownership of the file as follows:
     
     ```bash
-    chmod 750 ExtensionSettingsOverrides.json
-    chown root:msawb ExtensionSettingsOverrides.json
+    chmod 750 ExtensionSettingOverrides.json
+    chown root:msawb ExtensionSettingOverrides.json
     ```
 
 5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.
@@ -86,8 +86,9 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 Running the pre-registration script performs the following functions:
 
 * Based on your Linux distribution, the script installs or updates any necessary packages required by the Azure Backup agent.
-* It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
+* It performs outbound network connectivity checks with Azure Backup servers and dependent services like Microsoft Entra ID and Azure Storage.
 * It logs into your HANA system using the custom user key or SYSTEM user key mentioned as part of the [prerequisites](#prerequisites). This is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully. _Note that the SYSTEM user key must not be deleted_.
+* It checks and warns if the */opt/msawb* folder is placed in the root partition and the root partition is 2 GB in size. The script recommends that you increase the root partition size to 4 GB or move the */opt/msawb* folder to a different location where it has space to grow to a maximum of 4 GB in size. Note that if you place the */opt/msawb* folder in the root partition of 2 GB size, this could lead to root partition getting full and causing the backups to fail.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
   * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.
   * For SDC: BACKUP ADMIN: to create new databases during restore.
@@ -126,7 +127,7 @@ Here's a summary of steps required for completing the pre-registration script ru
 | `<sid>`adm (OS)   |  HANA OS    |   Run the command:<br> `hdbuserstore List`   |  Check if the result includes the default store as below: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | Root (OS)   |   HANA OS    |    Run the [Azure Backup HANA pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm (OS)   |   HANA OS   |    Run the command: <br> `hdbuserstore List`   |   Check if result includes new lines as below: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Azure Contributor     |    Azure portal    |   Configure NSG, NVA, Azure Firewall, and so on to allow outbound traffic to Azure Backup service, Azure AD, and Azure Storage.     |    [Set up network connectivity](backup-azure-sap-hana-database.md#establish-network-connectivity)    |
+| Azure Contributor     |    Azure portal    |   Configure NSG, NVA, Azure Firewall, and so on to allow outbound traffic to Azure Backup service, Microsoft Entra ID, and Azure Storage.     |    [Set up network connectivity](backup-azure-sap-hana-database.md#establish-network-connectivity)    |
 | Azure Contributor |   Azure portal    |   Create or open a Recovery Services vault and then select HANA backup.   |   Find all the target HANA VMs to back up.   |
 | Azure Contributor    |   Azure portal    |   Discover HANA databases and configure backup policy.   |  For example: <br><br>  Weekly backup: Every Sunday 2:00 AM, retention of weekly 12 weeks, monthly 12 months, yearly 3 years   <br>   Differential or incremental: Every day, except for Sunday    <br>   Log: every 15 minutes retained for 35 days    |
 | Azure Contributor  |   Azure portal    |    Recovery Service vault – Backup Items – SAP HANA     |   Check backup jobs (Azure Workload).    |
@@ -140,7 +141,7 @@ The Recovery Services vault is now created.
 
 ## Enable Cross Region Restore
 
-At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
+At the Recovery Services vault, you can enable Cross Region Restore. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
 [Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 

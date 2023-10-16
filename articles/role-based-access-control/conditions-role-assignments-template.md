@@ -1,29 +1,31 @@
 ---
-title: Add Azure role assignment conditions using Azure Resource Manager templates (Preview) - Azure ABAC
+title: Add Azure role assignment conditions using Azure Resource Manager templates - Azure ABAC
 description: Learn how to add attribute-based access control (ABAC) conditions in Azure role assignments using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/29/2021
+ms.custom: devx-track-arm-template
+ms.date: 10/24/2022
 ms.author: rolyon
 ---
 
-# Add Azure role assignment conditions using Azure Resource Manager templates (Preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Add Azure role assignment conditions using Azure Resource Manager templates
 
 An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add conditions for your role assignments using Azure Resource Manager templates.
 
 ## Prerequisites
 
-For information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
+You must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 ## Add a condition
 
@@ -66,7 +68,7 @@ To use the template, you must specify the following input:
         {
             "name": "[parameters('roleAssignmentGuid')]",
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2020-04-01-preview", // API version to call the role assignment PUT.
+            "apiVersion": "2022-04-01", // API version to call the role assignment PUT.
             "properties": {
                 "roleDefinitionId": "[variables('StorageBlobDataReader')]",
                 "principalId": "[parameters('principalId')]",
@@ -92,6 +94,6 @@ az deployment group create --resource-group example-group --template-file rbac-t
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)
 - [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md)

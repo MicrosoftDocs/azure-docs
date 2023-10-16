@@ -1,0 +1,168 @@
+items:
+- name: Azure OpenAI Service Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: What is Azure OpenAI?
+      href: overview.md
+    - name: Quotas and limits
+      href: quotas-limits.md
+    - name: Models
+      href: ./concepts/models.md
+    - name: Legacy models
+      href: ./concepts/legacy-models.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
+    - name: What's new
+      href: whats-new.md
+    - name: Azure OpenAI FAQ
+      href: faq.yml
+- name: Quickstarts
+  items:
+    - name: Completions
+      href: quickstart.md
+    - name: Chat
+      href: chatgpt-quickstart.md  
+      displayName: ChatGPT, chatgpt
+    - name: DALL-E (preview)
+      href: dall-e-quickstart.md
+    - name: Use your data (preview)
+      href: use-your-data-quickstart.md
+    - name: Whisper (preview)
+      href: whisper-quickstart.md
+- name: Concepts
+  items:
+    - name: Abuse monitoring
+      href: ./concepts/abuse-monitoring.md
+    - name: Content filtering
+      href: ./concepts/content-filter.md
+    - name: Embeddings
+      href: ./concepts/understand-embeddings.md
+    - name: Red teaming large language models (LLMs)
+      href: ./concepts/red-teaming.md
+    - name: Intro to prompt engineering
+      href: ./concepts/prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
+    - name: Prompt engineering techniques
+      href: ./concepts/advanced-prompt-engineering.md
+    - name: System message templates
+      href: ./concepts/system-message.md
+    - name: Using your data (preview)
+      href: ./concepts/use-your-data.md
+- name: How-to 
+  items:
+  - name: Completions & chat completions
+    items:
+    - name: GPT-35-Turbo & GPT-4 
+      href: ./how-to/chatgpt.md
+      displayName: ChatGPT, chatgpt
+    - name: Function calling
+      href: ./how-to/function-calling.md
+    - name: Completions
+      href: ./how-to/completions.md
+    - name: Work with code
+      href: ./how-to/work-with-code.md
+    - name: Use with large datasets
+      href: ./how-to/integrate-synapseml.md
+  - name: Content filtering
+    href: ./how-to/content-filters.md
+  - name: Embeddings
+    items:
+    - name: Embeddings basics
+      href: ./how-to/embeddings.md
+    - name: Getting started with embeddings (Python)
+      href: ./tutorials/embeddings.md
+  - name: Fine-tuning
+    items:
+      - name: Fine-tuning your model
+        href: ./how-to/fine-tuning.md
+  - name: Models
+    items:
+      - name: Manage models
+        href: ./how-to/working-with-models.md
+  - name: Networking and security
+    items:
+      - name: Use virtual networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
+      - name: Encryption of data at rest
+        href: encrypt-data-at-rest.md
+      - name: Manage identity
+        href: ./how-to/managed-identity.md
+  - name: Service management
+    items:
+      - name: Resource creation & model deployment
+        href: ./how-to/create-resource.md
+      - name: OpenAI vs Azure OpenAI (Python)
+        href: ./how-to/switching-endpoints.md
+      - name: Manage quota
+        href: ./how-to/quota.md
+      - name: Monitor Azure OpenAI
+        href: ./how-to/monitoring.md
+      - name: Plan and manage costs
+        href: ./how-to/manage-costs.md
+      - name: Role-based access control (Azure RBAC)
+        href: ./how-to/role-based-access-control.md
+      - name: Business continuity & disaster recovery (BCDR)
+        href: ./how-to/business-continuity-disaster-recovery.md
+- name: Tutorials
+  items:
+    - name: Embeddings
+      href: ./tutorials/embeddings.md
+    - name: Fine-tuning GPT-3.5-Turbo
+      href: ./tutorials/fine-tune.md
+    - name: Speech to speech chat
+      href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
+- name: Responsible AI
+  items:
+    - name: Overview
+      href: /legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context
+    - name : Transparency note
+      href: /legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context
+    - name: Limited access
+      href: /legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context
+    - name: Code of conduct
+      href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context
+    - name: Data, privacy, and security
+      href: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
+- name: Reference
+  items:
+    - name: Azure Resource Manager/Bicep/Terraform
+      href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
+      displayName: ARM, ARM template, template 
+    - name: Azure CLI
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest&preserve-view=true
+    - name: Go
+      href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
+    - name: Java
+      href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
+    - name: JavaScript
+      href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
+    - name: .NET 
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
+    - name: REST API (completions & embeddings)
+      href: reference.md
+    - name: REST API (fine-tuning)
+      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
+    - name: REST API (resource creation & deployment)
+      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+- name: Resources
+  items: 
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context
+    - name: Intro to Azure OpenAI training
+      href: /training/modules/explore-azure-openai/
+    - name: Azure OpenAI Samples
+      href: https://aka.ms/AOAICodeSamples
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Terms of use
+      href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
+    - name: Azure compliance offerings
+      href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+    
+
+
+
+

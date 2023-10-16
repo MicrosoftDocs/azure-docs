@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Create an internal load balancer by using a template'
-description: This quickstart shows how to create an internal Azure load balancer by using an Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an internal load balancer - ARM template'
+description: This quickstart creates an internal Azure load balancer using an Azure Resource Manager template (ARM template).
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.author: allensu
-ms.date: 09/14/2020
+ms.author: mbender
+ms.date: 05/01/2023
+ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 ---
 
-# Quickstart: Create an internal load balancer to load balance VMs by using an ARM template
+# Quickstart: Create an internal load balancer to load balance VMs using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2F2-vms-internal-load-balancer%2Fazuredeploy.json)
 

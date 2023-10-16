@@ -1,6 +1,6 @@
 ---
 title: Verb action for Azure Machine Learning in 59 chars or less. Include the name Azure Machine Learning. Test title here https://moz.com/learn/seo/title-tag  (EXAMPLE - Deploying web services in Python with Azure Machine Learning)
-description: Learn how to do this and that using customer words in Azure Machine Learning. This string describes the article in 115 to 145 characters. Use SEO kind of action verbs here. This info is displayed on the search page inline with the article date stamp. If your intro para describes your article's intent, you can use it here edited for length.
+description: Learn how to do this and that using customer words in Azure Machine Learning. This string describes the article in 115 to 145 characters. Use SEO kind of action verbs here. This info is displayed on the search page in line with the article date stamp. If your intro para describes your article's intent, you can use it here, edited for length.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,28 +10,28 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ---
-# This H1 is the title of the article. It appears in search, appears at the top of article, second greatest impact on search, 100 chars or less
+# This H1 is the title of the article. It appears in search, appears at the top of the article, and has the second most significant impact on search —100 chars or less.
 
-Guidance here: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
+Guidance [here](https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=main)
 
 
-1st paragraph	provides the primary intent of the article in 1 or 2 short sentences. 
+1st paragraph provides the primary intent of the article in 1 or 2 short sentences. 
 
 ## Prerequisites
-To step through this how-to guide, you need:
+To step through this how-to guide, you need the following:
 - [A machine learning account](template-howto.md)
 
 ## Section here H2 
 Paragraph here. 
 **This phrase is bold.**
-*This phrase is italics.*
+*This phrase is in italics.*
 
 This is a [hyperlink to an article](./template-concepts.md)
 
 This is an image:
 
 ![This is an image description](media/overview-what-is-azure-ml/aml-concepts.png)
-Note that images need to be stored in the media folder with a subdirectory matching the name of the article and then the filename.
+Note that images need to be stored in the media folder with a subdirectory matching the article's name and then the filename.
 
 ## Section here H2
 This table has headings:
@@ -59,7 +59,7 @@ This is a numbered list:
 
 5. Fifth item
 
-## This list is bulleted list:
+## This list is a bulleted list:
 - Item 1
 - Item 2
 - Item 3

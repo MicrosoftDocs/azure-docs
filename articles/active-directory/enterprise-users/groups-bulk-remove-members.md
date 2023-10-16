@@ -1,11 +1,11 @@
 ---
-title: Bulk remove group members by uploading a CSV file - Azure Active Directory | Microsoft Docs
+title: Bulk remove group members by uploading a CSV file
 description: Remove group members in bulk operations in the Azure admin center. 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 09/22/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 09/08/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -15,13 +15,13 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk remove group members in Azure Active Directory
+# Bulk remove group members in Microsoft Entra ID
 
-Using Azure Active Directory (Azure AD) portal, you can remove a large number of members from a group by using a comma-separated values (CSV) file to bulk remove group members.
+You can remove a large number of members from a group by using a comma-separated values (CSV) file to remove group members in bulk using the portal for Microsoft Entra ID, part of Microsoft Entra.
 
 ## Understand the CSV template
 
-Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
+Download and fill in the bulk upload CSV template to successfully add Microsoft Entra group members in bulk. Your CSV template might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-remove-members/template-example.png)
 
@@ -42,8 +42,11 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk remove group members
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
-1. In Azure AD, select **Groups** > **All groups**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Groups** > **All groups**.
 1. Open the group from which you're removing members and then select **Members**.
 1. On the **Members** page, select **Remove members**.
 1. On the **Bulk remove group members** page, select **Download** to get the CSV file template with required group member properties.

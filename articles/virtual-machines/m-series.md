@@ -1,12 +1,13 @@
 ---
 title: M-series - Azure Virtual Machines
 description: Specifications for the M-series VMs.
-author: ayshakeen
+author: lauradolan
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
+ms.custom: devx-track-linux
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: jushiman
+ms.date: 04/12/2023
+ms.author: ayshak
 ---
 
 # M-series
@@ -46,7 +47,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 | Standard_M128 <sup>1</sup>       | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 32000 |
 | Standard_M128m <sup>1</sup>      | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 32000 |
 
-<sup>1</sup> More than 64 vCPU's require one of these supported guest versions: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1.
+<sup>1</sup> More than 64 vCPU's require one of these supported guest versions: Windows Server 2016, Ubuntu 18.04+ LTS, SLES 12 SP2+, Red Hat Enterprise Linux 7/8/9, CentOS 7.3+ or Oracle Linux 7.3+ with LIS 4.2.1 or higher.
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 

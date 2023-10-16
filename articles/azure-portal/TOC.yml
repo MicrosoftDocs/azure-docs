@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About the Azure portal
+  - name: What is the Azure portal?
     href: azure-portal-overview.md
   - name: Get started with Azure Quickstart Center
     href: azure-portal-quickstart-center.md
@@ -18,6 +18,9 @@
       href: quickstart-portal-dashboard-azure-cli.md
     - name: Azure PowerShell
       href: quickstart-portal-dashboard-powershell.md
+    - name: Bicep
+      displayName: Resource Manager, ARM, template
+      href: quick-create-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-template.md
@@ -42,6 +45,8 @@
     - name: Programmatically create an Azure dashboard
       href: azure-portal-dashboards-create-programmatically.md
       displayName: Azure CLI, az portal dashboard, az portal
+    - name: Recover a deleted dashboard
+      href: recover-shared-deleted-dashboard.md
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
   - name: Create and manage support requests
@@ -50,28 +55,16 @@
       href: supportability/how-to-create-azure-support-request.md
     - name: Manage an Azure support request
       href: supportability/how-to-manage-azure-support-request.md
-  - name: View and increase quotas
-    items:
-    - name: View quotas
-      href: supportability/view-quotas.md
-    - name: Increase vCPU quotas
-      items:
-      - name: Increase VM-family vCPU quotas
-        href: supportability/per-vm-quota-requests.md
-      - name: Increase regional vCPU quotas
-        href: supportability/regional-quota-requests.md
-      - name: Increase spot vCPU quotas
-        href: supportability/spot-quota.md
-    - name: Increase vCPU quotas for classic deployment
-      href: supportability/classic-deployment-model-quota-increase-requests.md
-    - name: Increase networking quotas
-      href: supportability/networking-quota-requests.md
-  - name: Troubleshoot Azure portal issues
-    items:
-    - name: Recover a deleted dashboard
-      href: recover-shared-deleted-dashboard.md
     - name: Capture a browser trace for troubleshooting
       href: capture-browser-trace.md
+- name: Azure mobile app
+  items:
+  - name: Overview
+    href: mobile-app/overview.md
+    displayName: mobile, app, ios, android
+  - name: Home
+    href: mobile-app/home.md
+    displayName: mobile, app, start
 - name: Reference
   items:
   - name: Keyboard shortcuts
@@ -82,6 +75,8 @@
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
     href: /cli/azure/portal
+  - name: Azure PowerShell
+    href: /powershell/module/az.portal
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -89,8 +84,8 @@
   items:
   - name: Azure updates
     href: https://azure.microsoft.com/updates/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-portal
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-portal
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability

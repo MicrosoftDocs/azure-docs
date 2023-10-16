@@ -1,6 +1,6 @@
 ---
 title: Bing Image Search Java client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -53,7 +53,7 @@ Install the Bing Image Search client library dependencies by using Maven, Gradle
 
 1. Using `bingImages().search()`, send the HTTP request containing the search query. Save the response as a `ImagesModel`.
 
-   ```java
+    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
                 .withMarket("en-us")
@@ -89,6 +89,6 @@ else {
 
 * [What is Bing Image Search?](../../overview.md)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Java samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Azure Cognitive Services Documentation](../../../index.yml)
+* [Java samples for the Azure AI services SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+* [Azure AI services documentation](../../../../ai-services/index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

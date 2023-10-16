@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/16/2021
+ms.date: 10/11/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,6 +20,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
+| `AADB2C90001` | This user already exists, and profile '{0}' does not allow the same user to be created again. | [Sign-up flow](add-sign-up-and-sign-in-policy.md) |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client ID '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90007` | The application associated with client ID '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
@@ -32,7 +33,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90016` | The requested client assertion type '{0}' does not match the expected type '{1}'. | deprecated |
 | `AADB2C90017` | The client assertion provided in the request is invalid: {0} | deprecated |
 | `AADB2C90018` | The client ID '{0}' specified in the request is not registered in tenant '{1}'. |  [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
-| `AADB2C90019` | The key container with ID '{0}' in tenant '{1}' does not has a valid key. Reason: {2}. |  |
+| `AADB2C90019` | The key container with ID '{0}' in tenant '{1}' does not have a valid key. Reason: {2}. |  |
 | `AADB2C90021` | The technical profile '{0}' does not exist in the policy '{1}' of tenant '{2}'. |  |
 | `AADB2C90022` | Unable to return metadata for the policy '{0}' in tenant '{1}'. | [Share the application's metadata publicly](saml-service-provider.md) |
 | `AADB2C90023` | Profile '{0}' does not contain the required metadata key '{1}'. |  |
@@ -42,7 +43,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90031` | Policy '{0}' does not specify a default user journey. Ensure that the policy or it's parents specify a default user journey as part of a relying party section. | [Default user journey](relyingparty.md#defaultuserjourney) |
 | `AADB2C90035` | The service is temporarily unavailable. Please retry after a few minutes. |  |
 | `AADB2C90036` | The request does not contain a URI to redirect the user to post logout. Specify a URI in the post_logout_redirect_uri parameter field. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
-| `AADB2C90037` | An error occurred while processing the request. Please contact administrator of the site you are trying to access. |  |
+| `AADB2C90037` | An error occurred while processing the request. Please locate the `CorrelationId` from the response. | [Submit a new support request](find-help-open-support-ticket.md), and include the `CorrelationId`. |
 | `AADB2C90039` | The request contains a client assertion, but the provided policy '{0}' in tenant '{1}' is missing a client_secret in RelyingPartyPolicy. | deprecated | 
 | `AADB2C90040` | User journey '{0}' does not contain a send claims step. | [User journey orchestration steps](userjourneys.md#orchestrationsteps) |
 | `AADB2C90043` | The prompt included in the request contains invalid values. Expected 'none', 'login', 'consent' or 'select_account'. |  |
@@ -60,6 +61,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99059` | The supplied request must present a code_challenge. Required for single-page apps using the authorization code flow.| [Authorization code flow](authorization-code-flow.md) |
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
+| `AADB2C90073` | KeyContainer with 'id': '{0}' cannot be found in the directory '{1}' |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |
 | `AADB2C90077` | User does not have an existing session and request prompt parameter has a value of '{0}'. |
 | `AADB2C90079` | Clients must send a client_secret when redeeming a confidential grant. | [Create a web app client secret](configure-authentication-sample-web-app-with-api.md#step-24-create-a-web-app-client-secret) |
@@ -142,9 +144,12 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90288` | UserJourney with ID '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90287` | The request contains invalid redirect URI '{0}'.| [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |  [Add an IDP to your Azure AD B2C tenant](add-identity-provider.md) |
+| `AADB2C90289` | We encountered an 'invalid_client' error connecting to the identity provider. Please try again later. | Make sure the application secret is correct or it hasn't expired. Learn how to [Register apps](register-apps.md).|
 | `AADB2C90296` | Application has not been configured correctly. Please contact administrator of the site you are trying to access. | [Register a web application](tutorial-register-applications.md) |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. | [Web sign-in with OpenID Connect](openid-connect.md) | 
 | `AADB2C99006` | Azure AD B2C cannot find the extensions app with app ID '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. | [Azure AD B2C extensions app](extensions-app.md) |
 | `AADB2C99011` | The metadata value '{0}' has not been specified in TechnicalProfile '{1}' in policy '{2}'. | [Custom policy Technical profiles](technicalprofiles.md) |
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
+|`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
+| `AADB2C99027` | Policy '{0}' does not contain a AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |

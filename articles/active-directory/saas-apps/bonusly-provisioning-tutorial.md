@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Bonusly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Bonusly.
+title: 'Tutorial: Configure Bonusly for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Bonusly.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -9,78 +9,71 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
 # Tutorial: Configure Bonusly for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Bonusly and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Bonusly.
+The objective of this tutorial is to demonstrate the steps to be performed in Bonusly and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users and/or groups to Bonusly.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-* An Azure AD tenant
+* A Microsoft Entra tenant
 * A [Bonusly tenant](https://bonus.ly/pricing)
 * A user account in Bonusly with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Bonusly REST API](https://konghq.com/solutions/gateway/), which is available to Bonusly developers.
+> The Microsoft Entra provisioning integration relies on the [Bonusly REST API](https://konghq.com/solutions/gateway/), which is available to Bonusly developers.
 
 ## Adding Bonusly from the gallery
 
-Before configuring Bonusly for automatic user provisioning with Azure AD, you need to add Bonusly from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Bonusly for automatic user provisioning with Microsoft Entra ID, you need to add Bonusly from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Bonusly from the Azure AD application gallery, perform the following steps:**
+**To add Bonusly from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, type **Bonusly**, select **Bonusly** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the search box, type **Bonusly**, select **Bonusly** from result panel then click **Add** button to add the application.
 
 	![Bonusly in the results list](common/search-new-app.png)
 
 ## Assigning users to Bonusly
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized. 
+Microsoft Entra ID uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Microsoft Entra ID are synchronized. 
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Bonusly. Once decided, you can assign these users and/or groups to Bonusly by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Microsoft Entra ID need access to Bonusly. Once decided, you can assign these users and/or groups to Bonusly by following the instructions here:
 
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Bonusly
 
-* It is recommended that a single Azure AD user is assigned to Bonusly to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to Bonusly to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Bonusly, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Bonusly
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Bonusly based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Bonusly based on user and/or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Bonusly, following the instructions provided in the [Bonusly single sign-on tutorial](bonus-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-### To configure automatic user provisioning for Bonusly in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Bonusly**.
+### To configure automatic user provisioning for Bonusly in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Bonusly**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Bonusly**.
+1. In the applications list, select **Bonusly**.
 
 	![The Bonusly link in the Applications list](common/all-applications.png)
 
@@ -110,9 +103,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	:::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Screenshot of the Bonusly site. A notification is visible that displays New access token created, followed by an indecipherable token." border="false":::
 
-8. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Bonusly. If the connection fails, ensure your Bonusly account has Admin permissions and try again.
+8. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Microsoft Entra ID can connect to Bonusly. If the connection fails, ensure your Bonusly account has Admin permissions and try again.
 
-	:::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot of the Admin Credentials section of the Azure portal. The Text connection button is highlighted." border="false":::
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot of the Admin Credentials section. The Text connection button is highlighted." border="false":::
 
 9. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
@@ -120,17 +113,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Click **Save**.
 
-11. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Bonusly**.
+11. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Bonusly**.
 
-	:::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to Bonusly is highlighted." border="false":::
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Microsoft Entra users to Bonusly is highlighted." border="false":::
 
-12. Review the user attributes that are synchronized from Azure AD to Bonusly in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Bonusly for update operations. Select the **Save** button to commit any changes.
+12. Review the user attributes that are synchronized from Microsoft Entra ID to Bonusly in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Bonusly for update operations. Select the **Save** button to commit any changes.
 
-	:::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory attributes, corresponding Bonusly attributes, and the matching status." border="false":::
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Microsoft Entra attributes, corresponding Bonusly attributes, and the matching status." border="false":::
 
 13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. To enable the Azure AD provisioning service for Bonusly, change the **Provisioning Status** to **On** in the **Settings** section.
+14. To enable the Microsoft Entra provisioning service for Bonusly, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	:::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Screenshot of the Settings section. The Provisioning status toggle is set to Off." border="false":::
 
@@ -142,14 +135,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	:::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Screenshot of the Bonusly - Provisioning page, with the Save button highlighted." border="false":::
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Bonusly.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Bonusly.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

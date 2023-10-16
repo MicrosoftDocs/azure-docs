@@ -2,11 +2,10 @@
 title: Enable shared disks for Azure managed disks
 description: Configure an Azure managed disk with shared disks so that you can share it across multiple VMs
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 04/11/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -46,6 +45,8 @@ Shared disks support several operating systems. See the [Windows](./disks-shared
 To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value greater than 1. This makes the disk shareable across multiple VMs.
 
 > [!IMPORTANT]
+> Host caching isn't supported for shared disks.
+> 
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
 # [Portal](#tab/azure-portal)
@@ -96,6 +97,8 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value greater than 1. This makes the disk shareable across multiple VMs.
 
 > [!IMPORTANT]
+> Host caching isn't supported for shared disks.
+> 
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
 # [Portal](#tab/azure-portal)
@@ -272,6 +275,8 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 To share an existing disk, or update how many VMs it can mount to, set the `maxShares` parameter with either the Azure PowerShell module or Azure CLI. You can also set `maxShares` to 1, if you want to disable sharing.
 
 > [!IMPORTANT]
+> Host caching isn't supported for shared disks.
+> 
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 > Before detaching a disk, record the LUN ID for when you re-attach it.
 
@@ -289,7 +294,7 @@ Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Dis
 ```azurecli
 #Modifying a disk to enable or modify sharing configuration
 
-az disk update --name mySharedDisk --max-shares 5
+az disk update --name mySharedDisk --max-shares 5 --resource-group myResourceGroup
 ```
 
 ## Using Azure shared disks with your VMs
@@ -297,6 +302,8 @@ az disk update --name mySharedDisk --max-shares 5
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!NOTE]
+> Host caching isn't supported for shared disks.
+> 
 > If you are deploying an ultra disk, make sure it matches the necessary requirements. See [Using Azure ultra disks](disks-enable-ultra-ssd.md) for details.
 
 ```azurepowershell-interactive
@@ -362,3 +369,5 @@ If you prefer to use Azure Resource Manager templates to deploy your disk, the f
 - [Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
 - [Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 - [Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+
+If you've additional questions, see the [shared disks](faq-for-disks.yml#azure-shared-disks) section of the FAQ.

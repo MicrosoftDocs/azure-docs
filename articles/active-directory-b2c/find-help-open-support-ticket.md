@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/30/2022
+ms.date: 03/13/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -22,9 +22,9 @@ Microsoft provides global technical, pre-sales, billing, and subscription suppor
 
 Before creating a support ticket, check out the following resources for answers and information. 
 
-* For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation for Azure AD B2C at docs.microsoft.com](../active-directory-b2c/index.yml).
+* For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation for Azure AD B2C](../active-directory-b2c/index.yml).
 
-* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/community-lounge/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 ## Open a support ticket
 
@@ -35,15 +35,15 @@ If you're unable to find answers by using self-help resources, you can open an o
 > [!NOTE]
 > For billing or subscription issues, use the [Microsoft 365 admin center](https://admin.microsoft.com).  
 
-1. Sign in to [the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your Azure subscription:
+1. Make sure you're using the Microsoft Entra tenant that contains your Azure subscription:
 
     1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
     
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to it.
      
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. In the left menu, under **Troubleshooting + Support**, select **New support request**.
    
@@ -65,7 +65,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Under **3. Additional details** tab, fill out the required details accurately. For example:
 
-    1. Your tenant ID or domain name. See how to find your [tenant ID](tenant-management.md#get-your-tenant-id) or [tenant name](tenant-management.md#get-your-tenant-name).  
+    1. Your tenant ID or domain name. See how to find your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id) or [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name).  
 
     1. The time and date when the problem occurred.
  
@@ -93,5 +93,4 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Technical documentation for Azure AD B2C at docs.microsoft.com](../active-directory-b2c/index.yml)
-
+* [Technical documentation for Azure AD B2C](../active-directory-b2c/index.yml)

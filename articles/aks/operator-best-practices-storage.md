@@ -2,9 +2,8 @@
 title: Best practices for storage and backup
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/28/2023
 
 ---
 
@@ -23,10 +22,11 @@ This best practices article focuses on storage considerations for cluster operat
 ## Choose the appropriate storage type
 
 > **Best practice guidance**
-> 
+>
 > Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for network-based storage when you need multiple concurrent connections.
 
-Applications often require different types and speeds of storage. Determine the most appropriate storage type by asking the following questions. 
+Applications often require different types and speeds of storage. Determine the most appropriate storage type by asking the following questions.
+
 * Do your applications need storage that connects to individual pods?
 * Do your applications need storage shared across multiple pods? 
 * Is the storage for read-only access to data?
@@ -40,18 +40,20 @@ The following table outlines the available storage types and their capabilities:
 | Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
 | Unstructured data, file system operations | [BlobFuse][blobfuse] | Yes | Yes | Yes | No |
 
-AKS provides two primary types of secure storage for volumes backed by Azure Disks or Azure Files. Both use the default Azure Storage Service Encryption (SSE) that encrypts data at rest. Disks cannot be encrypted using Azure Disk Encryption at the AKS node level.
+AKS provides two primary types of secure storage for volumes backed by Azure Disks or Azure Files. Both use the default Azure Storage Service Encryption (SSE) that encrypts data at rest. Disks cannot be encrypted using Azure Disk Encryption at the AKS node level. With Azure Files shares, there is no limit as to how many can be mounted on a node.
 
 Both Azure Files and Azure Disks are available in Standard and Premium performance tiers:
 
 - *Premium* disks
-    - Backed by high-performance solid-state disks (SSDs). 
+    - Backed by high-performance solid-state disks (SSDs).
     - Recommended for all production workloads.
 - *Standard* disks
     - Backed by regular spinning disks (HDDs).
     - Good for archival or infrequently accessed data.
 
-Understand the application performance needs and access patterns to choose the appropriate storage tier. For more information about Managed Disks sizes and performance tiers, see [Azure Managed Disks overview][managed-disks]
+While the default storage tier for the Azure Disk CSI driver is Premium SSD, your custom StorageClass can use Premium SSD, Standard SSD, or Standard HDD.
+
+Understand the application performance needs and access patterns to choose the appropriate storage tier. For more information about Managed Disks sizes and performance tiers, see [Azure Managed Disks overview][managed-disks]. 
 
 ### Create and use storage classes to define application needs
 
@@ -83,6 +85,9 @@ For example, while both the *Standard_B2ms* and *Standard_DS2_v2* VM sizes inclu
 In this example, the *Standard_DS2_v2* offers twice as many attached disks, and three to four times the amount of IOPS and disk throughput. If you only compared core compute resources and compared costs, you might have chosen the *Standard_B2ms* VM size with poor storage performance and limitations. 
 
 Work with your application development team to understand their storage capacity and performance needs. Choose the appropriate VM size for the AKS nodes to meet or exceed their performance needs. Regularly baseline applications to adjust VM size as needed.
+
+> [!NOTE]
+> By default, disk size and performance for managed disks is assigned according to the selected VM SKU and vCPU count. Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size is not specified. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
 
 For more information about available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
@@ -129,8 +134,8 @@ This article focused on storage best practices in AKS. For more information abou
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
 [vm-sizes]: ../virtual-machines/sizes.md
-[dynamic-disks]: azure-disks-dynamic-pv.md
-[dynamic-files]: azure-files-dynamic-pv.md
+[dynamic-disks]: azure-disk-csi.md
+[dynamic-files]: azure-files-csi.md
 [reclaim-policy]: concepts-storage.md#storage-classes
 [aks-concepts-storage-pvcs]: concepts-storage.md#persistent-volume-claims
 [aks-concepts-storage-classes]: concepts-storage.md#storage-classes

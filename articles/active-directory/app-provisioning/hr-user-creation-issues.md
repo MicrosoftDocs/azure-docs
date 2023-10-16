@@ -2,12 +2,12 @@
 title: Troubleshoot user creation issues with HR provisioning
 description: Learn how to troubleshoot user creation issues with HR provisioning
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/27/2021
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -18,9 +18,9 @@ ms.reviewer: chmutali
 
 **Applies to:**
 * Workday to on-premises Active Directory user provisioning
-* Workday to Azure Active Directory user provisioning
+* Workday to Microsoft Entra user provisioning
 * SAP SuccessFactors to on-premises Active Directory user provisioning
-* SAP SuccessFactors to Azure Active Directory user provisioning
+* SAP SuccessFactors to Microsoft Entra user provisioning
 
 | Troubleshooting | Details |
 |-- | -- |
@@ -35,13 +35,12 @@ ms.reviewer: chmutali
   
      `IIF(IsNullOrEmpty([BusinessTitle]),"N/A",[BusinessTitle])`
 
-  * Option 2: Use the function [IgnoreFlowIfNullOrEmpty](functions-for-customizing-application-data.md#ignoreflowifnullorempty) to drop empty or null attributes in the payload sent to on-premises Active Directory / Azure AD. 
+  * Option 2: Use the function [IgnoreFlowIfNullOrEmpty](functions-for-customizing-application-data.md#ignoreflowifnullorempty) to drop empty or null attributes in the payload sent to on-premises Active Directory / Microsoft Entra ID. 
   
      `IgnoreFlowIfNullOrEmpty([BusinessTitle])` 
 
 
 ## Next steps
 
-* [Learn more about Azure AD and Workday integration scenarios and web service calls](workday-integration-reference.md)
+* [Learn more about Microsoft Entra ID and Workday integration scenarios and web service calls](workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](check-status-user-account-provisioning.md)
-

@@ -1,12 +1,12 @@
 ---
-title: Move Azure external Load Balancer to another Azure region using Azure PowerShell
+title: Move Azure external Load Balancer to another Azure region - Azure PowerShell
 description: Use Azure Resource Manager template to move Azure external Load Balancer from one Azure region to another using Azure PowerShell.
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 09/17/2019
-ms.author: allensu 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/27/2023
+ms.author: mbender 
+ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template, engagment-fy23
 ---
 
 # Move Azure external Load Balancer to another region using Azure PowerShell
@@ -20,9 +20,9 @@ Azure external load balancers can't be moved from one region to another. You can
 
 - Make sure that the Azure external load balancer is in the Azure region from which you want to move.
 
-- Azure external load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
+- Azure external load balancers can't be moved between regions.  You have to associate the new load balancer to resources in the target region.
 
-- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you'll need the Network Contributor role or higher.
+- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you need the Network Contributor role or higher.
    
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups,  public IPs, and virtual networks.
 
@@ -87,7 +87,7 @@ The following steps show how to prepare the external load balancer for the move 
             "name": "[parameters('publicIPAddresses_myPubIP_name')]",
             "location": "<target-region>",
             "sku": {
-                "name": "Basic",
+                "name": "Standard",
                 "tier": "Regional"
             },
             "properties": {
@@ -95,7 +95,7 @@ The following steps show how to prepare the external load balancer for the move 
                 "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
                 "ipAddress": "52.177.6.204",
                 "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
+                "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
                }
@@ -112,7 +112,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 8. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - You can change the sku of the public IP in the configuration from Standard to Basic or Basic to Standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
 
          ```json
             "resources": [
@@ -122,14 +122,33 @@ The following steps show how to prepare the external load balancer for the move 
                     "name": "[parameters('publicIPAddresses_myPubIP_name')]",
                     "location": "<target-region>",
                     "sku": {
-                        "name": "Basic",
+                        "name": "Standard",
                         "tier": "Regional"
                     },
          ```
 
          For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
-    * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
+    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
+         ```json
+          "resources": [
+         {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+            "location": "<target-region>",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "zones": [
+                "1",
+                "2",
+                "3"
+            ],
+         ```
+         
+    * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Static** to **Dynamic** or **Dynamic** to **Static**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
          ```json
          "resources": [
@@ -139,7 +158,7 @@ The following steps show how to prepare the external load balancer for the move 
                 "name": "[parameters('publicIPAddresses_myPubIP_name')]",
                 "location": "<target-region>",
                   "sku": {
-                  "name": "Basic",
+                  "name": "Standard",
                   "tier": "Regional"
                  },
                 "properties": {
@@ -147,7 +166,7 @@ The following steps show how to prepare the external load balancer for the move 
                 "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
                 "ipAddress": "52.177.6.204",
                 "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
+                "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
                    }
@@ -257,7 +276,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```
 
-8.  If you have configured outbound NAT and outbound rules for the load balancer, a third entry will be present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP and paste that entry into the **\<resource-group-name>.json** file:
+8.  If you have configured outbound NAT and outbound rules for the load balancer, a third entry is present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP and paste that entry into the **\<resource-group-name>.json** file:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

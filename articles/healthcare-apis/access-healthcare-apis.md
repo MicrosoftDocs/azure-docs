@@ -2,12 +2,12 @@
 title: Access Azure Health Data Services
 description: This article describes the different ways to access Azure Health Data Services in your applications using tools and programming languages.
 services: healthcare-apis
-author: dougseven
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/22/2022
-ms.author: dseven
+ms.date: 06/06/2022
+ms.author: chrupa
 ---
 
 # Access Azure Health Data Services
@@ -42,6 +42,8 @@ In this document, you learned about the tools and programming languages that you
 
 >[!div class="nextstepaction"]
 >[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
 
 

@@ -5,11 +5,11 @@ metadata:
   ms.topic: faq
   ms.service: cloud-services
   ms.subservice: deployment-files
-  ms.date: 10/14/2020
+  ms.date: 02/21/2023
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
-  ms.custom: 
+  ms.custom: compute-evergreen
 title: 'Configuration and management issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
@@ -55,7 +55,7 @@ summary: |
   - [How do I add `nosniff` to my website?](#how-do-i-add--nosniff--to-my-website-)
   - [How do I customize IIS for a web role?](#how-do-i-customize-iis-for-a-web-role-)
   - [What is the quota limit for my Cloud Service?](#what-is-the-quota-limit-for-my-cloud-service-)
-  - [Why does the drive on my Cloud Service VM show very little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space-)
+  - [Why does the drive on my Cloud Service VM show little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space-)
   - [How can I add an Antimalware extension for my Cloud Services in an automated way?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
   - [How to enable Server Name Indication (SNI) for Cloud Services?](#how-to-enable-server-name-indication--sni--for-cloud-services-)
   - [How can I add tags to my Azure Cloud Service?](#how-can-i-add-tags-to-my-azure-cloud-service--)
@@ -86,7 +86,7 @@ sections:
           
           [Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
           
-          The CSR is just a text file. It does not have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
+          The CSR is just a text file. It doesn't have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
           
       - question: |
           My Cloud Service Management Certificate is expiring. How to renew it?
@@ -127,14 +127,14 @@ sections:
           $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
           Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
           ```
-          Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment), you can set each location value.
+          Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment), you can set each location value.
           
-          Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
+          Ability to monitor metrics at the instance level. More monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
           
       - question: |
           Why does IIS stop writing to the log directory?
         answer: |
-          You have exhausted the local storage quota for writing to the log directory. To correct this, you can do one of three things:
+          You've exhausted the local storage quota for writing to the log directory. To correct this, you can do one of three things:
           * Enable diagnostics for IIS and have the diagnostics periodically moved to blob storage.
           * Manually remove log files from the logging directory.
           * Increase quota limit for local resources.
@@ -199,7 +199,7 @@ sections:
       - question: |
           How to enable HTTP/2 on Cloud Services VM?
         answer: |
-          Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over TLS that negotiates HTTP/2 via TLS extensions, then you do not need to make any change on the server-side. This is because, over TLS, the h2-14 header specifying use of HTTP/2 is sent by default. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the change below on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
+          Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over TLS that negotiates HTTP/2 via TLS extensions, then you don't need to make any change on the server-side. This is because, over TLS, the h2-14 header specifying use of HTTP/2 is sent by default. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the change below on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
           
           1. Run regedit.exe.
           2. Browse to registry key: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
@@ -243,7 +243,7 @@ sections:
       - question: |
           I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
         answer: |
-          This error may occur if you use the RDP file from a machine that is joined to Azure Active Directory. To resolve this issue, follow these steps:
+          This error may occur if you use the RDP file from a machine that is joined to Microsoft Entra ID. To resolve this issue, follow these steps:
           
           1. Right-click the RDP file you downloaded and then select **Edit**.
           2. Add "&#92;" as prefix before the username. For example, use **.\username** instead of  **username**.
@@ -253,7 +253,7 @@ sections:
       - question: |
           I cannot scale beyond X instances
         answer: |
-          Your Azure Subscription has a limit on the number of cores you can use. Scaling will not work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your Cloud Service, or 50 A2 sized virtual machine instances.
+          Your Azure Subscription has a limit on the number of cores you can use. Scaling won't work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your Cloud Service, or 50 A2 sized virtual machine instances.
 
       - question: |
           How can I configure Auto-Scale based on Memory metrics?
@@ -266,7 +266,7 @@ sections:
           
           For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
           
-          For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md)
+          For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/azure-web-apps-net-core.md)
           
           For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
           
@@ -312,7 +312,7 @@ sections:
           
           The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
           
-          It is unsupported to write to the %approot% drive. If you are writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you are not sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
+          It's unsupported to write to the %approot% drive. If you're writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you aren't sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
           
           Azure will not write anything to the %approot% drive. Once the VHD is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
           
@@ -324,7 +324,7 @@ sections:
           You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
            
           - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-          - [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension)
+          - [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension)
           
           For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
           
@@ -369,12 +369,12 @@ sections:
       - question: |
           How can I add tags to my Azure Cloud Service? 
         answer: |
-          Cloud Service is a Classic resource. Only resources created through Azure Resource Manager support tags. You cannot apply tags to Classic resources such as Cloud Service. 
+          Cloud Service is a Classic resource. Only resources created through Azure Resource Manager support tags. You can't apply tags to Classic resources such as Cloud Service. 
 
       - question: |
           The Azure portal doesn't display the SDK version of my Cloud Service. How can I get that?
         answer: |
-          We are working on bringing this feature on the Azure portal. Meanwhile, you can use following PowerShell commands to get the SDK version:
+          We're working on bringing this feature on the Azure portal. Meanwhile, you can use following PowerShell commands to get the SDK version:
           
           ```powershell
           Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
@@ -383,9 +383,9 @@ sections:
       - question: |
           I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?
         answer: |
-          An already deployed Cloud Service gets billed for the Compute and Storage it uses. So even if you shut down the Azure VM, you will still get billed for the Storage. 
+          An already deployed Cloud Service gets billed for the Compute and Storage it uses. So even if you shut down the Azure VM, you'll still get billed for the Storage. 
           
-          Here is what you can do to reduce your billing without losing the IP address for your service:
+          Here's what you can do to reduce your billing without losing the IP address for your service:
           
           1. [Reserve the IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
           2. Delete the deployments. Don’t delete the xxx.cloudapp.net, so that you can use it for future.

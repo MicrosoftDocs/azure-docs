@@ -1,18 +1,19 @@
 ### YamlMime:Landing
 
 title: Load Balancer documentation
-summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, how-to's, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
 metadata:
   title: Load Balancer
-  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, how-to's, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
   services: load-balancer
   ms.service: load-balancer
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
-  ms.date: 05/07/2020 #Required; mm/dd/yyyy format.
+  author: mbender-ms
+  ms.author: mbender
+  ms.date: 11/16/2022
+  ms.custom: engagement-fy23 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -26,20 +27,30 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
+          - text: What's new in Azure Load Balancer?
+            url: whats-new.md
           - text: Load Balancer algorithm
             url: concepts.md
           - text: Load Balancer components
             url: components.md
-          - text: What's new?
+          - text: Azure Updates - Load Balancer news
             url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md
+          - text: Load Balancer Pricing
+            url: https://azure.microsoft.com/pricing/details/load-balancer/
+          - text: Upgrade guidance from basic to standard Load Balancer
+            url: load-balancer-basic-upgrade-guidance.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Load Balancer
-            url: /learn/paths/intro-to-azure-application-delivery-services
+            url: /training/modules/intro-to-azure-load-balancer/
           - text: Improve application scalability and resiliency by using Azure Load Balancer
-            url: /learn/modules/improve-app-scalability-resiliency-with-load-balancer/
+            url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
+      - linkListType: deploy
+        links: 
+          - text: Set up load balancing
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%203
 
   # Card (optional)
   - title: Get started
@@ -57,25 +68,6 @@ landingContent:
           - text: Configure port forwarding in Azure Load Balancer
             url: tutorial-load-balancer-port-forwarding-portal.md
 
-  # Card
-  - title: Manage features and options
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Load Balancer health probes
-            url: load-balancer-custom-probe-overview.md
-          - text: Outbound connections in Azure
-            url: load-balancer-outbound-connections.md
-          - text: Multiple Frontends for Azure Load Balancer
-            url: load-balancer-multivip-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
-            url: load-balancer-ipv6-internet-ps.md
-          - text: Configure the distribution mode
-            url: load-balancer-distribution-mode.md
-          - text: Upgrade from Basic to Standard
-            url: upgrade-basic-standard.md
   # Card
   - title: Deploy
     linkLists:
@@ -101,6 +93,8 @@ landingContent:
         links:
           - text: Standard Load Balancer diagnostics with metrics, alerts and resource health
             url: load-balancer-standard-diagnostics.md
+          - text: Test reachability of Azure Load Balancer front-ends
+            url: load-balancer-test-frontend-reachability.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md
           - text: Common Azure Load Balancer errors
@@ -115,7 +109,27 @@ landingContent:
         links:
           - text: Build & monitor highly available apps with Azure Load Balancer
             url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
-      
+
+    # Card
+  - title: Manage features and options
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load Balancer health probes
+            url: load-balancer-custom-probe-overview.md
+          - text: Outbound connections in Azure
+            url: load-balancer-outbound-connections.md
+          - text: Multiple Frontends for Azure Load Balancer
+            url: load-balancer-multivip-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
+            url: load-balancer-ipv6-internet-ps.md
+          - text: Configure the distribution mode
+            url: load-balancer-distribution-mode.md
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
+                 
      # Card
   - title: Reference
     linkLists:
@@ -129,3 +143,17 @@ landingContent:
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
             url: load-balancer-faqs.yml
+
+  # Card
+  - title: Learn about Load Balancer architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load-balancing options
+            url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Networking on Azure and AWS
+            url: /azure/architecture/aws-professional/networking
+          - text: Windows N-tier application on Azure
+            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+          - text: Oracle database migration to Azure
+            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure

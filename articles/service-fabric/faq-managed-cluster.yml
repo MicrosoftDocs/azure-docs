@@ -3,11 +3,11 @@ metadata:
   title: Service Fabric managed clusters FAQ
   description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
   ms.topic: faq
-  ms.author: micraft
-  author: craftyhouse
+  ms.author: tomcassidy
+  author: tomvcassidy
   ms.service: service-fabric
-  ms.date: 2/14/2022
-  ms.custom: references_regions
+  services: service-fabric
+  ms.date: 07/11/2022
 title: Service Fabric managed clusters frequently asked questions
 summary: Here are some frequently asked questions (FAQs) and answers for Service Fabric managed clusters.
 
@@ -48,7 +48,7 @@ sections:
       - question: |
           Where can I see planned features or suggest one?
         answer: |
-          Please see our github project for [managed clusters](https://github.com/microsoft/service-fabric/projects/17)      
+          Please see our GitHub project for [managed clusters](https://github.com/microsoft/service-fabric/projects/17)      
           
   - name: Cluster Deployment and Management
     questions:
@@ -63,7 +63,7 @@ sections:
           Yes, you can configure internal-only load balancer. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
       
       - question: | 
-          Can I change the Azure AD tenant after initial deployment?
+          Can I change the Microsoft Entra tenant after initial deployment?
         answer: |
           No. At this time you would need to create a new Service Fabric managed cluster resource.
 
@@ -96,7 +96,18 @@ sections:
           Can I select between automatic and manual upgrades for my cluster runtime?
         answer: |
           Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
+
+      - question: |
+          Can I set up maintenance control for my cluster?
+        answer: |
+          Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
+
+      - question: |
+          Why do I get 'Your connection isn't private' when connecting to Service Fabric Explorer (SFX) on a managed cluster?
+        answer: |
+          Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
           
+
   - name: Applications
     questions:
       - question: |
@@ -111,4 +122,4 @@ sections:
           
       - question: |
           Can I deploy applications with managed identities?
-        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).
+        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity.md).

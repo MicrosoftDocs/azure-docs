@@ -2,13 +2,11 @@
 title: Use Azure Stream Analytics in dedicated SQL pool
 description: Tips for using Azure Stream Analytics with dedicated SQL pool in Azure Synapse for developing real-time solutions.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 9/25/2020
 ms.author: wiassaf
-ms.reviewer: igorstan
+ms.date: 10/07/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -22,10 +20,41 @@ In this article, you will learn how to use your dedicated SQL pool as an output 
 
 * Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to:  
 
-    1. Create an Event Hub input
-    2. Configure and start event generator application
-    3. Provision a Stream Analytics job
-    4. Specify job input and query
+    1. Create an Event Hubs input
+    1. Configure and start event generator application. This app sends data from a client through your Event Hubs. The JSON structure of the data looks as follows:
+
+       ```json
+       {
+           RecordType: "",
+           SystemIdentity: "",
+           FileNum: ,
+           SwitchNum: "",
+           CallingNum: "",
+           CallingIMSI: "",
+           CalledNum: "",
+           CalledIMSI: "",
+           DateS: "",
+           TimeS: "",
+           TimeType: ,
+           CallPeriod: ,
+           CallingCellID: "",
+           CalledCellID: "",
+           ServiceType: "",
+           Transfer: ,
+           IncomingTrunk: "",
+           OutgoingTrunk: "",
+           MSRN: "",
+           CalledNum2: "",
+           FCIFlag: "",
+           callrecTime: "",
+           EventProcessedUtcTime: "",
+           PartitionId: ,
+           EventEnqueuedUtcTime: ""
+       }
+       ```
+
+    1. Provision a Stream Analytics job
+    1. Specify job input and query
 * Dedicated SQL pool - To create a new dedicated SQL pool, follow the steps in the [Quickstart: Create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md).
 
 ## Specify streaming output to point to your dedicated SQL pool
@@ -36,7 +65,7 @@ From the Azure portal, go to your Stream Analytics job and click on **Outputs** 
 
 ### Step 2
 
-Click on the **Add** button and choose **Azure Synapse Analytics** from the drop down menu.
+Click on the **Add** button and choose **Azure Synapse Analytics** from the drop-down menu.
 
 ![Choose Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
@@ -48,7 +77,7 @@ Enter the following values:
 * *Subscription*:
   * If your dedicated SQL pool is in the same subscription as the Stream Analytics job, click on ***Select Azure Synapse Analytics from your subscriptions***.
   * If your dedicated SQL pool is in a different subscription, click on Provide Azure Synapse Analytics settings manually.
-* *Database*: Select the destination database from the drop down list.
+* *Database*: Select the destination database from the drop-down list.
 * *User Name*: Specify the user name of an account that has write permissions for the database.
 * *Password*: Provide the password for the specified user account.
 * *Table*: Specify the name of the target table in the database.
@@ -114,7 +143,7 @@ Start the Azure Stream Analytics job.  Click on the ***Start*** button on the **
 Click the ***Start*** button on the start job pane.
 
 ![Click Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
-
+ 
 ## Next steps
 
 For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).

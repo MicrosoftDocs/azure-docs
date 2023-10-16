@@ -1,20 +1,34 @@
 ---
 title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
-author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/02/2021
-ms.author: tomfitz
+ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 09/06/2023
 ---
+
 # Bicep deployment what-if operation
 
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
-### Microsoft Learn
+During What-If operations, the evaluation and expansion of `templateLink` are not supported. As a result, any resources deployed using template links within nested deployments, including template spec references, will not be visible in the What-If operation results.
 
-If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
+### Training resources
+
+If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/training/modules/arm-template-whatif/).
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
+## What-if limits
+
+What-if expands nested templates until these limits are reached:
+
+- 500 nested templates.
+- 800 resource groups in a cross resource-group deployment.
+- 5 minutes taken for expanding the nested templates.
+
+When one of the limits is reached, the remaining resources' [change type](#change-types) is set to **Ignore**.
 
 ## Install Azure PowerShell module
 
@@ -26,7 +40,7 @@ To install the module, use:
 Install-Module -Name Az -Force
 ```
 
-For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Install Azure CLI module
 
@@ -76,34 +90,34 @@ Resource changes: 1 to modify.
 
 To preview changes before deploying a Bicep file, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) or [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Add the `-Whatif` switch parameter to the deployment command.
 
-* `New-AzResourceGroupDeployment -Whatif` for resource group deployments
-* `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
+- `New-AzResourceGroupDeployment -Whatif` for resource group deployments
+- `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
 
 You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 
-* `New-AzResourceGroupDeployment -Confirm` for resource group deployments
-* `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
+- `New-AzResourceGroupDeployment -Confirm` for resource group deployments
+- `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
 
 The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) or [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
-* `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
+- `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
+- `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
 
 ### Azure CLI
 
 To preview changes before deploying a Bicep file, use:
 
-* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
-* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
-* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
+- [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
+- [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
+- [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
+- [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
-* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
-* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
-* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+- [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+- [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+- [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+- [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
 For example, use `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments.
 
@@ -115,28 +129,29 @@ If you want to return the results without colors, open your [Azure CLI configura
 
 For REST API, use:
 
-* [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
-* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription deployments
-* [Deployments - What If At Management Group Scope](/rest/api/resources/deployments/whatifatmanagementgroupscope) for management group deployments
-* [Deployments - What If At Tenant Scope](/rest/api/resources/deployments/whatifattenantscope) for tenant deployments.
+- [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
+- [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription deployments
+- [Deployments - What If At Management Group Scope](/rest/api/resources/deployments/whatifatmanagementgroupscope) for management group deployments
+- [Deployments - What If At Tenant Scope](/rest/api/resources/deployments/whatifattenantscope) for tenant deployments.
 
 ## Change types
 
-The what-if operation lists six different types of changes:
+The what-if operation lists seven different types of changes:
 
-* **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
-* **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
-* **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified.
-* **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
-* **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
-* **Deploy**: The resource exists, and is defined in the Bicep file. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
+- **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
+- **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
+- **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you will encounter this change type. See [What-if limits](#what-if-limits).
+- **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **NoEffect**: The property is ready-only and will be ignored by the service. For example, the `sku.tier` property is always set to match `sku.name` in the [`Microsoft.ServiceBus`](/azure/templates/microsoft.servicebus/namespaces) namespace.
+- **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **Deploy**: The resource exists, and is defined in the Bicep file. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
 ## Result format
 
 You control the level of detail that is returned about the predicted changes. You have two options:
 
-* **FullResourcePayloads** - returns a list of resources that will change and details about the properties that will change
-* **ResourceIdOnly** - returns a list of resources that will change
+- **FullResourcePayloads** - returns a list of resources that will change and details about the properties that will change
+- **ResourceIdOnly** - returns a list of resources that will change
 
 The default value is **FullResourcePayloads**.
 
@@ -146,7 +161,7 @@ For Azure CLI, use the `--result-format` parameter.
 
 The following results show the two different output formats:
 
-* Full resource payloads
+- Full resource payloads
 
   ```powershell
   Resource and property changes are indicated with these symbols:
@@ -175,7 +190,7 @@ The following results show the two different output formats:
   Resource changes: 1 to modify.
   ```
 
-* Resource ID only
+- Resource ID only
 
   ```powershell
   Resource and property changes are indicated with this symbol:
@@ -226,7 +241,7 @@ az deployment group create \
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one of the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
 
@@ -403,14 +418,14 @@ Remove-AzResourceGroup -Name ExampleGroup
 
 You can use the what-if operation through the Azure SDKs.
 
-* For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+- For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
 
-* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
+- For Java, use [DeploymentWhatIf Class](/java/api/com.azure.resourcemanager.resources.models.deploymentwhatif).
 
-* For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
+- For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 
 ## Next steps
 
-* To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
-* If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-* For a Microsoft Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+- To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+- If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).

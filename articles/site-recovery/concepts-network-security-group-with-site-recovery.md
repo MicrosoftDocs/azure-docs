@@ -1,12 +1,12 @@
 ---
 title: Network Security Groups with Azure Site Recovery | Microsoft Docs
 description: Describes how to use Network Security Groups with Azure Site Recovery for disaster recovery and migration
-author: Harsha-CS
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: harshacs
+ms.author: ankitadutta
 
 ---
 # Network Security Groups with Azure Site Recovery

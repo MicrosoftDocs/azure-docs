@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM using the Azure Portal
+title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
 description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine, create an Azure file share using the NFS protocol, and mount the file share so that it's ready to store files.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
+ms.custom: devx-track-linux
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 10/10/2023
 ms.author: kendownie
-ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
-# Tutorial: Create an NFS Azure file share and mount it on a Linux VM using the Azure Portal
+# Tutorial: Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
 
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
@@ -47,7 +47,7 @@ Before you can work with an NFS 4.1 Azure file share, you have to create an Azur
 1. Enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
 1. Select a region for your storage account, or use the default region. Azure supports NFS file shares in all the same regions that support premium file storage.
 1. Select the *Premium* performance tier to store your data on solid-state drives (SSD). Under **Premium account type**, select *File shares*.
-1. Leave replication set to its default value of *Locally-redundant storage (LRS)*.
+1. Leave replication set to its default value of *Locally redundant storage (LRS)*.
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. When you see the **Validation passed** notification appear, select **Create**. You should see a notification that deployment is in progress.
 
@@ -61,9 +61,9 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. Select **Home**, and then select **Virtual machines** under **Azure services**.
 
-1. Select **+ Create** and then **+ Virtual machine**.
+1. Select **+ Create** and then **+ Azure virtual machine**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose the default Ubuntu Server version for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing is dependent on your region and subscription.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose your Linux distribution for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" alt-text="Screenshot showing how to enter the project and instance details to create a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" border="true":::
 
@@ -71,7 +71,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" alt-text="Screenshot showing how to configure the administrator account and create an S S H key pair for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" border="true":::
 
-1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22) and HTTP (80)** from the drop-down.
+1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
 
@@ -82,7 +82,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. Note the name of the virtual network. When you are ready, select **Create**.
 
-1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myVM_key.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
 
 You'll see a message that deployment is in progress. Wait a few minutes for deployment to complete.
 
@@ -104,9 +104,9 @@ Now you're ready to create an NFS file share and provide network-level security 
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new N F S file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
 
-### Set up a private endpoint
+### Set up a private endpoint or service endpoint
 
-Next, you'll need to set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network.
+Next, set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. If you don't require a static IP address, you can use a service endpoint instead. There's no extra charge for using service endpoints.
 
 1. Select the file share *qsfileshare*. You should see a dialog that says *Connect to this NFS share from Linux*. Under **Network configuration**, select **Review options**
 
@@ -120,7 +120,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
 
-1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the V M. When all the fields are complete, select **Next: Resource**.
+1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
 
@@ -128,9 +128,13 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
 
-1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: Tags**.
+1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Under **Private IP configuration**, leave **Dynamically allocate IP address** selected. Select **Next: DNS**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" alt-text="Screenshot showing how to add virtual networking and D N S integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" border="true":::
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
+
+1. Select **Yes** for **Integrate with private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" alt-text="Screenshot showing how to integrate your private endpoint with a private DNS zone." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" border="true":::
 
 1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
@@ -140,7 +144,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
 ### Disable secure transfer
 
-Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to disable secure transfer.
+Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
 
 1. Select **Home** and then **Storage accounts**.
 
@@ -189,11 +193,14 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 
 1. Select **File shares** from the storage account pane and select the NFS file share you created.
 
-1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a provided mounting script.
+1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
+
+   > [!IMPORTANT]
+   > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, see [Mount an NFS share using /etc/fstab](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-etcfstab).
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/mount-nfs-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-quick-create-use-linux/mount-nfs-share.png" border="true":::
 
-1. Select your Linux distribution (Ubuntu).
+1. Select your Linux distribution.
 
 1. Using the ssh connection you created to your VM, enter the sample commands to use NFS and mount the file share.
 

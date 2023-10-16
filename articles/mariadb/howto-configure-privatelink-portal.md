@@ -1,14 +1,16 @@
 ---
 title: Private Link - Azure portal - Azure Database for MariaDB
 description: Learn how to configure private link for Azure Database for MariaDB from Azure portal
+ms.service: mariadb
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 06/24/2022
 ---
 
 # Create and manage Private Link for Azure Database for MariaDB using Portal
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources.  In this article, you will learn how to use the Azure portal to create a VM in an Azure Virtual Network and an Azure Database for MariaDB server with an Azure private endpoint.
 
@@ -18,6 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > The private link feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the database server is in one of these pricing tiers.
 
 ## Sign in to Azure
+
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Azure VM
@@ -25,6 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource (a MariaDB server in Azure).
 
 ### Create the virtual network
+
 In this section, you will create a Virtual Network and the subnet to host the VM that is used to access your Private Link resource.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
@@ -67,7 +71,6 @@ In this section, you will create a Virtual Network and the subnet to host the VM
     | Public inbound ports | Leave the default **None**. |
     | **SAVE MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
-    |||
 
 1. Select **Next: Disks**.
 
@@ -83,8 +86,6 @@ In this section, you will create a Virtual Network and the subnet to host the VM
     | Public IP | Leave the default **(new) myVm-ip**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP** and **RDP**.|
-    |||
-
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
@@ -92,7 +93,7 @@ In this section, you will create a Virtual Network and the subnet to host the VM
 
 ## Create an Azure Database for MariaDB
 
-In this section, you will create an Azure Database for MariaDB server in Azure. 
+In this section, you will create an Azure Database for MariaDB server in Azure.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **Azure Database for MariaDB**.
 
@@ -110,12 +111,11 @@ In this section, you will create an Azure Database for MariaDB server in Azure.
     | Location | Select an Azure region where you want to want your MariaDB Server to reside. |
     |Version  | Select the database version of the MariaDB server that is required.|
     | Compute + Storage| Select the pricing tier that is needed for the server based on the workload. |
-    |||
 
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 9. When you see the Validation passed message, select **Create**. 
-10. When you see the Validation passed message, select Create. 
+10. When you see the Validation passed message, select Create.
 
 > [!NOTE]
 > In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
@@ -123,7 +123,7 @@ In this section, you will create an Azure Database for MariaDB server in Azure.
 
 ## Create a private endpoint
 
-In this section, you will create a private endpoint to the MariaDB server to it. 
+In this section, you will create a private endpoint to the MariaDB server to it.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link**.
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
@@ -166,13 +166,12 @@ If your virtual network and Azure database for MariaDB account are in different 
     |**PRIVATE DNS INTEGRATION**||
     |Integrate with private DNS zone |Select **Yes**. |
     |Private DNS Zone |Select *(New)privatelink.mariadb.database.azure.com* |
-    |||
 
     > [!Note] 
     > Use the predefined private DNS zone for your service or provide your preferred DNS zone name. Refer to the [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md) for details.
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
-2. When you see the **Validation passed** message, select **Create**. 
+2. When you see the **Validation passed** message, select **Create**.
 
     ![Private Link created](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
@@ -181,8 +180,7 @@ If your virtual network and Azure database for MariaDB account are in different 
 
 ## Connect to a VM using Remote Desktop (RDP)
 
-
-After you've created **myVm**, connect to it from the internet as follows: 
+After you've created **myVm**, connect to it from the internet as follows:
 
 1. In the portal's search bar, enter *myVm*.
 
@@ -209,7 +207,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
+2. Enter `nslookup mydemomserver.privatelink.mariadb.database.azure.com`.
 
     You'll receive a message similar to this:
     ```azurepowershell
@@ -222,7 +220,6 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
 
-
 4. In **New connection**, enter or select this information:
 
     | Setting | Value |
@@ -232,7 +229,6 @@ After you've created **myVm**, connect to it from the internet as follows:
     | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
     |Password |Enter a password provided during the MariaDB server creation. |
     |SSL|Select **Required**.|
-    ||
 
 5. Select **Test Connection** or **OK**.
 
@@ -241,6 +237,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 7. Close the remote desktop connection to myVm.
 
 ## Clean up resources
+
 When you're done using the private endpoint, MariaDB server, and the VM, delete the resource group and all of the resources it contains:
 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.

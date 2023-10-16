@@ -25,7 +25,7 @@ Before you begin, make sure that you have the following resources in place:
 * An [application that's registered in your tenant](tutorial-register-applications.md)
 * [User flows that are created in your tenant](tutorial-create-user-flows.md)
 * A [published API](../api-management/import-and-publish.md) in Azure API Management
-* (Optional) A [Postman platform](https://www.getpostman.com/) to test secured access
+* (Optional) A [Postman platform](https://www.postman.com/) to test secured access
 
 ## Get Azure AD B2C application ID
 
@@ -80,7 +80,7 @@ https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 
 ## Configure the inbound policy in Azure API Management
 
-You're now ready to add the inbound policy in Azure API Management that validates API calls. By adding a [JSON web token (JWT) validation](../api-management/api-management-access-restriction-policies.md#ValidateJWT) policy that verifies the audience and issuer in an access token, you can ensure that only API calls with a valid token are accepted.
+You're now ready to add the inbound policy in Azure API Management that validates API calls. By adding a [JSON web token (JWT) validation](../api-management/validate-jwt-policy.md) policy that verifies the audience and issuer in an access token, you can ensure that only API calls with a valid token are accepted.
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure API Management instance.
 1. Select **APIs**.
@@ -115,7 +115,7 @@ You're now ready to add the inbound policy in Azure API Management that validate
 
 ## Validate secure API access
 
-To ensure that only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.getpostman.com/).
+To ensure that only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.postman.com/).
 
 To call the API, you need both an access token that's issued by Azure AD B2C and an Azure API Management subscription key.
 
@@ -152,7 +152,7 @@ A client application (in this case, Postman) that calls a published API must inc
 
 With the access token and Azure API Management subscription key recorded, you're now ready to test whether you've correctly configured secure access to the API.
 
-1. Create a new `GET` request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published as one of the prerequisites. For example:
+1. Create a new `GET` request in [Postman](https://www.postman.com/). For the request URL, specify the speakers list endpoint of the API you published as one of the prerequisites. For example:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

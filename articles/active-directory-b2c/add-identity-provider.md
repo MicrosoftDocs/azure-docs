@@ -2,12 +2,12 @@
 title: Add an identity provider - Azure Active Directory B2C  
 description: Learn how to add an identity provider to your Active Directory B2C tenant.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
-ms.author: kengaderdus
-ms.date: 04/08/2022
-ms.custom: mvc
+ms.author: godonnell
+ms.date: 02/08/2023
+ms.custom: mvc, build-2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
@@ -19,9 +19,9 @@ You can configure Azure AD B2C to allow users to sign in to your application wit
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
-On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
+On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once a user selects an external identity provider, they're redirected to the selected provider's website to complete their sign-in. After they successfully sign in, they're returned to Azure AD B2C for authentication with your application.
 
-![Mobile sign-in example with a social account (Facebook)](media/add-identity-provider/external-idp.png)
+![Diagram showing mobile sign-in example with a social account (Facebook).](media/add-identity-provider/external-idp.png)
 
 You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](user-flow-overview.md) using the Azure portal. You can also add identity providers to your [custom policies](user-flow-overview.md).
 
@@ -32,8 +32,8 @@ You typically use only one identity provider in your applications, but you have 
 * [AD FS](identity-provider-adfs.md)
 * [Amazon](identity-provider-amazon.md)
 * [Apple](identity-provider-apple-id.md)
-* [Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
-* [Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
+* [Microsoft Entra ID (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
+* [Microsoft Entra ID (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
 * [Azure AD B2C](identity-provider-azure-ad-b2c.md)
 * [eBay](identity-provider-ebay.md)
 * [Facebook](identity-provider-facebook.md)
@@ -44,11 +44,11 @@ You typically use only one identity provider in your applications, but you have 
 * [LinkedIn](identity-provider-linkedin.md)
 * [Microsoft Account](identity-provider-microsoft-account.md)
 * [Mobile ID](identity-provider-mobile-id.md)
-* [PingOne](identity-provider-ping-one.md) (PingIdentity)
+* [PingOne](identity-provider-ping-one.md) (Ping Identity)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
-* [SwissID]( identity-provider-swissid.md)
+* [SwissID](identity-provider-swissid.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

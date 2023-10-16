@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 12/02/2021
+ms.date: 07/13/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -81,12 +81,12 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 
     | Cause analysis                                               | Recommendation                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions: <li>You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.</li><li>You are using Office365 Authentication.</li><li>Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).</li>  Under these circumstances, the connection used to succeed before 6/8/2021. Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).| If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use 'Azure AD service-principal' to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.|
-    |If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth.| <li>Contact Dynamics support team with the detailed error message for help.</li><li>Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication).</li>
+    | You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions: <li>You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.</li><li>You are using Office365 Authentication.</li><li>Your tenant and user is configured in Microsoft Entra ID for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).</li>  Under these circumstances, the connection used to succeed before 6/8/2021. Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).| If your tenant and user is configured in Microsoft Entra ID for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use 'Microsoft Entra service principal' to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.|
+    |If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth.| <li>Contact Dynamics support team with the detailed error message for help.</li><li>Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Microsoft Entra service principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication).</li>
     |If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. |<li>Make sure you have put the correct service URI in the linked service.</li><li>If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server.</li> |
     |If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side.  | <li>Make sure your username and password are correct if you use the Office 365 authentication. </li><li> Make sure you have input the correct service URI.</li><li>If you use regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier.</li><li>Contact the Dynamics support team for help.</li>|
     |If you see `No Organizations Found` in the error message, it means that either your organization name is wrong or you used a wrong CRM region identifier in the service URL.|<li>Make sure you have input the correct service URI.</li><li>If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier.</li><li>Contact the Dynamics support team for help.</li>|
-    | If you see `401 Unauthorized` and AAD-related error message, it means that there's an issue with the service principal. |Follow the guidance in the error message to fix the service principal issue. |
+    | If you see `401 Unauthorized` and Microsoft Entra related error message, it means that there's an issue with the service principal. |Follow the guidance in the error message to fix the service principal issue. |
    |For other errors, usually the issue is on the server side. |Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. |
 
 ## Error code: DynamicsOperationFailed 
@@ -144,6 +144,14 @@ This article provides suggestions to troubleshoot common problems with the Dynam
  
 - **Recommendation**: You can add the 'type' property to those columns in the column mapping by using JSON editor on the portal. 
 
+## Error code: UserErrorUnsupportedAttributeType
+ 
+- **Message**: `The attribute type 'Lookup' of field %attributeName; is not supported` 
+ 
+- **Cause**: When loading data to Dynamics sink, Azure Data Factory imposes validation on lookup attribute's metadata. However, there's the known issue of certain Dynamics entities not having valid lookup attribute metadata that holds a list of targets, which would fail the validation.
+
+- **Recommendation**: Contact Dynamics support team to mitigate the issue.
+
 ## The copy activity from the Dynamics 365 reads more rows than the actual number
 
 - **Symptoms**: The copy activity from the Dynamics 365 reads more rows than the actual number.
@@ -159,7 +167,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 - **Cause**: The virtual column is not supported now. 
 
 - **Recommendation**: For the Option Set value, follow the options below to get it:
-  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) and [Dynamics 365 blog](https://dynamicscrmdotblog.wordpress.com/).
+  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/).
   - You can link the StringMap entity to your target entity and get the associated values.
 
 ## The parallel copy in a Dynamics CRM data store
@@ -183,7 +191,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

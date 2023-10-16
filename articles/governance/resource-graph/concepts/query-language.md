@@ -1,29 +1,36 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 09/03/2021
+ms.date: 06/27/2023
 ms.topic: conceptual
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
+
 # Understanding the Azure Resource Graph query language
 
-The query language for the Azure Resource Graph supports a number of operators and functions. Each
+The query language for the Azure Resource Graph supports many operators and functions. Each
 work and operate based on [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/index). To learn about the
-query language used by Resource Graph, start with the
-[tutorial for KQL](/azure/data-explorer/kusto/query/tutorial).
+query language used by Resource Graph, start with the [tutorial for KQL](/azure/data-explorer/kusto/query/tutorial).
 
 This article covers the language components supported by Resource Graph:
 
-- [Resource Graph tables](#resource-graph-tables)
-- [Resource Graph custom language elements](#resource-graph-custom-language-elements)
-- [Supported KQL language elements](#supported-kql-language-elements)
-- [Scope of the query](#query-scope)
-- [Escape characters](#escape-characters)
+- [Understanding the Azure Resource Graph query language](#understanding-the-azure-resource-graph-query-language)
+  - [Resource Graph tables](#resource-graph-tables)
+  - [Extended properties](#extended-properties)
+  - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
+    - [Shared query syntax (preview)](#shared-query-syntax-preview)
+  - [Supported KQL language elements](#supported-kql-language-elements)
+    - [Supported tabular/top level operators](#supported-tabulartop-level-operators)
+  - [Query scope](#query-scope)
+  - [Escape characters](#escape-characters)
+  - [Next steps](#next-steps)
 
 ## Resource Graph tables
 
 Resource Graph provides several tables for the data it stores about Azure Resource Manager resource
 types and their properties. Some tables can be used with `join` or `union` operators to get
-properties from related resource types. Here is the list of tables available in Resource Graph:
+properties from related resource types. Here's the list of tables available in Resource Graph:
 
 |Resource Graph table |Can `join` other tables? |Description |
 |---|---|---|
@@ -89,9 +96,9 @@ Resources
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
 
-## <a name="extended-properties"></a>Extended properties (preview)
+## Extended properties
 
-As a _preview_ feature, some of the resource types in Resource Graph have additional type-related
+As a _preview_ feature, some of the resource types in Resource Graph have more type-related
 properties available to query beyond the properties provided by Azure Resource Manager. This set of
 values, known as _extended properties_, exists on a supported resource type in
 `properties.extended`. To see which resource types have _extended properties_, use the following
@@ -114,7 +121,7 @@ Resources
 
 ## Resource Graph custom language elements
 
-### <a name="shared-query-syntax"></a>Shared query syntax (preview)
+### Shared query syntax (preview)
 
 As a preview feature, a [shared query](../tutorials/create-share-query.md) can be accessed directly
 in a Resource Graph query. This scenario makes it possible to create standard queries as shared
@@ -157,7 +164,7 @@ different behaviors.
 
 ### Supported tabular/top level operators
 
-Here is the list of KQL tabular operators supported by Resource Graph with specific samples:
+Here's the list of KQL tabular operators supported by Resource Graph with specific samples:
 
 |KQL |Resource Graph sample query |Notes |
 |---|---|---|
@@ -167,19 +174,19 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query, 1 of which may be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then 3 cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, see [Resource Graph tables](#resource-graph-tables). |
 |[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
-|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
 |[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `sort` |
 |[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#parse-subnets) |It's optimal to access properties directly if they exist instead of using `parse`. |
 |[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
 |[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-column) | |
-|[sort](/azure/data-explorer/kusto/query/sortoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
+|[sort](/azure/data-explorer/kusto/query/sort-operator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
 |[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Simplified first page only |
 |[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
 |[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limit of 3 `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
 |[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
 
-There is a default limit of 3 `join` and 3 `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
+There's a default limit of 3 `join` and 3 `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
 
 To support the "Open Query" portal experience, Azure Resource Graph Explorer has a higher global limit than Resource Graph SDK.
 
@@ -194,11 +201,11 @@ resources.
 The list of subscriptions or management groups to query can be manually defined to change the scope
 of the results. For example, the REST API `managementGroups` property takes the management group ID,
 which is different from the name of the management group. When `managementGroups` is specified,
-resources from the first 5,000 subscriptions in or under the specified management group hierarchy
+resources from the first 10,000 subscriptions in or under the specified management group hierarchy
 are included. `managementGroups` can't be used at the same time as `subscriptions`.
 
-Example: Query all resources within the hierarchy of the management group named 'My Management
-Group' with ID 'myMG'.
+Example: Query all resources within the hierarchy of the management group named `My Management
+Group` with ID `myMG`.
 
 - REST API URI
 
@@ -215,6 +222,55 @@ Group' with ID 'myMG'.
   }
   ```
 
+The `AuthorizationScopeFilter` parameter enables you to list Azure Policy assignments and Azure RBAC role assignments in the `AuthorizationResources` table that are inherited from upper scopes. The `AuthorizationScopeFilter` parameter accepts the following values for the `PolicyResources` and `AuthorizationResources` tables:
+
+- **AtScopeAndBelow** (default if not specified): Returns assignments for the given scope and all child scopes
+- **AtScopeAndAbove**: Returns assignments for the given scope and all parent scopes, but not child scopes
+- **AtScopeAboveAndBelow**: Returns assignments for the given scope, all parent scopes and all child scopes
+- **AtScopeExact**: Returns assignments  only for the given scope; no parent or child scopes are included
+
+> [!NOTE]
+> To use the `AuthorizationScopeFilter` parameter, be sure to use the **2021-06-01-preview** or later API version in your requests.
+
+Example: Get all policy assignments at the **myMG** management group and Tenant Root (parent) scopes.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-06-01-preview
+  ```
+
+- Request Body Sample
+
+  ```json
+  {
+    "options": {
+      "authorizationScopeFilter": "AtScopeAndAbove"
+    },
+    "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+    "managementGroups": ["myMG"]
+  }
+  ```
+
+Example: Get all policy assignments at the **mySubscriptionId** subscription, management group, and Tenant Root scopes.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-06-01-preview
+  ```
+- Request Body Sample
+
+  ```json
+  {
+    "options": {
+      "authorizationScopeFilter": "AtScopeAndAbove"
+    },
+    "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+    "subscriptions": ["mySubscriptionId"]
+  }
+  ```
+
 ## Escape characters
 
 Some property names, such as those that include a `.` or `$`, must be wrapped or escaped in the
@@ -228,8 +284,7 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$` - Escape the character in the property name. The escape character used depends on the shell
-  Resource Graph is run from.
+- `$` - Escape the character in the property name. The escape character used depends on the shell that runs Resource Graph.
 
   - **bash** - `\`
 

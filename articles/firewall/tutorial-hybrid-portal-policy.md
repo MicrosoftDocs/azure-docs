@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 06/08/2022
 ms.author: victorh
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -67,8 +67,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 First, create the resource group to contain the resources for this tutorial:
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. On the Azure portal home page, select **Resource groups** > **Add**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the Azure portal home page, select **Resource groups** > **Create**.
 3. For **Subscription**, select your subscription.
 1. For **Resource group name**, type **FW-Hybrid-Test**.
 2. For **Region**, select **(US) East US**. All resources that you create later must be in the same location.
@@ -98,17 +98,18 @@ Now, create the VNet:
 
 1. From the Azure portal home page, select **Create a resource**.
 2. In **Networking**, select **Virtual network**.
-7. For **Resource group**, select **FW-Hybrid-Test**.
+1. Select **Create**.
+1. For **Resource group**, select **FW-Hybrid-Test**.
 1. For **Name**, type **VNet-Spoke**.
-2. For **Region**, select **(US) East US**.
-3. Select **Next: IP Addresses**.
-4. For **IPv4 address space**, delete the default address and type **10.6.0.0/16**.
-6. Under **Subnet name**, select **Add subnet**.
-7. For **Subnet name** type **SN-Workload**.
-8. For **Subnet address range**, type **10.6.0.0/24**. 
-9. Select **Add**.
-10. Select **Review + create**.
-11. Select **Create**.
+1. For **Region**, select **(US) East US**.
+1. Select **Next: IP Addresses**.
+1. For **IPv4 address space**, delete the default address and type **10.6.0.0/16**.
+1. Under **Subnet name**, select **Add subnet**.
+1. For **Subnet name** type **SN-Workload**.
+1. For **Subnet address range**, type **10.6.0.0/24**. 
+1. Select **Add**.
+1. Select **Review + create**.
+1. Select **Create**.
 
 ## Create the on-premises virtual network
 
@@ -132,14 +133,14 @@ Now create a second subnet for the gateway.
 2. Select **+Subnet**.
 3. For **Name**, type **GatewaySubnet**.
 4. For **Subnet address range** type **192.168.2.0/24**.
-5. Select **OK**.
+5. Select **Save**.
 
 ## Configure and deploy the firewall
 
 Now deploy the firewall into the firewall hub virtual network.
 
 1. From the Azure portal home page, select **Create a resource**.
-2. In the left column, select **Networking**, and search for and then select **Firewall**.
+2. In the left column, select **Networking**, and search for and then select **Firewall**, and then select **Create**.
 4. On the **Create a Firewall** page, use the following table to configure the firewall:
 
       |Setting  |Value  |
@@ -148,10 +149,11 @@ Now deploy the firewall into the firewall hub virtual network.
    |Resource group     |**FW-Hybrid-Test** |
    |Name     |**AzFW01**|
    |Region     |**East US**|
+   |Firewall tier|**Standard**|
    |Firewall management|**Use a Firewall Policy to manage this firewall**|
    |Firewall policy|Add new:<br>**hybrid-test-pol**<br>**East US** 
    |Choose a virtual network     |Use existing:<br> **VNet-hub**|
-   |Public IP address     |Add new: <br>**fw-pip**. |
+   |Public IP address     |Add new: <br>**fw-pip** |
 
 
 5. Select **Review + create**.
@@ -316,10 +318,11 @@ Next, create a couple routes:
 12. Select **Routes** in the left column.
 13. Select **Add**.
 14. For the route name, type **ToSpoke**.
-15. For the address prefix, type **10.6.0.0/16**.
-16. For next hop type, select **Virtual appliance**.
-17. For next hop address, type the firewall's private IP address that you noted earlier.
-18. Select **OK**.
+1. For the **Address prefix destination**, select **IP Addresses**.
+1. For the **Destination IP addresses/CIDR ranges**, type **10.6.0.0/16**.
+1. For next hop type, select **Virtual appliance**.
+1. For next hop address, type the firewall's private IP address that you noted earlier.
+1. Select **Add**.
 
 Now associate the route to the subnet.
 
@@ -345,10 +348,11 @@ Now create the default route from the spoke subnet.
 8. Select **Routes** in the left column.
 9. Select **Add**.
 10. For the route name, type **ToHub**.
-11. For the address prefix, type **0.0.0.0/0**.
-12. For next hop type, select **Virtual appliance**.
-13. For next hop address, type the firewall's private IP address that you noted earlier.
-14. Select **OK**.
+1. For the **Address prefix destination**, select **IP Addresses**.
+1. For the **Destination IP addresses/CIDR ranges**, type **0.0.0.0/0**.
+1. For next hop type, select **Virtual appliance**.
+1. For next hop address, type the firewall's private IP address that you noted earlier.
+1. Select **Add**.
 
 Now associate the route to the subnet.
 
@@ -367,14 +371,14 @@ Now create the spoke workload and on-premises virtual machines, and place them i
 Create a virtual machine in the spoke virtual network, running IIS, with no public IP address.
 
 1. From the Azure portal home page, select **Create a resource**.
-2. Under **Popular**, select **Windows Server 2016 Datacenter**.
+2. Under **Popular Marketplace products**, select **Windows Server 2019 Datacenter**.
 3. Enter these values for the virtual machine:
-    - **Resource group** - Select **FW-Hybrid-Test**.
-    - **Virtual machine name**: *VM-Spoke-01*.
-    - **Region** - Same region that you're used previously.
-    - **User name**: \<type a user name\>.
+    - **Resource group** - Select **FW-Hybrid-Test**
+    - **Virtual machine name**: *VM-Spoke-01*
+    - **Region** - Same region that you're used previously
+    - **User name**: \<type a user name\>
     - **Password**: \<type a password\>
-4. For **Public inbound ports**, select **Allow selected ports**, and then select **HTTP (80)**, and **RDP (3389)**
+4. For **Public inbound ports**, select **Allow selected ports**, and then select **HTTP (80)**, and **RDP (3389)**.
 4. Select **Next:Disks**.
 5. Accept the defaults and select **Next: Networking**.
 6. Select **VNet-Spoke** for the virtual network and the subnet is **SN-Workload**.
@@ -384,6 +388,8 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 11. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
 ### Install IIS
+
+After the virtual machine is created, install IIS.
 
 1. From the Azure portal, open the Cloud Shell and make sure that it's set to **PowerShell**.
 2. Run the following command to install IIS on the virtual machine and change the location if necessary:
@@ -405,7 +411,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 This is a virtual machine that you use to connect using Remote Desktop to the public IP address. From there, you then connect to the on-premises server through the firewall.
 
 1. From the Azure portal home page, select **Create a resource**.
-2. Under **Popular**, select **Windows Server 2016 Datacenter**.
+2. Under **Popular Marketplace products**, select **Windows Server 2019 Datacenter**.
 3. Enter these values for the virtual machine:
     - **Resource group** - Select existing, and then select **FW-Hybrid-Test**.
     - **Virtual machine name** - *VM-Onprem*.
@@ -427,9 +433,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 1. First, note the private IP address for **VM-spoke-01** virtual machine.
 
 2. From the Azure portal, connect to the **VM-Onprem** virtual machine.
-<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   You should get a reply.--->
 3. Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>.
 
    You should see the **VM-spoke-01** web page:
@@ -441,7 +445,6 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 
 So now you've verified that the firewall rules are working:
 
-<!---- You can ping the server on the spoke VNet.--->
 - You can browse web server on the spoke virtual network.
 - You can connect to the server on the spoke virtual network using RDP.
 

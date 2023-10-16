@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Managed Grafana Preview documentation
-summary: Learn how to use Azure Managed Grafana. Access quickstarts and how-to guides to learn how to create, configure and share your Azure Managed Grafana Preview dashboards.
+title: Azure Managed Grafana documentation
+summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guides and tutorials to learn how to create, configure and manage Azure Managed Grafana instances.
 
 metadata:
   title: Azure Managed Grafana
@@ -10,51 +10,64 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 03/31/2022
+  ms.date: 01/18/2023
 
 landingContent:
-  - title: About Azure Managed Grafana Preview
+  - title: About Azure Managed Grafana
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
-            
-  - title: Get started
+          - text: What's new
+            url: concept-whats-new.md
+  - title: Create an instance
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create a Managed Grafana workspace from the Azure portal
+          - text: Azure portal
             url: quickstart-managed-grafana-portal.md
-
-  - title: Configure a dashboard
+          - text: Azure CLI
+            url: quickstart-managed-grafana-cli.md
+  - title: Configure Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure data source plugins with Managed Identity
+          - text: Configure data sources with Managed Identity
             url: how-to-data-source-plugins-managed-identity.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
-
-  - title: Manage your dashboard
+          - text: Enable zone redundancy
+            url: how-to-enable-zone-redundancy.md
+          - text: Set up authentication and permissions
+            url: how-to-authentication-permissions.md
+          - text: Create a dashboard
+            url: how-to-create-dashboard.md
+          - text: Share a dashboard
+            url: how-to-share-dashboard.md
+          - text: Configure SMTP settings
+            url: how-to-smtp-settings.md
+  - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure permissions for Managed Grafana
+          - text: Modify access to Azure Monitor
             url: how-to-permissions.md
-          - text: Share your Managed Grafana workspace
+          - text: Share an instance
             url: how-to-share-grafana-workspace.md
-          - text: Monitor your Managed Grafana workspace
+          - text: Monitor an instance
             url: how-to-monitor-managed-grafana-workspace.md
-  - title: More resources
+  - title: Resources
     linkLists:
       - linkListType: reference
         links:
-          - text: Control Plane
+          - text: Service reliability
+            url: high-availability.md
+          - text: Control plane APIs
             url: /rest/api/managed-grafana
-          - text: Data Plane
-            url: https://aka.ms/managed-grafana-dataplane
-          - text: Grafana Enterprise
-            url: https://grafana.com/docs/grafana/latest/enterprise
+          - text: Data plane APIs
+            url: https://aka.ms/managed-grafana/docs/http-api
           - text: Grafana UI
             url: grafana-app-ui.md
+          - text: Support
+            url: find-help-open-support-ticket.md

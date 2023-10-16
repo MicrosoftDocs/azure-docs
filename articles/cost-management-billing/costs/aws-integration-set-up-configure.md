@@ -1,10 +1,10 @@
 ---
 title: Set up AWS integration with Cost Management
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/13/2022
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -60,10 +60,13 @@ Use the Create a New Role wizard:
 1. Sign in to your AWS console and select **Services**.
 2. In the list of services, select **IAM**.
 3. Select **Roles** and then select **Create Role**.
-4. On the next page, select **Another AWS account**.
-5. In **Account ID**, enter **432263259397**.
-6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
+4. On the **Select trusted entity** page, select **AWS account** and then under **An AWS account**, select **Another AWS account**.
+5. Under **Account ID**, enter **432263259397**.
+6. Under **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
+7. Under **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID. The external ID should comply with AWS restrictions:
+   - Type: String
+   - Length constraints: Minimum length of 2. Maximum length of 1224.
+   - Must satisfy regular expression pattern: [\w+=,.@: /-]*
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.
@@ -259,4 +262,4 @@ AWS linked accounts always inherit permissions from the management group that th
 
 - Now that you've set up and configured AWS Cost and Usage report integration, continue to [Manage AWS costs and usage](aws-integration-manage.md).
 - If you're unfamiliar with cost analysis, see [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md) quickstart.
-- If you're unfamiliar with budgets in Azure, see [Create and manage Azure budgets](tutorial-acm-create-budgets.md).
+- If you're unfamiliar with budgets in Azure, see [Create and manage budgets](tutorial-acm-create-budgets.md).

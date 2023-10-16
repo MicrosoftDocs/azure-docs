@@ -1,15 +1,15 @@
 ---
 title: Use blob index tags to manage and find data on Azure Blob Storage
 description: See examples of how to use blob index tags to categorize, manage, and query for blob objects.
+titleSuffix: Azure Storage
 author: normesta
 
 ms.author: normesta
-ms.date: 03/30/2022
+ms.date: 07/21/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use blob index tags to manage and find data on Azure Blob Storage
@@ -93,6 +93,11 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
    ```azurecli
    az storage blob upload --account-name mystorageaccount --container-name myContainer --name demo-file.txt --file C:\demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
    ```
+
+### [AzCopy](#tab/azcopy)
+
+See [Upload with index tags](../common/storage-use-azcopy-blobs-upload.md#upload-with-index-tags).
+
 ---
 
 ## Get, set, and update blob index tags
@@ -188,6 +193,10 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
    az storage blob tag set --account-name mystorageaccount --container-name myContainer --name demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
    ```
 
+### [AzCopy](#tab/azcopy)
+
+See [Replace index tags](../common/storage-use-azcopy-blobs-properties-metadata.md#replace-index-tags)
+
 ---
 
 ## Filter and find data with blob index tags
@@ -281,9 +290,13 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
    az storage blob filter --account-name mystorageaccount --tag-filter ""@container"='myContainer' and "tag1"='value1' and "tag2"='value2'" --auth-mode login
    ```
 
+### [AzCopy](#tab/azcopy)
+
+N/A
+
 ---
 
 ## Next steps
 
-- Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
+- Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

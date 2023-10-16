@@ -1,23 +1,27 @@
 ---
 title: Transfer an Azure subscription to an Enterprise Agreement
-description: This article helps you understand the steps to transfer a Microsoft Customer Agreement or MOSP subscription to an Enterprise Agreement.
+description: This article helps you understand the steps to transfer a Microsoft Customer Agreement subscription or MOSP subscription to an Enterprise Agreement.
 author: bandersmsft
-ms.reviewer: jatracey
+ms.reviewer: sgautam
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 03/29/2023
 ms.author: banders
 ms.custom:
 ---
 
 # Transfer an Azure subscription to an Enterprise Agreement (EA)
 
-This article helps you understand the steps needed to transfer a Microsoft Customer Agreement or MOSP (pay-as-you-go) subscription to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+This article helps you understand the steps needed to transfer an individual Microsoft Online Service Program (MOSP) subscription (Azure offer MS-AZR-003P pay-as-you-go) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
+
+If you want to transfer a different subscription type to EA, see [Azure subscription and reservation transfer hub](subscription-transfer.md) for supported transfer options.
 
 > [!NOTE]
-> The transfer process doesn't change Azure AD Directory information that the subscriptions are linked to. If you want to make an Azure AD Directory change, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+> The transfer process doesn't change Microsoft Entra Directory information that the subscriptions are linked to. If you want to make a Microsoft Entra Directory change, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Prerequisites
 
@@ -30,7 +34,7 @@ Identify the subscription account admin by signing in to the Azure portal with a
 :::image type="content" source="./media/mosp-ea-transfer/subscription-account-admin.png" alt-text="Image showing subscription properties where you can view the Account Admin" lightbox="./media/mosp-ea-transfer/subscription-account-admin.png" :::
 
 > [!NOTE]
-> You must sign in to Enterprise Agreement (EA) portal later with the same Account Admin user account, as described in the preceding information. If you don't have access to the account, you must get it before proceeding. For more information, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).
+> You must sign in later with the same Account Admin user account as described in the preceding information. If you don't have access to the account, you must get it before proceeding. For more information, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).
 
 ### Access to the destination EA
 
@@ -61,22 +65,22 @@ After you've reviewed and completed any needed [prerequisites](#prerequisites), 
 
 As described in the [prerequisites](#access-to-the-destination-ea) section, you must create an EA account owner either as part of an existing or new EA department.
 
-1. Sign in to the EA portal at https://ea.azure.com as either an enterprise or department administrator.
-1. To create a new department, see [Create an Azure Enterprise department](ea-portal-administration.md#create-an-azure-enterprise-department).
-1. To create the EA account owner, see [Add an account](ea-portal-administration.md#add-an-account). When asked for the **Account Owner E-Mail** enter the email address of the subscription **Account Admin** that you identified previously.
+1. Sign in to the Azure portal as an enterprise or department administrator.
+1. To create a new department, see [Create a department](direct-ea-administration.md#to-create-a-department).
+1. To create the EA account owner, see [Add an account and account owner](direct-ea-administration.md#add-an-account-and-account-owner). When asked for the **Account Owner E-Mail** enter the email address of the subscription **Account Admin** that you identified previously.
     > [!NOTE]
-    > If the EA Authentication Level is set incorrectly, the EA account owner creation fails and an error is shown in the EA portal.
+    > If the EA Authentication Level is set incorrectly, the EA account owner creation fails and an error is shown.
 
-After the EA account owner is created the subscription account Administrator, who is also now an EA account owner, receives an email from the Azure EA portal. It notifies the user that they're now an EA Account Owner. If the user doesn't have access to an email mailbox associated with the account specified, there's no need to worry. The email is only a notification. Information in the email isn't required to proceed. However, an email mailbox is advised for future notifications about the subscription.
+After the EA account owner is created the subscription account Administrator, who is also now an EA account owner, receives an email. It notifies the user that they're now an EA Account Owner. If the user doesn't have access to an email mailbox associated with the account specified, there's no need to worry. The email is only a notification. Information in the email isn't required to proceed. However, an email mailbox is advised for future notifications about the subscription.
 
 ### Complete the subscription transfer
 
 Now that the subscription account administrator is also an EA account owner, they can create subscriptions under the EA.
 
 > [!IMPORTANT]
-> Before proceeding you need to understand what happens when a new EA account owner signs in to the EA portal for the first time. Read and understand the following information before you sign in as the subscription account administrator in the EA portal.
+> Before proceeding you need to understand what happens when a new EA account owner signs in to the Azure portal for the first time. Read and understand the following information before you sign in as the subscription account administrator.
 
-The first time a new EA account owner signs in to the EA portal, they see the following warning:
+The first time a new EA account owner signs in to the Azure portal, they see the following warning:
 
 ```
 WARNING
@@ -88,7 +92,7 @@ Enrollment Number: <EnrollmentNumber>
 
 All Enrollment Administrators can gain access to all of your subscriptions if you proceed.
 Additionally, all Azure subscriptions for which you are the account owner will be converted to your Enterprise Agreement.
-This includes subscriptions which include a monthly credit (e.g. Visual Studio, MPN, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
+This includes subscriptions which include a monthly credit (e.g. Visual Studio, Microsoft Cloud Partner Program, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
 All subscriptions based on a Visual Studio subscriber offer (monthly credit for Visual Studio subscribers or Pay-As-You-Go Dev/Test) will be converted to use the Enterprise Dev/Test usage rates and be billed against this enrollment from today onwards.
 If you wish to retain the monthly credits currently associated with any of your subscriptions, please cancel.
 Please see additional details.
@@ -96,9 +100,9 @@ Please see additional details.
 Cancel  Continue
 ```
 
-The warning states the following, as documented at [Azure EA portal administration](ea-portal-administration.md#enterprise-devtest-offer):
+The warning states the following:
 
-***When a user is added as an account owner through the Azure EA Portal, any Azure subscriptions associated with the account owner that are based on either the MOSP (PAYG) Dev/Test offer or the monthly credit offers for Visual Studio subscribers will be converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as MOSP (PAYG), associated with the Account Owner will be converted to the standard EA subscription offer.***
+***When a user is added as an account owner, any Azure subscriptions associated with the account owner that are based on either the MOSP (PAYG) Dev/Test offer or the monthly credit offers for Visual Studio subscribers will be converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as MOSP (PAYG), associated with the Account Owner will be converted to the standard EA subscription offer.***
 
 If the user understands the consequences of the warning, select **Continue** and the subscriptions associated with their account are transferred to the EA.
 
@@ -108,4 +112,4 @@ Using the preceding information, you should have transferred the subscription to
 
 ## Next step
 
-- [Get started with the Azure Enterprise portal](ea-portal-get-started.md)
+- [EA Billing administration on the Azure portal](direct-ea-administration.md)

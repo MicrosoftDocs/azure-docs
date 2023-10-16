@@ -1,13 +1,15 @@
 ---
 title: Understand how the reservation discount is applied to Azure Cache for Redis | Microsoft Docs
 description: Learn how reservation discount is applied to Azure Cache for Redis instances.
-author: yegu-ms
-manager: maiye
+author: flang-msft
+
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/15/2021
-ms.author: yegu
+ms.date: 12/06/2022
+
 ---
+
 # How the reservation discount is applied to Azure Cache for Redis
 
 After you buy an Azure Cache for Redis reserved capacity, the reservation discount is automatically applied to cache instances that match the attributes and quantity of the reservation. A reservation covers only the compute costs of your Azure Cache for Redis. You're charged for storage and networking at the normal rates. Reserved capacity is only available for [premium tier](../../azure-cache-for-redis/quickstart-create-redis.md) caches.
@@ -17,6 +19,8 @@ After you buy an Azure Cache for Redis reserved capacity, the reservation discou
 A reservation discount is ***use-it-or-lose-it***. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
+
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
 
 ## Discount applied to Azure Cache for Redis
 

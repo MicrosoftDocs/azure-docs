@@ -1,64 +1,61 @@
 ---
-title: View audit report for privileged access group assignments in Privileged Identity Management (PIM) - Azure AD | Microsoft Docs
-description: View activity and audit history for privileged access group assignments in Azure AD Privileged Identity Management (PIM).
+title: Audit activity history for group assignments in Privileged Identity Management
+description: View activity and audit activity history for group assignments in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
-# Audit activity history for privileged access group assignments (preview) in Privileged Identity Management
+# Audit activity history for group assignments in Privileged Identity Management
 
-With Privileged Identity Management (PIM), you can view activity, activations, and audit history for Azure privileged access group members and owners within your Azure Active Directory (Azure AD) organization.
+When working with your organization's groups in Privileged Identity Management (PIM), you can view activity, activations, and audit history for Microsoft Entra group membership or ownership changes. 
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
 
-Follow these steps to view the audit history for privileged access groups.
+Follow these steps to view the audit history for groups in Privileged Identity Management.
 
 ## View resource audit history
 
-**Resource audit** gives you a view of all activity associated with your privileged access groups.
+**Resource audit** gives you a view of all activity associated with groups in PIM.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Privileged access groups (Preview)**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**.
 
-1. Select the privileged access group you want to view audit history for.
+1. Select the group you want to view audit history for.
 
-1. Under **Activity**, select **Resource audit**.
+1. Select **Resource audit**.
+
+    :::image type="content" source="media/pim-for-groups/pim-group-19.png" alt-text="Screenshot of where to select Resource audit." lightbox="media/pim-for-groups/pim-group-19.png":::
 
 1. Filter the history using a predefined date or custom range.
-
-    ![Resource audit list with filters](media/groups-audit/groups-resource-audit.png)
 
 ## View my audit
 
-**My audit** enables you to view your personal role activity for a privileged access group.
+**My audit** enables you to view your personal role activity for groups in PIM.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Privileged access groups (Preview)**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**.
 
-1. Select the privileged access group you want to view audit history for.
+1. Select the group you want to view audit history for.
 
-1. Under **Activity**, select **My audit**.
+1. Select **My audit**.
+
+    :::image type="content" source="media/pim-for-groups/pim-group-20.png" alt-text="Screenshot of where to select My audit." lightbox="media/pim-for-groups/pim-group-20.png":::
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
-
 ## Next steps
 
-- [Assign group membership and ownership in Privileged Identity Management](groups-assign-member-owner.md)
-- [Approve or deny requests for privileged access groups in PIM](groups-approval-workflow.md)
-- [View audit history for Azure AD roles in PIM](groups-audit.md)
+- [Assign eligibility for a group in Privileged Identity Management](groups-assign-member-owner.md)

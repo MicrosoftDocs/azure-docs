@@ -4,18 +4,19 @@ description: Learn how to get the latest restorable timestamp for accounts enabl
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
-ms.date: 04/08/2022
+ms.subservice: nosql
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 03/31/2023
 ms.topic: how-to
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # Get the latest restorable timestamp for continuous backup accounts
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts with continuous backup mode. It explains how to get the latest restorable time using Azure PowerShell and Azure CLI, and provides the request and response format for the PowerShell and CLI commands. 
 
-This feature is supported for Cosmos DB SQL API containers and Cosmos DB MongoDB API collections. This feature is in preview for Table API tables and Gremlin API graphs. 
+This feature is supported for Azure Cosmos DB API for NoSQL containers, API for MongoDB , Table API and API for Gremlin graphs.
 
 ## SQL container
 

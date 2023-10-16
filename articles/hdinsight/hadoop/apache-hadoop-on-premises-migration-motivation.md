@@ -1,11 +1,10 @@
 ---
 title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 11/30/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
@@ -20,9 +19,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 - Apache Spark
 - Apache Hive with LLAP
 - Apache Kafka
-- Apache Storm
 - Apache HBase
-- R
 
 ## Azure HDInsight advantages over on-premises Hadoop
 
@@ -36,7 +33,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 
 - **Global availability** - HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
 
-- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
+- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Microsoft Entra ID](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 
 - **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up to date. Software updates are usually a complex process for on-premises deployments.
 
@@ -85,7 +82,7 @@ This section provides template questionnaires to help gather important informati
 |**Topic**: **Environment**|||
 |Cluster Distribution version|HDP 2.6.5, CDH 5.7|
 |Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Cluster types|Hadoop, Spark, Confluent Kafka, Storm, Solr|
+|Cluster types|Hadoop, Spark, Confluent Kafka, Solr|
 |Number of clusters|4|
 |Number of master nodes|2|
 |Number of worker nodes|100|
@@ -120,7 +117,6 @@ This section provides template questionnaires to help gather important informati
 |Spark batch jobs|50 jobs -- every 15 minutes||
 |Spark Streaming jobs|5 jobs -- every 3 minutes||
 |Structured Streaming jobs|5 jobs -- every minute||
-|ML Model training jobs|2 jobs -- once in a week||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||
@@ -162,7 +158,7 @@ This section provides template questionnaires to help gather important informati
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
-|Integration with other cloud services?|ADF, CosmosDB||
+|Integration with other cloud services?|ADF, Azure Cosmos DB||
 |**Topic**:   **Data Movement**  |||
 |Initial load preference|DistCp, Data box, ADF, WANDisco||
 |Data transfer delta|DistCp, AzCopy||

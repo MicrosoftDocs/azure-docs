@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub AE | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and GitHub AE.
+title: 'Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server'
+description: Learn how to configure single sign-on between Microsoft Entra ID and GitHub Enterprise Server.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,88 +9,93 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 06/21/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub AE
+# Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server
 
-In this tutorial, you'll learn how to integrate GitHub AE with Azure Active Directory (Azure AD). When you integrate GitHub AE with Azure AD, you can:
+In this tutorial, you'll learn how to integrate GitHub Enterprise Server with Microsoft Entra ID. When you integrate GitHub Enterprise Server with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to GitHub AE.
-* Enable your users to be automatically signed-in to GitHub AE with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to GitHub Enterprise Server.
+* Enable your users to be automatically signed-in to GitHub Enterprise Server with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* GitHub AE, ready for [initialization](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* GitHub Enterprise Server, ready for [initialization](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae).
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* GitHub AE supports **SP** and **IDP** initiated SSO.
-* GitHub AE supports **Just In Time** user provisioning.
-* GitHub AE supports [Automated user provisioning](github-ae-provisioning-tutorial.md).
+* GitHub Enterprise Server supports **SP** and **IDP** initiated SSO.
+* GitHub Enterprise Server supports **Just In Time** user provisioning.
+* GitHub Enterprise Server supports [Automated user provisioning](github-ae-provisioning-tutorial.md).
 
-## Adding GitHub AE from the gallery
+## Adding GitHub Enterprise Server from the gallery
 
-To configure the integration of GitHub AE into Azure AD, you need to add GitHub AE from the gallery to your list of managed SaaS apps.
+To configure the integration of GitHub Enterprise Server into Microsoft Entra ID, you need to add GitHub Enterprise Server from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **GitHub AE** in the search box.
-1. Select **GitHub AE** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **GitHub Enterprise Server** in the search box.
+1. Select **GitHub Enterprise Server** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for GitHub AE
+<a name='configure-and-test-azure-ad-sso-for-github-enterprise-server'></a>
 
-Configure and test Azure AD SSO with GitHub AE using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in GitHub AE.
+## Configure and test Microsoft Entra SSO for GitHub Enterprise Server
 
-To configure and test Azure AD SSO with GitHub AE, complete the following building blocks:
+Configure and test Microsoft Entra SSO with GitHub Enterprise Server using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in GitHub Enterprise Server.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure GitHub AE SSO](#configure-github-ae-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create GitHub AE test user](#create-github-ae-test-user)** - to have a counterpart of B.Simon in GitHub AE that is linked to the Azure AD representation of user.
+To configure and test Microsoft Entra SSO with GitHub Enterprise Server, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure GitHub Enterprise Server SSO](#configure-github-enterprise-server-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create GitHub Enterprise Server test user](#create-github-enterprise-server-test-user)** - to have a counterpart of B.Simon in GitHub Enterprise Server that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **GitHub AE** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **GitHub Enterprise Server** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>/saml/consume`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>/saml/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>/sso`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [GitHub AE Client support team](mailto:support@github.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [GitHub Enterprise Server Client support team](mailto:support@github.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
+1. GitHub Enterprise Server application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-1. GitHub AE application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
-
-	![image](common/default-attributes.png)
+	![Screenshot shows the image of Enterprise Server application.](common/default-attributes.png "Attributes")
 
 1. Edit **User Attributes & Claims**.
 
@@ -98,77 +103,83 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Expand **Claim conditions** and select **Members** from **User type**.
 
-1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
+1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHES.
 
 1. Select **Attribute** for **Source** and enter **true** (without quotes) for the **Value**. 
 
 1. Click **Save**.
 
-    ![manage claim](./media/github-ae-tutorial/administrator.png)
+    ![Screenshot shows to manage claim for attributes.](./media/github-ae-tutorial/administrator.png "Claims")
 
     > [!NOTE]
     > To know the instructions on how to add a claim, please follow the [link](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
-1. On the **Set up GitHub AE** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up GitHub Enterprise Server** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy appropriate configuration U R L.](common/copy-configuration-urls.png "Metadata")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to GitHub AE.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **GitHub AE**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+In this section, you'll enable B.Simon to use single sign-on by granting access to GitHub Enterprise Server.
 
-## Configure GitHub AE SSO
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **GitHub Enterprise Server**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-To configure SSO on GitHub AE side, you need to follow the instructions mentioned [here](https://docs.github.com/github-ae@latest/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#enabling-saml-sso).
+## Configure GitHub Enterprise Server SSO
 
-### Create GitHub AE test user
+To configure SSO on GitHub Enterprise Server side, you need to follow the instructions mentioned [here](https://docs.github.com/github-ae@latest/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#enabling-saml-sso).
 
-In this section, a user called B.Simon is created in GitHub AE. GitHub AE supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in GitHub AE, a new one is created after authentication.
+### Create GitHub Enterprise Server test user
 
-GitHub AE also supports automatic user provisioning, you can find more details [here](./github-ae-provisioning-tutorial.md) on how to configure automatic user provisioning.
+In this section, a user called B.Simon is created in GitHub Enterprise Server. GitHub Enterprise Server supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in GitHub Enterprise Server, a new one is created after authentication.
+
+GitHub Enterprise Server also supports automatic user provisioning, you can find more details [here](./github-ae-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to GitHub AE Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to GitHub Enterprise Server Sign-on URL where you can initiate the login flow.  
 
-* Go to GitHub AE Sign-on URL directly and initiate the login flow from there.
+* Go to GitHub Enterprise Server Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the GitHub AE for which you set up the SSO 
+* Click on **Test this application**, and you should be automatically signed in to the GitHub Enterprise Server for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the GitHub AE tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GitHub AE for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the GitHub Enterprise Server tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GitHub Enterprise Server for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 
 * [Configuring user provisioning for your enterprise](https://docs.github.com/github-ae@latest/admin/authentication/configuring-user-provisioning-for-your-enterprise).
 
-* Once you configure GitHub AE you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure GitHub Enterprise Server you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

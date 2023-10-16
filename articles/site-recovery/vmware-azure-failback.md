@@ -1,12 +1,12 @@
 ---
 title: Fail back VMware VMs/physical servers from Azure with Azure Site Recovery 
 description: Learn how to fail back to the on-premises site after failover to Azure, during disaster recovery of VMware VMs and physical servers to Azure.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
-ms.date: 05/27/2021
+ms.author: ankitadutta
+ms.date: 08/01/2023
 ---
 # Fail back VMware VMs to on-premises site
 
@@ -15,7 +15,7 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 ## Before you start
 
 1. Learn about [VMware failback](failover-failback-overview.md#vmwarephysical-reprotectionfailback). 
-2. Make sure you've reviewed and completed the steps to [prepare for failback](vmware-azure-prepare-failback.md), and that all the required components are deployed. Components include a process server in Azure, an on-premises master target server, and a VPN site-to-site connection (or ExpressRoute private peering) for failback.
+2. Make sure you've reviewed and completed the steps to [prepare for failback](vmware-azure-prepare-failback.md), and that all the required components are deployed. Components include a process server in Azure, an on-premises master target server, and a VPN site-to-site connection (or Express Route private peering) for failback.
 3. Make sure you've completed the [requirements](vmware-azure-reprotect.md#before-you-begin) for reprotection and failback, and that you've [enabled reprotection](vmware-azure-reprotect.md#enable-reprotection) of Azure VMs, so that they're replicating from Azure to the on-premises site. VMs must be in a replicated state is order to fail back.
 
 
@@ -39,7 +39,7 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 
 > [!NOTE]
 > For Windows VMs, Site Recovery disables the VMware tools during failover. During failback of the Windows VM, the VMware tools are enable again. 
-
+> If you disable replication after failback from Azure to on-premises, the seed disks will still be present in Azure. Ensure that they have been deleted to not incur any storage costs. 
 
 
 

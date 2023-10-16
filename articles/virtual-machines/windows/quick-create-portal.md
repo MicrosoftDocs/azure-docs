@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/15/2021
+ms.date: 10/16/2023
 ms.author: cynthn
+ms.reviewer: erd
 ms.custom: mvc, mode-ui
 ---
 
@@ -21,21 +22,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual machine
 
-1. Type **virtual machines** in the search.
+1. Enter *virtual machines* in the search.
 1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** and then **Virtual machine**. The **Create a virtual machine** page opens.
+1. In the **Virtual machines** page, select **Create** and then **Azure virtual machine**. The **Create a virtual machine** page opens.
+1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2* for the **Image**. Leave the other defaults.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
-
-    ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
-
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *Windows Server 2019 Datacenter - Gen2* for the **Image**. Leave the other defaults.
-
-    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="media/quick-create-portal/instance-details.png":::
 
     > [!NOTE]
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
@@ -43,21 +39,23 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
-    ![Screenshot of the Administrator account section where you provide the administrator username and password](./media/quick-create-portal/administrator-account.png)
+    :::image type="content" source="media/quick-create-portal/administrator-account.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
 
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP (80)** from the drop-down.
 
-    ![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/quick-create-portal/inbound-port-rules.png)
+    :::image type="content" source="media/quick-create-portal/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on":::
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot showing the Review and create button at the bottom of the page](./media/quick-create-portal/review-create.png)
+    :::image type="content" source="media/quick-create-portal/review-create.png" alt-text="Screenshot showing the Review + create button at the bottom of the page.":::
+
 
 1. After validation runs, select the **Create** button at the bottom of the page.
+    :::image type="content" source="media/quick-create-portal/validation.png" alt-text="Screenshot showing that validation has passed. Select the Create button to create the VM." lightbox="media/quick-create-portal/validation.png":::
 
 1. After deployment is complete, select **Go to resource**.
 
-    ![Screenshot showing the next step of going to the resource](./media/quick-create-portal/next-steps.png)
+     :::image type="content" source="media/quick-create-portal/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
 
 ## Connect to virtual machine
@@ -66,11 +64,13 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 1. On the overview page for your virtual machine, select the **Connect** > **RDP**. 
 
-    ![Screenshot of the virtual machine overview page showing the location of the connect button](./media/quick-create-portal/portal-quick-start-9.png)
-    
-2. In the **Connect with RDP** page, keep the default options to connect by IP address, over port 3389, and click **Download RDP file**.
+    :::image type="content" source="media/quick-create-portal/portal-quick-start-9.png" alt-text="Screenshot of the virtual machine overview page showing the location of the connect button.":::
 
-2. Open the downloaded RDP file and click **Connect** when prompted. 
+2. In the **Connect with RDP** tab, keep the default options to connect by IP address, over port 3389, and click **Download RDP file**.
+
+    :::image type="content" source="media/quick-create-portal/remote-desktop.png" alt-text="Screenshot showing the remote desktop settings and the Download RDP file button.":::
+
+2. Open the downloaded RDP file and click **Connect** when prompted.
 
 3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as **localhost**\\*username*, enter the password you created for the virtual machine, and then click **OK**.
 
@@ -95,11 +95,24 @@ In the portal, select the VM and in the overview of the VM, hover over the IP ad
 
 ## Clean up resources
 
+### Delete resources
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 1. On the Overview page for the VM, select the **Resource group** link.
 1. At the top of the page for the resource group, select **Delete resource group**. 
 1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
+
+### Auto-shutdown
+If the VM is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you are not billed for unused resources.
+
+1. On the **Operations** section for the VM, select the **Auto-shutdown** option.
+1. A page will open where you can configure the auto-shutdown time. Select the **On** option to enable and then set a time that works for you.
+1. Once you have set the time, select **Save**  at the top to enable your Auto-shutdown configuration.
+
+> [!NOTE]
+> Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
+
+For more information see [Auto-shutdown](/azure/virtual-machines/auto-shutdown-vm).
 
 ## Next steps
 

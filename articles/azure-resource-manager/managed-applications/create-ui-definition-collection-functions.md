@@ -1,13 +1,10 @@
 ---
 title: Create UI definition collection functions
 description: Describes the functions to use when working with collections, like arrays and objects.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition collection functions
 
 These functions can be used with collections, like JSON strings, arrays and objects.

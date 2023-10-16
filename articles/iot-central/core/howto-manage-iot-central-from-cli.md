@@ -1,26 +1,26 @@
 ---
-title: Manage IoT Central from Azure CLI or PowerShell | Microsoft Docs
-description: This article describes how to create and manage your IoT Central application using the Azure CLI or PowerShell. You can view, modify, and remove the application using these tools. You can also configure a managed system identity that can you can use to setup secure data export.
+title: Manage IoT Central from Azure CLI or PowerShell
+description: How to create and manage your IoT Central application using the Azure CLI or PowerShell and configure a managed system identity for secure data export.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/14/2023
 ms.topic: how-to 
 ms.custom: [devx-track-azurecli, devx-track-azurepowershell]
 ---
 
 # Manage IoT Central from Azure CLI or PowerShell
 
-Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure CLI](/cli/azure/) or [Azure PowerShell](/powershell/azure/) to manage your applications.
+Instead of creating and managing IoT Central applications in the [Azure portal](https://portal.azure.com/#create/Microsoft.IoTCentral), you can use [Azure CLI](/cli/azure/) or [Azure PowerShell](/powershell/azure/) to manage your applications.
 
-If you prefer to use a language such as JavaScript, Python, C#, Ruby, or Go, see the [Azure IoT Central ARM SDK samples](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) repository for code samples that show you how to create, update, list, and delete Azure IoT Central applications.
+If you prefer to use a language such as JavaScript, Python, C#, Ruby, or Go to create, update, list, and delete Azure IoT Central applications, see the [Azure IoT Central ARM SDK samples](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) repository.
 
 ## Prerequisites
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -51,13 +51,13 @@ Install-Module Az.IotCentral
 
 Use the [az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) command to create an IoT Central application in your Azure subscription. For example:
 
-```azurecli-interactive
+```Azure CLI
 # Create a resource group for the IoT Central application
 az group create --location "East US" \
     --name "MyIoTCentralResourceGroup"
 ```
 
-```azurecli-interactive
+```azurecli
 # Create an IoT Central application
 az iot central app create \
   --resource-group "MyIoTCentralResourceGroup" \
@@ -134,7 +134,7 @@ Use the [Get-AzIotCentralApp](/powershell/module/az.iotcentral/Get-AzIotCentralA
 
 Use the [az iot central app update](/cli/azure/iot/central/app#az-iot-central-app-update) command to update the metadata of an IoT Central application. For example, to change the display name of your application:
 
-```azurecli-interactive
+```azurecli
 az iot central app update --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup \
   --set displayName="My new display name"
@@ -158,7 +158,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 Use the [az iot central app delete](/cli/azure/iot/central/app#az-iot-central-app-delete) command to delete an IoT Central application. For example:
 
-```azurecli-interactive
+```azurecli
 az iot central app delete --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup
 ```
@@ -176,20 +176,41 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 ## Configure a managed identity
 
-An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-data.md#connection-options).
+An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-to-blob-storage.md#connection-options).
 
-To enable the managed identity, use either the [Azure portal - Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) or the [REST API](howto-manage-iot-central-with-rest-api.md):
+To enable the managed identity, use either the [Azure portal - Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) or the CLI. You can enable the managed identity when you create an IoT Central application:
 
-:::image type="content" source="media/howto-manage-iot-central-from-cli/managed-identity.png" alt-text="Screenshot showing managed identity in Azure portal.":::
+```azurecli
+# Create an IoT Central application with a managed identity
+az iot central app create \
+  --resource-group "MyIoTCentralResourceGroup" \
+  --name "myiotcentralapp" --subdomain "mysubdomain" \
+  --sku ST1 --template "iotc-pnp-preview" \
+  --display-name "My Custom Display Name" \
+  --mi-system-assigned
+```
+
+Alternatively, you can enable a managed identity on an existing IoT Central application:
+
+```azurecli
+# Enable a system-assigned managed identity
+az iot central app identity assign --name "myiotcentralapp" \
+  --resource-group "MyIoTCentralResourceGroup" \
+  --system-assigned
+```
 
 After you enable the managed identity, you can use the CLI to configure the role assignments.
 
 Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to create a role assignment. For example, the following commands first retrieve the principal ID of the managed identity. The second command assigns the `Azure Event Hubs Data Sender` role to the principal ID in the scope of the `MyIoTCentralResourceGroup` resource group:
 
-```azurecli-interactive
-spID=$(az resource list -n myiotcentralapp --query [*].identity.principalId --out tsv)
+```azurecli
+scope=$(az group show -n "MyIoTCentralResourceGroup" --query "id" --output tsv)
+spID=$(az iot central app identity show \
+  --name "myiotcentralapp" \
+  --resource-group "MyIoTCentralResourceGroup" \
+  --query "principalId" --output tsv)
 az role assignment create --assignee $spID --role "Azure Event Hubs Data Sender" \
-  --scope /subscriptions/<your subscription id>/resourceGroups/MyIoTCentralResourceGroup
+  --scope $scope
 ```
 
 To learn more about the role assignments, see:
@@ -200,7 +221,7 @@ To learn more about the role assignments, see:
 
 ## Next steps
 
-Now that you've learned how to manage Azure IoT Central applications from Azure CLI or PowerShell, here is the suggested next step:
+Now that you've learned how to manage Azure IoT Central applications from Azure CLI or PowerShell, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [Administer your application](howto-administer.md)

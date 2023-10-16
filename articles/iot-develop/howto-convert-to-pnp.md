@@ -3,7 +3,7 @@ title: Convert an existing device to use IoT Plug and Play | Microsoft Docs
 description: This article describes how to convert your existing device code to work with IoT Plug and Play by creating a device model and then sending the model ID when the device connects.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2021
+ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: iot-develop
 services: iot-develop
@@ -29,7 +29,7 @@ Before you create a model for your device, you need to understand the existing c
 - The read-only and writable properties the device synchronizes with your service.
 - The commands invoked from the service that the device responds to.
 
-For example, review the following device code snippets that implement various device capabilities. These examples are based on the sample in the [PnPMQTTWin32-Before](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32-Before) before:
+For example, review the following device code snippets that implement various device capabilities.
 
 The following snippet shows the device sending temperature telemetry:
 
@@ -170,7 +170,7 @@ In summary, the sample implements the following capabilities:
 
 ## Design a model
 
-Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) to describe the device capabilities.
+Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) to describe the device capabilities.
 
 For a simple model that maps the existing capabilities of your device, use the *Telemetry*, *Property*, and *Command* DTDL elements.
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Container Apps Preview documentation
+title: Azure Container Apps documentation
 summary: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
 
 metadata:
@@ -8,10 +8,10 @@ metadata:
   description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
   ms.topic: landing-page
   ms.service: container-apps
+  ms.custom: event-tier1-build-2022, ignite-2022, build-2023
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 11/08/2021
-
+  ms.date: 05/24/2023
 landingContent:
   - title: About Azure Container Apps
     linkLists:
@@ -43,6 +43,8 @@ landingContent:
             url: microservices.md
           - text: Observability
             url: observability.md
+          - text: Jobs
+            url: jobs.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide
@@ -51,16 +53,22 @@ landingContent:
             url: scale-app.md
           - text: Manage secrets
             url: manage-secrets.md
-          - text: Monitor an app
-            url: monitor.md
           - text: Manage revisions
             url: revisions-manage.md
-          - text: Set up HTTP ingress
-            url: ingress.md
+          - text: Set up ingress
+            url: ingress-how-to.md
           - text: Connect multiple apps
             url: connect-apps.md
           - text: Use a custom VNET 
             url: vnet-custom.md
+          - text: Quotas
+            url: quotas.md
+      - linkListType: concept
+        links:
+          - text: What's new in Dapr?
+            url: whats-new.md
+          - text: Dapr integration
+            url: dapr-overview.md
   - title: Apps and microservices
     linkLists:
       - linkListType: tutorial

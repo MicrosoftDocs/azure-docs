@@ -20,7 +20,7 @@ This article describes the Azure FarmBeats APIs. The Azure FarmBeats APIs provid
 
 ## Application development
 
-The FarmBeats APIs contain Swagger technical documentation. For information on all the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The FarmBeats APIs contain Swagger technical documentation.
 
 The following table summarizes all the objects and resources in FarmBeats Datahub:
 
@@ -49,8 +49,8 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Authentication and authorization
 
-HTTP requests to the REST API are protected with Azure Active Directory (Azure AD).
-To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Azure AD. It provides your client with an access token as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Azure AD authentication, see [Azure Active Directory](https://portal.azure.com) for developers.
+HTTP requests to the REST API are protected with Microsoft Entra ID.
+To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Microsoft Entra ID. It provides your client with an access token as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Microsoft Entra authentication, see [Microsoft Entra ID](https://portal.azure.com) for developers.
 
 The access token must be sent in subsequent API requests, in the header section, as:
 
@@ -134,11 +134,13 @@ In this example, when a farm was created, the mandatory field "Name" wasn't spec
     }
   ```
 
-## Add users or app registrations to Azure Active Directory
+<a name='add-users-or-app-registrations-to-azure-active-directory'></a>
 
-Azure FarmBeats APIs can be accessed by a user or an app registration in Azure Active Directory. To create an app registration in Azure Active Directory, follow these steps:
+## Add users or app registrations to Microsoft Entra ID
 
-1. Go to the [Azure portal](https://portal.azure.com), and select **Azure Active Directory** > **App registrations** > **New registration**. Alternatively, you can use an existing account.
+Azure FarmBeats APIs can be accessed by a user or an app registration in Microsoft Entra ID. To create an app registration in Microsoft Entra ID, follow these steps:
+
+1. Go to the [Azure portal](https://portal.azure.com), and select **Microsoft Entra ID** > **App registrations** > **New registration**. Alternatively, you can use an existing account.
 2. For a new account, do the following:
 
     - Enter a name.
@@ -167,7 +169,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
 ```
 
   > [!NOTE]
-  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
+  > For more information on how to add users and Active Directory registration, see [Microsoft Entra ID](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 After you finish the previous steps, your app registration (client) can call the Azure FarmBeats APIs by using an access token via bearer authentication.
 

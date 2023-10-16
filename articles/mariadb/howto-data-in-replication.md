@@ -1,14 +1,17 @@
 ---
 title: Configure data-in Replication - Azure Database for MariaDB
 description: This article describes how to set up Data-in Replication in Azure Database for MariaDB.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+ms.custom: devx-track-linux
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 01/18/2021
+ms.date: 04/19/2023
 ---
 
 # Configure Data-in Replication in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MariaDB by configuring the source and replica servers. This article assumes that you have some prior experience with MariaDB servers and databases.
 
@@ -35,7 +38,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
     User accounts aren't replicated from the source server to the replica server. To provide user access to the replica server, you must manually create all accounts and corresponding privileges on the newly created Azure Database for MariaDB server.
 
-3. Add the source server's IP address to the replica's firewall rules. 
+3. Add the source server's IP address to the replica's firewall rules.
 
    Update firewall rules using the [Azure portal](howto-manage-firewall-portal.md) or [Azure CLI](howto-manage-firewall-cli.md).
 
@@ -43,9 +46,9 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. The MariaDB server is the source in Data-in Replication.
 
-1. Review the [primary server requirements](concepts-data-in-replication.md#requirements) before proceeding. 
+1. Review the [primary server requirements](concepts-data-in-replication.md#requirements) before proceeding.
 
-2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
+2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN).
 
    Test connectivity to the source server by attempting to connect from a tool such as the MySQL command line hosted on another machine or from the [Azure Cloud Shell](../cloud-shell/overview.md) available in the Azure portal.
 
@@ -54,13 +57,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    1. Sign in to your Azure Database for MariaDB using a tool like MySQL command line.
    2. Execute the below query.
 
-      ```bash
-      mysql> SELECT @@global.redirect_server_host;
+      ```sql
+      SELECT @@global.redirect_server_host;
       ```
 
       Below is some sample output:
 
-      ```bash
+      ```output
       +-----------------------------------------------------------+
       | @@global.redirect_server_host                             |
       +-----------------------------------------------------------+
@@ -71,13 +74,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    3. Exit from the MySQL command line.
    4. Execute the below in the ping utility to get the IP address.
 
-      ```bash
+      ```terminal
       ping <output of step 2b>
       ```
 
       For example:
 
-      ```bash
+      ```terminal
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
       ```
@@ -177,7 +180,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 8. Get the GTID position (optional, needed for replication with GTID).
 
    Run the function [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) to get the GTID position for the corresponding binlog file name and offset.
-  
+
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
     ```
@@ -230,7 +233,6 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_log_pos: binary log position from running `show master status`
    - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: CA certificate's context. If you're not using SSL, pass in an empty string.*
-
 
     *We recommend passing in the master_ssl_ca parameter as a variable. For more information, see the following examples.
 

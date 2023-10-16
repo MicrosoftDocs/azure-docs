@@ -2,13 +2,14 @@
 title: Troubleshoot time sync issues for Azure Data Box, Azure Data Box Heavy devices
 description: Describes how to troubleshoot time sync issues for Azure Data Box or Azure Data Box Heavy device via the PowerShell interface.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 11/15/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Sync device time for Azure Data Box and Azure Data Box Heavy
@@ -18,9 +19,9 @@ This article describes how to diagnose that your Data Box is out of sync and the
 
 ## About device time sync
 
-Data Box automatically synchronizes time when it is connected to the internet using the default Windows time server `time.windows.com`. However, if Data Box is not connected to the internet, the device time may be out of sync. This situation may affect the data copy from the source data to Data Box specifically if the copy is via the REST API or certain tools that have time constraints. 
+Data Box automatically synchronizes time when it is connected to the internet using the default Windows time server `time.windows.com`. However, if Data Box is not connected to the internet, the device time may be out of sync. This situation may affect the data copy from the source data to Data Box specifically if the copy is via the REST API or certain tools that have time constraints.
 
-If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. The `Set-Date API` is used to modify the device time. For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
+If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. The `Set-Date API` is used to modify the device time. For more information, see [Set-Date cmdlet](/powershell/module/microsoft.powershell.utility/set-date).
 
 
 ## Connect to PowerShell interface
@@ -41,7 +42,7 @@ To change the device time, follow these steps.
 1. If the device time is out of sync, use the `Set-Date` cmdlet to change the time on your Data Box.
 
     - Set the time forward by 2 minutes.
-    
+
         ```powershell
         Set-Date -Adjust <time change in hours:mins:secs format> -DisplayHint Time
         ```
@@ -49,10 +50,10 @@ To change the device time, follow these steps.
 
         ```powershell
         Set-Date -Adjust -<time change in hours:mins:secs format> -DisplayHint Time
-        ```    
+        ```
 
         Here is an example output:
-        
+
         ```powershell
         [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
         Friday, September 3, 2021 2:22:50 PM
@@ -64,8 +65,8 @@ To change the device time, follow these steps.
         Friday, September 3, 2021 2:23:42 PM
         [by506b4b5d0790.microsoftdatabox.com]: PS>
         ```
-        For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
-    
+        For more information, see [Set-Date cmdlet](/powershell/module/microsoft.powershell.utility/set-date).
+
 ## Next steps
 
 To troubleshoot other Data Box issues, see one of the following articles:

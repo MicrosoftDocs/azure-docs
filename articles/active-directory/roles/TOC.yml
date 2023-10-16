@@ -1,35 +1,43 @@
-- name: Azure AD roles documentation
+- name: Microsoft Entra roles documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure AD RBAC?
+  - name: What is Microsoft Entra RBAC?
     href: custom-overview.md
 - name: Quickstarts
   items:
   - name: Assign roles to users
-    href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ../fundamentals/how-subscriptions-associated-directory.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   items:
-  - name: Understand Azure AD roles
+  - name: Understand Microsoft Entra roles
     href: concept-understand-roles.md
   - name: Compare roles
     items:
-    - name: Compare Azure and Azure AD roles    
+    - name: Compare Azure and Microsoft Entra roles    
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
   - name: Use groups to manage role assignments
     href: groups-concept.md
-  - name: Administrative units  
-    href: administrative-units.md
+  - name: Administrative units
+    items:
+    - name: Administrative units
+      href: administrative-units.md
+    - name: Restricted management
+      href: admin-units-restricted-management.md
   - name: Best practices
     href: best-practices.md
   - name: Security
     items:
+    - name: Privileged roles and permissions
+      href: privileged-roles-permissions.md
     - name: Role security planning
       href: security-planning.md
     - name: Create emergency accounts
       href: security-emergency-access.md
+    - name: Protected actions
+      href: protected-actions-overview.md
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -54,11 +62,9 @@
       href: groups-create-eligible.md
     - name: Assign roles to groups
       href: groups-assign-role.md
-    - name: Make a group eligible for a role in PIM
-      href: groups-pim-eligible.md
     - name: Assign roles with scope using PowerShell
       href: custom-assign-powershell.md
-    - name: Assign roles using Graph API
+    - name: Assign roles using Microsoft Graph
       href: custom-assign-graph.md
   - name: Remove role assignments
     items: 
@@ -86,6 +92,10 @@
       href: admin-units-members-dynamic.md
     - name: Assign roles with scope
       href: admin-units-assign-roles.md
+  - name: Protected actions
+    items:
+    - name: Add, remove, or test
+      href: protected-actions-add.md
   - name: Delegate
     items:
     - name: Delegate admin role
@@ -98,8 +108,8 @@
       href: groups-faq-troubleshooting.yml
     - name: Troubleshoot administrative units
       href: admin-units-faq-troubleshoot.yml
-    - name: Get support for Azure AD
-      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Get support for Microsoft Entra ID
+      href: ../fundamentals/how-to-get-support.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
   items:
   - name: Built-in roles
@@ -118,9 +128,11 @@
       href: custom-consent-permissions.md
     - name: Device management permissions
       href: custom-device-permissions.md
+    - name: User management permissions
+      href: custom-user-permissions.md
     - name: Group management permissions
       href: custom-group-permissions.md
-  - name: Azure AD service limits
+  - name: Microsoft Entra service limits
     href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name:  Azure AD PowerShell
     href: /powershell/module/azuread/#directory-roles

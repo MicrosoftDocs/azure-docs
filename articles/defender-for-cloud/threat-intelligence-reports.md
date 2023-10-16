@@ -1,14 +1,13 @@
 ---
-title: Microsoft Defender for Cloud threat intelligence report | Microsoft Docs
+title: Threat intelligence report
 description: This page helps you to use Microsoft Defender for Cloud threat intelligence reports during an investigation to find more information about security alerts
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/08/2023
 ---
+
 # Microsoft Defender for Cloud threat intelligence report
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-This page explains how Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
+Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
 
 ## What is a threat intelligence report?
 
@@ -33,14 +32,14 @@ Defender for Cloud has three types of threat reports, which can vary according t
 * **Campaign Report**: focuses on details of specific attack campaigns.
 * **Threat Summary Report**: covers all of the items in the previous two reports.
 
-This type of information is useful during the incident response process, where there's an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue in the future.
+This type of information is useful during the incident response process. Such as when there's an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue in the future.
 
 ## How to access the threat intelligence report?
 
 1. From Defender for Cloud's menu, open the **Security alerts** page.
 1. Select an alert. 
 
-    The alerts details page opens with more details about the alert. Below is the **Ransomware indicators detected** alert details page.
+    The alerts details page opens with more details about the alert. For example, the **Ransomware indicators detected** alert details page:
 
     [![Ransomware indicators detected alert details page.](media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
 

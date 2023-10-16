@@ -4,8 +4,8 @@ description: Launch and run notebooks with the Microsoft Sentinel hunting capabi
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
-ms.date: 04/04/2022
+ms.custom: mvc, ignite-fall-2021, event-tier1-build-2022
+ms.date: 01/05/2023
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
 ---
 
@@ -49,9 +49,8 @@ To create your workspace, select one of the following tabs, depending on whether
     |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
     |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
     |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
-    | | |
 
-1. On the **Networking** tab, select **Public endpoint (all networks)**.
+1. On the **Networking** tab, select **Enable public access from all networks**.
 
     Define any relevant settings in the **Advanced** or **Tags** tabs, and then select **Review + create**.
 
@@ -84,9 +83,8 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
     |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
     |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
     |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
-    | | |
 
-1. On the **Networking** tab, select **Private endpoint**. Make sure to use the same VNet as you have in the VM jump box. For example:
+1. On the **Networking** tab, select **Disable public access and use private endpoint**. Make sure to use the same VNet as you have in the VM jump box. For example:
 
     :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Microsoft Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
 
@@ -98,7 +96,7 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md?tabs=python).
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-compute-instance.md?tabs=python).
 
 1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md?tabs=ipaddress%2cpublic).
 
@@ -139,12 +137,12 @@ If you have multiple notebooks, make sure to select a default AML workspace to u
 After you've created an AML workspace, start launching your notebooks in your Azure ML workspace, from Microsoft Sentinel.
 
 
-1. From the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Microsoft Sentinel provides.
+1. From the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Notebooks** > **Templates**, where you can see notebooks that Microsoft Sentinel provides.
 1. Select a notebook to view its description, required data types, and data sources.
 
-    When you've found the notebook you want to use, select **Save notebook** to clone it into your own workspace.
+    When you've found the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace.
 
-    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one.
+    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one. By default, your notebook will be saved in /Users/<Your_User_Name>/ directory of selected AML workspace.
 
     :::image type="content" source="media/notebooks/save-notebook.png" alt-text="Save a notebook to clone it to your own workspace.":::
 
@@ -156,7 +154,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
-    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#use-the-script-in-the-studio). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-compute-instance.md?tabs=#create). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
 
     Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
 

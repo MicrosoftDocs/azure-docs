@@ -1,12 +1,13 @@
 ---
 title: Authorize REST API in Azure IoT Central
-description: How to authenticate and authorize IoT Central REST API calls
+description: How to authenticate and authorize IoT Central REST API calls by using bearer tokens or or an IoT Central API token.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 07/25/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+ms.custom: [iot-central-frontdoor]
 
 ---
 
@@ -16,13 +17,13 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 Every IoT Central REST API call requires an authorization header that IoT Central uses to determine the identity of the caller and the permissions that caller is granted within the application.
 
-This article describes the types of token you can use in the authorization header, and how to get them.
+This article describes the types of token you can use in the authorization header, and how to get them. Srvice principals are the recommended approach to access management for IoT Central REST APIs.
 
 ## Token types
 
 To access an IoT Central application using the REST API, you can use an:
 
-- _Azure Active Directory bearer token_. A bearer token is associated with an Azure Active Directory user account or service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
+- _Azure Active Directory bearer token_. A bearer token is associated with a Microsoft Entra user account or service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application. 
 - IoT Central API token. An API token is associated with a role in your IoT Central application.
 
 Use a bearer token associated with your user account while you're developing and testing automation and scripts that use the REST API. Use a bearer token that's associated with a service principal for production automation and scripts. Use a bearer token in preference to an API token to reduce the risk of leaks and problems when tokens expire.
@@ -31,7 +32,7 @@ To learn more about users and roles in IoT Central, see [Manage users and roles 
 
 ## Get a bearer token
 
-To get a bearer token for your Azure Active Directory user account, use the following Azure CLI commands:
+To get a bearer token for your Microsoft Entra user account, use the following Azure CLI commands:
 
 ```azurecli
 az login
@@ -61,6 +62,9 @@ To get a bearer token for a service principal, see [Service principal authentica
 
 To get an API token, you can use the IoT Central UI or a REST API call. Administrators associated with the root organization and users assigned to the correct role can create API tokens.
 
+> [!TIP]
+> Create and delete operations on API tokens are recorded in the [audit log](howto-use-audit-logs.md).
+
 In the IoT Central UI:
 
 1. Navigate to **Permissions > API tokens**.
@@ -82,7 +86,7 @@ Using the REST API:
 1. Use the REST API to retrieve a list of role IDs from your application:
 
     ```http
-    GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=1.0
+    GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
     ```
 
     The response to this request looks like the following example:
@@ -109,7 +113,7 @@ Using the REST API:
 1. Use the REST API to create an API token for a role. For example, to create an API token called `operator-token` for the operator role:
 
     ```http
-    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=1.0
+    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=2022-07-31
     ```
 
     Request body:
@@ -142,9 +146,6 @@ Using the REST API:
     This response is the only time you have access to the API token, if you lose it you need to generate a new one.
 
 You can use the REST API to list and delete API tokens in an application.
-
-> [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
 
 ## Use a bearer token
 

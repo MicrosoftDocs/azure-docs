@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/01/2021
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -35,14 +35,6 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-> [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-:::moniker-end
-
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
@@ -57,7 +49,9 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge
 * CA certificates
 
-For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating IoT Edge require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible.
+[Device Update for IoT Hub](../iot-hub-device-update/index.yml) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
+
+Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
 ### Use Moby as the container engine
 
@@ -86,6 +80,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Reduce memory space used by the IoT Edge hub
   * Use correct module images in deployment manifests
   * Be mindful of twin size limits when using custom modules
+  * Configure how updates to modules are applied
 
 ### Be consistent with upstream protocol
 
@@ -146,12 +141,37 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 - Store any configuration in the custom module twin, which has its own limit.
 - Store some configuration that points to a non-space-limited location (that is, to a blob store).
 
-## Container management
+
+### Configure how updates to modules are applied
+When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent sequentially processes each module:
+1. The updated image is downloaded
+1. The running module is stopped
+1. A new module instance is started
+1. The next module update is processed
+
+In some cases, for example when dependencies exist between modules, it may be desirable to first download all updated module images before restarting any running modules. This module update behavior can be configured by setting an IoT Edge Agent environment variable `ModuleUpdateMode` to string value `WaitForAllPulls`. For more information, see [IoT Edge Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+
+```JSON
+"modulesContent": {
+    "$edgeAgent": {
+        "properties.desired": {
+            ...
+            "systemModules": {
+                "edgeAgent": {
+                    "env": {
+                        "ModuleUpdateMode": {
+                            "value": "WaitForAllPulls"
+                        }
+                    ...
+```
+### Container management
 
 * **Important**
   * Use tags to manage versions
+  * Manage volumes
 * **Helpful**
   * Store runtime containers in your private registry
+  * Configure image garbage collection
 
 ### Use tags to manage versions
 
@@ -167,26 +187,115 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 
 * **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
 
+### Manage volumes
+IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
+
 ### Store runtime containers in your private registry
 
-You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+You know how to store container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as the **edgeAgent** and **edgeHub** runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
-Obtain the images with the Docker pull command to place in your private registry. You will need to specify the container version during the pull operation, find the latest container version at container description page as below, and replace the version in the pull command if needed. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+The following steps illustrate how to pull a Docker image of **edgeAgent** and **edgeHub** to your local machine, retag it, push it to your private registry, then update your configuration file so your devices know to pull the image from your private registry.
 
-| IoT Edge runtime container | Docker pull command |
-| --- | --- |
-| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
-| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
+1. Pull the **edgeAgent** Docker image from the Microsoft registry. Update the version number if needed.
 
-Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
+   ```bash
+   # Pull edgeAgent image
+   docker pull mcr.microsoft.com/azureiotedge-agent:1.4
 
-* edgeAgent:
+   # Pull edgeHub image
+   docker pull mcr.microsoft.com/azureiotedge-hub:1.4
+   ```
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
+1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
 
-* edgeHub:
+   ```bash
+   docker images
+   ```
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
+1. Retag your **edgeAgent** and **edgeHub** images. Replace the values in brackets with your own.
+
+   ```bash
+   # Retag your edgeAgent image
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.4
+
+   # Retag your edgeHub image
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.4
+   ```
+
+1. Push your **edgeAgent** and **edgeHub** images to your private registry. Replace the value in brackets with your own.
+
+   ```bash
+   # Push your edgeAgent image to your private registry
+   docker push <registry-name/server>/azureiotedge-agent:1.4
+
+   # Push your edgeHub image to your private registry
+   docker push <registry-name/server>/azureiotedge-hub:1.4
+   ```
+
+1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
+
+1. Open a text editor on your IoT Edge device to change the configuration file so it knows about your private registry image. 
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. In the text editor, change your image values under `[agent.config]`. Replace the values in brackets with your own.
+
+   ```toml
+   [agent.config]
+   image = "<registry-name/server>/azureiotedge-agent:1.4"
+   ```
+
+1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.
+
+   ```toml
+   [agent.config.auth]
+   serveraddress = "<login-server>" # Almost always equivalent to <registry-name/server>
+   username = "<username>"
+   password = "<password>"
+   ```
+
+1. Save your changes and exit your text editor.
+
+1. Apply the IoT Edge configuration change.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+   Your IoT Edge runtime restarts.
+
+For more information, see:
+
+* [Configure the IoT Edge agent](./how-to-configure-proxy-support.md#configure-the-iot-edge-agent)
+* [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent)
+* [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub)
+
+
+### Configure image garbage collection
+Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up Docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused Docker images helps conserve disk space.
+
+The feature is implemented in IoT Edge's host component, the `aziot-edged` service and enabled by default. Cleanup is done every day at midnight (device local time) and removes unused Docker images that were last used seven days ago. The parameters to control cleanup behavior are set in the `config.toml` and explained later in this section. If parameters aren't specified in the configuration file, the default values are applied.
+
+For example, the following is the `config.toml` image garbage collection section using default values:
+ 
+```toml
+[image_garbage_collection]
+enabled = true
+cleanup_recurrence = "1d"
+image_age_cleanup_threshold = "7d" 
+cleanup_time = "00:00"
+```
+The following table describes image garbage collection parameters. All parameters are **optional** and can be set individually to change the default settings.
+
+| Parameter | Description | Required | Default value |
+|-----------|-------------|----------|---------------|
+| `enabled` | Enables the image garbage collection. You may choose to disable the feature by changing this setting to `false`. | Optional | true |
+| `cleanup_recurrence` | Controls the recurrence frequency of the cleanup task. Must be specified as a multiple of days and can't be less than one day. <br><br> For example: 1d, 2d, 6d, etc. | Optional | 1d |
+| `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as *0d* to clean up the images as soon as they're removed from the deployment. <br><br>  Images are considered unused *after* they've been removed from the deployment. | Optional | 7d |
+| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. | Optional | 00:00 |
+
 
 ## Networking
 
@@ -207,32 +316,47 @@ If your networking setup requires that you explicitly permit connections made fr
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
 * **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
-In all three cases, the fully-qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
+In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
-Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
+#### Container registries
+
+The **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
-   | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
+   | FQDN (`*` = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
+   | `*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
+   | `*.cdn.azcr.io` | 443 | Deploy modules from the Marketplace to devices |
    | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
-   | `\*.azurecr.io` | 443 | Personal and third-party container registries |
-   | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
-   | `\*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
-   | `\*.docker.io`  | 443 | Docker Hub access (optional) |
+   | `*.azurecr.io` | 443 | Personal and third-party container registries |
+   | `*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
+   | `*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
+   | `*.docker.io`  | 443 | Docker Hub access (optional) |
 
 <sup>1</sup>Open port 8883 for secure MQTT or port 5671 for secure AMQP. If you can only make connections via port 443 then either of these protocols can be run through a WebSocket tunnel.
 
-Since the IP address of an IoT hub can change without notice, always use the FQDN to allow-list configuration. To learn more, see [Understanding the IP address of your IoT hub](../iot-hub/iot-hub-understand-ip-address.md).
+Since the IP address of an IoT hub can change without notice, always use the FQDN to allowlist configuration. To learn more, see [Understanding the IP address of your IoT Hub](../iot-hub/iot-hub-understand-ip-address.md).
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 
+You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](../container-registry/container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints).
+
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
-> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
+
+#### Azure IoT Identity Service
+
+The [IoT Identity Service](https://azure.github.io/iot-identity-service/) provides provisioning and cryptographic services for Azure IoT devices. The identity service checks if the installed version is the latest version. The check uses the following FQDNs to verify the version.
+
+| FQDN | Outbound TCP Ports | Usage |
+| ---- | ------------------ | ----- |
+| `aka.ms` | 443 | Vanity URL that provides redirection to the version file |
+| `raw.githubusercontent.com` | 443 | The identity service version file hosted in GitHub |
 
 ### Configure communication through a proxy
 
@@ -242,26 +366,12 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 * **Helpful**
   * Set up logs and diagnostics
-  * Place limits on log size
+  * Set up default logging driver
   * Consider tests and CI/CD pipelines
 
 ### Set up logs and diagnostics
 
 On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!--1.2-->
-:::moniker range=">=iotedge-2020-11"
 
 Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
 
@@ -277,21 +387,26 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
   journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
   ```
 
-:::moniker-end
-
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
-### Place limits on log size
+### Set up default logging driver
 
-By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. Consider the following options to prevent this:
+By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. Configure your container engine to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your need.
 
-#### Option: Set global limits that apply to all container modules
+#### Option: Configure the default logging driver for all container modules
 
-You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
+You can configure your container engine to use a specific logging driver by setting the value of `log driver` to the name of the log driver in the `daemon.json`. The following example sets the default logging driver to the `local` log driver (recommended).
 
 ```JSON
 {
-    "log-driver": "json-file",
+    "log-driver": "local"
+}
+```
+You can also configure your `log-opts` keys to use appropriate values in the `daemon.json` file. The following example sets the log driver to `local` and sets the `max-size` and `max-file` options.  
+
+```JSON
+{
+    "log-driver": "local",
     "log-opts": {
         "max-size": "10m",
         "max-file": "3"
@@ -301,22 +416,7 @@ You can limit the size of all container logfiles in the container engine log opt
 
 Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-| Platform | Location |
-| -------- | -------- |
-| Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby\config\` |
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
 * `/etc/docker/`
-
-:::moniker-end
-<!-- end 1.2 -->
 
 The container engine must be restarted for the changes to take effect.
 
@@ -328,7 +428,7 @@ You can do so in the **createOptions** of each module. For example:
 "createOptions": {
     "HostConfig": {
         "LogConfig": {
-            "Type": "json-file",
+            "Type": "local",
             "Config": {
                 "max-size": "10m",
                 "max-file": "3"

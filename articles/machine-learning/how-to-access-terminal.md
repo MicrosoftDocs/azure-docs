@@ -7,9 +7,10 @@ author: abeomor
 ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 11/04/2022
 #Customer intent: As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio.
 ---
 
@@ -24,7 +25,7 @@ Access the terminal of a compute instance in your workspace to:
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 ## Access a terminal
 
@@ -42,7 +43,7 @@ To access the terminal:
 
 In addition to the steps above, you can also access the terminal from:
 
-* RStudio: Select the **Terminal** tab on top left.
+* RStudio or Posit Workbench (formerly RStudio Workbench) (See [Add custom applications such as RStudio or Posit Workbench)](how-to-create-compute-instance.md?tabs=python#add-custom-applications-such-as-rstudio-or-posit-workbench)): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine, if you enabled SSH access when the compute instance was created.
@@ -60,15 +61,15 @@ Access all Git operations from the terminal. All Git files and folders will be s
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
 
-Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
+To integrate Git with your Azure Machine Learning workspace, see  [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## Install packages
 
  Install packages from a terminal window. Install Python packages into the **Python 3.8 - AzureML** environment.  Install R packages into the **R** environment.
 
-Or you can install packages directly in Jupyter Notebook or RStudio:
+Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Workbench (formerly RStudio Workbench):
 
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio or Posit Workbench(see [Add custom applications such as RStudio or Posit Workbench](how-to-create-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]
@@ -77,7 +78,7 @@ Or you can install packages directly in Jupyter Notebook or RStudio:
 ## Add new kernels
 
 > [!WARNING]
->  While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+> While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
 
 To add a new Jupyter kernel to the compute instance:
 
@@ -103,9 +104,50 @@ To add a new Jupyter kernel to the compute instance:
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
-## Manage terminal sessions
-
- Select **View active sessions** in the terminal toolbar to see a list of all active terminal sessions. When there are no active sessions, this tab will be disabled.
+### Remove added kernels
 
 > [!WARNING]
->  Make sure you close any unused sessions to preserve your compute instance's resources. Idle terminals may impact performance of compute instances.
+> While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+
+To remove an added Jupyter kernel from the compute instance, you must remove the kernelspec, and (optionally) the conda environment. You can also choose to keep the conda environment. You must remove the kernelspec, or your kernel will still be selectable and cause unexpected behavior.
+
+To remove the kernelspec:
+
+1. Use the terminal window to list and find the kernelspec:
+
+    ```shell
+    jupyter kernelspec list
+    ```
+
+1. Remove the kernelspec, replacing UNWANTED_KERNEL with the kernel you'd like to remove:
+
+    ```shell
+    jupyter kernelspec uninstall UNWANTED_KERNEL
+    ```
+
+To also remove the conda environment:
+
+1. Use the terminal window to list and find the conda environment:
+
+    ```shell
+    conda env list
+    ```
+
+1. Remove the conda environment, replacing ENV_NAME with the conda environment you'd like to remove:
+
+    ```shell
+    conda env remove -n ENV_NAME
+    ```
+
+Upon refresh, the kernel list in your notebooks view should reflect the changes you have made.
+
+## Manage terminal sessions
+
+Terminal sessions can stay active if terminal tabs are not properly closed. Too many active terminal sessions can impact the performance of your compute instance.
+
+Select **Manage active sessions** in the terminal toolbar to see a list of all active terminal sessions and shut down the sessions you no longer need.
+
+Learn more about how to manage sessions running on your compute at [Managing notebook and terminal sessions](how-to-manage-compute-sessions.md).
+
+> [!WARNING]
+> Make sure you close any sessions you no longer need to preserve your compute instance's resources and optimize your performance.

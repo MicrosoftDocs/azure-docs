@@ -2,8 +2,8 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 03/24/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 08/22/2023
+ms.custom: ignite-2022, devx-track-arm-template
 ---
 
 # Resource functions for ARM templates
@@ -15,8 +15,10 @@ Resource Manager provides the following functions for getting resource values in
 * [pickZones](#pickzones)
 * [providers (deprecated)](#providers)
 * [reference](#reference)
+* [references](#references)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
+* [managementGroupResourceId](#managementgroupresourceid)
 * [tenantResourceId](#tenantresourceid)
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
@@ -134,13 +136,11 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/current-ga/named-value/list-value) |
 | Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/current-ga/openid-connect-provider/list-secrets) |
 | Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/current-ga/subscription/list-secrets) |
-| Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
-| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
+| Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/stable/configuration-stores/list-keys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringapps/services/list-test-keys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listKeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
-| Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
-| Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
@@ -174,19 +174,18 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-10-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/database-accounts/list-keys?tabs=HTTP) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2023-03-15-preview/notebook-workspaces/list-connection-info?tabs=HTTP) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/domains/list-shared-access-keys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/topics/list-shared-access-keys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/domains/list-shared-access-keys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/topics/list-shared-access-keys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/labs/users | [list](/rest/api/labservices/users/list-by-lab) |
+| Microsoft.LabServices/labs/virtualMachines | [list](/rest/api/labservices/virtual-machines/list-by-lab) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -202,9 +201,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/compute/list-keys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/compute/list-nodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspaces/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2023-04-01/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2023-04-01/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2023-04-01/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -217,16 +216,16 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
-| Microsoft.Relay/namespaces/authorizationRules | [listKeys](/rest/api/relay/namespaces/listkeys) |
+| Microsoft.Relay/namespaces/authorizationRules | [listKeys](/rest/api/relay/controlplane-stable/namespaces/list-keys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listKeys |
-| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listKeys](/rest/api/relay/hybridconnections/listkeys) |
-| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
+| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listKeys](/rest/api/relay/controlplane-stable/hybrid-connections/list-keys) |
+| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/controlplane-stable/wcf-relays/list-keys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/namespaces-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs/list-keys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/topics%20–%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listKeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listKeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -399,29 +398,37 @@ You can use the response from `pickZones` to determine whether to provide null f
 },
 ```
 
-Cosmos DB isn't a zonal resource but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
+Azure Cosmos DB isn't a zonal resource, but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
 ## providers
 
-**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+**The providers function has been deprecated in ARM templates.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
 In Bicep, the [providers](../bicep/bicep-functions-resource.md#providers) function is deprecated.
 
+The [providers operation](/rest/api/resources/providers) is still available through the REST API. It can be used outside of an ARM template to get information about a resource provider.
+
 ## reference
+
+In the templates without [symbolic names](./resource-declaration.md#use-symbolic-name):
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state.
+In the templates with [symbolic names](./resource-declaration.md#use-symbolic-name):
 
-In Bicep, use the [reference](../bicep/bicep-functions-resource.md#reference) function.
+`reference(symbolicName or resourceIdentifier, [apiVersion], ['Full'])`
+
+Returns an object representing a resource's runtime state. To return an array of objects representing a resource collections's runtime states, see [references](#references).
+
+Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. |
+| resourceName/resourceIdentifier or symbolicName/resourceIdentifier |Yes |string |In the templates without symbolic names, specify name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. </br>In the templates with symbolic names, specify symbolic name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource symbolic name as a parameter. When referencing a previously deployed resource, provide the resource ID.|
 | apiVersion |No |string |API version of the specified resource. **This parameter is required when the resource isn't provisioned within same template.** Typically, in the format, **yyyy-mm-dd**. For valid API versions for your resource, see [template reference](/azure/templates/). |
 | 'Full' |No |string |Value that specifies whether to return the full resource object. If you don't specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
@@ -453,7 +460,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "vaultName",
   "properties": {
     "tenantId": "[subscription().tenantId]",
@@ -476,7 +483,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The `reference` function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
+The `reference` function can only be used in the outputs section of a template or deployment and properties object of a resource definition. It cannot be used for resource properties such as `type`, `name`, `location` and other top level properties of the resource definition. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
 
 You can't use the `reference` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `reference` function is resolved.
 
@@ -488,18 +495,30 @@ If you use the `reference` function in a resource that is conditionally deployed
 
 By using the `reference` function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
 
-### Resource name or identifier
+### Resource name, Symbolic name or identifier
 
-When referencing a resource that is deployed in the same template, provide the name of the resource.
+When referencing a resource that is deployed in the same none-symbolic-name template, provide the name of the resource.
 
 ```json
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
+When referencing a resource that is deployed in the same symbolic-name template, provide the symbolic name of the resource.
+
+```json
+"value": "[reference('myStorage').primaryEndpoints]"
+```
+
+Or
+
+```json
+"value": "[reference('myStorage', '2022-09-01', 'Full').location]"
+```
+
 When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
 
 ```json
-"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2022-09-01')]"
 ```
 
 To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource identifier.
@@ -567,7 +586,7 @@ The full object is in the following format:
 
 ```json
 {
-  "apiVersion":"2021-04-01",
+  "apiVersion":"2022-09-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -576,7 +595,7 @@ The full object is in the following format:
   "tags":{},
   "kind":"Storage",
   "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "creationTime":"2021-10-09T18:55:40.5863736Z",
     "primaryEndpoints": {
       "blob":"https://examplestorage.blob.core.windows.net/",
       "file":"https://examplestorage.file.core.windows.net/",
@@ -603,6 +622,350 @@ The full object is in the following format:
 The following example template references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
+
+## references
+
+`references(symbolic name of a resource collection, ['Full', 'Properties])`
+
+The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a resource collection's runtime states. This function requires ARM template language version `2.0` and with [symbolic name](../bicep/file.md#resources) enabled:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  ...
+}
+```
+
+In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. For more information, see [Reference resource/module collections](../bicep/loops.md#reference-resourcemodule-collections).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. The `references` function does not support referencing resources external to the current template. |
+| 'Full', 'Properties' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Properties'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
+
+### Return value
+
+An array of the resource collection. Every resource type returns different properties for the `reference` function. Also, the returned value differs based on the value of the `'Full'` argument. For more information, see [reference](#reference).
+
+The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so on. For instance, *[worker-0, worker-1, worker-2, ...]*.
+
+In the preceding example, if *worker-0* and *worker-2* are deployed while *worker-1* is not due to a false condition, the output of `references` will omit the non-deployed resource and display the deployed ones, ordered by their numbers. The output of `references` will be *[worker-0, worker-2, ...]*. If all of the resources are omitted, the function returns an empty array.
+
+### Valid uses
+
+The `references` function can't be used within [resource copy loops](./copy-resources.md) or [Bicep for loop](../bicep/loops.md). For example, `references` is not allowed in the following scenario:
+
+```json
+{
+  resources: {
+    "resourceCollection": {
+       "copy": { ... },
+       "properties": {
+         "prop": "[references(...)]"
+       }
+    }
+  }
+}
+```
+
+To use the `references` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
+
+### Implicit dependency
+
+By using the `references` function, you implicitly declare that one resource depends on another resource. You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
+
+### Reference example
+
+The following example deploys a resource collection, and references that resource collection.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "numWorkers": {
+      "type": "int",
+      "defaultValue": 4,
+      "metadata": {
+        "description": "The number of workers"
+      }
+    }
+  },
+  "resources": {
+    "containerWorkers": {
+      "copy": {
+        "name": "containerWorkers",
+        "count": "[length(range(0, parameters('numWorkers')))]"
+      },
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2023-05-01",
+      "name": "[format('worker-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[format('worker-container-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
+            "properties": {
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 2
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "containerController": {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2023-05-01",
+      "name": "controller",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "controller-container",
+            "properties": {
+              "command": [
+                "echo",
+                "[format('Worker IPs are {0}', join(map(references('containerWorkers', 'full'), lambda('w', lambdaVariables('w').properties.ipAddress.ip)), ','))]"
+              ],
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 2
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "containerWorkers"
+      ]
+    }
+  },
+  "outputs": {
+    "workerIpAddresses": {
+      "type": "string",
+      "value": "[join(map(references('containerWorkers', 'full'), lambda('w', lambdaVariables('w').properties.ipAddress.ip)), ',')]"
+    },
+    "containersFull": {
+      "type": "array",
+      "value": "[references('containerWorkers', 'full')]"
+    },
+    "container": {
+      "type": "array",
+      "value": "[references('containerWorkers')]"
+    }
+  }
+}
+```
+
+The preceding example returns the three objects.
+
+```json
+"outputs": {
+  "workerIpAddresses": {
+    "type": "String",
+    "value": "20.66.74.26,20.245.100.10,13.91.86.58,40.83.249.30"
+  },
+  "containersFull": {
+    "type": "Array",
+    "value": [
+      {
+        "apiVersion": "2023-05-01",
+        "condition": true,
+        "copyContext": {
+          "copyIndex": 0,
+          "copyIndexes": {
+            "": 0,
+            "containerWorkers": 0
+          },
+          "name": "containerWorkers"
+        },
+        "copyLoopSymbolicName": "containerWorkers",
+        "deploymentResourceLineInfo": {
+          "lineNumber": 30,
+          "linePosition": 25
+        },
+        "existing": false,
+        "isAction": false,
+        "isConditionTrue": true,
+        "isTemplateResource": true,
+        "location": "westus",
+        "properties": {
+          "containers": [
+            {
+              "name": "worker-container-0",
+              "properties": {
+                "environmentVariables": [],
+                "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+                "instanceView": {
+                  "currentState": {
+                    "detailStatus": "",
+                    "startTime": "2023-07-31T19:25:31.996Z",
+                    "state": "Running"
+                  },
+                  "restartCount": 0
+                },
+                "ports": [
+                  {
+                    "port": 80,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": 1.0,
+                    "memoryInGB": 2.0
+                  }
+                }
+              }
+            }
+          ],
+          "initContainers": [],
+          "instanceView": {
+            "events": [],
+            "state": "Running"
+          },
+          "ipAddress": {
+            "ip": "20.66.74.26",
+            "ports": [
+              {
+                "port": 80,
+                "protocol": "TCP"
+              }
+            ],
+            "type": "Public"
+          },
+          "isCustomProvisioningTimeout": false,
+          "osType": "Linux",
+          "provisioningState": "Succeeded",
+          "provisioningTimeoutInSeconds": 1800,
+          "restartPolicy": "Always",
+          "sku": "Standard"
+        },
+        "provisioningOperation": "Create",
+        "references": [],
+        "resourceGroupName": "demoRg",
+        "resourceId": "Microsoft.ContainerInstance/containerGroups/worker-0",
+        "scope": "",
+        "subscriptionId": "",
+        "symbolicName": "containerWorkers[0]"
+      },
+      ...
+    ]
+  },
+  "containers": {
+    "type": "Array",
+    "value": [
+      {
+        "containers": [
+          {
+            "name": "worker-container-0",
+            "properties": {
+              "environmentVariables": [],
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "instanceView": {
+                "currentState": {
+                  "detailStatus": "",
+                  "startTime": "2023-07-31T19:25:31.996Z",
+                  "state": "Running"
+                },
+                "restartCount": 0
+              },
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1.0,
+                  "memoryInGB": 2.0
+                }
+              }
+            }
+          }
+        ],
+        "initContainers": [],
+        "instanceView": {
+          "events": [],
+          "state": "Running"
+        },
+        "ipAddress": {
+          "ip": "20.66.74.26",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "type": "Public"
+        },
+        "isCustomProvisioningTimeout": false,
+        "osType": "Linux",
+        "provisioningState": "Succeeded",
+        "provisioningTimeoutInSeconds": 1800,
+        "restartPolicy": "Always",
+        "sku": "Standard"
+      },
+      ...
+    ]
+  }
+}
+```
 
 ## resourceGroup
 
@@ -632,33 +995,31 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-When the template is deployed at the scope of a resource group, the resource ID is returned in the following format:
+The resource ID is returned in different formats at different scopes:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+* Resource group scope:
 
-You can use the `resourceId` function for other deployment scopes, but the format of the ID changes.
+    ```json
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
-If you use `resourceId` while deploying to a subscription, the resource ID is returned in the following format:
+* Subscription scope:
 
-```json
-/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+    ```json
+    /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
-If you use `resourceId` while deploying to a management group or tenant, the resource ID is returned in the following format:
+* Management group or tenant scope:
 
-```json
-/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+    ```json
+    /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
 To avoid confusion, we recommend that you don't use `resourceId` when working with resources deployed to the subscription, management group, or tenant. Instead, use the ID function that is designed for the scope.
 
-For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
-
-For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
-
-For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
+* For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
+* For [management group-level resources](deploy-to-management-group.md), use the [managementGroupResourceId](#managementgroupresourceid) function. Use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
+* For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
 
 ### Remarks
 
@@ -749,6 +1110,106 @@ You use this function to get the resource ID for resources that are [deployed to
 The following template assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the `subscriptionResourceId` function to get the resource ID for built-in roles.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscriptionresourceid.json":::
+
+## managementGroupResourceId
+
+`managementGroupResourceId([managementGroupResourceId],resourceType, resourceName1, [resourceName2], ...)`
+
+Returns the unique identifier for a resource deployed at the management group level.
+
+In Bicep, use the [managementGroupResourceId](../bicep/bicep-functions-resource.md#managementgroupresourceid) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| managementGroupResourceId |No |string (in GUID format) |Default value is the current management group. Specify this value when you need to retrieve a resource in another management group. |
+| resourceType |Yes |string |Type of resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of resource. |
+| resourceName2 |No |string |Next resource name segment, if needed. |
+
+Continue adding resource names as parameters when the resource type includes more segments.
+
+### Return value
+
+The identifier is returned in the following format:
+
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{resourceType}/{resourceName}
+```
+
+### Remarks
+
+You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
+
+### managementGroupResourceID example
+
+The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "targetMG": {
+      "type": "string",
+      "metadata": {
+        "description": "Target Management Group"
+      }
+    },
+    "allowedLocations": {
+      "type": "array",
+      "defaultValue": [
+        "australiaeast",
+        "australiasoutheast",
+        "australiacentral"
+      ],
+      "metadata": {
+        "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+      }
+    }
+  },
+  "variables": {
+    "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+    "policyDefinitionName": "LocationRestriction"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyDefinitions",
+      "apiVersion": "2021-06-01",
+      "name": "[variables('policyDefinitionName')]",
+      "properties": {
+        "policyType": "Custom",
+        "mode": "All",
+        "parameters": {},
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('allowedLocations')]"
+            }
+          },
+          "then": {
+            "effect": "deny"
+          }
+        }
+      }
+    },
+    "location_lock": {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "apiVersion": "2022-06-01",
+      "name": "location-lock",
+      "properties": {
+        "scope": "[variables('mgScope')]",
+        "policyDefinitionId": "[managementGroupResourceId('Microsoft.Authorization/policyDefinitions', variables('policyDefinitionName'))]"
+      },
+      "dependsOn": [
+        "[format('Microsoft.Authorization/policyDefinitions/{0}', variables('policyDefinitionName'))]"
+      ]
+    }
+  ]
+}
+```
 
 ## tenantResourceId
 

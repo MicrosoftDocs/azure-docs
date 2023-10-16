@@ -8,8 +8,8 @@ ms.reviewer: euang
 ms.topic: overview
 ms.subservice: spark
 ms.date: 02/15/2022
-ms.custom: devx-track-csharp
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+ms.custom: devx-track-csharp, devx-track-python
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 # Linux Foundation Delta Lake overview
@@ -160,7 +160,7 @@ The order of the results is different from above as there was no order explicitl
 
 ## Update table data
 
-Delta Lake supports several operations to modify tables using standard DataFrame APIs, this is one of the big enhancements that delta format adds. The following example runs a batch job to overwrite the data in the table.
+Delta Lake supports several operations to modify tables using standard DataFrame APIs. These operations are one of the enhancements that delta format adds. The following example runs a batch job to overwrite the data in the table.
 
 :::zone pivot = "programming-language-python"
 
@@ -344,7 +344,7 @@ Results in:
 
 ## Conditional update without overwrite
 
-Delta Lake provides programmatic APIs to conditional update, delete, and merge (this is commonly referred to as an upsert) data into tables.
+Delta Lake provides programmatic APIs to conditional update, delete, and merge (this command is commonly referred to as an upsert) data into tables.
 
 :::zone pivot = "programming-language-python"
 
@@ -530,7 +530,7 @@ Here you have a combination of the existing data. The existing data has been ass
 
 ### History
 
-Delta Lake's has the ability to allow looking into history of a table. That is, the changes that were made to the underlying Delta Table. The cell below shows how simple it is to inspect the history.
+Delta Lake's has the ability to allow looking into history of a table. That is, the changes that were made to the underlying Delta Table. The cell below shows how simple it's to inspect the history.
 
 :::zone pivot = "programming-language-python"
 
@@ -572,7 +572,7 @@ Here you can see all of the modifications made over the above code snippets.
 
 It's possible to query previous snapshots of your Delta Lake table by using a feature called Time Travel. If you want to access the data that you overwrote, you can query a snapshot of the table before you overwrote the first set of data using the versionAsOf option.
 
-Once you run the cell below, you should see the first set of data from before you overwrote it. Time Travel is an extremely powerful feature that takes advantage of the power of the Delta Lake transaction log to access data that is no longer in the table. Removing the version 0 option (or specifying version 1) would let you see the newer data again. For more information, see [Query an older snapshot of a table](https://docs.delta.io/latest/delta-batch.html#deltatimetravel).
+Once you run the cell below, you should see the first set of data from before you overwrote it. Time Travel is a powerful feature that takes advantage of the power of the Delta Lake transaction log to access data that is no longer in the table. Removing the version 0 option (or specifying version 1) would let you see the newer data again. For more information, see [Query an older snapshot of a table](https://docs.delta.io/latest/delta-batch.html#deltatimetravel).
 
 :::zone pivot = "programming-language-python"
 
@@ -611,7 +611,7 @@ Results in:
 |  3|
 |  2|
 
-Here you can see you have gone back to the earliest version of the data.
+Here you can see you've gone back to the earliest version of the data.
 
 ## Write a stream of data to a table
 
@@ -626,7 +626,7 @@ In the cells below, here's what we are doing:
 * Cell 32 Stop the structured streaming job
 * Cell 33 Inspect history <--You'll notice appends have stopped
 
-First you are going to set up a simple Spark Streaming job to generate a sequence and make the job write to your Delta Table.
+First you're going to set up a simple Spark Streaming job to generate a sequence and make the job write to your Delta Table.
 
 :::zone pivot = "programming-language-python"
 
@@ -748,7 +748,7 @@ Results in:
 |      1|2020-04-25 00:35:05|           WRITE|                                               [mode -> Overwrite, partitionBy -> []]|          0|
 |      0|2020-04-25 00:34:34|           WRITE|                                           [mode -> ErrorIfExists, partitionBy -> []]|       null|
 
-Here you are dropping some of the less interesting columns to simplify the viewing experience of the history view.
+Here you're dropping some of the less interesting columns to simplify the viewing experience of the history view.
 
 :::zone pivot = "programming-language-python"
 
@@ -792,7 +792,7 @@ Results in:
 
 You can do an in-place conversion from the Parquet format to Delta.
 
-Here you are going to test if the existing table is in delta format or not.
+Here you're going to test if the existing table is in delta format or not.
 :::zone pivot = "programming-language-python"
 
 ```python
@@ -830,7 +830,7 @@ Results in:
 
 False
 
-Now you are going to convert the data to delta format and verify it worked.
+Now you're going to convert the data to delta format and verify it worked.
 
 :::zone pivot = "programming-language-python"
 
@@ -936,7 +936,7 @@ Results in:
 |--------------------|
 |abfss://data@arca...|
 
-Now you are going to verify that a table is not a delta format table, then convert it to delta format using Spark SQL and confirm it was converted correctly.
+Now, you're going to verify that a table is not a delta format table. Then, you will convert the table to delta format using Spark SQL and confirm that it was converted correctly.
 
 :::zone pivot = "programming-language-python"
 
@@ -990,5 +990,5 @@ For more information, see [Delta Lake Project](https://github.com/delta-io/delta
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](/dotnet/spark)
+* [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 * [Azure Synapse Analytics](../index.yml)

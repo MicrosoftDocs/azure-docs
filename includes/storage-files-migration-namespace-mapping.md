@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: storage
-author: fauhse
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: include
-ms.date: 2/20/2020
-ms.author: fauhse
+ms.date: 01/19/2023
+ms.author: kendownie
 ms.custom: include file
 ---
 
@@ -43,7 +43,7 @@ To decide how many Azure file shares you need, review the following limits and b
 * A server on which the Azure File Sync agent is installed can sync with up to 30 Azure file shares.
 * An Azure file share is deployed in a storage account. That arrangement makes the storage account a scale target for performance numbers like IOPS and throughput.
 
-  One standard Azure file share can theoretically saturate the maximum performance that a storage account can deliver. If you place multiple shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. If you plan to only attach Azure File Sync to these file shares, grouping several Azure file shares into the same storage account won't create a problem. Review the Azure file share performance targets for deeper insight into the relevant metrics. These limitations don't apply to premium storage, where performance is explicitly provisioned and guaranteed for each share.
+  Pay attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you should map file shares 1:1 with storage accounts. However, this might not always be possible due to various limits and restrictions, both from your organization and from Azure. When it's not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
 
   If you plan to lift an app to Azure that will use the Azure file share natively, you might need more performance from your Azure file share. If this type of use is a possibility, even in the future, it's best to create a single standard Azure file share in its own storage account.
 * There's a limit of 250 storage accounts per subscription per Azure region.
@@ -59,6 +59,16 @@ To decide how many Azure file shares you need, review the following limits and b
 It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. Azure File Sync is tested with 100 million items (files and folders) per share. But it's often best to keep the number of items below 20 million or 30 million in a single share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-premises shares into the same Azure file share if you stay roughly below these numbers. This practice will provide you with room to grow.
 
 It's possible that, in your situation, a set of folders can logically sync to the same Azure file share (by using the new common root folder approach mentioned earlier). But it might still be better to regroup folders so they sync to two instead of one Azure file share. You can use this approach to keep the number of files and folders per file share balanced across the server. You can also split your on-premises shares and sync across more on-premises servers, adding the ability to sync with 30 more Azure file shares per extra server.
+
+#### Common file sync scenarios and considerations
+
+| # | Sync scenario | Supported | Considerations (or limitations) | Solution (or workaround) | 
+|---|---|:---:|---|---|
+| 1 | File server with multiple disks/volumes and multiple shares to same target Azure file share (consolidation) | No | A target Azure file share (cloud endpoint) only supports syncing with one sync group. <br/> <br/> A sync group only supports one server endpoint per registered server. | 1) Start with syncing one disk (its root volume) to target Azure file share. Starting with largest disk/volume will help with storage requirements on-premises. Configure cloud tiering to tier all data to cloud, thereby freeing up space on the file server disk. Move data from other volumes/shares into the current volume which is syncing. Continue the steps one by one until all data is tiered up to cloud/migrated.<br/> 2) Target one root volume (disk) at a time. Use cloud tiering to tier all data to target Azure file share. Remove server endpoint from sync group, re-create the endpoint with the next root volume/disk, sync, and repeat the process. Note: Agent re-install might be required.<br/> 3) Recommend using multiple target Azure file shares (same or different storage account based on performance requirements) |
+| 2 | File server with single volume and multiple shares to same target Azure file share (consolidation) | Yes | Can't have multiple server endpoints per registered server syncing to same target Azure file share (same as above) | Sync root of the volume holding multiple shares or top-level folders. Refer to [Share grouping concept](#share-grouping) and [Volume sync](#volume-sync) for more information. |
+| 3 | File server with multiple shares and/or volumes to multiple Azure file shares under single storage account (1:1 share mapping) | Yes | A single Windows Server instance (or cluster) can sync up to 30 Azure file shares.<br/><br/> A storage account is a scale target for performance. IOPS and throughput get shared across file shares.<br/><br/> Keep number of items per sync group within 100 million items (files and folders) per share. Ideally it's best to stay below 20 or 30 million per share. | 1) Use multiple sync groups (number of sync groups = number of Azure file shares to sync to).<br/>  2) Only 30 shares can be synced in this scenario at a time. If you have more than 30 shares on that file server, use [Share grouping concept](#share-grouping) and [Volume sync](#volume-sync) to reduce the number of root or top-level folders at source.<br/> 3) Use additional File Sync servers on-premises and split/move data to these servers to work around limitations on the source Windows server. |
+| 4 | File server with multiple shares and/or volumes to multiple Azure file shares under different storage account (1:1 share mapping) | Yes | A single Windows Server instance (or cluster) can sync up to 30 Azure file shares (same or different storage account).<br/><br/> Keep number of items per sync group within 100 million items (files and folders) per share. Ideally it's best to stay below 20 or 30 million per share. | Same approach as above |
+| 5 | Multiple file servers with single (root volume or share) to same target Azure file share (consolidation) | No | A sync group can't use cloud endpoint (Azure file share) already configured in another sync group.<br/><br/> Although a sync group can have server endpoints on different file servers, the files can't be distinct. | *Follow guidance in Scenario # 1 above with additional consideration of targeting one file server at a time.* |
 
 #### Create a mapping table
 

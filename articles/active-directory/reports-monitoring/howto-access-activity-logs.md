@@ -1,174 +1,227 @@
 ---
-title: Access activity logs in Azure AD | Microsoft Docs
-description: Learn how to choose the right method for accessing the activity logs in Azure AD.
+title: Access activity logs in Microsoft Entra ID
+description: How to choose the right method for accessing and integrating the activity logs in Microsoft Entra ID.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: ada19f69-665c-452a-8452-701029bf4252
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/24/2021
-ms.author: markvi
+ms.date: 08/28/2023
+ms.author: sarahlipsey
 ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
 ---
 
+# How to access activity logs in Microsoft Entra ID
 
-# How To: Access activity logs in Azure AD
+The data collected in your Microsoft Entra logs enables you to assess many aspects of your Microsoft Entra tenant. To cover a broad range of scenarios, Microsoft Entra ID provides you with several options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
-The data in your Azure AD logs enables you to assess how your Azure AD is doing. To cover a broad range of scenarios, Azure AD provides you with various options to access your log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
+You can access Microsoft Entra activity logs and reports using the following methods:
 
-This article lists the common use cases for accessing Azure AD logs data and gives recommendations for the right access method. 
+- [Stream activity logs to an **event hub** to integrate with other tools](#stream-logs-to-an-event-hub-to-integrate-with-siem-tools)
+- [Access activity logs through the **Microsoft Graph API**](#access-logs-with-microsoft-graph-api)
+- [Integrate activity logs with **Azure Monitor logs**](#integrate-logs-with-azure-monitor-logs)
+- [Monitor activity in real-time with **Microsoft Sentinel**](#monitor-events-with-microsoft-sentinel)
+- [View activity logs and reports in the **Azure portal**](#view-logs-through-the-portal)
+- [Export activity logs for **storage and queries**](#export-logs-for-storage-and-queries)
 
+Each of these methods provides you with capabilities that may align with certain scenarios. This article describes those scenarios, including recommendations and details about related reports that use the data in the activity logs. Explore the options in this article to learn about those scenarios so you can choose the right method.
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-## Investigate a single sign-in 
+## Prerequisites
 
+The required roles and licenses may vary based on the report. Global Administrators can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
-Investigating a single sign-in includes scenarios, in which you need to:
+| Log / Report | Roles | Licenses |
+|--|--|--|
+| Audit | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
+| Sign-ins | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1 or P2 |
+| Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1 or P2 |
+| Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Microsoft Entra ID Free/Microsoft 365 Apps<br>Microsoft Entra ID P1 or P2 |
 
-- Do a quick investigation of a single user over a limited scope. For example, a user had trouble signing in during a period of a few hours. 
+*The level of access and capabilities for Identity Protection vary with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
-- Quickly look through a set of related events. For example, comparing device details from a series of sign-ins from the same user. 
+Audit logs are available for features that you've licensed. To access the sign-in logs using the Microsoft Graph API, your tenant must have a Microsoft Entra ID P1 or P2 license associated with it.
 
-### Recommendation
+## Stream logs to an event hub to integrate with SIEM tools
 
-For these one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. In the Azure portal, you find solutions to directly access:
+Streaming your activity logs to an event hub is required to integrate your activity logs with Security Information and Event Management (SIEM) tools, such as Splunk and SumoLogic. Before you can stream logs to an event hub, you need to [set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md) in your Azure subscription. 
 
-- Sign-ins logs
+### Recommended uses
 
-- Audit logs
+The SIEM tools you can integrate with your event hub can provide analysis and monitoring capabilities. If you're already using these tools to ingest data from other sources, you can stream your identity data for more comprehensive analysis and monitoring. We recommend streaming your activity logs to an event hub for the following types of scenarios:
 
-- Provisioning logs    
+- If you need a big data streaming platform and event ingestion service to receive and process millions of events per second.
+- If you're looking to transform and store data by using a real-time analytics provider or batching/storage adapters.
 
-The related user interface provides you with filter options enabling you to find the entries you need to solve your scenario.  
+### Quick steps
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
+1. Create an Event Hubs namespace and event hub.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
+    - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
+    - [Learn more about streaming activity logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
-For more **conceptual information**, see [Sign-in logs in Azure Active Directory - preview](concept-all-sign-ins.md) or [Sign-in logs in Azure Active Directory](concept-sign-ins.md).
+ Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.
 
-To **get started**, see [Analyze sign-ins with the Azure AD sign-ins log](quickstart-analyze-sign-in.md).
+## Access logs with Microsoft Graph API
+
+The Microsoft Graph API provides a unified programmability model that you can use to access data for your Microsoft Entra ID P1 or P2 tenants. It doesn't require an administrator or developer to set up extra infrastructure to support your script or app.  
+
+### Recommended uses
+
+Using Microsoft Graph explorer, you can run queries to help you with the following types of scenarios:
+
+- View tenant activities such as who made a change to a group and when.
+- Mark a Microsoft Entra sign-in event as safe or confirmed compromised.
+- Retrieve a list of application sign-ins for the last 30 days.
+
+### Quick steps
+
+1. [Configure the prerequisites](howto-configure-prerequisites-for-reporting-api.md). 
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Set the HTTP method and API version.
+1. Add a query then select the **Run query** button.
+    - [Familiarize yourself with the Microsoft Graph properties for directory audits](/graph/api/resources/directoryaudit)
+    - [Complete the MS Graph Quickstart guide](quickstart-access-log-with-graph-api.md)
  
+## Integrate logs with Azure Monitor logs
 
+With the Azure Monitor logs integration, you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Microsoft Entra activity logs. To integrate Microsoft Entra activity logs with Azure Monitor logs, you need a Log Analytics workspace. From there, you can run queries through Log Analytics.
 
-## Access from code
+### Recommended uses
 
-There are cases where you need to periodically access activity logs from an app or a script.
+Integrating Microsoft Entra logs with Azure Monitor logs provides a centralized location for querying logs. We recommend integrating logs with Azure Monitor logs for the following types of scenarios:
 
-### Recommendation 
-
-The right access method for accessing activity logs from code depends on the scope of your project. One option you have is to access your activity logs from the Microsoft Graph API. 
-
-The **Microsoft Graph API**:
-
-- Provides a RESTful way to query sign-in data from Azure AD in Azure AD Premium tenants.
-- Doesn't require an administrator or developer to set up additional infrastructure to support your script or app. 
-- Is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
-
-Another method for accessing activity logs from your code is to use **Azure Event Hubs**. Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
-
-**Use:**
-
-- **The Microsoft graph API** - For scoped queries (a limited set of users or time). For more information, see [access Azure AD logs with the Microsoft Graph API](quickstart-access-log-with-graph-api.md). 
-- **Azure Event Hubs** - For pulling large sets of sign-in data. For more information, see [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
-
-
-## Near real-time security event detection 
-
-To detect and stop threats before they can cause harm to your environment, you might have a security solution deployed in your environment that can process activity log data in real-time.
-
-
-### Recommendation
-
-For real-time security detection, use [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
-
-**Use:**
-
-- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real-time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
-
-- **Azure Event Hubs** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hubs. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
-  
+- Compare Microsoft Entra sign-in logs with logs published by other Azure services.
+- Correlate sign-in logs against Azure Application insights.
+- Query logs using specific search parameters.
  
-Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
+### Quick steps
 
-- [ArcSight](howto-integrate-activity-logs-with-arcsight.md)
-- [Splunk](howto-integrate-activity-logs-with-splunk.md) 
-- [SumoLogic](howto-integrate-activity-logs-with-sumologic.md) 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
+1. [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics** and begin querying the data.
+    - [Integrate Microsoft Entra logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
+    - [Learn how to query using Log Analytics](howto-analyze-activity-logs-log-analytics.md)
+
+## Monitor events with Microsoft Sentinel
+
+Sending sign-in and audit logs to Microsoft Sentinel provides your security operations center with near real-time security detection and threat hunting. The term *threat hunting* refers to a proactive approach to improve the security posture of your environment. As opposed to classic protection, threat hunting tries to proactively identify potential threats that might harm your system. Your activity log data might be part of your threat hunting solution.
+
+### Recommended uses
+
+We recommend using the real-time security detection capabilities of Microsoft Sentinel if your organization needs security analytics and threat intelligence. Use Microsoft Sentinel if you need to:
+
+- Collect security data across your enterprise.
+- Detect threats with vast threat intelligence.
+- Investigate critical incidents guided by AI.
+- Respond rapidly and automate protection.
+
+### Quick steps
+
+1. Learn about the [prerequisites](../../sentinel/prerequisites.md), [roles and permissions](../../sentinel/roles.md).
+1. [Estimate potential costs](../../sentinel/billing.md).
+1. [Onboard to Microsoft Sentinel](../../sentinel/quickstart-onboard.md).
+1. [Collect Microsoft Entra data](../../sentinel/connect-azure-active-directory.md).
+1. [Begin hunting for threats](../../sentinel/hunting.md).
 
 
+<a name='view-logs-through-the-portal'></a>
 
-## Threat hunting 
+## View logs through the Microsoft Entra admin center
 
+For one-off investigations with a limited scope, the [Microsoft Entra admin center](https://entra.microsoft.com/) is often the easiest way to find the data you need. The user interface for each of these reports provides you with filter options enabling you to find the entries you need to solve your scenario. 
 
-The term *threat hunting* refers to a proactive approach to improve the security posture of your environment.  
-As opposed to classic protection, thread hunting tries to proactively identify potential threats that might harm your system. Your activity log data might be part of your threat hunting solution.
+The data captured in the Microsoft Entra activity logs are used in many reports and services. You can review the sign-in, audit, and provisioning logs for one-off scenarios or use reports to look at patterns and trends. The data from the activity logs help populate the Identity Protection reports, which provide information security related risk detections that Microsoft Entra ID can detect and report on. Microsoft Entra activity logs also populate Usage and insights reports, which provide usage details for your tenant's applications. 
 
+### Recommended uses
 
-### Recommendation
+The reports available in the Azure portal provide a wide range of capabilities to monitor activities and usage in your tenant. The following list of uses and scenarios isn't exhaustive, so explore the reports for your needs.
 
-For real-time security detection, use [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
+- Research a user's sign-in activity or track an application's usage. 
+- Review details around group name changes, device registration, and password resets with audit logs.
+- Use the Identity Protection reports for monitoring at risk users, risky workload identities, and risky sign-ins.
+- To ensure that your users can access the applications in use in your tenant, you can review the sign-in success rate in the Microsoft Entra application activity (preview) report from Usage and insights.
+- Compare the different authentication methods your users prefer with the Authentication methods report from Usage and insights.
 
-**Use:**
+### Quick steps
 
-- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real-time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
+Use the following basic steps to access the reports in the Microsoft Entra admin center. 
+<a name='azure-ad-activity-logs'></a>
 
-- **Azure Event Hubs** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hubs. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
+#### Microsoft Entra activity logs
+
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
+1. Adjust the filter according to your needs.
+    - [Learn how to filter activity logs](quickstart-filter-audit-log.md)
+    - [Explore the Microsoft Entra audit log categories and activities](reference-audit-activities.md) 
+    - [Learn about basic info in the Microsoft Entra sign-in logs](reference-basic-info-sign-in-logs.md)
+
+<a name='azure-ad-identity-protection-reports'></a>
+
+#### Microsoft Entra ID Protection reports
+
+1. Browse to **Protection** > **Identity Protection**.
+1. Explore the available reports.
+    - [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
+    - [Learn how to investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)
+
+#### Usage and insights reports
+
+1. Browse to **Identity** > **Monitoring & health** > **Usage and insights**.
+1. Explore the available reports.
+    - [Learn more about the Usage and insights report](concept-usage-insights-report.md)
+
+## Export logs for storage and queries
+
+The right solution for your long-term storage depends on your budget and what you plan on doing with the data. You've got three options:
   
- 
-Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
-
-- [ArcSight](howto-integrate-activity-logs-with-arcsight.md)
-- [Splunk](howto-integrate-activity-logs-with-splunk.md) 
-- [SumoLogic](howto-integrate-activity-logs-with-sumologic.md) 
-
-
-
-## Export data for long term storage 
-
-Azure AD stores your log data only for a limited amount of time. For more information, see [How long does Azure AD store reporting data](reference-reports-data-retention.md). 
-
-If you need to store your log information for a longer period due to compliance or security reasons, you need to take action.
-
-### Recommendation
-
-The right solution for your long term storage is tight to two pillars:
-
-- Your budget
-
-- What you plan on doing with the data
+- Archive logs to Azure Storage
+- Download logs for manual storage
+- Integrate logs with Azure Monitor logs
   
+[Azure Storage](../../storage/common/storage-introduction.md) is the right solution if you aren't planning on querying your data often. For more information, see [Archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
-If your budget is tight, and you need cheap method to create a long-term backup of your activity logs, you can do a manual download. The user interface of the activity logs provides you with an option to download the data as **JSON** or **CSV**. For more information, see [how to download logs in Azure Active Directory](howto-download-logs.md). 
+If you plan to query the logs often to run reports or perform analysis on the stored logs, you should [integrate your data with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md).
 
-One trade off of the manual download is that it requires a lot of manual interaction. If you are looking for a more professional solution, use either Azure storage or Azure monitor.
-  
-[Azure storage](../../storage/common/storage-introduction.md) the right solution for you if you are not planning on querying your data often. For more information, see [archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+If your budget is tight, and you need a cheap method to create a long-term backup of your activity logs, you can [manually download your logs](howto-download-logs.md). The user interface of the activity logs in the portal provides you with an option to download the data as **JSON** or **CSV**. One trade off of the manual download is that it requires more manual interaction. If you're looking for a more professional solution, use either Azure Storage or Azure Monitor.
 
-If you also plan to query the logs often to run reports or analysis on the stored logs, you should store your data in Azure monitor. Azure monitor provides you with built-in reporting and alerting capabilities. For more information, see [integrate Azure Active Directory logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze activity logs using Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
+### Recommended uses
 
+We recommend setting up a storage account to archive your activity logs for those governance and compliance scenarios where long-term storage is required. 
 
+If you want to long-term storage *and* you want to run queries against the data, review the section on [integrating your activity logs with Azure Monitor Logs](#integrate-logs-with-azure-monitor-logs).
 
-## Log analysis 
+We recommend manually downloading and storing your activity logs if you have budgetary constraints.
 
-One common requirement is export activity data to perform a log analysis.
+### Quick steps
 
+Use the following basic steps to archive or download your activity logs.
 
-### Recommendation
+#### Archive activity logs to a storage account
 
-If you are not planning on using an independent log analysis tool, use Azure monitor or Event Hubs. Azure monitor provides a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [integrate Azure Active Directory logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
+1. Create a storage account.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
+    - [Review the data retention policies](reference-reports-data-retention.md)
 
-You can also export your logs to an independent log analysis tool, such as [Splunk](howto-integrate-activity-logs-with-splunk.md). 
+#### Manually download activity logs
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs** from the **Monitoring** menu.
+1. Select **Download**.
+    - [Learn more about how to download logs](howto-download-logs.md).
 
 ## Next steps
 
-* [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
-* [Audit API reference](/graph/api/resources/directoryaudit) 
-* [Sign-in activity report API reference](/graph/api/resources/signin)
-
+- [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
+- [Archive logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
+- [Integrate logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)

@@ -2,7 +2,8 @@
 title: Connect ServiceNow with IT Service Management Connector
 description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 6/19/2023
+ms.reviewer: nolavime
 
 ---
 
@@ -10,26 +11,31 @@ ms.date: 2/23/2022
 
 This article shows you how to configure the connection between a ServiceNow instance and the IT Service Management Connector (ITSMC) in Log Analytics, so you can centrally manage your IT Service Management (ITSM) work items.
 
+> [!NOTE]
+> As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow.
+
 ## Prerequisites
 Ensure that you meet the following prerequisites for the connection.
 
 ### ITSMC installation
 
-For information about installing ITSMC, see [Add the IT Service Management Connector solution](./itsmc-definition.md#add-it-service-management-connector).
+For information about installing ITSMC, see [Add the IT Service Management Connector solution](./itsmc-definition.md#install-it-service-management-connector).
 
 > [!NOTE]
 > ITSMC supports only the official software as a service (SaaS) offering from ServiceNow. Private deployments of ServiceNow are not supported.
 
 ### OAuth setup
 
-ServiceNow supported versions include Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
+- [Set up OAuth for Utah](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+- [Set up OAuth for Tokyo](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+- [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+- [Set up OAuth for Rome](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Quebec](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Paris](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Set up OAuth for Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 
 As a part of setting up OAuth, we recommend:
 
@@ -56,7 +62,7 @@ As a part of setting up OAuth, we recommend:
 
 ## Install the user app and create the user role
 
-Use the following procedure to install the Service Now user app and create the integration user role for it. You'll use these credentials to make the ServiceNow connection in Azure.
+Use the following procedure to install the ServiceNow user app and create the integration user role for it. You'll use these credentials to make the ServiceNow connection in Azure.
 
 > [!NOTE]
 > ITSMC supports only the official user app for Microsoft Log Analytics integration that's downloaded from the ServiceNow store. ITSMC does not support any code ingestion on the ServiceNow side or any application that's not part of the official ServiceNow solution. 
@@ -129,6 +135,20 @@ When you're successfully connected and synced:
 
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
+
+## Payload structure
+
+The payload that is sent to ServiceNow has a common structure. The structure has a section of `<Description>` that contains all the alert data.
+
+The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
+
+For Log Search Alerts, the structure is:
+
+- Alert  (alert rule name) : \<value>
+- Search Query : \<value>
+- Search Start Time(UTC) : \<value>
+- Search End Time(UTC) : \<value>
+- AffectedConfigurationItems : [\<list of impacted configuration items>]
 
 ## Next steps
 

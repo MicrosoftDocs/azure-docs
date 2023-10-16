@@ -1,14 +1,16 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for MariaDB
 description: This article describes how to set up and manage read replicas in Azure Database for MariaDB using the portal
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 6/10/2020
+ms.date: 06/24/2022
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure portal
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MariaDB service using the Azure portal.
 
@@ -26,7 +28,7 @@ In this article, you will learn how to create and manage read replicas in the Az
 
 A read replica server can be created using the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select the existing Azure Database for MariaDB server that you want to use as a master. This action opens the **Overview** page.
 
@@ -60,7 +62,7 @@ Once the replica server has been created, it can be viewed from the **Replicatio
 
 To stop replication between a source and a replica server from the Azure portal, use the following steps:
 
-1. In the Azure portal, select your source Azure Database for MariaDB server. 
+1. In the Azure portal, select your source Azure Database for MariaDB server.
 
 2. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -72,7 +74,7 @@ To stop replication between a source and a replica server from the Azure portal,
 
    ![Azure Database for MariaDB - Stop replication](./media/howto-read-replica-portal/stop-replication.png)
 
-5. Confirm you want to stop replication by clicking **OK**.
+5. Confirm you want to stop replication by selecting **OK**.
 
    ![Azure Database for MariaDB - Stop replication confirm](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
@@ -92,7 +94,7 @@ To delete a read replica server from the Azure portal, use the following steps:
 
    ![Azure Database for MariaDB - Delete replica](./media/howto-read-replica-portal/delete-replica.png)
 
-5. Type the name of the replica and click **Delete** to confirm deletion of the replica.  
+5. Type the name of the replica and select **Delete** to confirm deletion of the replica.
 
    ![Azure Database for MariaDB - Delete replica confirm](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
@@ -109,13 +111,13 @@ To delete a source server from the Azure portal, use the following steps:
 
    ![Azure Database for MariaDB - Delete master](./media/howto-read-replica-portal/delete-master-overview.png)
 
-3. Type the name of the source server and click **Delete** to confirm deletion of the source server.  
+3. Type the name of the source server and select **Delete** to confirm deletion of the source server.
 
    ![Azure Database for MariaDB - Delete master confirm](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## Monitor replication
 
-1. In the [Azure portal](https://portal.azure.com/), select the replica Azure Database for MariaDB server you want to monitor.
+1. In the [Azure portal](https://portal.azure.com), select the replica Azure Database for MariaDB server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Metrics**:
 

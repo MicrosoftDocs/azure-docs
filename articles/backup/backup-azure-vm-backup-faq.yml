@@ -4,9 +4,9 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/02/2022
-  author: v-amallick
-  ms.author: v-amallick
+  ms.date: 08/14/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -26,7 +26,7 @@ sections:
 
           To improve backup performance see, [backup best practices](./backup-azure-vms-introduction.md#best-practices); [Backup considerations](./backup-azure-vms-introduction.md#backup-and-restore-considerations) and [Backup Performance](./backup-azure-vms-introduction.md#backup-performance)
 
-          Although the total backup time for incremental backups is less than 24 hours, that might not be the case for the first backup.
+          Although the total backup time for incremental backups is less than 24 hours that might not be the case for the first backup.
 
       - question: Is the backup cost included in the VM cost?
         answer: |
@@ -69,8 +69,7 @@ sections:
 
       - question: I enabled a lock on the resource group created by Azure Backup Service (for example, `AzureBackupRG_<geo>_<number>`). Will my backups continue to work?
         answer: |
-          If you lock the resource group created by the Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
-
+          If you lock the resource group created by the Azure Backup Service, backups will start to fail.
           Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
@@ -126,7 +125,7 @@ sections:
 
       - question: Does Azure Backup interfere with application performance?
         answer: |
-          Creating a VM Snapshot takes few minutes, and there will be a very minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend to schedule backups during off business hours. Learn more about [best practices for backup and restore](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
+          Creating a VM Snapshot takes few minutes, and there will be a very minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend scheduling backups during off business hours. Learn more about [best practices for backup and restore](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
@@ -135,11 +134,28 @@ sections:
       
       - question: Can I restore the files and folders from an encrypted VM backup?
         answer: |
-          Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md).
+          Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md). However you can recover files from backups before they were encrypted.
 
       - question: Can I stop a VM and scale it up during the Transfer data to vault phase?
         answer: |
           Yes, you can do this when *Transfer data to vault* phase is in progress.
+
+      - question: Does Azure Backup take backup of keys for ADE encrypted VMs and restore it along with the restored disk?
+        answer: |
+          Azure Backup backs up encryption keys and secrets of the backup data. Generally, the keys are not restored in the Key vault, but Azure Backup allows restoring the keys during the loss of keys.
+
+      - question: Can I remove all restore points and retain the latest one?
+        answer: |
+          No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
+
+      - question: How long can I retain backup points of Azure VMs using the backup policy?
+        answer: |
+          The maximum retentions of the backup points are:
+
+          - **Retention of daily backup points**: 9999 days
+          - **Retention of weekly backup points**: 5163 weeks
+          - **Retention of monthly backup points**: 1188 months
+          - **Retention of yearly backup points**: 99 years 
 
   - name: Restore
     questions:
@@ -210,9 +226,75 @@ sections:
 
           Also, before you swap VM disks, you must power off the VM.
 
-      -  question: Is there a limit to trigger restore in a day?
-         answer: |
-           Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+      - question: Is there a limit to trigger restore in a day?
+        answer: |
+          Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+
+      - question: How does restored disk SKU depend on target SA provided?
+        answer: |
+          In the case of an unmanaged VM, the VM disk type is Premium SSD or HDD and depends on the SA in which VHDs exist. If you provide normal SA during restore, the VM disk would be HDD, and if you provide Premium SA, all disks would be Premium SSDs.
+
+          >[!Note]
+          >- Azure Backup currently doesn't support taking different SAs as inputs for different disks.
+          >- **Restore to orginal disks SA** is only available for snapshot tier, and it increases restore performance because data is copied much faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
+
+      - question: Can I delete JSON template and VHD files after the restore process is complete?
+        answer: |
+          Yes, you can delete these files once the restoration process is complete. By default, Azure Backup retains these files for future use.
+
+      - question: How do I run restore operation for Cross Region Restore (CRR) of ADE encrypted VMs?
+        answer: |
+          The encrypted keys are not expected to be present in the target region as part of Cross Regions Restore (CRR). Therefore, you need to restore the encrypted keys and secrets using the restored file. When the restore is complete, you can create Azure encrypted VM using restored disks.
+
+      - question: Are there any recommended naming conventions of an Azure VM in Azure Backup?
+        answer: |
+          Microsoft Windows allows a VM name that has maximum of 15 characters. Also, you can't specify a DNS host name that differs from the *NETBIOS* host name. However, you can create host headers for a website hosted on an Azure VM with the name as per recommendation.
+
+          Learn more about the [VM naming convention limitations for Azure VMs](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou).
+
+      - question: Can I restore an Azure Virtual Machine in a different subscription?
+        answer: |
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
+
+      - question: Does Cross Subscription Restore support all Azure VM?
+        answer: |
+          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+
+      - question: Can I use Azure VM snapshots to restore in another subscription?
+        answer: |
+          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is unsupported from [snapshot](backup-azure-vms-introduction.md#snapshot-creation) restore.
+
+      - question: Can I perform Cross Subscription Restore for Azure VMs running in secondary regions?
+        answer: |
+          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) does not support restore from [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+
+      - question: Can I use Enhanced policy for Cross Subscription Restore?
+        answer: |
+          Yes, it's supported for [Cross subscription Restore](backup-azure-arm-restore-vms.md#restore-options).
+
+      - question: Can I restore an Azure zone pinned Virtual Machine in a different zone?
+        answer: |
+          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure zone pinned VMs to a different available zone using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules. It's also supported from [vaults with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy).
+
+      - question: Can I restore an Azure non-zone pinned Virtual Machine in a different zone?
+        answer: |
+          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure non-zone pinned VMs to any available zones using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules.
+
+      - question: Does Cross Zonal Restore support all Azure VM?
+        answer: |
+          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+
+      - question: Can I use Azure VM snapshots to restore in another zone?
+        answer: |
+          No, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) is unsupported from [snapshot](backup-azure-vms-introduction.md#snapshot-creation) restore.
+
+      - question: Can I restore Azure zone pinned VMs to secondary regions?
+        answer: |
+          Yes, Azure Backup support restore of Azure zone pinned VMs to [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+
+      - question: Can I use Enhanced policy for Cross Zonal Restore?
+        answer: |
+          Yes, it's supported for [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options).
 
   - name: Manage VM backups
     questions:
@@ -259,13 +341,13 @@ sections:
 
           One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
 
-          You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
+          You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Go to the Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
       - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
         answer: Azure VM Backup uses [HTTPS communication for encryption in transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). The data transfer uses Azure fabric (and not public endpoints), which do not need Internet access for VM backup.
 
       - question: How can I disable the File Recovery option?
         answer: |
-          [This API](/rest/api/backup/item-level-recovery-connections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
+          [This API](/rest/api/backup/item-level-recovery-connections/provision) provision a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
           - You can disable this option using **custom role-definitions** by excluding API action.
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.
@@ -294,13 +376,17 @@ sections:
         answer: |
           Because Azure resources handle this traffic, it can't be determined by an external user.
 
-      - question: What's the minimum RPO and RTO for VM backups in Azure Backup?
+      - question: What is the minimum RPO and RTO for VM backups in Azure Backup?
         answer: |
-          **RPO**: The minimum RPO is 1 day or 24 hours.  <br><br>  **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
+          **RPO**: The minimum RPO is 1 day or 24 hours when you're using Standard policy. If you use Enhanced policy, the minimum RPO is 4 hours.
 
       - question: Why does the error VMMarketplaceInvalidInputmessage appear?
         answer: |
           This error appears when you try to start a VM after creating an Azure VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, and then the VM deployment fails. To resolve this issue, remove the plan information from the VM.
+
+      - question: How do I manage key rotations? How to ensure which key is used during backup and if it’s present to be used with the restored VM?
+        answer: |
+          Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
 
 
 

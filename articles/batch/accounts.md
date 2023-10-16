@@ -1,17 +1,17 @@
 ---
 title: Batch accounts and Azure Storage accounts
-description: Learn about Azure Batch accounts and how they are used from a development standpoint.
+description: Learn about Azure Batch accounts and how they're used from a development standpoint.
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/01/2023
 
 ---
 # Batch accounts and Azure Storage accounts
 
-An Azure Batch account is a uniquely identified entity within the Batch service. Most Batch solutions use [Azure Storage](../storage/index.yml) for storing resource files and output files, so each Batch account is usually associated with a corresponding storage account.
+An Azure Batch account is a uniquely identified entity within the Batch service. Many Batch solutions use [Azure Storage](../storage/index.yml) for storing resource files and output files, so each Batch account can be optionally associated with a corresponding storage account.
 
 ## Batch accounts
 
-All processing and resources are associated with a Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or an Azure Active Directory token.
+All processing and resources are associated with a Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or a Microsoft Entra token.
 
 You can run multiple Batch workloads in a single Batch account. You can also distribute your workloads among Batch accounts that are in the same subscription but located in different Azure regions.
 
@@ -30,11 +30,14 @@ Batch supports the following types of Azure Storage accounts:
 - General-purpose v1 (GPv1) accounts
 - Blob storage accounts (currently supported for pools in the Virtual Machine configuration)
 
+> [!IMPORTANT]
+> You can't use the [Application Packages](batch-application-packages.md) or [Azure storage-based virtual file system mount](virtual-file-mount.md) features with Azure Storage accounts configured with [firewall rules](../storage/common/storage-network-security.md), or with **Hierarchical namespace** set to **Enabled**.
+
 For more information about storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) compared with GPv1. (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
 
-When a storage account is linked to a Batch account, it is considered to be the *autostorage account*. An autostorage account is required if you plan to use the [application packages](batch-application-packages.md) capability, as it is used to store the application package .zip files. It can also be used for [task resource files](resource-files.md#storage-container-name-autostorage); since the autostorage account is already linked to the Batch account, this avoids the need for shared access signature (SAS) URLs to access the resource files.
+When a storage account is linked to a Batch account, it's considered to be the *autostorage account*. An autostorage account is required if you plan to use the [application packages](batch-application-packages.md) capability, as it's used to store the application package .zip files. It can also be used for [task resource files](resource-files.md#storage-container-name-autostorage). Linking Batch accounts to autostorage can avoid the need for shared access signature (SAS) URLs to access the resource files.
 
 ## Next steps
 

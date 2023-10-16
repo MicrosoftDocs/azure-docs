@@ -3,11 +3,11 @@ title: Azure Data Catalog developer concepts
 description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 12/16/2022
 ---
 # Azure Data Catalog developer concepts
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.
 
@@ -31,7 +31,7 @@ There are several different roles a user can have. For information on roles, see
 
 Individual users and security groups can be added.
 
-Azure Data Catalog uses Azure Active Directory for identity and access management. Each Catalog user must be a member of the Active Directory for the account.
+Azure Data Catalog uses Microsoft Entra ID for identity and access management. Each Catalog user must be a member of the Active Directory for the account.
 
 ### Assets
 
@@ -116,7 +116,7 @@ These properties apply to all non-singleton annotation types (annotations, which
 
 Root asset types are those types that represent the various types of data assets that can be registered in the catalog. For each root type, there's a view, which describes asset and annotations included in the view. View name should be used in the corresponding {view_name} url segment when publishing an asset using REST API.
 
-|Asset type (view name)  |Additional properties |Data type|Allowed annotations|Comments|
+|Asset type (view name)  |More properties |Data type|Allowed annotations|Comments|
 |----------|-----------|------------|------------|------------|
 |Table ("tables")  | ||Description|A Table represents any tabular data.  For example: SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc.|
 ||||FriendlyName||
@@ -171,7 +171,7 @@ Root asset types are those types that represent the various types of data assets
 
 Annotation types represent types of metadata that can be assigned to other types within the catalog.
 
-|Annotation type (nested view name)  |Additional properties |Data type|Comments|
+|Annotation type (nested view name)  |More properties |Data type|Comments|
 |----------|-----------|------------|------------|
 |Description ("descriptions")  |||This property contains a description for an asset. Each user of the system can add their own description.  Only that user can edit the Description object.  (Admins and Asset owners can delete the Description object but not edit it). The system maintains users' descriptions separately.  Thus there's an array of descriptions on each asset (one for each user who has contributed their knowledge about the asset, in addition to possibly one that contains information derived from the data source).|
 ||description|string|A short description (2-3 lines) of the asset.|
@@ -218,13 +218,13 @@ Common types can be used as the types for properties, but aren't Items.
 |----------|-----------|------------|------------|
 |DataSourceInfo|sourceType|string|Describes the type of data source.  For example: SQL Server, Oracle Database, etc. |
 ||objectType|string|Describes the type of object in the data source. For example: Table, View for SQL Server.|
-|DataSourceLocation|protocol|string|Required. Describes a protocol used to communicate with the data source. For example: `tds` for SQL Server, `oracle` for Oracle, etc. Refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.|
+|DataSourceLocation|protocol|string|Required. Describes a protocol used to communicate with the data source. For example: `tds` for SQL Server, `oracle` for Oracle, etc. Refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md#data-source-reference-specification) for the list of currently supported protocols.|
 ||address|Dictionary\<string,object\>|Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it's meaningless without knowing the protocol.|
 ||authentication|string|Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.|
 ||connectionProperties|Dictionary\<string,object\>|Optional. Additional information on how to connect to a data source.|
-|DataSourceLocation|||The backend doesn't perform any validation of provided properties against Azure Active Directory during publishing.|
+|DataSourceLocation|||The backend doesn't perform any validation of provided properties against Microsoft Entra ID during publishing.|
 ||upn|string|Required. Unique email address of user. Must be specified if objectId isn't provided or in the context of "lastRegisteredBy" property, otherwise optional.|
-||objectId|Guid|Optional. User or security group Azure Active Directory identity. Optional. Must be specified if upn isn't provided, otherwise optional.|
+||objectId|Guid|Optional. User or security group Microsoft Entra identity. Optional. Must be specified if upn isn't provided, otherwise optional.|
 ||firstName|string|First name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Can’t be specified when providing security principal for "roles", "permissions" and "experts".|
 ||lastName|string|Last name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Can’t be specified when providing security principal for "roles", "permissions" and "experts".|
 |Column|name|string|Name of the column or attribute.|
@@ -251,7 +251,7 @@ The set of supported protocols can be extended programmatically (Refer to Data C
 
 ### Custom data source protocol specification
 
-There are three different types of data source protocol specificiations. Listed below are the types, followed by a table of their properties.
+There are three different types of data source protocol specifications. Listed below are the types, followed by a table of their properties.
 
 #### DataSourceProtocol
 

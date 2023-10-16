@@ -3,20 +3,20 @@ title: Scalability and performance targets for standard storage accounts
 titleSuffix: Azure Storage
 description: Learn about scalability and performance targets for standard storage accounts.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 10/04/2021
-ms.author: tamram
-ms.subservice: common
+ms.date: 05/25/2022
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
 ---
 
 # Scalability and performance targets for standard storage accounts
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](/support/legal/sla/storage/v1_5/).
+The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ## Scale targets for standard storage accounts
 

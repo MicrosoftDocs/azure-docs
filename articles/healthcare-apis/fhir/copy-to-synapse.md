@@ -1,31 +1,31 @@
 ---
 title: Copy data from FHIR service in Azure Health Data Services to Azure Synapse Analytics
 description: This article describes copying FHIR data into Synapse
-author: ginalee-dotcom
+author: irenejoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/16/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: irenejoseph
 ---
 # Copy data from FHIR service to Azure Synapse Analytics
 
 In this article, you’ll learn three ways to copy data from the FHIR service in Azure Health Data Services to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
 
-* Use the [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) OSS tool
+* Use the [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) OSS tool
 * Use the [FHIR to CDM pipeline generator](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToCdm/docs/fhir-to-cdm.md) OSS tool
 * Use $export and load data to Synapse using T-SQL
 
 ## Using the FHIR to Synapse Sync Agent OSS tool
 
 > [!Note]
-> [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
+> [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
 The **FHIR to Synapse Sync Agent** is a Microsoft OSS project released under MIT License. It's an Azure function that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. This also contains a script to create external tables and views in [Synapse Serverless SQL pool](../../synapse-analytics/sql/on-demand-workspace-overview.md) pointing to the Parquet files.
 
 This solution enables you to query against the entire FHIR data with tools such as Synapse Studio, SSMS, and Power BI. You can also access the Parquet files directly from a Synapse Spark pool. You should consider this solution if you want to access all of your FHIR data in near real time, and want to defer custom transformation to downstream systems.
 
-Follow the OSS [documentation](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) for installation and usage instructions.
+Follow the OSS [documentation](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) for installation and usage instructions.
 
 ## Using the FHIR to CDM pipeline generator OSS tool
 
@@ -56,7 +56,7 @@ You can configure the server to export the data to any kind of Azure storage acc
 
 #### Using `$export` command
 
-After configuring your FHIR server, you can follow the [documentation](./export-data.md#using-export-command) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
+After configuring your FHIR server, you can follow the [documentation](./export-data.md#call-the-export-endpoint) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  
@@ -196,3 +196,5 @@ Next, you can learn about how you can de-identify your FHIR data while exporting
  
 >[!div class="nextstepaction"]
 >[Exporting de-identified data](./de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

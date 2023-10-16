@@ -3,17 +3,22 @@ title: NC-series - Azure Virtual Machines
 description: Specifications for the NC-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 12/21/2022
+ms.author: vikancha
 ---
 
 # NC-series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) card and the Intel Xeon E5-2690 v3 (Haswell) processor. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+> [!IMPORTANT]
+> NC and NC_Promo series Azure virtual machines (VMs) will be retired on September 6, 2023. For more information, see the [NC and NC_Promo retirement information](nc-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [GPU compute migration guide](n-series-migration.md).
+>
+> This retirement announcement doesn't apply to NCv3, NCasT4v3 and NC A100 v4 series VMs.  
+
+NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) card and the Intel Xeon E5-2690 v3 (Haswell) processor. Users can crunch through data faster by using CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
@@ -56,7 +61,7 @@ If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver s
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 

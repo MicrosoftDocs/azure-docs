@@ -3,6 +3,7 @@ title: Azure Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
+ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
@@ -41,7 +42,7 @@ configuration of your service subscriptions.650052 Message The app needs access 
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
-**Cause:** Consent not granted to Azure Virtual Desktop in the Azure Active directory instance.
+**Cause:** Consent not granted to Azure Virtual Desktop in the Microsoft Entra instance.
 
 **Fix:** [Follow this guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-azure-virtual-desktop) to grant consent.
 
@@ -65,9 +66,9 @@ Example of raw error:
        + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.RDInfra.RDPowershell.Tenant.NewRdsTenant
 ```
 
-**Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Azure Active Directory.
+**Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Microsoft Entra ID.
 
-**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
+**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Microsoft Entra tenant](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
@@ -166,7 +167,7 @@ Example of raw error:
 
 To fix this, do the following things:
 
-1. Open the Azure Portal and go to the **Virtual networks** tab.
+1. Open the Azure portal and go to the **Virtual networks** tab.
 2. Find your VNET, then select **DNS servers**.
 3. The DNS servers menu should appear on the right side of your screen. On that menu, select **Custom**.
 4. Make sure the DNS servers listed under Custom match your domain controller or Active Directory domain. If you don't see your DNS server, you can add it by entering its value into the **Add DNS server** field.
@@ -369,10 +370,12 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### Error: User requires Azure AD Multi-Factor Authentication (MFA)
+<a name='error-user-requires-azure-ad-multi-factor-authentication-mfa'></a>
+
+### Error: User requires Microsoft Entra multifactor authentication (MFA)
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of your deployment failed due to lack of Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
+> ![Screenshot of your deployment failed due to lack of multifactor authentication (MFA)](../media/MFARequiredError.png)
 
 Example of raw error:
 
@@ -380,7 +383,7 @@ Example of raw error:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Cause:** The specified Azure Virtual Desktop tenant admin requires Azure AD Multi-Factor Authentication (MFA) to sign in.
+**Cause:** The specified Azure Virtual Desktop tenant admin requires Microsoft Entra multifactor authentication (MFA) to sign in.
 
 **Fix:** Create a service principal and assign it a role for your Azure Virtual Desktop tenant by following the steps in [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md). After verifying that you can sign in to Azure Virtual Desktop with the service principal, rerun the Azure Marketplace offering or the GitHub Azure Resource Manager template, depending on which method you're using. Follow the instructions below to enter the correct parameters for your method.
 
@@ -389,14 +392,14 @@ If you're running the Azure Marketplace offering, provide values for the followi
 - Azure Virtual Desktop tenant RDS Owner: Service principal
 - Application ID: The application identification of the new service principal you created
 - Password/Confirm Password: The password secret you generated for the service principal
-- Azure AD Tenant ID: The Azure AD Tenant ID of the service principal you created
+- Microsoft Entra tenant ID: The Microsoft Entra tenant ID of the service principal you created
 
 If you're running the GitHub Azure Resource Manager template, provide values for the following parameters to properly authenticate to Azure Virtual Desktop:
 
 - Tenant Admin user principal name (UPN) or Application ID: The application identification of the new service principal you created
 - Tenant Admin Password: The password secret you generated for the service principal
 - IsServicePrincipal: **true**
-- AadTenantId: The Azure AD Tenant ID of the service principal you created
+- AadTenantId: The Microsoft Entra tenant ID of the service principal you created
 
 ### Error: vmSubnet not available when configuring virtual networks
 
@@ -409,7 +412,7 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

@@ -1,7 +1,7 @@
 ---
 title: SWIFT CSP-CSCF v2020 blueprint sample controls
 description: Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample
@@ -308,7 +308,7 @@ integration and the ability to review post-attack mitigation reports. This bluep
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
-- Azure DDoS Protection Standard should be enabled
+- Azure DDoS Protection should be enabled
 
 ## 1.1 and 6.1 Boundary Protection
 

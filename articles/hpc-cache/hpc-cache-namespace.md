@@ -1,11 +1,11 @@
 ---
 title: Understand the Azure HPC Cache aggregated namespace
 description: How to plan the virtual namespace for your Azure HPC Cache
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: femila
+ms.date: 05/02/2022
+ms.author: rohogue
 ---
 
 # Plan the aggregated namespace
@@ -33,7 +33,7 @@ The datacenter storage system exposes these exports:
 * */goldline*
 * */goldline/templates*
 
-The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
+The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the NFS data import techniques outlined in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 To allow easy access through the cache, consider creating storage targets with these virtual namespace paths:
 

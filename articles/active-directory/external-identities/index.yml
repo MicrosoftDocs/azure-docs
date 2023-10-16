@@ -1,88 +1,126 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: External Identities documentation
-summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
+## FRONT MATTER START
+title: Microsoft Entra External ID documentation # < 60 chars
+summary: >
+  With Microsoft Entra External ID, formerly known as Azure Active Directory (Azure AD) External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
+brand: azure
 
-metadata: 
-   title: External Identities documentation
-   description: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
-   ms.service: active-directory
-   ms.subservice: B2B
-   ms.workload: identity
-   ms.topic: landing-page
-   ms.date: 05/19/2020
-   author: msmimart
-   ms.author: mimart
-   manager: celested
+metadata:
+  title: Microsoft Entra External ID documentation
+  description: Learn how to use Microsoft Entra External ID for customers to manage how partners and customers sign in to your applications.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: ciam
+  ms.topic: hub-page
+  ms.collection: collection
+  author: csmulligan
+  ms.author: cmulligan
+  ms.date: 05/02/2023
 
-landingContent:
-  - title: About External Identities
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Compare External Identities solutions
-            url: external-identities-overview.md
-          - text: What is Azure AD B2B collaboration?
-            url: what-is-b2b.md
-          - text: What is Azure AD B2B direct connect? (preview)
-            url: b2b-direct-connect-overview.md
-          - text: What is Azure AD B2C (business-to-consumer) identity?
-            url: ../../active-directory-b2c/overview.md
-  - title: Collaborate with users outside your org (B2B collaboration)
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Cross-tenant access settings (preview)
-            url: cross-tenant-access-overview.md
-          - text: B2B collaboration user properties
-            url: user-properties.md
-          - text: How a B2B collaboration user redeems an invitation
-            url: redemption-experience.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure your external collaboration settings
-            url: external-collaboration-settings-configure.md
-          - text: Set up SAML/WS-Fed IdP federation (preview)
-            url: direct-federation.md
-          - text: Set up One-time passcodes
-            url: one-time-passcode.md
-          - text: Add and invite guest users
-            url: add-users-administrator.md
-          - text: Leave an organization as a guest user
-            url: leave-the-organization.md
-  - title: Scale apps to consumers and customers (Azure AD B2C)
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About Azure AD B2C
-            url: ../../active-directory-b2c/overview.md
-          - text: Technical and feature overview
-            url: ../../active-directory-b2c/technical-overview.md
-          - text: See all Azure AD B2C documentation
-            url: ../../active-directory-b2c/index.yml
-      - linkListType: concept
-        links:
-          - text: Azure AD B2C user flows
-            url: ../../active-directory-b2c/user-flow-overview.md
-          - text: Azure AD B2C custom policies
-            url: ../../active-directory-b2c/custom-policy-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Create user flows in Azure AD B2C
-            url: ../../active-directory-b2c/tutorial-create-user-flows.md
-  - title: Self-service sign-up flows for B2B guest users
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is self-service sign-up?
-            url: self-service-sign-up-overview.md
-      - linkListType: sample
-        links:
-          - text: API connector code samples for user flows
-            url: code-samples-self-service-sign-up.md
-      - linkListType: how-to-guide
-        links:
-          - text: Add a self-service sign-up user flow
-            url: self-service-sign-up-user-flow.md
-          - text: Define custom attributes for user flows
-            url: user-flow-add-custom-attributes.md
+## FRONT MATTER END
+
+## BAND 1 - HIGHLIGHTED CONTENT START #############################################################################################################################
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: CIAM - Get started 
+      itemType: overview
+      url: /azure/active-directory/external-identities/customers
+    # Card
+    - title: B2B - Get started 
+      itemType: overview
+      url: /azure/active-directory/external-identities/index-b2b      
+    # Card
+    - title: What is Azure AD B2C (business-to-consumer) identity?
+      itemType: overview
+      url: /azure/active-directory-b2c/
+## BAND 1 - HIGHLIGHTED CONTENT END ##########################################################################################################################
+
+## BAND 2 - ADDITIONAL CONTENT START ####################################################################################################################################################
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Microsoft Entra External ID for customers (CIAM)
+      items:
+        # Card
+        - title: Overview
+          summary: Learn basic customer tenant concepts and processes.
+          url: /azure/active-directory/external-identities/customers/overview-customers-ciam
+        # Card
+        - title: 30-day free trial
+          summary: Set up your customer tenant free trial.
+          url: /azure/active-directory/external-identities/customers/quickstart-trial-setup
+        # Card
+        - title: Planning for customer identity and access management 
+          summary: Plan your customer tenant journey.
+          url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
+          # Card
+        - title: Code samples for customer tenants
+          summary: Learn about our code samples for customer identity and access management (CIAM) in Microsoft Entra External ID.
+          url: /azure/active-directory/external-identities/customers/samples-ciam-all
+          # Card
+        - title: Authentication methods and identity providers
+          summary: Learn about several options for authenticating users of your applications. 
+          url: /azure/active-directory/external-identities/customers/concept-authentication-methods-customers
+          # Card
+        - title: Customize the sign-in look and feel
+          summary: Learn about how to personalize the end-user experience.
+          url: /azure/active-directory/external-identities/customers/concept-branding-customers        
+    - title: Microsoft Entra External ID for partners (B2B)
+      items:      
+        # Card
+        - title: Overview
+          summary: Learn basic B2B concepts and processes.
+          url: /azure/active-directory/external-identities/external-identities-overview
+        # Card
+        - title: What is Microsoft Entra B2B collaboration?
+          summary: Learn about the Microsoft Entra B2B collaboration feature.
+          url: /azure/active-directory/external-identities/what-is-b2b      
+        # Card
+        - title: What is Microsoft Entra B2B direct connect?
+          summary: Learn about the Microsoft Entra B2B direct connect feature.
+          url: /azure/active-directory/external-identities/b2b-direct-connect-overview   
+        # Card
+        - title: External user properties in Microsoft Entra External ID
+          summary: Learn about the properties of a Microsoft Entra B2B collaboration user.
+          url: /azure/active-directory/external-identities/user-properties 
+        # Card
+        - title: Cross-tenant access
+          summary: Configure cross-tenant access settings for B2B collaboration.
+          url: /azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration
+        # Card
+        - title: Self-service sign-up
+          summary: Learn about the self-service sign-up user flow. 
+          url: /azure/active-directory/external-identities/self-service-sign-up-overview 
+    - title: Quickstarts by app type in the customer tenant 
+      items:
+        # Card
+        - title: Single-page app (SPA)
+          summary: A web app whose code is downloaded and run in the browser itself. 
+          url: /azure/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sample-sign-in  
+        # Card
+        - title: Web app
+          summary: A "classic" web app that runs on a server.
+          url: /azure/active-directory/external-identities/customers/how-to-web-app-node-sample-sign-in
+        # Card
+        - title: Web API
+          summary: Web API that is called from a web app or from a web client.
+          url: /azure/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-overview          
+          # Card
+        - title: Browserless app
+          summary: A web app without a user interface.
+          url: /azure/active-directory/external-identities/customers/how-to-browserless-app-node-sample-sign-in 
+        - title: Daemon app
+          summary: Daemon or server app that runs without a user interface.
+          url: /azure/active-directory/external-identities/customers/how-to-daemon-node-sample-call-api
+        # Card
+        - title: Desktop app
+          summary: App with a native user interface that runs on a desktop, laptop or notebook.
+          url: /azure/active-directory/external-identities/customers/how-to-desktop-app-electron-sample-sign-in   
+          # Card
+        - title: Mobile app
+          summary: App with a native user interface that runs on a mobile device.
+          url: /azure/active-directory/develop/mobile-app-quickstart           
+## BAND 2 - ADDITIONAL CONTENT END ##########################################################################################################################

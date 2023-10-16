@@ -1,19 +1,81 @@
 - name: Payment HSM Documentation
   href: index.yml
+
 - name: Overview
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: What's new
+    href: whats-new.md
+
+- name: Tutorials
+  expanded: true
+  items:
+  - name: 1. Create a payment HSM
+    items:
+    - name: Host and management ports in same VNet
+      href: create-payment-hsm.md
+    - name: Host and management ports in different VNets
+      href: create-different-vnet.md
+    - name: Host and management ports in different VNets (template)
+      href: create-different-vnet-template.md
+    - name: Host and management port with IP addresses in different VNets
+      href: create-different-ip-addresses.md
+  - name: 2. View your payment HSMs
+    href: view-payment-hsms.md
+  - name: 3. Access the payShield manager for your payment HSM
+    href: access-payshield-manager.md
+  - name: 4. Delete a commissioned payment HSM
+    href: remove-payment-hsm.md
+
+- name: Quickstarts
+  items:
+  - name: CLI
+    href: quickstart-cli.md
+  - name: PowerShell
+    href: quickstart-powershell.md
+  - name: ARM template
+    href: quickstart-template.md
+
 - name: Get started
   items:
   - name: Getting started with Azure Payment HSM
     href: getting-started.md
-- name: Concepts
+
+- name: Compliance
   items:
-  - name: Deployment scenarios
-    href: deployment-scenarios.md
   - name: Certification and compliance
     href: certification-compliance.md
+
+- name: How-to guides
+  items:
+  - name: Register resource provider and resource provider features
+    href: register-payment-hsm-resource-providers.md
+  - name: Reuse an existing virtual network
+    href: reuse-vnet.md
+  - name: Change payShield performance level
+    href: change-performance-level.md
+  - name: Peer payment HSM virtual networks
+    href: peer-vnets.md
+- name: Deployment scenarios
+  items:
+  - name: High availability & disaster recovery
+    href: deployment-scenarios.md
+  - name: Solution design
+    href: solution-design.md
+  - name: Fastpathenabled
+    href: fastpathenabled.md
+  - name: Azure Payment HSM traffic inspection
+    href: inspect-traffic.md
+
+- name: Support
+  items:
+  - name: Azure Payment HSM service support guide
+    href: support-guide.md
+  - name: Known issues
+    href: known-issues.md
+
+
 - name: Reference
   items:
   - name: Thales payShield 10K
@@ -22,6 +84,7 @@
     href: https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager
   - name: Thales payShield Trusted Management Device
     href: https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-trusted-management-device
+
 - name: Resources
   items:
   - name: Frequently asked questions

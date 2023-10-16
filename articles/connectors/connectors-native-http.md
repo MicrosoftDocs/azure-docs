@@ -1,17 +1,19 @@
 ---
-title: Call service endpoints by using HTTP or HTTPS
-description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps.
+title: Call external service endpoints from workflows
+description: Send outbound HTTP or HTTPS requests to service endpoints from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/06/2023
 tags: connectors
 ---
 
-# Call service endpoints over HTTP or HTTPS from Azure Logic Apps
+# Call external service endpoints over HTTP or HTTPS from workflows in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+This how-to guide shows create a logic app workflow that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
 
 For example, you can monitor a service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow.
 
@@ -21,7 +23,7 @@ For example, you can monitor a service endpoint for your website by checking tha
 
 This article shows how to use the HTTP trigger and HTTP action so that your logic app can send outbound calls to other services and systems.
 
-For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## Prerequisites
 
@@ -29,9 +31,9 @@ For information about encryption, security, and authorization for outbound calls
 
 * The URL for the target endpoint that you want to call
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
+* Basic knowledge about how to create logic app workflows. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
-* The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app workflow from where you want to call the target endpoint. To start with the HTTP trigger, you have to start with a blank workflow. To use the HTTP action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
 
 <a name="http-trigger"></a>
 
@@ -39,13 +41,11 @@ For information about encryption, security, and authorization for outbound calls
 
 This built-in trigger makes an HTTP call to the specified URL for an endpoint and returns a response.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app and blank workflow in the designer.
 
-1. Under the designer's search box, select **Built-in**. In the search box, enter `http` as your filter. From the **Triggers** list, select the **HTTP** trigger.
+1. [Follow these general steps to add the built-in trigger named **HTTP** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   ![Select HTTP trigger](./media/connectors-native-http/select-http-trigger.png)
-
-   This example renames the trigger to "HTTP trigger" so that the step has a more descriptive name. Also, the example later adds an HTTP action, and both names must be unique.
+   This example renames the trigger to **HTTP trigger** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and both names must be unique.
 
 1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
 
@@ -58,9 +58,9 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-1. Continue building your logic app's workflow with actions that run when the trigger fires.
+1. Continue building your workflow with actions that run when the trigger fires.
 
-1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, remember to save your workflow. On the designer toolbar, select **Save**.
 
 <a name="http-action"></a>
 
@@ -68,19 +68,13 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 This built-in action makes an HTTP call to the specified URL for an endpoint and returns a response.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
 
-   This example uses the HTTP trigger as the first step.
+   This example uses the HTTP trigger added in the previous section as the first step.
 
-1. Under the step where you want to add the HTTP action, select **New step**.
+1. [Follow these general steps to add the built-in action named **HTTP** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Under **Choose an action**, select **Built-in**. In the search box, enter `http` as your filter. From the **Actions** list, select the **HTTP** action.
-
-   ![Select HTTP action](./media/connectors-native-http/select-http-action.png)
-
-   This example renames the action to "HTTP action" so that the step has a more descriptive name.
+   This example renames the action to **HTTP action** so that the step has a more descriptive name. Operation names in your workflow must be unique.
 
 1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the target endpoint.
 
@@ -93,18 +87,17 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, remember to save your workflow. On the designer toolbar, select **Save**.
 
 ## Trigger and action outputs
 
-Here is more information about the outputs from an HTTP trigger or action, which returns this information:
+Here's more information about the outputs from an HTTP trigger or action, which returns this information:
 
 | Property | Type | Description |
 |----------|------|-------------|
 | `headers` | JSON object | The headers from the request |
 | `body` | JSON object | The object with the body content from the request |
 | `status code` | Integer | The status code from the request |
-|||
 
 | Status code | Description |
 |-------------|-------------|
@@ -115,7 +108,6 @@ Here is more information about the outputs from an HTTP trigger or action, which
 | 403 | Forbidden |
 | 404 | Not Found |
 | 500 | Internal server error. Unknown error occurred. |
-|||
 
 <a name="single-tenant-authentication"></a>
 
@@ -123,9 +115,9 @@ Here is more information about the outputs from an HTTP trigger or action, which
 
 If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
-* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TLS/SSL certificate.
+* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
 
-* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
+* [Client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
 
 <a name="tls-ssl-certificate-authentication"></a>
 
@@ -155,6 +147,16 @@ For example, if you're working in Visual Studio Code, follow these steps:
    }
    ```
 
+   > [!NOTE]
+   >
+   > To find the thumbprint, follow these steps:
+   >
+   > 1. On your logic app resource menu, under **Settings**, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** or **Public Key Certificates (.cer)**.
+   > 
+   > 2. Find the certificate that you want to use, and copy the thumbprint.
+   > 
+   > For more information, review [Find the thumbprint - Azure App Service](../app-service/configure-ssl-certificate-in-code.md#find-the-thumbprint).
+
 For more information, review the following documentation:
 
 * [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
@@ -162,7 +164,9 @@ For more information, review the following documentation:
 
 <a name="client-certificate-authentication"></a>
 
-### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
+<a name='client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication'></a>
+
+### Client certificate or Microsoft Entra ID OAuth with "Certificate" credential type authentication
 
 1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
 
@@ -215,7 +219,7 @@ For example, suppose you have a logic app that sends an HTTP POST request for an
 
 ![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
 
-Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
+Here's the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
 "HTTP_action": {
@@ -308,7 +312,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
 
-Here is the same example that shows the HTTP action response that contains `Retry-After`:
+Here's the same example that shows the HTTP action response that contains `Retry-After`:
 
 ```json
 {
@@ -319,6 +323,9 @@ Here is the same example that shows the HTTP action response that contains `Retr
 }
 ```
 
+## Pagination support
+
+Sometimes, the target service responds by returning the results one page at a time. If the response specifies the next page with the **nextLink** or **@odata.nextLink** property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
 
 ## Disable checking location headers
 
@@ -358,5 +365,5 @@ For technical information about trigger and action parameters, see these section
 
 ## Next steps
 
-* [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

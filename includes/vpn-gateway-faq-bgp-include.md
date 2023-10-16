@@ -1,13 +1,9 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 03/22/2021
+ ms.date: 05/25/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
 
@@ -63,7 +59,7 @@ Your on-premises BGP peer address must not be the same as the public IP address 
 
 ### Can I use the same ASN for both on-premises VPN networks and Azure virtual networks?
 
-No, you must assign different ASNs between your on-premises networks and your Azure virtual networks if you're connecting them together with BGP. Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when you're creating the VPN gateway, or you can change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure local network gateways.
+No, you must assign different ASNs between your on-premises networks and your Azure virtual networks if you're connecting them together with BGP. Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when you're creating the VPN gateway, or you can change the ASN after the gateway is created. You'll need to assign your on-premises ASNs to the corresponding Azure local network gateways.
 
 ### What address prefixes will Azure VPN gateways advertise to me?
 
@@ -121,7 +117,7 @@ Add a host route of the Azure BGP peer IP address on your VPN device. This route
 
 No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime quicker than you can by using standard BGP "keepalives." BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or Wide Area Network connections.
 
-For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause routes to be dampened by BGP. As an alternative, you can configure your on-premises device with timers lower than the default, 60-second "keepalive" interval, and the 180-second hold timer. This results in a quicker convergence time.
+For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause routes to be dampened by BGP. As an alternative, you can configure your on-premises device with timers lower than the default, 60-second "keepalive" interval, and the 180-second hold timer. This results in a quicker convergence time. However, timers below the default 60-second "keepalive" interval or below the default 180-second hold timer are not reliable. It's recommended to keep timers at or above the default values.
 
 ### Do Azure VPN gateways initiate BGP peering sessions or connections?
 

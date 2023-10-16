@@ -8,33 +8,35 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/09/2022
+ms.date: 09/29/2023
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2
-
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
 
-In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
-> [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> * [Virtual network overview](how-to-network-security-overview.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](how-to-custom-dns.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
+In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+
+For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]
 > - Azure Machine Learning workspace
 > - Azure Storage accounts
-> - Azure Machine Learning datastores and datasets
 > - Azure Key Vault
 > - Azure Container Registry
 
@@ -46,15 +48,10 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-    > [!TIP]
-    > If you plan on using Azure Container Instances in the virtual network (to deploy models), then the workspace and virtual network must be in the same resource group. Otherwise, they can be in different groups.
+    > [!IMPORTANT]
+    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Azure Container Registry
 
@@ -66,19 +63,23 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Limitations
 
-### Azure Storage Account
+### Azure storage account
 
-* If you plan to use Azure Machine Learning studio and the storage account is also in the VNet, there are extra validation requirements:
+* If you plan to use Azure Machine Learning studio and the storage account is also in the virtual network, there are extra validation requirements:
 
-    * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
+    * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the virtual network.
+    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same virtual network. In this case, they can be in different subnets.
+
+### Azure Container Instances
+
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a virtual network isn't supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
 
 ### Azure Container Registry
 
-When ACR is behind a virtual network, Azure Machine Learning can’t use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
-> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
+> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint or service endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster.
@@ -90,9 +91,9 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](includes/machine-learning-public-internet-access.md)]
 
-For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
+For information on using a firewall solution, see [Configure required input and output communication](how-to-access-azureml-behind-firewall.md).
 
 ## Secure the workspace with private endpoint
 
@@ -114,8 +115,8 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 
     * **Blob**
     * **File**
-    * **Queue** - Only needed if you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
-    * **Table** - Only needed if you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Queue** - Only needed if you plan to use [Batch endpoints](concept-endpoints-batch.md) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Table** - Only needed if you plan to use [Batch endpoints](concept-endpoints-batch.md) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
 
     :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
 
@@ -133,7 +134,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a private endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 # [Service endpoint](#tab/se)
 
@@ -156,7 +157,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 ---
 
@@ -184,9 +185,9 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 1. On the __Key Vault__ page, in the left pane, select __Networking__.
 
 1. On the __Firewalls and virtual networks__ tab, do the following actions:
-    1. Under __Allow access from__, select __Private endpoint and selected networks__.
-    1. Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
-    1. Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
+    1. Under __Allow access from__, select __Allow public access from specific virtual networks and IP addresses__.
+    1. Under __Virtual networks__, select __Add a virtual network__, __Add existing virtual networks__, and add the virtual network/subnet where your experimentation compute resides.
+    1. Verify that __Allow trusted Microsoft services to bypass this firewall__ is checked, and then select __Apply__.
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
@@ -205,33 +206,43 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension does not return this information.
+    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension doesn't return this information.
 
     ```azurecli-interactive
-    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'container_registry'
+    az ml workspace show -n yourworkspacename -g resourcegroupname --query 'container_registry'
     ```
 
     This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
     # [Python SDK](#tab/python)
 
-    The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-    ```python
-    from azureml.core import Workspace
-    # Load workspace from an existing config file
-    ws = Workspace.from_config()
-    # Get details on the workspace
-    details = ws.get_details()
-    # Print container registry information
-    print(details['containerRegistry'])
+    The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme):
+
+   ```python
+    # import required libraries
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
+
+    subscription_id = "<your subscription ID>"
+    resource_group = "<your resource group name>"
+    workspace = "<your workspace name>"
+
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    
+    # Get workspace info
+    ws=ml_client.workspaces.get(name=workspace)
+    print(ws.container_registry)
     ```
 
     This code returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
-    # [Azure portal](#tab/portal)
+    # [Portal](#tab/portal)
 
     From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
 
@@ -243,14 +254,14 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Configure the ACR for the workspace to [Allow access by trusted services](../container-registry/allow-access-trusted-services.md).
 
-1. Create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a VNet. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
+1. Create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a virtual network. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
 
 1. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
     > [!IMPORTANT]
     > The following limitations apply When using a compute cluster for image builds:
     > * Only a CPU SKU is supported.
-    > * You can't use a compute cluster configured for no public IP address.
+    > * If you use a compute cluster configured for no public IP address, you must provide some way for the cluster to access the public internet. Internet access is required when accessing images stored on the Microsoft Container Registry, packages installed on Pypi, Conda, etc. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use the public IP of your firewall, or you can use [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) with a public IP. For more information, see [How to securely train in a VNet](how-to-secure-training-vnet.md).
 
     # [Azure CLI](#tab/cli)
 
@@ -262,21 +273,37 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/). Replace `mycomputecluster` with the name of the cluster to use:
+    The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
+
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
-    from azureml.core import Workspace
-    # Load workspace from an existing config file
-    ws = Workspace.from_config()
-    # Update the workspace to use an existing compute cluster
-    ws.update(image_build_compute = 'mycomputecluster')
-    # To switch back to using ACR to build (if ACR is not in the VNet):
-    # ws.update(image_build_compute = '')
-    ```
-    
-    For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
+    # import required libraries
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
 
-    # [Azure portal](#tab/portal)
+    subscription_id = "<your subscription ID>"
+    resource_group = "<your resource group name>"
+    workspace = "<your workspace name>"
+
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    
+    # Get workspace info
+    ws=ml_client.workspaces.get(name=workspace)
+    # Update to use cpu-cluster for image builds
+    ws.image_build_compute="cpu-cluster"
+    ml_client.workspaces.begin_update(ws)
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.image_build_compute = ''
+    # ml_client.workspaces.begin_update(ws)
+    ```
+
+    
+    For more information, see the [begin_update](/python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-update) method reference.
+
+    # [Portal](#tab/portal)
 
     Currently there isn't a way to set the image build compute from the Azure portal.
 
@@ -285,61 +312,38 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
 
-## Datastores and datasets
-The following table lists the services that you need to skip validation for:
+## Secure Azure Monitor and Application Insights
 
-| Service | Skip validation required? |
-| ----- |:-----:|
-| Azure Blob storage | Yes |
-| Azure File share | Yes |
-| Azure Data Lake Store Gen1 | No |
-| Azure Data Lake Store Gen2 | No |
-| Azure SQL Database | Yes |
-| PostgreSql | Yes |
+To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
 
-> [!NOTE]
-> Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so you don't have to do anything.
+1. Open your Application Insights resource in the Azure portal. The __Overview__ tab may or may not have a Workspace property. If it _doesn't_ have the property, perform step 2. If it _does_, then you can proceed directly to step 3.
 
-The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
+    > [!TIP]
+    > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
+   
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
 
-```python
-blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
-
-                                                         datastore_name=blob_datastore_name,  
-
-                                                         container_name=container_name,  
-
-                                                         account_name=account_name, 
-
-                                                         account_key=account_key, 
-
-                                                         skip_validation=True ) // Set skip_validation to true
-```
-
-### Use datasets
-
-The syntax to skip dataset validation is similar for the following dataset types:
-- Delimited file
-- JSON 
-- Parquet
-- SQL
-- File
-
-The following code creates a new JSON dataset and sets `validate=False`.
-
-```python
-json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
-
-validate=False) 
-```
+1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For more information, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](includes/machine-learning-workspace-diagnostics.md)]
+
+## Public access to workspace
+
+> [!IMPORTANT]
+> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend it. You should verify this configuration with your security team before using it in production.
+
+In some cases, you may need to allow access to the workspace from the public network (without connecting through the virtual network using the methods detailed the [Securely connect to your workspace](#securely-connect-to-your-workspace) section). Access over the public internet is secured using TLS.
+
+To enable public network access to the workspace, use the following steps:
+
+1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace after configuring the workspace's private endpoint.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet. You may need to change the allowed IP address if the clients don't have a static IP. For example, if one of your Data Scientists is working from home and can't establish a VPN connection to the virtual network.
 
 ## Next steps
 
@@ -353,3 +357,4 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 * [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md)
 * [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)

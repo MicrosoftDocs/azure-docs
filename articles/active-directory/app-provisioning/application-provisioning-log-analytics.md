@@ -1,14 +1,14 @@
 ---
-title: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
-description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
+title: Understand how Provisioning integrates with Azure Monitor logs in Microsoft Entra ID.
+description: Understand how Provisioning integrates with Azure Monitor logs in Microsoft Entra ID.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 04/26/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -19,7 +19,7 @@ Provisioning integrates with Azure Monitor logs and Log Analytics. With Azure mo
 
 ## Enabling provisioning logs
 
-You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
+You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them, and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Once you've configured Azure monitoring, you can enable logs for application provisioning. The option is located on the **Diagnostics settings** page.
 
@@ -44,7 +44,7 @@ The underlying data stream that Provisioning sends log viewers is almost identic
 
 Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/visualize/workbooks-overview.md).
 
-Application provisioning comes with a set of pre-built workbooks. You can find them on the Workbooks page. To view the data, you'll need to ensure that all the filters (timeRange, jobID, appName) are populated. You'll also need to make sure you've provisioned an app, otherwise there won't be any data in the logs.
+Application provisioning comes with a set of prebuilt workbooks. You can find them on the Workbooks page. To view the data, ensure that all the filters (timeRange, jobID, appName) are populated. Also confirm the app was provisioned, otherwise there isn't any data in the logs.
 
 :::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Application provisioning workbooks" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
@@ -91,7 +91,7 @@ AADProvisioningLogs
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-log.md).
+To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 Alert when there's a spike in failures. Replace the jobID with the jobID for your application.
 
@@ -108,12 +108,12 @@ Alert when there's a spike in disables or deletes.
 
 ## Community contributions
 
-We're taking an open source and community-based approach to application provisioning queries and dashboards. If you've built a query, alert, or workbook that you think others would find useful, be sure to publish it to the [AzureMonitorCommunity GitHub repo](https://github.com/microsoft/AzureMonitorCommunity). Then shoot us an email with a link. We'll review and publish it to the service so others can benefit too. You can contact us at provisioningfeedback@microsoft.com.
+We're taking an open source and community-based approach to application provisioning queries and dashboards. Build a query, alert, or workbook that you think is useful to others, then publish it to the [AzureMonitorCommunity GitHub repo](https://github.com/microsoft/AzureMonitorCommunity). Shoot us an email with a link. We review and publish queries and dashboards to the service so others benefit too. Contact us at provisioningfeedback@microsoft.com.
 
 ## Next steps
 
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
 - [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
 - [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
-- [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
+- [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Provisioning logs API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

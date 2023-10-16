@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.service: azure-portal
   ms.collection: collection
-  ms.date: 02/15/2022
+  ms.date: 03/27/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -36,68 +36,14 @@ landingContent:
         links:
           - text: Create a VM in the portal
             url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
-          - text: Create a dashboard - Azure CLI
-            url: quickstart-portal-dashboard-azure-cli.md
-          - text: Create a dashboard - Azure PowerShell
-            url: quickstart-portal-dashboard-powershell.md
-          - text: Create a dashboard - ARM template
-            url: quick-create-template.md
+      - linkListType: learn
+        links:
+          - text: Module - Manage services with the Azure portal
+            url: /training/modules/tour-azure-portal/
       - linkListType: how-to-guide
         links:
           - text: Azure portal how-to video series
             url: azure-portal-video-series.md
-
-  # Card
-  - title: Create and manage support requests
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Azure support request
-            url: supportability/how-to-create-azure-support-request.md
-          - text: Manage an Azure support request
-            url: supportability/how-to-manage-azure-support-request.md
-
-  # Card
-  - title: Use accessibility options
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Keyboard shortcuts
-            url: azure-portal-keyboard-shortcuts.md
-      - linkListType: how-to-guide
-        links:
-          - text: Turn on high contrast
-            url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-            
-  # Card
-  - title: Manage access to the Azure portal
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Safelist the Azure portal URLs
-            url: azure-portal-safelist-urls.md
-          - text: Azure role-based access control for dashboards
-            url: azure-portal-dashboard-share-access.md
-      - linkListType: learn
-        links:
-          - text: Manage resources in Azure
-            url: /learn/paths/manage-resources-in-azure/
-          - text: Secure your resources with Azure role-based access control (Azure RBAC)
-            url: /learn/modules/secure-azure-resources-with-rbac
-            
-  # Card
-  - title: View quotas and request increases
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View and increase quotas
-            url: supportability/view-quotas.md
-          - text: Increase VM-family vCPU quotas
-            url: supportability/per-vm-quota-requests.md
-          - text: Increase regional vCPU quotas
-            url: supportability/regional-quota-requests.md
-          - text: Increase spot vCPU quotas
-            url: supportability/spot-quota.md
 
   # Card
   - title: Customize the Azure portal
@@ -108,7 +54,38 @@ landingContent:
             url: set-preferences.md
           - text: View and filter resource information
             url: manage-filter-resource-views.md
-          - text: Create a dashboard - Azure portal UI
+          - text: Create a dashboard
             url: azure-portal-dashboards.md
           - text: Add, remove, and sort favorites
             url: azure-portal-add-remove-sort-favorites.md
+
+  # Card
+  - title: Manage access to the Azure portal
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Safelist the Azure portal URLs
+            url: azure-portal-safelist-urls.md
+          - text: Azure role-based access control for dashboards
+            url: azure-portal-dashboard-share-access.md
+           
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/portal
+          - text: Azure PowerShell
+            url: /powershell/module/az.portal
+
+
+  # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: supportability/how-to-create-azure-support-request.md
+          - text: Manage an Azure support request
+            url: supportability/how-to-manage-azure-support-request.md

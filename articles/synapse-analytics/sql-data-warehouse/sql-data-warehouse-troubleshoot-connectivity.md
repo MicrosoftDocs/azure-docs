@@ -2,14 +2,15 @@
 title: Troubleshooting connectivity
 description: Troubleshooting connectivity in dedicated SQL pool (formerly SQL DW).
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 03/27/2019
 ms.author: wiassaf
-ms.reviewer: igorstan
-ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
+ms.date: 03/27/2019
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
+  - devx-track-csharp
 ---
 
 # Troubleshooting connectivity issues in dedicated SQL pool (formerly SQL DW)
@@ -22,14 +23,11 @@ Check to see if the service is available. In the Azure portal, go to the dedicat
 
 ![Select Resource health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-The status of your dedicated SQL pool  (formerly SQL DW) will be shown here. If the service isn't showing as **Available**, check further steps.
+The status of your dedicated SQL pool (formerly SQL DW) will be shown here. If the service isn't showing as **Available**, check further steps.
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-If your Resource health shows that your dedicated SQL pool (formerly SQL DW) instance is paused or scaling, follow the guidance to resume your instance.
-
-![Screenshot shows an instance of dedicated SQL pool that is paused or scaling.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
-Additional information about Resource Health can be found here.
+For more information, see [Resource Health](../../service-health/resource-health-overview.md).
 
 ## Check for paused or scaling operation
 
@@ -45,11 +43,11 @@ Otherwise, check with your IT administrator to verify that this maintenance isn'
 
 ## Check your firewall settings
 
-The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](../../azure-sql/database/logical-servers.md) unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](/azure/azure-sql/database/logical-servers) unless your IT department opens port 1433. For more information, see [firewall configurations](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## Check your VNet/Service Endpoint settings
 
-If you're receiving Errors 40914 and 40615, see [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+If you're receiving Errors 40914 and 40615, see [vNET service endpoint rules](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Check for the latest drivers
 
@@ -72,7 +70,7 @@ Check to make sure you're using the latest driver versions.  Using an older ve
 
 ## Check your connection string
 
-Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](sql-data-warehouse-connection-strings.md).
+Check to make sure your connection strings are set properly.  Below are some samples. For more information, see [connection strings](sql-data-warehouse-connection-strings.md).
 
 ADO.NET connection string
 
@@ -104,7 +102,7 @@ Check to see if you're experiencing heavy load on the server with a high number 
 
 ## Common error messages
 
-Errors 40914 and 40615, see the [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+For more information on errors 40914 and 40615, refer to [vNet service endpoint rules](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Still having connectivity issues?
 

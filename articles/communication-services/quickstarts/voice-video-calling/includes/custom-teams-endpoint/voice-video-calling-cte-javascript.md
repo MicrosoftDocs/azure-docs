@@ -2,7 +2,7 @@
 author: xixian73
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 12/01/2021
+ms.date: 08/02/2022
 ms.author: xixian
 ---
 
@@ -10,11 +10,11 @@ Get started with Azure Communication Services by using the Communication Service
 
 ## Sample Code
 
-If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
+- You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the msi installer to install it.
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../manage-teams-identity.md?pivots=programming-language-javascript).
 - Obtain Teams thread ID to for call operations using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Read more about [how to create chat thread ID](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
@@ -25,19 +25,26 @@ Open your terminal or command window create a new directory for your app, and na
 ```console
 mkdir calling-quickstart && cd calling-quickstart
 ```
+
+
+Run `npm init -y` to create a **package.json** file with default settings.
+
+```console
+npm init -y
+```
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.3.2-beta.1`.
+> This quickstart uses the latest Azure Communication Services Calling SDK version.
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.3.2-beta.1 --save
+npm install @azure/communication-calling --save
 ```
 ### Set up the app framework
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
 ```
 Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
 
@@ -47,24 +54,20 @@ Here's the code:
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Azure Communication Services - Calling Web SDK</title>
+        <title>Azure Communication Services - Teams Calling Web Application</title>
     </head>
     <body>
-        <h4>Azure Communication Services - Calling Web SDK</h4>
+        <h4>Azure Communication Services - Teams Calling Web Application</h4>
         <input id="user-access-token"
             type="text"
             placeholder="User access token"
             style="margin-bottom:1em; width: 500px;"/>
-        <button id="initialize-call-agent" type="button">Initialize Call Agent</button>
+        <button id="initialize-teams-call-agent" type="button">Login</button>
         <br>
         <br>
         <input id="callee-teams-user-id"
             type="text"
-            placeholder="Enter callee's Teams user identity in format: '8:orgid:USER_GUID'"
-            style="margin-bottom:1em; width: 500px; display: block;"/>
-        <input id="teams-thread-id"
-            type="text"
-            placeholder="Enter Teams thread id"
+            placeholder="Microsoft Teams callee's id (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -79,7 +82,7 @@ Here's the code:
         <br>
         <div id="localVideoContainer" style="width: 30%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
-        <script src="./bundle.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>
 ```
@@ -91,15 +94,15 @@ The following classes and interfaces handle some of the main features of the Azu
 | Name                                | Description                                                                                                                              |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `CallClient`                        | The main entry point to the Calling SDK.                                                                                                 |
-| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`.                                       |
-| `CallAgent`                         | Used to start and manage calls.                                                                                                          |
+| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `teamsCallAgent`.                                       |
+| `TeamsCallAgent`                         | Used to start and manage Teams calls.                                                                                                          |
 | `DeviceManager`                     | Used to manage media devices.                                                                                                            |
-| `Call`                              | Used for representing a Call                                                                                                              |
+| `TeamsCall`                              | Used for representing a Teams Call                                                                                                              |
 | `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
 | `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
 | `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.        
 
-Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+Create a file in the root directory of your project called `index.js` to contain the application logic for this quickstart. Add the following code to index.js:
 ```JavaScript
 // Make sure to install the necessary dependencies
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
@@ -111,7 +114,7 @@ AzureLogger.log = (...args) => {
     console.log(...args);
 };
 // Calling web sdk objects
-let callAgent;
+let teamsCallAgent;
 let deviceManager;
 let call;
 let incomingCall;
@@ -120,8 +123,7 @@ let localVideoStreamRenderer;
 // UI widgets
 let userAccessToken = document.getElementById('user-access-token');
 let calleeTeamsUserId = document.getElementById('callee-teams-user-id');
-let teamsThreadId = document.getElementById('teams-thread-id');
-let initializeCallAgentButton = document.getElementById('initialize-call-agent');
+let initializeCallAgentButton = document.getElementById('initialize-teams-call-agent');
 let startCallButton = document.getElementById('start-call-button');
 let hangUpCallButton = document.getElementById('hangup-call-button');
 let acceptCallButton = document.getElementById('accept-call-button');
@@ -131,20 +133,20 @@ let connectedLabel = document.getElementById('connectedLabel');
 let remoteVideoContainer = document.getElementById('remoteVideoContainer');
 let localVideoContainer = document.getElementById('localVideoContainer');
 /**
- * Create an instance of CallClient. Initialize a CallAgent instance with a CommunicationUserCredential via created CallClient. CallAgent enables us to make outgoing calls and receive incoming calls. 
+ * Create an instance of CallClient. Initialize a TeamsCallAgent instance with a CommunicationUserCredential via created CallClient. TeamsCallAgent enables us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
     try {
         const callClient = new CallClient(); 
         tokenCredential = new AzureCommunicationTokenCredential(userAccessToken.value.trim());
-        callAgent = await callClient.createCallAgent(tokenCredential)
+        teamsCallAgent = await callClient.createTeamsCallAgent(tokenCredential)
         // Set up a camera device to use.
         deviceManager = await callClient.getDeviceManager();
         await deviceManager.askDevicePermission({ video: true });
         await deviceManager.askDevicePermission({ audio: true });
         // Listen for an incoming call to accept.
-        callAgent.on('incomingCall', async (args) => {
+        teamsCallAgent.on('incomingCall', async (args) => {
             try {
                 incomingCall = args.incomingCall;
                 acceptCallButton.disabled = false;
@@ -171,7 +173,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = callAgent.startCall([{ microsoftTeamsUserId: calleeTeamsUserId.value.trim() }], { videoOptions: videoOptions, threadId: teamsThreadId });
+        call = teamsCallAgent.startCall([{ microsoftTeamsUserId: calleeTeamsUserId.value.trim() }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -181,7 +183,7 @@ startCallButton.onclick = async () => {
 /**
  * Accepting an incoming call with a video
  * Add an event listener to accept a call when the `acceptCallButton` is selected.
- * You can accept incoming calls after subscribing to the `CallAgent.on('incomingCall')` event.
+ * You can accept incoming calls after subscribing to the `TeamsCallAgent.on('incomingCall')` event.
  * You can pass the local video stream to accept the call with the following code.
  */
 acceptCallButton.onclick = async () => {
@@ -226,6 +228,10 @@ subscribeToCall = (call) => {
                 console.log(`Call ended, call end reason={code=${call.callEndReason.code}, subCode=${call.callEndReason.subCode}}`);
             }   
         });
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         call.localVideoStreams.forEach(async (lvs) => {
             localVideoStream = lvs;
             await displayLocalVideoStream();
@@ -387,13 +393,43 @@ hangUpCallButton.addEventListener("click", async () => {
     // end the current call
     await call.hangUp();
 });
-```                                                          
+```
+
+
+## Add the webpack local server code
+
+Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+```javascript
+const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
+
+module.exports = {
+    mode: 'development',
+    entry: './index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './')
+        },
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                './index.html'
+            ]
+        }),
+    ]
+};
+```
 
 ## Run the code
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+`npx webpack serve --config webpack.config.js`
 ```
 Open your browser and on two tabs navigate to http://localhost:8080/. Tabs should show the similar result like the following image:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="Screenshot is showing two tabs in default view. Each tab will be used for different Teams user." lightbox="../../media/javascript/1-on-1-video-calling-a.png":::

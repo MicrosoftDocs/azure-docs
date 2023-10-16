@@ -1,33 +1,43 @@
 ---
 title: Web application firewall custom rule for Azure Front Door
-description: Learn how to use Web Application Firewall (WAF) custom rules protecting your web applications from malicious attacks.
+description: Learn how to use web application firewall (WAF) custom rules to protect your web applications from malicious attacks.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 03/22/2022
+ms.date: 11/01/2022
 ms.author: victorh
 ---
 
-#  Custom rules for Web Application Firewall with Azure Front Door
+# Custom rules for Azure Web Application Firewall on Azure Front Door
 
-Azure Web Application Firewall (WAF) with Front Door allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration. 
+Azure Web Application Firewall on Azure Front Door allows you to control access to your web applications based on the conditions you define. A custom web application firewall (WAF) rule consists of a priority number, rule type, match conditions, and an action.
 
-## Priority, match conditions, and action types
+There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions. A rate limit rule controls access based on matching conditions and the rates of incoming requests. You can disable a custom rule to prevent it from being evaluated but still keep the configuration.
 
-You can control access with a custom WAf rule that defines a priority number, a rule type, an array of match conditions, and an action. 
+For more information on rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md).
 
-- **Priority:** is a unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. The rule evaluation stops on any rule action except for *Log*. Priority numbers must be unique among all custom rules.
+## Priority, action types, and match conditions
 
-- **Action:** defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
+You can control access with a custom WAF rule that defines a priority number, a rule type, an array of match conditions, and an action.
 
-    - *Allow* - WAF allows the request to process, logs an entry in WAF logs, and exits.
-    - *Block* - Request is blocked. WAF sends response to client without forwarding the request further. WAF logs an entry in WAF logs and exits.
-    - *Log* -  WAF logs an entry in WAF logs, and continues to evaluate the next rule in the priority order.
-    - *Redirect* - WAF redirects the request to a specified URI, logs an entry in WAF logs, and exits.
+- **Priority**
 
-- **Match condition:** defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on geo location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
-  - **Match variable:**
+    A unique integer that describes the order of evaluation of WAF rules. Rules with lower-priority values are evaluated before rules with higher values. The rule evaluation stops on any rule action except for *Log*. Priority numbers must be unique among all custom rules.
+
+- **Action**
+
+  Defines how to route a request if a WAF rule is matched. You can choose one of the following actions to apply when a request matches a custom rule.
+
+    - **Allow**: The WAF allows the request to process, logs an entry in WAF logs, and exits.
+    - **Block**: Request is blocked. The WAF sends a response to a client without forwarding the request further. The WAF logs an entry in WAF logs and exits.
+    - **Log**: The WAF logs an entry in WAF logs and continues to evaluate the next rule in the priority order.
+    - **Redirect**: The WAF redirects the request to a specified URI, logs an entry in WAF logs, and exits.
+
+- **Match condition**
+
+  Defines a match variable, an operator, and a match value. Each rule can contain multiple match conditions. A match condition might be based on geo-location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
+  - **Match variable**
     - RequestMethod
     - QueryString
     - PostArgs
@@ -35,19 +45,22 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - RequestHeader
     - RequestBody
     - Cookies
-  - **Operator:**
-    - Any: is often used to define default action if no rules are matched. Any is a match all operator.
+  - **Operator**
+    - Any: Often used to define default action if no rules are matched. Any is a match all operator.
     - Equal
     - Contains
-    - LessThan: size constraint
-    - GreaterThan: size constraint
-    - LessThanOrEqual: size constraint
-    - GreaterThanOrEqual: size constraint
+    - LessThan: Size constraint
+    - GreaterThan: Size constraint
+    - LessThanOrEqual: Size constraint
+    - GreaterThanOrEqual: Size constraint
     - BeginsWith
     - EndsWith
     - Regex
   
-  - **Regex** does not support the following operations: 
+  - **Regex**
+
+    Doesn't support the following operations:
+
     - Backreferences and capturing subexpressions
     - Arbitrary zero-width assertions
     - Subroutine references and recursive patterns
@@ -59,19 +72,22 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - Callouts and embedded code
     - Atomic grouping and possessive quantifiers
 
-  - **Negate [optional]:**
-    You can set the *negate* condition to true if the result of a condition should be negated.
+  - **Negate [optional]**
+
+    You can set the `negate` condition to *true* if the result of a condition should be negated.
       
-  - **Transform [optional]:**
+  - **Transform [optional]**
+
     A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
-     - Uppercase 
+     - Uppercase
      - Lowercase
      - Trim
      - RemoveNulls
      - UrlDecode
      - UrlEncode
      
-   - **Match value:**
+   - **Match value**
+   
      Supported HTTP request method values include:
      - GET
      - POST
@@ -87,15 +103,22 @@ You can control access with a custom WAf rule that defines a priority number, a 
      - MKCOL
      - COPY
      - MOVE
+     - PATCH
+     - CONNECT
 
 ## Examples
 
-### WAF custom rules example based on http parameters
+Consider the following examples.
 
-Here is an example that shows the configuration of a custom rule with two match conditions. Requests are from a specified site as defined by referrer, and query string doesn't contain "password".
+### Match based on HTTP request parameters
 
-```
-# http rules example
+Suppose you need to configure a custom rule to allow requests that match the following two conditions:
+- The `Referer` header's value is equal to a known value.
+- The query string doesn't contain the word `password`.
+
+Here's an example JSON description of the custom rule:
+
+```json
 {
   "name": "AllowFromTrustedSites",
   "priority": 1,
@@ -119,15 +142,17 @@ Here is an example that shows the configuration of a custom rule with two match 
       "negateCondition": true
     }
   ],
-  "action": "Allow",
-  "transforms": []
+  "action": "Allow"
 }
-
 ```
-An example configuration for blocking "PUT" method is shown as below:
 
-``` 
-# http Request Method custom rules
+### Block HTTP PUT requests
+
+Suppose you need to block any request that uses the HTTP PUT method.
+
+Here's an example JSON description of the custom rule:
+
+``` json
 {
   "name": "BlockPUT",
   "priority": 2,
@@ -143,17 +168,19 @@ An example configuration for blocking "PUT" method is shown as below:
       ]
     }
   ],
-  "action": "Block",
-  "transforms": []
+  "action": "Block"
 }
 ```
 
 ### Size constraint
 
-You may build a custom rule that specifies size constraint on part of an incoming request. For example, below rule blocks a Url that is longer than 100 characters.
+An Azure Front Door WAF enables you to build custom rules that apply a length or size constraint on a part of an incoming request. This size constraint is measured in bytes.
 
-```
-# http parameters size constraint
+Suppose you need to block requests where the URL is longer than 100 characters.
+
+Here's an example JSON description of the custom rule:
+
+```json
 {
   "name": "URLOver100",
   "priority": 5,
@@ -169,13 +196,11 @@ You may build a custom rule that specifies size constraint on part of an incomin
       ]
     }
   ],
-  "action": "Block",
-  "transforms": []
+  "action": "Block"
 }
 ```
 
 ## Next steps
-- [Configure a Web Application Firewall policy using Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
-- Learn about [web Application Firewall with Front Door](afds-overview.md)
-- Learn how to [create a Front Door](../../frontdoor/quickstart-create-front-door.md).
-
+- [Configure a WAF policy by using Azure PowerShell](waf-front-door-custom-rules-powershell.md).
+- Learn about [Azure Web Application Firewall on Azure Front Door](afds-overview.md).
+- Learn how to [create an Azure Front Door instance](../../frontdoor/quickstart-create-front-door.md).

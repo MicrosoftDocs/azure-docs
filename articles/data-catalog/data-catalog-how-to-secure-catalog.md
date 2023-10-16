@@ -3,11 +3,11 @@ title: How to secure access to Azure Data Catalog
 description: This article explains how to secure a data catalog and its data assets in Azure Data Catalog.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 12/16/2022
 ---
 # How to secure access to data catalog and data assets
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 > [!IMPORTANT]
 > This feature is available only in the standard edition of Azure Data Catalog.
@@ -28,7 +28,7 @@ To give a user or a group the access to a data catalog and set permissions:
 
 3. Select **Add**.
 
-4. Enter the fully qualified **user name** or name of the **security group** in the Microsoft Azure Active Directory (Azure AD) associated with the catalog. Use comma (`,’) as a separator if you're adding more than one user or group.
+4. Enter the fully qualified **user name** or name of the **security group** in the Microsoft Entra ID associated with the catalog. Use comma (`,’) as a separator if you're adding more than one user or group.
 
    :::image type="content" source="media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png" alt-text="Example user name and security groups added in the space, with a comma separating the two.":::
 

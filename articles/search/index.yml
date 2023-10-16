@@ -1,4 +1,4 @@
-﻿### YamlMime:Landing
+### YamlMime:Landing
 
 title: Azure Cognitive Search documentation # < 60 chars
 summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
@@ -6,12 +6,12 @@ metadata:
   title: Azure Cognitive Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
-  ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: service
+  ms.topic: landing-page
   ms.collection: collection
-  author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
-  ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/02/2021 #Required; mm/dd/yyyy format.
+  author: HeidiSteen
+  ms.author: heidist
+  ms.date: 03/02/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,18 +25,30 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
+          - text: What is vector search?
+            url: vector-search-overview.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: retrieval-augmented-generation-overview.md
           - text: What is semantic search?
             url: semantic-search-overview.md
-          - text: What is AI enrichment?
-            url: cognitive-search-concept-intro.md
-          - text: What are indexers?
-            url: search-indexer-overview.md
-          - text: What are Azure Applied AI Services?
-            url: ../applied-ai-services/what-are-applied-ai-services.md
-      - linkListType: video
+      - linkListType: learn
         links:
-          - text: Use AI in search solutions
-            url: https://youtu.be/M4Rf1s0WcWQ?t=19
+          - text: Learning module
+            url: /training/modules/intro-to-azure-search/
+
+  # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a search service
+            url: search-create-service-portal.md
+          - text: Create a search index
+            url: search-get-started-portal.md
+          - text: Create a demo app
+            url: search-create-app-portal.md
+          - text: Create a skillset
+            url: cognitive-search-quickstart-blob.md
 
   # Card
   - title: Develop apps
@@ -49,71 +61,38 @@ landingContent:
         links:
           - text: Develop in .NET
             url: search-howto-dotnet-sdk.md
-          - text: Call REST APIs in Postman
+          - text: Develop in REST
             url: search-get-started-rest.md
       - linkListType: reference
         links:
+          - text: Azure REST API Reference
+            url: /rest/api/searchservice/
           - text: Azure SDK for .NET
             url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure SDK for Python
             url: /python/api/overview/azure/search-documents-readme
 
   # Card
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a service
-            url: search-create-service-portal.md
-          - text: Create an index
-            url: search-get-started-portal.md
-          - text: Create a demo app
-            url: search-create-app-portal.md
-          - text: Translate text and recognize entities
-            url: cognitive-search-quickstart-blob.md
-          - text: Apply OCR and image analysis
-            url: cognitive-search-quickstart-ocr.md
-
-
-  # Card
   - title: Index data
     linkLists:
       - linkListType: overview
         links:
-          - text: Data source gallery
-            url: search-data-sources-gallery.md
-          - text: Creating indexes
+          - text: What's a search index?
             url: search-what-is-an-index.md
           - text: Importing data
             url: search-what-is-data-import.md
+          - text: Indexer overview
+            url: search-indexer-overview.md
       - linkListType: how-to-guide
         links:
           - text: Index from Azure Blob Storage
             url: search-blob-storage-integration.md
           - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Cosmos DB
+          - text: Index from Azure Cosmos DB
             url: search-howto-index-cosmosdb.md
-
-  # Card
-  - title: Enrich with AI
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Skillsets
-            url: cognitive-search-working-with-skillsets.md
-          - text: Knowledge stores
-            url: knowledge-store-concept-intro.md
-          - text: Projections
-            url: knowledge-store-projection-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Attach Cognitive Services
-            url: cognitive-search-attach-cognitive-services.md
-          - text: Define a skillset
-            url: cognitive-search-defining-skillset.md
-          - text: Create a knowledge store
-            url: knowledge-store-create-portal.md
+          - text: Index any data
+            url: tutorial-optimize-indexing-push-api.md
          
   # Card
   - title: Query data
@@ -130,7 +109,7 @@ landingContent:
         links:
           - text: Create a simple query
             url: search-query-create.md
-          - text: Use full syntax
+          - text: Create advanced queries
             url: search-query-lucene-examples.md
       - linkListType: reference
         links:
@@ -138,3 +117,15 @@ landingContent:
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
             url: /rest/api/searchservice/search-documents
+
+  # Card
+  - title: Enrich with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is AI enrichment?
+            url: cognitive-search-concept-intro.md
+          - text: Skillsets
+            url: cognitive-search-working-with-skillsets.md
+          - text: Knowledge stores
+            url: knowledge-store-concept-intro.md

@@ -5,13 +5,13 @@ summary: Web Application Firewall (WAF) provides centralized protection of your 
 
 metadata:
   title: Web Application Firewall documentation
-  description: Learn about Web Application Firewall that can deployed with Application Gateway and Front Door
+  description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
   services: web-application-firewall
   ms.service: web-application-firewall
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 06/30/2021
+  ms.date: 10/06/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,7 +42,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Web Application Firewall
-            url: /learn/modules/introduction-azure-web-application-firewall/
+            url: /training/modules/introduction-azure-web-application-firewall/
+      - linkListType: deploy
+        links:
+          - text: Secure your web application with Azure Web Application Firewall
+            url: https://mslearn.cloudguides.com/guides/Secure%20your%20web%20applications%20with%20Azure%20Web%20Application%20Firewall
 
 
   # Card
@@ -54,8 +58,6 @@ landingContent:
             url: ./ag/application-gateway-web-application-firewall-portal.md
           - text: Web Application Firewall on Front Door
             url: ./afds/waf-front-door-create-portal.md
-          - text: WAF policy on Azure CDN
-            url: ./cdn/waf-cdn-create-portal.md
 
   # Card
   - title: Manage WAF rules on Application Gateway
@@ -78,3 +80,21 @@ landingContent:
             url: ./afds/waf-front-door-policy-configure-bot-protection.md
           - text: Configure a custom response
             url: ./afds/waf-front-door-configure-custom-response-code.md
+
+# Card
+  - title: Learn about Azure Web Application Firewall architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Securely managed web applications
+            url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
+          - text: Network-hardened web app
+            url: /azure/architecture/example-scenario/security/hardened-web-app
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

@@ -2,7 +2,8 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.custom: devx-track-arm-template
+ms.date: 09/09/2022
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -12,6 +13,70 @@ This article describes the different ways to filter which events are sent to you
 * Event types
 * Subject begins with or ends with
 * Advanced fields and operators
+
+## Azure Resource Manager template
+The examples shown in this article are JSON snippets for defining filters in Azure Resource Manager (ARM) templates. For an example of a complete ARM template and deploying an ARM template, see [Quickstart: Route Blob storage events to web endpoint by using an ARM template](blob-event-quickstart-template.md). Here's some more sections around the `filter` section from the example in the quickstart. The ARM template defines the following resources.
+
+- Azure storage account
+- System topic for the storage account
+- Event subscription for the system topic. You'll see the `filter` subsection in the event subscription section. 
+
+In the following example, the event subscription filters for `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted` events. 
+
+```json
+{
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-08-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "accessTier": "Hot"
+      }
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics",
+      "apiVersion": "2021-12-01",
+      "name": "[parameters('systemTopicName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "topicType": "Microsoft.Storage.StorageAccounts"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
+      "apiVersion": "2021-12-01",
+      "name": "[format('{0}/{1}', parameters('systemTopicName'), parameters('eventSubName'))]",
+      "properties": {
+        "destination": {
+          "properties": {
+            "endpointUrl": "[parameters('endpoint')]"
+          },
+          "endpointType": "WebHook"
+        },
+        "filter": {
+          "includedEventTypes": [
+            "Microsoft.Storage.BlobCreated",
+            "Microsoft.Storage.BlobDeleted"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventGrid/systemTopics', parameters('systemTopicName'))]"
+      ]
+    }
+  ]
+}
+```
 
 ## Event type filtering
 
@@ -32,17 +97,43 @@ The JSON syntax for filtering by event type is:
 
 For simple filtering by subject, specify a starting or ending value for the subject. For example, you can specify the subject ends with `.txt` to only get events related to uploading a text file to storage account. Or, you can filter the subject begins with `/blobServices/default/containers/testcontainer` to get all events for that container but not other containers in the storage account.
 
-When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
+When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the **subject** property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
 
-The JSON syntax for filtering by subject is:
+### Examples (Blob Storage events)
+Blob events can be filtered by the event type, container name, or name of the object that was created or deleted. 
 
-```json
-"filter": {
-  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/blobs/log",
-  "subjectEndsWith": ".jpg"
-}
+The subject of Blob storage events uses the format:
 
 ```
+/blobServices/default/containers/<containername>/blobs/<blobname>
+```
+
+To match all events for a storage account, you can leave the subject filters empty.
+
+To match events from blobs created in a set of containers sharing a prefix, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/containerprefix
+```
+
+To match events from blobs created in specific container, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/containername/
+```
+
+To match events from blobs created in specific container sharing a blob name prefix, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/containername/blobs/blobprefix
+```
+To match events from blobs create in a specific subfolder of a container, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/{containername}/blobs/{subfolder}/
+```
+
+To match events from blobs created in specific container sharing a blob suffix, use a `subjectEndsWith` filter like ".log" or ".jpg". 
 
 ## Advanced filtering
 
@@ -73,7 +164,7 @@ For events in the **Event Grid schema**, use the following values for the key: `
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
+For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.siteName`, `data.appEventTypeDetail.action` to access `siteName` or `action` for the following sample event.
 
 ```json
 	"data": {
@@ -88,6 +179,10 @@ For **custom input schema**, use the event data fields (like `data.key1`). To ac
 		"verb": "None"
 	},
 ```
+
+> [!NOTE]
+> Event Grid doesn't support filtering on an array of objects. It only allows String, Boolean, Numbers, and Array of the same types (like integer array or string array).
+ 
 
 ## Values
 The values can be: number, string, boolean, or array
@@ -353,7 +448,7 @@ FOR_EACH filter IN (a, b, c)
 See [Limitations](#limitations) section for current limitation of this operator.
 
 ## StringBeginsWith
-The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`.  
+The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `message`. For example, `event hubs` begins with `event`.  
 
 ```json
 "advancedFilters": [{
@@ -499,9 +594,9 @@ FOR_EACH filter IN (a, b, c)
 All string comparisons aren't case-sensitive.
 
 > [!NOTE]
-> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
+> If the event JSON doesn't contain the advanced filter key, filter is evaluated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
 > 
->The filter is evaulated as **matched** for the following operators:NumberNotIn, StringNotIn.
+>The filter is evaluated as **matched** for the following operators: NumberNotIn, StringNotIn.
 
 
 ## IsNullOrUndefined
@@ -549,7 +644,7 @@ The IsNotNull operator evaluates to true if the key's value isn't NULL or undefi
 ```
 
 ## OR and AND
-If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
+If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here's an example:
 
 ```json
 "advancedFilters": [
@@ -588,7 +683,7 @@ If you specify multiple different filters, an **AND** operation is done, so each
 ## CloudEvents 
 For events in the **CloudEvents schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`). 
 
-You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes. 
+You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes.
 
 ```json
 {
@@ -627,10 +722,8 @@ Here's an example of using an extension context attribute in a filter.
 
 Advanced filtering has the following limitations:
 
-* 5 advanced filters and 25 filter values across all the filters per event grid subscription
+* 25 advanced filters and 25 filter values across all the filters per Event Grid subscription
 * 512 characters per string value
-* Five values for **in** and **not in** operators
-* The `StringNotContains` operator is currently not available in the portal.
 * Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 
 The same key can be used in more than one filter.

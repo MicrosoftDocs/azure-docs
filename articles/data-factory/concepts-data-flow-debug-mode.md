@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/01/2021
+ms.date: 11/21/2022
 ---
 
 # Mapping data flow Debug Mode
@@ -42,6 +42,9 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 > [!NOTE]
 > Every debug session that a user starts from their browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions. You are charged for every hour that each debug session is executing including the TTL time.
 
+This video clip talks about tips, tricks, and good practices for data flow debug mode
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5c8Jx]
+
 ## Cluster status
 
 The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then the Spark cluster will perform a cold boot. The indicator will spin until the environment is ready for interactive debugging.
@@ -64,9 +67,11 @@ The default IR used for debug mode in data flows is a small 4-core single worker
 
 ## Data preview
 
-With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to fetch the data preview.
+With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to update the data preview based on your current transformations. If your source data has changed, then click the Refresh > Refetch from source.
 
 :::image type="content" source="media/data-flow/datapreview.png" alt-text="Data preview":::
+
+You can sort columns in data preview and rearrange columns using drag and drop. Additionally, there is an export button on the top of the data preview panel that you can use to export the preview data to a CSV file for offline data exploration. You can use this feature to export up to 1,000 rows of preview data.
 
 > [!NOTE]
 > File sources only limit the rows that you see, not the rows being read. For very large datasets, it is recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.

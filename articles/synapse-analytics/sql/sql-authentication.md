@@ -17,10 +17,10 @@ Azure Synapse Analytics has two SQL form-factors that enable you to control your
 
 To authorize to Synapse SQL, you can use two authorization types:
 
-- Azure Active Directory authorization
+- Microsoft Entra authorization
 - SQL authorization
 
-SQL authorization enables legacy applications to connect to Azure Synapse SQL in a familiar way. However, Azure Active Directory authentication allows you to centrally manage access to Azure Synapse resources, such as SQL pools. Azure Synapse Analytics supports disabling local authentication, such as SQL authentication, both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
+SQL authorization enables legacy applications to connect to Azure Synapse SQL in a familiar way. However, Microsoft Entra authentication allows you to centrally manage access to Azure Synapse resources, such as SQL pools. Azure Synapse Analytics supports disabling local authentication, such as SQL authentication, both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
 
 ## Administrative accounts
 
@@ -34,9 +34,9 @@ There are two administrative accounts (**SQL admin username** and **SQL Active D
 
 - **SQL Active Directory admin**
 
-  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It's optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL. 
+  One Microsoft Entra account, either an individual or security group account, can also be configured as an administrator. It's optional to configure a Microsoft Entra administrator, but a Microsoft Entra administrator **must** be configured if you want to use Microsoft Entra accounts to connect to Synapse SQL. 
 
-   - The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles are used to control access to serverless pools, for example, the **Synapse Administrator** role. Changing the Azure Active Directory administrator account will only affect the account's access to dedicated SQL pools. 
+   - The Microsoft Entra admin account controls access to dedicated SQL pools, while Synapse RBAC roles can be used to control access to serverless pools, for example, with the **Synapse Administrator** and **Synapse SQL Administrator** role. 
 
 The **SQL admin username** and **SQL Active Directory admin** accounts have the following characteristics:
 
@@ -47,6 +47,9 @@ The **SQL admin username** and **SQL Active Directory admin** accounts have the 
 - Can create, alter, and drop databases, logins, users in the `master` database, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
+
+>[!Note]
+>If a user is configured as an Active Directory admin and Synapse Administrator, and then removed from the Active Directory admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 
 ## [Serverless SQL pool](#tab/serverless)
 
@@ -88,7 +91,7 @@ When using an open port in the server-level firewall, administrators can connect
 
 One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. 
 
-To create a database, the user must be a user based on a SQL Server login in the `master` database or contained database user based on an Azure Active Directory user.
+To create a database, the user must be a user based on a SQL Server login in the `master` database or contained database user based on a Microsoft Entra user.
 
 1. Using an administrator account, connect to the `master` database.
 2. Create a SQL Server authentication login, using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. Sample statement:
@@ -102,11 +105,11 @@ To create a database, the user must be a user based on a SQL Server login in the
 
    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-3. Create a databases user by using the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. The user can be an Azure Active Directory authentication contained database user (if you've configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) 
+3. Create a databases user by using the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. The user can be a Microsoft Entra authentication contained database user (if you've configured your environment for Microsoft Entra authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) 
 
    Sample statements:
 
-   Create a user with Azure Active Directory:
+   Create a user with Microsoft Entra ID:
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; 
    ```
@@ -145,7 +148,7 @@ The other administrative role is the login manager role. Members of this role ca
 
 Generally, non-administrator accounts don't need access to the `master` database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement. 
 
-The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.)  
+The user can be a Microsoft Entra authentication contained database user (if you have configured your environment for Microsoft Entra authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.)  
 
 To create users, connect to the database, and execute statements similar to the following examples:
 
@@ -181,7 +184,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 Efficient access management uses permissions assigned to groups and roles instead of individual users.
 
-- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory group. Create a contained database user for the group. Place one or more database users into a [database role](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true) and then assign [permissions](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) to the database role.
+- When using Microsoft Entra authentication, put Microsoft Entra users into a Microsoft Entra group. Create a contained database user for the group. Place one or more database users into a [database role](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true) and then assign [permissions](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) to the database role.
 
 - When using SQL Server authentication, create contained database users in the database. Place one or more database users into a [database role](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true) and then assign [permissions](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) to the database role.
 
@@ -205,16 +208,16 @@ When managing logins and users in SQL Database, consider the following points:
 
 - You must be connected to the `master` database when executing the `CREATE/ALTER/DROP DATABASE` statements.
 - The database user corresponding to the **Server admin** login can't be altered or dropped.
-- **Server admin** will be disabled if Azure AD-only authentication is enabled.
+- **Server admin** will be disabled if Microsoft Entra-only authentication is enabled.
 - US-English is the default language of the **Server admin** login.
-- Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the `master` database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
+- Only the administrators (**Server admin** login or Microsoft Entra administrator) and the members of the **dbmanager** database role in the `master` database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
 - You must be connected to the `master` database when executing the `CREATE/ALTER/DROP LOGIN` statements. However, using logins is discouraged. Use contained database users instead. For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 - To connect to a user database, you must provide the name of the database in the connection string.
 - Only the server-level principal login and the members of the **loginmanager** database role in the `master` database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
 - When executing the `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP DATABASE` statements in an ADO.NET application, using parameterized commands isn't allowed. For more information, see [Commands and Parameters](/dotnet/framework/data/adonet/commands-and-parameters).
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.
 - When executing the `ALTER USER` statement with the `WITH LOGIN` option, it must be the only statement in a Transact-SQL batch.
-- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure AD-only authentication is enabled for the Azure Synapse workspace.
+- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Microsoft Entra-only authentication is enabled for the Azure Synapse workspace.
 - To `CREATE/ALTER/DROP` a user requires the `ALTER ANY USER` permission on the database.
 - When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user isn't visible to the owner. To resolve this issue, grant the role owner the `VIEW DEFINITION` permission on the user. 
 

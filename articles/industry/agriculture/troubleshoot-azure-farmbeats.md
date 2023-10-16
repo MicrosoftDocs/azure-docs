@@ -276,7 +276,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 
 **Issue**: The **Soil Moisture map** was generated, but the map has mostly white areas.
 
-**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, visit [Technical Guide from Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
+**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, visit [Technical Guide from Sentinel](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi).
 
 1. Rerun the job for a different date range and check if the NDVI values in the satellite indices are more than 0.3.
 

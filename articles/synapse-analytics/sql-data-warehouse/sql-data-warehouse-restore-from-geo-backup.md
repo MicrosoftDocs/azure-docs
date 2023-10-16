@@ -1,15 +1,16 @@
 ---
-title: Restore a dedicated SQL pool from a geo-backup 
+title: Restore a dedicated SQL pool from a geo-backup
 description: How-to guide for geo-restoring a dedicated SQL pool in Azure Synapse Analytics
-author: anumjs
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/13/2020
+author: joannapea
 ms.author: joanpo
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.reviewer: wiassaf
+ms.date: 11/13/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - devx-track-azurepowershell
 ---
 
 # Geo-restore a dedicated SQL pool in Azure Synapse Analytics
@@ -20,7 +21,7 @@ In this article, you learn to restore your dedicated SQL pool (formerly SQL DW) 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each dedicated SQL pool (formerly SQL DW) is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each dedicated SQL pool (formerly SQL DW) is hosted by a [logical SQL server](/azure/azure-sql/database/logical-servers) (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore from an Azure geographical region through PowerShell
 
@@ -37,7 +38,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](/powershell/m
 5. Get the data warehouse you want to recover.
 6. Create the recovery request for the data warehouse.
 7. Verify the status of the geo-restored data warehouse.
-8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```powershell
 $SubscriptionName="<YourSubscriptionName>"

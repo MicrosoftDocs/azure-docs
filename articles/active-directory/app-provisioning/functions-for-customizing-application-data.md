@@ -1,18 +1,18 @@
 ---
-title: Reference for writing expressions for attribute mappings in Azure Active Directory Application Provisioning
-description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
+title: Reference for writing expressions for attribute mappings in Microsoft Entra Application Provisioning
+description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Microsoft Entra ID. Includes a reference list of functions.
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/13/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Reference for writing expressions for attribute mappings in Azure Active Directory
+# Reference for writing expressions for attribute mappings in Microsoft Entra ID
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users' data into formats that are more acceptable for the SaaS application.
 
@@ -53,7 +53,7 @@ Takes a source string value and appends the suffix to the end of it.
 
 
 #### Append constant suffix to user name
-Example: If you are using a Salesforce Sandbox, you might need to append another suffix to all your user names before synchronizing them.
+Example: If you're using a Salesforce Sandbox, you might need to append another suffix to all your user names before synchronizing them.
 
 **Expression:** 
 `Append([userPrincipalName], ".test")`
@@ -70,7 +70,7 @@ Example: If you are using a Salesforce Sandbox, you might need to append another
 AppRoleAssignmentsComplex([appRoleAssignments])
 
 **Description:** 
-Used to provision multiple roles for a user. For detailed usage, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md#provisioning-a-role-to-a-scim-app).
+Used to provision multiple roles for a user. For detailed usage, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Microsoft Entra ID](customize-application-attributes.md#provisioning-a-role-to-a-scim-app).
 
 **Parameters:** 
 
@@ -127,7 +127,7 @@ Returns True if both attributes have the same value.
 `CDate(expression)`
 
 **Description:**  
-The CDate function returns a UTC DateTime from a string. DateTime is not a native attribute type but it can be used within date functions such as [FormatDateTime](#formatdatetime) and [DateAdd](#dateadd).
+The CDate function returns a UTC DateTime from a string. DateTime isn't a native attribute type but it can be used within date functions such as [FormatDateTime](#formatdatetime) and [DateAdd](#dateadd).
 
 **Parameters:** 
 
@@ -165,7 +165,7 @@ The returned string is always in UTC and follows the format **M/d/yyyy h:mm:ss t
 Coalesce(source1, source2, ..., defaultValue)
 
 **Description:** 
-Returns the first source value that is not NULL. If all arguments are NULL and defaultValue is present, the defaultValue will be returned. If all arguments are NULL and defaultValue is not present, Coalesce returns NULL.
+Returns the first source value that isn't NULL. If all arguments are NULL and defaultValue is present, the defaultValue will be returned. If all arguments are NULL and defaultValue isn't present, Coalesce returns NULL.
 
 **Parameters:** 
 
@@ -175,7 +175,7 @@ Returns the first source value that is not NULL. If all arguments are NULL and d
 | **defaultValue** | Optional | String | Default value to be used when all source values are NULL. Can be empty string ("").
 
 #### Flow mail value if not NULL, otherwise flow userPrincipalName
-Example: You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
+Example: You wish to flow the mail attribute if it is present. If it isn't, you wish to flow the value of userPrincipalName instead.
 
 **Expression:** 
 `Coalesce([mail],[userPrincipalName])`
@@ -274,7 +274,7 @@ Returns a date/time string representing a date to which a specified time interva
 | **value** |Required | Number | The number of units you want to add. It can be positive (to get dates in the future) or negative (to get dates in the past). |
 | **dateTime** |Required | DateTime | DateTime representing date to which the interval is added. |
 
-When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
+When passing a date string as input, use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC, use the [Now](#now) function. 
 
 The **interval** string must have one of the following values: 
  * yyyy Year 
@@ -294,7 +294,7 @@ The **interval** string must have one of the following values:
 | Get a date ten days prior to hire date | "d" | -10 | 2012-03-16-07:00 | 3/6/2012 7:00:00 AM |
 | Add two weeks to hire date | "ww" | 2 | 2012-03-16-07:00 | 3/30/2012 7:00:00 AM |
 | Add ten months to hire date | "m" | 10 | 2012-03-16-07:00 | 1/16/2013 7:00:00 AM |
-| Add two years to hire date | "yyyy" | 10 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
+| Add two years to hire date | "yyyy" | 2 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
 
 ---
 ### DateDiff
@@ -315,7 +315,7 @@ This function uses the *interval* parameter to return a number that indicates th
 | **date1** |Required | DateTime | DateTime representing a valid date. |
 | **date2** |Required | DateTime | DateTime representing a valid date. |
 
-When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
+When passing a date string as input, use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC, use the [Now](#now) function. 
 
 The **interval** string must have one of the following values: 
  * yyyy Year 
@@ -385,7 +385,7 @@ Takes a date string from one format and converts it into a different format.
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
-| **dateTimeStyles** | Optional | String | Use this to specify the formatting options that customize string parsing for some date and time parsing methods. For supported values, see [DateTimeStyles doc](/dotnet/api/system.globalization.datetimestyles). If left empty, the default value used is DateTimeStyles.RoundtripKind, DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite  |
+| **dateTimeStyles** | Optional | String | Use this parameter to specify the formatting options that customize string parsing for some date and time parsing methods. For supported values, see [DateTimeStyles doc](/dotnet/api/system.globalization.datetimestyles). If left empty, the default value used is DateTimeStyles.RoundtripKind, DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite  |
 | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [.NET custom date and time format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Required |String |Format of the output date. |
 
@@ -437,7 +437,7 @@ The above expression will drop the department attribute from the provisioning fl
 **Example 2: Don't flow an attribute if the expression mapping evaluates to empty string or null** <br>
 Let's say the SuccessFactors attribute *prefix* is mapped to the on-premises Active Directory attribute *personalTitle* using the following expression mapping: <br>
 `IgnoreFlowIfNullOrEmpty(Switch([prefix], "", "3443", "Dr.", "3444", "Prof.", "3445", "Prof. Dr."))` <br>
-The above expression first evaluates the [Switch](#switch) function. If the *prefix* attribute does not have any of the values listed within the *Switch* function, then *Switch* will return an empty string and the attribute *personalTitle* will not be included in the provisioning flow to on-premises Active Directory.
+The above expression first evaluates the [Switch](#switch) function. If the *prefix* attribute doesn't have any of the values listed within the *Switch* function, then *Switch* will return an empty string and the attribute *personalTitle* will not be included in the provisioning flow to on-premises Active Directory.
 
 ---
 ### IIF
@@ -464,7 +464,7 @@ The following comparison operators can be used in the *condition*:
 `IIF([country]="USA",[country],[department])`
 
 #### Known limitations and workarounds for IIF function
-* The IIF function currently does not support AND and OR logical operators. 
+* The IIF function currently doesn't support AND and OR logical operators. 
 * To implement AND logic, use nested IIF statement chained along the *trueValue* path. 
   Example: If country="USA" and state="CA", return value "True", else return "False".
   `IIF([country]="USA",IIF([state]="CA","True","False"),"False")`
@@ -522,7 +522,7 @@ If the expression evaluates to Null, then the IsNull function returns true. For 
 **Example:**
 `IsNull([displayName])`
 
-Returns True if the attribute is not present.
+Returns True if the attribute isn't present.
 
 ---
 ### IsNullorEmpty
@@ -542,7 +542,7 @@ The inverse of this function is named IsPresent.
 **Example:**
 `IsNullOrEmpty([displayName])`
 
-Returns True if the attribute is not present or is an empty string.
+Returns True if the attribute isn't present or is an empty string.
 
 ---
 ### IsPresent
@@ -550,7 +550,7 @@ Returns True if the attribute is not present or is an empty string.
 IsPresent(Expression)
 
 **Description:** 
-If the expression evaluates to a string that is not Null and is not empty, then the IsPresent function returns true. The inverse of this function is named IsNullOrEmpty.
+If the expression evaluates to a string that isn't Null and isn't empty, then the IsPresent function returns true. The inverse of this function is named IsNullOrEmpty.
 
 **Parameters:** 
 
@@ -591,7 +591,7 @@ The Item function returns one item from a multi-valued string/attribute.
 | **index** |Required |Integer | Index to an item in the multi-valued string|
 
 **Example:**
-`Item([proxyAddresses], 1)` returns the first item in the multi-valued attribute. Index 0 should not be used. 
+`Item([proxyAddresses], 1)` returns the first item in the multi-valued attribute. Index 0 shouldn't be used. 
 
 ---
 ### Join
@@ -648,7 +648,7 @@ Returns a substring of the source value. A substring is a string that contains o
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute. |
 | **start** |Required |Integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
-| **length** |Required |Integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index untill end of **source** string. |
+| **length** |Required |Integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index until end of **source** string. |
 
 ---
 ### NormalizeDiacritics
@@ -737,7 +737,7 @@ The NumFromDate function converts a DateTime value to Active Directory format th
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **value** |Required | String | Date time string in the supported format. For supported formats, see https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Required | String | Date time string in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. If the date variable is in a different format, use [FormatDateTime](#formatdatetime) function to convert the date to ISO 8601 format. |
 
 **Example:**
 * Workday example 
@@ -766,7 +766,7 @@ The PCase function converts the first character of each word in a string to uppe
 
 **Remarks:**
 
-* If the *wordSeparators* parameter is not specified, then PCase internally invokes the .NET function [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase) to convert the *source* string to proper case. The .NET function *ToTitleCase* supports a comprehensive set of the  [Unicode character categories](https://www.unicode.org/reports/tr44/#General_Category_Values) as word separators. 
+* If the *wordSeparators* parameter isn't specified, then PCase internally invokes the .NET function [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase) to convert the *source* string to proper case. The .NET function *ToTitleCase* supports a comprehensive set of the  [Unicode character categories](https://www.unicode.org/reports/tr44/#General_Category_Values) as word separators. 
   * Space character
   * New line character
   * *Control* characters like CRLF
@@ -784,20 +784,20 @@ The PCase function converts the first character of each word in a string to uppe
 
 **Example:**
 
-Let's say you are sourcing the attributes *firstName* and *lastName* from SAP SuccessFactors and in HR both these attributes are in upper-case. Using the PCase function, you can convert the name to proper case as shown below. 
+Let's say you're sourcing the attributes *firstName* and *lastName* from SAP SuccessFactors and in HR both these attributes are in upper-case. Using the PCase function, you can convert the name to proper case as shown below. 
 
 | Expression | Input | Output | Notes |
 | --- | --- | --- | --- |
-| `PCase([firstName])` | *firstName* = "PABLO GONSALVES (SECOND)" | "Pablo Gonsalves (Second)" | As the *wordSeparators* parameter is not specified, the *PCase* function uses the default word separators character set. |
+| `PCase([firstName])` | *firstName* = "PABLO GONSALVES (SECOND)" | "Pablo Gonsalves (Second)" | As the *wordSeparators* parameter isn't specified, the *PCase* function uses the default word separators character set. |
 | `PCase([lastName]," '-")` | *lastName* = "PINTO-DE'SILVA" | "Pinto-De'Silva" | The *PCase* function uses characters in the *wordSeparators* parameter to identify words and transform them to proper case. |
-| `PCase(Join(" ",[firstName],[lastName]))` | *firstName* = GREGORY, *lastName* = "JAMES" | "Gregory James" | You can nest the Join function within PCase. As the *wordSeparators* parameter is not specified, the *PCase* function uses the default word separators character set.  |
+| `PCase(Join(" ",[firstName],[lastName]))` | *firstName* = GREGORY, *lastName* = "JAMES" | "Gregory James" | You can nest the Join function within PCase. As the *wordSeparators* parameter isn't specified, the *PCase* function uses the default word separators character set.  |
 
 
 ---
 
 ### RandomString
 **Function:** 
-RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
+RandomString(Length, MinimumNumbers, MinimumSpecialCharacters, MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
 **Description:** 
 The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
@@ -921,7 +921,7 @@ Then in this case, you can use the following expression in your attribute mappin
 **Example 2:** Using **oldValue** and **template** to insert the source string into another *templatized* string. 
 
 The parameter **oldValue** is a misnomer in this scenario. It is actually the value that will get replaced.  
-Let's say you want to always generate login id in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login id. 
+Let's say you want to always generate login ID in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login ID. 
 Then in this case, you can use the following expression in your attribute mapping. 
 
 `Replace([UserID],"<username>", , , , , "<username>@contoso.com")`
@@ -933,7 +933,7 @@ Then in this case, you can use the following expression in your attribute mappin
 
 **Example 3:** Using **regexPattern** and **replacementValue** to extract a portion of the source string and replace it with an empty string or a custom value built using regex patterns or regex group names.
  
-Let's say you have a source attribute `telephoneNumber` that has components `country code` and `phone number` separated by a space character. E.g. `+91 9998887777`
+Let's say you have a source attribute `telephoneNumber` that has components `country code` and `phone number` separated by a space character. For example, `+91 9998887777`
 Then in this case, you can use the following expression in your attribute mapping to extract the 10 digit phone number. 
 
 `Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )`
@@ -955,7 +955,7 @@ For example, the expression below removes parenthesis, dashes and space characte
 
 **Example 4:** Using **regexPattern**, **regexGroupName** and **replacementValue** to extract a portion of the source string and replace it with another literal value or empty string.
 
-Let's say your source system has an attribute AddressLineData with two components street number and street name. As part of a recent move, let's say the street number of the address changed and you want to update only the street number portion of the address line. 
+Let's say your source system has an attribute AddressLineData with two components street number and street name. As part of a recent move, let's say the street number of the address changed, and you want to update only the street number portion of the address line. 
 Then in this case, you can use the following expression in your attribute mapping to extract the street number.
 
 `Replace([AddressLineData], ,"(?<streetNumber>^\\d*)","streetNumber", "888", , )`
@@ -966,7 +966,7 @@ Then in this case, you can use the following expression in your attribute mappin
 * **replacementValue:** "888"
 * **Expression output:** 888 Tremont Street
 
-Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. 
+Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login ID without domain suffix. 
 
 `Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
 
@@ -1004,14 +1004,14 @@ Then in this case, you can use the following expression in your attribute mappin
 SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
 **Description:** 
-Requires a minimum of two arguments, which are unique value generation rules defined using expressions. The function evaluates each rule and then checks the value generated for uniqueness in the target app/directory. The first unique value found will be the one returned. If all of the values already exist in the target, the entry will get escrowed and the reason gets logged in the audit logs. There is no upper bound to the number of arguments that can be provided.
+Requires a minimum of two arguments, which are unique value generation rules defined using expressions. The function evaluates each rule and then checks the value generated for uniqueness in the target app/directory. The first unique value found will be the one returned. If all of the values already exist in the target, the entry will get escrowed, and the reason gets logged in the audit logs. There is no upper bound to the number of arguments that can be provided.
 
 
  - This function must be at the top-level and cannot be nested.
  - This function cannot be applied to attributes that have a matching precedence.     
  - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
  - This function is currently only supported for "Workday to Active Directory User Provisioning" and "SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
- - The LDAP search that *SelectUniqueValue* function performs in on-premises Active Directory does not escape special characters like diacritics. If you pass a string like "Jéssica Smith" that contains a special character, you will encounter processing errors. Please nest the [NormalizeDiacritics](#normalizediacritics) function as shown in the example below to normalize special characters. 
+ - The LDAP search that *SelectUniqueValue* function performs in on-premises Active Directory doesn't escape special characters like diacritics. If you pass a string like "Jéssica Smith" that contains a special character, you will encounter processing errors. Nest the [NormalizeDiacritics](#normalizediacritics) function as shown in the example below to normalize special characters. 
 
 
 **Parameters:** 
@@ -1049,7 +1049,7 @@ Example: Based on the user's first name, middle name and last name, you need to 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:** 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time. This function is not supported in scenarios where users have multiple app role assignments. 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time. This function isn't supported in scenarios where users have multiple app role assignments. 
 
 **Parameters:** 
 
@@ -1073,7 +1073,7 @@ Splits a string into a multi-valued array, using the specified delimiter charact
 | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
 
 #### Split a string into a multi-valued array
-Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
+Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Microsoft Entra ID.
 
 **Expression:** 
 Split([extensionAttribute5], ",")
@@ -1104,11 +1104,15 @@ Removes all space (" ") characters from the source string.
 Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description:** 
-When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters. The function should not be used for referential attributes such as manager. 
+When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters. The function shouldn't be used for referential attributes such as manager. 
 
 > [!NOTE] 
 > Switch function performs a case-sensitive string comparison of the **source** and **key** values. If you'd like to perform a case-insensitive comparison, normalize the **source** string before comparison using a nested ToLower function and ensure that all **key** strings use lowercase. 
 > Example: `Switch(ToLower([statusFlag]), "0", "true", "1", "false", "0")`. In this example, the **source** attribute `statusFlag` may have values ("True" / "true" / "TRUE"). However, the Switch function will always convert it to lowercase string "true" before comparison with **key** parameters. 
+
+> [!CAUTION] 
+> For the **source** parameter, do not use the nested functions IsPresent, IsNull or IsNullOrEmpty. Instead use a literal empty string as one of the key values.   
+> Example: `Switch([statusFlag], "Default Value", "true", "1", "", "0")`. In this example, if the **source** attribute `statusFlag` is empty, the Switch function will return the value 0. 
 
 **Parameters:** 
 
@@ -1120,7 +1124,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
 #### Replace a value based on predefined set of options
-Example: Define the time zone of the user based on the state code stored in Azure AD. 
+Example: Define the time zone of the user based on the state code stored in Microsoft Entra ID. 
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** 
@@ -1140,14 +1144,14 @@ ToLower(source, culture)
 **Description:** 
 Takes a *source* string value and converts it to lower case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
 
-If you would like to set existing values in the target system to lower case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
+If you would like to set existing values in the target system to lower case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you're interested in. 
 
 **Parameters:** 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object |
-| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code isn't available, a three-letter code derived from ISO 639-2 is used.|
 
 #### Convert generated userPrincipalName (UPN) value to lower case
 Example: You would like to generate the UPN value by concatenating the PreferredFirstName and PreferredLastName source fields and converting all characters to lower case. 
@@ -1169,14 +1173,14 @@ ToUpper(source, culture)
 **Description:** 
 Takes a *source* string value and converts it to upper case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
 
-If you would like to set existing values in the target system to upper case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
+If you would like to set existing values in the target system to upper case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you're interested in. 
 
 **Parameters:** 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
-| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code isn't available, a three-letter code derived from ISO 639-2 is used.|
 
 ---
 ### Word
@@ -1188,7 +1192,7 @@ The Word function returns a word contained within a string, based on parameters 
 
 If number < 1, returns empty string.
 If string is null, returns empty string.
-If string contains less than number words, or string does not contain any words identified by delimiters, an empty string is returned.
+If string contains less than number words, or string doesn't contain any words identified by delimiters, an empty string is returned.
 
 **Parameters:** 
 
@@ -1254,6 +1258,6 @@ Add a comma between last name and first name.
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](../app-provisioning/user-provisioning.md)
 * [Customizing Attribute Mappings for User Provisioning](../app-provisioning/customize-application-attributes.md)
 * [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Microsoft Entra ID to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Account Provisioning Notifications](../app-provisioning/user-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)

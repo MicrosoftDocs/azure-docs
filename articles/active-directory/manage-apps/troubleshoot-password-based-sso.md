@@ -1,16 +1,16 @@
 ---
 title: Troubleshoot password-based single sign-on
-description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
-titleSuffix: Azure AD
-author: davidmu1
+description: Troubleshoot issues with a Microsoft Entra app that's configured for password-based single sign-on.
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.date: 09/07/2023
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot password-based single sign-on
@@ -19,7 +19,7 @@ To use password-based single sign-on (SSO) in My Apps, the browser extension mus
 
 ## My Apps browser extension not installed
 
-Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md).
+Make sure the browser extension is installed. To learn more, see [Plan a Microsoft Entra My Apps deployment](./myapps-overview.md).
 
 ## Single sign-on not configured
 
@@ -35,7 +35,7 @@ This problem typically happens if the application vendor has changed their sign-
 
 While Microsoft has technologies to automatically detect when integrations break, it might not be possible to find the issues right away, or the issues take some time to fix. In the case when one of these integrations does not work correctly, open a support case so it can be fixed as quickly as possible.
 
-**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
+**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Microsoft Entra ID. You can send the vendor to the [Listing your application in the Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Credentials are filled in and submitted, but the page indicates the credentials are incorrect
 
@@ -57,11 +57,11 @@ To resolve this issue, first try these things:
 
 - Ensure that your users are not trying to sign in to the application from My Apps while in **incognito, inPrivate, or Private mode**. The My Apps extension is not supported in these modes.
 
-In case the previous suggestions do not work, it could be the case that a change has occurred on the application side that has temporarily broken the application’s integration with Azure AD. For example, this can occur when the application vendor introduces a script on their page which behaves differently for manual vs automated input, which causes automated integration, like our own, to break. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
+In case the previous suggestions do not work, it could be the case that a change has occurred on the application side that has temporarily broken the application’s integration with Microsoft Entra ID. For example, this can occur when the application vendor introduces a script on their page which behaves differently for manual vs automated input, which causes automated integration, like our own, to break. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Microsoft Entra ID. You can send the vendor to the [Listing your application in the Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Check if the application’s login page has changed recently or requires an additional field
 
@@ -69,7 +69,7 @@ If the application’s login page has changed drastically, sometimes this causes
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Microsoft Entra ID. You can send the vendor to the [Listing your application in the Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Capture sign-in fields for an app
 
@@ -79,27 +79,24 @@ There are two ways to capture sign-in fields for your custom apps:
 
 - **Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, *if they use well-known DIV IDs* for the user name and password fields. The HTML on the page is scraped to find DIV IDs that match certain criteria. That metadata is saved so that it can be replayed to the app later.
 
-- **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure Active Directory (Azure AD) can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
+- **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Microsoft Entra ID can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ### Automatically capture sign-in fields for an app
 
 To configure password-based SSO by using automatic sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
-2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-5. Select **All Applications** to view a list of your apps.
-   > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications** list. Set the **Show** option to "All Applications."
-6. Select the app that you want to configure for SSO.
-7. After the app loads, select **Single sign-on** in the navigation pane on the left side.
-8. Select **Password-based Sign-on** mode.
-9. Enter the **Sign-on URL**, which is the URL of the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
-10. Select **Save**.
-    The page is automatically scraped for the user name and password input boxes. You can now use Azure AD to securely transmit passwords to that app by using the My Apps browser extension.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for SSO.
+1. After the app loads, select **Single sign-on** in the navigation pane on the left side.
+1. Select **Password-based Sign-on** mode.
+1. Enter the **Sign-on URL**, which is the URL of the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
+1. Select **Save**.
+    The page is automatically scraped for the user name and password input boxes. You can now use Microsoft Entra ID to securely transmit passwords to that app by using the My Apps browser extension.
 
 ### Manually capture sign-in fields for an app
 
@@ -107,22 +104,17 @@ To manually capture sign-in fields, you must have the My Apps browser extension 
 
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
-2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-5. Select **All Applications** to view a list of your apps.
-   > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications** list. Set the **Show** option to "All Applications."
-6. Select the app that you want to configure for SSO.
-7. After the app loads, select **Single sign-on** in the navigation pane on the left side.
-8. Select **Password-based Sign-on** mode.
-9. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
-10. Select **Configure *&lt;appname&gt;* Password Single Sign-on Settings**.
-11. Select **Manually detect sign-in fields**.
-12. Select **Ok**.
-13. Select **Save**.
-14. Follow the instructions to use My Apps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for SSO.
+1. After the app loads, select **Single sign-on** in the navigation pane on the left side.
+1. Select **Password-based Sign-on** mode.
+1. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
+1. Select **Configure *&lt;appname&gt;* Password Single Sign-on Settings**.
+1. Select **Manually detect sign-in fields**.
+1. Select **Ok**.
+1. Select **Save**.
+1. Follow the instructions to use My Apps.
 
 ## Troubleshoot problems
 
@@ -181,8 +173,8 @@ If you get an error message when you set up SSO and assign users, open a support
 
 To see the details of any portal notification, follow these steps:
 
-1. Select the **Notifications** icon (the bell) in the upper-right corner of the Azure portal.
-2. Select any notification that shows an *Error* state. (They have a red "!".)
+1. Select the **Notifications** icon (the bell) in the upper-right corner of the Microsoft Entra admin center.
+2. Select any notification that shows an **Error** state. (They have a red "!".)
    > [!NOTE]
    > You can't select notifications that are in the *Successful* or *In Progress* state.
 3. The **Notification Details** pane opens. Read the information to learn about the problem.
@@ -259,4 +251,4 @@ The following information explains what each notification item means and provide
 ## Next steps
 
 - [Quickstart Series on Application Management](view-applications-portal.md)
-- [Plan a My Apps deployment](my-apps-deployment-plan.md)
+- [Plan a My Apps deployment](./myapps-overview.md)

@@ -9,15 +9,24 @@ ms.topic: conceptual
 
 # Meshes
 
-## Mesh resource
+Meshes are immutable [shared resources](../concepts/lifetime.md) that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes are used for rendering but also to provide a physics representation for [ray cast queries](../overview/features/spatial-queries.md). To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
 
-Meshes are an immutable [shared resource](../concepts/lifetime.md), that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes contain one or multiple *submeshes* along with a physics representation for [raycast queries](../overview/features/spatial-queries.md). Each submesh references a [material](materials.md) with which it should be rendered by default. To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
+## Mesh types
+
+There are two distinct types of mesh resources in ARR: **Triangular meshes** and **point clouds**. Both types are represented by the same API class `Mesh`. Except for minor differences in behavior for the distinct mesh types, the exposed API functionality is identical.
+
+The conversion service automatically determines the appropriate mesh type by source file extension. For example, an FBX file is always converted as a triangular mesh, whereas PLY is treated as a point cloud. For the complete list of supported file formats, refer to the list of [source file formats](../how-tos/conversion/model-conversion.md#supported-source-formats).
+
+There are two significant user-facing differences between point cloud- and triangular mesh conversions:
+* Point cloud meshes don't expose any materials. The visual appearance of points is solely defined by their per-point color,
+* point clouds don't expose a scene graph. Instead, all points are attached to the root node entity.
 
 ### Mesh resource properties
 
 The `Mesh` class properties are:
 
-* **Materials:** An array of materials. Each material is used by a different submesh. Multiple entries in the array may reference the same [material](materials.md). This data cannot be modified at runtime.
+* **Materials:** An array of materials. Each material is used by a different submesh. Multiple entries in the array may reference the same [material](materials.md). Entries in this array can't be changed at runtime, however the material properties can.
+For point clouds, this array is empty.
 
 * **Bounds:** A local-space axis-aligned bounding box (AABB) of the mesh vertices.
 
@@ -31,7 +40,7 @@ The `MeshComponent` class is used to place an instance of a mesh resource. Each 
 
 * **Materials:** The array of materials specified on the mesh component itself. The array will always have the same length as the *Materials* array on the mesh resource. Materials that shall not be overridden from the mesh default, are set to *null* in this array.
 
-* **UsedMaterials:** The array of actually used materials for each submesh. Will be identical to the data in the *Materials* array, for non-null values. Otherwise it contains the value from the *Materials* array in the mesh instance.
+* **UsedMaterials:** The array of actually used materials for each submesh. Will be identical to the data in the *Materials* array, for non-null values. Otherwise it contains the value from the *Materials* array in the mesh instance. This array is read-only.
 
 ### Sharing of meshes
 

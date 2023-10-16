@@ -1,63 +1,82 @@
 ---
-title: Become a Microsoft-Compatible FIDO2 Security Key Vendor for sign-in to Azure AD
+title: Become a Microsoft-Compatible FIDO2 Security Key Vendor for sign-in to Microsoft Entra ID
 description: Explains process to become a FIDO2 hardware partner
-ms.date: 08/02/2021
+ms.date: 01/29/2023
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-author: knicholasa
-ms.author: nichola
+author: martincoetzer
+ms.author: martinco
 ms.topic: conceptual
 ms.collection: M365-identity-device-management
 ---
 
 # Become a Microsoft-compatible FIDO2 security key vendor
 
-Most hacking related breaches use either stolen or weak passwords. Often, IT will enforce stronger password complexity or frequent password changes to reduce the risk of a security incident. However, this increases help desk costs and leads to poor user experiences as users are required to memorize or store new, complex passwords.
+Most hacking related breaches use either stolen or weak passwords. Often, IT enforce stronger password complexity or frequent password changes to reduce the risk of a security incident. However, this increases help desk costs and leads to poor user experiences as users are required to memorize or store new, complex passwords.
 
-FIDO2 security keys offer an alternative. FIDO2 security keys can replace weak credentials with strong hardware-backed public/private-key credentials which cannot be reused, replayed, or shared across services. Security keys support shared device scenarios, allowing you to carry your credential with you and safely authenticate to an Azure Active Directory joined Windows 10 device that’s part of your organization.
+FIDO2 security keys offer an alternative. FIDO2 security keys can replace weak credentials with strong hardware-backed public/private-key credentials that can't be reused, replayed, or shared across services. Security keys support shared device scenarios, allowing you to carry your credential with you and safely authenticate to a Microsoft Entra joined Windows 10 device that’s part of your organization.
 
-Microsoft partners with FIDO2 security key vendors to ensure that security devices work on Windows, the Microsoft Edge browser, and online Microsoft accounts, to enable strong password-less authentication.
+Microsoft partners with FIDO2 security key vendors to ensure that security devices work on Windows, the Microsoft Edge browser, and online Microsoft accounts. FIDO2 security keys enable strong password-less authentication.
 
-You can become a Microsoft-compatible FIDO2 security key vendor through the following process.  Microsoft doesn't commit to do go-to-market activities with the partner and will evaluate partner priority based on customer demand.
+You can become a Microsoft-compatible FIDO2 security key vendor through the following process.  Microsoft doesn't commit to do go-to-market activities with the partner and evaluates partner priority based on customer demand.
 
-1. First, your authenticator needs to have a FIDO2 certification. We will not be able to work with providers who do not have a FIDO2 certification. To learn more about the certification, please visit this website:  [https://fidoalliance.org/certification/](https://fidoalliance.org/certification/)
-2. After you have a FIDO2 certification, please fill in your request to our form here: [https://forms.office.com/r/NfmQpuS9hF](https://forms.office.com/r/NfmQpuS9hF). Our engineering team will only test compatibility of your FIDO2 devices. We won't test security of your solutions.
-3. Once we confirm a move forward to the testing phase, the process usually take about 3-6 months. The steps usually involve:
-    - Initial discussion between Microsoft and your team.
-        - Verify FIDO Alliance Certification or the path to certification if not complete
-        - Receive an overview of the device from the vendor
-    - Microsoft will share our test scripts with you. Our engineering team will be able to answer questions if you have any specific needs.
-    - You will complete and send all passed results to Microsoft Engineering team
-4. Upon successful passing of all tests by Microsoft Engineering team, Microsoft will confirm vendor's device is listed in [the FIDO MDS](https://fidoalliance.org/metadata/).
-5. Microsoft will add your FIDO2 Security Key on Azure AD backend and to our list of approved FIDO2 vendors.
+1. First, your authenticator needs to have a FIDO2 certification. We aren't able to work with providers who don't have a FIDO2 certification. To learn more about the certification, visit the [FIDO Alliance Certification Overview website](https://fidoalliance.org/certification/).
+2. After you have a FIDO2 certification, [submit a request form](https://forms.office.com/r/NfmQpuS9hF) to become a Microsoft-compatible FIDO2 security key vendor. Our engineering team only confirms the features supported by your FIDO2 devices. We don't retest features already tested as part of the FIDO2 certification and don't evaluate the security of your solutions. The process usually takes a few weeks to complete.
+3. After the engineering team successfully confirmed the feature list, we'll confirm vendor's device is listed in the [FIDO Alliance Metadata Service](https://fidoalliance.org/metadata/).
+4. Microsoft adds your FIDO2 Security Key on Microsoft Entra backend and to our list of approved FIDO2 vendors.
 
 ## Current partners
 
 The following table lists partners who are Microsoft-compatible FIDO2 security key vendors.
 
-| **Provider** | **Link** |
-| --- | --- |
-| AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
-| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
-| Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
-| Go-Trust ID | [https://www.gotrustid.com/](https://www.gotrustid.com/idem-key) |
-| HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
-| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
-| Kensington  | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
-| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
-| Nymi   | [https://www.nymi.com/product](https://www.nymi.com/product) |
-| OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| Thales | [https://cpl.thalesgroup.com/access-management/authenticators/fido-devices](https://cpl.thalesgroup.com/access-management/authenticators/fido-devices) |
-| Thetis | [https://thetis.io/collections/fido2](https://thetis.io/collections/fido2) |
-| Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
-| TrustKey Solutions | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
-| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net/) |
-| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
+| Provider | Biometric | USB | NFC | BLE | FIPS Certified |
+|:-|:-:|:-:|:-:|:-:|:-:|
+| [AuthenTrend](https://authentrend.com/about-us/#pg-35-3) | ![y] | ![y]| ![y]| ![y]| ![n] |
+| [ACS](https://www.acs.com.hk/) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [ATOS](https://atos.net/en/solutions/cyber-security/iot-and-ot-security/smart-card-solution-cardos-for-iot) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [Ciright](https://www.cyberonecard.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [Composecure](https://www.composecure.com/arculus) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [Crayonic](https://www.crayonic.com/keyvault) | ![y] | ![n]| ![y]| ![y]| ![n] |
+| [Cryptnox](https://cryptnox.com/) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [Ensurity](https://www.ensurity.com/contact) | ![y] | ![y]| ![n]| ![n]| ![n] |
+| [Excelsecu](https://www.excelsecu.com/productdetail/esecufido2secu.html) | ![y] | ![y]| ![y]| ![y]| ![n] |
+| [Feitian](https://shop.ftsafe.us/pages/microsoft) | ![y] | ![y]| ![y]| ![y]| ![y] |
+| [Fortinet](https://www.fortinet.com/) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [Giesecke + Devrient (G+D)](https://www.gi-de.com/en/identities/enterprise-security/hardware-based-authentication) | ![y] | ![y]| ![y]| ![y]| ![n] |
+| [Google](https://store.google.com/us/product/titan_security_key) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [GoTrustID Inc.](https://www.gotrustid.com/idem-key) | ![n] | ![y]| ![y]| ![y]| ![n] |
+| [HID](https://www.hidglobal.com/products/crescendo-key) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [HIDEEZ](https://hideez.com/products/hideez-key-4) | ![n] | ![y]| ![y]| ![y]| ![n] |
+| [Hypersecu](https://www.hypersecu.com/hyperfido) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [Hypr](https://www.hypr.com/true-passwordless-mfa) | ![y] | ![y]| ![n]| ![y]| ![n] |
+| [Identiv](https://www.identiv.com/products/logical-access-control/utrust-fido2-security-keys/nfc) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [IDmelon Technologies Inc.](https://www.idmelon.com/#idmelon) | ![y] | ![y]| ![y]| ![y]| ![n] |
+| [Kensington](https://www.kensington.com/solutions/product-category/why-biometrics/) | ![y] | ![y]| ![n]| ![n]| ![n] |
+| [KONA I](https://konai.com/business/security/fido) | ![y] | ![n]| ![y]| ![y]| ![n] |
+| [NeoWave](https://neowave.fr/en/products/fido-range/) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [Nymi](https://www.nymi.com/nymi-band) | ![y] | ![n]| ![y]| ![n]| ![n] |
+| [Octatco](https://octatco.com/) | ![y] | ![y]| ![n]| ![n]| ![n] |
+| [OneSpan Inc.](https://www.onespan.com/products/fido) | ![n] | ![y]| ![n]| ![y]| ![n] |
+| [PONE Biometrics](https://ponebiometrics.com/) | ![y] | ![n]| ![n]| ![y]| ![n] |
+| [Precision Biometric](https://www.innait.com/product/fido/) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [RSA](https://www.rsa.com/products/securid/) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [Sentry](https://sentryenterprises.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [SmartDisplayer](https://www.smartdisplayer.com/fido) | ![n] | ![n]| ![y]| ![y]| ![n] |
+| [Swissbit](https://www.swissbit.com/en/products/ishield-key/) | ![n] | ![y]| ![y]| ![n]| ![n] |
+| [Thales Group](https://cpl.thalesgroup.com/access-management/authenticators/fido-devices) | ![n] | ![y]| ![y]| ![n]| ![y] |
+| [Thetis](https://thetis.io/collections/fido2) | ![y] | ![y]| ![y]| ![y]| ![n] |
+| [Token2 Switzerland](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) | ![y] | ![y]| ![y]| ![n]| ![n] |
+| [Token Ring](https://www.tokenring.com/) | ![y] | ![n]| ![y]| ![n]| ![n] |
+| [TrustKey Solutions](https://www.trustkeysolutions.com/en/sub/product.form) | ![y] | ![y]| ![n]| ![n]| ![n] |
+| [VinCSS](https://passwordless.vincss.net) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [WiSECURE Technologies](https://wisecure-tech.com/en-us/zero-trust/fido/authtron) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [Yubico](https://www.yubico.com/solutions/passwordless/) | ![y] | ![y]| ![y]| ![n]| ![y] |
+
+<!--Image references-->
+[y]: ./media/fido2-compatibility/yes.png
+[n]: ./media/fido2-compatibility/no.png
 
 ## Next steps
 
 [FIDO2 Compatibility](fido2-compatibility.md)
-

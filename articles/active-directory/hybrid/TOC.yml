@@ -1,400 +1,555 @@
-- name: Hybrid identity documentation
-  href: index.yml
-- name: Overview
-  items:
-  - name: What is hybrid identity?
-    href: whatis-hybrid-identity.md
-  - name: What is inter-directory provisioning?
-    href: what-is-inter-directory-provisioning.md  
-    maintainContext: true
-- name: Tutorials
-  expanded: true
-  items:
-  - name: Integrate a single AD forest AD environment to the cloud with PHS
-    href: tutorial-password-hash-sync.md
-  - name: Integrate a single AD forest AD environment to the cloud with PTA
-    href: tutorial-passthrough-authentication.md
-  - name: Federate a single AD forest environment to the cloud
-    href: tutorial-federation.md
-  - name: Set up PHS as backup for AD FS in Azure AD Connect 
-    href: tutorial-phs-backup.md
-- name: Concepts
-  items:
-   - name: Hybrid Identity
-     items:
-     - name: Cloud Governed Management for On-Premises Workloads
-       href: cloud-governed-management-for-on-premises.md
-     - name: Four steps to a strong identity foundation
-       href: four-steps.md
-     - name: Choose a hybrid identity authentication method
-       href: choose-ad-authn.md
-   - name: Azure AD Connect and Connect Health
-     items:
-     - name: What is Azure AD Connect and Connect Health?
-       href: whatis-azure-ad-connect.md
-     - name: What is Azure AD Connect V2.0?
-       href: whatis-azure-ad-connect-v2.md
-     - name: Choose the right authentication
-       href: ./choose-ad-authn.md
-     - name: Identity synchronization and duplicate attribute resiliency
-       href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
-   - name: Password hash synchronization
-     items:
-     - name: What is password hash synchronization?
-       href: whatis-phs.md
-     - name: How password hash synchronization works
-       href: how-to-connect-password-hash-synchronization.md
-     - name: Selective password hash synchronization
-       href: how-to-connect-selective-password-hash-synchronization.md
-   - name: Pass-through authentication
-     items:
-     - name: What is pass-through authentication?
-       href: how-to-connect-pta.md
-     - name: How pass-through authentication works
-       href: how-to-connect-pta-how-it-works.md
-     - name: Pass-through authentication current limitations
-       href: how-to-connect-pta-current-limitations.md
-     - name: Security deep dive on pass-through authentication
-       href: how-to-connect-pta-security-deep-dive.md
-     - name: Pass-through authentication and user privacy
-       href: how-to-connect-pta-user-privacy.md
-   - name: Federation
-     items:
-     - name: What is federation?
-       href: whatis-fed.md
-     - name: How federation works
-       href: how-to-connect-fed-whatis.md
-     - name: Azure AD federation compatibility list
-       href: how-to-connect-fed-compatibility.md
-   - name: Single sign-on
-     items:
-     - name: What is Single Sign-On?
-       href: how-to-connect-sso.md
-     - name: How Single Sign-On works
-       href: how-to-connect-sso-how-it-works.md
-     - name: Single Sign-On and user privacy
-       href: how-to-connect-sso-user-privacy.md
-   - name: Azure AD Connect Sync
-     items:
-     - name: What is Azure AD Connect Sync?
-       href: how-to-connect-sync-whatis.md
-     - name: Azure ADSync service account
-       href: concept-adsync-service-account.md
-     - name: Azure AD Connect Sync features
-       href: how-to-connect-syncservice-features.md
-     - name: What is the Azure AD Connect Sync service manager?
-       href: how-to-connect-sync-service-manager-ui.md
-     - name: Azure AD Connect Sync technical concepts
-       href: how-to-connect-sync-technical-concepts.md
-     - name: Understanding Azure AD Connect Sync architecture
-       href: concept-azure-ad-connect-sync-architecture.md
-     - name: Understanding Declarative Provisioning
-       href: concept-azure-ad-connect-sync-declarative-provisioning.md
-     - name: Understanding Declarative Provisioning Expressions
-       href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-     - name: Understanding the default configuration
-       href: concept-azure-ad-connect-sync-default-configuration.md
-     - name: Understanding users and contacts
-       href: concept-azure-ad-connect-sync-user-and-contacts.md
-     - name: Understanding shadow attributes
-       href: how-to-connect-syncservice-shadow-attributes.md
 
-- name: How-to guides
-  items:
-  - name: Installation and upgrade
-    items:
-    - name: Installation Roadmap
-      href: how-to-connect-install-roadmap.md
-    - name: Installation Prerequisites
-      href: how-to-connect-install-prerequisites.md
-    - name: Choose the installation type
-      href: how-to-connect-install-select-installation.md
-    - name: Install Azure AD Connect with Express settings (Password Hash Synch)
-      href:  how-to-connect-install-express.md
-    - name: Install Azure AD Connect Federation or other Custom settings
-      href:  how-to-connect-install-custom.md
-    - name: Import and export configuration settings
-      href:  how-to-connect-import-export-config.md
-    - name: Install Azure AD Connect with Pass-through Authentication (PTA)
-      href:  how-to-connect-pta-quick-start.md 
-    - name: Install Azure AD Connect Health
-      href:  how-to-connect-health-agent-install.md
-    - name: Automatic upgrade
-      href: how-to-connect-install-automatic-upgrade.md
-    - name: Running the installation wizard a second time
-      href: how-to-connect-installation-wizard.md
-    - name: Upgrade to a new version of Azure AD Connect
-      href:  how-to-upgrade-previous-version.md
-    - name: Upgrade from DirSync or Azure AD Sync
-      href:  how-to-dirsync-upgrade-get-started.md
-    - name: Install using an existing ADSync database
-      href:  how-to-connect-install-existing-database.md
-    - name: Install using SQL delegated administrator permissions
-      href: how-to-connect-install-sql-delegation.md
-    - name: Upgrade preview agents for PTA
-      href:  how-to-connect-pta-upgrade-preview-authentication-agents.md
-    - name: Move Azure AD Connect database from SQL Express to SQL Server
-      href: how-to-connect-install-move-db.md
-    - name: When you already have Azure AD
-      href: how-to-connect-install-existing-tenant.md
-    - name: Post installation tasks
-      href: how-to-connect-post-installation.md
-    - name: Uninstall Azure AD Connect
-      href: how-to-connect-uninstall.md
-  - name: Plan and design
-    items:
-    - name: Design concepts
-      href: plan-connect-design-concepts.md
-    - name: Topologies for Azure AD Connect
-      href: plan-connect-topologies.md
-    - name: Factors influencing the performance of Azure AD Connect
-      href: plan-connect-performance-factors.md
-    - name: How will users sign-in
-      href: plan-connect-user-signin.md
-    - name: Azure AD UserPrincipalName population
-      href: plan-connect-userprincipalname.md
-    - name: Special considerations for instances
-      href: reference-connect-instances.md
-    - name: Migration
-      items:
-          - name: Migrate from federation to cloud authentication
-            href: migrate-from-federation-to-cloud-authentication.md
-          - name: Move groups from one forest to another
-            href: how-to-connect-migrate-groups.md
-          - name: Migrate to cloud authentication using staged rollout
-            href: how-to-connect-staged-rollout.md
-    - name: Hybrid Identity Design Considerations
-      items:
-          - name: Hybrid Identity Design Considerations Overview
-            href: plan-hybrid-identity-design-considerations-overview.md
-          - name: Determine identity requirements
-            href: plan-hybrid-identity-design-considerations-business-needs.md
-          - name: Determine sync requirements
-            href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
-          - name: Determine multi-factor auth requirements
-            href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
-          - name: Determine lifecycle adoption strategy
-            href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
-          - name: Define a data protection strategy
-            href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
-          - name: Plan data protection requirements
-            href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
-          - name: Determine content management requirements
-            href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
-          - name: Determine access control requirements
-            href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
-          - name: Determine incident response requirements
-            href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
-          - name: Plan for hybrid identity lifecycle
-            href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
-          - name: Define an adoption strategy
-            href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
-          - name: Hybrid identity design considerations - Next Steps
-            href: plan-hybrid-identity-design-considerations-nextsteps.md
-          - name: Hybrid identity tools comparison
-            href: plan-hybrid-identity-design-considerations-tools-comparison.md
-  - name: Manage Azure AD Connect
-    items:
-    - name: Enable device writeback
-      href: how-to-connect-device-writeback.md
-    - name: Enable group writeback
-      href: how-to-connect-group-writeback.md
-    - name: Device options
-      href: how-to-connect-device-options.md
-    - name: Additional features in Azure AD Connect
-      href: how-to-connect-preview.md
-    - name: Prevent accidental deletes
-      href: how-to-connect-sync-feature-prevent-accidental-deletes.md
-    - name: Enable AD recycle bin
-      href: how-to-connect-sync-recycle-bin.md
-    - name: Configure the AD DS Connector account
-      href: how-to-connect-configure-ad-ds-connector-account.md
-    - name: Change the Azure ADSync service account password
-      href: how-to-connect-sync-change-serviceacct-pass.md
-    - name: Change the Azure AD Connector account password
-      href: how-to-connect-azureadaccount.md
-    - name: Change the AD DS Connector account password
-      href: how-to-connect-sync-change-addsacct-pass.md
   
-  - name: Manage Pass-through authentication  
-    items:
-    - name: Get started with pass-through authentication
-      href: how-to-connect-pta-quick-start.md
-    - name: Pass-through authentication FAQ
-      href: how-to-connect-pta-faq.yml
-    - name: Disable PTA with Azure AD Connect "Do not configure"
-      href: how-to-connect-pta-disable-do-not-configure.md
-  - name: Manage Federation Services
-    items:
-    - name: Managing federation with Azure AD Connect
-      href: how-to-connect-fed-management.md
-    - name: Multiple domain support for federating
-      href: how-to-connect-install-multiple-domains.md
-    - name: Federate multiple instances of Azure AD with single instance of AD FS
-      href: how-to-connect-fed-single-adfs-multitenant-federation.md
-    - name: Renew federation certificates for O365 and Azure AD 
-      href: how-to-connect-fed-o365-certs.md
-    - name: Update the SSL certificate for AD FS
-      href: how-to-connect-fed-ssl-update.md
-    - name: Manage the AD FS trust with Azure AD
-      href: how-to-connect-azure-ad-trust.md
-    - name: Configure group claims for applications
-      href: how-to-connect-fed-group-claims.md
-    - name: Change hash algorithm for O365 RP
-      href: how-to-connect-fed-sha256-guidance.md
-    - name: Use a SAML 2.0 server as your Idp
-      href: how-to-connect-fed-saml-idp.md
-    - name: Emergency rotation of AD FS certificates
-      href: how-to-connect-emergency-ad-fs-certificate-rotation.md
-    - name: Monitor changes to federation configuration
-      href: how-to-connect-monitor-federation-changes.md
-  - name: Manage single sign-on 
-    items:
 
-    - name: Get started with Single Sign-On
-      href: how-to-connect-sso-quick-start.md
+- name: Hybrid identity 
+  href:  index.yml
+  items: 
+  - name: What is hybrid identity and AD integration?
+    href: whatis-hybrid-identity.md
+  - name: What is identity provisioning?
+    href: what-is-provisioning.md
+  - name: What is inter-directory provisioning?
+    href: what-is-inter-directory-provisioning.md
 
-    - name: Single Sign-On FAQ
-      href: how-to-connect-sso-faq.yml
-  - name: Manage Azure AD Connect Health
+
+- name: Scenarios
+  items:
+  - name: Getting started with Active Directory
+    href: 
+    items: 
+    - name:  Common scenarios
+      href:  common-scenarios.md
+    - name:  Tools for synchronization
+      href:  sync-tools.md
+    - name:  Choosing the right sync client
+      href:  https://aka.ms/EvaluateSyncOptions
+    - name:  Steps to start
+      href:  get-started.md
+    - name:  Prerequisites
+      href:  prerequisites.md
+  - name: Managing your deployment
+    items: 
+    - name:  Install your sync tool
+      href:  install.md
+    - name:  Configure your synchronization
+      href:  configure.md
+    - name:  Configure account settings
+      href:  accounts.md
+    - name:  Monitor your environment
+      href:  connect/how-to-connect-health-operations.md
+    - name:  Migrate your sync tool
+      href:  cloud-sync/migrate-azure-ad-connect-to-cloud-sync.md
+    - name:  Exchange hybrid writeback
+      href:  exchange-hybrid-writeback.md
+    - name:  Decommission connect sync V1
+      href:  decommission-connect-sync-v1.md
+    - name:  Verify your version of sync
+      href:  verify-sync-tool-version.md
+  - name: Managing users and groups
+    items: 
+    - name:  Provision users on-demand
+      href:  on-demand-provision.md
+    - name:  Scheduling imports
+      href:  connect/how-to-connect-sync-feature-scheduler.md
+    - name:  Prevent accidental deletions
+      href:  accidental-deletes.md
+  - name: Managing passwords
+    items: 
+    - name:  What is password hash sync?
+      href:  connect/whatis-phs.md
+    - name:  What is pass-through authentication?
+      href:  connect/how-to-connect-pta.md
+    - name:  What is federation?
+      href:  connect/whatis-fed.md
+    - name:  Troubleshoot password synchronization
+      href:  connect/tshoot-connect-password-hash-synchronization.md
+  - name: Managing single sign-on
+    items: 
+    - name:  What is single sign-on?
+      href:  connect/how-to-connect-sso.md
+    - name:  Get started
+      href:  sso.md
+    - name:  Single sign-on FAQ
+      href:  connect/how-to-connect-sso-faq.yml
+  - name: Managing attributes
+    items: 
+    - name:  Attribute mapping in cloud sync
+      href:  cloud-sync/how-to-attribute-mapping.md
+    - name:  Overview of the default configuration in  connect sync
+      href:  connect/concept-azure-ad-connect-sync-default-configuration.md
+    - name:  How to change the default configuration in  connect sync
+      href:  connect/how-to-connect-sync-change-the-configuration.md
+    - name:  Attributes synchronized to AD
+      href:  connect/reference-connect-sync-attributes-synchronized.md
+
+
+
+- name: Cloud sync reference
+  items:
+  - name: What is cloud sync?
+    href: cloud-sync/what-is-cloud-sync.md
+  - name: What is the provisioning agent?
+    href: cloud-sync/what-is-provisioning-agent.md
+  - name: Tutorials
     items:
-    - name: Azure AD Connect Health Operations
-      href: how-to-connect-health-operations.md
-    - name: Use Azure AD Connect Health with AD FS
-      href: how-to-connect-health-adfs.md
-    - name: Risky IP report for Azure AD Connect Health with AD FS
-      href: how-to-connect-health-adfs-risky-ip.md
-    - name: Azure AD Connect Health Risky IP report workbook
-      href: how-to-connect-health-adfs-risky-ip-workbook.md
-    - name: AD FS sign-ins in Azure AD with Connect Health
-      href: how-to-connect-health-ad-fs-sign-in.md
-    - name: Use Azure AD Connect Health for sync
-      href: how-to-connect-health-sync.md
-    - name: Use Azure AD Connect Health with AD DS
-      href: how-to-connect-health-adds.md
-    - name: Health service data out-of-date
-      href: how-to-connect-health-data-freshness.md
-    - name: Diagnose duplicate attribute sync errors
-      href: how-to-connect-health-diagnose-sync-errors.md
-    - name: Azure AD Connect Health alert catalog
-      href: how-to-connect-health-alert-catalog.md
-    - name: Azure AD Connect Health data retrieval
-      href: how-to-connect-health-data-retrieval.md
-  - name: Manage Azure AD Connect Sync  
+    - name: Integrate a single AD forest  with a single Microsoft Entra tenant
+      href: cloud-sync/tutorial-single-forest.md
+    - name: Integrate an existing forest and a new forest with a single Microsoft Entra tenant
+      href: cloud-sync/tutorial-existing-forest.md
+    - name: Pilot cloud sync for an existing synced AD forest 
+      href: cloud-sync/tutorial-pilot-aadc-aadccp.md
+  - name: Concepts
     items:
-    - name: Staging server and disaster recovery
-      href: how-to-connect-sync-staging-server.md
-    - name: Best practices for changing the default configuration
-      href: how-to-connect-sync-best-practices-changing-default-configuration.md
-    - name: Change the default configuration
-      href: how-to-connect-sync-change-the-configuration.md
-    - name: Fix modified default rules
-      href: how-to-connect-fix-default-rules.md
-    - name: Configure directory extensions
-      href: how-to-connect-sync-feature-directory-extensions.md
-    - name: Configure preferred data location
-      href: how-to-connect-sync-feature-preferreddatalocation.md
-    - name: Configure filtering
-      href: how-to-connect-sync-configure-filtering.md
-    - name: Manage the scheduler
-      href: how-to-connect-sync-feature-scheduler.md
-    - name: Create and customize a synchronization rule
-      href: how-to-connect-create-custom-sync-rule.md
-    - name: Azure AD Connect sync V2 endpoint API
-      href: how-to-connect-sync-endpoint-api-v2.md
-    - name: Azure AD Connect Sync service manager
-      items: 
-       - name: Manage the service manager operations tab
-         href: how-to-connect-sync-service-manager-ui-operations.md
-       - name: Use connectors with the service manager
-         href: how-to-connect-sync-service-manager-ui-connectors.md
-       - name: Metaverse designer
-         href: how-to-connect-sync-service-manager-ui-mvdesigner.md
-       - name: Metaverse search
-         href: how-to-connect-sync-service-manager-ui-mvsearch.md
+    - name: How it works
+      href: cloud-sync/concept-how-it-works.md
+    - name: What is password hash sync?
+      href: connect/whatis-phs.md
+    - name: Understanding the Microsoft Entra schema, attributes, and expressions
+      href: cloud-sync/concept-attributes.md
+    - name: Writing Expressions for Attribute Mappings in Microsoft Entra ID
+      href: cloud-sync/reference-expressions.md
+  - name: How-to guides
+    items:
+    - name: Installation and upgrade
+      items:
+      - name: Installation Prerequisites
+        href: cloud-sync/how-to-prerequisites.md
+      - name: Install the provisioning agent
+        href: cloud-sync/how-to-install.md
+      - name: Install the provisioning agent using CLI and PowerShell
+        href: cloud-sync/how-to-install-pshell.md
+      - name: Cloud sync configuration
+        href: cloud-sync/how-to-configure.md
+      - name: On-demand provisioning
+        href: cloud-sync/how-to-on-demand-provision.md
+      - name: Attribute mapping
+        href: cloud-sync/how-to-attribute-mapping.md 
+      - name: Use Single Sign-On
+        href: cloud-sync/how-to-sso.md
+      - name: Directory extensions and custom attributes
+        href: cloud-sync/custom-attribute-mapping.md
+      - name: Exchange hybrid
+        href: cloud-sync/exchange-hybrid.md
+    - name: Plan and design
+      items:
+      - name: Topologies and scenarios for cloud sync
+        href: cloud-sync/plan-cloud-sync-topologies.md  
+  - name: Manage 
+    items:
+    - name: Agent automatic upgrade
+      href: cloud-sync/how-to-automatic-upgrade.md
+    - name: Accidental deletes
+      href: cloud-sync/how-to-accidental-deletes.md
+    - name: Agent registry options
+      href: cloud-sync/how-to-manage-registry-options.md
+    - name: Agent gMSA PowerShell cmdlets
+      href: cloud-sync/how-to-gmsa-cmdlets.md
+    - name: How to map usertype with cloud sync
+      href: cloud-sync/how-to-map-usertype.md
+    - name: Microsoft Entra Connect cloud sync insights workbook
+      href: cloud-sync/how-to-cloud-sync-workbook.md
+  - name: Develop
+    items:
+    - name: Transformations
+      href: cloud-sync/how-to-transformation.md
+    - name: Programmatically configure cloud sync using MS Graph API
+      href: cloud-sync/how-to-inbound-synch-ms-graph.md
+    - name: Expression Builder
+      href: cloud-sync/how-to-expression-builder.md
+    - name: Microsoft Entra synchronization API 
+      href: /graph/api/resources/synchronization-overview
   - name: Troubleshoot
     items:
-    - name: What is the Azure AD Connect Admin Agent?
-      href: whatis-aadc-admin-agent.md
-    - name: What is the ADConnectivityTools PowerShell module?
-      href: how-to-connect-adconnectivitytools.md
-    - name: Azure AD Connect Single Object Sync 
-      href: how-to-connect-single-object-sync.md
-    - name: Connectivity
-      href: tshoot-connect-connectivity.md
-    - name: Errors during synchronization
-      href: tshoot-connect-sync-errors.md
-    - name: Object is not synchronized
-      href: tshoot-connect-object-not-syncing.md
-    - name: Source anchor during installation
-      href: tshoot-connect-source-anchor.md
-    - name: Object sync using the troubleshooting task
-      href: tshoot-connect-objectsync.md
+    - name: Troubleshoot cloud sync
+      href: cloud-sync/how-to-troubleshoot.md
+    - name: Duplicate attributes
+      href: connect/how-to-connect-syncservice-duplicate-attribute-resiliency.md
+  - name: Reference
+    items:
+    - name: Provisioning agent version history
+      href: cloud-sync/reference-version-history.md
+    - name: Cloud sync FAQ
+      href: cloud-sync/reference-cloud-sync-faq.yml
+    - name: AADCloudSyncTools PowerShell module
+      href: cloud-sync/reference-powershell.md
+    - name: Attributes that are synchronized
+      href: connect/reference-connect-sync-attributes-synchronized.md
+    - name: Error codes and descriptions
+      href: cloud-sync/reference-error-codes.md
+    - name: Basic Active Directory and Microsoft Entra environment
+      href: cloud-sync/tutorial-basic-ad-azure.md
+
+      
+- name: Connect sync reference
+  items:
+  - name: What is connect sync?
+    href: connect/whatis-azure-ad-connect-v2.md
+  - name: Tutorials
+    items:
+    - name: Use password hash sync for hybrid identity in Active Directory
+      href: connect/tutorial-password-hash-sync.md
+    - name: Use pass-through authentication for hybrid identity in Active Directory
+      href: connect/tutorial-passthrough-authentication.md
+    - name: Use federation for hybrid identity in Active Directory
+      href: connect/tutorial-federation.md
+    - name: Set password hash sync as backup for AD FS 
+      href: connect/tutorial-phs-backup.md
+  - name: Concepts
+    items:
+
+
+    - name: Microsoft Entra Connect and Connect Health
+      items:
+      - name: What is Microsoft Entra Connect and Connect Health?
+        href: connect/whatis-azure-ad-connect.md
+      - name: What is Microsoft Entra Connect V2.0?
+        href: connect/whatis-azure-ad-connect-v2.md
+      - name: Choose the right authentication
+        href: connect/./choose-ad-authn.md
+      - name: Identity synchronization and duplicate attribute resiliency
+        href: connect/how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Password hash synchronization
-      href: tshoot-connect-password-hash-synchronization.md
+      items:
+      - name: What is password hash synchronization?
+        href: connect/whatis-phs.md
+      - name: How password hash synchronization works
+        href: connect/how-to-connect-password-hash-synchronization.md
+      - name: Selective password hash synchronization
+        href: connect/how-to-connect-selective-password-hash-synchronization.md
     - name: Pass-through authentication
-      href: tshoot-connect-pass-through-authentication.md
+      items:
+      - name: What is pass-through authentication?
+        href: connect/how-to-connect-pta.md
+      - name: How pass-through authentication works
+        href: connect/how-to-connect-pta-how-it-works.md
+      - name: Pass-through authentication current limitations
+        href: connect/how-to-connect-pta-current-limitations.md
+      - name: Security deep dive on pass-through authentication
+        href: connect/how-to-connect-pta-security-deep-dive.md
+      - name: Pass-through authentication and user privacy
+        href: connect/how-to-connect-pta-user-privacy.md
+    - name: Federation
+      items:
+      - name: What is federation?
+        href: connect/whatis-fed.md
+      - name: How federation works
+        href: connect/how-to-connect-fed-whatis.md
+      - name: Microsoft Entra federation compatibility list
+        href: connect/how-to-connect-fed-compatibility.md
     - name: Single sign-on
-      href: tshoot-connect-sso.md
+      items:
+      - name: What is single sign-on?
+        href: connect/how-to-connect-sso.md
+      - name: How single sign-on works
+        href: connect/how-to-connect-sso-how-it-works.md
+      - name: Single sign-on and user privacy
+        href: connect/how-to-connect-sso-user-privacy.md
+    - name: Microsoft Entra Connect Sync
+      items:
+      - name: What is connect sync?
+        href: connect/how-to-connect-sync-whatis.md
+      - name: Azure ADSync service account
+        href: connect/concept-adsync-service-account.md
+      - name: Microsoft Entra Connect Sync features
+        href: connect/how-to-connect-syncservice-features.md
+      - name: What is the Microsoft Entra Connect Sync service manager?
+        href: connect/how-to-connect-sync-service-manager-ui.md
+      - name: Microsoft Entra Connect Sync technical concepts
+        href: connect/how-to-connect-sync-technical-concepts.md
+      - name: Understanding Microsoft Entra Connect Sync architecture
+        href: connect/concept-azure-ad-connect-sync-architecture.md
+      - name: Understanding Declarative Provisioning
+        href: connect/concept-azure-ad-connect-sync-declarative-provisioning.md
+      - name: Understanding Declarative Provisioning Expressions
+        href: connect/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+      - name: Understanding the default configuration
+        href: connect/concept-azure-ad-connect-sync-default-configuration.md
+      - name: Understanding users and contacts
+        href: connect/concept-azure-ad-connect-sync-user-and-contacts.md
+      - name: Understanding shadow attributes
+        href: connect/how-to-connect-syncservice-shadow-attributes.md
+  - name: How-to guides
+    items:
+    - name: Installation and upgrade
+      items:
+      - name: Installation Roadmap
+        href: connect/how-to-connect-install-roadmap.md
+      - name: Installation prerequisites
+        href: connect/how-to-connect-install-prerequisites.md
+      - name: Choose the installation type
+        href: connect/how-to-connect-install-select-installation.md
+      - name: Install Microsoft Entra Connect with Express settings (password hash sync)
+        href: connect/how-to-connect-install-express.md
+      - name: Install Microsoft Entra Connect federation or other Custom settings
+        href: connect/how-to-connect-install-custom.md
+      - name: Import and export configuration settings
+        href: connect/how-to-connect-import-export-config.md
+      - name: Install Microsoft Entra Connect with pass-through authentication
+        href: connect/how-to-connect-pta-quick-start.md 
+      - name: Install Microsoft Entra Connect Health agents
+        href: connect/how-to-connect-health-agent-install.md
+      - name: Automatic upgrade
+        href: connect/how-to-connect-install-automatic-upgrade.md
+      - name: Running the installation wizard a second time
+        href: connect/how-to-connect-installation-wizard.md
+      - name: Upgrade to a new version of Microsoft Entra Connect
+        href: connect/how-to-upgrade-previous-version.md
+      - name: Upgrade from DirSync or Azure AD Sync
+        href: connect/how-to-dirsync-upgrade-get-started.md
+      - name: Install using an existing ADSync database
+        href: connect/how-to-connect-install-existing-database.md
+      - name: Install using SQL delegated administrator permissions
+        href: connect/how-to-connect-install-sql-delegation.md
+      - name: Upgrade preview agents for PTA
+        href: connect/how-to-connect-pta-upgrade-preview-authentication-agents.md
+      - name: Move Microsoft Entra Connect database from SQL Express to SQL Server
+        href: connect/how-to-connect-install-move-db.md
+      - name: When you already have Microsoft Entra ID
+        href: connect/how-to-connect-install-existing-tenant.md
+      - name: Post installation tasks
+        href: connect/how-to-connect-post-installation.md
+      - name: Uninstall Microsoft Entra Connect
+        href: connect/how-to-connect-uninstall.md
+      - name: Using a deprecated version
+        href: connect/deprecated-azure-ad-connect.md
+    - name: Plan and design
+      items:
+      - name: Design concepts
+        href: connect/plan-connect-design-concepts.md
+      - name: Topologies for Microsoft Entra Connect
+        href: connect/plan-connect-topologies.md
+      - name: Factors influencing the performance of Microsoft Entra Connect
+        href: connect/plan-connect-performance-factors.md
+      - name: How will users sign in
+        href: connect/plan-connect-user-signin.md
+      - name: Microsoft Entra UserPrincipalName population
+        href: connect/plan-connect-userprincipalname.md
+      - name: Special considerations for instances
+        href: connect/reference-connect-instances.md
+      - name: Migration
+        items:
+            - name: Migrate from federation to cloud authentication
+              href: connect/migrate-from-federation-to-cloud-authentication.md
+            - name: Move groups from one forest to another
+              href: connect/how-to-connect-migrate-groups.md
+            - name: Migrate to cloud authentication using staged rollout
+              href: connect/how-to-connect-staged-rollout.md
+     
+    - name: Manage Microsoft Entra Connect
+      items:
+      - name: Enable device writeback
+        href: connect/how-to-connect-device-writeback.md
+      - name: Plan for group writeback
+        href: connect/how-to-connect-group-writeback-v2.md
+      - name: Enable group writeback
+        href: connect/how-to-connect-group-writeback-enable.md
+      - name: Modify group writeback
+        href: connect/how-to-connect-modify-group-writeback.md
+      - name: Disable group writeback
+        href: connect/how-to-connect-group-writeback-disable.md
+      - name: Device options
+        href: connect/how-to-connect-device-options.md
+      - name: Additional features in Microsoft Entra Connect
+        href: connect/how-to-connect-preview.md
+      - name: Prevent accidental deletes
+        href: connect/how-to-connect-sync-feature-prevent-accidental-deletes.md
+      - name: Enable AD recycle bin
+        href: connect/how-to-connect-sync-recycle-bin.md
+      - name: Configure the AD DS Connector account
+        href: connect/how-to-connect-configure-ad-ds-connector-account.md
+      - name: Change the Azure ADSync service account password
+        href: connect/how-to-connect-sync-change-serviceacct-pass.md
+      - name: Change the Microsoft Entra Connector account password
+        href: connect/how-to-connect-azureadaccount.md
+      - name: Change the AD DS Connector account password
+        href: connect/how-to-connect-sync-change-addsacct-pass.md
+    - name: Manage Pass-through authentication  
+      items:
+      - name: Get started with pass-through authentication
+        href: connect/how-to-connect-pta-quick-start.md
+      - name: Pass-through authentication FAQ
+        href: connect/how-to-connect-pta-faq.yml
+      - name: Disable PTA with Microsoft Entra Connect "Do not configure"
+        href: connect/how-to-connect-pta-disable-do-not-configure.md
+    - name: Manage Federation Services
+      items:
+      - name: Managing federation with Microsoft Entra Connect
+        href: connect/how-to-connect-fed-management.md
+      - name: Multiple domain support for federating
+        href: connect/how-to-connect-install-multiple-domains.md
+      - name: Federate multiple instances of Microsoft Entra ID with single instance of AD FS
+        href: connect/how-to-connect-fed-single-adfs-multitenant-federation.md
+      - name: Renew federation certificates for O365 and Microsoft Entra ID 
+        href: connect/how-to-connect-fed-o365-certs.md
+      - name: Update the SSL certificate for AD FS
+        href: connect/how-to-connect-fed-ssl-update.md
+      - name: Manage the AD FS trust with Microsoft Entra ID
+        href: connect/how-to-connect-azure-ad-trust.md
+      - name: Configure group claims for applications
+        href: connect/how-to-connect-fed-group-claims.md
+      - name: Change hash algorithm for O365 RP
+        href: connect/how-to-connect-fed-sha256-guidance.md
+      - name: Use a SAML 2.0 server as your Idp
+        href: connect/how-to-connect-fed-saml-idp.md
+      - name: Emergency rotation of AD FS certificates
+        href: connect/how-to-connect-emergency-ad-fs-certificate-rotation.md
+      - name: Monitor changes to federation configuration
+        href: connect/how-to-connect-monitor-federation-changes.md
+    - name: Manage single sign-on 
+      items:
+
+      - name: Get started with Seamless single sign-on
+        href: connect/how-to-connect-sso-quick-start.md
+
+      - name: Single sign-on FAQ
+        href: connect/how-to-connect-sso-faq.yml
+    - name: Manage Microsoft Entra Connect Health
+      items:
+      - name: Microsoft Entra Connect Health Operations
+        href: connect/how-to-connect-health-operations.md
+      - name: Use Microsoft Entra Connect Health with AD FS
+        href: connect/how-to-connect-health-adfs.md
+      - name: Risky IP report for Microsoft Entra Connect Health with AD FS
+        href: connect/how-to-connect-health-adfs-risky-ip.md
+      - name: Microsoft Entra Connect Health Risky IP report workbook
+        href: connect/how-to-connect-health-adfs-risky-ip-workbook.md
+      - name: AD FS sign-ins in Microsoft Entra ID with Connect Health
+        href: connect/how-to-connect-health-ad-fs-sign-in.md
+      - name: Use Microsoft Entra Connect Health for sync
+        href: connect/how-to-connect-health-sync.md
+      - name: Use Microsoft Entra Connect Health with AD DS
+        href: connect/how-to-connect-health-adds.md
+      - name: Health service data out-of-date
+        href: connect/how-to-connect-health-data-freshness.md
+      - name: Diagnose duplicate attribute sync errors
+        href: connect/how-to-connect-health-diagnose-sync-errors.md
+      - name: Microsoft Entra Connect Health alert catalog
+        href: connect/how-to-connect-health-alert-catalog.md
+      - name: Microsoft Entra Connect Health data retrieval
+        href: connect/how-to-connect-health-data-retrieval.md
+    - name: Manage Microsoft Entra Connect Sync  
+      items:
+      - name: Staging server and disaster recovery
+        href: connect/how-to-connect-sync-staging-server.md
+      - name: Best practices for changing the default configuration
+        href: connect/how-to-connect-sync-best-practices-changing-default-configuration.md
+      - name: Change the default configuration
+        href: connect/how-to-connect-sync-change-the-configuration.md
+      - name: Fix modified default rules
+        href: connect/how-to-connect-fix-default-rules.md
+      - name: Configure directory extensions
+        href: connect/how-to-connect-sync-feature-directory-extensions.md
+      - name: Configure preferred data location
+        href: connect/how-to-connect-sync-feature-preferreddatalocation.md
+      - name: Configure filtering
+        href: connect/how-to-connect-sync-configure-filtering.md
+      - name: Manage the scheduler
+        href: connect/how-to-connect-sync-feature-scheduler.md
+      - name: Create and customize a synchronization rule
+        href: connect/how-to-connect-create-custom-sync-rule.md
+      - name: Microsoft Entra Connect Sync V2 endpoint API
+        href: connect/how-to-connect-sync-endpoint-api-v2.md
+      - name: Microsoft Entra Connect Sync service manager
+        items: 
+        - name: Manage the service manager operations tab
+          href: connect/how-to-connect-sync-service-manager-ui-operations.md
+        - name: Use connectors with the service manager
+          href: connect/how-to-connect-sync-service-manager-ui-connectors.md
+        - name: Metaverse designer
+          href: connect/how-to-connect-sync-service-manager-ui-mvdesigner.md
+        - name: Metaverse search
+          href: connect/how-to-connect-sync-service-manager-ui-mvsearch.md
+  - name: Troubleshoot
+    items:
+    - name: What is the Microsoft Entra Connect Admin Agent?
+      href: connect/whatis-aadc-admin-agent.md
+    - name: What is the ADConnectivityTools PowerShell module?
+      href: connect/how-to-connect-adconnectivitytools.md
+    - name: Microsoft Entra Connect Single Object Sync 
+      href: connect/how-to-connect-single-object-sync.md
+    - name: Connectivity
+      href: connect/tshoot-connect-connectivity.md
+    - name: Errors during synchronization
+      href: connect/tshoot-connect-sync-errors.md
+    - name: Object is not synchronized
+      href: connect/tshoot-connect-object-not-syncing.md
+    - name: Source anchor during installation
+      href: connect/tshoot-connect-source-anchor.md
+    - name: Object sync using the troubleshooting task
+      href: connect/tshoot-connect-objectsync.md
+    - name: Password hash synchronization
+      href: connect/tshoot-connect-password-hash-synchronization.md
+    - name: Pass-through authentication
+      href: connect/tshoot-connect-pass-through-authentication.md
+    - name: Single sign-on
+      href: connect/tshoot-connect-sso.md
     - name: LargeObject error caused by userCertificate
-      href: tshoot-connect-largeobjecterror-usercertificate.md
+      href: connect/tshoot-connect-largeobjecterror-usercertificate.md
     - name: How to recover from LocalDB 10-GB limit
-      href: tshoot-connect-recover-from-localdb-10gb-limit.md
+      href: connect/tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL connectivity
-      href: tshoot-connect-tshoot-sql-connectivity.md
+      href: connect/tshoot-connect-tshoot-sql-connectivity.md
     - name: Attribute synchronization
-      href: tshoot-connect-attribute-not-syncing.md
+      href: connect/tshoot-connect-attribute-not-syncing.md
     - name: Installation issues
-      href: tshoot-connect-install-issues.md
+      href: connect/tshoot-connect-install-issues.md
     - name: UPN changes
-      href: howto-troubleshoot-upn-changes.md
+      href: connect/howto-troubleshoot-upn-changes.md
     - name: End-to-end troubleshooting of objects and attributes
       href: /troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes
-- name: Reference
-  items:
-  - name: Hybrid Identity Required Ports and Protocols
-    href:  reference-connect-ports.md
-  - name: Azure AD Connect version history
-    href:  reference-connect-version-history.md
-  - name: Azure AD Connect Health version history
-    href: reference-connect-health-version-history.md
-  - name: Azure AD Pass-through Authentication agent version history
-    href: reference-connect-pta-version-history.md
-  - name: Connector version history
-    href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
-  - name: Accounts and permissions
-    href: reference-connect-accounts-permissions.md
-  - name: Azure AD Connect FAQ
-    href: reference-connect-faq.yml
-  - name: Azure AD Connect Health FAQ
-    href: reference-connect-health-faq.yml
-  - name: Hybrid identity considerations for Azure Government 
-    href: reference-connect-government-cloud.md
-  - name: Azure AD Connect user privacy
-    href: reference-connect-user-privacy.md
-  - name: Azure AD Connect Health user privacy
-    href: reference-connect-health-user-privacy.md
-  - name: Azure AD Connect in Germany
-    href: reference-connect-germany.md
-  - name: DirSync Deprecation
-    href:  reference-connect-dirsync-deprecated.md
-  - name: Attributes synchronized
-    href:  reference-connect-sync-attributes-synchronized.md
-  - name: Functions Reference
-    href: reference-connect-sync-functions-reference.md
-  - name: Azure AD federation compatibility list
-    href: how-to-connect-fed-compatibility.md
-  - name: TLS 1.2 enforcement
-    href: reference-connect-tls-enforcement.md
-  - name: ADSync Reference
-    href: reference-connect-adsync.md
-  - name: ADSyncConfig Reference
-    href: reference-connect-adsyncconfig.md
-  - name: ADSyncTools Reference
-    href: reference-connect-adsynctools.md
-  - name: ADConnectivityTools Reference
-    href: reference-connect-adconnectivitytools.md
-  - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
-    href: reference-connect-msexchuserholdpolicies.md
-  - name: Azure AD Connect version history archive
-    href:  reference-connect-version-history-archive.md
+  - name: Reference
+    items:
+    - name: Hybrid Identity Required Ports and Protocols
+      href: connect/reference-connect-ports.md
+    - name: Microsoft Entra Connect version history
+      href: connect/reference-connect-version-history.md
+    - name: Microsoft Entra Connect Health version history
+      href: connect/reference-connect-health-version-history.md
+    - name: Microsoft Entra pass-through authentication agent version history
+      href: connect/reference-connect-pta-version-history.md
+    - name: Connector version history
+      href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
+    - name: Accounts and permissions
+      href: connect/reference-connect-accounts-permissions.md
+    - name: Microsoft Entra Connect FAQ
+      href: connect/reference-connect-faq.yml
+    - name: Microsoft Entra Connect Health FAQ
+      href: connect/reference-connect-health-faq.yml
+    - name: Hybrid identity considerations for Azure Government 
+      href: connect/reference-connect-government-cloud.md
+    - name: Microsoft Entra Connect user privacy
+      href: connect/reference-connect-user-privacy.md
+    - name: Microsoft Entra Connect Health user privacy
+      href: connect/reference-connect-health-user-privacy.md
+    - name: DirSync Deprecation
+      href: connect/reference-connect-dirsync-deprecated.md
+    - name: Attributes synchronized
+      href: connect/reference-connect-sync-attributes-synchronized.md
+    - name: Functions Reference
+      href: connect/reference-connect-sync-functions-reference.md
+    - name: Microsoft Entra federation compatibility list
+      href: connect/how-to-connect-fed-compatibility.md
+    - name: TLS 1.2 enforcement
+      href: connect/reference-connect-tls-enforcement.md
+    - name: ADSync Reference
+      href: connect/reference-connect-adsync.md
+    - name: ADSyncConfig Reference
+      href: connect/reference-connect-adsyncconfig.md
+    - name: ADSyncTools Reference
+      href: connect/reference-connect-adsynctools.md
+    - name: ADConnectivityTools Reference
+      href: connect/reference-connect-adconnectivitytools.md
+    - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
+      href: connect/reference-connect-msexchuserholdpolicies.md
+    - name: Microsoft Entra Connect version history archive
+      href: connect/reference-connect-version-history-archive.md
+    - name: How to use BypassDirSyncOverrides
+      href: connect/how-to-bypassdirsyncoverrides.md
+      
+  
+
+         
+
+ 
+ 
+  

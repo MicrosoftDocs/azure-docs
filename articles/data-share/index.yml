@@ -4,15 +4,15 @@ title: Azure Data Share documentation # < 60 chars
 summary: Azure Data Share is a safe and secure service for sharing data with third-party organizations. # < 160 chars
 
 metadata:
-  title: Azure Data Share  # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Data Share is a safe and secure service for sharing data with third-party organizations. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Data Share
+  description: Azure Data Share is a safe and secure service for sharing data with third-party organizations.
   services: data-share
-  ms.service: data-share #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: data-share
+  ms.topic: landing-page
   ms.collection: collection
-  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
-  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/20/2020 #Required; mm/dd/yyyy format.
+  author: sidontha
+  ms.author: sidontha
+  ms.date: 10/27/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

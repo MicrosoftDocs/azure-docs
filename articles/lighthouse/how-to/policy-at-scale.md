@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Policy to delegated subscriptions at scale
 description: Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
-ms.date: 12/16/2021
+ms.date: 05/23/2023
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -31,7 +31,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## Deploy a policy across multiple customer tenants
 
-The example below shows how to use an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic, preventing the creation of any new storage accounts that don't comply and marking existing storage accounts without the setting as non-compliant.
+The example below shows how to use an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic. It prevents the creation of any new storage accounts that don't comply. Any existing storage accounts without the setting are marked as non-compliant.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -52,7 +52,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## Validate the policy deployment
 
-After you've deployed the Azure Resource Manager template, you can confirm that the policy definition was successfully applied by attempting to create a storage account with **EnableHttpsTrafficOnly** set to **false** in one of your delegated subscriptions. Because of the policy assignment, you should be unable to create this storage account.  
+After you've deployed the Azure Resource Manager template, confirm that the policy definition was successfully applied by attempting to create a storage account with **EnableHttpsTrafficOnly** set to **false** in one of your delegated subscriptions. Because of the policy assignment, you should be unable to create this storage account.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `

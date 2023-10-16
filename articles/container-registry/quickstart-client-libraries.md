@@ -1,18 +1,18 @@
 ---
 title: Quickstart - Manage container registry content with client libraries
 description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client libraries
-author: dlepow
 ms.topic: quickstart
-ms.date: 10/05/2021
-ms.author: danlep
-zone_pivot_groups: programming-languages-set-ten
-ms.custom: mode-api, devx-track-azurecli 
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+zone_pivot_groups: programming-languages-set-fivedevlangs
+ms.custom: mode-api, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-go
 ms.devlang: azurecli
 ---
 
 # Quickstart: Use the Azure Container Registry client libraries
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python, programming-language-go"
 
 Use this article to get started with the client library for Azure Container Registry. Follow these steps to try out example code for data-plane operations on images and artifacts.
 
@@ -68,7 +68,7 @@ dotnet add package Azure.Containers.ContainerRegistry --prerelease
 
 ## Authenticate the client
 
-For your application to connect to your registry, you'll need to create a `ContainerRegistryClient` that can authenticate with it. Use the [Azure Identity library][dotnet_identity] to add Azure Active Directory support for authenticating Azure SDK clients with their corresponding Azure services.  
+For your application to connect to your registry, you'll need to create a `ContainerRegistryClient` that can authenticate with it. Use the [Azure Identity library][dotnet_identity] to add Microsoft Entra ID support for authenticating Azure SDK clients with their corresponding Azure services.  
 
 When you're developing and debugging your application locally, you can use your own user to authenticate with your registry. One way to accomplish this is to [authenticate your user with the Azure CLI](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#authenticating-via-the-azure-cli) and run your application from this environment. If your application is using a client that has been constructed to authenticate with `DefaultAzureCredential`, it will correctly authenticate with the registry at the specified endpoint.  
 
@@ -84,7 +84,7 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new Defau
 
 See the [Azure Identity README][dotnet_identity] for more approaches to authenticating with `DefaultAzureCredential`, both locally and in deployment environments. To connect to registries in non-public Azure clouds, see the [API reference][dotnet_docs].
 
-For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
+For more information on using Microsoft Entra ID with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
 ## Examples
 
@@ -205,7 +205,7 @@ await foreach (string repositoryName in repositoryNames)
 
 ## Authenticate the client
 
-The [Azure Identity library][java_identity] provides Azure Active Directory support for authentication.
+The [Azure Identity library][java_identity] provides Microsoft Entra ID support for authentication.
 
 The following samples assume you have a registry endpoint string containing the  `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
@@ -227,7 +227,7 @@ ContainerRegistryAsyncClient client = new ContainerRegistryClientBuilder()
     .buildAsyncClient();
 ```
 
-For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
+For more information on using Microsoft Entra ID with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
 ## Examples
 
@@ -313,7 +313,7 @@ for (String repositoryName : client.listRepositoryNames()) {
 
 ### Currently supported environments
 
-- [LTS versions of Node.js](https://nodejs.org/about/releases/)
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 
 See our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
 
@@ -327,7 +327,7 @@ npm install @azure/container-registry
 
 ## Authenticate the client
 
-The [Azure Identity library][javascript_identity] provides Azure Active Directory support for authentication.
+The [Azure Identity library][javascript_identity] provides Microsoft Entra ID support for authentication.
 
 ```javascript
 const { ContainerRegistryClient } = require("@azure/container-registry");
@@ -338,7 +338,7 @@ const endpoint = process.env.CONTAINER_REGISTRY_ENDPOINT;
 const client = new ContainerRegistryClient(endpoint, new DefaultAzureCredential());
 ```
 
-For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
+For more information on using Microsoft Entra ID with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
 ## Examples
 
@@ -455,7 +455,7 @@ pip install --pre azure-containerregistry
 
 ## Authenticate the client
 
-The [Azure Identity library][python_identity] provides Azure Active Directory support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set. For more information, see [Azure Identity environment variables](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables).
+The [Azure Identity library][python_identity] provides Microsoft Entra ID support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set. For more information, see [Azure Identity environment variables](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables).
 
 ```python
 # Create a ContainerRegistryClient that will authenticate through Active Directory
@@ -580,6 +580,182 @@ class DeleteImagesAsync(object):
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+## Get started
+
+[Source code][go_source] | [Package (pkg.go.dev)][go_package] | [REST API reference][go_docs]
+
+### Install the package
+
+Install the Azure Container Registry client library for Go with `go get`:
+
+```bash
+go get github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry
+```
+
+## Authenticate the client
+
+When you're developing and debugging your application locally, you can use [azidentity.NewDefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#NewDefaultAzureCredential) to authenticate. We recommend using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) in a production environment. 
+
+```go
+import (
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func main() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obtain a credential: %v", err)
+	}
+
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+}
+```
+See the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) documentation for more information about other authentication approaches.
+
+## Examples
+
+Each sample assumes the container registry endpoint URL is "https://myregistry.azurecr.io".
+
+### List tags
+
+This sample assumes the registry has a repository `hello-world`.
+
+```go
+import (
+	"context"
+	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func Example_listTagsWithAnonymousAccess() {
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", nil, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+	ctx := context.Background()
+	pager := client.NewListTagsPager("library/hello-world", nil)
+	for pager.More() {
+		page, err := pager.NextPage(ctx)
+		if err != nil {
+			log.Fatalf("failed to advance page: %v", err)
+		}
+		for _, v := range page.Tags {
+			fmt.Printf("tag: %s\n", *v.Name)
+		}
+	}
+}
+```
+
+### Set artifact properties
+
+This sample assumes the registry has a repository `hello-world` with image tagged `latest`.
+
+```go
+package azcontainerregistry_test
+
+import (
+	"context"
+	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func Example_setArtifactProperties() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obtain a credential: %v", err)
+	}
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+	ctx := context.Background()
+	res, err := client.UpdateTagProperties(ctx, "library/hello-world", "latest", &azcontainerregistry.ClientUpdateTagPropertiesOptions{
+		Value: &azcontainerregistry.TagWriteableProperties{
+			CanWrite:  to.Ptr(false),
+			CanDelete: to.Ptr(false),
+		}})
+	if err != nil {
+		log.Fatalf("failed to finish the request: %v", err)
+	}
+	fmt.Printf("repository library/hello-world - tag latest: 'CanWrite' property: %t, 'CanDelete' property: %t\n", *res.Tag.ChangeableAttributes.CanWrite, *res.Tag.ChangeableAttributes.CanDelete)
+}
+```
+
+### Delete images
+
+```go
+package azcontainerregistry_test
+
+import (
+	"context"
+	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func Example_deleteImages() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obtain a credential: %v", err)
+	}
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+	ctx := context.Background()
+	repositoryPager := client.NewListRepositoriesPager(nil)
+	for repositoryPager.More() {
+		repositoryPage, err := repositoryPager.NextPage(ctx)
+		if err != nil {
+			log.Fatalf("failed to advance repository page: %v", err)
+		}
+		for _, r := range repositoryPage.Repositories.Names {
+			manifestPager := client.NewListManifestsPager(*r, &azcontainerregistry.ClientListManifestsOptions{
+				OrderBy: to.Ptr(azcontainerregistry.ArtifactManifestOrderByLastUpdatedOnDescending),
+			})
+			for manifestPager.More() {
+				manifestPage, err := manifestPager.NextPage(ctx)
+				if err != nil {
+					log.Fatalf("failed to advance manifest page: %v", err)
+				}
+				imagesToKeep := 3
+				for i, m := range manifestPage.Manifests.Attributes {
+					if i >= imagesToKeep {
+						for _, t := range m.Tags {
+							fmt.Printf("delete tag from image: %s", *t)
+							_, err := client.DeleteTag(ctx, *r, *t, nil)
+							if err != nil {
+								log.Fatalf("failed to delete tag: %v", err)
+							}
+						}
+						_, err := client.DeleteManifest(ctx, *r, *m.Digest, nil)
+						if err != nil {
+							log.Fatalf("failed to delete manifest: %v", err)
+						}
+						fmt.Printf("delete image with digest: %s", *m.Digest)
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove an Azure container registry, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -625,3 +801,6 @@ In this quickstart, you learned about using the Azure Container Registry client 
 [pip_link]: https://pypi.org
 [python_identity]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
 [python_source]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry
+[go_source]: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry
+[go_package]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry
+[go_docs]: /rest/api/containerregistry/

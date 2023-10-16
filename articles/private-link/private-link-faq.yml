@@ -3,10 +3,10 @@ metadata:
   title: Azure Private Link frequently asked questions (FAQ)
   description: Learn about Azure Private Link.
   services: private-link
-  author: malopMSFT
+  author: asudbring
   ms.service: private-link
   ms.topic: faq
-  ms.date: 10/05/2019
+  ms.date: 01/17/2023
   ms.author: allensu
 title: Azure Private Link frequently asked questions (FAQ)
 summary: |
@@ -41,7 +41,13 @@ sections:
       - question: |
           Do I need to disable network policies for Private Link?
         answer: |
-          Yes. Both Private Endpoint and Private Link Service need to disable network policies to function properly. They both have properties independent of one another.
+          Yes. Private Link Service need to disable network policies to function properly.
+      
+      - question: |
+          Can I use for User-Defined Routes only, Network Security Groups only, or for both for Private EndPoint?
+        answer: |
+          Yes. To utilize policies like User-Defined Routes and Network Security Groups, you need to enable Network policies for a subnet in a virtual network for the Private Endpoint. This setting affects all the private endpoints within the subnet.
+          
 
   - name: Private Endpoint
     questions:
@@ -56,9 +62,9 @@ sections:
           No. You don't require a dedicated subnet for Private Endpoints. You can choose a Private Endpoint IP from any subnet from the VNet where your service is deployed.  
 
       - question: |
-          Can a private endpoint connect to Private Link services across Azure Active Directory tenants? 
+          Can a private endpoint connect to Private Link services across Microsoft Entra tenants? 
         answer: |
-          Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Azure Active Directory tenants. Private Endpoints that connect across tenants require a manual request approval. 
+          Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Microsoft Entra tenants. Private Endpoints across tenants require a manual request approval. 
 
       - question: |
           Can Private Endpoint connect to Azure PaaS resources across Azure regions?
@@ -68,17 +74,22 @@ sections:
       - question: |
           Can I modify my Private Endpoint Network Interface Card (NIC)?
         answer: |
-          When a private endpoint is created, a read-only NIC is assigned. This cannot be modified and will remain for the life cycle of the Private endpoint.
+          When a private endpoint is created, a read-only NIC is assigned. The NIC can't be modified and will remain for the life cycle of the Private endpoint.
 
       - question: |
-          How do I achieve availability while using Private Endpoints in case of regional failures?
+          How do I achieve availability while using Private Endpoint if there are regional failures?
         answer: |
-          Private Endpoints are highly available resources with an SLA as per [SLA for Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). However, since they are regional resources, any Azure region outage can impact the availability. To achieve availability in case of regional failures, multiple PEs connected to same destination resource could be deployed in different regions. This way if one region goes down, you can still route the traffic for your recovery scenarios through PE in different region to access the destination resource. For info on how the regional failures are handled on destination service side, please review the service documentation on failover and recovery. Private Link traffic follows the Azure DNS resolution for the destination endpoint.
+          Private Endpoints are highly available resources with an SLA as per [SLA for Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). However, since they're regional resources, any Azure region outage can affect the availability. To achieve availability if there are regional failures, multiple PEs connected to same destination resource could be deployed in different regions. This way if one region goes down, you can still route the traffic for your recovery scenarios through PE in different region to access the destination resource. For info on how the regional failures are handled on destination service side, review the service documentation on failover and recovery. Private Link traffic follows the Azure DNS resolution for the destination endpoint.
 
       - question: |
-          How do I achieve availability while using private endpoints in case of Availability Zone failures?
+          How do I achieve availability while using private endpoints if there's Availability Zone failures?
         answer: |
-          Private Endpoints are highly available resources with an SLA as per [SLA for Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). Private Endpoints are zone-agnostic: an availability zone failure in the region of the Private Endpoint will not impact the availability of the Private Endpoint.
+          Private Endpoints are highly available resources with an SLA as per [SLA for Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). Private Endpoints are zone-agnostic: an availability zone failure in the region of the Private Endpoint won't affect the availability of the Private Endpoint.
+      
+      - question: |
+          Do private endpoints support ICMP traffic?
+        answer: |
+          TCP and UDP traffic are only supported for a private endpoint. For more information, see [Private Link limitations](./private-link-service-overview.md#limitations).
           
   - name: Private Link Service
     questions:
@@ -96,9 +107,9 @@ sections:
           - Add new Private Link Service to Standard Load Balancer. We allow up to eight Private Link Services per Standard Load Balancer.   
           
       - question: |
-          What is NAT(Network Address Translation) IP Configuration used in Private Link Service? How can I scale in terms of available ports and connections? 
+          What is the NAT (Network Address Translation) IP Configuration used in Private Link Service? How can I scale in terms of available ports and connections? 
         answer: |
-          - The NAT IP configuration ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space by providing source NAT on the Private Link traffic on the  destination side (service provider side). The NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.  NAT IP can be chosen from any subnet in a service provider's Virtual Network. 
+          - The NAT IP configuration ensures the source (consumer) and destination (service provider) address space don't have IP conflicts. The configuration provides source NAT for the private link traffic for the destination. The NAT IP address will show up as source IP for all packets received by your service and destination IP for all packets sent by your service.  NAT IP can be chosen from any subnet in a service provider's Virtual Network.
           - Each NAT IP provides 64k TCP connections (64k ports) per VM behind the Standard Load Balancer. In order to scale and add more connections, you can either add new NAT IPs or add more VMs behind the Standard Load Balancer. Doing so will scale the port availability and allow for more connections. Connections will be distributed across NAT IPs and VMs behind the Standard Load Balancer.
           
       - question: |
@@ -111,8 +122,8 @@ sections:
         answer: |
           You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
           
-          - **None** - Only subscriptions with Azure RBAC access can locate the service. 
-          - **Restrictive** - Only subscriptions that are approved and with Azure RBAC access can locate the service. 
+          - **None** - Only subscriptions with role based access can locate the service. 
+          - **Restrictive** - Only subscriptions that are approved and with role based access can locate the service. 
           - **All** - Everyone can locate the service. 
            
       - question: |
@@ -123,7 +134,7 @@ sections:
       - question: |
           Is a dedicated subnet required for Private Link Service? 
         answer: |
-          No. Private Link Services don’t require a dedicated subnet. You can choose any subnet in your VNet where your service is deployed.   
+          No. A dedicated subnet isn't required for the Private Link Service. You can choose any subnet in your VNet where your service is deployed.   
 
       - question: |
           I'm a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 

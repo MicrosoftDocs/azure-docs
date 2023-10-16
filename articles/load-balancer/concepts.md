@@ -1,31 +1,29 @@
 ---
 title: Azure Load Balancer concepts
-description: Overview of Azure Load Balancer concepts
+description: Overview of Azure Load Balancer concepts.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2021
-ms.author: allensu
-
+ms.date: 05/08/2023
+ms.author: mbender
+ms.custom: template-concept
 ---
 
 # Azure Load Balancer algorithm
 
 Azure Load Balancer is Azure's most performant Load Balancer all while keeping latency ultra-low. To learn more about Azure Load Balancer, visit [Azure Load Balancer overview](load-balancer-overview.md) or Azure Load balancer [components](components.md).
 
-Azure Load Balancer leverages a tuple-based hashing as the load-balancing algorithm.
+Azure Load Balancer uses a tuple-based hashing as the load-balancing algorithm.
 
 ## Load balancing algorithm
 
-By creating a load balancer rule, you can distribute inbound traffic flows from a load balancer's frontend to its backend pools. Azure Load Balancer uses a five-tuple hashing algorithm for the distribution of inbound flows (not bytes).  Load balancer rewrites the headers of TCP/UDP headers flows when directing traffic to the backend pool instances (load balancer does not rewrite HTTP/HTTPS headers). When the load balancer's health probe indicates a healthy back-end endpoint, backend instances will be available to receive new traffic flows.
+By creating a load balancer rule, you can distribute inbound traffic flows from a load balancer's frontend to its backend pools. Azure Load Balancer uses a five-tuple hashing algorithm for the distribution of inbound flows (not bytes).  Load balancer rewrites the headers of TCP/UDP headers flows when directing traffic to the backend pool instances (load balancer doesn't rewrite HTTP/HTTPS headers). When the load balancer's health probe indicates a healthy back-end endpoint, backend instances are available to receive new traffic flows.
 
 By default, Azure Load Balancer uses a five-tuple hash.
 
-The five tuple includes:
+The five-tuple includes:
 
 - **Source IP address**
 - **Source port**
@@ -33,7 +31,7 @@ The five tuple includes:
 - **Destination port**
 - **IP protocol number to map flows to available servers**
 
-You can also leverage session affinity [distribution mode](distribution-mode-concepts.md) which uses two tuple or three tuple based load balancing.
+You can also use session affinity [distribution mode](distribution-mode-concepts.md) which uses two-tuple or three-tuple based load balancing.
 
 Azure Load Balancer supports any TCP/UDP application scenario and doesn't close or originate flows. Load balancer also doesn't interact with the payload of any flow. Application payloads are transparent to the load balancer. Any UDP or TCP application can be supported.
 

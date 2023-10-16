@@ -1,12 +1,12 @@
 ---
 title: Get started with the DICOM service - Azure Health Data Services
 description: This document describes how to get started with the DICOM service in Azure Health Data Services.
-author: dougseven
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
-ms.author: dseven
+ms.date: 06/03/2022
+ms.author: mmitrik
 ms.custom: mode-api
 ---
 
@@ -33,11 +33,11 @@ Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) a
 
 ## Access the DICOM service
 
-The DICOM service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions.
+The DICOM service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
 
 ### Register a client application
 
-You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
+You can create or register a client application from the [Azure portal](dicom-register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
 
 If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 
@@ -53,7 +53,7 @@ You can perform create, read (search), update and delete (CRUD) transactions aga
 
 #### Get an access token
 
-You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, or .NET SDK. For more information, see [Get access token](../get-access-token.md).
+You can obtain a Microsoft Entra access token using PowerShell, Azure CLI, REST CLI, or .NET SDK. For more information, see [Get access token](../get-access-token.md).
 
 #### Access using existing tools
 
@@ -69,7 +69,7 @@ You can find more details on DICOMweb standard APIs and change feed in the [DICO
 
 #### DICOMcast
 
-DICOMcast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOMcast as a managed service for your Azure subscription, request access by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) by following the guidance in the article [DICOMcast access request](dicom-cast-access-request.md).
+DICOMcast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project.
 
 ## Next steps
 
@@ -77,3 +77,5 @@ This article described the basic steps to get started using the DICOM service. F
 
 >[!div class="nextstepaction"]
 >[Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

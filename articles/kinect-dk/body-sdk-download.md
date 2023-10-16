@@ -3,7 +3,7 @@ title: Azure Kinect Body Tracking SDK download
 description: Understand how to download each version of the Azure Kinect Sensor SDK on Windows or Linux.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 03/21/2022
 ms.topic: conceptual
 keywords: azure, kinect, sdk, download update, latest, available, install, body, tracking
@@ -23,6 +23,7 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
+1.1.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=104221) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.2)
 1.1.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=104015) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.1)
 1.1.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=102901)
 1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1)
@@ -48,6 +49,10 @@ If the command succeeds, the SDK is ready for use.
 > Body tracking samples are located in the [body-tracking-samples](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples) folder in the Azure-Kinect-Samples repository. You will find the samples referenced in articles here.
 
 ## Change log
+
+### v1.1.2
+* [Feature] Added C# wrapper support  for Linux [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1207)
+* [Bug Fix] `k4abt_simple_3d_viewer.exe` works with latest NVIDIA drivers [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1696)
 
 ### v1.1.1
 * [Feature] Added cmake support to all body tracking samples

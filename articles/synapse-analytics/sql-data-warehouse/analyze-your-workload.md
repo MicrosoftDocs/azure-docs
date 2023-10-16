@@ -1,14 +1,12 @@
 ---
 title: Analyze your workload for dedicated SQL pool
 description: Techniques for analyzing query prioritization for dedicated SQL pool in Azure Synapse Analytics.
-author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 11/03/2021
-ms.author: rortloff
-ms.reviewer: wiassaf
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 

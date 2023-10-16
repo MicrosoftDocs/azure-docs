@@ -1,9 +1,8 @@
 ---
-title: Move a daemon app that calls web APIs to production | Azure
-titleSuffix: Microsoft identity platform 
+title: Move a daemon app that calls web APIs to production
 description: Learn how to move a daemon app that calls web APIs to production
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: jmprieur
+ms.author: dmwendia
+ms.reviewer: jmprieur
 ms.custom: aaddev
 
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
@@ -29,9 +29,9 @@ If you're an ISV creating a daemon application that can run in several tenants, 
 - Provisions a service principal for the application.
 - Grants consent to the application.
 
-You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](./permissions-consent-overview.md#requesting-consent-for-an-entire-tenant).
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-production.md)]
 
 ## Code samples
 

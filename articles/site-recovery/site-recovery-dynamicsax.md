@@ -1,7 +1,9 @@
 ---
 title: Disaster recovery of Dynamics AX with Azure Site Recovery 
 description: Learn how to set up disaster recovery for Dynamics AX with Azure Site Recovery
-author: sideeksh
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.service: site-recovery
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
@@ -14,7 +16,7 @@ ms.date: 11/27/2018
 
  Dynamics AX is one of the most popular ERP solutions used by enterprises to standardize processes across locations, manage resources, and simplify compliance. Because the application is critical to an organization, in the event of a disaster, the application should be up and running in minimum time.
 
-Today, Dynamics AX doesn't provide any out-of-the-box disaster recovery capabilities. Dynamics AX consists of many server components, such as Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server, and Reporting Services. To manage the disaster recovery of each of these components manually is not only expensive but also error prone.
+Today, Dynamics AX doesn't provide any out-of-the-box disaster recovery capabilities. Dynamics AX consists of many server components, such as Windows Application Object Server, Microsoft Entra ID, Azure SQL Database, SharePoint Server, and Reporting Services. To manage the disaster recovery of each of these components manually is not only expensive but also error prone.
 
 This article explains how you can create a disaster recovery solution for your Dynamics AX application by using [Azure Site Recovery](site-recovery-overview.md). It also covers planned/unplanned test failovers by using a one-click recovery plan, supported configurations, and prerequisites.
 

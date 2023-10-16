@@ -1,21 +1,21 @@
 ---
 title: App page doesn't display correctly for Application Proxy app
-description: Guidance when the page isn’t displaying correctly in an Application Proxy Application you have integrated with Azure Active Directory
+description: Guidance when the page isn’t displaying correctly in an Application Proxy Application you have integrated with Microsoft Entra ID
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
 
 # Application page does not display correctly for an Application Proxy application
 
-This article helps you troubleshoot issues with Azure Active Directory Application Proxy applications when you navigate to the page, but something on the page doesn't look correct.
+This article helps you troubleshoot issues with Microsoft Entra application proxy applications when you navigate to the page, but something on the page doesn't look correct.
 
 ## Overview
 When you publish an Application Proxy app, only pages under your root are accessible when accessing the application. If the page isn’t displaying correctly, the root internal URL used for the application may be missing some page resources. To resolve, make sure you have published *all* the resources for the page as part of your application.
@@ -31,4 +31,4 @@ If it is not possible to publish all resources within the same application, you 
 To do so, we recommend using the [custom domains](application-proxy-configure-custom-domain.md) solution. However, this solution requires that you own the certificate for your domain and your applications use fully qualified domain names (FQDNs). For other options, see the [troubleshoot broken links documentation](application-proxy-page-links-broken-problem.md).
 
 ## Next steps
-[Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
+[Publish applications using Microsoft Entra application proxy](../app-proxy/application-proxy-add-on-premises-application.md)

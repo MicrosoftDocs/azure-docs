@@ -4,9 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 07/13/2023
 author: chez-charlie
 ms.author: chez
 ---
@@ -27,7 +27,7 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## Supported linked service types
 
@@ -39,10 +39,13 @@ All the linked service types are supported for parameterization.
 - Amazon S3
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
-- Azure Cosmos DB (SQL API)
+- Azure Cosmos DB for NoSQL
+- Azure Databricks Delta Lake
 - Azure Data Explorer
+- Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
+- Azure Database for PostgreSQL
 - Azure Databricks
 - Azure File Storage
 - Azure Function
@@ -51,18 +54,31 @@ All the linked service types are supported for parameterization.
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- Dataverse
+- DB2
+- Dynamics 365
+- Dynamics AX
+- Dynamics CRM
 - File System
 - FTP
 - Generic HTTP
 - Generic REST
+- Google AdWords
+- Informix
+- Microsoft Access
 - MySQL
 - OData 
+- ODBC
 - Oracle
 - Oracle Cloud Storage
+- PostgreSQL
 - Salesforce
 - Salesforce Service Cloud
+- SAP ODP
+- SAP Table
 - SFTP
 - SharePoint Online List
+- Snowflake
 - SQL Server
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
@@ -107,3 +123,5 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
+
+

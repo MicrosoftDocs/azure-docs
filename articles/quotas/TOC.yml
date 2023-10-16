@@ -1,0 +1,54 @@
+- name: Azure Quotas documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Quotas
+    href: quotas-overview.md
+  - name: View quotas
+    href: view-quotas.md
+  - name: Monitoring & Alerts for Quotas
+    href: monitoring-alerting.md
+- name: Quickstarts
+  items:
+  - name: Request a quota increase
+    href: quickstart-increase-quota-portal.md
+- name: How-to guides
+  items:
+    - name: Azure region access request process
+      href: /troubleshoot/azure/general/region-access-request-process
+    - name: Request quota increases
+      items:
+      - name: Increase vCPU family quotas
+        href: per-vm-quota-requests.md
+      - name: Increase regional vCPU family quotas
+        href: regional-quota-requests.md
+      - name: Increase spot vCPU family quotas
+        href: spot-quota.md
+      - name: Increase networking quotas
+        href: networking-quota-requests.md
+      - name: Increase storage account quotas
+        href: storage-account-quota-requests.md
+    - name: How-to-Guide - Monitoring & Alerting
+      href: how-to-guide-monitoring-alerting.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/quota
+  - name: Azure PowerShell
+    href: /powershell/module/az.quota/
+  - name: Azure REST API
+    href: /rest/api/quota
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-portal
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Microsoft Q&A
+    href: /answers/products/
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/

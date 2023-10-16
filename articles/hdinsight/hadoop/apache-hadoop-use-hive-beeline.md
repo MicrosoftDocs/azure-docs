@@ -3,7 +3,7 @@ title: Use Apache Beeline with Apache Hive - Azure HDInsight
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 04/24/2023
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ---
 # Use the Apache Beeline client with Apache Hive
@@ -41,7 +41,9 @@ This example is based on using the Beeline client from [an SSH connection](../hd
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
-
+   > [!NOTE]  
+   > Refer to "To HDInsight Enterprise Security Package (ESP) cluster using Kerberos" part in [Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local](connect-install-beeline.md#to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos) if you are using an Enterprise Security Package (ESP) enabled cluster
+ 
 3. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
     There's `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can omit the preceding `!sql`. The following two statements are equivalent:

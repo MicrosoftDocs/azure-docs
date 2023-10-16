@@ -7,10 +7,11 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 06/30/2021
+ms.date: 09/12/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: devx-track-js
 ---
 
 # Network recommendations
@@ -54,12 +55,21 @@ The following bandwidth requirements are for the native Windows, Android, and iO
 
 ## Firewall configuration
 
-Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services can still work. The optimal experience is provided when the recommended ports and IP ranges are open.
+Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services will not work properly. The list of IP ranges and allow listed domains that need to be enabled are:
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
-| Media traffic | [Range of Azure public cloud IP addresses](https://www.microsoft.com/download/confirmation.aspx?id=56519) | UDP 3478 through 3481, TCP ports 443 |
-| Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
+| Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16 The range provided above is the range of IP addresses on either Media processor or ACS TURN service. | UDP 3478 through 3481, TCP ports 443 |
+| Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.office.com| TCP 443, 80 |
+
+
+The endpoints below should be reachable for U.S. Government GCC High customers only
+
+| Category | IP ranges or FQDN | Ports | 
+| :-- | :-- | :-- |
+| Media traffic | 52.127.88.0/21, 52.238.114.160/32, 52.238.115.146/32, 52.238.117.171/32, 52.238.118.132/32, 52.247.167.192/32, 52.247.169.1/32, 52.247.172.50/32, 52.247.172.103/32, 104.212.44.0/22, 195.134.228.0/22 | UDP 3478 through 3481, TCP ports 443 |
+| Signaling, telemetry, registration| *.gov.teams.microsoft.us, *.infra.gov.skypeforbusiness.us, *.online.gov.skypeforbusiness.us, gov.teams.microsoft.us | TCP 443, 80 |
+
 
 ## Network optimization
 
@@ -73,7 +83,7 @@ You might want to optimize further if:
 | Network optimization task | Details |
 | :-- | :-- |
 | Plan your network | In this documentation, you can find minimal requirements to your network for calls. Refer to the [Teams example for planning your network](/microsoftteams/tutorial-network-planner-example). |
-| External name resolution | Be sure that all computers running the Communication Services SDKs can resolve external DNS queries to discover the services provided by communication servicers and that your firewalls aren't preventing access. Ensure that the SDKs can resolve the addresses *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, and *.trouter.io. |
+| External name resolution | Be sure that all computers running the Communication Services SDKs can resolve external DNS queries to discover the services provided by communication servicers and that your firewalls aren't preventing access. Ensure that the SDKs can resolve the addresses *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, and *.office.com. |
 | Maintain session persistence | Make sure your firewall doesn't change the mapped network address translation (NAT) addresses or ports for UDP.
 Validate NAT pool size | Validate the NAT pool size required for user connectivity. When multiple users and devices access Communication Services by using [NAT or port address translation](/office365/enterprise/nat-support-with-office-365), ensure that the devices hidden behind each publicly routable IP address don't exceed the supported number. Ensure that adequate public IP addresses are assigned to the NAT pools to prevent port exhaustion. Port exhaustion contributes to internal users and devices being unable to connect to Communication Services. |
 | Intrusion detection and prevention guidance | If your environment has an [intrusion detection system](../../../network-watcher/network-watcher-intrusion-detection-open-source-tools.md) or intrusion prevention system deployed for an extra layer of security for outbound connections, allow all Communication Services URLs. |

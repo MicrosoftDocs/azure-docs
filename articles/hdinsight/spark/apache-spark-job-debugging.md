@@ -4,7 +4,7 @@ description: Use YARN UI, Spark UI, and Spark History server to track and debug 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/23/2020
+ms.date: 08/22/2023
 ---
 
 # Debug Apache Spark jobs running on Azure HDInsight

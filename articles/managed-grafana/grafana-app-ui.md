@@ -5,20 +5,20 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: reference
-ms.date: 3/31/2022 
+ms.date: 3/23/2022
+ms.custom: engagement-fy23
 --- 
 
-# Grafana UI
+# Grafana user interface
 
-This reference covers the Grafana web application's main UI components, including panels, visualizations, and dashboards. For consistency, it links to the corresponding topics in the Grafana documentation.
+This reference covers the Grafana web application's main UI components, including panels, visualizations, and dashboards. For consistency, this document links to the corresponding topics in the Grafana documentation.
 
 ## Panels
 
-A Grafana panel is a basic building block in Grafana. Each panel displays a dataset from a data source query using a [visualization](#visualizations). For more information about panels, refer to the following items:
+A Grafana panel is a basic building block in Grafana. Each panel displays a dataset from a data source query using a visualization For more information about panels, refer to the following items:
 
-* [Working with Grafana panels](https://grafana.com/docs/grafana/latest/panels/working-with-panels/)
+* [Working with Grafana panels](https://grafana.com/docs/grafana/latest/panels-visualizations/#panels-and-visualizations/)
 * [Query a data source](https://grafana.com/docs/grafana/latest/panels/query-a-data-source/)
-* [Modify visualization text and background colors](https://grafana.com/docs/grafana/latest/panels/specify-thresholds/)
 * [Override field values](https://grafana.com/docs/grafana/latest/panels/override-field-values/)
 * [Transform data](https://grafana.com/docs/grafana/latest/panels/transform-data/)
 * [Format data using value mapping](https://grafana.com/docs/grafana/latest/panels/format-data/)
@@ -30,7 +30,7 @@ A Grafana panel is a basic building block in Grafana. Each panel displays a data
 
 ## Visualizations
 
-Grafana [panels](#panels) support various visualizations, which are visual representations of underlying data. These representations are often graphical and include:
+Grafana panels support various visualizations, which are visual representations of underlying data. These representations are often graphical and include:
 
 * Graphs and charts
   * [Time series](https://grafana.com/docs/grafana/latest/visualizations/time-series/)
@@ -71,9 +71,9 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 * [Dashboard version history](https://grafana.com/docs/grafana/latest/dashboards/)
 * [Dashboard export and import](https://grafana.com/docs/grafana/latest/dashboards/export-import/)
 * [Dashboard JSON model](https://grafana.com/docs/grafana/latest/dashboards/json-model/)
-* [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/scripted-dashboards/)
+* [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to share an Azure Managed Grafana Preview workspace](./how-to-share-grafana-workspace.md)
+> [Create a Grafana dashboard](./how-to-create-dashboard.md)

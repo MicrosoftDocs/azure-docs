@@ -1,8 +1,12 @@
 ---
 title: Performance monitoring with Windows Azure Diagnostics
 description: Use Windows Azure Diagnostics to collect performance counters for your Azure Service Fabric clusters.
-ms.topic: conceptual
-ms.date: 11/21/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Performance monitoring with the Windows Azure Diagnostics extension
@@ -95,7 +99,7 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
  You can also use variables in your ARM template to collect an array of performance counters, which can come in handy when you collect performance counters per process. In the below example, we are collecting processor time and garbage collector time per process and then 2 performance counters on the nodes themselves all using variables. 
 
- ```json
+```json
 "variables": {
   "copy": [
       {

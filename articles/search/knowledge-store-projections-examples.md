@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 01/31/2023
 ---
 
 # Define projections in a knowledge store
 
-[Projections](knowledge-store-projection-overview.md) are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines how AI enriched content is stored in Azure Storage. Projections determine the type, quantity, and composition of the data structures containing your content.
+[Projections](knowledge-store-projection-overview.md) are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines where AI enriched content is stored in Azure Storage. Projections determine the type, quantity, and composition of the data structures containing your content.
 
 In this article, learn the syntax for each type of projection:
 
@@ -38,22 +38,22 @@ Recall that projections are defined under the "knowledgeStore" property of a ski
 If you need more background before getting started, review [this check list](knowledge-store-projection-overview.md#checklist-for-getting-started) for tips and workflow.
 
 > [!TIP]
-> When developing projections, [enable enrichment caching (preview)](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions.  This is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterate over projections without incurring any skillset processing charges.
+> When developing projections, [enable enrichment caching (preview)](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions. Enrichment caching is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterate over projections without incurring any skillset processing charges.
 
 ## Requirements
 
-All projections have source and destination properties. The source is always content from an enrichment tree created during skillset execution. The destination is the name and type of object that will be created and loaded in Azure Storage.
+All projections have source and destination properties. The source is always internal content from an enrichment tree created during skillset execution. The destination is the name and type of an external object that's created and populated in Azure Storage.
 
 Except for file projections, which only accept binary images, the source must be:
 
 + Valid JSON
 + A path to a node in the enrichment tree (for example, `"source": "/document/objectprojection"`)
 
-While a node might resolve to a single field, a more common representation is a reference to a complex shape. Complex shapes are created through a shaping methodology, either a [Shaper skill](cognitive-search-skill-shaper.md) or [an inline shaping definition](knowledge-store-projection-shape.md#inline-shape), but usually a Shaper skill.
+While a node might resolve to a single field, a more common representation is a reference to a complex shape. Complex shapes are created through a shaping methodology, either a [Shaper skill](cognitive-search-skill-shaper.md) or [an inline shaping definition](knowledge-store-projection-shape.md#inline-shape), but usually a Shaper skill. The fields or elements of the shape determine the fields in containers and tables.
 
-Shaper skills are favored because most skills do not output valid JSON on their own. In many cases, the same data shape created by a Shaper skill can be used equally by both table and object projections.
+Shaper skills are favored because it outputs JSON, where as most skills don't output valid JSON on their own. In many cases, the same data shape created by a Shaper skill can be used equally by both table and object projections.
 
-Given source input requirements, knowing how to [shape data](knowledge-store-projection-shape.md) becomes a practical requirement for projection definition, especially if you are working with tables.
+Given source input requirements, knowing how to [shape data](knowledge-store-projection-shape.md) becomes a practical requirement for projection definition, especially if you're working with tables.
 
 ## Define a table projection
 
@@ -127,7 +127,7 @@ A common pattern for table projections is to have multiple related tables, where
 
 Creating multiple tables can be useful if you want control over how related data is aggregated. If enriched content has unrelated or independent components, for example the keywords extracted from a document might be unrelated from the entities recognized in the same document, you can split those fields out into adjacent tables.
 
-When projecting to multiple tables, the complete shape is projected into each table, unless a child node is the source of another table within the same group. Adding a projection with a source path that is a child of an existing projection results in the child node being sliced out of the parent node and projected into the new yet related table. This technique allows you to define a single node in a Shaper skill that can be the source for all of your projections.
+When you're projecting to multiple tables, the complete shape is projected into each table, unless a child node is the source of another table within the same group. Adding a projection with a source path that is a child of an existing projection results in the child node being sliced out of the parent node and projected into the new yet related table. This technique allows you to define a single node in a Shaper skill that can be the source for all of your projections.
 
 The pattern for multiple tables consists of:
 
@@ -150,13 +150,13 @@ For example, assume a Shaper skill outputs an "EnrichedShape" that contains hote
 
 ### Naming relationships
 
-The `generatedKeyName` and `referenceKeyName` properties are used to relate data across tables or even across projection types. Each row in the child table has a property pointing back to the parent. The name of the column or property in the child is the `referenceKeyName` from the parent. When the `referenceKeyName` is not provided, the service defaults it to the `generatedKeyName` from the parent. 
+The `generatedKeyName` and `referenceKeyName` properties are used to relate data across tables or even across projection types. Each row in the child table has a property pointing back to the parent. The name of the column or property in the child is the `referenceKeyName` from the parent. When the `referenceKeyName` isn't provided, the service defaults it to the `generatedKeyName` from the parent. 
 
 Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the `referenceKeyName` property on the parent table. One example would be to set the `generatedKeyName` as ID on the tblDocument table and the `referenceKeyName` as DocumentID. This would result in the column in the tblEntities and tblKeyPhrases tables containing the document ID being named DocumentID.
 
 ## Define an object projection
 
-Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
+Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and can't be sliced.
 
 To define an object projection, use the `objects` array in the projections property. An object projection has three required properties:
 
@@ -190,7 +190,7 @@ The following example projects individual hotel documents, one hotel document pe
 }
 ```
 
-The source is the output of a Shaper skill, named "objectprojection". Each blob will have a JSON representation of each field input.
+The source is the output of a Shaper skill, named `"objectprojection"`. Each blob will have a JSON representation of each field input.
 
 ```json
     {
@@ -237,7 +237,7 @@ To define a file projection, use the `files` array in the projections property. 
 | generatedKeyName | Column name for the key that uniquely identifies each row. The value is system-generated. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
 | source | A path to a node in an enrichment tree that is the root of the projection. For images files, the  source is always `/document/normalized_images/*`.  File projections only act on the `normalized_images` collection. Neither indexers nor a skillset will pass through the original non-normalized image.|
 
-The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. If there are multiple images, they will be placed together in the same folder. File projections cannot share the same container as object projections and need to be projected into a different container. 
+The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. If there are multiple images, they'll be placed together in the same folder. File projections can't share the same container as object projections and need to be projected into a different container. 
 
 The following example projects all normalized images extracted from the document node of an enriched document, into a container called `myImages`.
 
@@ -268,19 +268,19 @@ You can process projections by following these steps:
 
 1. [Monitor indexer execution](search-howto-monitor-indexers.md) to check progress and catch any errors.
 
-1. [Use Storage Browser](knowledge-store-view-storage-explorer.md) to verify object creation in Azure Storage.
+1. Use Azure portal to verify object creation in Azure Storage.
 
-1. If you are projecting tables, [import them into Power BI](knowledge-store-connect-power-bi.md) for table manipulation and visualization. In most cases, Power BI will auto-discover the relationships among tables.
+1. If you're projecting tables, [import them into Power BI](knowledge-store-connect-power-bi.md) for table manipulation and visualization. In most cases, Power BI will auto-discover the relationships among tables.
 
 ## Common issues
 
 Omitting any of the following steps can result in unexpected outcomes. Check for the following conditions if your output doesn't look right.
 
-+ String enrichments are not shaped into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation is not well-formed JSON. At projection time, make sure to transform the enrichment into a valid JSON object with a name and a value. Using a Shaper skill or defining inline shapes will help resolve this issue.
++ String enrichments aren't shaped into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation isn't well-formed JSON. At projection time, make sure to transform the enrichment into a valid JSON object with a name and a value. Using a Shaper skill or defining inline shapes will help resolve this issue.
 
 + Omission of `/*` at the end of a source path. If the source of a projection is `/document/projectionShape/keyPhrases`, the key phrases array is projected as a single object/row. Instead, set the source path to `/document/projectionShape/keyPhrases/*` to yield a single row or object for each of the key phrases.
 
-+ Path syntax errors. [Path selectors](cognitive-search-concept-annotations-syntax.md) are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector. 
++ Path syntax errors. [Path selectors](cognitive-search-concept-annotations-syntax.md) are case-sensitive and can lead to missing input warnings if you don't use the exact case for the selector. 
 
 ## Next steps
 

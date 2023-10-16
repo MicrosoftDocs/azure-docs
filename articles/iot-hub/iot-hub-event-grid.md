@@ -1,6 +1,7 @@
 ---
-title: Azure IoT Hub and Event Grid | Microsoft Docs
-description: Use Azure Event Grid to trigger processes based on actions that happen in IoT Hub.  
+title: Azure IoT Hub and Event Grid
+titleSuffix: Azure IoT Hub
+description: Use Azure Event Grid to send notifications and trigger processes based on actions that happen in IoT Hub.  
 author: kgremban
 
 ms.service: iot-hub
@@ -17,11 +18,13 @@ Azure IoT Hub integrates with Azure Event Grid so that you can send event notifi
 
 [Azure Event Grid](../event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
-![Azure Event Grid architecture](./media/iot-hub-event-grid/event-grid-functional-model.png)
+To watch a video discussing this integration, see [Azure IoT Hub integration with Azure Event Grid](/shows/internet-of-things-show/iot-devices-and-event-grid).
+
+![Diagram that shows Azure Event Grid architecture.](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## Regional availability
 
-The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
+The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. For the latest list of regions, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## Event types
 
@@ -66,13 +69,11 @@ The following example shows the schema of a device connected event:
 }]
 ```
 
+### Device telemetry schema
 
+Device telemetry messages must be in a valid JSON format with the contentType set to **application/json** and contentEncoding set to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive. If the content encoding is not set, then IoT Hub writes the messages in base 64 encoded format.
 
-### Device Telemetry schema
-
-Device telemetry message must be in a valid JSON format with the contentType set to **application/json** and contentEncoding set to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive. If the content encoding is not set, then IoT Hub will write the messages in base 64 encoded format.
-
-You can enrich device telemetry events before they are published to Event Grid by selecting the endpoint as Event Grid. For more information, see [Message Enrichments Overview](iot-hub-message-enrichments-overview.md).
+You can enrich device telemetry events before they're published to Event Grid by selecting the endpoint as Event Grid. For more information, see [message enrichments](iot-hub-message-enrichments-overview.md).
 
 The following example shows the schema of a device telemetry event:
 
@@ -158,58 +159,48 @@ The following example shows the schema of a device created event:
 }]
 ```
 
-
 > [!WARNING]
-> *Twin data* associated with a device creation event is a default configuration and *shouldn't* be relied on for actual `authenticationType` and other device properties in a newly created device. For `authenticationType` and other device properties in a newly created device, use the Register Manager API provided in Azure IoT SDKs.
+> *Twin data* associated with a device creation event is a default configuration and shouldn't be relied on for actual `authenticationType` and other device properties in a newly created device. For `authenticationType` and other device properties in a newly created device, use the register manager API provided in the Azure IoT SDKs.
 
 For a detailed description of each property, see [Azure Event Grid event schema for IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## Filter events
 
-IoT Hub event subscriptions can filter events based on event type, data content and subject, which is the device name.
+Event Grid enables [filtering](../event-grid/event-filtering.md) on event types, subjects, and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events.
 
-Event Grid enables [filtering](../event-grid/event-filtering.md) on event types, subjects and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber.
+* Event type: For the list of IoT Hub event types, see [event types](#event-types).
+* Subject: For IoT Hub events, the subject is the device name. The subject takes the format `devices/{deviceId}`. You can filter subjects based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber.
+* Data content: The data content is populated by IoT Hub using the message format. You can choose what events are delivered based on the contents of the telemetry message. For examples, see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering). For filtering on the telemetry message body, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive.
 
-The subject of IoT Events uses the format:
+For device telemetry events, IoT Hub will create the default [message route](iot-hub-devguide-messages-d2c.md) called *RouteToEventGrid* based on the subscription. To filter messages before telemetry data is sent, update the [routing query](iot-hub-devguide-routing-query-syntax.md).
 
-```json
-devices/{deviceId}
-```
+## Limitations for device connection state events
 
-Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to view examples. For filtering on the telemetry message body, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive.
+Device connected and device disconnected events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications.
 
-For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated and DeviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body through the message routing query. 
+* For devices connecting using Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md) will have connection states sent automatically. 
+* For devices connecting using the Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [AMQP protocol](iot-hub-amqp-support.md), a cloud-to-device link should be created to reduce any delay in accurate connection states. 
+* For devices connecting using the .NET [Azure IoT SDK](iot-hub-devguide-sdks.md) with the [MQTT](../iot/iot-mqtt-connect-to-iot-hub.md) or [AMQP](iot-hub-amqp-support.md) protocol won’t send a device connected event until an initial device-to-cloud or cloud-to-device message is sent/received.
+* Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](../iot/iot-mqtt-connect-to-iot-hub.md). Over AMQP these equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
 
-When you subscribe to telemetry events via Event Grid, IoT Hub creates a default message route to send data source type device messages to Event Grid. For more information about message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md). This route will be visible in the portal under IoT Hub > Message Routing. Only one route to Event Grid is created regardless of the number of EG subscriptions created for telemetry events. So, if you need several subscriptions with different filters, you can use the OR operator in these queries on the same route. The creation and deletion of the route is controlled through subscription of telemetry events via Event Grid. You cannot create or delete a route to Event Grid using IoT Hub Message Routing.
+### Device connection state interval
 
-To filter messages before telemetry data are sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON. You must also set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties).
+IoT Hub attempts to report each device connection state change event, but some may be missed. At minimum, IoT Hub reports connection state change events that occur 60 seconds apart from each other. This behavior may lead to outcomes such as multiple device connect events reported with no device disconnect events between them.
 
-## Limitations for device connected and device disconnected events
-
-Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications. For IoT Hub to start sending device connection state events, after opening a connection a device must call either the *cloud-to-device receive message* operation or the *device-to-cloud send telemetry* operation. Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](iot-hub-mqtt-support.md). Over AMQP these equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
-
-IoT Hub does not report each individual device connect and disconnect, but rather publishes the current connection state taken at a periodic 60 second snapshot. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state during the 60 second window.
+<!--
+![Diagram that shows state change events on a device, and how those events are reported by IoT Hub.](https://user-images.githubusercontent.com/94493443/178398214-7423f7ca-8dfe-4202-8e9a-46cc70974b5e.png)
+-->
 
 ## Tips for consuming events
 
 Applications that handle IoT Hub events should follow these suggested practices:
 
 * Multiple subscriptions can be configured to route events to the same event handler, so don't assume that events are from a particular source. Always check the message topic to ensure that it comes from the IoT hub that you expect.
-
 * Don't assume that all events you receive are the types that you expect. Always check the eventType before processing the message.
-
 * Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up to date for device created or device-deleted events.
 
 ## Next steps
 
-* [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-
 * [Learn how to order device connected and disconnected events](iot-hub-how-to-order-connection-state-events.md)
-
-* [Learn more about Event Grid](../event-grid/overview.md)
-
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)
-
-* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps](../azure-maps/tutorial-iot-hub-maps.md)
-
 * [Learn more about how to use Event Grid and Azure Monitor to monitor, diagnose, and troubleshoot device connectivity to IoT Hub](iot-hub-troubleshoot-connectivity.md)

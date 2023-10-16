@@ -1,9 +1,11 @@
 ---
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
-ms.topic: conceptual
-ms.date: 08/24/2021 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 08/29/2021 
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -14,7 +16,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To get started, [install the latest PowerShell release](/powershell/azure/install-az-ps).
+To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 
 ## Create a Recovery Services vault
 
@@ -129,7 +131,7 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
-### Registering using the PS Az module
+### Register using the PowerShell Az module
 
 > [!NOTE]
 > A bug with generation of vault certificate is fixed in Az 3.5.0 release. Use Az 3.5.0 release version or greater to download a vault certificate.
@@ -226,9 +228,9 @@ Server properties updated successfully
 
 All backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy includes three parts:
 
-1. A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
-2. A **retention schedule** that specifies how long to retain the recovery points in Azure.
-3. A **file inclusion/exclusion specification** that dictates what should be backed up.
+- A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
+- A **retention schedule** that specifies how long to retain the recovery points in Azure.
+- A **file inclusion/exclusion specification** that dictates what should be backed up.
 
 In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](/powershell/module/msonlinebackup/new-obpolicy) cmdlet.
 
@@ -674,7 +676,41 @@ Job completed.
 The recovery operation completed successfully.
 ```
 
-## Uninstalling the Azure Backup agent
+## Cross Region Restore
+
+Cross Region Restore (CRR) allows you to restore MARS backup data from a secondary region, which is an Azure paired region. This enables you to conduct drills for audit and compliance, and recover data during the unavailability of the primary region in Azure in the case of a disaster.
+
+### Original server restore
+
+If you're performing restore for the original server from the secondary region (Cross Region Restore), use the flag `UseSecondaryRegion` while getting the `OBRecoverableSource` object. 
+
+```azurepowershell
+$sources = Get-OBRecoverableSource -UseSecondaryRegion
+$RP = Get-OBRecoverableItem -Source $sources[0]
+$RO = New-OBRecoveryOption -DestinationPath $RecoveryPath -OverwriteType Overwrite
+Start-OBRecovery -RecoverableItem $RP -RecoveryOption $RO -Async | ConvertTo-Json
+
+```
+
+### Alternate server restore
+
+If you're performing restore for an alternate server from the secondary region (Cross Region Restore), download the *secondary region vault credential file* from the Azure portal and pass the secondary region vault credential for restore.
+
+```azurepowershell
+$serverName = ‘myserver.mycompany.com’
+$secVaultCred = “C:\Users\myuser\Downloads\myvault_Mon Jul 17 2023.VaultCredentials”
+$passphrase = ‘Default Passphrase’
+$alternateServers = Get-OBAlternateBackupServer -VaultCredentials $secVaultCred
+$altServer = $alternateServers[2] | Where-Object {$_.ServerName -Like $serverName}
+$pwd = ConvertTo-SecureString -String $passphrase -AsPlainText -Force
+$sources = Get-OBRecoverableSource $altServer
+$RP = Get-OBRecoverableItem -Source $sources[0]
+$RO = New-OBRecoveryOption
+Start-OBRecoveryMount -RecoverableItem $RP -RecoveryOption $RO -EncryptionPassphrase $pwd  -Async | ConvertTo-Json 
+
+```
+
+## Uninstall the Azure Backup agent
 
 Uninstalling the Azure Backup agent can be done by using the following command:
 

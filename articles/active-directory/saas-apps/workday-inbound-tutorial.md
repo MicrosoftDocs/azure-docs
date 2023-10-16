@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
+title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: cmmdesai
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure Workday for automatic user provisioning
@@ -16,28 +16,32 @@ ms.author: chmutali
 The objective of this tutorial is to show the steps you need to perform to provision worker profiles from Workday into on-premises Active Directory (AD).
 
 >[!NOTE]
->Use this tutorial, if the users you want to provision from Workday need an on-premises AD account and an Azure AD account. 
->* If the users from Workday only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) user provisioning. 
->* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
+>Use this tutorial, if the users you want to provision from Workday need an on-premises AD account and a Microsoft Entra account. 
+>* If the users from Workday only need Microsoft Entra account (cloud-only users), then please refer to the tutorial on [configure Workday to Microsoft Entra ID](workday-inbound-cloud-only-tutorial.md) user provisioning. 
+>* To configure writeback of attributes such as email address, username and phone number from Microsoft Entra ID to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
+
+The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/TfndXBlhlII]
 
 ## Overview
 
-The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
+The [Microsoft Entra user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. The Workday user provisioning workflows supported by the Microsoft Entra user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of IT-managed contact information to Workday.
+* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Active Directory, Microsoft Entra ID, and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md), with write-back of IT-managed contact information to Workday.
 
-* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Microsoft Entra ID, and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Microsoft Entra ID, and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
-* **Employee rehires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee rehires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Microsoft Entra ID, and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ### What's new
-This section captures recent Workday integration enhancements. For a list of comprehensive updates, planned changes and archives, please visit the page [What's new in Azure Active Directory?](../fundamentals/whats-new.md) 
+This section captures recent Workday integration enhancements. For a list of comprehensive updates, planned changes and archives, please visit the page [What's new in Microsoft Entra ID?](../fundamentals/whats-new.md) 
 
 * **Oct 2020 - Enabled provision on demand for Workday:** Using [on-demand provisioning](../app-provisioning/provision-on-demand.md) you can now test end-to-end provisioning for a specific user profile in Workday to verify your attribute mapping and expression logic.   
 
-* **May 2020 - Ability to writeback phone numbers to Workday:** In addition to email and username, you can now writeback work phone number and mobile phone number from Azure AD to Workday. For more details, refer to the [writeback app tutorial](workday-writeback-tutorial.md).
+* **May 2020 - Ability to writeback phone numbers to Workday:** In addition to email and username, you can now writeback work phone number and mobile phone number from Microsoft Entra ID to Workday. For more details, refer to the [writeback app tutorial](workday-writeback-tutorial.md).
 
 * **April 2020 - Support for the latest version of Workday Web Services (WWS) API:** Twice a year in March and September, Workday delivers feature-rich updates that help you meet your business goals and changing workforce demands. To keep up with the new features delivered by Workday you can now directly specify the WWS API version that you would like to use in the connection URL. For details on how to specify the Workday API version, refer to the section on [configuring Workday connectivity](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory). 
 
@@ -47,7 +51,7 @@ This Workday user provisioning solution is ideally suited for:
 
 * Organizations that desire a pre-built, cloud-based solution for Workday user provisioning
 
-* Organizations that require direct user provisioning from Workday to Active Directory, or Azure Active Directory
+* Organizations that require direct user provisioning from Workday to Active Directory, or Microsoft Entra ID
 
 * Organizations that require users to be provisioned using data obtained from the Workday HCM module (see [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
@@ -59,27 +63,27 @@ This Workday user provisioning solution is ideally suited for:
 
 This section describes the end-to-end user provisioning solution architecture for common hybrid environments. There are two related flows:
 
-* **Authoritative HR data flow – from Workday to on-premises Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud Workday HR tenant and then the event data flows into on-premises Active Directory through Azure AD and the Provisioning Agent. Depending on the event, it may lead to create/update/enable/disable operations in AD.
-* **Writeback flow – from on-premises Active Directory to Workday:** Once the account creation is complete in Active Directory, it is synced with Azure AD through Azure AD Connect and information such as email, username and phone number  can be written back to Workday.
+* **Authoritative HR data flow – from Workday to on-premises Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud Workday HR tenant and then the event data flows into on-premises Active Directory through Microsoft Entra ID and the Provisioning Agent. Depending on the event, it may lead to create/update/enable/disable operations in AD.
+* **Writeback flow – from on-premises Active Directory to Workday:** Once the account creation is complete in Active Directory, it is synced with Microsoft Entra ID through Microsoft Entra Connect and information such as email, username and phone number  can be written back to Workday.
 
 ![Overview](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### End-to-end user data flow
 
 1. The HR team performs worker transactions (Joiners/Movers/Leavers or New Hires/Transfers/Terminations) in Workday HCM
-2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premises Active Directory.
-3. The Azure AD Provisioning Service invokes the on-premises Azure AD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
-4. The Azure AD Connect Provisioning Agent uses a service account to add/update AD account data.
-5. The Azure AD Connect / AD Sync engine runs delta sync to pull updates in AD.
-6. The Active Directory updates are synced with Azure Active Directory.
+2. The Microsoft Entra provisioning service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premises Active Directory.
+3. The Microsoft Entra provisioning service invokes the on-premises Microsoft Entra Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
+4. The Microsoft Entra Connect Provisioning Agent uses a service account to add/update AD account data.
+5. The Microsoft Entra Connect / AD Sync engine runs delta sync to pull updates in AD.
+6. The Active Directory updates are synced with Microsoft Entra ID.
 7. If the [Workday Writeback](workday-writeback-tutorial.md) app is configured, it writes back attributes such as email, username and phone number to Workday.
 
 ## Planning your deployment
 
 Configuring Workday to Active Directory user provisioning requires considerable planning covering different aspects such as:
-* Setup of the Azure AD Connect provisioning agent 
+* Setup of the Microsoft Entra Connect provisioning agent 
 * Number of Workday to AD user provisioning apps to deploy
-* Selecting the the right matching identifier, attribute mapping, transformation and scoping filters
+* Selecting the right matching identifier, attribute mapping, transformation and scoping filters
 
 Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines and recommended best practices. 
 
@@ -153,15 +157,15 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    >[!div class="mx-imgBorder"]
    >![Select Security Group](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
-1. Click on the ellipsis (...) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
+1. Click on the ellipsis (`...`) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
    >[!div class="mx-imgBorder"]
    >![Select Maintain Domain Permissions](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
 
 1. Under **Integration Permissions**, add the following domains to the list **Domain Security Policies permitting Put access**
    * *External Account Provisioning*
    * *Worker Data: Public Worker Reports* 
-   * *Person Data: Work Contact Information* (required if you plan to writeback contact data from Azure AD to Workday)
-   * *Workday Accounts* (required if you plan to writeback username/UPN from Azure AD to Workday)
+   * *Person Data: Work Contact Information* (required if you plan to writeback contact data from Microsoft Entra ID to Workday)
+   * *Workday Accounts* (required if you plan to writeback username/UPN from Microsoft Entra ID to Workday)
 
 1. Under **Integration Permissions**, add the following domains to the list **Domain Security Policies permitting Get access**
    * *Worker Data: Workers*
@@ -238,21 +242,12 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>.
-
-2. In the Azure portal, search for and select **Azure Active Directory**.
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
-
-5. Search for **Workday to Active Directory User Provisioning**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**.
-
-7. Change the **Provisioning** **Mode** to **Automatic**.
-
-8. Click on the information banner displayed to download the Provisioning Agent. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. Search for **Workday to Active Directory User Provisioning**, and add that app from the gallery.
+1. After the app is added and the app details screen is shown, select **Provisioning**.
+1. Change the **Provisioning** **Mode** to **Automatic**.
+1. Click on the information banner displayed to download the Provisioning Agent. 
 
    >[!div class="mx-imgBorder"]
    >![Download Agent](./media/workday-inbound-tutorial/pa-download-agent.png "Download Agent Screen")
@@ -264,9 +259,10 @@ To provision to Active Directory on-premises, the Provisioning agent must be ins
 Transfer the downloaded agent installer to the server host and follow the steps listed [in the **Install agent** section](../cloud-sync/how-to-install.md) to complete the agent configuration.
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
-In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
+In this step, we establish connectivity with Workday and Active Directory. 
 
-1. In the Azure portal, go back to the Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent).
 
 1. Complete the **Admin Credentials** section as follows:
 
@@ -298,7 +294,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
 
      > [!NOTE]
-     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
+     > The Microsoft Entra provisioning service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
@@ -340,8 +336,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -358,11 +353,9 @@ In this section, you will configure how user data flows from Workday to Active D
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            Workday and Active Directory. This value is typically set on the  Worker ID field for Workday, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between Workday and Active Directory. This value is typically set on the  Worker ID field for Workday, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
 
       * **Apply this mapping**
 
@@ -387,7 +380,7 @@ In this section, you will configure how user data flows from Workday to Active D
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only |
 | **PreferredNameData**    |  cn    |   |   Written on create only |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Written on create only 
-| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Written on create only |
+| `Replace(Mid(Replace([UserID], , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )`      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
 | **LastName**   |   sn   |     |  Create + update |
@@ -413,7 +406,7 @@ Once your attribute mapping configuration is complete, you can test provisioning
 
 ## Enable and launch user provisioning
 
-Once the Workday provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service in the Azure portal.
+Once the Workday provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users using [on-demand provisioning](../app-provisioning/provision-on-demand.md) before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
@@ -433,19 +426,19 @@ Once the Workday provisioning app configurations have been completed and you hav
 * **Solution capability questions**
   * [When processing a new hire from Workday, how does the solution set the password for the new user account in Active Directory?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
   * [Does the solution support sending email notifications after provisioning operations complete?](#does-the-solution-support-sending-email-notifications-after-provisioning-operations-complete)
-  * [Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
+  * [Does the solution cache Workday user profiles in the Microsoft Entra cloud or at the provisioning agent layer?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
   * [Does the solution support assigning on-premises AD groups to the user?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [Which Workday APIs does the solution use to query and update Workday worker profiles?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
-  * [Can I configure my Workday HCM tenant with two Azure AD tenants?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
-  * [How do I suggest improvements or request new features related to Workday and Azure AD integration?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
+  * [Can I configure my Workday HCM tenant with two Microsoft Entra tenants?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
+  * [How do I suggest improvements or request new features related to Workday and Microsoft Entra integration?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
 
 * **Provisioning Agent questions**
   * [What is the GA version of the Provisioning Agent?](#what-is-the-ga-version-of-the-provisioning-agent)
   * [How do I know the version of my Provisioning Agent?](#how-do-i-know-the-version-of-my-provisioning-agent)
   * [Does Microsoft automatically push Provisioning Agent updates?](#does-microsoft-automatically-push-provisioning-agent-updates)
-  * [Can I install the Provisioning Agent on the same server running Azure AD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect)
+  * [Can I install the Provisioning Agent on the same server running Microsoft Entra Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect)
   * [How do I configure the Provisioning Agent to use a proxy server for outbound HTTP communication?](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)
-  * [How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
+  * [How do I ensure that the Provisioning Agent is able to communicate with the Microsoft Entra tenant and no firewalls are blocking ports required by the agent?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
   * [How do I de-register the domain associated with my Provisioning Agent?](#how-do-i-de-register-the-domain-associated-with-my-provisioning-agent)
   * [How do I uninstall the Provisioning Agent?](#how-do-i-uninstall-the-provisioning-agent)
 
@@ -468,9 +461,11 @@ When the on-premises provisioning agent gets a request to create a new AD accoun
 
 No, sending email notifications after completing provisioning operations is not supported in the current release.
 
-#### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
+<a name='does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer'></a>
 
-No, the solution does not maintain a cache of user profiles. The Azure AD provisioning service simply acts as a data processor, reading data from Workday and writing to the target Active Directory or Azure AD. See the section [Managing personal data](#managing-personal-data) for details related to user privacy and data retention.
+#### Does the solution cache Workday user profiles in the Microsoft Entra cloud or at the provisioning agent layer?
+
+No, the solution does not maintain a cache of user profiles. The Microsoft Entra provisioning service simply acts as a data processor, reading data from Workday and writing to the target Active Directory or Microsoft Entra ID. See the section [Managing personal data](#managing-personal-data) for details related to user privacy and data retention.
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
@@ -488,18 +483,22 @@ The solution currently uses the following Workday APIs:
 * Workday Email Writeback feature uses Change_Work_Contact_Information (v30.0) 
 * Workday Username Writeback feature uses Update_Workday_Account (v31.2) 
 
-#### Can I configure my Workday HCM tenant with two Azure AD tenants?
+<a name='can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants'></a>
+
+#### Can I configure my Workday HCM tenant with two Microsoft Entra tenants?
 
 Yes, this configuration is supported. Here are the high level steps to configure this scenario:
 
-* Deploy provisioning agent #1 and register it with Azure AD tenant #1.
-* Deploy provisioning agent #2 and register it with Azure AD tenant #2.
+* Deploy provisioning agent #1 and register it with Microsoft Entra tenant #1.
+* Deploy provisioning agent #2 and register it with Microsoft Entra tenant #2.
 * Based on the "Child Domains" that each Provisioning Agent will manage, configure each agent with the domain(s). One agent can handle multiple domains.
 * In Azure portal, setup the Workday to AD User Provisioning App in each tenant and configure it with the respective domains.
 
-#### How do I suggest improvements or request new features related to Workday and Azure AD integration?
+<a name='how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration'></a>
 
-Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
+#### How do I suggest improvements or request new features related to Workday and Microsoft Entra integration?
+
+Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Microsoft Entra ID](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
 
 > [!div class="mx-imgBorder"]
 > ![UserVoice SaaS Apps](media/workday-inbound-tutorial/uservoice_saas_apps.png)
@@ -513,28 +512,32 @@ When suggesting a new idea, please check to see if someone else has already sugg
 
 #### What is the GA version of the Provisioning Agent?
 
-Refer to [Azure AD Connect Provisioning Agent: Version release history](../app-provisioning/provisioning-agent-release-version-history.md) for the latest GA version of the Provisioning Agent.  
+Refer to [Microsoft Entra Connect Provisioning Agent: Version release history](../app-provisioning/provisioning-agent-release-version-history.md) for the latest GA version of the Provisioning Agent.  
 
 #### How do I know the version of my Provisioning Agent?
 
 * Sign in to the Windows server where the Provisioning Agent is installed.
 * Go to **Control Panel** -> **Uninstall or Change a Program** menu
-* Look for the version corresponding to the entry **Microsoft Azure AD Connect Provisioning Agent**
+* Look for the version corresponding to the entry **Microsoft Entra Connect Provisioning Agent**
 
   >[!div class="mx-imgBorder"]
   >![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### Does Microsoft automatically push Provisioning Agent updates?
 
-Yes, Microsoft automatically updates the provisioning agent if the  Windows service **Microsoft Azure AD Connect Agent Updater** is up and running.
+Yes, Microsoft automatically updates the provisioning agent if the  Windows service **Microsoft Entra Connect Agent Updater** is up and running.
 
-#### Can I install the Provisioning Agent on the same server running Azure AD Connect?
+<a name='can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect'></a>
 
-Yes, you can install the Provisioning Agent on the same server that runs Azure AD Connect.
+#### Can I install the Provisioning Agent on the same server running Microsoft Entra Connect?
 
-#### At the time of configuration the Provisioning Agent prompts for Azure AD admin credentials. Does the Agent store the credentials locally on the server?
+Yes, you can install the Provisioning Agent on the same server that runs Microsoft Entra Connect.
 
-During configuration, the Provisioning Agent prompts for Azure AD admin credentials only to connect to your Azure AD tenant. It does not store the credentials locally on the server. However it does retain the credentials used to connect to the *on-premises Active Directory domain* in a local Windows password vault.
+<a name='at-the-time-of-configuration-the-provisioning-agent-prompts-for-azure-ad-admin-credentials-does-the-agent-store-the-credentials-locally-on-the-server'></a>
+
+#### At the time of configuration the Provisioning Agent prompts for Microsoft Entra admin credentials. Does the Agent store the credentials locally on the server?
+
+During configuration, the Provisioning Agent prompts for Microsoft Entra admin credentials only to connect to your Microsoft Entra tenant. It does not store the credentials locally on the server. However it does retain the credentials used to connect to the *on-premises Active Directory domain* in a local Windows password vault.
 
 #### How do I configure the Provisioning Agent to use a proxy server for outbound HTTP communication?
 
@@ -554,7 +557,9 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
     </system.net>
 ```
 
-#### How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?
+<a name='how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent'></a>
+
+#### How do I ensure that the Provisioning Agent is able to communicate with the Microsoft Entra tenant and no firewalls are blocking ports required by the agent?
 
 You can also check whether all of the [required ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports) are open.
 
@@ -564,7 +569,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 
 #### How do I de-register the domain associated with my Provisioning Agent?
 
-* From the Azure portal, get the *tenant ID* of your Azure AD tenant.
+*, get the *tenant ID* of your Microsoft Entra tenant.
 * Sign in to the Windows server running the Provisioning Agent.
 * Open PowerShell as Windows Administrator.
 * Change to the directory containing the registration scripts and run the following commands replacing the \[tenant ID\] parameter with the value of your tenant ID.
@@ -590,9 +595,9 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 * Sign in to the Windows server where the Provisioning Agent is installed.
 * Go to **Control Panel** -> **Uninstall or Change a Program** menu
 * Uninstall the following programs:
-  * Microsoft Azure AD Connect Provisioning Agent
-  * Microsoft Azure AD Connect Agent Updater
-  * Microsoft Azure AD Connect Provisioning Agent Package
+  * Microsoft Entra Connect Provisioning Agent
+  * Microsoft Entra Connect Agent Updater
+  * Microsoft Entra Connect Provisioning Agent Package
 
 ### Workday to AD attribute mapping and configuration questions
 
@@ -628,7 +633,7 @@ The solution currently does not support setting binary attributes such as *thumb
 
 * Go the "Provisioning" blade of your Workday Provisioning App.
 * Click on the Attribute Mappings 
-* Under **Mappings**, select **Synchronize Workday Workers to On Premises Active Directory** (or **Synchronize Workday Workers to Azure AD**).
+* Under **Mappings**, select **Synchronize Workday Workers to On Premises Active Directory** (or **Synchronize Workday Workers to Microsoft Entra ID**).
 * On the Attribute Mappings page, scroll down and check the box "Show Advanced Options".  Click on **Edit attribute list for Workday**
 * In the blade that opens up, locate the "Mobile" attribute and click on the row so you can edit the **API Expression**
      ![Mobile GDPR](./media/workday-inbound-tutorial/mobile_gdpr.png)
@@ -645,7 +650,7 @@ The solution currently does not support setting binary attributes such as *thumb
 
 #### How do I format display names in AD based on the user's department/country/city attributes and handle regional variances?
 
-It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For e.g. if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
+It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For example, if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
 
 Here is how you can handle such requirements for constructing *CN* or *displayName* to include attributes such as company, business unit, city, or country/region.
 
@@ -726,7 +731,7 @@ Use the function [NormalizeDiacritics](../app-provisioning/functions-for-customi
 
 ## Troubleshooting tips
 
-This section provides specific guidance on how to troubleshoot provisioning issues with your Workday integration using the Azure AD Audit Logs and Windows Server Event Viewer logs. It builds on top of the generic troubleshooting steps and concepts captured in the [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
+This section provides specific guidance on how to troubleshoot provisioning issues with your Workday integration using the Microsoft Entra audit logs and Windows Server Event Viewer logs. It builds on top of the generic troubleshooting steps and concepts captured in the [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 
 This section covers the following aspects of troubleshooting:
 
@@ -739,7 +744,7 @@ This section covers the following aspects of troubleshooting:
 
 ### Configure provisioning agent to emit Event Viewer logs
 1. Sign in to the Windows Server machine where the provisioning agent is deployed
-1. Stop the service **Microsoft Azure AD Connect Provisioning Agent**.
+1. Stop the service **Microsoft Entra Connect Provisioning Agent**.
 1. Create a copy of the original config file: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
 1. Replace the existing `<system.diagnostics>` section with the following. 
    * The listener config **etw** emits messages to the EventViewer logs
@@ -766,16 +771,16 @@ This section covers the following aspects of troubleshooting:
      </system.diagnostics>
 
    ```
-1. Start the service **Microsoft Azure AD Connect Provisioning Agent**.
+1. Start the service **Microsoft Entra Connect Provisioning Agent**.
 
 ### Setting up Windows Event Viewer for agent troubleshooting
 
 1. Sign in to the Windows Server machine where the Provisioning Agent is deployed
 1. Open **Windows Server Event Viewer** desktop app.
 1. Select **Windows Logs > Application**.
-1. Use the **Filter Current Log…** option to view all events logged under the source **Azure AD Connect Provisioning Agent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
+1. Use the **Filter Current Log…** option to view all events logged under the source **Microsoft Entra Connect Provisioning Agent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
    > [!NOTE]
-   > Event ID 5 captures agent bootstrap messages to the Azure AD cloud service and hence we filter it while analyzing the log files. 
+   > Event ID 5 captures agent bootstrap messages to the Microsoft Entra cloud service and hence we filter it while analyzing the log files. 
 
    ![Windows Event Viewer](media/workday-inbound-tutorial/wd_event_viewer_01.png)
 
@@ -796,7 +801,7 @@ This section covers the following aspects of troubleshooting:
 
 ### Understanding logs for AD User Account create operations
 
-When a new hire in Workday is detected (let's say with Employee ID *21023*), the Azure AD provisioning service attempts to create a new AD user account for the worker and in the process creates 4 audit log records as described below:
+When a new hire in Workday is detected (let's say with Employee ID *21023*), the Microsoft Entra provisioning service attempts to create a new AD user account for the worker and in the process creates 4 audit log records as described below:
 
   [![Audit log create ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
@@ -897,8 +902,8 @@ This section covers commonly seen errors with Workday user provisioning and how 
 
 |#|Error Scenario |Probable Causes|Recommended Resolution|
 |--|---|---|---|
-|1.| Error installing the provisioning agent with error message:  *Service 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) failed to start. Verify that you have sufficient privileges to start the system.* | This error usually shows up if you are trying to install the provisioning agent on a domain controller and group policy prevents the service from starting.  It is also seen if you have a previous version of the agent running and  you have not uninstalled it before starting a new installation.| Install the provisioning agent on a non-DC server. Ensure that previous versions of the agent are uninstalled before installing the new agent.|
-|2.| The Windows Service 'Microsoft Azure AD Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the logon account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Azure AD Connect Provisioning Agent' and in the logon tab specify the account of a domain administrator to run the service. Restart the service. |
+|1.| Error installing the provisioning agent with error message:  *Service 'Microsoft Entra Connect Provisioning Agent' (AADConnectProvisioningAgent) failed to start. Verify that you have sufficient privileges to start the system.* | This error usually shows up if you are trying to install the provisioning agent on a domain controller and group policy prevents the service from starting.  It is also seen if you have a previous version of the agent running and  you have not uninstalled it before starting a new installation.| Install the provisioning agent on a non-DC server. Ensure that previous versions of the agent are uninstalled before installing the new agent.|
+|2.| The Windows Service 'Microsoft Entra Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the logon account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Entra Connect Provisioning Agent' and in the logon tab specify the account of a domain administrator to run the service. Restart the service. |
 |3.| When configuring the provisioning agent with your AD domain in the step *Connect Active Directory*, the wizard takes a long time trying to load the AD schema and eventually times out. | This error usually shows up if the wizard is unable to contact the AD domain controller server due to firewall issues. | On the *Connect Active Directory* wizard screen, while providing the credentials for your AD domain, there is an option called *Select domain controller priority*. Use this option to select a domain controller that is in the same site as the agent server and ensure that there are no firewall rules blocking the communication. |
 
 #### Connectivity errors
@@ -907,7 +912,7 @@ If the provisioning service is unable to connect to Workday or Active Directory,
 
 |#|Error Scenario |Probable Causes|Recommended Resolution|
 |--|---|---|---|
-|1.| When you click on **Test Connection**, you get the error message: *There was an error connecting to Active Directory. Please ensure that the on-premises Provisioning Agent is running and it is configured with the correct Active Directory domain.* | This error usually shows up if the provisioning agent is not running or there is a firewall blocking communication between Azure AD and the provisioning agent. You may also see this error, if the domain is not configured in the Agent Wizard. | Open the *Services* console on the Windows server to confirm that the agent is running. Open the provisioning agent wizard and confirm that the right domain is registered with the agent.  |
+|1.| When you click on **Test Connection**, you get the error message: *There was an error connecting to Active Directory. Please ensure that the on-premises Provisioning Agent is running and it is configured with the correct Active Directory domain.* | This error usually shows up if the provisioning agent is not running or there is a firewall blocking communication between Microsoft Entra ID and the provisioning agent. You may also see this error, if the domain is not configured in the Agent Wizard. | Open the *Services* console on the Windows server to confirm that the agent is running. Open the provisioning agent wizard and confirm that the right domain is registered with the agent.  |
 |2.| The provisioning job goes into quarantine state over the weekends (Fri-Sat) and we get an email notification that there is an error with the synchronization. | One of the common causes for this error is the planned Workday downtime. If you are using a Workday implementation tenant, please note that Workday has scheduled down time for its implementation tenants over weekends (usually from Friday evening to Saturday morning) and during that period the Workday provisioning apps may go into quarantine state as it is not able to connect to Workday. It gets back to normal state once the Workday implementation tenant is back online. In rare cases, you may also see this error, if the password of the Integration System User changed due to tenant refresh or if the account is in locked or expired state. | Check with your Workday administrator or integration partner to see when Workday schedules downtime to ignore alert messages during the downtime period and confirm availability once Workday instance is back online.  |
 
 #### AD user account creation errors
@@ -935,11 +940,11 @@ This section describes how you can further extend, customize and manage your Wor
 
 ### Customizing the list of Workday user attributes
 
-The Workday provisioning apps for Active Directory and Azure AD both include a default list of Workday user attributes you can select from. However, these lists are not comprehensive. Workday supports many hundreds of possible user attributes, which can either be standard or unique to your Workday tenant.
+The Workday provisioning apps for Active Directory and Microsoft Entra ID both include a default list of Workday user attributes you can select from. However, these lists are not comprehensive. Workday supports many hundreds of possible user attributes, which can either be standard or unique to your Workday tenant.
 
-The Azure AD provisioning service supports the ability to customize your list or Workday attribute to include any attributes exposed in the [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operation of the Human Resources API.
+The Microsoft Entra provisioning service supports the ability to customize your list or Workday attribute to include any attributes exposed in the [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operation of the Human Resources API.
 
-To do this change, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor in the Azure portal.
+To do this change, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor.
 
 **To retrieve an XPath expression for a Workday user attribute:**
 
@@ -1019,13 +1024,13 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 2. Set **Provisioning Status** to **Off**, and select **Save**. This step will help ensure your changes will take effect only when you are ready.
 
-3. Under **Mappings**, select **Synchronize Workday Workers to On Premises Active Directory** (or **Synchronize Workday Workers to Azure AD**).
+3. Under **Mappings**, select **Synchronize Workday Workers to On Premises Active Directory** (or **Synchronize Workday Workers to Microsoft Entra ID**).
 
 4. Scroll to the bottom of the next screen, and select **Show advanced options**.
 
 5. Select **Edit attribute list for Workday**.
 
-    ![Screenshot that shows the "Workday to Azure A D User Provisioning - Provisioning" page with the "Edit attribute list for Workday" action highlighted.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Screenshot that shows the "Workday to Microsoft Entra user provisioning - Provisioning" page with the "Edit attribute list for Workday" action highlighted.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Scroll to the bottom of the attribute list to where the input fields are.
 
@@ -1041,7 +1046,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 11. Select **Save** above, and then **Yes** to the dialog. Close the Attribute-Mapping screen if it is still open.
 
-12. Back on the main **Provisioning** tab, select **Synchronize Workday Workers to On Premises Active Directory** (or **Synchronize Workers to Azure AD**) again.
+12. Back on the main **Provisioning** tab, select **Synchronize Workday Workers to On Premises Active Directory** (or **Synchronize Workers to Microsoft Entra ID**) again.
 
 13. Select **Add new mapping**.
 
@@ -1059,16 +1064,16 @@ Refer to the article [Exporting and importing provisioning configuration](../app
 
 The Workday provisioning solution for Active Directory requires a provisioning agent to be installed on an on-premises Windows server, and this agent creates logs in the Windows Event log which may contain personal data depending on your Workday to AD attribute mappings. To comply with user privacy obligations, you can ensure that no data is retained in the Event logs beyond 48 hours by setting up a Windows scheduled task to clear the event log.
 
-The Azure AD provisioning service falls into the **data processor** category of GDPR classification. As a data processor pipeline, the service provides data processing services to key partners and end consumers. Azure AD provisioning service does not generate user data and has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis, and reporting in Azure AD provisioning service are based on existing enterprise data.
+The Microsoft Entra provisioning service falls into the **data processor** category of GDPR classification. As a data processor pipeline, the service provides data processing services to key partners and end consumers. Microsoft Entra provisioning service does not generate user data and has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis, and reporting in Microsoft Entra provisioning service are based on existing enterprise data.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
-With respect to data retention, the Azure AD provisioning service does not generate reports, perform analytics, or provide insights beyond 30 days. Therefore, Azure AD provisioning service does not store, process, or retain any data beyond 30 days. This design is compliant with the GDPR regulations, Microsoft privacy compliance regulations, and Azure AD data retention policies.
+With respect to data retention, the Microsoft Entra provisioning service does not generate reports, perform analytics, or provide insights beyond 30 days. Therefore, Microsoft Entra provisioning service does not store, process, or retain any data beyond 30 days. This design is compliant with the GDPR regulations, Microsoft privacy compliance regulations, and Microsoft Entra data retention policies.
 
 ## Next steps
 
-* [Learn more about Azure AD and Workday integration scenarios and web service calls](../app-provisioning/workday-integration-reference.md)
+* [Learn more about Microsoft Entra ID and Workday integration scenarios and web service calls](../app-provisioning/workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-* [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
+* [Learn how to configure single sign-on between Workday and Microsoft Entra ID](workday-tutorial.md)
 * [Learn how to configure Workday Writeback](workday-writeback-tutorial.md)
 * [Learn how to use Microsoft Graph APIs to manage provisioning configurations](/graph/api/resources/synchronization-overview)

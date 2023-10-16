@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: malev
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-
+ms.custom: devx-track-azurecli
 ---
 
 # How to use managed identities for Azure App Configuration
 
-This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Azure Active Directory (Azure AD) allows Azure App Configuration to easily access other Azure AD protected resources, such as Azure Key Vault. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Microsoft Entra ID allows Azure App Configuration to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
@@ -95,7 +95,7 @@ The following steps will walk you through creating a user-assigned identity and 
 
 ## Removing an identity
 
-A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the app resource is deleted.
+A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID when the app resource is deleted.
 
 ## Next steps
 

@@ -1,12 +1,10 @@
 ---
 title: Send classic Windows VM metrics to Azure Monitor metrics database
 description: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
-author: anirudhcavale            
 services: azure-monitor
-
+ms.reviewer: shijain
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.author: ancav
 ---
 
 # Send Guest OS metrics to the Azure Monitor metrics database for a Windows virtual machine (classic)
@@ -38,12 +36,12 @@ The process that's outlined in this article only works on classic virtual machin
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
-1. In the Azure portal, go to the **Storage accounts** resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
+1. In the Azure portal, go to the **Storage accounts** resource pane. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
    ![Storage access keys](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## Create a service principal
 
-Create a service principal in your Azure Active Directory tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
+Create a service principal in your Microsoft Entra tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app.
 - Save the key and the client ID for use in later steps.
 
@@ -185,7 +183,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	On the left menu, select **Monitor.**
 
-1.	On the **Monitor** blade, select **Metrics**.
+1.	On the **Monitor** pane on the left, select **Metrics**.
 
     ![Navigate metrics](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 

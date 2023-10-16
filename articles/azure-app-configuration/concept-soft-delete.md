@@ -4,7 +4,7 @@ description: Soft Delete in Azure App Configuration
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet
+ms.custom:
 ms.topic: conceptual
 ms.date: 03/01/2022
 ---
@@ -38,13 +38,18 @@ Purge is the operation to permanently delete the stores in a soft deleted state,
 ## Purge protection
 With Purge protection enabled, soft deleted stores can't be purged in the retention period. If disabled, the soft deleted store can be purged before the retention period expires. Once purge protection is enabled on a store, it can't be disabled.
 
-## Permissions to recover or purge store
+## Permissions to recover a deleted store
 
-A user has to have below permissions to recover or purge a soft-deleted app configuration store. The built-in Contributor and Owner roles already have the required permissions to recover and purge.
+- `Microsoft.AppConfiguration/configurationStores/write`
 
-- Permission to recover - `Microsoft.AppConfiguration/configurationStores/write`
+To recover a deleted App Configuration store the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "Owner" and "Contributor" roles contain this permission by default. The permission can be assigned at the subscription or resource group scope.
 
-- Permission to purge - `Microsoft.AppConfiguration/configurationStores/action`
+## Permissions to read and purge deleted stores
+
+* Read: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read`
+* Purge: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action`
+
+To list deleted App Configuration stores, or get an individual store by name the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` permission is needed. To purge a deleted App Configuration store the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission is needed. The built-in "Owner" and "Contributor" roles contain these permissions by default. Permissions for reading and purging deleted App Configuration stores must be assigned at the subscription level. This is because deleted configuration stores exist outside of individual resource groups. 
 
 ## Billing implications
 

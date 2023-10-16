@@ -2,7 +2,10 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 10/20/2021
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -12,7 +15,7 @@ To quickly manage and deploy applications for Kubernetes, you can use the [open-
 This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands and storing charts as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
 > [!IMPORTANT]
-> This article has been updated with Helm 3 commands as of version **3.7.1**. Helm 3.7.1 includes changes to Helm CLI commands and OCI support introduced in earlier versions of Helm 3. 
+> This article has been updated with Helm 3 commands. Helm 3.7 includes changes to Helm CLI commands and OCI support introduced in earlier versions of Helm 3. By design `helm` moves forward with version. We recommend to use **3.7.2** or later. 
 
 ## Helm 3 or Helm 2?
 
@@ -61,11 +64,11 @@ If you've previously stored and deployed charts using Helm 2 and Azure Container
 The following resources are needed for the scenario in this article:
 
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client version 3.7.1 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
-- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an [Azure Kubernetes Service cluster][aks-quickstart]. 
+- **Helm client version 3.7 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
+- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enable OCI support
+## Set up Helm client
 
 Use the `helm version` command to verify that you have installed Helm 3:
 
@@ -73,11 +76,8 @@ Use the `helm version` command to verify that you have installed Helm 3:
 helm version
 ```
 
-Set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change. 
-
-```console
-export HELM_EXPERIMENTAL_OCI=1
-```
+> [!NOTE]
+> The version indicated must be at least 3.8.0, as OCI support in earlier versions was experimental.
 
 Set the following environment variables for the target registry. The ACR_NAME is the registry resource name. If the ACR registry url is myregistry.azurecr.io, set the ACR_NAME to myregistry
 
@@ -139,24 +139,24 @@ Successfully packaged chart and saved it to: /my/path/hello-world-0.1.0.tgz
 
 Run  `helm registry login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token.
 
-- Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
+- Authenticate with a Microsoft Entra [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
   ```azurecli
   SERVICE_PRINCIPAL_NAME=<acr-helm-sp>
   ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
   PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
             --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-             --role acrpull \
+             --role acrpush \
             --query "password" --output tsv)
-  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  USER_NAME=$(az identity show -n $SERVICE_PRINCIPAL_NAME -g $RESOURCE_GROUP_NAME --subscription $SUBSCRIPTION_ID --query "clientId" -o tsv)
   ```
-- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
+- Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
   ```azurecli
   USER_NAME="00000000-0000-0000-0000-000000000000"
   PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
   ```azurecli
-  USER_NAME="helm-token"
+  USER_NAME="helmtoken"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
                     --scope-map _repositories_admin \
@@ -172,7 +172,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
 
 ## Push chart to registry as OCI artifact
 
-Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
+Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. Separate the words in the chart names and use only lower case letters and numbers. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
 
 ```console
 helm push hello-world-0.1.0.tgz oci://$ACR_NAME.azurecr.io/helm
@@ -216,12 +216,12 @@ Output is similar to:
 }
 ```
 
-Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
+Run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
-az acr repository show-manifests \
-  --name $ACR_NAME \
-  --repository helm/hello-world --detail
+az acr manifest list-metadata \
+  --registry $ACR_NAME \
+  --name helm/hello-world
 ```
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:
@@ -298,7 +298,7 @@ If you previously set up your Azure container registry as a chart repository usi
 > * After you complete migration from a Helm 2-style (index.yaml-based) chart repository to OCI artifact repositories, use the Helm CLI and `az acr repository` commands to manage the charts. See previous sections in this article. 
 > * The Helm OCI artifact repositories are not discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm commands used to store charts as OCI artifacts, see the [Helm documentation](https://helm.sh/docs/topics/registries/).
 
-### Enable OCI support
+### Enable OCI support (enabled by default in Helm v3.8.0)
 
 Ensure that you are using the Helm 3 client:
 
@@ -306,7 +306,7 @@ Ensure that you are using the Helm 3 client:
 helm version
 ```
 
-Enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change.
+If you are using Helm v3.8.0 or higher, this is enabled by default. If you are using a lower version, you can enable OCI support setting the environment variable:
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1
@@ -386,5 +386,5 @@ helm repo remove $ACR_NAME
 [az-acr-repository]: /cli/azure/acr/repository
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [acr-tasks]: container-registry-tasks-overview.md

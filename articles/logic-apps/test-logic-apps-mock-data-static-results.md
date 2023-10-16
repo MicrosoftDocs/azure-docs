@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 08/20/2022
 ---
 
 # Test workflows with mock data in Azure Logic Apps (Preview)
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
@@ -26,7 +28,11 @@ This article shows how to set up mock data on an action in a workflow for the [*
 
 * The logic app resource and workflow where you want to set up mock data. This article uses a **Recurrence** trigger and **HTTP** action as an example workflow.
 
-  If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
+  If you're new to logic apps, see [What is Azure Logic Apps](logic-apps-overview.md) and the following documentation:
+
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 <a name="enable-mock-data"></a>
 

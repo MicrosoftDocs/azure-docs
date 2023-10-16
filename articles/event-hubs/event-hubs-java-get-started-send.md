@@ -1,19 +1,18 @@
 ---
 title: Send or receive events from Azure Event Hubs using Java (latest)
-description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the latest azure-messaging-eventhubs package.
+description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs.
 ms.topic: quickstart
-ms.date: 04/30/2021
+ms.date: 02/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
 
-# Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)
+# Use Java to send events to or receive events from Azure Event Hubs
 
 This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
 
-> [!IMPORTANT]
-> This quickstart uses the new **azure-messaging-eventhubs** package. For a quickstart that uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages, see [Send and receive events using azure-eventhubs and azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md).
-
+> [!TIP]
+> If you're working with Azure Event Hubs resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Event Hubs, see [Spring Cloud Stream with Azure Event Hubs](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub).
 
 ## Prerequisites
 
@@ -31,22 +30,122 @@ This section shows you how to create a Java application to send events an event 
 
 ### Add reference to Azure Event Hubs library
 
-The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). You can reference this library using the following dependency declaration inside your Maven project file:
+First, create a new **Maven** project for a console/shell application in your favorite Java development environment. Update the `pom.xml` file as follows. The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). 
+
+### [Passwordless (Recommended)](#tab/passwordless)
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-eventhubs</artifactId>
-    <version>5.7.0</version>
-</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-identity</artifactId>
+		    <version>1.8.0</version>
+		    <scope>compile</scope>
+		</dependency>
 ```
+
+### [Connection String](#tab/connection-string)
+
+```xml
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
+```
+
+---
 
 > [!NOTE]
 > Update the version to the latest version published to the Maven repository.
 
+### Authenticate the app to Azure
+
+[!INCLUDE [event-hub-passwordless-template-tabbed-basic](../../includes/passwordless/event-hub/event-hub-passwordless-template-tabbed-basic.md)]
+
 ### Write code to send messages to the event hub
 
-For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. Add a class named `Sender`, and add the following code to the class:
+## [Passwordless (Recommended)](#tab/passwordless)
+Add a class named `Sender`, and add the following code to the class:
+
+> [!IMPORTANT]
+> - Update `<NAMESPACE NAME>` with the name of your Event Hubs namespace.
+> - Update `<EVENT HUB NAME>` with the name of your event hub. 
+
+```java
+package ehubquickstart;
+
+import com.azure.messaging.eventhubs.*;
+import java.util.Arrays;
+import java.util.List;
+
+import com.azure.identity.*;
+
+public class SenderAAD {
+
+    // replace <NAMESPACE NAME> with the name of your Event Hubs namespace.
+    // Example: private static final String namespaceName = "contosons.servicebus.windows.net";
+    private static final String namespaceName = "<NAMESPACE NAME>.servicebus.windows.net";
+
+    // Replace <EVENT HUB NAME> with the name of your event hub. 
+    // Example: private static final String eventHubName = "ordersehub";
+    private static final String eventHubName = "<EVENT HUB NAME>";
+
+    public static void main(String[] args) {
+        publishEvents();
+    }
+    /**
+     * Code sample for publishing events.
+     * @throws IllegalArgumentException if the EventData is bigger than the max batch size.
+     */
+    public static void publishEvents() {
+        // create a token using the default Azure credential        
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                .build();
+
+        // create a producer client        
+        EventHubProducerClient producer = new EventHubClientBuilder()        
+            .fullyQualifiedNamespace(namespaceName)
+            .eventHubName(eventHubName)
+            .credential(credential)
+            .buildProducerClient();
+
+        // sample events in an array
+        List<EventData> allEvents = Arrays.asList(new EventData("Foo"), new EventData("Bar"));
+
+        // create a batch
+        EventDataBatch eventDataBatch = producer.createBatch();
+
+        for (EventData eventData : allEvents) {
+            // try to add the event from the array to the batch
+            if (!eventDataBatch.tryAdd(eventData)) {
+                // if the batch is full, send it and then create a new batch
+                producer.send(eventDataBatch);
+                eventDataBatch = producer.createBatch();
+
+                // Try to add that event that couldn't fit before.
+                if (!eventDataBatch.tryAdd(eventData)) {
+                    throw new IllegalArgumentException("Event is too large for an empty batch. Max size: "
+                        + eventDataBatch.getMaxSizeInBytes());
+                }
+            }
+        }
+        // send the last batch of remaining events
+        if (eventDataBatch.getCount() > 0) {
+            producer.send(eventDataBatch);
+        }
+        producer.close();
+    }   
+}
+```
+
+## [Connection String](#tab/connection-string)
+Add a class named `Sender`, and add the following code to the class:
 
 > [!IMPORTANT]
 > Update `<Event Hubs namespace connection string>` with the connection string to your Event Hubs namespace. Update `<Event hub name>` with the name of your event hub in the namespace.
@@ -108,6 +207,7 @@ Add a method named `publishEvents` to the `Sender` class:
         producer.close();
     }
 ```
+---
 
 Build the program, and ensure that there are no errors. You'll run this program after you run the receiver program.
 
@@ -115,11 +215,7 @@ Build the program, and ensure that there are no errors. You'll run this program 
 
 The code in this tutorial is based on the [EventProcessorClient sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorBlobCheckpointStoreSample.java), which you can examine to see the full working application.
 
-> [!WARNING]
-> If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Azure Blob Storage SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code.
->
-> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java).
-
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 ### Create an Azure Storage and a blob container
 
@@ -129,11 +225,52 @@ Follow these steps to create an Azure Storage account.
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+3. Authenticate to the blob container
+    
+## [Passwordless (Recommended)](#tab/passwordless)
 
-    Note down the **connection string** and the **container name**. You'll use them in the receive code.
+[!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
 
+## [Connection String](#tab/connection-string)
+
+[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+
+Note down the **connection string** and the **container name**. You use them in the receive code. 
+
+---
 ### Add Event Hubs libraries to your Java project
+
+## [Passwordless (Recommended)](#tab/passwordless)
+
+Add the following dependencies in the pom.xml file.
+
+- [azure-messaging-eventhubs](https://search.maven.org/search?q=a:azure-messaging-eventhubs)
+- [azure-messaging-eventhubs-checkpointstore-blob](https://search.maven.org/search?q=a:azure-messaging-eventhubs-checkpointstore-blob)
+- [azure-identity](https://search.maven.org/search?q=a:azure-identity)
+
+```xml
+	<dependencies>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+		    <version>1.16.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-identity</artifactId>
+		    <version>1.8.0</version>
+		    <scope>compile</scope>
+		</dependency>	
+	</dependencies>
+```
+
+
+### [Connection String](#tab/connection-string)
 
 Add the following dependencies in the pom.xml file.
 
@@ -141,19 +278,91 @@ Add the following dependencies in the pom.xml file.
 - [azure-messaging-eventhubs-checkpointstore-blob](https://search.maven.org/search?q=a:azure-messaging-eventhubs-checkpointstore-blob)
 
 ```xml
-<dependencies>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-messaging-eventhubs</artifactId>
-        <version>5.7.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-        <version>1.6.0</version>
-    </dependency>
-</dependencies>
+	<dependencies>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+		    <version>1.16.1</version>
+		</dependency>
+	</dependencies>
 ```
+---
+
+
+## [Passwordless (Recommended)](#tab/passwordless)
+
+1. Add the following `import` statements at the top of the Java file.
+
+    ```java
+    import com.azure.messaging.eventhubs.*;
+    import com.azure.messaging.eventhubs.checkpointstore.blob.BlobCheckpointStore;
+    import com.azure.messaging.eventhubs.models.*;
+    import com.azure.storage.blob.*;
+    import java.util.function.Consumer;
+    
+    import com.azure.identity.*;
+    ```
+2. Create a class named `Receiver`, and add the following string variables to the class. Replace the placeholders with the correct values.
+
+    > [!IMPORTANT]
+    > Replace the placeholders with the correct values.
+    > - `<NAMESPACE NAME>` with the name of your Event Hubs namespace.
+    > - `<EVENT HUB NAME>` with the name of your event hub in the namespace.
+
+    ```java
+    private static final String namespaceName = "<NAMESPACE NAME>.servicebus.windows.net";
+    private static final String eventHubName = "<EVENT HUB NAME>";
+    ```
+3. Add the following `main` method to the class.
+
+    > [!IMPORTANT]
+    > Replace the placeholders with the correct values.
+    > - `<STORAGE ACCOUNT NAME>` with the name of your Azure Storage account.
+    > - `<CONTAINER NAME>` with the name of the blob container in the storage account
+
+    ```java
+    // create a token using the default Azure credential
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+            .build();
+
+    // Create a blob container client that you use later to build an event processor client to receive and process events
+    BlobContainerAsyncClient blobContainerAsyncClient = new BlobContainerClientBuilder()
+            .credential(credential)
+            .endpoint("https://<STORAGE ACCOUNT NAME>.blob.core.windows.net")
+            .containerName("<CONTAINER NAME>")
+            .buildAsyncClient();
+    
+    // Create an event processor client to receive and process events and errors.
+    EventProcessorClient eventProcessorClient = new EventProcessorClientBuilder()
+        .fullyQualifiedNamespace(namespaceName)
+        .eventHubName(eventHubName)
+        .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
+        .processEvent(PARTITION_PROCESSOR)
+        .processError(ERROR_HANDLER)
+        .checkpointStore(new BlobCheckpointStore(blobContainerAsyncClient))            
+        .credential(credential)
+        .buildEventProcessorClient();
+
+    System.out.println("Starting event processor");
+    eventProcessorClient.start();
+
+    System.out.println("Press enter to stop.");
+    System.in.read();
+
+    System.out.println("Stopping event processor");
+    eventProcessorClient.stop();
+    System.out.println("Event processor stopped.");
+
+    System.out.println("Exiting process");  
+    ```
+
+## [Connection String](#tab/connection-string)
 
 1. Add the following **import** statements at the top of the Java file.
 
@@ -213,6 +422,8 @@ Add the following dependencies in the pom.xml file.
         System.out.println("Exiting process");
     }
     ```
+---
+
 4. Add the two helper methods (`PARTITION_PROCESSOR` and `ERROR_HANDLER`) that process events and errors to the `Receiver` class.
 
     ```java

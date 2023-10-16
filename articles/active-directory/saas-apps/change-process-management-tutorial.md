@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Change Process Management'
-description: Learn how to configure single sign-on between Azure Active Directory and Change Process Management.
+title: 'Tutorial: Microsoft Entra SSO integration with Change Process Management'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Change Process Management.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,141 +9,135 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Change Process Management
+# Tutorial: Microsoft Entra SSO integration with Change Process Management
 
-In this tutorial, you'll learn how to integrate Change Process Management with Azure Active Directory (Azure AD). When you integrate Change Process Management with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Change Process Management with Microsoft Entra ID. When you integrate Change Process Management with Microsoft Entra ID, you can:
 
-* Use Azure AD to control who can access Change Process Management.
-* Enable your users to be automatically signed in to Change Process Management with their Azure AD accounts.
+* Use Microsoft Entra ID to control who can access Change Process Management.
+* Enable your users to be automatically signed in to Change Process Management with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Change Process Management subscription with single sign-on (SSO) enabled.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
-## Tutorial description
+## Scenario description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra SSO in a test environment.
 
 Change Process Management supports IDP-initiated SSO.
 
-After you configure Change Process Management, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
-
 ## Add Change Process Management from the gallery
 
-To configure the integration of Change Process Management into Azure AD, you need to add Change Process Management from the gallery to your list of managed SaaS apps.
+To configure the integration of Change Process Management into Microsoft Entra ID, you need to add Change Process Management from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a work or school account or with a personal Microsoft account.
-1. In the left pane, select **Azure Active Directory**.
-1. Go to **Enterprise applications** and then select **All Applications**.
-1. To add an application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **Change Process Management** in the search box.
 1. Select **Change Process Management** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for Change Process Management
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-You'll configure and test Azure AD SSO with Change Process Management by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Change Process Management.
+<a name='configure-and-test-azure-ad-sso-for-change-process-management'></a>
 
-To configure and test Azure AD SSO with Change Process Management, you'll take these high-level steps:
+## Configure and test Microsoft Entra SSO for Change Process Management
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
+You'll configure and test Microsoft Entra SSO with Change Process Management by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the corresponding user in Change Process Management.
+
+To configure and test Microsoft Entra SSO with Change Process Management, you'll take these high-level steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on.
+    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Microsoft Entra single sign-on.
 1. **[Configure Change Process Management SSO](#configure-change-process-management-sso)** on the application side.
-    1. **[Create a Change Process Management test user](#create-a-change-process-management-test-user)** as a counterpart to the Azure AD representation of the user.
+    1. **[Create a Change Process Management test user](#create-a-change-process-management-test-user)** as a counterpart to the Microsoft Entra representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Change Process Management** application integration page, in the **Manage** section, select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Change Process Management** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pencil button for **Basic SAML Configuration** to edit the settings:
 
-   ![Pencil button for Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Set up Single Sign-On with SAML** page, take these steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** box, enter a URL in the following pattern:
+    a. In the **Identifier** box, type a URL using the following pattern:
     `https://<hostname>:8443/`
 
-    b. In the **Reply URL** box, enter a URL in the following pattern:
+    b. In the **Reply URL** box, type a URL using the following pattern:
     `https://<hostname>:8443/changepilot/saml/sso`
 
 	> [!NOTE]
-	> The preceding **Identifier** and **Reply URL** values aren't the actual values that you should use. Contact the [Change Process Management support team](mailto:support@realtech-us.com) to get the actual values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The preceding **Identifier** and **Reply URL** values aren't the actual values that you should use. Contact the [Change Process Management support team](mailto:support@realtech-us.com) to get the actual values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link for **Certificate (Base64)** to download the certificate and save it on your computer:
 
-	![Certificate download link](common/certificatebase64.png)
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 1. In the **Set up Change Process Management** section, copy the appropriate URL or URLs, based on your requirements:
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user named B.Simon in the Azure portal.
+### Create a Microsoft Entra test user
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, complete these steps:
-   1. In the **Name** box, enter **B.Simon**.  
-   1. In the **User name** box, enter \<username>@\<companydomain>.\<extension>. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+In this section, you'll create a test user named B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Grant access to the test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting that user access to Change Process Management.
+In this section, you'll enable B.Simon to use single sign-on by granting that user access to Change Process Management.
 
-1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **Change Process Management**.
 1. In the app's overview page, in the **Manage** section, select **Users and groups**:
-
-   ![Select Users and groups](common/users-groups-blade.png)
-
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-	![Select Add user](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure Change Process Management SSO
 
-To configure single sign-on on the Change Process Management side, you need to send the downloaded Base64 certificate and the appropriate URLs that you copied from the Azure portal to the [Change Process Management support team](mailto:support@realtech-us.com). They configure the SAML SSO connection to be correct on both sides.
+To configure single sign-on on the Change Process Management side, you need to send the downloaded Base64 certificate and the appropriate URLs that you copied to the [Change Process Management support team](mailto:support@realtech-us.com). They configure the SAML SSO connection to be correct on both sides.
 
 ### Create a Change Process Management test user
- Work with the [Change Process Management support team](mailto:support@realtech-us.com) to add a user named B.Simon in Change Process Management. Users must be created and activated before you use single sign-on.
+
+Work with the [Change Process Management support team](mailto:support@realtech-us.com) to add a user named B.Simon in Change Process Management. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you'll test your Azure AD SSO configuration by using Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-When you select the Change Process Management tile in Access Panel, you should be automatically signed in to the Change Process Management instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Click on **Test this application**, and you should be automatically signed in to the Change Process Management for which you set up the SSO.
 
-## Additional resources
+* You can use Microsoft My Apps. When you click the Change Process Management tile in the My Apps, you should be automatically signed in to the Change Process Management for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Change Process Management with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Change Process Management with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure Change Process Management you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -39,7 +39,7 @@ The following example imports an OpenAPI Specification in JSON format into API M
 1. In the Explorer pane, expand the API Management instance you created.
 1. Right-click **APIs**, and select **Import from OpenAPI Link**.
 1. When prompted, enter the following values:
-    1. An **OpenAPI link** for content in JSON format. For this example: *<https://conferenceapi.azurewebsites.net?format=json>*.
+    1. An **OpenAPI link** for content in JSON format. For this example: `https://conferenceapi.azurewebsites.net?format=json`.
     This URL is the service that implements the example API. API Management forwards requests to this address.
     1. An **API name**, such as *demo-conference-api*, that is unique in the API Management instance. This name can contain only letters, number, and hyphens. The first and last characters must be alphanumeric. This name is used in the path to call the API.
 

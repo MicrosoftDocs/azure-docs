@@ -1,14 +1,13 @@
 ---
 title: Best practices for serverless SQL pool
-description: Recommendations and best practices for working with serverless SQL pool. 
+description: Recommendations and best practices for working with serverless SQL pool.
 author: filippopovic
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 05/01/2020
 ms.author: fipopovi
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
+ms.date: 02/15/2023
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics
@@ -24,8 +23,9 @@ Some generic guidelines are:
 - Make sure the storage and serverless SQL pool are in the same region. Storage examples include Azure Data Lake Storage and Azure Cosmos DB.
 - Try to [optimize storage layout](#prepare-files-for-querying) by using partitioning and keeping your files in the range between 100 MB and 10 GB.
 - If you're returning a large number of results, make sure you're using SQL Server Management Studio or Azure Data Studio and not Azure Synapse Studio. Azure Synapse Studio is a web tool that isn't designed for large result sets.
-- If you're filtering results by string column, try to use a `BIN2_UTF8` collation.
+- If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).
 - Consider caching the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. Serverless SQL pools can't provide an interactive experience in Power BI Direct Query mode if you're using complex queries or processing a large amount of data.
+- Maximum concurrency is not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
 
 ## Client applications and network connections
 
@@ -51,14 +51,8 @@ Multiple applications and services might access your storage account. Storage th
 
 When throttling is detected, serverless SQL pool has built-in handling to resolve it. Serverless SQL pool makes requests to storage at a slower pace until throttling is resolved.
 
-> [!TIP]
+> [!TIP]  
 > For optimal query execution, don't stress the storage account with other workloads during query execution.
-
-### Azure AD Pass-through Authentication performance
-
-Serverless SQL pool allows you to access files in storage by using Azure Active Directory (Azure AD) Pass-through Authentication or shared access signature credentials. You might experience slower performance with Azure AD Pass-through Authentication than you would with shared access signatures.
-
-If you need better performance, try using shared access signature credentials to access storage.
 
 ### Prepare files for querying
 
@@ -72,11 +66,7 @@ If possible, you can prepare files for better performance:
 
 ### Colocate your Azure Cosmos DB analytical storage and serverless SQL pool
 
-Make sure your Azure Cosmos DB analytical storage is placed in the same region as an Azure Synapse workspace. Cross-region queries might cause huge latencies. Use the region property in the connection string to explicitly specify the region where the analytical store is placed (see [Query Azure Cosmos DB by using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)):
-
-```
-'account=<database account name>;database=<database name>;region=<region name>'
-```
+Make sure your Azure Cosmos DB analytical storage is placed in the same region as an Azure Synapse workspace. Cross-region queries might cause huge latencies. Use the region property in the connection string to explicitly specify the region where the analytical store is placed (see [Query Azure Cosmos DB by using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)): `account=<database account name>;database=<database name>;region=<region name>'`
 
 ## CSV optimizations
 
@@ -88,7 +78,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ### Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns in Parquet files when needed. At this moment, statistics aren't automatically created for columns in CSV files. Create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics are not automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
 
 ## Data types
 
@@ -96,12 +86,12 @@ Here are best practices for using data types in serverless SQL pool.
 
 ### Use appropriate data types
 
-The data types you use in your query affect performance and concurrency. You can get better performance if you follow these guidelines: 
+The data types you use in your query affect performance and concurrency. You can get better performance if you follow these guidelines:
 
 - Use the smallest data size that can accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
   - If all character column values are of a fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
-  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. For more information, see [integer data type ranges](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
   - Use the **varchar** type with some UTF8 collation if you're reading data from Parquet, Azure Cosmos DB, Delta Lake, or CSV with UTF-8 encoding.
   - Use the **varchar** type without UTF8 collation if you're reading data from CSV non-Unicode files (for example, ASCII).
@@ -113,19 +103,19 @@ The data types you use in your query affect performance and concurrency. You can
 
 [Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schemas. The cost of this convenience is that inferred data types might be larger than the actual data types. This discrepancy happens when there isn't enough information in the source files to make sure the appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length. So serverless SQL pool infers it as varchar(8000).
 
-You can use [sp_describe_first_results_set](/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) to check the resulting data types of your query.
+You can use the system stored procedure [sp_describe_first_results_set](/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) to check the resulting data types of your query.
 
 The following example shows how you can optimize inferred data types. This procedure is used to show the inferred data types:
 
-```sql  
+```sql
 EXEC sp_describe_first_result_set N'
-	SELECT
+    SELECT
         vendor_id, pickup_datetime, passenger_count
-	FROM 
-		OPENROWSET(
-        	BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
-	        FORMAT=''PARQUET''
-    	) AS nyc';
+    FROM  
+        OPENROWSET(
+            BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+            FORMAT=''PARQUET''
+        ) AS nyc';
 ```
 
 Here's the result set:
@@ -138,19 +128,19 @@ Here's the result set:
 
 After you know the inferred data types for the query, you can specify appropriate data types:
 
-```sql  
+```sql
 SELECT
     vendorID, tpepPickupDateTime, passengerCount
-FROM 
-	OPENROWSET(
-		BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
-		FORMAT='PARQUET'
-    ) 
-	WITH (
-		vendor_id varchar(4), -- we used length of 4 instead of the inferred 8000
-		pickup_datetime datetime2,
-		passenger_count int
-	) AS nyc;
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
+        FORMAT='PARQUET'
+    )  
+    WITH (
+        vendorID varchar(4), -- we used length of 4 instead of the inferred 8000
+        tpepPickupDateTime datetime2,
+        passengerCount int
+    ) AS nyc;
 ```
 
 ## Filter optimization
@@ -167,7 +157,7 @@ Data is often organized in partitions. You can instruct serverless SQL pool to q
 
 For more information, read about the [filename](query-data-storage.md#filename-function) and [filepath](query-data-storage.md#filepath-function) functions and see the examples for [querying specific files](query-specific-files.md).
 
-> [!TIP]
+> [!TIP]  
 > Always cast the results of the filepath and filename functions to appropriate data types. If you use character data types, be sure to use the appropriate length.
 
 Functions used for partition elimination, filepath and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
@@ -192,6 +182,42 @@ You can use CETAS to materialize frequently used parts of queries, like joined r
 
 As CETAS generates Parquet files, statistics are automatically created when the first query targets this external table. The result is improved performance for subsequent queries targeting table generated with CETAS.
 
+## Query Azure data
+
+Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
+
+### Query CSV data
+
+Learn how to [query a single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md). You can also [query partitioned files](query-specific-files.md)
+
+### Query Parquet data
+
+Learn how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md).
+
+### Query Delta Lake
+
+Learn how to [query Delta Lake files](query-delta-lake-format.md) with [nested types](query-parquet-nested-types.md).
+
+### Query Azure Cosmos DB data
+
+Learn how to [query Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use an [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the WITH clause based on a sample Azure Cosmos DB document. You can [create views](create-use-views.md#cosmosdb-view) on top of Azure Cosmos DB containers.
+
+### Query JSON data
+
+Learn how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md).
+
+### Create views, tables, and other database objects
+
+Learn how to create and use [views](create-use-views.md) and [external tables](create-use-external-tables.md) or set up [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
+If you have [partitioned files](query-specific-files.md), make sure you use [partitioned views](create-use-views.md#partitioned-views).
+
+### Copy and transform data (CETAS)
+
+Learn how to [store query results to storage](create-external-table-as-select.md) by using the CETAS command.
+
 ## Next steps
 
-Review the [troubleshooting](resources-self-help-sql-on-demand.md) article for solutions to common problems. If you're working with a dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
+- Review the [troubleshooting serverless SQL pools](resources-self-help-sql-on-demand.md) article for solutions to common problems.  
+- If you're working with a dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
+- [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md)

@@ -4,26 +4,33 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 08/29/2023
 ms.author: cshoe
 ---
 
 # Health probes in Azure Container Apps
 
-Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S) exclusively.
+Azure Container Apps Health probes are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). These probes allow the Container Apps runtime to regularly inspect the status of your container apps.
 
-Container Apps support the following probes:
+You can set up probes using either TCP or HTTP(S) exclusively.
 
-- [Liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command): Reports the overall health of your replica.
-- [Startup](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes): Delay reporting on a liveness or readiness state for slower apps with a startup probe.
-- [Readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes): Signals that a replica is ready to accept traffic.
+Container Apps supports the following probes:
 
-For a full listing of the specification supported in Azure Container Apps, refer to [Azure Rest API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
+| Probe | Description |
+|---|---|
+| Startup | Checks if your application has successfully started. This check is separate from the liveness probe and executes during the initial startup phase of your application. |
+| Liveness | Checks if your application is still running and responsive. |
+| Readiness | Checks to see if a replica is ready to handle incoming requests. |
+
+For a full list of the probe specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
 
 ## HTTP probes
 
-HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside this range indicates a failure.
+HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status.
+
+Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside this range indicates a failure.
 
 The following example demonstrates how to implement a liveness endpoint in JavaScript.
 
@@ -50,20 +57,20 @@ app.get('/liveness', (req, res) => {
 
 ## TCP probes
 
-TCP probes wait for a connection to be established with the server to indicate success. A probe failure is registered if no connection is made.
+TCP probes wait to establish a connection with the server to indicate success. The probe fails if it can't establish a connection to your application.
 
 ## Restrictions
 
 - You can only add one of each probe type per container.
 - `exec` probes aren't supported.
 - Port values must be integers; named ports aren't supported.
-- gRPC is not supported.
+- gRPC isn't supported.
 
 ## Examples
 
 The following code listing shows how you can define health probes for your containers.
 
-The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
+The `...` placeholders denote omitted code. Refer to [Container Apps ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
 
 # [ARM template](#tab/arm-template)
 
@@ -152,9 +159,48 @@ containers:
 
 ---
 
-The optional [failureThreshold](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) setting defines the number of attempts Kubernetes tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe. Refer to [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) for details.
+The optional `failureThreshold` setting defines the number of attempts Container Apps tries to execute the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe type.
+
+## Default configuration
+
+If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+
+| Probe type | Default values |
+| -- | -- |
+| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1 second<br>Failure threshold: 240 seconds |
+| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1 second<br>Failure threshold: 48 seconds |
+| Liveness | Protocol: TCP<br>Port: ingress target port |
+
+If your app takes an extended amount of time to start (which is common in Java) you often need to customize the probes so your container doesn't crash.
+
+The following example demonstrates how to configure the liveness and readiness probes in order to extend the startup times.
+
+```json
+"probes": [
+       {
+        "type": "liveness",
+        "failureThreshold": 3,
+        "periodSeconds": 10,
+        "successThreshold": 1,
+        "tcpSocket": {
+          "port": 80
+        },
+        "timeoutSeconds": 1
+       },
+       {
+         "type": "readiness",
+         "failureThreshold": 48,
+         "initialDelaySeconds": 3,
+         "periodSeconds": 5,
+         "successThreshold": 1,
+         "tcpSocket": {
+           "port": 80
+          },
+          "timeoutSeconds": 5
+       }]
+```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor an app](monitor.md)
+> [Application logging](logging.md)

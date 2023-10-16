@@ -2,7 +2,7 @@
 title: Create an Azure Event Hubs schema registry
 description: This article shows you how to create a schema registry in an Azure Event Hubs namespace.
 ms.topic: quickstart
-ms.date: 01/13/2022
+ms.date: 09/09/2022
 ms.custom: references_regions, ignite-fall-2021, mode-other
 ---
 
@@ -14,7 +14,10 @@ This article shows you how to create a schema group with schemas in a schema reg
 
 > [!NOTE]
 > - The feature isn't available in the **basic** tier.
+> - Make sure that you are a member of one of these roles: **Owner**, **Contributor**, or **Schema Registry Contributor**. For details about role-based access control, see [Schema Registry overview](schema-registry-concepts.md#azure-role-based-access-control).
 > - If the event hub is in a **virtual network**, you won't be able to create schemas in the Azure portal unless you access the portal from a VM in the same virtual network. 
+> - The Schema Registry functionality isn't supported for namespaces with **private endpoint** enabled. 
+
 
 ## Prerequisites
 [Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace). You can also use an existing namespace. 
@@ -26,9 +29,9 @@ This article shows you how to create a schema group with schemas in a schema reg
     :::image type="content" source="./media/create-schema-registry/namespace-page.png" alt-text="Image showing the Schema Registry page in the Azure portal":::
 1. On the **Create Schema Group** page, do these steps:
     1. Enter a **name** for the schema group.
-    1. For **Serialization type**, pick a serialization format that applies to all schemas in the schema group. Currently, **Avro** is the only type supported, so select **Avro**. 
-    1. Select a **compatibility mode** for all schemas in the group. For **Avro**, forward and backward compatibility modes are supported. 
-    1. Then, select **Create** to create the schema group. 
+    1. For **Serialization type**, select **Avro** serialization format that applies to all schemas in the schema group. **JSON** serialization format is also supported (preview). 
+    3. Select a **compatibility mode** for all schemas in the group. For **Avro**, forward and backward compatibility modes are supported. 
+    4. Then, select **Create** to create the schema group. 
     
         :::image type="content" source="./media/create-schema-registry/create-schema-group-page.png" alt-text="Image showing the page for creating a schema group":::
 1. Select the name of the **schema group** in the list of schema groups.
@@ -44,7 +47,7 @@ In this section, you add a schema to the schema group using the Azure portal.
 
 1. On the **Schema Group** page, select **+ Schema** on the toolbar. 
 1. On the **Create Schema** page, do these steps:
-    1. For **Name**, enter **orderschema**.
+    1. For **Name**, enter `orderschema`.
     1. Enter the following **schema** into the text box. You can also select file with the schema.
     
         ```json

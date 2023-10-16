@@ -6,9 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
-ms.date: 10/21/2021
+ms.author: deeikele
+author: deeikele 
+ms.reviewer: larryfr
+ms.date: 11/04/2022
 ---
 
 # Secure code best practices with Azure Machine Learning
@@ -20,16 +21,16 @@ In Azure Machine Learning, you can upload files and content from any source into
 
 ## Potential threats
 
-Development with Azure Machine Learning often involves web-based development environments (Notebooks & Azure ML studio). When using web-based development environments, the potential threats are:
+Development with Azure Machine Learning often involves web-based development environments (Notebooks & Azure Machine Learning studio). When you use web-based development environments, the potential threats are:
 
 * [Cross site scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 
     * __DOM injection__: This type of attack can modify the UI displayed in the browser. For example, by changing how the run button behaves in a Jupyter Notebook.
-    * __Access token/cookies__: XSS attacks can also access local storage and browser cookies. Your Azure Active Directory (AAD) authentication token is stored in local storage. An XSS attack could use this token to make API calls on your behalf, and then send the data to an external system or API.
+    * __Access token/cookies__: XSS attacks can also access local storage and browser cookies. Your Microsoft Entra authentication token is stored in local storage. An XSS attack could use this token to make API calls on your behalf, and then send the data to an external system or API.
 
 * [Cross site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf): This attack may replace the URL of an image or link with the URL of a malicious script or API. When the image is loaded, or link clicked, a call is made to the URL.
 
-## Azure ML studio notebooks
+## Azure Machine Learning studio notebooks
 
 Azure Machine Learning studio provides a hosted notebook experience in your browser. Cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
 
@@ -46,9 +47,9 @@ __Recommended actions__:
 * Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you're uploading trusted files.
 * When selecting a link to open an external application, you'll be prompted to trust the application.
 
-## Azure ML compute instance
+## Azure Machine Learning compute instance
 
-Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ hosted on a compute instance.
+Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When you use either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when you use __RStudio__ and __Posit Workbench (formerly RStudio Workbench)__ hosted on a compute instance.
 
 __Possible threats__:
 * Cross site scripting (XSS)

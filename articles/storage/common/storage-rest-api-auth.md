@@ -3,14 +3,15 @@ title: Call REST API operations with Shared Key authorization
 titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
-author: tamram
+author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/01/2019
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: ozge
-ms.subservice: common
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -269,7 +270,7 @@ Now that you understand how to create the request, call the service, and parse t
 ## Creating the authorization header
 
 > [!TIP]
-> Azure Storage now supports Azure Active Directory (Azure AD) integration for blobs and queues. Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authorize with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory](authorize-data-access.md).
+> Azure Storage now supports Microsoft Entra integration for blobs and queues. Microsoft Entra ID offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Microsoft Entra ID to authorize REST operations, see [Authorize with Microsoft Entra ID](/rest/api/storageservices/authorize-with-azure-active-directory). For an overview of Microsoft Entra integration with Azure Storage, see [Authenticate access to Azure Storage using Microsoft Entra ID](authorize-data-access.md).
 
 There is an article that explains conceptually (no code) how to [Authorize requests to Azure Storage](/rest/api/storageservices/authorize-requests-to-azure-storage).
 
@@ -356,7 +357,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 ### Canonicalized resource
 
 This part of the signature string represents the storage account targeted by the request. Remember that the Request URI is
-`<http://contosorest.blob.core.windows.net/?comp=list>`, with the actual account name (`contosorest` in this case). In this example, this is returned:
+`http://contosorest.blob.core.windows.net/?comp=list`, with the actual account name (`contosorest` in this case). In this example, this is returned:
 
 ```
 /contosorest/\ncomp:list

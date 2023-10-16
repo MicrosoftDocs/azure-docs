@@ -6,23 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
 author: Abeomor
 ms.author: osomorog
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) model YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/model.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -30,7 +30,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
 | `name` | string | **Required.** Name of the model. | |
-| `version` | string | Version of the model. If omitted, Azure ML will autogenerate a version. | |
+| `version` | int | Version of the model. If omitted, Azure Machine Learning will autogenerate a version. | |
 | `description` | string | Description of the model. | |
 | `tags` | object | Dictionary of tags for the model. | |
 | `path` | string | Either a local path to the model file(s), or the URI of a cloud path to the model file(s). This can point to either a file or a directory. | |

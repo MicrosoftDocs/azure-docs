@@ -1,5 +1,5 @@
 ---
-title: ADAL client app error handling best practices | Azure
+title: ADAL client app error handling best practices
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
 author: rwike77
@@ -26,7 +26,7 @@ In this article, we explore the specific cases for each platform supported by AD
 - **AcquireToken**: Client can attempt silent acquisition, but can also perform interactive requests that require sign-in.
 
 > [!TIP]
-> It's a good idea to log all errors and exceptions when using ADAL and Azure AD. Logs are not only helpful for understanding the overall health of your application, but are also important when debugging broader problems. While your application may recover from certain errors, they may hint at broader design problems that require code changes in order to resolve. 
+> It's a good idea to log all errors and exceptions when using ADAL. Logs are not only helpful for understanding the overall health of your application, but are also important when debugging broader problems. While your application may recover from certain errors, they may hint at broader design problems that require code changes in order to resolve. 
 > 
 > When implementing the error conditions covered in this document, you should log the error code and description for the reasons discussed earlier. See the [Error and logging reference](#error-and-logging-reference) for examples of logging code. 
 >
@@ -483,7 +483,7 @@ By default, ADAL logging does not capture or log any personal identifiable infor
 
 #### ADAL library errors
 
-To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-dotnet repository](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58) is the best error reference.
+To explore specific ADAL errors, the source code in the [`azure-activedirectory-library-for-dotnet` repository](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58) is the best error reference.
 
 #### Guidance for error logging code
 
@@ -493,7 +493,7 @@ ADAL .NET logging changes depending on the platform being worked on. Refer to th
 
 #### ADAL library errors
 
-To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-android repository](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33) is the best error reference.
+To explore specific ADAL errors, the source code in the [`azure-activedirectory-library-for-android` repository](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33) is the best error reference.
 
 #### Operating System errors
 
@@ -534,7 +534,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 #### ADAL library errors
 
-To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-objc repository](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) is the best error reference.
+To explore specific ADAL errors, the source code in the [`azure-activedirectory-library-for-objc` repository](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) is the best error reference.
 
 #### Operating system errors
 
@@ -575,20 +575,19 @@ window.Logging = {
 
 ## Related content
 
-* [Azure AD Authentication Libraries][AAD-Auth-Libraries]
-* [Azure AD Authentication Scenarios][AAD-Auth-Scenarios]
-* [Integrating Applications with Azure Active Directory][AAD-Integrating-Apps]
+* [Azure AD Authentication Library][Auth-Libraries]
+* [Authentication scenarios][Auth-Scenarios]
+* [Register an application with the Microsoft identity platform][Integrating-Apps]
 
 Use the comments section that follows, to provide feedback and help us refine and shape our content.
 
-[![Shows the "Sign in with Microsoft" button][AAD-Sign-In]][AAD-Sign-In]
+[![Shows the "Sign in with Microsoft" button][Sign-In]][Sign-In]
+
 <!--Reference style links -->
 
-[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
-[AAD-Integrating-Apps]:../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-[AZURE-portal]: https://portal.azure.com
+[Auth-Libraries]: ./active-directory-authentication-libraries.md
+[Auth-Scenarios]:v1-authentication-scenarios.md
+[Integrating-Apps]:../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 
 <!--Image references-->
-[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
-
+[Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

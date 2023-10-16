@@ -4,7 +4,7 @@ description: Learn how to about common errors returned by WebHCat on HDInsight a
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.date: 12/07/2022
 ---
 
 # Understand and resolve errors received from WebHCat on HDInsight
@@ -27,7 +27,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |The maximum number of jobs that can be active concurrently (pending or running) |10,000 |
 | [templeton.exec.max-procs][max-procs] |The maximum number of requests that can be served concurrently |20 |
-| [mapreduce.jobhistory.max-age-ms][max-age-ms] |The number of days that job history are retained |7 days |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |The number of days that job history are retained |seven days |
 
 ## Too many requests
 
@@ -45,13 +45,13 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- |
 | This status code usually occurs during failover between the primary and secondary HeadNode for the cluster |Wait two minutes, then retry the operation |
 
-## Bad request Content: Could not find job
+## Bad request Content: Couldn't find job
 
 **HTTP Status code**: 400
 
 | Cause | Resolution |
 | --- | --- |
-| Job details have been cleaned up by the job history cleaner |The default retention period for job history is 7 days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
+| Job details have been cleaned up by the job history cleaner |The default retention period for job history is seven days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
 | Job has been killed because of a failover |Retry job submission for up to two minutes |
 | An Invalid job ID was used |Check if the job ID is correct |
 
@@ -62,7 +62,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Cause | Resolution |
 | --- | --- |
 | Internal garbage collection is occurring within the WebHCat process |Wait for garbage collection to finish or restart the WebHCat service |
-| Time out waiting on a response from the ResourceManager service. This error can occur when the number of active applications goes the configured maximum (default 10,000) |Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. For more information, see the [Modifying configuration](#modifying-configuration) section. |
+| Time out waiting on a response from the Resource Manager service. This error can occur when the number of active applications goes the configured maximum (default 10,000) |Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. For more information, see the [Modifying configuration](#modifying-configuration) section. |
 | Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Don't retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job ID. Or, don't use `Fields` |
 | The WebHCat service is down during HeadNode failover |Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat |Wait until currently pending jobs have completed before submitting more jobs |
@@ -71,6 +71,4 @@ If the following default values are exceeded, it can degrade WebHCat performance
 
 [!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]
 
-[maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration
-[max-age-ms]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml

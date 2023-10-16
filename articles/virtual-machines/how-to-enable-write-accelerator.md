@@ -6,10 +6,10 @@ manager: markkie
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 12/10/2021
+ms.date: 04/11/2023
 ms.author: raiye
 ms.subservice: disks 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 
 # Enable Write Accelerator
@@ -47,7 +47,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M416ms_v2, M416s_v2| 16 | 20000 |
+| M416ms_v2, M416s_8_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
 | M192ids_v2, M192idms_v2, M192is_v2, M192ims_v2, | 16 | 20000 |
 | M128ms, M128s, M128ds_v2, M128dms_v2, M128s_v2, M128ms_v2 | 16 | 20000 |
@@ -98,7 +98,7 @@ Specify either $true or $false to control support of Azure Write Accelerator wit
 
 Examples of commands could look like:
 
-```powershell
+```azurepowershell-interactive
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -116,7 +116,7 @@ You can use this script to add a new disk to your VM. The disk created with this
 
 Replace `myVM`, `myWAVMs`, `log001`, size of the disk, and LunID of the disk with values appropriate for your specific deployment.
 
-```powershell
+```azurepowershell-interactive
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -139,7 +139,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 You can use this script to enable Write Accelerator on an existing disk. Replace `myVM`, `myWAVMs`, and `test-log001` with values appropriate for your specific deployment. The script adds Write Accelerator to an existing disk where the value for **$newstatus** is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
 
-```powershell
+```azurepowershell-interactive
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -197,7 +197,7 @@ Replace the terms within '<<   >>' with your data, including the file name the J
 
 The output could look like:
 
-```JSON
+```output
 {
   "properties": {
     "vmId": "2444c93e-f8bb-4a20-af2d-1658d9dbbbcb",
@@ -298,7 +298,7 @@ Then update the existing deployment with this command: `armclient PUT /subscript
 
 The output should look like the one below. You can see that Write Accelerator enabled for one disk.
 
-```JSON
+```output
 {
   "properties": {
     "vmId": "2444c93e-f8bb-4a20-af2d-1658d9dbbbcb",

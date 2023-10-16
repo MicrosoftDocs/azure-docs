@@ -3,433 +3,83 @@
 - name: Overview
   items:
   - name: What is Azure DB for PostgreSQL?
-    href: overview.md
+    href: flexible-server/overview.md
   - name: Which PostgreSQL deployment option to choose?
-    href: overview-postgres-choose-server-options.md
+    href: flexible-server/overview-postgres-choose-server-options.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
-      href: concepts-certificate-rotation.md
+      href: single-server/concepts-certificate-rotation.md
 - name: Shared documentation
   items:
   - name: Migration
     items:
+      - name: Single Server to Flexible Server migration
+        items:
+          - name: Single to Flexible server migration tool - Concepts
+            href: migrate/concepts-single-to-flexible.md
+          - name: Single to Flexible server migration tool - Using portal
+            href: migrate/how-to-migrate-single-to-flexible-portal.md
+          - name: Single to Flexible server migration tool - Using CLI
+            href: migrate/how-to-migrate-single-to-flexible-cli.md
+          - name: Common errors
+            href: migrate/common-errors-and-special-scenarios-fms.md
+          - name: Troubleshooting Networking and Connectivity issues
+            href: migrate/troubleshooting-networking-and-connectivity-issues.md  
       - name: Migrate data with pg_dump and pg_restore
-        href: howto-migrate-using-dump-and-restore.md
+        href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
       - name: Migrate data with pg_dump and psql
-        href: howto-migrate-using-export-and-import.md
+        href: single-server/how-to-migrate-using-export-and-import.md
         displayName: import , export
       - name: Minimal-downtime migration with DMS
-        href: howto-migrate-online.md
+        href: single-server/how-to-migrate-online.md
         displayName: dms, data migration service
       - name: Migrate from Oracle
-        href: howto-migrate-from-oracle.md
+        href: single-server/how-to-migrate-from-oracle.md
   - name: Versioning policy
-    href: concepts-version-policy.md
+    href: single-server/concepts-version-policy.md
     displayName: version, postgresql
   - name: Major version upgrades
-    href: how-to-upgrade-using-dump-and-restore.md
+    href: single-server/how-to-upgrade-using-dump-and-restore.md
   - name: Prepay for reserved capacity
-    href: concept-reserved-pricing.md
+    href: single-server/concept-reserved-pricing.md
   - name: Known issues & limitations
-    href: concepts-known-issues-limitations.md
-    displayName: issues, limitations, postgresql 
-- name: Single Server
+    href: single-server/concepts-known-issues-limitations.md
+    displayName: issues, limitations, postgresql
+- name: Flexible Server
   expanded: true
   items:
-  - name: Single Server documentation
-    href: single-server/index.yml
-  - name: Overview
-    href: overview-single-server.md
-  - name: Quickstarts
-    expanded: true
-    items:
-    - name: Create a server
-      items:
-      - name: Azure portal
-        href: quickstart-create-server-database-portal.md
-        displayName: create single server,portal
-      - name: Azure CLI
-        href: quickstart-create-server-database-azure-cli.md
-        displayName: create single server in CLI
-      - name: Azure CLI up command
-        href: quickstart-create-server-up-azure-cli.md
-        displayName: create single server up command
-      - name: Azure PowerShell
-        href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-      - name: ARM template
-        href: quickstart-create-postgresql-server-database-using-arm-template.md
-        displayName: deploy azure resource manager template
-    - name: Connect & query
-      items:
-      - name: Python
-        href: connect-python.md
-        displayName: python, django , connect
-      - name: Node.js
-        href: connect-nodejs.md
-        displayName: nodejs, express, connect
-      - name: Java
-        href: connect-java.md
-        displayName: java , connect
-      - name: Java with spring data JDBC
-        href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-        displayName: spring java, jdbc, connect
-      - name: Java with spring data JPA
-        href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-        displayName: java jpa, spring data
-      - name: Java with spring data R2DBC
-        href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-        displayName: java, r2dbc, spring data
-      - name: Ruby
-        href: connect-ruby.md
-        displayName: connect with ruby
-      - name: PHP
-        href: connect-php.md
-        displayName: connect with php
-      - name: .NET
-        href: connect-csharp.md
-        displayName: connect with .net
-      - name: Go
-        href: connect-go.md
-        displayName: connect with go
-      - name: Rust
-        href: connect-rust.md
-        displayName: connect with rust
-  - name: Tutorials
-    items:
-    - name: Design a database
-      items:
-      - name: Azure portal
-        href: tutorial-design-database-using-azure-portal.md
-        displayName: design database
-      - name: Azure CLI
-        href: tutorial-design-database-using-azure-cli.md
-      - name: Azure PowerShell
-        href: tutorial-design-database-using-powershell.md
-    - name: Build & deploy Python web app (Django)
-      href: ../app-service/tutorial-python-postgresql-app.md
-      displayName: python, django, connect
-      maintainContext: true
-    - name: Monitor and tune
-      href: tutorial-monitor-and-tune.md
-      displayName: monitor, alerts, configure
-  - name: Concepts
-    items:
-    - name: Servers
-      href: concepts-servers.md
-    - name: Supported versions
-      href: concepts-supported-versions.md
-    - name: PostgreSQL extensions
-      href: concepts-extensions.md
-    - name: Limits
-      href: concepts-limits.md
-    - name: Understand pricing tiers
-      items:
-      - name: Pricing tiers
-        href: concepts-pricing-tiers.md
-    - name: Security
-      items:
-      - name: Security overview
-        href: concepts-security.md
-        displayName: security, overview
-      - name: Configure SSL
-        href: concepts-ssl-connection-security.md
-        displayName: security,ssl
-      - name: Connectivity architecture
-        href: concepts-connectivity-architecture.md
-        displayName: security, architecture
-      - name: Threat protection with Microsoft Defender for Cloud
-        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
-        displayName: security, advanced threat protection
-      - name: Azure AD authentication
-        href: concepts-aad-authentication.md
-        displayName: security, aad, active directory
-      - name: Data encryption
-        href: concepts-data-encryption-postgresql.md
-        displayName: security, data encryption
-      - name: Infrastructure double encryption
-        href: concepts-infrastructure-double-encryption.md
-        displayName: security, infrastructure encryption
-      - name: Security controls by Azure Policy
-        displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/postgresql-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
-    - name: Networking
-      items:
-      - name: Firewall rules
-        href: concepts-firewall-rules.md
-        displayName: firewall rules, security, connect
-      - name: Virtual network
-        href: concepts-data-access-and-security-vnet.md
-        displayName: security, service endpoint
-      - name: Private link
-        href: concepts-data-access-and-security-private-link.md
-        displayName: security, private link, private endpoint
-    - name: Planned maintenance
-      href: concepts-planned-maintenance-notification.md
-    - name: Business continuity
-      items:
-      - name: Business continuity intro
-        displayName: backup, restore, backups, restores, georestore, geo-restore, outage
-        href: concepts-business-continuity.md
-      - name: High availability
-        href: concepts-high-availability.md
-      - name: Backup and restore
-        href: concepts-backup.md
-        displayName: backup ,restore, georestore, geo-restore, outage
-    - name: Monitor and tune
-      items:
-      - name: Monitor and tune
-        href: concepts-monitoring.md
-        displayName: monitor, tune, alerts
-      - name: Logs
-        href: concepts-server-logs.md
-        displayName: monitor, server logs
-      - name: Audit logs
-        href: concepts-audit.md
-        displayName: audit logs, monitor
-      - name: Query store
-        items:
-        - name: Query store
-          href: concepts-query-store.md
-          displayName: performance, optimize, query store
-        - name: Query store usage scenarios
-          href: concepts-query-store-scenarios.md
-          displayName: query store, performance, optimize
-        - name: Query store best practices
-          href: concepts-query-store-best-practices.md
-      - name: Query performance insight
-        href: concepts-query-performance-insight.md
-        displayName: query store, performance, optimize, insights
-      - name: Performance recommendations
-        href: concepts-performance-recommendations.md
-        displayName: query store, performance, optimize, recommendations
-      - name: Azure Advisor recommendations
-        href: concepts-azure-advisor-recommendations.md
-    - name: App Development
-      items:
-      - name: Best practices
-        href: application-best-practices.md
-      - name: Connection libraries
-        href: concepts-connection-libraries.md
-        displayName: libraries, drivers
-      - name: Connection resiliency
-        href: concepts-connectivity.md
-        displayName: transient errors, connection issues, connectivity issues, pooling
-    - name: Replication
-      items:
-      - name: Read replicas
-        href: concepts-read-replicas.md
-        displayName: replication, read replica
-      - name: Logical decoding
-        href: concepts-logical.md
-        displayName: logical decoding
-  - name: How-to guides
-    items:
-    - name: Manage and scale
-      items:
-      - name: Azure portal
-        href: howto-create-manage-server-portal.md
-        displayName: scale server, reset password
-      - name: Azure CLI
-        href: how-to-manage-server-cli.md
-        displayName: scale server, reset password
-    - name: Restart server
-      items:
-      - name: Azure portal
-        href: howto-restart-server-portal.md
-      - name: Azure CLI
-        href: howto-restart-server-cli.md
-      - name: Azure PowerShell
-        href: howto-restart-server-powershell.md
-    - name: Firewall rules
-      items:
-      - name: Azure portal
-        href: howto-manage-firewall-using-portal.md
-        displayName: firewall, portal, rules
-      - name: Azure CLI
-        href: howto-manage-firewall-using-cli.md
-        displayName: firewall, rules, cli
-    - name: Connect and Query Guide
-      href: how-to-connect-query-guide.md
-      displayName: application development
-    - name: Restore server
-      items:
-      - name: Azure portal
-        href: howto-restore-server-portal.md
-        displayName: restore, georestore, geo-restore, outage
-      - name: Azure CLI
-        href: howto-restore-server-cli.md
-        displayName: restore, georestore, geo-restore, outage
-      - name: Azure PowerShell
-        href: howto-restore-server-powershell.md
-        displayName: restore, georestore, geo-restore, outage
-      - name: Restore a dropped server
-        href: howto-restore-dropped-server.md
-        displayName: restore server,dropped, recover
-    - name: Enable authentication
-      items:
-        - name: Create users
-          href: howto-create-users.md
-          displayName: non-admin user, application development
-        - name: Configure Azure AD integration
-          href: howto-configure-sign-in-aad-authentication.md
-          displayName: application development, aad, active directory
-        - name: Connect with Managed Identity
-          href: howto-connect-with-managed-identity.md
-    - name: Optimize
-      items:
-        - name: Bulk inserts
-          href: howto-optimize-bulk-inserts.md
-          displayName: bulk inserts, optimzie
-        - name: Autovacuum
-          href: howto-optimize-autovacuum.md
-          displayName: optimize, autovacuum
-        - name: Query stats collection
-          href: howto-optimize-query-stats-collection.md
-          displayName: query optimize, performance
-        - name: Toast table strategy
-          href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-          displayName: query optimize, performance
-    - name: Configure TLS
-      href: howto-tls-configurations.md
-      displayName: application development, TLS
-    - name: Connection strings
-      href: howto-connection-string-powershell.md
-      displayName: application development, TLS
-    - name: Configure server parameters
-      items:
-      - name: Azure portal
-        href: howto-configure-server-parameters-using-portal.md
-        displayName: application development, server parameters
-      - name: Azure CLI
-        href: howto-configure-server-parameters-using-cli.md
-        displayName: application development, server parameters
-      - name: Azure PowerShell
-        href: howto-configure-server-parameters-using-powershell.md
-        displayName: application development, server parameters
-    - name: Auto grow storage
-      items:
-      - name: Azure portal
-        href: howto-auto-grow-storage-portal.md
-        displayName: business continuity, scale , storage
-      - name: Azure CLI
-        href: howto-auto-grow-storage-cli.md
-        displayName: business continuity, scale , storage
-      - name: Azure PowerShell
-        href: howto-auto-grow-storage-powershell.md
-        displayName: business continuity, scale , storage
-    - name: Access logs
-      items:
-      - name: Azure portal
-        href: howto-configure-server-logs-in-portal.md
-        displayName: access logs, monitor
-      - name: Azure CLI
-        href: howto-configure-server-logs-using-cli.md
-        displayName: access logs, monitor
-    - name: Monitor
-      items:
-      - name: Create alerts on metrics
-        href: howto-alert-on-metric.md
-        displayName: alerts, metrics, monitor
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot connection errors
-        href: howto-troubleshoot-common-connection-issues.md
-        displayName: debug, connection, issues, firewall, ssl, port
-      - name: Troubleshoot data encryption
-        href: howto-data-encryption-troubleshoot.md
-        displayName: debug, security, encryption
-    - name: Virtual network
-      items:
-      - name: Azure portal
-        href: howto-manage-vnet-using-portal.md
-        displayName: service endpoint, vnet, virtual network
-      - name: Azure CLI
-        href: howto-manage-vnet-using-cli.md
-        displayName: service endpoint, vnet, virtual network
-    - name: Private link
-      items:
-      - name: Azure portal
-        href: howto-configure-privatelink-portal.md
-        displayName: private endpoint, private link
-      - name: Azure CLI
-        href: howto-configure-privatelink-cli.md
-        displayName: private endpoint, private link
-    - name: Data encryption
-      items:
-      - name: Azure portal
-        href: howto-data-encryption-portal.md
-        displayName: encryption, security
-      - name: Azure CLI
-        href: howto-data-encryption-cli.md
-        displayName: encryption, security
-      - name: Data encryption validation
-        href: howto-data-encryption-validation.md
-        displayName: encryption, security
-    - name: Infrastructure double encryption
-      items:
-      - name: Configure double encryption
-        href: howto-double-encryption.md
-        displayName: encryption, security
-    - name: Deny public network access
-      items:
-      - name: Azure portal
-        href: howto-deny-public-network-access.md
-        displayName: deny, public access, security
-    - name: Replication
-      items:
-      - name: Azure portal
-        href: howto-read-replicas-portal.md
-        displayName: replica
-      - name: Azure CLI, REST API
-        href: howto-read-replicas-cli.md
-        displayName: read replica
-      - name: Azure PowerShell
-        href: howto-read-replicas-powershell.md
-        displayName: read replica
-    - name: Move between regions
-      items:
-      - name: Azure portal
-        href: howto-move-regions-portal.md
-    - name: Upgrades and migration
-      items:
-      - name: Major version upgrade methods
-        href: how-to-upgrade-using-dump-and-restore.md
-      - name: Upgrade/Migrate data with pg_dump and pg_restore
-        href: howto-migrate-using-dump-and-restore.md
-      - name: Upgrade/Migrate data with pg_dump and psql
-        href: howto-migrate-using-export-and-import.md
-- name: Flexible Server 
-  expanded: true
-  items:
-  - name: Flexible Server documentation
-    href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
   - name: Release notes
-    href: flexible-server/release-notes.md   
+    href: flexible-server/release-notes.md
+  - name: API Release notes
+    href: flexible-server/release-notes-api.md
   - name: Compare Single Server and Flexible Server
     href: flexible-server/concepts-compare-single-server-flexible-server.md
   - name: Try Flexible Server for free
-    href: flexible-server/how-to-deploy-on-azure-free-account.md   
+    href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Quickstarts
     expanded: true
     items:
     - name: Create Server and Database
       items:
-      - name: Azure portal
-        href: flexible-server/quickstart-create-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
         displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
+      - name: Azure portal
+        href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure SDK for Python
+        href: flexible-server/quickstart-create-server-python-sdk.md
+      - name: Bicep
+        displayName: Resource Manager, ARM
+        href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
-        - name: Connect to a server in VNET 
+        - name: Connect to a server in VNET
           href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
@@ -439,18 +89,12 @@
           href: flexible-server/connect-java.md
         - name: .NET
           href: flexible-server/connect-csharp.md
-  - name: Tutorials
-    items:
-    - name: Build with AKS
+    - name: Database deployment
       items:
-      - name: Deploy Python App on Kubernetes
-        href: flexible-server/tutorial-django-aks-database.md
-    - name: Build with App Services
-      items:
-      - name: Create a web app in a virtual network
-        href: flexible-server/tutorial-webapp-server-vnet.md
-      - name: Deploy a Django app on App Service
-        href: ../app-service/tutorial-python-postgresql-app.md
+      - name: GitHub Actions
+        href: how-to-deploy-github-action.md
+      - name: Azure Pipelines
+        href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
     items:
     - name: Servers
@@ -468,35 +112,47 @@
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
+    - name: Microsoft Entra authentication
+      href: flexible-server/concepts-azure-ad-authentication.md
+    - name: Major Version Upgrade 
+      href: flexible-server/concepts-major-version-upgrade.md
+    - name: Compliance
+      href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
       href: flexible-server/concepts-extensions.md
+    - name: Encryption with Customer Managed Keys
+      href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md   
+      href: flexible-server/concepts-pgbouncer.md
     - name: Server parameters
-      href: flexible-server/concepts-server-parameters.md      
-    - name: Business continuity
+      href: flexible-server/concepts-server-parameters.md
+    - name: Troubleshooting guides
+      href: flexible-server/concepts-troubleshooting-guides.md
+    - name: Reliability
       items:
+      - name: High Availability (Reliability)
+        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
-      - name: High availability
-        href: flexible-server/concepts-high-availability.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune overview
         href: flexible-server/concepts-monitoring.md
         displayName: monitor, metrics
+      - name: Workbooks
+        href: flexible-server/concepts-workbooks.md 
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
       - name: Audit logs
         href: flexible-server/concepts-audit.md
-      - name: Intelligent Performance
+      - name: Intelligent performance
         items:
         - name: Query Store overview
           href: flexible-server/concepts-query-store.md
@@ -506,32 +162,135 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
+        - name: Query Performance Insight
+          href: flexible-server/concepts-query-performance-insight.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
-      href: flexible-server/concepts-logical.md
+      items:
+        - name: Read replicas
+          href: flexible-server/concepts-read-replicas.md
+          displayName: replication, read replica
+        - name: Logical replication and logical decoding
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding, logical replication
+    - name: App Development
+      items: 
+        - name: Connection libraries
+          href: flexible-server/concepts-connection-libraries.md
+        - name: Connection resilience
+          href: flexible-server/concepts-connectivity.md
+        - name: Connection Pooling Best Practices
+          href: flexible-server/concepts-connection-pooling-best-practices.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
+  - name: Integrations
+    items:
+    - name: Manage Azure resources with automation tasks
+      href: ./flexible-server/create-automation-tasks.md
+      displayName: Automation
+    - name: Power BI
+      href: flexible-server/connect-with-power-bi-desktop.md
   - name: Troubleshooting
     items:  
-    - name: Troubleshoot CLI errors
-      href: flexible-server/how-to-troubleshoot-cli-errors.md    
+    - name: Troubleshooting guides
+      href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Functional troubleshooting
+      items:
+      - name: Troubleshoot CLI errors
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+      - name: Canceling statement due to conflict with recovery
+        href: flexible-server/troubleshoot-canceling-statement-due-to-conflict-with-recovery.md
+    - name: Performance troubleshooting
+      items:
+      - name: Troubleshoot high CPU utilization
+        href: flexible-server/how-to-high-cpu-utilization.md 
+        displayName: High CPU Utilization
+      - name: Troubleshoot high memory utilization
+        href: flexible-server/how-to-high-memory-utilization.md 
+        displayName: High Memory Utilization
+      - name: Troubleshoot High IO utilization
+        href: flexible-server/how-to-high-io-utilization.md 
+        displayName: High IOPS Utilization
+      - name: Troubleshoot autovacuum 
+        href: flexible-server/how-to-autovacuum-tuning.md
+        displayName: Autovacuum troubleshooting, tuning
+      - name: Troubleshoot connections 
+        href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+        displayName: Troubleshoot connections
+      - name: Optimize query statistics
+        href: flexible-server/how-to-optimize-query-stats-collection.md
+        displayName: Optimize query statistics
+      - name: Best practices for bulk data upload 
+        href: flexible-server/how-to-bulk-load-data.md
+        displayName: Best practices for bulk data upload
+      - name: Best practices for pg_dump and restore
+        href: flexible-server/how-to-pgdump-restore.md
+        displayName: Best practices for pg_dump and restore
+  - name: Tutorials
+    items:
+    - name: Build with AKS
+      items:
+      - name: Deploy Python App on Kubernetes
+        href: flexible-server/tutorial-django-aks-database.md
+    - name: Build with App Services
+      items:
+      - name: Create a web app in a virtual network
+        href: flexible-server/tutorial-webapp-server-vnet.md
+      - name: Deploy a Django app on App Service
+        href: ../app-service/tutorial-python-postgresql-app.md
   - name: How-to guides
     items:
-    - name: Manage a server
+    - name: Server administration
       items:
-      - name: Azure portal
-        href: flexible-server/how-to-manage-server-portal.md
+      - name: Manage a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-server-cli.md
+        - name: Connect and query guide
+          href: flexible-server/how-to-connect-query-guide.md
+      - name: Scale a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-scale-compute-storage-portal.md
+      - name: Restore a dropped server
+        items:
+        - name: Restore a dropped server
+          href: flexible-server/how-to-restore-dropped-server.md
+      - name: Cross subscription and cross resource group restore
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
+        - name: Azure REST API
+          href: flexible-server/howto-restore-different-subscription-resource-group-api.md 
+      - name: Restart a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restart-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restart-server-cli.md
+      - name: Restore a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restore-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restore-server-cli.md
+      - name: Stop/start a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-stop-start-server-cli.md
+    - name: Encryption with CMK
+      items:
       - name: Azure CLI
-        href: flexible-server/how-to-manage-server-cli.md
-      - name: Connect and query guide
-        href: flexible-server/how-to-connect-query-guide.md
-    - name: Database deployment
-      items:
-      - name: GitHub actions
-        href: how-to-deploy-github-action.md
-      - name: Azure pipelines
-        href: flexible-server/azure-pipelines-deploy-database-task.md
+        href: flexible-server/how-to-create-server-customer-managed-key-cli.md
+      - name: Azure portal
+        href: flexible-server/how-to-create-server-customer-managed-key-portal.md
+      - name: Azure REST API
+        href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
@@ -550,12 +309,6 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-    - name: Security (TLS/SSL/SCRAM)
-      items:
-      - name: Connect using TLS/SSL
-        href: flexible-server/how-to-connect-tls-ssl.md
-      - name: Connect using SCRAM
-        href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -564,220 +317,440 @@
       - name: Azure CLI
         href: flexible-server/howto-configure-server-parameters-using-cli.md
         displayName: application development, server parameters
-    - name: Scale a server
+    - name: Enable Authentication
+      items:
+      - name: Configure Microsoft Entra integration
+        href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
+        displayName: application development, azure ad, active directory
+      - name: Connect with Managed Identity
+        href: flexible-server/how-to-connect-with-managed-identity.md
+      - name: Manage Microsoft Entra users
+        href: flexible-server/how-to-manage-azure-ad-users.md
+      - name: Connect with SCRAM authentication
+        href: flexible-server/how-to-connect-scram.md
+    - name: Major Version Upgrade
       items:
       - name: Azure portal
-        href: flexible-server/how-to-scale-compute-storage-portal.md
-    - name: Restart a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-restart-server-portal.md
+        href: flexible-server/how-to-perform-major-version-upgrade-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-restart-server-cli.md        
-    - name: Restore a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-restore-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-restore-server-cli.md
-    - name: Stop/start a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-stop-start-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-stop-start-server-cli.md
+        href: flexible-server/how-to-perform-major-version-upgrade-cli.md
     - name: Manage high availability
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-configure-high-availability-cli.md        
+        href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
-- name: Hyperscale (Citus)
+    - name: Intelligent performance
+      items:
+        - name: Intelligent tuning
+          items:
+          - name: Azure portal
+            href: flexible-server/how-to-enable-intelligent-performance-portal.md
+          - name: Azure CLI
+            href: flexible-server/how-to-enable-intelligent-performance-cli.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+        displayName: replica
+      - name: Azure REST API
+        href: flexible-server/how-to-read-replicas-rest-api.md
+        displayName: replica rest api
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: flexible-server/how-to-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: flexible-server/howto-optimize-performance-pgvector.md
+          displayName: pgvector
+- name: Single Server
+  expanded: false
   items:
-  - name: Hyperscale (Citus) documentation
-    href: hyperscale/index.yml
+  - name: What's happening to Single Server?
+    href: single-server/whats-happening-to-postgresql-single-server.md
   - name: Overview
+    href: single-server/overview-single-server.md
+  - name: Quickstarts
+    expanded: true
     items:
-    - name: What is Hyperscale (Citus)?
-      href: hyperscale/overview.md
-    - name: Product updates
-      href: hyperscale/product-updates.md
-  - name: Quickstart
-    items:
-    - name: Create server group
-      href: hyperscale/quickstart-create-portal.md
-    - name: Connect
-      href: hyperscale/quickstart-connect-psql.md
-    - name: Model and load data
-      href: hyperscale/quickstart-distribute-tables.md
-    - name: Run queries
-      href: hyperscale/quickstart-run-queries.md
+    - name: Create a server
+      items:
+      - name: Azure portal
+        href: single-server/quickstart-create-server-database-portal.md
+        displayName: create single server,portal
+      - name: Azure CLI
+        href: single-server/quickstart-create-server-database-azure-cli.md
+        displayName: create single server in CLI
+      - name: Azure CLI up command
+        href: single-server/quickstart-create-server-up-azure-cli.md
+        displayName: create single server up command
+      - name: Azure PowerShell
+        href: single-server/quickstart-create-postgresql-server-database-using-azure-powershell.md
+      - name: Bicep
+        href: single-server/quickstart-create-postgresql-server-database-using-bicep.md
+        displayName: ARM, Resource Manager, Template
+      - name: ARM template
+        href: single-server/quickstart-create-postgresql-server-database-using-arm-template.md
+        displayName: deploy azure resource manager template
+    - name: Connect & query
+      items:
+      - name: Python
+        href: single-server/connect-python.md
+        displayName: python, django , connect
+      - name: Node.js
+        href: single-server/connect-nodejs.md
+        displayName: nodejs, express, connect
+      - name: Java
+        href: single-server/connect-java.md
+        displayName: java , connect
+      - name: Java with spring data JDBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+        displayName: spring java, jdbc, connect
+      - name: Java with spring data JPA
+        href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+        displayName: java jpa, spring data
+      - name: Java with spring data R2DBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+        displayName: java, r2dbc, spring data
+      - name: Ruby
+        href: single-server/connect-ruby.md
+        displayName: connect with ruby
+      - name: PHP
+        href: single-server/connect-php.md
+        displayName: connect with php
+      - name: .NET
+        href: single-server/connect-csharp.md
+        displayName: connect with .net
+      - name: Go
+        href: single-server/connect-go.md
+        displayName: connect with go
+      - name: Rust
+        href: single-server/connect-rust.md
+        displayName: connect with rust
   - name: Tutorials
     items:
-      - name: Model and load data
-        items:
-        - name: Shard data on worker nodes
-          href: hyperscale/tutorial-shard.md
-        - name: Design a multi-tenant database
-          href: hyperscale/tutorial-design-database-multi-tenant.md
-          displayName: hyperscale, tutorial, multi-tenant
-        - name: Design a real-time dashboard
-          href: hyperscale/tutorial-design-database-realtime.md
-          displayName: hyperscale, tutorial, real-time
-      - name: Administer
-        items:
-        - name: Set up private access
-          href: hyperscale/tutorial-private-access.md
-          displayName: hyperscale, tutorial, private
+    - name: Design a database
+      items:
+      - name: Azure portal
+        href: single-server/tutorial-design-database-using-azure-portal.md
+        displayName: design database
+      - name: Azure CLI
+        href: single-server/tutorial-design-database-using-azure-cli.md
+      - name: Azure PowerShell
+        href: single-server/tutorial-design-database-using-powershell.md
+    - name: Build & deploy Python web app (Django)
+      href: ../app-service/tutorial-python-postgresql-app.md
+      displayName: python, django, connect
+      maintainContext: true
+    - name: Monitor and tune
+      href: single-server/tutorial-monitor-and-tune.md
+      displayName: monitor, alerts, configure
   - name: Concepts
     items:
-    - name: Server group
-      href: hyperscale/concepts-server-group.md
-    - name: Distributed data
+    - name: Cost optimization
+      href: flexible-server/how-to-cost-optimization.md
+    - name: Servers
+      href: single-server/concepts-servers.md
+    - name: Supported versions
+      href: single-server/concepts-supported-versions.md
+    - name: PostgreSQL extensions
+      href: single-server/concepts-extensions.md
+    - name: Limits
+      href: single-server/concepts-limits.md
+    - name: Understand pricing tiers
       items:
-      - name: Nodes and tables
-        href: hyperscale/concepts-nodes.md
-        displayName: nodes, tables
-      - name: Table colocation
-        href: hyperscale/concepts-colocation.md
-    - name: Security and data access
+      - name: Pricing tiers
+        href: single-server/concepts-pricing-tiers.md
+    - name: Security
       items:
-      - name: Overview
-        href: hyperscale/concepts-security-overview.md
-      - name: Public access
-        href: hyperscale/concepts-firewall-rules.md
-        displayName: firewall, rules, hyperscale
-      - name: Private access
-        href: hyperscale/concepts-private-access.md
-        displayName: private, link, hyperscale
+      - name: Security overview
+        href: single-server/concepts-security.md
+        displayName: security, overview
+      - name: Configure SSL
+        href: single-server/concepts-ssl-connection-security.md
+        displayName: security,ssl
+      - name: Connectivity architecture
+        href: single-server/concepts-connectivity-architecture.md
+        displayName: security, architecture
+      - name: Threat protection with Microsoft Defender for Cloud
+        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        displayName: security, advanced threat protection
+      - name: Microsoft Entra authentication
+        href: single-server/concepts-azure-ad-authentication.md
+        displayName: security, azure ad, active directory
+      - name: Data encryption
+        href: single-server/concepts-data-encryption-postgresql.md
+        displayName: security, data encryption
+      - name: Infrastructure double encryption
+        href: single-server/concepts-infrastructure-double-encryption.md
+        displayName: security, infrastructure encryption
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: single-server/security-controls-policy.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
-    - name: Scheduled maintenance
-      href: hyperscale/concepts-maintenance.md
+        href: /security/benchmark/azure/baselines/postgresql-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
+    - name: Networking
+      items:
+      - name: Firewall rules
+        href: single-server/concepts-firewall-rules.md
+        displayName: firewall rules, security, connect
+      - name: Virtual network
+        href: single-server/concepts-data-access-and-security-vnet.md
+        displayName: security, service endpoint
+      - name: Private link
+        href: single-server/concepts-data-access-and-security-private-link.md
+        displayName: security, private link, private endpoint
+    - name: Planned maintenance
+      href: single-server/concepts-planned-maintenance-notification.md
     - name: Business continuity
       items:
-      - name: Backup and restore
-        href: hyperscale/concepts-backup.md
-        displayName: backup, restore, outage, hyperscale
+      - name: Business continuity intro
+        displayName: backup, restore, backups, restores, georestore, geo-restore, outage
+        href: single-server/concepts-business-continuity.md
       - name: High availability
-        href: hyperscale/concepts-high-availability.md
-    - name: Replication
-      href: hyperscale/concepts-read-replicas.md
-    - name: Connection pooling
-      href: hyperscale/concepts-connection-pool.md
+        href: single-server/concepts-high-availability.md
+      - name: Backup and restore
+        href: single-server/concepts-backup.md
+        displayName: backup ,restore, georestore, geo-restore, outage
     - name: Monitor and tune
       items:
-      - name: Monitoring
-        href: hyperscale/concepts-monitoring.md
+      - name: Monitor and tune
+        href: single-server/concepts-monitoring.md
+        displayName: monitor, tune, alerts
+      - name: Logs
+        href: single-server/concepts-server-logs.md
+        displayName: monitor, server logs
       - name: Audit logs
-        href: hyperscale/concepts-audit.md
-    - name: Columnar storage
-      href: hyperscale/concepts-columnar.md
+        href: single-server/concepts-audit.md
+        displayName: audit logs, monitor
+      - name: Query store
+        items:
+        - name: Query store
+          href: single-server/concepts-query-store.md
+          displayName: performance, optimize, query store
+        - name: Query store usage scenarios
+          href: single-server/concepts-query-store-scenarios.md
+          displayName: query store, performance, optimize
+        - name: Query store best practices
+          href: single-server/concepts-query-store-best-practices.md
+      - name: Query performance insight
+        href: single-server/concepts-query-performance-insight.md
+        displayName: query store, performance, optimize, insights
+      - name: Performance recommendations
+        href: single-server/concepts-performance-recommendations.md
+        displayName: query store, performance, optimize, recommendations
+      - name: Azure Advisor recommendations
+        href: single-server/concepts-azure-advisor-recommendations.md
+    - name: App Development
+      items:
+      - name: Best practices
+        href: single-server/application-best-practices.md
+      - name: Connection libraries
+        href: single-server/concepts-connection-libraries.md
+        displayName: libraries, drivers
+      - name: Connection resiliency
+        href: single-server/concepts-connectivity.md
+        displayName: transient errors, connection issues, connectivity issues, pooling
+    - name: Replication
+      items:
+      - name: Read replicas
+        href: single-server/concepts-read-replicas.md
+        displayName: replication, read replica
+      - name: Logical decoding
+        href: single-server/concepts-logical.md
+        displayName: logical decoding
   - name: How-to guides
     items:
-    - name: Server group size
+    - name: Manage and scale
       items:
-      - name: Pick initial size
-        href: hyperscale/howto-scale-initial.md
-      - name: Scale server group
-        href: hyperscale/howto-scale-grow.md
-      - name: Rebalance shards
-        href: hyperscale/howto-scale-rebalance.md
-      - name: Change compute quotas
-        href: hyperscale/howto-compute-quota.md
-    - name: Security and data access
+      - name: Azure portal
+        href: single-server/how-to-create-manage-server-portal.md
+        displayName: scale server, reset password
+      - name: Azure CLI
+        href: single-server/how-to-manage-server-cli.md
+        displayName: scale server, reset password
+    - name: Restart server
       items:
-      - name: Manage public access
-        href: hyperscale/howto-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
-      - name: Manage private access
-        href: hyperscale/howto-private-access.md
-        displayName: network, private link
-      - name: Configure SSL
-        href: hyperscale/howto-ssl-connection-security.md
-        displayName: hyperscale, ssl
-    - name: Create users
-      href: hyperscale/howto-create-users.md
-    - name: Distributed data
+      - name: Azure portal
+        href: single-server/how-to-restart-server-portal.md
+      - name: Azure CLI
+        href: single-server/how-to-restart-server-cli.md
+      - name: Azure PowerShell
+        href: single-server/how-to-restart-server-powershell.md
+    - name: Firewall rules
       items:
-      - name: Determine application type
-        href: hyperscale/howto-app-type.md
-      - name: Determine table size
-        href: hyperscale/howto-table-size.md
-      - name: Choose a distribution column
-        href: hyperscale/howto-choose-distribution-column.md
-      - name: Distribute and modify tables
-        href: hyperscale/howto-modify-distributed-tables.md
-    - name: Configure high availability
-      href: hyperscale/howto-high-availability.md
-    - name: Manage read replicas
-      href: hyperscale/howto-read-replicas-portal.md
-      displayName: replication, read replica
-    - name: Schedule maintenance
-      href: hyperscale/howto-maintenance.md
-    - name: Restart server group
-      href: hyperscale/howto-restart.md
+      - name: Azure portal
+        href: single-server/how-to-manage-firewall-using-portal.md
+        displayName: firewall, portal, rules
+      - name: Azure CLI
+        href: single-server/quickstart-create-server-database-azure-cli.md#configure-a-server-based-firewall-rule
+        displayName: firewall, rules, cli
+    - name: Connect and Query Guide
+      href: single-server/how-to-connect-query-guide.md
+      displayName: application development
+    - name: Restore server
+      items:
+      - name: Azure portal
+        href: single-server/how-to-restore-server-portal.md
+        displayName: restore, georestore, geo-restore, outage
+      - name: Azure CLI
+        href: single-server/how-to-restore-server-cli.md
+        displayName: restore, georestore, geo-restore, outage
+      - name: Azure PowerShell
+        href: single-server/how-to-restore-server-powershell.md
+        displayName: restore, georestore, geo-restore, outage
+      - name: Restore a dropped server
+        href: single-server/how-to-restore-dropped-server.md
+        displayName: restore server,dropped, recover
+    - name: Enable authentication
+      items:
+        - name: Create users
+          href: single-server/how-to-create-users.md
+          displayName: non-admin user, application development
+        - name: Configure Microsoft Entra integration
+          href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
+          displayName: application development, azure ad, active directory
+        - name: Connect with Managed Identity
+          href: single-server/how-to-connect-with-managed-identity.md
+    - name: Optimize
+      items:
+        - name: Bulk inserts
+          href: single-server/how-to-optimize-bulk-inserts.md
+          displayName: bulk inserts, optimzie
+        - name: Autovacuum
+          href: single-server/how-to-optimize-autovacuum.md
+          displayName: optimize, autovacuum
+        - name: Query stats collection
+          href: single-server/how-to-optimize-query-stats-collection.md
+          displayName: query optimize, performance
+        - name: Toast table strategy
+          href: single-server/how-to-optimize-query-time-with-toast-table-storage-strategy.md
+          displayName: query optimize, performance
+    - name: Configure TLS
+      href: single-server/how-to-tls-configurations.md
+      displayName: application development, TLS
+    - name: Connection strings
+      href: single-server/how-to-connection-string-powershell.md
+      displayName: application development, TLS
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: single-server/how-to-configure-server-parameters-using-portal.md
+        displayName: application development, server parameters
+      - name: Azure CLI
+        href: single-server/how-to-configure-server-parameters-using-cli.md
+        displayName: application development, server parameters
+      - name: Azure PowerShell
+        href: single-server/how-to-configure-server-parameters-using-powershell.md
+        displayName: application development, server parameters
+    - name: Auto grow storage
+      items:
+      - name: Azure portal
+        href: single-server/how-to-auto-grow-storage-portal.md
+        displayName: business continuity, scale , storage
+      - name: Azure CLI
+        href: single-server/how-to-auto-grow-storage-cli.md
+        displayName: business continuity, scale , storage
+      - name: Azure PowerShell
+        href: single-server/how-to-auto-grow-storage-powershell.md
+        displayName: business continuity, scale , storage
+    - name: Access logs
+      items:
+      - name: Azure portal
+        href: single-server/how-to-configure-server-logs-in-portal.md
+        displayName: access logs, monitor
+      - name: Azure CLI
+        href: single-server/how-to-configure-server-logs-using-cli.md
+        displayName: access logs, monitor
     - name: Monitor
       items:
-      - name: View metrics
-        href: hyperscale/howto-monitoring.md
       - name: Create alerts on metrics
-        href: hyperscale/howto-alert-on-metric.md
-        dispalyName: alerts on hyperscale
-      - name: Access database logs
-        href: hyperscale/howto-logging.md
-        displayName: log, hyperscale
-    - name: Restore server group
-      href: hyperscale/howto-restore-portal.md
-    - name: Upgrade server group
-      href: hyperscale/howto-upgrade.md
+        href: single-server/how-to-alert-on-metric.md
+        displayName: alerts, metrics, monitor
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
-        href: hyperscale/howto-troubleshoot-common-connection-issues.md
-        displayName: connection errors, hyperscale
-      - name: Troubleshoot read-only access
-        href: hyperscale/howto-troubleshoot-read-only.md
-        displayName: read-only, hyperscale
-      - name: Useful diagnostic queries
-        href: hyperscale/howto-useful-diagnostic-queries.md
-  - name: Reference
-    items:
-      - name: PostgreSQL versions
-        href: hyperscale/reference-versions.md
-      - name: PostgreSQL extensions
-        href: hyperscale/reference-extensions.md
-      - name: Hyperscale (Citus) SQL API
-        items:
-        - name: Overview
-          href: hyperscale/reference-overview.md
-        - name: SQL functions
-          href: hyperscale/reference-functions.md
-        - name: Server parameters
-          href: hyperscale/reference-parameters.md
-        - name: System tables
-          href: hyperscale/reference-metadata.md
-      - name: Limits and limitations
-        href: hyperscale/reference-limits.md
-  - name: Resources
-    items:
-      - name: Pricing
-        href: hyperscale/resources-pricing.md
-      - name: Regional availability
-        href: hyperscale/resources-regions.md
-      - name: Compute and storage
-        href: hyperscale/resources-compute.md
+        href: single-server/how-to-troubleshoot-common-connection-issues.md
+        displayName: debug, connection, issues, firewall, ssl, port
+      - name: Troubleshoot data encryption
+        href: single-server/how-to-data-encryption-troubleshoot.md
+        displayName: debug, security, encryption
+    - name: Virtual network
+      items:
+      - name: Azure portal
+        href: single-server/how-to-manage-vnet-using-portal.md
+        displayName: service endpoint, vnet, virtual network
+      - name: Azure CLI
+        href: single-server/how-to-manage-vnet-using-cli.md
+        displayName: service endpoint, vnet, virtual network
+    - name: Private link
+      items:
+      - name: Azure portal
+        href: single-server/how-to-configure-privatelink-portal.md
+        displayName: private endpoint, private link
+      - name: Azure CLI
+        href: single-server/how-to-configure-privatelink-cli.md
+        displayName: private endpoint, private link
+    - name: Data encryption
+      items:
+      - name: Azure portal
+        href: single-server/how-to-data-encryption-portal.md
+        displayName: encryption, security
+      - name: Azure CLI
+        href: single-server/how-to-data-encryption-cli.md
+        displayName: encryption, security
+      - name: Data encryption validation
+        href: single-server/how-to-data-encryption-validation.md
+        displayName: encryption, security
+    - name: Infrastructure double encryption
+      items:
+      - name: Configure double encryption
+        href: single-server/how-to-double-encryption.md
+        displayName: encryption, security
+    - name: Deny public network access
+      items:
+      - name: Azure portal
+        href: single-server/how-to-deny-public-network-access.md
+        displayName: deny, public access, security
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: single-server/how-to-read-replicas-portal.md
+        displayName: replica
+      - name: Azure CLI, REST API
+        href: single-server/how-to-read-replicas-cli.md
+        displayName: read replica
+      - name: Azure PowerShell
+        href: single-server/how-to-read-replicas-powershell.md
+        displayName: read replica
+    - name: Move between regions
+      items:
+      - name: Azure portal
+        href: single-server/how-to-move-regions-portal.md
+    - name: Upgrades and migration
+      items:
+      - name: Major version upgrade methods
+        href: single-server/how-to-upgrade-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and pg_restore
+        href: single-server/how-to-migrate-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and psql
+        href: single-server/how-to-migrate-using-export-and-import.md
+- name: Hyperscale (Citus)
+  items:
+  - name: Where is Hyperscale (Citus)?
+    href: hyperscale/moved.md
 - name: Samples
   items:
   - name: Azure CLI samples
     items:
-      - name: Samples overview 
+      - name: Samples overview
         href: sample-scripts-azure-cli.md
       - name: Create a server and firewall rule
         href: ./scripts/sample-create-server-and-firewall-rule.md
@@ -804,8 +777,8 @@
      href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Deployment templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
   - name: Azure Roadmap
@@ -826,7 +799,7 @@
         href: https://aka.ms/postg-intro-vid
       - name: Migrate your PostgreSQL app to Azure
         href: https://aka.ms/postg-migrate-vid
-      - name: Build intelligent apps with Cognitive Services
+      - name: Build intelligent apps with Azure AI services
         href: https://aka.ms/postg-cogsvs-vid
       - name: Connect containers using OSBA
         href: https://aka.ms/postg-osba-vid
@@ -841,6 +814,6 @@
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
   - name: Partners
-    href: partners-migration-postgresql.md
+    href: migrate/partners-migration-postgresql.md
   - name: Database Migration Guide
-    href: https://datamigration.microsoft.com/
+    href: /data-migration/

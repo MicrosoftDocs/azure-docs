@@ -4,6 +4,7 @@ description: Learn how to set a compatibility level for an Azure Stream Analytic
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 03/18/2021
 ---
@@ -70,11 +71,11 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 **1.2 level:** If query logic can be parallelized across input source partitions, Azure Stream Analytics creates separate query instances and runs computations in parallel.
 
-### Native Bulk API integration with CosmosDB output
+### Native Bulk API integration with Azure Cosmos DB output
 
 **Previous levels:** The upsert behavior was *insert or merge*.
 
-**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
+**1.2 level:** Native Bulk API integration with Azure Cosmos DB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 The upsert behavior is *insert or replace*.
 
@@ -106,11 +107,18 @@ Adding a prefix to built-in aggregates also results in error. For example, `mypr
 
 Using the prefix "system" for any user-defined functions results in error.
 
-### Disallow Array and Object as key properties in Cosmos DB output adapter
+### Disallow Array and Object as key properties in Azure Cosmos DB output adapter
 
 **Previous levels:** Array and Object types were supported as a key property.
 
 **1.2 level:** Array and Object types are no longer supported as a key property.
+
+### Deserializing boolean type in JSON, AVRO and PARQUET
+
+**Previous levels:** Azure Stream Analytics deserializes Boolean value into type BIGINT - false maps to 0 and true maps to 1. The output only creates boolean values in JSON, AVRO, and PARQUET if you explicitly convert events to BIT.
+For example, a pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": 1 }`.
+
+**1.2 level:** Azure Stream Analytics deserializes Boolean value into type BIT. False maps to 0 and true maps to 1. A pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": true }`. You can cast value to type BIT in the query to ensure they appear as true and false in the output for formats supporting boolean type.
 
 ## Compatibility level 1.1
 

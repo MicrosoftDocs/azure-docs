@@ -4,9 +4,9 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: backup
-  ms.date: 11/02/2021
-  author: v-amallick
-  ms.author: v-amallick
+  ms.date: 07/20/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -28,13 +28,13 @@ sections:
       - question: |
           How many datasources/items can be protected in a vault?
         answer: |
-          You can protect up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) in a vault.
-          For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+          Protection of up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) is the recommended limit per vault.
+          For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, we would recommend protecting up to 1100 SQL databases in it.
           
       - question: |
           How many policies can I create per vault?
         answer: |
-          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure automation clients such as PowerShell, CLI is limited to 50 over a span of 24 hours.
+          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure Automation clients such as PowerShell, CLI is limited to 50 over a span of 24 hours.
 
       - question: |
           If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
@@ -54,7 +54,7 @@ sections:
       - question: |
           Can I change the storage redundancy setting after a backup?
         answer: |
-          The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is disabled and can't be changed.
+          The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is in disabled state and can't be changed.
           
           ![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
           
@@ -69,20 +69,20 @@ sections:
       - question: |
           How can I move data from the Recovery Services vault to on-premises?
         answer: |
-          To move backup data out of Recovery Services Vault, you need to restore the necessary data. If your vault contains backup of on-premises data, use the corresponding agent ([MARS](backup-azure-about-mars.md), [MABS](backup-azure-microsoft-azure-backup.md), or [DPM](backup-azure-dpm-introduction.md#why-back-up-dpm-to-azure)) to restore to on-premises. <br><br> We do not support exporting data directly from the Recovery Services vault to on-premises storage for backup of cloud workload ([Azure VMs](backup-azure-arm-restore-vms.md#restore-options), [SQL](restore-sql-database-azure-vm.md#restore-as-files), and [SAP HANA](sap-hana-db-restore.md#restore-as-files) in Azure VMs). However, you can restore these to the corresponding cloud resources in Azure Storage Accounts, and then move the data to on-premises. You can also export this data to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
+          To move backup data out of Recovery Services Vault, you need to restore the necessary data. If your vault contains backup of on-premises data, use the corresponding agent ([MARS](backup-azure-about-mars.md), [MABS](backup-azure-microsoft-azure-backup.md), or [DPM](backup-azure-dpm-introduction.md#why-back-up-dpm-to-azure)) to restore to on-premises. <br><br> We don't support exporting data directly from the Recovery Services vault to on-premises storage for backup of cloud workload ([Azure VMs](backup-azure-arm-restore-vms.md#restore-options), [SQL](restore-sql-database-azure-vm.md#restore-as-files), and [SAP HANA](sap-hana-db-restore.md#restore-as-files) in Azure VMs). However, you can restore these to the corresponding cloud resources in Azure Storage Accounts, and then move the data to on-premises. You can also export this data to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
           
       - question: |
           What is the difference between a geo-redundant storage (GRS) vault with and without the Cross-Region Restore (CRR) capability enabled?
         answer: |
-          In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-backup-glossary.md#cross-region-restore-crr) capability enabled, the data in the secondary region can't be accessed until Azure declares a disaster in the primary region. In such a scenario, the restore happens from the secondary region. When CRR is enabled, even if the primary region is up and running, you can trigger a restore in the secondary region.
+          If a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-backup-glossary.md#cross-region-restore-crr) capability enabled, the data in the secondary region can't be accessed until Azure declares a disaster in the primary region. In such a scenario, the restore happens from the secondary region. When CRR is enabled, even if the primary region is up and running, you can trigger a restore in the secondary region.
           
       - question: |
-          Can I move a subscription that contains a vault to a different Azure Active Directory?
+          Can I move a subscription that contains a vault to a different Microsoft Entra ID?
         answer: |
-          Yes. To move a subscription (that contains a vault) to a different Azure Active Directory (AD), see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
+          Yes. To move a subscription (that contains a vault) to a different Microsoft Entra ID, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
           
           >[!IMPORTANT]
-          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles are not transferrable. You must recreate the permissions and roles in the new Azure AD.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
+          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferrable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
           
       - question: |
           Can I move a subscription that contains a Recovery Services Vault to a different tenant?
@@ -92,6 +92,17 @@ sections:
           >[!IMPORTANT]
           >Ensure that you perform the following actions after moving the subscription:<ul><li>If the vault uses CMK (customer managed keys), you must update the vault. This enables the vault to recreate and reconfigure the vault managed identity and CMK (which will reside in the new tenant), otherwise the backups/restore operation will fail.</li><li>You must reconfigure the RBAC permissions in the subscription as the existing permissions can’t be moved.</li></ul>
           
+      - question: |
+          What are the various vaults supported for backup and restore?
+        answer: |
+          [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) and [Backup vault](backup-vault-overview.md) are both supported in Azure Backup, and target the backup and restore of different datasources. You need to create the appropriate vault based on the datasource type that you want to protect.
+
+          The following table lists the various datasources that each vault supports:
+
+          | Recovery Services vault | Backup vault |
+          | --- | --- |
+          | Supported datasources: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - Azure Files <br> - SAP HANA in Azure VM <br> - Azure Backup Server <br> - Azure Backup agent <br> - DPM    |   Supported datasources: <br><br> - Azure Disks <br> - Azure Blobs <br> - Azure Database for PostgreSQL server <br> - Kubernetes services (preview) |
+
   - name: Azure Backup agent
     questions:
       - question: |
@@ -107,9 +118,9 @@ sections:
         answer: |
           Yes.
           
-          - You can back up Windows Server or Windows machines up to three times a day. You can set the scheduling policy to daily or weekly schedules.
+          - You can back up Windows Server or Windows machines up to three times a day using MARS backup. You can set the scheduling policy to daily or weekly schedules.
           - You can back up DPM up to twice a day. You can set the scheduling policy to daily, weekly, monthly, and yearly.
-          - You back up Azure VMs once a day.
+          - You can back up Azure VMs once a day using Standard backup policy.
           
       - question: |
           What operating systems are supported for backup?
@@ -119,24 +130,24 @@ sections:
           **OS** | **SKU** | **Details**
           --- | --- | ---
           Workstation | |
-          Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
-          Windows 8.1 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
-          Windows 8 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
-          Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Machines should be running the latest services packs and updates.
+          Windows 11 64 bit | Enterprise, Pro, Home, IoT | Machines should be running the latest services packs and updates.
+          Windows 10 64 bit | Enterprise, Pro, Home, IoT | Machines should be running the latest services packs and updates.
           Server | |
-          Windows Server 2019 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
+          Windows Server 2022 64 bit | Standard, Datacenter, Essentials, IoT | With the latest service packs/updates.
+          Windows Server 2019 64 bit | Standard, Datacenter, Essentials, IoT | With the latest service packs/updates.
           Windows Server 2016 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
-          Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
-          Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
           Windows Storage Server 2016 64 bit | Standard, Workgroup | With the latest service packs/updates.
           Windows Storage Server 2012 R2 64 bit | Standard, Workgroup, Essential | With the latest service packs/updates.
+          Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
+          Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
           Windows Storage Server 2012 64 bit | Standard, Workgroup | With the latest service packs/updates.
-          Windows Server 2008 R2 SP1 64 bit | Standard, Enterprise, Datacenter, Foundation | With the latest updates.
-          Windows Server 2008 64 bit | Standard, Enterprise, Datacenter | With latest updates.
+          
           
           Azure Backup doesn't support 32-bit operating systems.
           
           For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
+
+          Learn more about the latest workloads supported by [DPM](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2022) and [MABS Server](backup-mabs-protection-matrix.md).
           
       - question: |
           Are there size limits for data backup?
@@ -196,9 +207,9 @@ sections:
           If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
           
       - question: |
-          Can backup items in a vault be deleted if its Resource Group has a delete lock?
+          Can the backup items in a vault be deleted if its Resource Group has a delete lock?
         answer: |
-          No, backup items in a vault cannot be deleted if the corresponding Resource Group has a delete lock.     
+          No, backup items in a vault can't be deleted if the corresponding Resource Group has a delete lock.     
           
   - name: Retention and recovery
     questions:
@@ -210,7 +221,7 @@ sections:
       - question: |
           Can I customize retention policies?
         answer: |
-          Yes, you have customize policies. For example, you can configure weekly and daily retention requirements, but not yearly and monthly.
+          Yes, you've customize policies. For example, you can configure weekly and daily retention requirements, but not yearly and monthly.
 
       - question: |
           Can I use different times for backup scheduling and retention policies?
@@ -257,7 +268,7 @@ sections:
           When a new policy is applied, schedule and retention of the new policy is followed.
           
           - If retention is extended, existing recovery points are marked to keep them according to new policy.
-          - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
+          - If retention is reduced, they're marked for pruning in the next cleanup job and subsequently deleted.
           
       - question: |
           How long is data retained when stopping backups, but selecting the option to retain backup data?

@@ -36,7 +36,7 @@ You can invoke the plugin in a Kusto query with the following command. There are
 evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
 ```
 
-The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
+The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
 * The `*` wildcard in the `SELECT` clause isn't supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
 
     For example, consider the below Azure Digital Twins query that is executed using the API:
@@ -66,7 +66,7 @@ The plugin works by calling the [Azure Digital Twins query API](/rest/api/digita
 
 
 >[!IMPORTANT]
->The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+>The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Microsoft Entra token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
 
 For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
 
@@ -74,15 +74,15 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 
 ## Ingesting Azure Digital Twins data into Azure Data Explorer
 
-Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do so: through the **data history (preview)** feature, or through direct ingestion. The following sections describe these options in more detail.
+Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do so: through the **data history** feature, or through direct ingestion. The following sections describe these options in more detail.
 
 ### Ingesting with data history
 
-The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history (preview)** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and twin property updates are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer) (preview)](concepts-data-history.md). 
+The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and graph updates (including twin property updates, twin lifecycle events, and relationship lifecycle events) are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
 
 ### Direct ingestion
 
-You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This option is a good choice for direct-ingestion workloads. For more information about this process, continue through the rest of this section.
+You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This option is a good choice for direct-ingestion workloads—however, you won't be able to leverage Azure Digital Twins' event-based architecture to update other twins, trigger downstream services, or emit notifications when twins change state. For more information about this process, continue through the rest of this section.
 
 #### Mapping data across Azure Data Explorer and Azure Digital Twins
 
@@ -132,11 +132,11 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 #### Example schema
 
-Here's an example of a schema that might be used to represent shared data.
+Here's an example of a schema that might be used to represent shared data. The example follows the Azure Data Explorer [data history schema for twin property updates](concepts-data-history.md#twin-property-updates).
 
-| `timestamp` | `twinId` | `modelId` | `name` | `value` | `relationshipTarget` | `relationshipID` |
-| --- | --- | --- | --- | --- | --- | --- |
-| 2021-02-01 17:24 | ConfRoomTempSensor | `dtmi:com:example:TemperatureSensor;1` | temperature | 301.0 |  |  |
+| `TimeStamp` | `SourceTimeStamp` | `TwinId` | `ModelId` | `Name` | `Value` | `RelationshipTarget` | `RelationshipID` |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2021-02-01 17:24 | 2021-02-01 17:11 | ConfRoomTempSensor | `dtmi:com:example:TemperatureSensor;1` | temperature | 301.0 |  |  |
 
 Digital twin properties are stored as key-value pairs (`name, value`). `name` and `value` are stored as dynamic data types. 
 

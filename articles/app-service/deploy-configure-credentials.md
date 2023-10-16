@@ -5,8 +5,9 @@ description: Learn what types of deployment credentials are in Azure App Service
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: seodec18, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure deployment credentials for Azure App Service
@@ -133,7 +134,7 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 ## Disable basic authentication
 
-Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Azure Active Directory (Azure AD).
+Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Microsoft Entra ID.
 
 ### FTP
 

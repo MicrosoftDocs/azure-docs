@@ -1,20 +1,28 @@
 ---
 title: Create and delete managed private endpoints in an Azure Stream Analytics cluster
 description: Learn how to managed private endpoints in an Azure Stream Analytics cluster.
-author: sidramadoss
-ms.author: sidram
-
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2021
+ms.date: 04/13/2023
 ---
 
 # Create and delete managed private endpoints in an Azure Stream Analytics cluster
 
 You can connect your Azure Stream Analytics jobs running on a cluster to input and output resources that are behind a firewall or an Azure Virtual Network (VNet). First, you create a managed private endpoint for a resource, such as Azure Event Hub or Azure SQL Database, in your Stream Analytics cluster. Then, approve the private endpoint connection from your input or output.
 
-Once you approve the connection, any job running in your Stream Analytics cluster can access the resource through the private endpoint. This article shows you how to create and delete private endpoints in a Stream Analytics cluster. You can create private endpoints for Azure SQL Database, Azure Cosmos DB, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub, Azure IoT Hubs and Azure Service Bus.
+Once you approve the connection, any job running in your Stream Analytics cluster can access the resource through the private endpoint. This article shows you how to create and delete private endpoints in a Stream Analytics cluster. You can create private endpoints for:
+* Azure SQL Database
+* Azure Cosmos DB
+* Azure Blob Storage
+* Azure Data Lake Storage Gen2
+* Azure Event Hub
+* Azure IoT Hubs
+* Azure Service Bus
+* Azure Synapse Analytics - Dedicated SQL pool
+* Azure Data Explorer (kusto)
 
 ## Create managed private endpoint in Stream Analytics cluster
 
@@ -52,6 +60,9 @@ In this section, you learn how to create a private endpoint in a Stream Analytic
 1. Choose the private endpoint you want to delete and select **Delete**.
 
    ![delete private endpoint](./media/private-endpoints/delete-private-endpoint.png)
+
+## Limitation
+When configuring managed private endpoints to Azure Synapse Analytics (Dedicated SQL pool), you must add your Synapse SQL output to your job using **Provide SQL Database settings manually** mode. Provide the full Dedicated Synapse SQL pool URL such as **{WorkspaceName}.sql.azuresynapse.net** for the **Server name** field. 
 
 ## Next steps
 

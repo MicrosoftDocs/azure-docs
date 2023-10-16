@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server and third-party VPNs - Azure Active Directory
+title: Azure MFA Server and third-party VPNs
 description: Step-by-step configuration guides for Azure MFA Server to integrate with Cisco, Citrix, and Juniper.
 
 services: multi-factor-authentication
@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 Azure Multi-Factor Authentication Server (Azure MFA Server) can be used to seamlessly connect with various third-party VPN solutions. This article focuses on Cisco&reg; ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. We created configuration guides to address these three common appliances. Azure MFA Server can also integrate with most other systems that use RADIUS, LDAP, IIS, or claims-based authentication to AD FS. You can find more details in [Azure MFA Server configurations](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multifactor authentication during sign-in events should use cloud-based Microsoft Entra multifactor authentication.
 >
-> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 >
 > If you use cloud-based MFA, see [Integrate your VPN infrastructure with Azure MFA](howto-mfa-nps-extension-vpn.md).
 >
@@ -54,6 +54,6 @@ Azure MFA Server integrates with your Juniper/Pulse Secure SSL VPN appliance to 
 
 ## Next steps
 
-- [Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension.md)
+- [Augment your existing authentication infrastructure with the NPS extension for Azure multifactor authentication](howto-mfa-nps-extension.md)
 
-- [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+- [Configure Azure multifactor authentication settings](howto-mfa-mfasettings.md)

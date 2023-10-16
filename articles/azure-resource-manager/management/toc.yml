@@ -22,8 +22,10 @@
     href: resources-without-resource-group-limit.md
   - name: Security
     items:
+    - name: TLS support
+      href: tls-support.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
+      href: /security/benchmark/azure/baselines/azure-resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -51,6 +53,8 @@
           href: ../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Classic deployment
           href: ./move-limitations/classic-model-move-limitations.md
+        - name: Cloud Services (extended support)
+          href: ./move-limitations/cloud-services-extended-support.md
         - name: Networking
           href: ./move-limitations/networking-move-limitations.md
         - name: Recovery Services
@@ -64,7 +68,7 @@
         - name: Azure App Service
           href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Automation
-          href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
+          href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Backup (Recovery Services vault)
           href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Batch
@@ -94,7 +98,7 @@
         - name: Azure Storage
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL DB & MI
-          href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/azure-sql/database/move-resources-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Stream Analytics
           items:
           - name: Move Stream Analytics jobs
@@ -109,18 +113,34 @@
           href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Networking
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Managed identities for Azure Resources
+          href: ../../active-directory/managed-identities-azure-resources/how-to-managed-identity-regional-move.md
         - name: Power BI
           href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: SQL Server on Azure VM
-          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region?toc=/azure/azure-resource-manager/management/toc.json
   - name: Tags
     items:
     - name: Decision guide
-      href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Use tags
+      href: /azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide?toc=/azure/azure-resource-manager/management/toc.json
+    - name: Guidance and limits
       href: tag-resources.md
+    - name: Use tags
+      items:
+      - name: Portal
+        href: tag-resources-portal.md
+      - name: Azure CLI
+        href: tag-resources-cli.md
+      - name: Azure PowerShell
+        href: tag-resources-powershell.md
+      - name: Python
+        href: tag-resources-python.md
+      - name: ARM templates
+        href: tag-resources-templates.md
+      - name: Bicep
+        href: tag-resources-bicep.md
     - name: Azure Policy definitions - compliance
       href: tag-policies.md
     - name: Supported resource types
@@ -131,10 +151,10 @@
     items:
     - name: Create - portal
       href: create-private-link-access-portal.md
-    - name: Create - REST
-      href: create-private-link-access-rest.md
-    - name: Manage - REST
-      href: manage-private-link-access-rest.md
+    - name: Create - Commands
+      href: create-private-link-access-commands.md
+    - name: Manage - Commands
+      href: manage-private-link-access-commands.md
   - name: Manage resource groups
     items:
     - name: Azure portal
@@ -146,6 +166,9 @@
     - name: Azure PowerShell
       displayName: create,list,open,delete,deploy,move,lock,tag,export
       href: manage-resource-groups-powershell.md
+    - name: Python
+      displayName: create,list,open,delete,deploy,move,lock,tag,export
+      href: manage-resource-groups-python.md
   - name: Manage resources
     items:
     - name: Azure portal
@@ -157,6 +180,12 @@
     - name: Azure PowerShell
       displayName: open,delete,deploy,move,lock,tag
       href: manage-resources-powershell.md
+    - name: Python
+      displayName: open,delete,deploy,move,lock,tag
+      href: manage-resources-python.md
+    - name: REST API
+      displayName: open,delete,deploy
+      href: manage-resources-rest.md
   - name: Resource providers and types
     href: resource-providers-and-types.md
   - name: Preview features
@@ -173,6 +202,8 @@
     href: async-operations.md
   - name: Control plane metrics in Azure Monitor 
     href: control-plane-metrics.md
+  - name: Resource group insights
+    href: ../../azure-monitor/insights/resource-group-insights.md
 - name: Reference
   items:
   - name: REST
@@ -194,8 +225,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-resource-manager
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=monitoring-management
   - name: Pricing calculator

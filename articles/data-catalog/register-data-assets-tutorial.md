@@ -3,12 +3,12 @@ title: 'Tutorial: Register data assets in Azure Data Catalog'
 description: This tutorial describes how to register data assets in your Azure Data Catalog. 
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 02/24/2022
-# Customer intent: As an Azure Active Directory owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
+ms.date: 12/08/2022
+# Customer intent: As a Microsoft Entra owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
 ---
 # Tutorial: Register data assets in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 In this tutorial, you use the registration tool to register data assets from the database sample with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
@@ -23,10 +23,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To get started, you must complete the [quickstart](register-data-assets-tutorial.md).
-
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-* You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* You need to have your own [Microsoft Entra tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* An [Azure Data Catalog](data-catalog-get-started.md)
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
@@ -34,7 +33,7 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ### Register a data source
 
-You register data assets (tables) from a [database sample](../azure-sql/database/single-database-create-quickstart.md) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+In this example, we'll register data assets (tables) from a [database sample](/azure/azure-sql/database/single-database-create-quickstart) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see: [Supported data sources](data-catalog-dsr.md).
 
 The database name we're using in this tutorial is *RLSTest*.
 
@@ -78,7 +77,7 @@ You can now register data assets from the database sample by using Azure Data Ca
 
    1. Specify the name of an **expert** on this data (optional).
 
-      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-objects-register.png" alt-text="In the objects to be registered list, these names are shown: product, product category, product description, product model, and product model product description. Then the 'Include preview' and 'Include data profile' options are selected. Then three tags are added to the tag field: sales, product, and azure S Q L.":::
+      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-objects-register.png" alt-text="In the objects to be registered list, these names are shown: product, product category, product description, product model, and product model product description. Then the 'Include preview' and 'Include data profile' options are selected. Then three tags are added to the tag field: sales, product, and Azure SQL.":::
 
    1. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently stays. Data remains under the control of the administrators and policies of the origin system.
 

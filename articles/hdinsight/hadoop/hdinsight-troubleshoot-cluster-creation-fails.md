@@ -4,7 +4,7 @@ description: Learn how to troubleshoot Apache cluster creation issues for Azure 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 04/14/2020
+ms.date: 09/14/2023
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---
 
@@ -71,7 +71,7 @@ Other naming restrictions also apply for cluster creation. See [Cluster name res
 
 ## Service outages
 
-Check [Azure status](https://status.azure.com) for any potential outages or service issues.
+Check [Azure status](https://azure.status.microsoft) for any potential outages or service issues.
 
 ## Next steps
 

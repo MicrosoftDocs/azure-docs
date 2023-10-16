@@ -7,24 +7,43 @@
   - name: About Durable Functions
     href: durable-functions-overview.md
   - name: Serverless comparison
-    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=/azure/azure-functions/durable/toc.json
   - name: Durable Functions versions
     href: durable-functions-versions.md
+  - name: Durable Functions for .NET isolated
+    href: durable-functions-dotnet-isolated-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create durable function - C#
-    href: durable-functions-create-first-csharp.md
-    displayName: get started, chaining
+    items: 
+      - name: In-process
+        href: durable-functions-create-first-csharp.md
+        displayName: get started, chaining
+      - name: Isolated worker process
+        href: durable-functions-isolated-create-first-csharp.md
+        displayName: get started, chaining
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
+  - name: Create durable function - TypeScript
+    displayName: get started, chaining
+    href: quickstart-ts-vscode.md
   - name: Create durable function - Python
     displayName: get started, chaining
     href: quickstart-python-vscode.md
   - name: Create durable function - PowerShell
     displayName: get started, chaining
     href: quickstart-powershell-vscode.md
+  - name: Create durable function - Java
+    displayName: get started, chaining
+    href: quickstart-java.md
+  - name: Configure storage provider - Netherite
+    href: quickstart-netherite.md
+  - name: Configure storage provider - MSSQL
+    href: quickstart-mssql.md
+  - name: Configure Durable Functions with Microsoft Entra ID
+    href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:
   - name: Function chaining
@@ -93,34 +112,56 @@
     href: durable-functions-bindings.md
   - name: HTTP API
     href: durable-functions-http-api.md
-  - name: .NET API
+  - name: .NET in-process API
     href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+  - name: .NET isolated API
+    items:
+    - name: Durable Functions bindings for .NET isolated
+      href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
+    - name: Durable Task core SDK for .NET isolated
+      href: /dotnet/api/microsoft.durabletask
   - name: Node.js API
     href: /javascript/api/durable-functions/
   - name: Python API
     href: /python/api/azure-functions-durable/azure.durable_functions
+  - name: Java API
+    items:
+    - name: Durable Functions bindings for Java
+      href: /java/api/com.microsoft.durabletask.azurefunctions
+    - name: Durable Task core SDK for Java
+      href: /java/api/com.microsoft.durabletask
+  - name: Azure storage provider
+    href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
   - name: Develop
     items:
+    - name: Durable Functions best practices and diagnostic tools
+      href: durable-functions-best-practice-reference.md
+    - name: Durable Functions Rosyln Analyzer (C# only)
+      href: durable-functions-roslyn-analyzer.md
     - name: Create in Azure portal
       href: durable-functions-create-portal.md
     - name: Manage connections
-      href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../manage-connections.md?toc=/azure/azure-functions/durable/toc.json
     - name: Unit testing
       href: durable-functions-unit-testing.md
     - name: Create as WebJobs
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
+    - name: Guide to the standalone DF PowerShell SDK
+      href: durable-functions-powershell-v2-sdk-migration-guide.md
+    - name: Upgrade to Node.js model v4
+      href: durable-functions-node-model-upgrade.md
   - name: Deploy
     items:
     - name: Continuous deployment
-      href: ../functions-continuous-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../functions-continuous-deployment.md?toc=/azure/azure-functions/durable/toc.json
     - name: Zip deployment
-      href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../deployment-zip-push.md?toc=/azure/azure-functions/durable/toc.json
     - name: Run from package
-      href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../run-functions-from-deployment-package.md?toc=/azure/azure-functions/durable/toc.json
     - name: Zero downtime deployment
       href: durable-functions-zero-downtime-deployment.md
   - name: Monitor
@@ -128,13 +169,21 @@
     - name: Diagnostics
       href: durable-functions-diagnostics.md
     - name: Monitoring
-      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../functions-monitoring.md?toc=/azure/azure-functions/durable/toc.json
+    - name: App diagnostics in Azure portal 
+      href: function-app-diagnostics.md
     - name: Pricing
       href: durable-functions-billing.md
+  - name: Debug
+    items:
+    - name: Upgrade Durable Functions extension version
+      href: durable-functions-extension-upgrade.md
+    - name: Durable Functions Troubleshooting Guide
+      href: durable-functions-troubleshooting-guide.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-functions
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

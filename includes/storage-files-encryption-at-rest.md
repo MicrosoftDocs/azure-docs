@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
- ms.service: storage
+ author: khdownie
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 12/27/2019
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file
 ---
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.

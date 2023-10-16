@@ -1,46 +1,44 @@
 ---
-title: Assign Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Assign Microsoft Entra roles in PIM
+description: Learn how to assign Microsoft Entra roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2022
-ms.author: curtand
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
 ---
 
-# Assign Azure AD roles in Privileged Identity Management
+# Assign Microsoft Entra roles in Privileged Identity Management
 
-With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Azure portal](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
+With Microsoft Entra ID, a Global administrator can make **permanent** Microsoft Entra admin role assignments. These role assignments can be created using the [Microsoft Entra admin center](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
-The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
+The Microsoft Entra Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Microsoft Entra admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
-Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
+Privileged Identity Management support both built-in and custom Microsoft Entra roles. For more information on Microsoft Entra custom roles, see [Role-based access control in Microsoft Entra ID](../roles/custom-overview.md).
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be asigned for a duration of less than five minutes
+>- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
-Follow these steps to make a user eligible for an Azure AD admin role.
+Follow these steps to make a user eligible for a Microsoft Entra admin role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**.
 
-1. Select **Azure AD roles**.
-
-1. Select **Roles** to see the list of roles for Azure AD permissions.
+1. Select **Roles** to see the list of roles for Microsoft Entra permissions.
 
     ![Screenshot of the "Roles" page with the "Add assignments" action selected.](./media/pim-how-to-add-role-to-user/roles-list.png)
 
@@ -72,11 +70,11 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 ## Assign a role with restricted scope
 
-For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
+For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Microsoft Entra organizations.
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with Privileged Role Administrator permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
 1. Select the **User Administrator**.
 
@@ -94,31 +92,35 @@ For certain roles, the scope of the granted permissions can be restricted to a s
 
 For more information about creating administrative units, see [Add and remove administrative units](../roles/admin-units-manage.md).
 
-## Assign a role using Graph API
+## Assign a role using Microsoft Graph API
+
+For more information about Microsoft Graph APIs for PIM, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
 For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
 
 ### Eligible with no end date
 
-The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleEligibilityScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests).
 
 #### HTTP request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests
+Content-Type: application/json
 
-    "action": "AdminAssign", 
-    "justification": "abcde", 
-    "directoryScopeId": "/", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:08.941Z", 
-        "expiration": { 
-            "type": "NoExpiration"        } 
-    } 
-{ 
-} 
+{
+    "action": "adminAssign",
+    "justification": "Permanently assign the Global Reader to the auditor",
+    "roleDefinitionId": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "noExpiration"
+        }
+    }
+}
 ````
 
 #### HTTP response
@@ -126,69 +128,72 @@ POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilitySc
 The following is an example of the response. The response object shown here might be shortened for readability.
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
-    "id": "<schedule-ID-GUID>", 
-    "status": "Provisioned", 
-    "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
-    "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
-    "approvalId": null, 
-    "customData": null, 
-    "action": "AdminAssign", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "appScopeId": null, 
-    "isValidationOnly": false, 
-    "targetScheduleId": "<schedule-ID-GUID>", 
-    "justification": "test", 
-    "createdBy": { 
-        "application": null, 
-        "device": null, 
-        "user": { 
-            "displayName": null, 
-            "id": "<user-ID-GUID>" 
-        } 
-    }, 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:47:42.4376681Z", 
-        "recurrence": null, 
-        "expiration": { 
-            "type": "noExpiration", 
-            "endDateTime": null, 
-            "duration": null 
-        } 
-    }, 
-    "ticketInfo": { 
-        "ticketNumber": null, 
-        "ticketSystem": null 
-    } 
-}   
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity",
+    "id": "42159c11-45a9-4631-97e4-b64abdd42c25",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T13:40:33.2364309Z",
+    "completedDateTime": "2022-05-13T13:40:34.6270851Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminAssign",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "42159c11-45a9-4631-97e4-b64abdd42c25",
+    "justification": "Permanently assign the Global Reader to the auditor",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T13:40:34.6270851Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "noExpiration",
+            "endDateTime": null,
+            "duration": null
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
 ````
 
 ### Active and time-bound
 
-The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleAssignmentScheduleRequests](/graph/api/rbacapplication-post-roleassignmentschedulerequests).
 
 #### HTTP request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests 
 
-{ 
-    "action": "AdminAssign", 
-    "justification": "abcde", 
-    "directoryScopeId": "/", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:08.941Z", 
-        "expiration": { 
-            "type": "AfterDuration", 
-            "duration": "PT3H" 
-        } 
-    } 
-} 
+{
+    "action": "adminAssign",
+    "justification": "Assign the Exchange Recipient Administrator to the mail admin",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "afterDuration",
+            "duration": "PT3H"
+        }
+    }
+}
 ````
 
 #### HTTP response
@@ -196,55 +201,55 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSch
 The following is an example of the response. The response object shown here might be shortened for readability.
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
-    "id": "<schedule-ID-GUID>", 
-    "status": "Provisioned", 
-    "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
-    "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
-    "approvalId": null, 
-    "customData": null, 
-    "action": "AdminAssign", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "appScopeId": null, 
-    "isValidationOnly": false, 
-    "targetScheduleId": "<schedule-ID-GUID>", 
-    "justification": "test", 
-    "createdBy": { 
-        "application": null, 
-        "device": null, 
-        "user": { 
-            "displayName": null, 
-            "id": "<user-ID-GUID>" 
-        } 
-    }, 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:11.4437343Z", 
-        "recurrence": null, 
-        "expiration": { 
-            "type": "afterDuration", 
-            "endDateTime": null, 
-            "duration": "PT3H" 
-        } 
-    }, 
-    "ticketInfo": { 
-        "ticketNumber": null, 
-        "ticketSystem": null 
-    } 
-} 
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity",
+    "id": "ac643e37-e75c-4b42-960a-b0fc3fbdf4b3",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T14:01:48.0145711Z",
+    "completedDateTime": "2022-05-13T14:01:49.8589701Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminAssign",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "ac643e37-e75c-4b42-960a-b0fc3fbdf4b3",
+    "justification": "Assign the Exchange Recipient Administrator to the mail admin",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T14:01:49.8589701Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDuration",
+            "endDateTime": null,
+            "duration": "PT3H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
 ````
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
+Follow these steps to update or remove an existing role assignment. **Microsoft Entra ID P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Microsoft Entra ID and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**. 
 
-1. Select **Roles** to see the list of roles for Azure AD.
+1. Select **Roles** to see the list of roles for Microsoft Entra ID.
 
 1. Select the role that you want to update or remove.
 
@@ -254,14 +259,14 @@ Follow these steps to update or remove an existing role assignment. **Azure AD P
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
 
-## Remove eligible assignment via API
+## Remove eligible assignment via Microsoft Graph API
+
+The following is a sample HTTP request to revoke an eligible assignment to a role from a principal. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleEligibilityScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests).
 
 ### Request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests 
-
- 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests 
 
 { 
     "action": "AdminRemove", 
@@ -276,7 +281,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySc
 
 ````HTTP
 { 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
     "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
     "status": "Revoked", 
     "createdDateTime": "2021-07-15T20:23:23.85453Z", 
@@ -309,5 +314,4 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySc
 
 ## Next steps
 
-- [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Configure Microsoft Entra admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)

@@ -1,68 +1,85 @@
 ---
 title: Enable and disable data retention policies - Azure SQL Edge
 description: Learn how to enable and disable data retention policies in Azure SQL Edge
-keywords: SQL Edge, data retention
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/04/2020
+keywords:
+  - SQL Edge
+  - data retention
 ---
-
 # Enable and disable data retention policies
 
-This topic describes how to enable and disable data retention policies for a database and a table.
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
+
+This article describes how to enable and disable data retention policies for a database and a table.
 
 ## Enable data retention for a database
 
-The following example shows how to enable data retention by using [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
+The following example shows how to enable data retention by using [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
-ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
+ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION ON;
 ```
 
 ## Check if data retention is enabled for a database
 
-The following command can be used to check if data retention is enabled for a database
+The following command can be used to check if data retention is enabled for a database.
+
 ```sql
-SELECT is_data_retention_enabled, name
+SELECT is_data_retention_enabled,
+    name
 FROM sys.databases;
 ```
 
 ## Enable data retention for a table
 
-Data Retention must be enabled for each table for which you want data to be automatically purged. When Data Retention is enabled on the database and the table, a background system task will periodically scan the table to identify and delete any obsolete (aged) rows. Data Retention can be enabled on a table either during table creation using [Create Table](/sql/t-sql/statements/create-table-transact-sql) or by using [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).
+Data Retention must be enabled for each table for which you want data to be automatically purged. When data retention is enabled on the database and the table, a background system task periodically scans the table to identify and delete any obsolete (aged) rows. Data retention can be enabled on a table either during table creation using [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) or by using [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
 
-The following example shows how to enable data retention for a table by using [Create Table](/sql/t-sql/statements/create-table-transact-sql).
+The following example shows how to enable data retention for a table by using [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql).
 
 ```sql
-CREATE TABLE [dbo].[data_retention_table]
-(
-[dbdatetime2] datetime2(7),
-[product_code] int,
-[value] char(10),
-CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_code])
-) WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 1 day ) )
+CREATE TABLE [dbo].[data_retention_table] (
+    [dbdatetime2] DATETIME2(7),
+    [product_code] INT,
+    [value] CHAR(10),
+    CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_code])
+)
+WITH (
+        DATA_DELETION = ON (
+            FILTER_COLUMN = [dbdatetime2],
+            RETENTION_PERIOD = 1 day
+            )
+        );
 ```
 
-The `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 1 day ) )` part of the create table command sets the data retention on the table. The command uses the following required parameters
+The `WITH (DATA_DELETION = ON (FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 1 day))` part of the CREATE TABLE command sets the data retention on the table. The command uses the following required parameters:
 
-- DATA_DELETION - Indicates whether data retention is ON or OFF.
-- FILTER_COLUMN - Name on the column in the table, which will be used to ascertain if the rows are obsolete or not. The filter column can only be a column with the following data types
-    - Date
-    - SmallDateTime
-    - DateTime
-    - DateTime2
-    - DateTimeOffset
-- RETENTION_PERIOD - An integer value followed by a unit descriptor. The allowed units are DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR and YEARS.
+- DATA_DELETION: Indicates whether data retention is ON or OFF.
 
-The following example shows how to enable data retention for table by using [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).
+- FILTER_COLUMN: Name on the column in the table, which will be used to ascertain if the rows are obsolete or not. The filter column can only be a column with the following data types:
+
+    - **date**
+    - **smalldatetime**
+    - **datetime**
+    - **datetime2**
+    - **datetimeoffset**
+
+- RETENTION_PERIOD: An integer value followed by a unit descriptor. The allowed units are DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR and YEARS.
+
+The following example shows how to enable data retention for table by using [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
 
 ```sql
-Alter Table [dbo].[data_retention_table]
-SET (DATA_DELETION = On (FILTER_COLUMN = [timestamp], RETENTION_PERIOD = 1 day))
+ALTER TABLE [dbo].[data_retention_table]
+SET (
+    DATA_DELETION = ON (
+        FILTER_COLUMN = [timestamp],
+        RETENTION_PERIOD = 1 day
+    )
+)
 ```
 
 ## Check if data retention is enabled for a table
@@ -70,47 +87,52 @@ SET (DATA_DELETION = On (FILTER_COLUMN = [timestamp], RETENTION_PERIOD = 1 day))
 The following command can be used to check the tables for which data retention is enabled
 
 ```sql
-select name, data_retention_period, data_retention_period_unit from sys.tables
+SELECT name,
+    data_retention_period,
+    data_retention_period_unit
+FROM sys.tables;
 ```
 
-A value of data_retention_period = -1 and data_retention_period_unit as INFINITE, indicates that data retention is not set on the table.
+A value of `data_retention_period = -1` and `data_retention_period_unit` as INFINITE, indicates that data retention isn't set on the table.
 
-The following query can be used to identify the column used as the filter_column for data retention.
+The following query can be used to identify the column used as the `filter_column` for data retention.
 
 ```sql
-Select name from sys.columns
-where is_data_deletion_filter_column =1
-and object_id = object_id(N'dbo.data_retention_table', N'U')
+SELECT name
+FROM sys.columns
+WHERE is_data_deletion_filter_column = 1
+    AND object_id = object_id(N'dbo.data_retention_table', N'U');
 ```
 
-## Correlating DB and table data retention settings
+## Correlate database and table data retention settings
 
-The data retention setting on the database and the table, are used in conjunction to determine if autocleanup for aged rows will run on the tables or not.
+The data retention setting on the database and the table are used in conjunction to determine if autocleanup for aged rows runs on the tables.
 
-|Database Option | Table Option | Behavior |
-|----------------|--------------|----------|
-| OFF | OFF | Data Retention policy is disabled and both auto and manual cleanup of aged records is disabled.|
-| OFF | ON  | Data Retention policy is enabled for the table. Auto cleanup of obsolete records is disabled, however manual cleanup method can be used to cleanup obsolete records. |
-| ON | OFF | Data Retention policy is enabled at the database level. However since the option is disabled at the table level, there is no retention-based cleanup of aged rows.|
-| ON | ON | Data Retention policy is enabled for both the database and tables. Automatic cleanup of obsolete records is enabled. |
+| Database option | Table option | Behavior |
+| --- | --- | --- |
+| OFF | OFF | Data retention policy is disabled and both auto and manual cleanup of aged records is disabled. |
+| OFF | ON | Data retention policy is enabled for the table. Auto cleanup of obsolete records is disabled, however manual cleanup method can be used to clean up obsolete records. |
+| ON | OFF | Data retention policy is enabled at the database level. However since the option is disabled at the table level, there's no retention-based cleanup of aged rows. |
+| ON | ON | Data retention policy is enabled for both the database and tables. Automatic cleanup of obsolete records is enabled. |
 
 ## Disable data retention on a table
 
-Data Retention can be disabled on a table by using [Alter Table](/sql/t-sql/statements/alter-table-transact-sql). The following command can be used to disable data retention on a table.
+Data retention can be disabled on a table by using [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql). The following command can be used to disable data retention on a table.
 
 ```sql
-Alter Table [dbo].[data_retention_table]
-Set (DATA_DELETION = OFF)
+ALTER TABLE [dbo].[data_retention_table]
+SET (DATA_DELETION = OFF);
 ```
 
 ## Disable data retention on a database
 
-Data Retention can be disabled on a table by using [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options). The following command can be used to disable data retention on a database.
+Data retention can be disabled on a table by using [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options). The following command can be used to disable data retention on a database.
 
 ```sql
-ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  OFF;
+ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION OFF;
 ```
 
 ## Next steps
+
 - [Data Retention and Automatic Data Purging](data-retention-overview.md)
 - [Manage historical data with retention policy](data-retention-cleanup.md)

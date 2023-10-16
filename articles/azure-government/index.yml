@@ -1,4 +1,4 @@
-﻿### YamlMime:Landing
+### YamlMime:Landing
 
 title: Azure Government documentation
 summary: Azure Government is a cloud services platform built upon the foundational principles of security, privacy, and compliance. Customers eligible
@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: stevevi
   ms.author: stevevi
-  ms.date: 02/01/2022
+  ms.date: 05/07/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -37,8 +37,6 @@ landingContent:
             url: documentation-government-get-started-connect-with-cli.md
           - text: Connect using PowerShell
             url: documentation-government-get-started-connect-with-ps.md
-          - text: Connect using portal
-            url: documentation-government-get-started-connect-with-portal.md
           - text: Connect using Visual Studio
             url: documentation-government-connect-vs.md
           - text: Deploy STIG-compliant Linux VM
@@ -55,8 +53,6 @@ landingContent:
             url: documentation-government-plan-compliance.md
           - text: Cloud services by audit scope
             url: ./compliance/azure-services-in-fedramp-auditscope.md
-          - text: Export controls
-            url: documentation-government-overview-itar.md
           - text: Trusted Internet Connections
             url: ./compliance/compliance-tic.md
           - text: Accelerate your path to ATO
@@ -95,9 +91,9 @@ landingContent:
             url: ./compliance/secure-azure-computing-architecture.md
           - text: Develop with Storage API
             url: documentation-government-get-started-connect-to-storage.md
-          - text: Develop with Cognitive Services
+          - text: Develop with Azure AI services
             url: documentation-government-cognitiveservices.md
-          - text: Integrate Azure AD authentication
+          - text: Integrate Microsoft Entra authentication
             url: documentation-government-aad-auth-qs.md
           - text: Develop with SQL Server Management Studio
             url: documentation-government-connect-ssms.md
@@ -115,6 +111,12 @@ landingContent:
             url: documentation-government-plan-identity.md
           - text: Department of Defense
             url: documentation-government-overview-dod.md
+          - text: Export controls
+            url: documentation-government-overview-itar.md
+          - text: Power and utilities
+            url: documentation-government-overview-nerc.md
+          - text: Public safety and justice
+            url: documentation-government-overview-jps.md
           - text: Worldwide public sector
             url: documentation-government-overview-wwps.md
 

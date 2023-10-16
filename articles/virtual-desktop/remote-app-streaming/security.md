@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/14/2021
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 manager: femila
 ---
 
@@ -37,24 +37,13 @@ For more information about how to configure each of these areas, check out our [
 
 You can protect workloads by using security features and controls from Microsoft 365, Azure, and Azure Virtual Desktop.
 
-When the user connects to the service over the internet, Azure Active Directory (Azure AD) authenticates the user's credentials, enabling protective features like [Conditional Access](../../active-directory/conditional-access/overview.md) and [multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md). These features greatly reduce the risk of user identities being compromised.
+When the user connects to the service over the internet, Microsoft Entra authenticates the user's credentials, enabling protective features like [multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) to help greatly reduce the risk of user identities being compromised.
 
-Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Microsoft Entra join scenarios, [Microsoft Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ## Defense in depth
 
-Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls "defense in depth." To learn more about defense in depth, go to [the CISA website](https://us-cert.cisa.gov/bsi/articles/knowledge/principles/defense-in-depth).
-
-## Session host operating systems
-
-Azure Virtual Desktop supports the following operating systems:
-
-- Windows 7
-- Windows 10 Enterprise
-- Windows Server 2012 R2, 2016, 2019, and 2022
-- Windows 10 Enterprise multi-session
-
-Windows 10 Enterprise multi-session is an Azure-exclusive OS that functions as a Remote Desktop session host (RDSH) that allows multiple concurrent interactive sessions, much like Windows Server. The Windows 10 environment gives users a familiar and consistent experience. The service's per-user Windows licensing also lowers costs for the organization as a whole because IT doesn't have to keep purchasing RDS Client Access Licenses (CALs). Because of these benefits, Windows 10 Enterprise multi-session is the most widely deployed OS for session hosts in Azure Virtual Desktop.
+Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls "defense in depth".
 
 ## Security boundaries
 
@@ -86,7 +75,7 @@ You'll also need to make certain choices about security boundaries on a case-by-
 
 Users from the same organization, like knowledge workers with apps that don't require admin privileges, are great candidates for multi-session Remote Desktop session hosts like Windows 10 Enterprise multi-session. These session hosts reduce costs for your organization because multiple users can share a single VM, with only the overhead costs of a single OS. With profile technology like FSLogix, users can be assigned any VM in a host pool without noticing any service interruptions. This feature also lets you optimize costs by doing things like shutting down VMs during off-peak hours.
 
-If your situation requires users from different organizations to connect to your deployment, we recommend you have a separate tenant for identity services like Active Directory and Azure AD. We also recommend you have a separate subscription for hosting Azure resources like Azure Virtual Desktop and VMs.
+If your situation requires users from different organizations to connect to your deployment, we recommend you have a separate tenant for identity services like Active Directory and Microsoft Entra ID. We also recommend you have a separate subscription for hosting Azure resources like Azure Virtual Desktop and VMs.
 
 The following table lists our recommendations for each scenario.
 
@@ -100,7 +89,7 @@ Let's take a look at our recommendations for some example scenarios.
 
 ### Should I share Identity resources to reduce costs?
 
-We don't currently recommend using a shared identity system in Azure Virtual Desktop. We recommend that you have separate Identity resources that you deploy in a separate Azure subscription. These resources include Active Directories, Azure AD, and VM workloads. Every user working for an individual organization will need additional infrastructure and associated maintenance costs, but this is currently the most feasible solution for security purposes. 
+We don't currently recommend using a shared identity system in Azure Virtual Desktop. We recommend that you have separate Identity resources that you deploy in a separate Azure subscription. These resources include Active Directories, Microsoft Entra ID, and VM workloads. Every user working for an individual organization will need additional infrastructure and associated maintenance costs, but this is currently the most feasible solution for security purposes. 
 
 ### Should I share a multi-session Remote Desktop (RD) session host VM to reduce costs?
 

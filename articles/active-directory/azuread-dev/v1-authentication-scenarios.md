@@ -1,5 +1,5 @@
 ---
-title: Azure AD for developers (v1.0) | Azure
+title: Azure AD for developers (v1.0)
 description: Learn authentication basics for Azure AD for developers (v1.0) such as the app model, API, provisioning, and the most common authentication scenarios.
 services: active-directory
 documentationcenter: dev-center-name

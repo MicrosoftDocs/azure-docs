@@ -1,0 +1,265 @@
+- name: Cost Management documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Cost Management?
+    href: overview-cost-management.md
+  - name: What's new?
+    href: https://azure.microsoft.com/blog/tag/cost-management/
+- name: General
+  items:
+  - name: Tutorials
+    items:
+    - name: Enable preview features
+      href: enable-preview-features-cost-management-labs.md
+    - name: Manage AWS cost and usage
+      href: aws-integration-manage.md
+  - name: Concepts
+    items:
+    - name: Cost Management best practices
+      href: cost-mgt-best-practices.md
+    - name: AI-powered Cost Management
+      href: ai-powered-cost-management.md
+    - name: Understand Cost Management data
+      href: understand-cost-mgt-data.md
+    - name: Understand and work with scopes
+      href: understand-work-scopes.md
+    - name: Cost Management for partners
+      href: get-started-partners.md
+    - name: Security
+      items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/cost-management-security-baseline
+    - name: Troubleshoot common errors
+      href: cost-management-error-codes.md
+  - name: Resources
+    items:
+    - name: Estimate costs with Azure pricing calculator
+      href: pricing-calculator.md
+    - name: Cost Management for AWS pricing
+      href: https://azure.microsoft.com/pricing/details/cost-management
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cost-management
+    - name: Cost Management feedback forum
+      href: https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8
+  - name: Reference
+    items:
+    - name: Cost Management REST APIs
+      href: /rest/api/cost-management/
+    - name: Azure Retail Prices REST API
+      href: /rest/api/cost-management/retail-prices/azure-retail-prices
+    - name: Price Sheet API (MCA)
+      href: /rest/api/cost-management/price-sheet
+- name: Reporting and analytics
+  items:
+  - name: Overview
+    items:
+    - name: Cost reporting and analytics overview
+      href: reporting-get-started.md
+  - name: Quickstarts
+    items:
+    - name: Start analyzing costs
+      href: quick-acm-cost-analysis.md
+  - name: Tutorials
+    items:
+    - name: Cost analysis
+      items:
+      - name: Use built-in views
+        href: cost-analysis-built-in-views.md
+      - name: Customize views
+        href: customize-cost-analysis-views.md
+      - name: Save and share customized views
+        href: save-share-views.md
+      - name: Identify cost anomalies and unexpected charges
+        href: ../understand/analyze-unexpected-charges.md
+      - name: Use cost analysis for common tasks
+        href: cost-analysis-common-uses.md
+    - name: Power BI
+      items:
+      - name: Connect with Power BI Desktop
+        href: /power-bi/connect-data/desktop-connect-azure-cost-management
+      - name: Analyze Azure costs with the Power BI template app
+        href: analyze-cost-data-azure-cost-management-power-bi-template-app.md
+  - name: Concepts
+    items:
+    - name: Group and filter options in Cost analysis
+      href: group-filter.md
+    - name: Reservations
+      items:
+      - name: What are Azure Reservations
+        href: ../reservations/save-compute-costs-reservations.md
+      - name: How an Azure reservation discount is applied
+        href: ../reservations/reservation-discount-application.md
+      - name: Reservation usage data for EA and MCA
+        href: ../reservations/understand-reserved-instance-usage-ea.md
+  - name: Reference
+    items:
+    - name: Query API
+      href: /rest/api/cost-management/query
+    - name: Forecast API
+      href: /rest/api/cost-management/forecast
+    - name: Dimensions API
+      href: /rest/api/cost-management/dimensions
+    - name: Views API
+      href: /rest/api/cost-management/views
+- name: Monitoring
+  items:
+  - name: Quickstarts
+    items:
+    - name: Create and manage budgets
+      href: tutorial-acm-create-budgets.md
+  - name: Tutorials
+    items:
+    - name: Create a budget - Bicep
+      href: quick-create-budget-bicep.md
+    - name: Create a budget - ARM template
+      href: quick-create-budget-template.md
+    - name: Use cost alerts
+      href: cost-mgt-alerts-monitor-usage-spending.md
+    - name: Automate actions with budgets
+      href: ../manage/cost-management-budget-scenario.md
+  - name: Reference
+    items:
+    - name: Alerts API
+      href: /rest/api/cost-management/alerts
+    - name: Scheduled actions API
+      href: /rest/api/cost-management/scheduled-actions
+    - name: Consumption REST API ARM budget template
+      href: /azure/templates/microsoft.consumption/budgets
+- name: Cost optimization
+  items:
+  - name: Tutorials
+    items:
+    - name: Act on recommendations
+      href: tutorial-acm-opt-recommendations.md
+  - name: Concepts
+    items:
+    - name: How reservation recommendations are created
+      href: ../reservations/reserved-instance-purchase-recommendations.md
+  - name: How to guides
+    items:
+    - name: Choose reservation to purchase
+      href: ../reservations/determine-reservation-purchase.md
+    - name: Buy an Azure reservation
+      href: ../reservations/prepare-buy-reservation.md
+    - name: View reservations and utilization
+      href: ../reservations/view-reservations.md
+    - name: View reservations as a CSP
+      href: ../reservations/how-to-view-csp-reservations.md
+    - name: Exchange and refund reservations
+      href: ../reservations/exchange-and-refund-azure-reservations.md
+    - name: View reservation and savings plan amortized costs
+      href: ../reservations/view-amortized-costs.md
+    - name: Charge back reservations costs
+      href: ../reservations/exchange-and-refund-azure-reservations.md
+    - name: Renew a reservation
+      href: ../reservations/reservation-renew.md
+- name: Cost allocation
+  items:
+  - name: Tutorials
+    items:
+    - name: Group and allocate costs using tag inheritance
+      href: enable-tag-inheritance.md
+    - name: Split shared costs
+      href: allocate-costs.md
+  - name: Reference
+    items:
+    - name: Cost allocation rules API
+      href: /rest/api/cost-management/cost-allocation-rules
+    - name: Settings API
+      href: /rest/api/cost-management/settings
+- name: Automation and extensibility
+  items:
+  - name: Overview
+    items:
+    - name: Automation scenarios
+      href: ../automate/automation-overview.md
+  - name: Tutorials
+    items:
+    - name: Export data
+      href: tutorial-export-acm-data.md
+    - name: Seed historical cost dataset with Exports API
+      href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
+    - name: Export cost data with a Storage SAS key
+      href: export-cost-data-storage-account-sas-key.md
+  - name: Concepts
+    items:
+    - name: Manage costs with automation
+      href: manage-automation.md
+    - name: Automation for partners
+      href: ../automate/partner-automation.md
+    - name: Automation FAQ
+      href: ../automate/partner-automation.md
+    - name: Assign API permissions
+      items:
+      - name: Cost Management API permissions
+        href: ../automate/cost-management-api-permissions.md
+      - name: Assign roles to EA SPNs
+        href: ../manage/assign-roles-azure-service-principals.md
+    - name: Ingest cost details
+      items:
+      - name: Cost details overview
+        href: ../automate/automation-ingest-usage-details-overview.md
+      - name: Choose a cost details solution
+        href: ../automate/usage-details-best-practices.md
+      - name: Understand cost details data fields
+        href: ../automate/understand-usage-details-fields.md
+      - name: Retrieve large datasets with exports
+        href: ingest-azure-usage-at-scale.md
+      - name: Get small cost datasets on demand
+        href: ../automate/get-small-usage-datasets-on-demand.md
+      - name: Get cost details for pay-as-you-go subscriptions
+        href: ../automate/get-usage-details-legacy-customer.md
+      - name: Get cost data with Azure CLI
+        href: ../automate/get-usage-data-azure-cli.md
+    - name: Budget automation
+      items:
+      - name: Automate budget creation
+        href: ../automate/automate-budget-creation.md
+      - name: Configure budget-based actions
+        href: ../manage/cost-management-budget-scenario.md
+    - name: Reservation automation
+      href: ../reservations/reservation-apis.md
+    - name: Migrate from Enterprise Reporting APIs
+      items:
+      - name: Migrate from EA Reporting APIs to ARM
+        href: ../automate/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Usage Details APIs
+        href: ../automate/migrate-ea-usage-details-api.md
+      - name: EA Balance Summary API
+        href: ../automate/migrate-ea-balance-summary-api.md
+      - name: EA Price Sheet API
+        href: ../automate/migrate-ea-price-sheet-api.md
+      - name: EA Reserved Instance Usage Details API
+        href: ../automate/migrate-ea-reserved-instance-usage-details-api.md
+      - name: EA Reserved Instance Usage Summary API
+        href: ../automate/migrate-ea-reserved-instance-usage-summary-api.md
+      - name: EA Reserved Instance Recommendations API
+        href: ../automate/migrate-ea-reserved-instance-recommendations-api.md
+      - name: EA Reserved Instance Charges API
+        href: ../automate/migrate-ea-reserved-instance-charges-api.md
+    - name: Migrate from EA to MCA APIs
+      href: migrate-cost-management-api.md
+    - name: Migrate from Consumption APIs
+      items:
+      - name: Usage Details API
+        href: ../automate/migrate-consumption-usage-details-api.md
+      - name: Marketplaces API
+        href: ../automate/migrate-consumption-marketplaces-api.md
+  - name: Reference
+    items:
+    - name: Exports API
+      href: /rest/api/cost-management/exports
+    - name: Generate cost details report API
+      href: /rest/api/cost-management/generate-cost-details-report
+    - name: Cost Management REST API
+      href: /rest/api/cost-management
+    - name: Cost Management REST API samples
+      href: https://github.com/Azure-Samples/Cost-Management-Samples
+    - name: Azure PowerShell cmdlets for Cost Management
+      href: /powershell/module/Az.CostManagement
+  - name: Resources
+    items:
+    - name: FAQ
+      href: ../automate/automation-faq.md

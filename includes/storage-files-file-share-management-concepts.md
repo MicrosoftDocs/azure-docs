@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
- ms.service: storage
+ author: khdownie
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 12/26/2019
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file
 ---
 Azure file shares are deployed into *storage accounts*, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares, as well as other storage resources such as blob containers, queues, or tables. All storage resources that are deployed into a storage account share the limits that apply to that storage account. For current storage account limits, see [Azure Files scalability and performance targets](../articles/storage/files/storage-files-scale-targets.md).

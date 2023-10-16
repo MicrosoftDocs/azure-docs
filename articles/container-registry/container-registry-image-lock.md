@@ -2,7 +2,10 @@
 title: Lock images
 description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 ms.topic: article
-ms.date: 09/30/2019
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Lock a container image in an Azure container registry
@@ -35,6 +38,7 @@ See the following sections for examples.
 ## Lock an image or repository 
 
 ### Show the current repository attributes
+
 To see the current attributes of a repository, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
@@ -44,31 +48,32 @@ az acr repository show \
 ```
 
 ### Show the current image attributes
+
 To see the current attributes of a tag, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
 az acr repository show \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --output jsonc
 ```
 
 ### Lock an image by tag
 
-To lock the *myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
+To lock the *myrepo:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --write-enabled false
 ```
 
 ### Lock an image by manifest digest
 
-To lock a *myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
+To lock a *myrepo* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command.)
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage@sha256:123456abcdefg \
+    --name myregistry --image myrepo@sha256:123456abcdefg \
     --write-enabled false
 ```
 
@@ -82,15 +87,58 @@ az acr repository update \
     --write-enabled false
 ```
 
+### List the current repository attributes
+
+To update the repository attributes to indicate image lock listing, run the [az acr repository update][az-acr-repository-update] command.
+
+```azurecli
+az acr repository update \
+    --name myregistry --repository myrepo \ 
+    --list-enabled false
+```
+
+### Show the image attributes on image lock 
+ 
+To query the tags on a image lock with `--list-enabled false` enabled on the attribute, run the [az acr repository show][az-acr-repository-show] command.
+
+```azurecli
+az acr repository show-manifests \
+    --name myregistry --repository myrepo \
+    --query "[?listEnabled==null].tags" 
+    --output table
+```
+
+## Check image attributes for tag and its corresponding manifest.
+
+> [!NOTE]
+> * The changeable attributes of tags and manifest are managed separately. That is, setting attribute `deleteEnabled=false` for the tag won't set the same for the corresponding manifest.
+
+>* Query the attributes using the script below:
+
+```bash
+registry="myregistry"
+repo="myrepo"
+tag="mytag"
+
+az login
+az acr repository show -n $registry --repository $repo
+az acr manifest show-metadata -r $registry -n "$repo:$tag"
+digest=$(az acr manifest show-metadata -r $registry -n "$repo:$tag" --query digest -o tsv)
+az acr manifest show-metadata -r $registry -n "$repo@$digest"
+```
+
+> [!NOTE]
+> If the image attributes are set with `writeEnabled=false` or `deleteEnabled=false`, then it will block image deletion.
+
 ## Protect an image or repository from deletion
 
 ### Protect an image from deletion
 
-To allow the *myimage:tag* image to be updated but not deleted, run the following command:
+To allow the *myrepo:tag* image to be updated but not deleted, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --delete-enabled false --write-enabled true
 ```
 
@@ -106,11 +154,11 @@ az acr repository update \
 
 ## Prevent read operations on an image or repository
 
-To prevent read (pull) operations on the *myimage:tag* image, run the following command:
+To prevent read (pull) operations on the *myrepo:tag* image, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --read-enabled false
 ```
 
@@ -124,11 +172,11 @@ az acr repository update \
 
 ## Unlock an image or repository
 
-To restore the default behavior of the *myimage:tag* image so that it can be deleted and updated, run the following command:
+To restore the default behavior of the *myrepo:tag* image so that it can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --delete-enabled true --write-enabled true
 ```
 
@@ -149,8 +197,8 @@ To see the attributes set for an image version or repository, use the [az acr re
 For details about delete operations, see [Delete container images in Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md

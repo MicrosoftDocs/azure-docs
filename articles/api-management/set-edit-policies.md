@@ -21,7 +21,7 @@ More information about policies:
 
 * [Policy overview](api-management-howto-policies.md)
 * [Policy reference](api-management-policies.md) for a full list of policy statements and their settings
-* [Policy samples](./policies/index.md)
+* [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
 
 ## Prerequisites
 
@@ -106,6 +106,9 @@ To configure a policy:
         </on-error>
     </policies>
     ```
+    > [!NOTE]
+    > Set a policy's elements and child elements in the order provided in the policy statement.
+
 1. Select **Save** to propagate changes to the API Management gateway immediately.
     
     The **ip-filter** policy now appears in the **Inbound processing** section.
@@ -119,7 +122,7 @@ API Management gives you flexibility to configure policy definitions at multiple
 > Not all policies can be applied at each scope or policy section. If the policy that you want to add isn't enabled, ensure that you are in a supported policy section and scope for that policy. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy reference](api-management-policies.md) topics.
 
 > [!NOTE]
-> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
+> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](forward-request-policy.md) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
 
 ### Global scope
 
@@ -174,6 +177,12 @@ Operation scope is configured for a selected API operation.
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
+## Reuse policy configurations
+
+You can create reusable [policy fragments](policy-fragments.md) in your API Management instance. Policy fragments are XML elements containing your configurations of one or more policies. Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code. 
+
+Use the [`include-fragment`](include-fragment-policy.md) policy to insert a policy fragment in a policy definition.
+
 ## Use `base` element to set policy evaluation order
 
 If you configure policy definitions at more than one scope, multiple policies could apply to an API request or response. Depending on the order that the policies from the different scopes are applied, the transformation of the request or response could differ.
@@ -181,7 +190,7 @@ If you configure policy definitions at more than one scope, multiple policies co
 In API Management, determine the policy evaluation order by placement of the `base` element in each section in the policy definition at each scope. The `base` element inherits the policies configured in that section at the next broader (parent) scope. The `base` element is included by default in each policy section.
 
 > [!NOTE]
-> To view the effective policies at the current scope, select **Recalculate effective policy** in the policy editor.
+> To view the effective policies at the current scope, select **Calculate effective policy** in the policy editor.
 
 To modify the policy evaluation order using the policy editor:
 
@@ -219,4 +228,4 @@ For more information about working with policies, see:
 + [Tutorial: Transform and protect APIs](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

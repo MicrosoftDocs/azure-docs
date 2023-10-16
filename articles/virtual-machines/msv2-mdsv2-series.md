@@ -1,12 +1,12 @@
 ---
 title: Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines
 description: Specifications for the Msv2-series VMs.
-author: ayshakeen
+author: lauradolan
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/07/2020
-ms.author: jushiman
+ms.date: 12/20/2022
+ms.author: ayshak
 ---
 
 # Msv2 and Mdsv2-series Medium Memory
@@ -33,19 +33,26 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
  
 ## Msv2 Medium Memory Diskless 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|
 | Standard_M32ms_v2   | 32  | 875  | 0 | 32 | 20000/500  | 40000/1000 | 8 | 8000  | 
 | Standard_M64s_v2    | 64  | 1024 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
 | Standard_M64ms_v2   | 64  | 1792 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
 | Standard_M128s_v2   | 128 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
 | Standard_M128ms_v2  | 128 | 3892 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M192is_v2  | 192 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
+| Standard_M192is_v2<sup>2</sup>  | 192 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
 | Standard_M192ims_v2 | 192 | 4096 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
+
+<sup>1</sup> Msv2 and Mdsv2 medium memory VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
+
+<sup>2</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_M192is_v2** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/2000 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/4000
+
 
 ## Mdsv2 Medium Memory with Disk  
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2   | 32  | 875  | 1024 | 32 | 40000/400   | 40000/1000 | 20000/500  | 40000/1000 | 8 | 8000  | 
 | Standard_M64ds_v2    | 64  | 1024 | 2048 | 64 | 80000/800   | 80000/2000 | 40000/1000 | 80000/2000 | 8 | 16000 | 

@@ -1,84 +1,61 @@
 ---
-title: How long does Azure AD store reporting data? | Microsoft Docs
-description: Learn how long Azure stores the various types of reporting data. 
+title: Microsoft Entra data retention
+description: Learn about the data retention policies for the Microsoft Entra audit, sign-in, and provisioning logs. 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: 
 ms.topic: reference
-ms.tgt_pltfrm: 
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/05/2020
-ms.author: markvi
+ms.date: 09/08/2023
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
-
-ms.collection: M365-identity-device-management
 ---
-# How long does Azure AD store reporting data?
 
+# Microsoft Entra data retention
 
-In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
+In this article, you learn about the data retention policies for the different activity reports in Microsoft Entra ID. 
 
-### When does Azure AD start collecting data?
+<a name='when-does-azure-ad-start-collecting-data'></a>
 
-| Azure AD Edition | Collection Start |
+## When does Microsoft Entra ID start collecting data?
+
+| Microsoft Entra Edition | Collection Start |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign up for a subscription |
-| Azure AD Free| The first time you open the [Azure Active Directory blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
+| Microsoft Entra ID P1 <br /> Microsoft Entra ID P2 <br /> Microsoft Entra Workload ID Premium | When you sign up for a subscription |
+| Microsoft Entra ID Free| The first time you open [Microsoft Entra ID](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
 
----
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take up to three days for the data to show up in the reports after you upgrade to a premium license. For security signals, the collection process starts when you opt-in to use the **Identity Protection Center**. 
 
-### When is the activity data available in the Azure portal?
+<a name='how-long-does-azure-ad-store-the-data'></a>
 
-- **Immediately** - If you have already been working with reports in the Azure portal.
-- **Within 2 hours** - If you haven’t turned on reporting in the Azure portal.
-
----
-
-### How soon can I see activities data after getting a premium license?
-
-If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take up to three days for the data to show up in the reports after you upgrade to a premium license.
-
----
-
-### When does Azure AD start collecting security signal data?  
-
-For security signals, the collection process starts when you opt-in to use the **Identity Protection Center**. 
-
----
-
-### How long does Azure AD store the data?
+## How long does Microsoft Entra ID store the data?
 
 **Activity reports**	
 
-| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| Report                 | Microsoft Entra ID Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Audit logs             | Seven days        | 30 days             | 30 days             |
 | Sign-ins               | Seven days        | 30 days             | 30 days             |
-| Azure AD MFA usage        | 30 days       | 30 days             | 30 days             |
+| Microsoft Entra multifactor authentication usage        | 30 days       | 30 days             | 30 days             |
 
-You can retain the audit and sign-in activity data for longer than the default retention period outlined above by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Azure AD logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+You can retain the audit and sign-in activity data for longer than the default retention period outlined in the previous table by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Microsoft Entra logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Security signals**
 
-| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| Report         | Microsoft Entra ID Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 |
 | :--            | :--           | :--                 | :--                 |
 | Risky users    | No limit      | No limit            | No limit            |
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
 
 > [!NOTE]
-> Risky users are not deleted until the risk has been remediated.
+> Risky users and workload identities are not deleted until the risk has been remediated.
+## Can I see last month's data after getting a premium license?
 
----
+**No**, you can't. Azure stores up to seven days of activity data for a free version. When you switch from a free to a premium version, you can only see up to 7 days of data.
 
-### Can I see last month's data after getting an Azure AD premium license?
+## Next steps
 
-**No**, you can't. Azure stores up to seven days of activity data for a free version. This means, when you switch from a free to a to a premium version, you can only see up to 7 days of data.
-
----
+- [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
+- [Learn how to download Microsoft Entra logs](howto-download-logs.md)

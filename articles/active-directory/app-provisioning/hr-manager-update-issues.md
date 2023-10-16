@@ -2,12 +2,12 @@
 title: Troubleshoot manager update issues with HR provisioning
 description: Learn how to troubleshoot manager update issues with HR provisioning
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/27/2021
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -16,15 +16,15 @@ ms.reviewer: chmutali
 
 **Applies to:**
 * Workday to on-premises Active Directory user provisioning
-* Workday to Azure Active Directory user provisioning
+* Workday to Microsoft Entra user provisioning
 * SAP SuccessFactors to on-premises Active Directory user provisioning
-* SAP SuccessFactors to Azure Active Directory user provisioning
+* SAP SuccessFactors to Microsoft Entra user provisioning
 
 ## Understanding how manager reference resolution works
-The Azure AD provisioning service automatically updates manager information so that the user-manager relationship in Azure AD is always in sync with your HR data. It uses a process called *manager reference resolution* to accurately update the *manager* attribute. Before going into the process details, it is important to understand how manager information is stored in Azure AD and on-premises Active Directory. 
+The Microsoft Entra provisioning service automatically updates manager information so that the user-manager relationship in Microsoft Entra ID is always in sync with your HR data. It uses a process called *manager reference resolution* to accurately update the *manager* attribute. Before going into the process details, it is important to understand how manager information is stored in Microsoft Entra ID and on-premises Active Directory. 
 
 * In **on-premises Active Directory**, the *manager* attribute stores the *distinguishedName (dn)* of the manager's account in AD. 
-* In **Azure AD**, the *manager* attribute is a DirectoryObject navigation property in Azure AD. When you view the user record in the Azure portal, it shows the *displayName* of the manager record in Azure AD. 
+* In **Microsoft Entra ID**, the *manager* attribute is a DirectoryObject navigation property in Microsoft Entra ID. When you view the user record in the Microsoft Entra admin center, it shows the *displayName* of the manager record in Microsoft Entra ID. 
 
 The *manager reference resolution* is a two step-process: 
 * Step 1: Link the manager's HR source record with the manager's target account record using a pair of attributes referred to as *source anchor* and *target anchor*. 
@@ -37,7 +37,7 @@ The default anchor attributes and reference attributes for each app is listed be
 | Workday | WID | ManagerReference (which points to the WID of the manager record) |
 | SAP SuccessFactors | personIdExternal | manager (which points to the personIdExternal of the manager record) |
 | On-premises Active Directory | objectGUID | manager (which points to DN of the manager record) |
-| Azure AD | objectId | manager (which points to the manager's Azure AD record) |
+| Microsoft Entra ID | objectId | manager (which points to the manager's Microsoft Entra ID record) |
 
 ## Prerequisites for successful manager update
 In order for *manager reference resolution* to work successfully, the following pre-requisites should be met: 
@@ -64,5 +64,5 @@ In order for *manager reference resolution* to work successfully, the following 
 
 ## Next steps
 
-* [Learn more about Azure AD and Workday integration scenarios and web service calls](workday-integration-reference.md)
+* [Learn more about Microsoft Entra ID and Workday integration scenarios and web service calls](workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](check-status-user-account-provisioning.md)

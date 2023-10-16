@@ -55,14 +55,14 @@ sections:
       - question: |
           Where does Azure Spatial Anchors store data?
         answer: |
-          Azure Spatial Anchors accounts allow you to specify the region where your data will be stored. Microsoft may replicate data to other regions for resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Spatial Anchors account is configured. For example, if the account is registered in the East US region, this data is stored in the East US region but may be replicated to another region in the North America geography to ensure resiliency.
+          Azure Spatial Anchors stores and process customer data. By default, customer data is replicated to other paired regions for resiliency, but Microsoft doesn't replicate or move data outside the geography. This data is stored in the region where the Azure Spatial Anchors account is configured. For region with data residency requirements, customer data is always kept within the same region.
 
       - question: |
           What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?
         answer: |
           When creating or locating anchors, pictures of the environment are processed on the device into a derived format. This derived format is transmitted to and stored on the service.
           
-          To provide transparency, below is an image of an environment and the derived sparse point cloud. The point cloud shows the geometric representation of the environment that's transmitted and stored on the service. For each point in the sparse point cloud, we transmit and store a hash of the visual characteristics of that point. The hash is derived from, but does not contain, any pixel data.
+          To provide transparency, below is an image of an environment and the derived sparse point cloud. The point cloud shows the geometric representation of the environment that's transmitted and stored on the service. For each point in the sparse point cloud, we transmit and store a hash of the visual characteristics of that point. The hash is derived from, but doesn't contain, any pixel data.
           
           Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9), and the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
           
@@ -72,7 +72,7 @@ sections:
       - question: |
           Is there a way I can send diagnostics information to Microsoft?
         answer: |
-          Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
+          Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you're unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
           
   - name: Privacy FAQ (for developers)
     questions:
@@ -96,7 +96,7 @@ sections:
       - question: |
           Does Microsoft require the disclosure of ASA in my application or SDK to my users?
         answer: |
-          Microsoft does not require disclosure unless it is required by your local law to meet privacy or other requirements.  You should work with your own legal advisers to determine whether disclosing the use of ASA or Microsoft’s privacy practices is required by your local law.
+          Microsoft doesn't require disclosure unless it's required by your local law to meet privacy or other requirements.  You should work with your own legal advisers to determine whether disclosing the use of ASA or Microsoft’s privacy practices is required by your local law.
 
       - question: |
           Do my users need to agree to any specific terms?
@@ -123,7 +123,7 @@ sections:
       - question: |
           Do you have any throttling limits in place?
         answer: |
-          Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrscontact@microsoft.com) to discuss.
+          Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we're ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrscontact@microsoft.com) to discuss.
           
       - question: |
           In what regions is Azure Spatial Anchors available?
@@ -151,7 +151,7 @@ sections:
       - question: |
           How does Azure Spatial Anchors integrate with ARKit and ARCore on iOS and Android?
         answer: |
-          Azure Spatial Anchors leverages the native tracking capabilities of ARKit and ARCore. In addition, our SDKs for iOS and Android offer capabilities such as persisting anchors in a managed cloud service, and allowing your apps to locate those anchors again by simply connecting to the service.
+          Azure Spatial Anchors leverages the native tracking capabilities of ARKit and ARCore. In addition, our SDKs for iOS and Android offer capabilities such as persisting anchors in a managed cloud service, and allowing your apps to locate those anchors again by connecting to the service.
 
       - question: |
           How does Azure Spatial Anchors integrate with HoloLens?
@@ -179,4 +179,4 @@ sections:
       - question: |
           What ports and protocols does Azure Spatial Anchors use?
         answer: |
-          Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](../active-directory/index.yml), which communicates using HTTPS over port 443.
+          Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Microsoft Entra ID](../active-directory/index.yml), which communicates using HTTPS over port 443.

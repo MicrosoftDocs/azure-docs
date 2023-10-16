@@ -1,15 +1,13 @@
 ---
 title: Capacity limits for dedicated SQL pool
 description: Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
-author: mlee3gsd
-manager: craigg
+author: heydh
+ms.author: dhsundar
+ms.reviewer: wiassaf
+ms.date: 6/20/2023
 ms.service: synapse-analytics
+ms.subservice: sql-dw
 ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 2/19/2020
-ms.author: martinle
-ms.reviewer: igorstan
-
 ms.custom: azure-synapse
 ---
 
@@ -26,7 +24,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU1000c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more information on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. At DWU1000c, tempdb is sized to 3.99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. For example, at DWU1000c, tempdb is sized to 3.99 TB. |
 ||||
 
 ## Database objects
@@ -74,7 +72,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 | SELECT |Bytes per GROUP BY columns. |8060<br/><br/>The columns in the GROUP BY clause can have a maximum of 8060 bytes. |
 | SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
 | Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/> The number of identifiers that can be contained in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| String literals | Number of string literals in a statement | 20,000 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
+| String literals | Number of string literals in a statement | 32,500 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
 ||||
 
 ## Metadata

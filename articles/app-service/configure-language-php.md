@@ -1,24 +1,27 @@
 ---
 title: Configure PHP apps
-description: Learn how to configure a PHP app in the native Windows instances, or in a pre-built PHP container, in Azure App Service. This article shows the most common configuration tasks. 
+description: Learn how to configure a PHP app in a pre-built PHP container, in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: php
 ms.topic: article
-ms.date: 06/02/2020 
+ms.date: 08/31/2023 
 ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 
 # Configure a PHP app for Azure App Service
 
+## Show PHP version
+::: zone pivot="platform-windows"  
+
+[!INCLUDE [php-eol-notice](./includes/php-windows-eol-notice.md)]
+
 This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service.
 
 This guide provides key concepts and instructions for PHP developers who deploy apps to App Service. If you've never used Azure App Service, follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
-
-## Show PHP version
-
-::: zone pivot="platform-windows"  
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -32,12 +35,16 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --os windows | grep php
+az webapp list-runtimes --os windows | grep PHP
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
+
+This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service.
+
+This guide provides key concepts and instructions for PHP developers who deploy apps to App Service. If you've never used Azure App Service, follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -60,20 +67,20 @@ az webapp list-runtimes --os linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.1:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 8.0
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 8.1
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.1:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|8.0"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|8.1"
 ```
 
 ::: zone-end
@@ -225,7 +232,7 @@ For more information on how App Service runs and builds PHP apps in Linux, see [
 
 ## Customize start-up
 
-By default, the built-in PHP container runs the Apache server. At start-up, it runs `apache2ctl -D FOREGROUND"`. If you like, you can run a different command at start-up, by running the following command in the [Cloud Shell](https://shell.azure.com):
+If you want, you can run a custom command at the container start-up time, by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -261,17 +268,30 @@ By default, Azure App Service points the root virtual application path (*/*) to 
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the `public/` subdirectory as the site root.
 
-The default PHP image for App Service uses Apache, and it doesn't let you customize the site root for your app. To work around this limitation, add an *.htaccess* file to your repository root with the following content:
+The default PHP image for App Service uses Nginx, and you change the site root by [configuring the Nginx server with the `root` directive](https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/). This [example configuration file](https://github.com/Azure-Samples/laravel-tasks/blob/main/default) contains the following snippets that changes the `root` directive:
 
 ```
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^(.*)
-    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
-</IfModule>
+server {
+    #proxy_cache cache;
+    #proxy_cache_valid 200 1s;
+    listen 8080;
+    listen [::]:8080;
+    root /home/site/wwwroot/public; # Changed for Laravel
+
+    location / {            
+        index  index.php index.html index.htm hostingstart.html;
+        try_files $uri $uri/ /index.php?$args; # Changed for Laravel
+    }
+    ...
 ```
 
-If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-custom-container.md) instead.
+The default container uses the configuration file found at */etc/nginx/sites-available/default*. Keep in mind that any edit you make to this file is erased when the app restarts. To make a change that is effective across app restarts, [add a custom start-up command](#customize-start-up) like this example:
+
+```
+cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload
+```
+
+This command replaces the default Nginx configuration file with a file named *default* in your repository root and restarts Nginx.
 
 ::: zone-end
 
@@ -320,23 +340,35 @@ As an alternative to using a `.user.ini` file, you can use [ini_set()](https://w
 
 ::: zone pivot="platform-linux"
 
-To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), add an *.htaccess* file to the root directory of your app.
+To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux web apps, such as upload_max_filesize and expose_php, use a custom "ini" file. You can create it in an [SSH session](configure-linux-open-ssh-session.md). 
 
-In the *.htaccess* file, add the directives using the `php_value <directive-name> <value>` syntax. For example:
+1. Go to your KUDU site https://\<sitename\>.scm.azurewebsites.net.
+2. Select Bash or SSH from the top menu.
+3. In Bash/SSH, go to your "/home/site/wwwroot" directory.
+4. Create a directory called "ini" (for example, mkdir ini).
+5. Change the current working directory to the "ini" folder you just created.
+
+You need to create an "ini" file to add your settings to. In this example, we use "extensions.ini." There are no file editors such as Vi, Vim, or Nano so you'll use echo to add the settings to the file. Change the "upload_max_filesize" from 2M to 50M. Use the following command to add the setting and create an "extensions.ini" file if one doesn't already exist.
 
 ```
-php_value upload_max_filesize 1000M
-php_value post_max_size 2000M
-php_value memory_limit 3000M
-php_value max_execution_time 180
-php_value max_input_time 180
-php_value display_errors On
-php_value upload_max_filesize 10M
+/home/site/wwwroot/ini>echo "upload_max_filesize=50M" >> extensions.ini
+/home/site/wwwroot/ini>cat extensions.ini
+
+upload_max_filesize=50M
+
+/home/site/wwwroot/ini>
 ```
 
-Redeploy your app with the changes and restart it. If you deploy it with Kudu (for example, using [Git](deploy-local-git.md)), it's automatically restarted after deployment.
+Then, go to the Azure portal and add an Application Setting to scan the "ini" directory that you just created to apply the change for upload_max_filesize. 
+  
+1. Go to the [Azure portal](https://portal.azure.com) and select your App Service Linux PHP application.
+2. Select Application Settings for the app.
+3. Under the Application settings section, select **+ Add new setting**.
+4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini."
+5. Select the save button.
 
-As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
+> [!NOTE]
+> If you recompiled a PHP extension, such as GD, follow the steps at [Recompiling PHP Extensions at Azure App Service - Adding PHP Extensions](https://blogs.msdn.microsoft.com/azureossds/2019/01/29/azure-app-service-linux-adding-php-extensions/) 
 
 ::: zone-end
 
@@ -344,7 +376,7 @@ As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.
 
 ::: zone pivot="platform-windows"  
 
-To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
+To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), use the `PHP_INI_SCAN_DIR` app setting.
 
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 

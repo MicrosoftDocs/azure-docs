@@ -1,11 +1,12 @@
 ---
 title: Add a polygon extrusion layer to an Android map | Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Android SDK.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -18,7 +19,7 @@ This article shows you how to use the polygon extrusion layer to render areas of
 
 Connect the polygon extrusion layer to a data source. Then, loaded it on the map. The polygon extrusion layer renders the areas of a `Polygon` and `MultiPolygon` features as extruded shapes. The `height` and `base` properties of the polygon extrusion layer define the base distance from the ground and height of the extruded shape in **meters**. The following code shows how to create a polygon, add it to a data source, and render it using the Polygon extrusion layer class.
 
-> [!Note]
+> [!NOTE]
 > The `base` value defined in the polygon extrusion layer should be less than or equal to that of the `height`.
 
 ::: zone pivot="programming-language-java-android"
@@ -115,7 +116,7 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 DataSource source = new DataSource();
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json");
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/US_States_Population_Density.json");
 
 //Add data source to the map.
 map.sources.add(source);
@@ -159,7 +160,7 @@ map.layers.add(layer, "labels");
 val source = DataSource()
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json")
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/US_States_Population_Density.json")
 
 //Add data source to the map.
 map.sources.add(source)

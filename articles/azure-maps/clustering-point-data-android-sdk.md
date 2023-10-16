@@ -1,11 +1,12 @@
 ---
 title: Clustering point data in the Android SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Android SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -16,15 +17,15 @@ When visualizing many data points on the map, data points may overlap over each 
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Enabling clustering on a data source
 
-Enable clustering in the `DataSource` class by setting the `cluster` option to `true`. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
+Enable clustering in the `DataSource` class by setting the `cluster` option to `true`. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here's an example of how to enable clustering in a data source.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -74,8 +75,8 @@ The `DataSource` class provides the following methods related to clustering as w
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| `getClusterChildren(Feature clusterFeature)` | `FeatureCollection` | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
-| `getClusterExpansionZoom(Feature clusterFeature)` | `int` | Calculates a zoom level at which the cluster will start expanding or break apart. |
+| `getClusterChildren(Feature clusterFeature)` | `FeatureCollection` | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters become features with properties matching ClusteredProperties. |
+| `getClusterExpansionZoom(Feature clusterFeature)` | `int` | Calculates a zoom level at which the cluster starts expanding or break apart. |
 | `getClusterLeaves(Feature clusterFeature, long limit, long offset)` | `FeatureCollection` | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
 ## Display clusters using a bubble layer
@@ -84,7 +85,7 @@ A bubble layer is a great way to render clustered points. Use expressions to sca
 
 To display the size of the cluster on top of the bubble, use a symbol layer with text, and don't use an icon.
 
-The following code displays clustered points using a bubble layer, and the number of points in each cluster using a symbol layer. A second symbol layer is used to display individual points that are not within a cluster.
+The following code displays clustered points using a bubble layer, and the number of points in each cluster using a symbol layer. A second symbol layer is used to display individual points that aren't within a cluster.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -242,7 +243,7 @@ The following image shows the above code display clustered point features in a b
 
 When visualizing data points, the symbol layer automatically hides symbols that overlap each other to ensure a cleaner user interface. This default behavior might be undesirable if you want to show the data points density on the map. However, these settings can be changed. To display all symbols, set the `iconAllowOverlap` option of the Symbol layer to `true`.
 
-Use clustering to show the data points density while keeping a clean user interface. The sample below shows you how to add custom symbols and represent clusters and individual data points using the symbol layer.
+Use clustering to show the data points density while keeping a clean user interface. The following sample shows you how to add custom symbols and represent clusters and individual data points using the symbol layer.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -342,7 +343,7 @@ The following image shows the above code rendering clustered and unclustered poi
 
 ## Clustering and the heat maps layer
 
-Heat maps are a great way to display the density of data on the map. This visualization method can handle a large number of data points on its own. If the data points are clustered and the cluster size is used as the weight of the heat map, then the heat map can handle even more data. To achieve this option, set the `heatmapWeight` option of the heat map layer to `get("point_count")`. When the cluster radius is small, the heat map will look nearly identical to a heat map using the unclustered data points, but it will perform much better. However, the smaller the cluster radius, the more accurate the heat map will be, but with fewer performance benefits.
+Heat maps are a great way to display the density of data on the map. This visualization method can handle a large number of data points on its own. If the data points are clustered and the cluster size is used as the weight of the heat map, then the heat map can handle even more data. To achieve this option, set the `heatmapWeight` option of the heat map layer to `get("point_count")`. When the cluster radius is small, the heat map looks nearly identical to a heat map using the unclustered data points, but it performs better. However, a smaller cluster radius results in a more accurate heat map, but with fewer performance benefits.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -408,13 +409,13 @@ map.layers.add(
 
 ::: zone-end
 
-The following image shows the above code display a heat map that is optimized by using clustered point features and the cluster count as the weight in the heat map.
+The following image shows the above code displaying a heat map that is optimized by using clustered point features and the cluster count as the weight in the heat map.
 
 ![Map of a heatmap optimized using clustered points as a weight](media/clustering-point-data-android-sdk/android-cluster-heat-map.gif)
 
 ## Mouse events on clustered data points
 
-When mouse events occur on a layer that contains clustered data points, the clustered data point return to the event as a GeoJSON point feature object. This point feature will have the following properties:
+When mouse events occur on a layer that contains clustered data points, the clustered data point return to the event as a GeoJSON point feature object. This point feature has the following properties:
 
 | Property name             | Type    | Description   |
 |---------------------------|---------|---------------|
@@ -649,13 +650,13 @@ map.events.add(OnFeatureClick { features: List<Feature?>? ->
 
 ::: zone-end
 
-The following image shows the above code display clustered points on a map that when clicked, zoom into the next zoom level that a cluster starts to break apart and expand.
+The following image shows the above code displaying clustered points on a map that when selected, zoom into the next zoom level that a cluster starts to break apart and expand.
 
 ![Map of clustered features zooming in and breaking apart when clicked](media/clustering-point-data-android-sdk/android-cluster-expansion.gif)
 
 ## Display cluster area
 
-The point data that a cluster represents is spread over an area. In this sample when the mouse is hovered over a cluster, two main behaviors occur. First, the individual data points contained in the cluster will be used to calculate a convex hull. Then, the convex hull will be displayed on the map to show an area.  A convex hull is a polygon that wraps a set of points like an elastic band and can be calculated using the `atlas.math.getConvexHull` method. All points contained in a cluster can be retrieved from the data source using the `getClusterLeaves` method.
+The point data that a cluster represents is spread over an area. In this sample when the mouse is hovered over a cluster, two main behaviors occur. First, the individual data points contained in the cluster will be used to calculate a convex hull. Then, the convex hull displays on the map to show an area.  A convex hull is a polygon that wraps a set of points like an elastic band and can be calculated using the `atlas.math.getConvexHull` method. All points contained in a cluster can be retrieved from the data source using the `getClusterLeaves` method.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -825,15 +826,15 @@ map.events.add(OnFeatureClick { features: List<Feature?>? ->
 
 ::: zone-end
 
-The following image shows the above code display the area of all points within a clicked clustered.
+The following image shows the above code displays the area of all points within a clicked clustered.
 
 ![Map showing convex hull polygon of all points within a clicked cluster](media/clustering-point-data-android-sdk/android-cluster-leaves-convex-hull.gif)
 
 ## Aggregating data in clusters
 
-Often clusters are represented using a symbol with the number of points that are within the cluster. But, sometimes it's desirable to customize the style of clusters with additional metrics. With cluster properties, custom properties can be created and equal to a calculation based on the properties within each point with a cluster. Cluster properties can be defined in `clusterProperties` option of the `DataSource`.
+Often clusters are represented using a symbol with the number of points that are within the cluster. But, sometimes it's desirable to customize the style of clusters with more metrics. With cluster properties, custom properties can be created and equal to a calculation based on the properties within each point with a cluster. Cluster properties can be defined in `clusterProperties` option of the `DataSource`.
 
-The following code calculates a count based on the entity type property of each data point in a cluster. When a user clicks on a cluster, a popup shows with additional information about the cluster.
+The following code calculates a count based on the entity type property of each data point in a cluster. When a user selects on a cluster, a popup shows with additional information about the cluster.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -866,7 +867,7 @@ source = new DataSource(
 );
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json");
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json");
 
 //Add data source to the map.
 map.sources.add(source);
@@ -999,7 +1000,7 @@ val source = DataSource(
 )
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json")
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json")
 
 //Add data source to the map.
 map.sources.add(source)
@@ -1108,9 +1109,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
 ::: zone-end
 
-The popup follows the steps outlined in the [display a popup](display-feature-information-android.md?#display-a-popup) document.
+The popup follows the steps outlined in the [display a popup] document.
 
-The following image shows the above code display a popup with aggregated counts of each entity value type for all points in the clicked clustered point.
+The following image shows the above code displays a popup with aggregated counts of each entity value type for all points in the clicked clustered point.
 
 ![Map showing popup of aggregated counts of entity types of all points in a cluster](media/clustering-point-data-android-sdk/android-cluster-aggregates.gif)
 
@@ -1119,10 +1120,16 @@ The following image shows the above code display a popup with aggregated counts 
 To add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[display a popup]: display-feature-information-android.md?#display-a-popup
+[Quickstart: Create an Android app]: quick-android-map.md

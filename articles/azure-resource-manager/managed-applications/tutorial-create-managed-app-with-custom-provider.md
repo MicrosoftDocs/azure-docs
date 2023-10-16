@@ -2,8 +2,6 @@
 title: Tutorial - custom actions & resources
 description: This tutorial describes how to create an Azure Managed Application with an Azure Custom Provider.
 ms.topic: tutorial
-ms.author: lazinnat
-author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -259,7 +257,7 @@ az managedapp definition create \
 
     ![Add authorization](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. Select an Azure Active Directory group to manage the resources, and select **OK**.
+5. Select a Microsoft Entra group to manage the resources, and select **OK**.
 
    ![Add authorization group](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 

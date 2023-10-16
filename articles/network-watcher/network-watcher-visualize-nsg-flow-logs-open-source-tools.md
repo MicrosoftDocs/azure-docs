@@ -3,39 +3,42 @@ title: Visualize NSG flow logs - Elastic Stack
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
+ms.workload: infrastructure-services
+ms.date: 05/03/2023
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
 
-Network Security Group flow logs provide information that can be used understand ingress and egress IP traffic on Network Security Groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5 tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+Network Security Group flow logs provide information that can be used understand ingress and egress IP traffic on Network Security Groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article will provide a solution to visualize these logs using the Elastic Stack, which will allow you to quickly index and visualize your flow logs on a Kibana dashboard.
+These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article provides a solution to visualize these logs using the Elastic Stack, which allows you to quickly index and visualize your flow logs on a Kibana dashboard.
 
 ## Scenario
 
-In this article, we will set up a solution that will allow you to visualize Network Security Group flow logs using the Elastic Stack.  A Logstash input plugin will obtain the flow logs directly from the storage blob configured for containing the flow logs. Then, using the Elastic Stack, the flow logs will be indexed and used to create a Kibana dashboard to visualize the information.
+In this article, we set up a solution that allows you to visualize Network Security Group flow logs using the Elastic Stack.  A Logstash input plugin obtains the flow logs directly from the storage blob configured for containing the flow logs. Then, using the Elastic Stack, the flow logs are indexed and used to create a Kibana dashboard to visualize the information.
 
 ![Diagram shows a scenario that allows you to visualize Network Security Group flow logs using the Elastic Stack.][scenario]
 
 ## Steps
 
 ### Enable Network Security Group flow logging
-For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+
+For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 ### Set up the Elastic Stack
+
 By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashboard what allows us to search, graph, analyze, and derive insights from our logs.
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have Java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
+The following instructions are used to install Elasticsearch in Ubuntu Azure VMs. For instructions about how to install elastic search in RHEL/CentOS distributions, see [Install Elasticsearch with RPM](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html).
+
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, see the documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
 
    ```bash
@@ -52,7 +55,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
     curl http://127.0.0.1:9200
     ```
 
-    You should see a response similar to this:
+    You should see a response similar to the following:
 
     ```json
     {
@@ -69,9 +72,11 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
     }
     ```
 
-For further instructions on installing Elastic search, refer to [Installation instructions](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+For further instructions on installing Elastic search, see [Installation instructions](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### Install Logstash
+
+The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, see the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
 
 1. To install Logstash run the following commands:
 
@@ -79,6 +84,7 @@ For further instructions on installing Elastic search, refer to [Installation in
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
+
 2. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
     ```bash
@@ -87,7 +93,7 @@ For further instructions on installing Elastic search, refer to [Installation in
 
 3. Add the following content to the file:
 
-   ```
+   ```config
    input {
       azureblob
         {
@@ -95,7 +101,7 @@ For further instructions on installing Elastic search, refer to [Installation in
             storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
             container => "insights-logs-networksecuritygroupflowevent"
             codec => "json"
-            # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+            # Refer https://learn.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
             # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
             file_head_bytes => 12
             file_tail_bytes => 2
@@ -153,14 +159,14 @@ For further instructions on installing Elastic search, refer to [Installation in
    }  
    ```
 
-For further instructions on installing Logstash, refer to the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
+For further instructions on installing Logstash, see the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
 ### Install the Logstash input plugin for Azure blob storage
 
-This Logstash plugin will allow you to directly access the flow logs from their designated storage account. To install this plugin, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
+This Logstash plugin allows you to directly access the flow logs from their designated storage account. To install this plugin, from the default Logstash installation directory run the command:
 
 ```bash
-logstash-plugin install logstash-input-azureblob
+sudo /usr/share/logstash/bin/logstash-plugin install logstash-input-azureblob
 ```
 
 To start Logstash run the command:
@@ -169,9 +175,14 @@ To start Logstash run the command:
 sudo /etc/init.d/logstash start
 ```
 
-For more information about this plugin, refer to the [documentation](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
+For more information about this plugin, see the [documentation](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### Install Kibana
+
+For instructions about how to install Kibana in RHEL/CentOS systems, see [Install Kibana with RPM](https://www.elastic.co/guide/en/kibana/current/rpm.html).
+For instructions about how to install Kibana in Ubuntu/Debian systems using a repository package, see [Install Kibana from APT repository](https://www.elastic.co/guide/en/kibana/current/deb.html).
+
+Then following instructions were tested in Ubuntu and could be used in different Linux distributions as they aren't Ubuntu specific.
 
 1. Run the following commands to install Kibana:
 
@@ -207,11 +218,11 @@ You can also create your own visualizations and dashboards tailored towards metr
 
 The sample dashboard provides several visualizations of the flow logs:
 
-1. Flows by Decision/Direction Over Time - time series graphs showing the number of flows over the time period. You can edit the unit of time and span of both these visualizations. Flows by Decision shows the proportion of allow or deny decisions made, while Flows by Direction shows the proportion of inbound and outbound traffic. With these visuals you can examine traffic trends over time and look for any spikes or unusual patterns.
+1. Flows by Decision/Direction Over Time - time series graphs showing the number of flows over the time period. You can edit the unit of time and span of both these visualizations. Flows by Decision shows the proportion of allow or deny decisions made, while Flows by Direction shows the proportion of inbound and outbound traffic. With these visuals, you can examine traffic trends over time and look for any spikes or unusual patterns.
 
    ![Screenshot shows a sample dashboard with flows by decision and direction over time.][2]
 
-2. Flows by Destination/Source Port – pie charts showing the breakdown of flows to their respective ports. With this view you can see your most commonly used ports. If you click on a specific port within the pie chart, the rest of the dashboard will filter down to flows of that port.
+2. Flows by Destination/Source Port – pie charts showing the breakdown of flows to their respective ports. With this view, you can see your most commonly used ports. If you click on a specific port within the pie chart, the rest of the dashboard filters down to flows of that port.
 
    ![Screenshot shows a sample dashboard with flows by destination and source port.][3]
 
@@ -219,23 +230,23 @@ The sample dashboard provides several visualizations of the flow logs:
 
    ![Screenshot shows a sample dashboard with the number of flows and the earliest log time.][4]
 
-4. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, as well as the distribution of rules within each NSG. From here you can see which NSG and rules generated the most traffic.
+4. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, and the distribution of rules within each NSG. , you can see which NSG and rules generated the most traffic.
 
    ![Screenshot shows a sample dashboard with flows by N S G and rule.][5]
 
-5. Top 10 Source/Destination IPs – bar charts showing the top 10 source and destination IPs. You can adjust these charts to show more or less top IPs. From here you can see the most commonly occurring IPs as well as the traffic decision (allow or deny) being made towards each IP.
+5. Top 10 Source/Destination IPs – bar charts showing the top 10 source and destination IPs. You can adjust these charts to show more or less top IPs. From here, you can see the most commonly occurring IPs and the traffic decision (allow or deny) being made towards each IP.
 
    ![Screenshot shows a sample dashboard with flows by top ten source and destination I P addresses.][6]
 
-6. Flow Tuples – this table shows you the information contained within each flow tuple, as well as its corresponding NGS and rule.
+6. Flow Tuples – this table shows you the information contained within each flow tuple, and its corresponding NGS and rule.
 
    ![Screenshot shows flow tuples in a table.][7]
 
-Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, refer to the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
+Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, see the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## Conclusion
 
-By combining the Network Security Group flow logs with the Elastic Stack, we have come up with powerful and customizable way to visualize our network traffic. These dashboards allow you to quickly gain and share insights about your network traffic, as well as filter down and investigate on any potential anomalies. Using Kibana, you can tailor these dashboards and create specific visualizations to meet any security, audit, and compliance needs.
+By combining the Network Security Group flow logs with the Elastic Stack, we have come up with powerful and customizable way to visualize our network traffic. These dashboards allow you to quickly gain and share insights about your network traffic, and filter down and investigate on any potential anomalies. Using Kibana, you can tailor these dashboards and create specific visualizations to meet any security, audit, and compliance needs.
 
 ## Next steps
 

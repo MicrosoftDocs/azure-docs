@@ -2,7 +2,7 @@
 title: NCas T4 v3-series 
 description: Specifications for the NCas T4 v3-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
@@ -33,8 +33,8 @@ Nvidia NVLink Interconnect: Not Supported<br>
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 / 8000 |
-| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4 / 8000  |
-| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8 / 8000  |
+| Standard_NC8as_T4_v3 |8 |56 |352 | 1 | 16 | 16 | 4 / 8000  |
+| Standard_NC16as_T4_v3 |16 |110 |352 | 1 | 16 | 32 | 8 / 8000  |
 | Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8 / 32000  |
 
 

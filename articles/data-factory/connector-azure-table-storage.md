@@ -7,8 +7,8 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell, synapse
-ms.date: 09/09/2021
+ms.custom: synapse
+ms.date: 07/13/2023
 ---
 
 # Copy data to and from Azure Table storage using Azure Data Factory or Synapse Analytics
@@ -25,10 +25,14 @@ This article outlines how to use Copy Activity in Azure Data Factory and Synapse
 
 ## Supported capabilities
 
-This Azure Table storage connector is supported for the following activities:
+This Azure Table storage connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 You can copy data from any supported source data store to Table storage. You also can copy data from Table storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 

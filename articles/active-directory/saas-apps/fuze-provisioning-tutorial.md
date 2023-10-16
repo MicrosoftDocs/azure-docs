@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Fuze for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Fuze.
+title: 'Tutorial: Configure Fuze for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Fuze.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -9,43 +9,41 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/05/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure Fuze for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Fuze and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [Fuze](https://www.fuze.com/). For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
-
-> [!NOTE]
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+The objective of this tutorial is to demonstrate the steps to be performed in Fuze and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users and/or groups to [Fuze](https://www.fuze.com/). For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Fuze
 > * Remove users in Fuze when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and Fuze
+> * Keep user attributes synchronized between Microsoft Entra ID and Fuze
 > * [Single sign-on](./fuze-tutorial.md) to Fuze (recommended)
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md).
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * [A Fuze tenant](https://www.fuze.com/).
 * A user account in Fuze with Admin permissions.
 
 
-## Step 1. Plan your provisioning deployment
+## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Fuze](../app-provisioning/customize-application-attributes.md). 
+3. Determine what data to [map between Microsoft Entra ID and Fuze](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure Fuze to support provisioning with Azure AD
+<a name='step-2-configure-fuze-to-support-provisioning-with-azure-ad'></a>
 
-Before configuring Fuze for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Fuze. 
+## Step 2: Configure Fuze to support provisioning with Microsoft Entra ID
+
+Before configuring Fuze for automatic user provisioning with Microsoft Entra ID, you will need to enable SCIM provisioning on Fuze. 
 
 1. Start by contacting your Fuze representative for the following required information:
 
@@ -55,30 +53,35 @@ Before configuring Fuze for automatic user provisioning with Azure AD, you will 
 
 2. You can find these SKUs and codes in your Fuze contract and configuration documents, or by contacting your Fuze representative.
 
-3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application in the Azure portal.
+3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application.
 
-## Step 3. Add Fuze from the Azure AD application gallery
+<a name='step-3-add-fuze-from-the-azure-ad-application-gallery'></a>
 
-Add Fuze from the Azure AD application gallery to start managing provisioning to Fuze. If you have previously setup Fuze for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+## Step 3: Add Fuze from the Microsoft Entra application gallery
 
-## Step 4. Define who will be in scope for provisioning 
+Add Fuze from the Microsoft Entra application gallery to start managing provisioning to Fuze. If you have previously setup Fuze for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+## Step 4: Define who will be in scope for provisioning 
+
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
-## Step 5. Configuring automatic user provisioning to Fuze 
+## Step 5: Configuring automatic user provisioning to Fuze 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Fuze based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Fuze based on user and/or group assignments in Microsoft Entra ID.
 
-### To configure automatic user provisioning for Fuze in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-fuze-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for Fuze in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Fuze**.
+1. In the applications list, select **Fuze**.
 
 	![The Fuze link in the Applications list](common/all-applications.png)
 
@@ -90,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM 2.0 base url and SCIM Authentication Token** value retrieved earlier from the Fuze representative in **Tenant URL** and **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Fuze. If the connection fails, ensure your Fuze account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM 2.0 base url and SCIM Authentication Token** value retrieved earlier from the Fuze representative in **Tenant URL** and **Secret Token**. Click **Test Connection** to ensure Microsoft Entra ID can connect to Fuze. If the connection fails, ensure your Fuze account has Admin permissions and try again.
 
 	![Tenant URL Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -100,9 +103,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Fuze**.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Fuze**.
 
-9. Review the user attributes that are synchronized from Azure AD to Fuze in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Fuze for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to Fuze in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Fuze for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -114,7 +117,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Fuze, change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Microsoft Entra provisioning service for Fuze, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -126,9 +129,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running.
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -138,7 +141,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Connector limitations
 
 * Fuze supports custom SCIM attributes called **Entitlements**. These attributes are only able to be created and not updated. 
-* The Fuze SCIM API does not support filtering on the userName attribute. As a result, you may see failures in the logs when trying to sync an existing user who does not have a userName attribute but exists with an email that matches the userPrincipalName in Azure AD. 
+* The Fuze SCIM API does not support filtering on the userName attribute. As a result, you may see failures in the logs when trying to sync an existing user who does not have a userName attribute but exists with an email that matches the userPrincipalName in Microsoft Entra ID. 
 
 ## Change log
 
@@ -147,7 +150,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

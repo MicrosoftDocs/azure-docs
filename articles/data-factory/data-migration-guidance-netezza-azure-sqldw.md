@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 07/17/2023
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure 
@@ -91,7 +91,7 @@ The preceding diagram can be interpreted as follows:
 
 - To authenticate to Azure Blob storage: 
 
-   - We highly recommend using [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity). Built on top of an automatically managed Azure Data Factory identity in Azure Active Directory (Azure AD), managed identities allows you to configure pipelines without having to supply credentials in the Linked Service definition.  
+   - We highly recommend using [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity). Built on top of an automatically managed Azure Data Factory identity in Microsoft Entra ID, managed identities allows you to configure pipelines without having to supply credentials in the Linked Service definition.  
 
    - Alternatively, you can authenticate to Azure Blob storage by using [service principal](./connector-azure-blob-storage.md#service-principal-authentication), a [shared access signature](./connector-azure-blob-storage.md#shared-access-signature-authentication), or a [storage account key](./connector-azure-blob-storage.md#account-key-authentication). 
 

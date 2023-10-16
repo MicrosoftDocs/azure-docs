@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Internet peering documentation
-summary: Learn about Internet peering with Microsoft.
+title: Internet Peering documentation
+summary: Learn about Internet peering with Microsoft global network.
 
 metadata:
   title: Internet peering documentation
@@ -10,9 +10,9 @@ metadata:
   services: internet-peering
   ms.service: internet-peering
   ms.topic: landing-page
-  author: prmitiki
-  ms.author: prmitiki
-  ms.date: 11/27/2019
+  author: halkazwini
+  ms.author: halkazwini
+  ms.date: 01/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -76,8 +76,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Peering Service FAQs
-            url: service-faqs.yml
+          - text: Peering Service FAQ
+            url: faqs.md#peering-service
       - linkListType: how-to-guide
         links:
           - text: Peering Service partner walkthrough

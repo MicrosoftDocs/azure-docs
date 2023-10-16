@@ -2,9 +2,9 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 12/4/2020
+ms.date: 08/03/2023
 ms.devlang: golang, rust
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
@@ -29,8 +29,6 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
@@ -41,38 +39,33 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
 ---
+
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
 In this section, you use Visual Studio Code to create a local Azure Functions custom handlers project. Later in this article, you'll publish your function code to Azure.
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
+1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
-    ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose a directory location for your project workspace and choose **Select**.
-
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
 1. Provide the following information at the prompts:
 
-    + **Select a language for your function project**: Choose `Custom`.
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language for your function project**|Choose `Custom Handler`.|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
-    + **Select a template for your project's first function**: Choose `HTTP trigger`.
-
-    + **Provide a function name**: Type `HttpExample`.
-
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
-    + **Select how you would like to open your project**: Choose `Add to workspace`.
-
-1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger function. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. 
 
 ## Create and build your function
 
@@ -167,7 +160,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
             Err(_) => 3000,
         };
 
-        warp::serve(example1).run((Ipv4Addr::UNSPECIFIED, port)).await
+        warp::serve(example1).run((Ipv4Addr::LOCALHOST, port)).await
     }
     ```
 
@@ -295,58 +288,38 @@ In this section, you publish your project to Azure in a function app running Lin
 
 ---
 
-## Publish the project to Azure
+## Create the function app in Azure
 
-In this section, you create a function app and related resources in your Azure subscription and then deploy your code. 
+In this section, you create a function app and related resources in your Azure subscription. 
 
-> [!IMPORTANT]
-> Publishing to an existing function app overwrites the content of that app in Azure. 
+1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
 
-
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
-
-    ![Publish your project to Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Create a resource in your Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
 
 1. Provide the following information at the prompts:
 
-    + **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
+    |Prompt|Selection|
+    |--|--|
+    |**Select subscription**| Choose the subscription to use. You won't see this when you have only one subscription visible under **Resources**. |
+    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
+    |**Select a runtime stack**| Choose **Custom Handler**. |
+    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
 
-    + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
+    The extension shows the status of individual resources as they are being created in Azure in the **Azure: Activity Log** panel.
 
-    + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. 
-    
-        > [!IMPORTANT]
-        > The `advanced` option lets you choose the specific operating system on which your function app runs in Azure, which in this case is Linux.
+    ![Log of Azure resource creation](../../includes/media/functions-publish-project-vscode/resource-activity-log.png) 
 
-        ![VS Code - Select advanced create new function app](./media/functions-create-first-function-vs-code/functions-vscode-create-azure-advanced.png)
-
-    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
-
-    + **Select a runtime stack**: Choose `Custom Handler`.
-
-    + **Select an OS**: Choose `Linux`.
-
-    + **Select a hosting plan**: Choose `Consumption`.
-
-    + **Select a resource group**: Choose `+ Create new resource group`. Enter a name for the resource group. This name must be unique within your Azure subscription. You can use the name suggested in the prompt.
-
-    + **Select a storage account**: Choose `+ Create new storage account`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
-
-    + **Select an Application Insights resource**: Choose `+ Create Application Insights resource`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
-
-    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.The extension shows the status of individual resources as they are being created in Azure in the notification area.
-
-    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
-
-1. When completed, the following Azure resources are created in your subscription:
+1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
 
     [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
-    A notification is displayed after your function app is created and the deployment package is applied. 
+    A notification is displayed after your function app is created and the deployment package is applied.
 
-4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
-    ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
+## Deploy the project to Azure
+
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

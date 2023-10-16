@@ -1,19 +1,19 @@
 ---
-title: 'Create a P2S User VPN connection - Azure AD authentication'
+title: 'Create a P2S User VPN connection - Microsoft Entra authentication'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure Azure Active Directory authentication for Virtual WAN User VPN (point-to-site).
+description: Learn how to configure Microsoft Entra authentication for Virtual WAN User VPN (point-to-site).
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 10/19/2022
 ms.author: cherylmc 
 
 ---
-# Create a P2S User VPN connection using Azure Virtual WAN - Azure AD authentication
+# Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Azure Active Directory (Azure AD) authentication. Azure AD authentication is only available for gateways that use the OpenVPN protocol.
+This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra authentication. Microsoft Entra authentication is only available for gateways that use the OpenVPN protocol.
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -54,47 +54,53 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
 1. Navigate to your **Virtual WAN ->User VPN configurations** page and click **+Create user VPN config**.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/user-vpn.png" alt-text="Screenshot of the Create User V P N configuration.":::
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/user-vpn.png" alt-text="Screenshot of the Create User V P N configuration." lightbox="./media/virtual-wan-point-to-site-azure-ad/user-vpn.png":::
 1. On the **Basics** page, specify the parameters.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/basics.png" alt-text="Screenshot of the Basics page.":::
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/basics.png" alt-text="Screenshot of the Basics page." lightbox="./media/virtual-wan-point-to-site-azure-ad/basics.png":::
 
-   * **Configuration name** - Enter the name you want to call your User VPN Configuration.
+    * **Configuration name** - Enter the name you want to call your User VPN Configuration.
     * **Tunnel type** - Select OpenVPN from the dropdown menu.
-1. Click **Azure Active Directory** to open the page.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Azure Active Directory page.":::
+1. Click **Microsoft Entra ID** to open the page.
 
-    Toggle **Azure Active Directory** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Azure Active Directory page for Enterprise applications in the portal.
-   * **Authentication method** - Select Azure Active Directory.
-   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant.
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Microsoft Entra ID page." lightbox="./media/virtual-wan-point-to-site-azure-ad/values.png":::
+
+    Toggle **Microsoft Entra ID** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Microsoft Entra ID page for Enterprise applications in the portal.
+   * **Authentication method** - Select Microsoft Entra ID.
+   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Microsoft Entra tenant.
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **AAD Tenant** - `https://login.microsoftonline.com/<your Directory ID>`
+   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL. 
+
+     * Enter `https://login.microsoftonline.com/{AzureAD TenantID}` for Azure Public AD
+     * Enter `https://login.microsoftonline.us/{AzureAD TenantID}` for Azure Government AD
+     * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID}` for Azure Germany AD
+     * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID}` for China 21Vianet AD
+
 1. Click **Create** to create the User VPN configuration. You'll select this configuration later in the exercise.
 
 ## <a name="site"></a>Create an empty hub
 
-For this exercise, we create an empty virtual hub. In the next section, you add a gateway to an already existing hub. However, it's also possible to combine these steps and create the hub with the P2S gateway settings all at once.
+For this exercise, we create an empty virtual hub in this step and, in the next section, you add a P2S gateway to this hub. However, you can combine these steps and create the hub with the P2S gateway settings all at once. The result is the same either way. After configuring the settings, click **Review + create** to validate, then **Create**.
 
-[!INCLUDE [Create an empty hub](../../includes/virtual-wan-empty-hub-include.md)]
+[!INCLUDE [Create an empty hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## <a name="hub"></a>Add a P2S gateway to a hub
 
-This section shows you how to add a gateway to an already existing virtual hub. This step can take up to 30 minutes for the hub to complete updating.
+This section shows you how to add a gateway to an already existing virtual hub. This step can take up to 30 minutes for the hub to complete updating. 
 
 1. Navigate to the **Hubs** page under the virtual WAN.
-1. Select the hub to which you want to associate the VPN server configuration and click the ellipsis (**...**) to show the menu. Then, click **Edit virtual hub**.
-
-   :::image type="content" source="media/virtual-wan-point-to-site-azure-ad/select-hub.png" alt-text="Screenshot shows Edit virtual hub selected from the menu." lightbox="media/virtual-wan-point-to-site-azure-ad/select-hub.png":::
-
+1. Click the name of the hub that you want to edit to open the page for the hub.
+1. Click **Edit virtual hub** at the top of the page to open the **Edit virtual hub** page.
 1. On the **Edit virtual hub** page, check the checkboxes for **Include vpn gateway for vpn sites** and **Include point-to-site gateway** to reveal the settings. Then configure the values.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png" alt-text="Screenshot shows the Edit virtual hub page.":::
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/hub.png" alt-text="Screenshot shows the Edit virtual hub." lightbox="./media/virtual-wan-point-to-site-azure-ad/hub.png":::
 
-   * **Gateway scale units**: Select the Gateway scale units. Scale units represent the aggregate capacity of the User VPN gateway. If you select 40 or more gateway scale units, plan your client address pool accordingly. For information about how this setting impacts the client address pool, see [About client address pools](about-client-address-pools.md). For information about gateway scale units, see the [FAQ](virtual-wan-faq.md#for-user-vpn-point-to-site--how-many-clients-are-supported).
+   * **Gateway scale units**: Select the Gateway scale units. Scale units represent the aggregate capacity of the User VPN gateway. If you select 40 or more gateway scale units, plan your client address pool accordingly. For information about how this setting impacts the client address pool, see [About client address pools](about-client-address-pools.md). For information about gateway scale units, see the [FAQ](virtual-wan-faq.md#p2s-concurrent).
    * **User VPN configuration**: Select the configuration that you created earlier.
-   * **Client address pool**: Specify the client address pool from which the VPN clients will be assigned IP addresses. This setting corresponds to the gateway scale units that you 
-1. Click **Confirm**. It can take up to 30 minutes to update the hub.
+   * **User Groups to Address Pools Mapping**: For information about this setting, see [Configure user groups and IP address pools for P2S User VPNs (preview)](user-groups-create.md).
+
+1. After configuring the settings, click **Confirm** to update the hub. It can take up to 30 minutes to update a hub.
 
 ## <a name="connect-vnet"></a>Connect VNet to hub
 
@@ -104,7 +110,7 @@ In this section, you create a connection between your virtual hub and your VNet.
 
 ## <a name="download-profile"></a>Download User VPN profile
 
-All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
+All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. You can download global (WAN-level) profiles, or a profile for a specific hub. For information and additional instructions, see [Download global and hub profiles](global-hub-profile.md). The following steps walk you through downloading a global WAN-level profile.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
@@ -184,4 +190,4 @@ When you no longer need the resources that you created, delete them. Some of the
 
 ## Next steps
 
-To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
+For Virtual WAN frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).

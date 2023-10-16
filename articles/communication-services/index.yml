@@ -1,125 +1,165 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Azure Communication Services
-summary: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps.
+title: Azure Communication Services documentation
+summary: Build powerful, cloud-based communication and customer engagement experiences by adding voice, video, chat, sms, email, teams interoperability, call automation, and telephony to your apps.
+brand: azure
 
 metadata:
-  title: Azure Communication Services
-  description: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps.
+  title: Azure Communication Services documentation
+  description: Build powerful, cloud-based communication and customer engagement experiences by adding voice, video, chat, sms, email, teams interoperability, call automation,  and telephony to your apps.
   ms.service: azure-communication-services
-  ms.topic: landing-page # Required
-  author: probableprime
-  ms.author: rifox
-  ms.date: 06/30/2021
-
-landingContent:
-  - title: About Azure Communication Services
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Communication Services?
-            url: overview.md
-      - linkListType: concept
-        links:
-          - text: SDK options
-            url: concepts/sdk-options.md
-          - text: Teams Interop
-            url: concepts/teams-interop.md
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a Communication Services resource
-            url: quickstarts/create-communication-resource.md
-          - text: Create and manage user access tokens
-            url: quickstarts/access-tokens.md
-          - text: Get a relay token
-            url: quickstarts/relay-token.md
-      - linkListType: concept
-        links:
-          - text: Client and server architecture
-            url: concepts/client-and-server-architecture.md
-          - text: Authentication and authorization
-            url: concepts/authentication.md
-          - text: Event handling
-            url: ../event-grid/event-schema-communication-services.md
-          - text: Notifications
-            url: concepts/notifications.md
-          - text: Best Practices
-            url: concepts/best-practices.md
-          - text: Troubleshooting
-            url: concepts/troubleshooting-info.md
-  - title: Voice and video calling
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Add voice calling to your app
-            url: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - text: Add video calling to your app
-            url: quickstarts/voice-video-calling/get-started-with-video-calling.md
-      - linkListType: concept
-        links:
-          - text: Voice and video concepts
-            url: concepts/voice-video-calling/about-call-types.md
-          - text: Calling SDK overview
-            url: concepts/voice-video-calling/calling-sdk-features.md
-          - text: Call flows
-            url: concepts/call-flows.md
-  - title: UI Library
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Get started with UI Library
-            url: quickstarts/ui-library/get-started-composites.md
-      - linkListType: concept
-        links:
-          - text: UI Library overview
-            url: concepts/ui-library/ui-library-overview.md
-          - text: UI Library use cases
-            url: concepts/ui-library/ui-library-use-cases.md
-  - title: Telephony and SMS
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Get a telephone number
-            url: quickstarts/telephony/get-phone-number.md
-          - text: Send an SMS message
-            url: quickstarts/sms/send.md
-          - text: Handle SMS events
-            url: quickstarts/sms/handle-sms-events.md
-          - text: Add PSTN calling
-            url: quickstarts/telephony/pstn-call.md
-      - linkListType: concept
-        links:
-          - text: SMS concepts
-            url: concepts/sms/concepts.md
-          - text: SMS SDK overview
-            url: concepts/sms/sdk-features.md
-          - text: Calling overview
-            url: concepts/voice-video-calling/calling-sdk-features.md
-          - text: Phone number types
-            url: concepts/telephony/plan-solution.md
-      - linkListType: learn
-        links:
-          - text: Send an SMS using C#
-            url: /learn/modules/communication-service-send-sms-console-app/
+  ms.topic: hub-page
+  author: sroons
+  ms.author: serooney
+  ms.date: 03/15/2023
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What is Azure Communication Services? 
+      itemType: overview
+      url: ./overview.md
+    - title: What's new for developers in Azure Communication Services?
+      itemType: whats-new
+      url: ./whats-new.md
+    - title: Explore our scenario-based solutions
+      itemType: get-started
+      url: ./overview.md#common-scenarios
+    - title: Try Azure Communication Services training modules
+      itemType: learn
+      url: https://learn.microsoft.com/en-us/training/browse/?expanded=azure&products=azure-communication-services
+    - title: SDK reference
+      itemType: reference
+      url: ./concepts/reference.md
+    - title: Rest API references
+      itemType: reference
+      url: /rest/api/communication/
+   # - title: ACS UI Library
+   #   itemType: concept
+   #   url: ./concepts/ui-library/ui-library-overview.md
+#------------------------------------------------------------------
+productDirectory: 
+  title: Communication Channels
+  summary: Learn about our core services, which you can combine and integrate to create your own custom communication solutions.
+  items:
   - title: Chat
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Add chat to your app
-            url: quickstarts/chat/get-started.md
-      - linkListType: concept
-        links:
-          - text: Chat concepts
-            url: concepts/chat/concepts.md
-          - text: Chat SDK overview
-            url: concepts/chat/sdk-features.md
-  - title: Samples
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Get started with the Group Calling hero sample
-            url: samples/calling-hero-sample.md
-          - text: Get started with the Chat hero sample
-            url: samples/chat-hero-sample.md
+    imageSrc: ./media/icons/chat-icon.svg
+    links:
+      - url: ./concepts/chat/concepts.md
+        text: Chat concepts
+      - url: ./quickstarts/chat/get-started.md
+        text: Add chat to your app
+      - url: ./quickstarts/chat/quickstart-botframework-integration.md
+        text: Add a bot to your chat app
+      - url: ./concepts/chat/sdk-features.md
+        text: Chat SDK overview
+      - url: ./samples/chat-hero-sample.md
+        text: Get started with the chat hero sample
+  - title: Email
+    imageSrc: ./media/icons/email-icon.svg
+    links:
+      - url: ./concepts/email/prepare-email-communication-resource.md
+        text: What is email communication service?
+      - url: ./quickstarts/email/send-email.md
+        text: Send an email
+      - url: ./concepts/email/email-overview.md
+        text: Email overview
+      - url: ./concepts/email/email-authentication-best-practice.md
+        text: Best practices for sender authentication support
+      - url: ./concepts/email/sdk-features.md
+        text: Email client library
+  - title: Phone calling
+    imageSrc: ./media/icons/phone-icon.svg
+    links:
+      - url: ./concepts/telephony/telephony-concept.md
+        text: Telephony concepts
+      - url:  ./quickstarts/telephony/get-phone-number.md
+        text: Get a phone number
+      - url: ./quickstarts/telephony/pstn-call.md
+        text: Add phone calling to your app
+      - url: ./quickstarts/access-tokens.md
+        text: Get a user access token
+      - url: ./how-tos/calling-sdk/manage-calls.md
+        text: Calling libraries   
+  - title: Voice and Video Calling
+    imageSrc: ./media/icons/video-icon.svg
+    links:
+      - url: ./concepts/voice-video-calling/calling-sdk-features.md
+        text: Voice and video calling overview
+      - url: ./quickstarts/voice-video-calling/get-started-with-video-calling.md
+        text: Add video calling to your app
+      - url: ./concepts/voice-video-calling/call-recording.md
+        text: Call recording overview
+      - url: ./concepts/detailed-call-flows.md
+        text: Call flow topologies
+      - url: ./concepts/voice-video-calling/calling-sdk-features.md
+        text: Calling SDK overview
+  - title: SMS
+    imageSrc: ./media/icons/sms-icon.svg
+    links:
+      - url: ./concepts/sms/concepts.md
+        text: SMS concepts
+      - url: ./concepts/sms/sdk-features.md
+        text: SMS SDK overview
+      - url: ./quickstarts/sms/send.md
+        text: Send an SMS message
+      - url: ./quickstarts/telephony/get-phone-number.md
+        text: How to set up a phone number
+      - url: ./concepts/sms/sdk-features.md
+        text: SMS SDK overview
+
+#------------------------------------------------------------------
+additionalContent:
+  sections:
+    - title: Other services
+      summary: Explore other Azure Communication Services capabilities.
+      items:
+      - title: Teams Interoperability
+        summary: Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings and chats.
+        url: ./concepts/teams-interop.md
+      - title: Call Automation
+        summary: Call Automation provides a new set of APIs to help developers build server-based, intelligent calling workflows.
+        url: ./concepts/call-automation/call-automation.md
+      - title: UI Library
+        summary: UI Library gives you a library of production-ready, fully accessible UI components to easily build modern communications user experiences using Azure Communication Services.
+        url: ./concepts/ui-library/ui-library-overview.md   
+      - title: Job Router
+        summary: Job router allows you to direct each customer interaction to the correct customer service resource with a mix of predefined and runtime rules and policies.
+        url: ./concepts/router/concepts.md
+    - title: Core Scenarios
+      summary: Whether you're just starting or have lots of experience, our prebuilt communications solutions help you arrive at your business goals quickly and effectively.
+      items:
+        - title: Build a virtual appointment proof-of-concept with Sample Builder
+          summary: Use our sample builder to create an end-to-end virtual appointment experience in less than a day.
+          url: ./tutorials/virtual-visits.md
+        - title: Build an intelligent customer support experience
+          summary: Enable your customer support staff by building an intelligent IVR workflow using bots, SMS, AI and our low code dev environment
+          url: ./concepts/call-automation/call-automation.md
+        - title: Build notifications into your customer journey
+          summary: Send important communications to your customers using our SMS, email and push notification services.
+          url: ./tutorials/add-chat-push-notifications.md
+    - title: Other Resources
+      items:
+          - title: Support & Help
+            links: 
+              - text: Provide feedback through Azure feedback
+                url: https://feedback.azure.com/d365community
+              - text: Ask questions on Microsoft Q&A
+                url: /answers/index.html
+              - text: Create Azure support request
+                url: /azure/azure-portal/supportability/how-to-create-azure-support-request
+          - title: Tools
+            links:
+              - text: Visual Studio
+                url: https://visualstudio.microsoft.com
+              - text: Power Automate
+                url: https://powerautomate.microsoft.com
+              - text: Azure CLI
+                url: https://learn.microsoft.com/en-us/cli/azure/
+          - title: Related Technologies
+            links:
+              - text: Azure
+                url: https://azure.microsoft.com/
+              - text: Azure AI services 
+                url: /azure/cognitive-services
+              - text: Dynamics 365
+                url: https://dynamics.microsoft.com/

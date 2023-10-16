@@ -4,12 +4,12 @@ description: This article provides recommendations for images included in the ma
 services: security
 documentationcenter: na
 author: terrylanfear
-manager: barbkess
+manager: rkarlin
 ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---

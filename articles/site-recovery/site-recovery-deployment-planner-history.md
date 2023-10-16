@@ -2,12 +2,13 @@
 title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
-author: Daya-Patil
+author: ankitaduttaMSFT
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
+ms.custom: devx-track-linux
 ms.date: 6/4/2020
-ms.author: dapatil
+ms.author: ankitadutta
 ---
 # Azure Site Recovery Deployment Planner Version History
 
@@ -53,9 +54,10 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Added VMs with up to 20 Mbps of data change rate (churn) to the compatibility checklist.
 - Improved error messages
 - Added support for vCenter 6.7.
-- Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
+- Added support for Windows Server 2019 and Red Hat Enterprise Linux (`RHEL`) workstation.
 
-
+> [!Note]
+>- It is not recommended to run the deployment planner on the ESXi version 6.7.0 Update 2 Build 13006603, as it does not work as expected. 
 
 ## Version 2.3
 

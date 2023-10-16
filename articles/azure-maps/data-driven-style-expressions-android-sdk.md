@@ -1,11 +1,12 @@
 ---
 title: Data-driven style Expressions in Android maps | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Android SDK to adjust styles in maps.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -16,22 +17,22 @@ Expressions enable you to apply business logic to styling options that observe t
 
 Data-driven styles reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread. This functionality provides increased performance compared to evaluating business logic on the UI thread.
 
-The Azure Maps Android SDK supports nearly all the same style expressions as the Azure Maps Web SDK, so all the same concepts outlined in the [Data-driven Style Expressions (Web SDK)](data-driven-style-expressions-web-sdk.md) can be carried over into an Android app. All style expressions in the Azure Maps Android SDK are available under the `com.microsoft.azure.maps.mapcontrol.options.Expression` namespace. There are many different types of style expressions.
+The Azure Maps Android SDK supports nearly all the same style expressions as the Azure Maps Web SDK, so all the same concepts outlined in the [Data-driven Style Expressions (Web SDK)] can be carried over into an Android app. All style expressions in the Azure Maps Android SDK are available under the `com.microsoft.azure.maps.mapcontrol.options.Expression` namespace. There are many different types of style expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
-| [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
-| [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
-| [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
-| [Data expressions](#data-expressions) | Provides access to the property data in a feature. |
-| [Interpolate and Step expressions](#interpolate-and-step-expressions) | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
-| [JSON-based expressions](#json-based-expressions) | Makes it easy to reuse style raw JSON-based expressions created for the Web SDK with the Android SDK. |  
-| [Layer specific expressions](#layer-specific-expressions) | Special expressions that are only applicable to a single layer. |
-| [Math expressions](#math-expressions) | Provides mathematical operators to perform data-driven calculations within the expression framework. |
-| [String operator expressions](#string-operator-expressions) | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
-| [Type expressions](#type-expressions) | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
-| [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
-| [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
+| [Boolean expressions] | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
+| [Color expressions] | Color expressions make it easier to create and manipulate color values. |
+| [Conditional expressions] | Conditional expressions provide logic operations that are like if-statements. |
+| [Data expressions] | Provides access to the property data in a feature. |
+| [Interpolate and Step expressions] | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
+| [JSON-based expressions] | Makes it easy to reuse style raw JSON-based expressions created for the Web SDK with the Android SDK. |  
+| [Layer specific expressions] | Special expressions that are only applicable to a single layer. |
+| [Math expressions] | Provides mathematical operators to perform data-driven calculations within the expression framework. |
+| [String operator expressions] | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
+| [Type expressions] | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
+| [Variable binding expressions] | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
+| [Zoom expression] | Retrieves the current zoom level of the map at render time. |
 
 > [!NOTE]
 > The syntax for expressions is largely identical in Java and Kotlin. If you have the documentation set to Kotlin, but see code blocks for Java, the code is identical in both languages.
@@ -207,7 +208,7 @@ This video provides an overview of data-driven styling in Azure Maps.
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 ## Data expressions
 
@@ -225,7 +226,7 @@ Data expressions provide access to the property data in a feature.
 | `length(string | Expression)` | number | Gets the length of a string or an array. |
 | `properties()`| value | Gets the feature properties object. |
 
-The following Web SDK style expressions are not supported in the Android SDK:
+The following Web SDK style expressions aren't supported in the Android SDK:
 
 - index-of
 - slice
@@ -256,7 +257,7 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fall back to "black". To modify the fallback color, use a `switchCase` expression in combination with the `has` expression to check if the property exists. If the property doesn't exist, return a fallback color.
+The above example works fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fall back to "black". To modify the fallback color, use a `switchCase` expression in combination with the `has` expression to check if the property exists. If the property doesn't exist, return a fallback color.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -302,7 +303,7 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-Bubble and symbol layers will render the coordinates of all shapes in a data source, by default. This behavior can highlight the vertices of a polygon or a line. The `filter` option of the layer can be used to limit the geometry type of the features it renders, by using a `geometryType` expression within a boolean expression. The following example limits a bubble layer so that only `Point` features are rendered.
+Bubble and symbol layers render the coordinates of all shapes in a data source, by default. This behavior can highlight the vertices of a polygon or a line. The `filter` option of the layer can be used to limit the geometry type of the features it renders, by using a `geometryType` expression within a boolean expression. The following example limits a bubble layer so that only `Point` features are rendered.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -346,9 +347,9 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-Similarly, the outline of Polygons will render in line layers. To disable this behavior in a line layer, add a filter that only allows `LineString` and `MultiLineString` features.  
+Similarly, the outline of Polygons render in line layers. To disable this behavior in a line layer, add a filter that only allows `LineString` and `MultiLineString` features.  
 
-Here are some additional examples of how to use data expressions:
+Here are more examples of how to use data expressions:
 
 ```java
 //Get item [2] from an array "properties.abcArray[1]" = "c"
@@ -407,7 +408,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
 
-When comparing values, the comparison is strictly typed. Values of different types are always considered unequal. Cases where the types are known to be different at parse time are considered invalid and will produce a parse error.
+When comparing values, the comparison is strictly typed. Values of different types are always considered unequal. Cases where the types are known to be different at parse time are considered invalid and produces a parse error.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
@@ -418,7 +419,7 @@ When comparing values, the comparison is strictly typed. Values of different typ
 | `gte(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `gte(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
 | `lt(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `lt(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
 | `lte(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `lte(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| `neq(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `neq(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Returns `true` if the input values are not equal, `false` otherwise. |
+| `neq(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `neq(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Returns `true` if the input values aren't equal, `false` otherwise. |
 | `not(Expression | boolean)` | boolean | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
 
 ## Conditional expressions
@@ -446,7 +447,7 @@ switchCase(
 
 **Example**
 
-The following example steps through different boolean conditions until it finds one that evaluates to `true`, and then returns that associated value. If no boolean condition evaluates to `true`, a fallback value will be returned.
+The following example steps through different boolean conditions until it finds one that evaluates to `true`, and then returns that associated value. If no boolean condition evaluates to `true`, a fallback value is returned.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -496,7 +497,7 @@ val layer = BubbleLayer(source,
 
 ### Match expression
 
-A `match` expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `get( "entityType")` that returns a string or a number. Each stop must have a label that is either a single literal value or an array of literal values, whose values must be all strings or all numbers. The input matches if any of the values in the array match. Each stop label must be unique. If the input type doesn't match the type of the labels, the result will be the default fallback value.
+A `match` expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `get( "entityType")` that returns a string or a number. Each stop must have a label that is either a single literal value or an array of literal values, whose values must be all strings or all numbers. The input matches if any of the values in the array match. Each stop label must be unique. If the input type doesn't match the type of the labels, the result is the default fallback value.
 
 The following pseudocode defines the structure of the `match` expression.
 
@@ -560,7 +561,7 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-The following example uses an array to list a set of labels that should all return the same value. This approach is much more efficient than listing each label individually. In this case, if the `entityType` property is "restaurant" or "grocery_store", the color "red" will be returned.
+The following example uses an array to list a set of labels that should all return the same value. This approach is much more efficient than listing each label individually. In this case, if the `entityType` property is "restaurant" or "grocery_store", the color "red" is returned.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -626,7 +627,7 @@ coalesce(Expression... input)
 
 **Example**
 
-The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subTitle` property, if its missing or `null`, it will then fall back to an empty string.
+The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression tries looking for the `subTitle` property, if it's missing or `null`, it will then fall back to an empty string.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -678,7 +679,7 @@ Type expressions provide tools for testing and converting different data types l
 |------------|-------------|-------------|
 | `array(Expression)` | Object[] | Asserts that the input is an array. |
 | `bool(Expression)` | boolean | Asserts that the input value is a boolean. |
-| `collator(boolean caseSensitive, boolean diacriticSensitive)` \| `collator(boolean caseSensitive, boolean diacriticSensitive, java.util.Locale locale)` \| `collator(Expression caseSensitive, Expression diacriticSensitive)` \| `collator(Expression caseSensitive, Expression diacriticSensitive, Expression locale)` | collator | Returns a collator for use in locale-dependent comparison operations. The case-sensitive and diacritic-sensitive options default to false. The locale argument specifies the IETF language tag of the locale to use. If none is provided, the default locale is used. If the requested locale is not available, the collator will use a system-defined fallback locale. Use resolved-locale to test the results of locale fallback behavior.  |
+| `collator(boolean caseSensitive, boolean diacriticSensitive)` \| `collator(boolean caseSensitive, boolean diacriticSensitive, java.util.Locale locale)` \| `collator(Expression caseSensitive, Expression diacriticSensitive)` \| `collator(Expression caseSensitive, Expression diacriticSensitive, Expression locale)` | collator | Returns a collator for use in locale-dependent comparison operations. The case-sensitive and diacritic-sensitive options default to false. The locale argument specifies the IETF language tag of the locale to use. If none is provided, the default locale is used. If the requested locale isn't available, the collator uses a system-defined fallback locale. Use resolved-locale to test the results of locale fallback behavior.  |
 | `literal(boolean \| number \| string \| Object \| Object[])` | boolean \| number \| string \| Object \| Object[] | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
 | `number(Expression)` | number | Asserts that the input value is a number. |
 | `object(Expression)` | Object | Asserts that the input value is an object. |
@@ -703,7 +704,7 @@ Color expressions make it easier to create and manipulate color values.
 
 **Example**
 
-The following example creates an RGB color value that has a *red* value of `255`, and *green* and *blue* values that are calculated by multiplying `2.5` by the value of the `temperature` property. As the temperature changes, the color will change to different shades of *red*.
+The following example creates an RGB color value that has a *red* value of `255`, and *green* and *blue* values that are calculated by multiplying `2.5` by the value of the `temperature` property. As the temperature changes, the color changes to different shades of *red*.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -749,7 +750,7 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-If all the color parameters are numbers, there is no need to wrap them with the `literal` expression. For example:
+If all the color parameters are numbers, there's no need to wrap them with the `literal` expression. For example:
 
 ::: zone pivot="programming-language-java-android"
 
@@ -846,7 +847,7 @@ val layer = SymbolLayer(source,
 
 ::: zone-end
 
-The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the image below.
+The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the following image.
 
 ![String operator expression example](media/how-to-expressions/string-operator-expression.png)
 
@@ -872,11 +873,11 @@ There are three types of interpolation methods that can be used in an `interpola
 |------|-------------|
 | `linear()` | Interpolates linearly between the pair of stops.  |
 | `exponential(number)` \| `exponential(Expression)` | Interpolates exponentially between the stops. A "base" is specified and controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A "base" value close to 1 produces an output that increases more linearly.|
-| `cubicBezier(number x1, number y1, number x2, number y2)` \| `cubicBezier(Expression x1, Expression y1, Expression x2, Expression y2)` | Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points. |
+| `cubicBezier(number x1, number y1, number x2, number y2)` \| `cubicBezier(Expression x1, Expression y1, Expression x2, Expression y2)` | Interpolates using a [cubic Bezier curve] defined by the given control points. |
 
 The `stop` expression has the format `stop(stop, value)`.
 
-Here is an example of what these different types of interpolations look like.
+Here's an example of what these different types of interpolations look like.
 
 | Linear  | Exponential | Cubic Bezier |
 |---------|-------------|--------------|
@@ -884,7 +885,7 @@ Here is an example of what these different types of interpolations look like.
 
 **Example**
 
-The following example uses a `linear interpolate` expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, "blue" will be returned. If it's between 60 and less than 70, yellow will be returned. If it's between 70 and less than 80, "orange" (`#FFA500`) will be returned. If it's 80 or greater, "red" will be returned.
+The following example uses a `linear interpolate` expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, "blue" is returned. If it's between 60 and less than 70, yellow is returned. If it's between 70 and less than 80, "orange" (`#FFA500`) is returned. If it's 80 or greater, "red" is returned.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -930,7 +931,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function] defined by stops.
 
 The `interpolate` expression has the following formats:
 
@@ -956,7 +957,7 @@ Step expressions return the output value of the stop just before the input value
 
 **Example**
 
-The following example uses a `step` expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, "blue" will be returned. If it's between 60 and less than 70, "yellow" will be returned. If it's between 70 and less than 80, "orange" will be returned. If it's 80 or greater, "red" will be returned.
+The following example uses a `step` expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, "blue" is returned. If it's between 60 and less than 70, "yellow" is returned. If it's between 70 and less than 80, "orange" is returned. If it's 80 or greater, "red" is returned.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -1093,7 +1094,7 @@ val layer = HeatMapLayer(source,
 
 ::: zone-end
 
-For more information, see the [Add a heat map layer](map-add-heat-map-layer-android.md) documentation.
+For more information, see the [Add a heat map layer] documentation.
 
 ### Line progress expression
 
@@ -1148,7 +1149,7 @@ val layer = LineLayer(source,
 
 ::: zone-end
 
-[See live example](map-add-line-layer.md#line-stroke-gradient)
+[See live example]
 
 ### Text field format expression
 
@@ -1163,7 +1164,7 @@ The following format options available are:
 
 | Expression | Description |
 |------------|-------------|
-| `formatFontScale(number)` \| `formatFontScale(Expression)` | Specifies the scaling factor for the font size. If specified, this value will override the `textSize` property for the individual string. |
+| `formatFontScale(number)` \| `formatFontScale(Expression)` | Specifies the scaling factor for the font size. If specified, this value overrides the `textSize` property for the individual string. |
 | `formatTextFont(string[])` \| `formatTextFont(Expression)` | Specifies a color to apply to a text when rendering. |
 
 **Example**
@@ -1222,7 +1223,7 @@ val layer = SymbolLayer(source,
 
 ::: zone-end
 
-This layer will render the point feature as shown in the image below:
+This layer renders the point feature as shown in the following image:
 
 ![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png)
 
@@ -1232,7 +1233,7 @@ A `zoom` expression is used to retrieve the current zoom level of the map at ren
 
 **Example**
 
-By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, will create a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression, with the pixel radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `2 * Math.pow(2, minZoom - maxZoom)` as shown below.
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It makes the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, creates a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression, with the pixel radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `2 * Math.pow(2, minZoom - maxZoom)` as shown below.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -1278,7 +1279,7 @@ val layer = HeatMapLayer(source,
 
 ## Variable binding expressions
 
-Variable binding expressions store the results of a calculation in a variable. So, that the calculation results can be referenced elsewhere in an expression multiple times. It is a useful optimization for expressions that involve many calculations.
+Variable binding expressions store the results of a calculation in a variable. So, that the calculation results can be referenced elsewhere in an expression multiple times. It's a useful optimization for expressions that involve many calculations.
 
 | Expression | Return type | Description |
 |--------------|---------------|--------------|
@@ -1348,16 +1349,39 @@ val layer = BubbleLayer(source,
 Learn more about the layers that support expressions:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Add a line layer](android-map-add-line-layer.md)
+> [Add a line layer]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
 
 > [!div class="nextstepaction"]
-> [Add a heat map](map-add-heat-map-layer-android.md)
+> [Add a heat map]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a heat map layer]: map-add-heat-map-layer-android.md
+[Add a heat map]: map-add-heat-map-layer-android.md
+[Add a line layer]: android-map-add-line-layer.md
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Boolean expressions]: #boolean-expressions
+[Color expressions]: #color-expressions
+[Conditional expressions]: #conditional-expressions
+[cubic Bezier curve]: https://developer.mozilla.org/docs/Web/CSS/timing-function
+[Data expressions]: #data-expressions
+[Data-driven Style Expressions (Web SDK)]: data-driven-style-expressions-web-sdk.md
+[Interpolate and Step expressions]: #interpolate-and-step-expressions
+[JSON-based expressions]: #json-based-expressions
+[Layer specific expressions]: #layer-specific-expressions
+[Math expressions]: #math-expressions
+[piecewise-constant function]: https://mathworld.wolfram.com/PiecewiseConstantFunction.html
+[See live example]: map-add-line-layer.md#line-stroke-gradient
+[String operator expressions]: #string-operator-expressions
+[Type expressions]: #type-expressions
+[Variable binding expressions]: #variable-binding-expressions
+[Zoom expression]: #zoom-expression

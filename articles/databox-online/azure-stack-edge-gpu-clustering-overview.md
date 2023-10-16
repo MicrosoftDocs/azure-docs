@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 10/05/2023
 ms.author: alkohli
 ---
 
@@ -31,8 +31,8 @@ A quorum is always maintained on your Azure Stack Edge cluster to remain online 
 
 For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with two out of three votes - a majority). A cluster witness is required on your Azure Stack Edge cluster. You can set up the witness in the cloud or in a local fileshare using the local UI of your device. 
 
-For more information on cluster witness, see [Cluster witness on Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
-
+ - For more information about the cluster witness, see [Cluster witness on Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
+ - For more information about witness in the cloud, see[Configure cloud witness](azure-stack-edge-gpu-manage-cluster.md#configure-cloud-witness). 
 
 ## Infrastructure cluster
 
@@ -148,9 +148,9 @@ Before you configure clustering on your device, you must cable the devices as pe
 ![Figure showing the steps in the deployment of a two-node Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
-1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
+1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md?pivots=twonode#cable-the-device).
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
-1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
+1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Ensure that port settings match between same port name on each appliance. Get the authentication token on this node.
 1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
 1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
 1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 
@@ -169,7 +169,7 @@ Before you configure clustering on your device, you must cable the devices as pe
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).
 1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device).
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md).
-1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
+1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Ensure that port settings match between same port name on each appliance. Get the authentication token on this node.
 1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
 1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
 1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 

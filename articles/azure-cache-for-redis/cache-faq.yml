@@ -7,8 +7,8 @@ metadata:
   ms.author: franlanglois
   ms.service: cache
   ms.topic: faq
-  ms.date: 04/12/2022
-  
+  ms.date: 09/29/2022
+
 title: Azure Cache for Redis FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -24,7 +24,93 @@ sections:
       - question: Which Azure Cache for Redis services were deprecated?
         answer: |
           - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+            
           - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+                          
+  - name: Caches with a dependency on Cloud Services (classic) 
+    questions:
+      - question: What should I do with any instances of Azure Cache for Redis that depend on Cloud Services (classic)?
+        answer: |
+          You should migrate all caches with a dependency on [**Cloud Services (classic)**](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). In August 2021, we announced Cloud Services (classic) will be retired on August 31, 2024. Any instances of Azure Cache for Redis that are dependent on Cloud Services (classic) need to be retired by the same date. 
+          
+          You should migrate caches with a dependency on Cloud Services (classic) before August 31, 2024.
+
+      - question: How many caches are affected? 
+        answer: |
+          We’ve made an effort to migrate as many caches as transparently possible. Because of this, few caches and customers are affected.  
+
+      - question: How do I know if a cache is affected? 
+        answer: |
+          Please check Azure Advisor Recommendations. If your cache is affected, you see a recommendation in your subscription. 
+
+          :::image type="content" source="media/cache-faq/cache-advisor-upgrade.png" alt-text="Screenshot that Advisor recommendation to migrate cache from cloud services.":::
+
+
+      - question: How do I migrate Cloud Services (classic) caches to Azure Virtual Machine Scale Sets? 
+        answer: |
+          We have migrated most  caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. Migrating to Azure Virtual Machine Scale Sets removes the dependency. There are two ways to initiate this process for caches in a VNet: 
+
+          - Migrate to a new cache using Private Links (recommended). 
+
+             Create a new cache that uses Private Link for network isolation rather than VNet injection and [migrate your data to this cache](cache-vnet-migration.md). This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
+            
+          - Migrate to a new cache in a new Azure Resource Manager VNet subnet.  
+
+             Creating a cache within a Classic VNET creates a Cloud Services (classic) cache and not an Azure Virtual Machine Scale Sets cache. Migrating to a new cache in a new Azure Resource Manager VNet subnet fixes the underlying dependency on Cloud Services while maintaining a similar VNet experience. 
+             
+             We have migrated most caches from being built on Cloud Services (classic) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. We highly recommend not using old subnets while migrating caches. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+
+      - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
+        answer: |
+          Check to see if your cache is using geo-replication. If so, you’ll need to migrate your data from your current geo-replicated pair to a fresh geo-replicated pair. 
+          
+          For example: 
+
+            1. Create a new geo-replicated pair of Premium caches that match the same configuration as your current pair of caches. 
+            1. Unlink your original pair of geo-replicated caches and [export an RDB file](cache-how-to-import-export-data.md#export) from the primary cache.  
+            1. [Import the RDB](cache-how-to-import-export-data.md#import) file into the primary cache in your new geo-replicated pair.  
+
+          The new pair of geo-replicated  caches won't have the same dependency on Cloud Services.
+
+      - question: What should I do if I am unable to create a new cache instance with the error message "the subnet is affected by Cloud Services retirement"?
+        answer: |
+          We are starting to block the creation of new caches using the Cloud Services (classic) deployment model. 
+          New caches can still be created using this old deployment model if they're created in a VNet subnet that once contained a Cloud Services cache or if a cache is deployed into a classic VNet.
+          If you see this message, please create a new subnet in your VNet in which to deploy your cache. This will ensure that a cache is created without the Cloud Services dependency. 
+
+          To check if you have one or more Cloud Services based caches in your subnet, you can check [Azure Advisor](cache-faq.yml#how-do-i-know-if-a-cache-is-affected) in the portal or use the [resource-navigation-links REST API](/rest/api/virtualnetwork/resource-navigation-links/list?tabs=HTTP). 
+          As shown in the example on the API page, once you enter your subscription ID, resource group name, virtual network name, and subnet name, the API will return any caches in that subnet that are using Cloud Services. 
+
+          If you are creating a new cache using the REST API, also ensure that you are not passing the redis-configuration `{"CacheVmType": "CloudService"}` along with the create request. This is an undocumented parameter, so the odds you are doing this is low.
+
+          If you need to create new caches using the Cloud Services (classic) deployment model, please reach out to azurecachemigration@microsoft.com or create a support request to request an exemption.
+      
+      - question: What happens if caches aren't upgraded/migrated by August 31, 2024? 
+        answer: |
+          These caches will be shut down, and you'll lose any data in your caches.  
+
+      - question: What is the timeline for support? 
+        answer: |
+          Retirement will occur in three phases so that you have the maximum amount of time to migrate: 
+
+            01. _Active Stage_ (now to April 30, 2023) 
+
+            	  Caches have full support, with no change in status from today. This period is given to allow customers time to transition off Cloud Service (classic) with minimal interruption. 
+            
+            01. _Maintenance Stage_ (May 1, 2023 to December 31, 2023) 
+            
+              	Caches will receive critical security, stability, and bug fixes, but no new features. 
+
+            01. _Inactive Stage_ (January 1, 2024 to August 31, 2024) 
+            	  
+                Caches will only receive critical security fixes. All customers with support issues will be requested to migrate to a VMSS-based cache before receiving support. Customers must move off their caches by August 31, 2024.  
+            
+            :::image type="content" source="media/cache-faq/cache-cloud-service-timeline.png" alt-text="picture of a timeline that shows the timeline for retiring cloud services (classic).":::
+
+      - question: Where can I get more information if I have more questions about this retirement? 
+        answer: |
+          Post any of your questions to the [Q&A page](https://aka.ms/redisretirementquestions) for Cloud Services (classic) retirement. Also, You can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
+
   - name: General questions
     questions:
       - question: What if my Azure Cache for Redis question isn't answered here?
@@ -36,3 +122,4 @@ sections:
             - If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
             
             - You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
+          

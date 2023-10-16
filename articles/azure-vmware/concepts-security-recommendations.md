@@ -2,7 +2,8 @@
 title: Concepts - Security recommendations for Azure VMware Solution
 description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.service: azure-vmware
+ms.date: 4/6/2023
 ---
 
 
@@ -34,10 +35,10 @@ The following are network-related security recommendations for Azure VMware Solu
 | Deploy and configure Network Security Groups on VNET | Ensure any VNET deployed has [Network Security Groups](../virtual-network/network-security-groups-overview.md) configured to control ingress and egress to your environment. |
 | Review and implement recommendations within the Azure security baseline for Azure VMware Solution | [Azure security baseline for Azure VMware Solution](/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
 
-## HCX
+## VMware HCX
 
-See the following information for recommendations to secure your HCX deployment.
+See the following information for recommendations to secure your VMware HCX deployment.
 
 | **Recommendation** | **Comments** |
 | :-- | :-- |
-| Stay current with HCX service updates | HCX service updates can include new features, software fixes, and security patches. Apply service updates during a maintenance window where no new HCX operations are queued up by following these [steps](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-F4AEAACB-212B-4FB6-AC36-9E5106879222.html). |
+| Stay current with VMware HCX service updates | VMware HCX service updates can include new features, software fixes, and security patches. Apply service updates during a maintenance window where no new VMware HCX operations are queued up by following these [steps](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-F4AEAACB-212B-4FB6-AC36-9E5106879222.html). |

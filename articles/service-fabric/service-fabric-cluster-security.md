@@ -2,8 +2,13 @@
 title: Secure an Azure Service Fabric cluster 
 description: Learn about security scenarios for an Azure Service Fabric cluster, and the various technologies you can use to implement them.
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric cluster security scenarios
 
 An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. It is possible to create an unsecured cluster, however if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
@@ -59,17 +64,19 @@ To learn how to set up certificate security in a cluster for Azure, see [Set up 
 
 To learn how to set up certificate security in a cluster for a standalone Windows Server cluster, see [Secure a standalone cluster on Windows by using X.509 certificates](service-fabric-windows-cluster-x509-security.md).
 
-### Client-to-node Azure Active Directory security on Azure
+<a name='client-to-node-azure-active-directory-security-on-azure'></a>
 
-Azure Active Directory (Azure AD) enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. If you have not already created a tenant, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+### Client-to-node Microsoft Entra security on Azure
 
-For clusters running on Azure, you can also use Azure AD to secure access to management endpoints. A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, to control access to the cluster you create two Azure AD applications: one web application and one native application. To learn how to create the required Azure AD artifacts and how to populate them when you create the cluster, see [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+Microsoft Entra ID enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. If you have not already created a tenant, start by reading [How to get a Microsoft Entra tenant][active-directory-howto-tenant].
+
+For clusters running on Azure, you can also use Microsoft Entra ID to secure access to management endpoints. A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, to control access to the cluster you create two Microsoft Entra applications: one web application and one native application. To learn how to create the required Microsoft Entra artifacts and how to populate them when you create the cluster, see [Set up Microsoft Entra ID to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## Security recommendations
 
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
 
-* Use Azure Active Directory for client identity
+* Use Microsoft Entra ID for client identity
 * A certificate for server identity and TLS encryption of http communication
 
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for node-to-node security is to use a Cluster certificate to authenticate nodes.
@@ -82,7 +89,7 @@ You can use access control to limit access to certain cluster operations for dif
 
 Users who are assigned the Administrator role have full access to management capabilities, including read and write capabilities. Users who are assigned the User role, by default, have only read access to management capabilities (for example, query capabilities). They also can resolve applications and services.
 
-Set the Administrator and User client roles when you create the cluster. Assign roles by providing separate identities (for example, by using certificates or Azure AD) for each role type. For more information about default access control settings and how to change default settings, see [Service Fabric role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
+Set the Administrator and User client roles when you create the cluster. Assign roles by providing separate identities (for example, by using certificates or Microsoft Entra ID) for each role type. For more information about default access control settings and how to change default settings, see [Service Fabric role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 ## X.509 certificates and Service Fabric
 
@@ -93,7 +100,7 @@ Some important things to consider:
 * To create certificates for clusters that are running production workloads, use a correctly configured Windows Server certificate service, or one from an approved [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Never use any temporary or test certificates that you create by using tools like MakeCert.exe in a production environment.
 * You can use a self-signed certificate, but only in a test cluster. Do not use a self-signed certificate in production.
-* When generating the certificate thumbprint, be sure to generate a SHA1 thumbprint. SHA1 is what's used when configuring the Client and Cluster certificate thumbprints.
+* When generating the certificate thumbprint, be sure to generate an SHA1 thumbprint. SHA1 is what's used when configuring the Client and Cluster certificate thumbprints.
 
 ### Cluster and server certificate (required)
 

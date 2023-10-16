@@ -2,27 +2,24 @@
 title: 'CLI (v2) environment YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) environment YAML schema.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
-
-author: lostmygithubaccount
-ms.author: copeters
+ms.custom: cliv2, event-tier1-build-2022, build-2023
+author: saachigopal
+ms.author: sagopal
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) environment YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -30,11 +27,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- | ------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `name` | string | **Required.** Name of the environment. | | |
-| `version` | string | Version of the environment. If omitted, Azure ML will autogenerate a version. | | |
+| `version` | string | Version of the environment. If omitted, Azure Machine Learning will autogenerate a version. | | |
 | `description` | string | Description of the environment. | | |
 | `tags` | object | Dictionary of tags for the environment. | | |
 | `image` | string | The Docker image to use for the environment. **One of `image` or `build` is required.** | | |
-| `conda_file` | string or object | The standard conda YAML configuration file of the dependencies for a conda environment. See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually. <br> <br> If specified, `image` must be specified as well. Azure ML will build the conda environment on top of the Docker image provided. | | |
+| `conda_file` | string or object | The standard conda YAML configuration file of the dependencies for a conda environment. See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually. <br> <br> If specified, `image` must be specified as well. Azure Machine Learning will build the conda environment on top of the Docker image provided. | | |
 | `build` | object | The Docker build context configuration to use for the environment. **One of `image` or `build` is required.** | | |
 | `build.path` | string | Local path to the directory to use as the build context. | | |
 | `build.dockerfile_path` | string | Relative path to the Dockerfile within the build context. | | `Dockerfile` |
@@ -73,7 +70,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: Docker image plus conda file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yaml":::
 
 ## Next steps
 

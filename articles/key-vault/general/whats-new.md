@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/12/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -19,9 +19,35 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## July 2023
+
+Built-in policy to govern the key rotation configuration in Azure Key Vault. With this policy, you can audit existing keys in key vaults to ensure that all keys are configured for rotation and comply with your organization's standards. 
+
+For more information, see [Configure key rotation governance](../keys/how-to-configure-key-rotation.md#configure-key-rotation-policy-governance)
+
+## June 2023
+
+Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+
+## May 2023
+
+Azure RBAC is now the recommended authorization system for the Azure Key Vault data plane. Azure RBAC is built on Azure Resource Manager and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource).
+
+For more information, please visit [Azure role-based access control (Azure RBAC) vs. access policies | Microsoft Learn](rbac-access-policy.md)
+
+## February 2023
+
+Built-in policy to govern the migration to Azure role-based access control (RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance](../general/rbac-migration.md#migration-governance) to learn how to enforce the new built-in policy.
+
+## April 2022
+
+Automated encryption key rotation in Key Vault is now generally available.
+
+For more information, see [Configure key auto-rotation in Key Vault](../keys/how-to-configure-key-rotation.md)
+
 ## January 2022
 
-Azure Key Vault service throughput limits have been increased to serve double its previous quota for each vault to help ensure high performance for applications. That is, for secret GET and RSA 2,048-bit software keys, you'll receive 4,000 GET transactions per 10 seconds vs 2,000 per 10 seconds previously. The service quotas are specific to operation type and the entire list can be accessed in [Azure Key Vault Service Limits](./service-limits.md). 
+Azure Key Vault service throughput limits have been increased to serve double its previous quota for each vault to help ensure high performance for applications. That is, for secret GET and RSA 2,048-bit software keys, you'll receive 4,000 GET transactions per 10 seconds versus 2,000 per 10 seconds previously. The service quotas are specific to operation type and the entire list can be accessed in [Azure Key Vault Service Limits](./service-limits.md). 
 
 For Azure update announcement, see [General availability: Azure Key Vault increased service limits for all its customers] (https://azure.microsoft.com/updates/azurekeyvaultincreasedservicelimits/)
 
@@ -34,7 +60,7 @@ For more information, see [Configure key auto-rotation in Key Vault](../keys/how
 
 ## October 2021
 
-Integration of Azure Key Vault with Azure Policy has reached general availability and is now ready for production use. This capability is a step towards our commitment to simplifying secure secrets management in Azure, while also enhancing policy enforcements that you can define on Key Vault, keys, secrets and certificates. Azure Policy provides the ability to place guardrails on Key Vault and its objects to ensure they are compliant with your organizations security recommendations and compliance regulations. It allows you to perform real time policy-based enforcement and on-demand compliance assessment of existing secrets in your Azure environment. The results of audits performed by policy will be available to you in a compliance dashboard where you will be able to see a drill down of which resources and components are compliant and which are not. Azure policy for Key Vault will provide you with a full suite of built-in policies offering governance of your keys, secrets, and certificates.  
+Integration of Azure Key Vault with Azure Policy has reached general availability and is now ready for production use. This capability is a step towards our commitment to simplifying secure secrets management in Azure, while also enhancing policy enforcements that you can define on Key Vault, keys, secrets and certificates. Azure Policy allows you to place guardrails on Key Vault and its objects to ensure they're compliant with your organizations security recommendations and compliance regulations. It allows you to perform real time policy-based enforcement and on-demand compliance assessment of existing secrets in your Azure environment. The results of audits performed by policy will be available to you in a compliance dashboard where you'll be able to see a drill-down of which resources and components are compliant and which aren't. Azure policy for Key Vault will provide you with a full suite of built-in policies offering governance of your keys, secrets, and certificates.  
 
 You can learn more about how to [Integrate Azure Key Vault with Azure Policy](./azure-policy.md?tabs=certificates) and assign a new policy. Announcement is linked [here](https://azure.microsoft.com/updates/gaazurepolicyforkeyvault).
 
@@ -67,15 +93,15 @@ To support [soft delete now on by default](#soft-delete-on-by-default), two chan
 
 ### Soft delete on by default
 
-**Soft-delete is required to be enabled for all key vaults**, both new and pre-existing. Over the next few months the ability to opt out of soft delete will be deprecated. For full details on this potentially breaking change, as well as steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md).
+**Soft-delete is required to be enabled for all key vaults**, both new and pre-existing. Over the next few months the ability to opt out of soft delete will be deprecated. For full details on this potentially breaking change, and steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md).
 
 ### Azure TLS certificate changes
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.  For full details, see [Azure TLS Certificate Changes](../../security/fundamentals/tls-certificate-changes.md).
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements.  For full details, see [Azure TLS Certificate Changes](../../security/fundamentals/tls-certificate-changes.md).
 
 ## June 2020
 
-Azure Monitor for Key Vault is now in preview.  Azure Monitor provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For more information, see [Azure Monitor for Key Vault (preview).](../../azure-monitor/insights/key-vault-insights-overview.md).
+Azure Monitor for Key Vault is now in preview.  Azure Monitor provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For more information, see [Azure Monitor for Key Vault (preview).](../key-vault-insights-overview.md).
 
 ## May 2020
 
@@ -90,22 +116,22 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 - Release of the next-generation Azure Key Vault SDKs. For examples of their use, see the Azure Key Vault secret quickstarts for [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md), and [Node.js](../secrets/quick-create-node.md)
 - New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-reference.md).
 - Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md).
-- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md], and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
+- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md), and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
 
 ## 2018
 
 New features and integrations released this year:
 
 - Integration with Azure Functions. For an example scenario leveraging [Azure Functions](../../azure-functions/index.yml) for key vault operations, see [Automate the rotation of a secret](../secrets/tutorial-rotation.md).
-- [Integration with Azure Databricks](/azure/databricks/scenarios/store-secrets-azure-key-vault). With this, Azure Databricks now supports two types of secret scopes: Azure Key Vault-backed and Databricks-backed. For more information, see [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
+- [Integration with Azure Databricks](./integrate-databricks-blob-storage.md). With this, Azure Databricks now supports two types of secret scopes: Azure Key Vault-backed and Databricks-backed. For more information, see [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
 
 ## 2016
 
 New features released this year:
 
-- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. See the overview topic for more information, [Managed Storage Account Keys overview](../secrets/overview-storage-keys.md).
-- Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. See the overview topic for more information, [Soft-delete overview](./soft-delete-overview.md).
+- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. For more information, see [Managed Storage Account Keys overview](../secrets/overview-storage-keys.md).
+- Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. For more information, see [Soft-delete overview](./soft-delete-overview.md).
 
 ## 2015
 
@@ -139,4 +165,4 @@ First preview version (version 2014-12-08-preview) was announced on January 8, 2
 
 ## Next steps
 
-If you have additional questions, please contact us through [support](https://azure.microsoft.com/support/options/).
+If you have questions, contact us through [support](https://azure.microsoft.com/support/options/).

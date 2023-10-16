@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.custom: mode-other
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Central
@@ -19,7 +19,7 @@ ms.custom: mode-other
 
 In this quickstart, you use Azure RTOS to connect the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming the STM DevKit in C
 * Build an image and flash it onto the STM DevKit
@@ -34,6 +34,7 @@ You will complete the following tasks:
     * The [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) (STM DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -113,7 +114,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 ### Flash the image
 
-1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
 
@@ -155,37 +156,37 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Module: ISM43362-M3G-L44-SPI
-	    MAC address: C4:7F:51:8F:67:F6
-    	Firmware revision: C3.5.2.5.STM
-	    Connecting to SSID 'iot'
+        Module: ISM43362-M3G-L44-SPI
+        MAC address: C4:7F:51:8F:67:F6
+        Firmware revision: C3.5.2.5.STM
+        Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-	    IP address: 192.168.0.22
-	    Gateway: 192.168.0.1
+        IP address: 192.168.0.22
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-	    DNS address: 75.75.75.75
+        DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-	    SNTP IP address: 108.62.122.57
-	    SNTP time update: May 21, 2021 22:42:8.394 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 108.62.122.57
+        SNTP time update: May 21, 2021 22:42:8.394 UTC
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgstml4s5;1
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgstml4s5;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
     ```
@@ -221,7 +222,7 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a method in IoT Central portal:
 
@@ -261,7 +262,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)

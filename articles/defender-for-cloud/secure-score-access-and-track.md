@@ -1,23 +1,22 @@
 ---
-title: Tracking your secure score in Microsoft Defender for Cloud
+title: Tracking your secure score
 description: Learn about the multiple ways to access and track your secure score in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ---
+
 # Access and track your secure score
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-You can find your overall secure score, as well as your score per subscription, through the Azure portal or programmatically as described in the following sections:
+You can find your overall secure score, and your score per subscription, through the Azure portal or programmatically as described in the following sections:
 
 > [!TIP]
 > For a detailed explanation of how your scores are calculated, see [Calculations - understanding your score](secure-score-security-controls.md#calculations---understanding-your-score).
 
 ## Get your secure score from the portal
 
-Defender for Cloud displays your score prominently in the portal: it's the first main tile the Defender for Cloud overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
+Defender for Cloud displays your score prominently in the portal. When you select the Secure score tile on the overview page, you're taken to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential effect that remediating them will have on the subscription's score. 
 
-To recap, your secure score is shown in the following locations in Defender for Cloud's portal pages.
+Your secure score is shown in the following locations in Defender for Cloud's portal pages.
 
 - In a tile on Defender for Cloud's **Overview** (main dashboard):
 
@@ -38,7 +37,7 @@ To recap, your secure score is shown in the following locations in Defender for 
 
 ## Get your secure score from the REST API
 
-You can access your score via the secure score API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the [Secure Scores API](/rest/api/securitycenter/securescores) to get the score for a specific subscription. In addition, you can use the [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) to list the security controls and the current score of your subscriptions.
+You can access your score via the secure score API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the [Secure Scores API](/rest/api/defenderforcloud/secure-scores) to get the score for a specific subscription. In addition, you can use the [Secure Score Controls API](/rest/api/defenderforcloud/secure-score-controls) to list the security controls and the current score of your subscriptions.
 
 ![Retrieving a single secure score via the API.](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -54,7 +53,7 @@ To access the secure score for multiple subscriptions with Azure Resource Graph:
 
     :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
 
-1. Enter your Kusto query (using the examples below for guidance).
+1. Enter your Kusto query (using the following examples for guidance).
 
     - This query returns the subscription ID, the current score in points and as a percentage, and the maximum score for the subscription. 
 
@@ -95,6 +94,7 @@ If you're a Power BI user with a Pro account, you can use the **Secure Score Ove
 The dashboard contains the following two reports to help you analyze your security status:
 
 - **Resources Summary** - provides summarized data regarding your resources’ health.
+
 - **Secure Score Summary** - provides summarized data regarding your score progress. Use the “Secure score over time per subscription” chart to view changes in the score. If you notice a dramatic change in your score, check the “detected changes that may affect your secure score” table for possible changes that could have caused the change. This table presents deleted resources, newly deployed resources, or resources that their security status changed for one of the recommendations.
 
 :::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time Power BI dashboard for tracking your secure score over time and investigating changes.":::

@@ -1,16 +1,15 @@
 ---
 title: Prerequisites for Azure Database Migration Service
 description: Learn about an overview of the prerequisites for using the Azure Database Migration Service to perform database migrations.
-services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: conceptual
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 02/25/2020
+ms.service: dms
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Overview of prerequisites for using the Azure Database Migration Service
@@ -108,11 +107,11 @@ In addition to Azure Database Migration Service prerequisites that are common to
 
 When using the Azure Database Migration Service to perform SQL Server to Azure SQL Database migrations, in addition to the prerequisites that are common to all migration scenarios, be sure to address the following additional prerequisites:
 
-* Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
+* Create an instance of Azure SQL Database, which you do by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 * Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for SQL Database to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) for SQL Database to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
 * Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 * Ensure that the credentials used to connect to target database have CONTROL DATABASE permission on the target database.
 
@@ -122,7 +121,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 
 ## Prerequisites for migrating SQL Server to Azure SQL Managed Instance
 
-* Create a SQL Managed Instance by following the detail in the article [Create a Azure SQL Managed Instance in the Azure portal](../azure-sql/managed-instance/instance-create-quickstart.md).
+* Create a SQL Managed Instance by following the detail in the article [Create a Azure SQL Managed Instance in the Azure portal](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * Open your firewalls to allow SMB traffic on port 445 for the Azure Database Migration Service IP address or subnet range.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
@@ -131,6 +130,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. The Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
 * Create a blob container and retrieve its SAS URI by using the steps in the article [Manage Azure Blob Storage resources with Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container). Be sure to select all permissions (Read, Write, Delete, List) on the policy window while creating the SAS URI.
+* Ensure both Azure Database Migration Service IP address and Azure SQL Managed Instance subnet can communicate with blob container.
 
    > [!NOTE]
    > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to SQL Managed Instance, see the tutorial [Migrate SQL Server to SQL Managed Instance](./tutorial-sql-server-to-managed-instance.md).

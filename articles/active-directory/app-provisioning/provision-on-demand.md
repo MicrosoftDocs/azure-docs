@@ -1,20 +1,22 @@
 ---
-title: Provision a user on demand by using Azure Active Directory
-description: Learn how to provision users on demand in Azure Active Directory.
+title: Provision a user or group on demand using the Microsoft Entra provisioning service
+description: Learn how to provision users on demand in Microsoft Entra ID.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
+zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
-# On-demand provisioning in Azure Active Directory
-Use on-demand provisioning to provision a user into an application in seconds. Among other things, you can use this capability to:
+# On-demand provisioning in Microsoft Entra ID
+
+Use on-demand provisioning to provision a user or group in seconds. Among other things, you can use this capability to:
 
 * Troubleshoot configuration issues quickly.
 * Validate expressions that you've defined.
@@ -22,34 +24,53 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 
 ## How to use on-demand provisioning
 
-1. Sign in to the **Azure portal**.
-1. Go to **All services** > **Enterprise applications**.
-1. Select your application, and then go to the provisioning configuration page.
-1. Configure provisioning by providing your admin credentials.
-1. Select **Provision on demand**.
-1. Search for a user by first name, last name, display name, user principal name, or email address.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+
+::: zone pivot="app-provisioning"
+
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > select your application.
+3. Select **Provisioning**.
+
+::: zone-end
+
+::: zone pivot="cross-tenant-synchronization"
+
+2. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
+3. Select your configuration, and then go to the **Provisioning** configuration page.
+
+::: zone-end
+
+4. Configure provisioning by providing your admin credentials.
+
+5. Select **Provision on demand**.
+
+6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
+
    > [!NOTE]
-   > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
-   > For Workday scenario, please provide "WID" of the user in Workday. 
+   > For Cloud HR provisioning app (Workday / SuccessFactors to Active Directory / Microsoft Entra ID), the input value is different. 
+   > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
-1. Select **Provision** at the bottom of the page.
+7. Select **Provision** at the bottom of the page.
 
-:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand.":::
+    :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Microsoft Entra admin center UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
+
 
 ## Understand the provisioning steps
 
-The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, will be shown during the on-demand provisioning experience.
+The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, are shown during the on-demand provisioning experience.
 
 ### Step 1: Test connection
 
-The provisioning service attempts to authorize access to the target application by making a request for a "test user". The provisioning service expects a  response that indicates that the service authorized to continue with the provisioning steps. This step is shown only when it fails. It's not shown during the on-demand provisioning experience when the step is successful.
+The provisioning service attempts to authorize access to the target system by making a request for a "test user". The provisioning service expects a  response that indicates that the service authorized to continue with the provisioning steps. This step is shown only when it fails. It's not shown during the on-demand provisioning experience when the step is successful.
 
 #### Troubleshooting tips
 
-* Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target application. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](../saas-apps/tutorial-list.md). 
-* Make sure that the target application supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
-* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure Active Directory (Azure AD) provisioning service expects. Have a look at an [example request](./use-scim-to-provision-users-and-groups.md#request-3).
+* Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target system. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](../saas-apps/tutorial-list.md). 
+* Make sure that the target system supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
+* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Microsoft Entra provisioning service expects. Have a look at an [example request](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### Step 2: Import user
 
@@ -62,7 +83,7 @@ Next, the provisioning service retrieves the user from the source system. The us
 #### View details
 
 
-The **View details** section shows the properties of the user that were imported from the source system (for example, Azure AD).
+The **View details** section shows the properties of the user that were imported from the source system (for example, Microsoft Entra ID).
 
 #### Troubleshooting tips
 
@@ -86,15 +107,15 @@ Next, the provisioning service determines whether the user is in [scope](./how-p
 
 The **View details** section shows the scoping conditions that were evaluated. You might see one or more of the following properties:
 
-* **Active in source system** indicates that the user has the property `IsActive` set to **true** in Azure AD.
-* **Assigned to application** indicates that the user is assigned to the application in Azure AD.
+* **Active in source system** indicates that the user has the property `IsActive` set to **true** in Microsoft Entra ID.
+* **Assigned to application** indicates that the user is assigned to the application in Microsoft Entra ID.
 * **Scope sync all** indicates that the scope setting allows all users and groups in the tenant.
 * **User has required role** indicates that the user has the necessary roles to be provisioned into the application. 
 * **Scoping filters** are also shown if you have defined scoping filters for your application. The filter is displayed with the following format: {scoping filter title} {scoping filter attribute} {scoping filter operator} {scoping filter value}.
 
 #### Troubleshooting tips
 
-* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a non-integer value.
+* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a noninteger value.
 * If the user doesn't have the necessary role, review the [tips for provisioning users assigned to the default access role](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### Step 4: Match user between source and target
@@ -103,17 +124,17 @@ In this step, the service attempts to match the user that was retrieved in the i
 
 #### View details
 
-The **View details** page shows the properties of the users that were matched in the target system. The properties that you see in the context pane vary as follows:
+The **View details** page shows the properties of the users that were matched in the target system. The context pane changes as follows:
 
-* If no users are matched in the target system, you won't see any properties.
-* If there's one user matched in the target system, you'll see the properties of that matched user from the target system.
-* If multiple users are matched, you'll see the properties of both matched users.
+* If no users are matched in the target system, no properties are shown.
+* If one user matches in the target system, the properties of that user are shown.
+* If multiple users match, the properties of both users are shown.
 * If multiple matching attributes are part of your attribute mappings, each matching attribute is evaluated sequentially and the matched users for that attribute are shown.
 
 #### Troubleshooting tips
 
 * The provisioning service might not be able to match a user in the source system uniquely with a user in the target. Resolve this problem by ensuring that the matching attribute is unique.
-* Make sure that the target application supports filtering on the attribute that's defined as the matching attribute.  
+* Make sure that the target system supports filtering on the attribute that's defined as the matching attribute.  
 
 ### Step 5: Perform action
 
@@ -121,19 +142,20 @@ Finally, the provisioning service takes an action, such as creating, updating, d
 
 Here's an example of what you might see after the successful on-demand provisioning of a user:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot that shows the successful on-demand provisioning of a user.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.png" alt-text="Screenshot that shows the successful on-demand provisioning of a user." lightbox="media/provision-on-demand/success-on-demand-provision.png":::
 
 #### View details
 
-The **View details** section displays the attributes that were modified in the target application. This display represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.
+The **View details** section displays the attributes that were modified in the target system. This display represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.
 
 #### Troubleshooting tips
 
-* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
+* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/howto-analyze-provisioning-logs.md#error-codes) for common failures.
+* On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. There's a replication delay of up to a few minutes between when an object is assigned to an application and when that assignment is honored in on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
 
-* **Do you need to turn provisioning off to use on-demand provisioning?** For applications that use a long-lived bearer token or a user name and password for authorization, no additional steps are required. Applications that use OAuth for authorization currently require the provisioning job to be stopped before using on-demand provisioning. Applications such as G Suite, Box, Workplace by Facebook, and Slack fall into this category. Work is in progress to support on-demand provisioning for all applications without having to stop provisioning jobs.
+* **Do you need to turn provisioning off to use on-demand provisioning?** For applications that use a long-lived bearer token or a user name and password for authorization, no more steps are required. Applications that use OAuth for authorization currently require the provisioning job to be stopped before using on-demand provisioning. Applications such as G Suite, Box, Workplace by Facebook, and Slack fall into this category. Work is in progress to support on-demand provisioning for all applications without having to stop provisioning jobs.
 
 * **How long does on-demand provisioning take?** On-demand provisioning typically takes less than 30 seconds.
 
@@ -141,13 +163,20 @@ The **View details** section displays the attributes that were modified in the t
 
 There are currently a few known limitations to on-demand provisioning. Post your [suggestions and feedback](https://aka.ms/appprovisioningfeaturerequest) so we can better determine what improvements to make next.
 
+::: zone pivot="app-provisioning"
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
-
-* Amazon Web Services (AWS) application does not support on-demand provisioning. 
-* On-demand provisioning of groups and roles isn't supported.
-* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
-* Provisioning multiple roles on a user isn't supported by on-demand provisioning. 
+* On-demand provisioning of groups supports updating up to five members at a time. Connectors for cross-tenant synchronization, Workday, etc. do not support group provisioning and as a result do not support on-demand provisioning of groups.  
+::: zone-end
+::: zone pivot="cross-tenant-synchronization"
+* On-demand provisioning of groups is not supported for cross-tenant synchronization. 
+::: zone-end
+* On-demand provisioning supports provisioning one user at a time through the Microsoft Entra admin center.
+* Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
+* On-demand provisioning of roles isn't supported.
+* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Microsoft Entra ID. Those users don't appear when you search for a user.
+* On-demand provisioning doesn't support nested groups that aren't directly assigned to the application.
+* The on-demand provisioning request API can only accept a single group with up to 5 members at a time.
 
 ## Next steps
 

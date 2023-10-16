@@ -1,24 +1,22 @@
 ---
 title: Create a scale set that uses Azure Spot Virtual Machines 
-description: Learn how to create Azure virtual machine scale sets that use Azure Spot Virtual Machines to save on costs.
-author: mimckitt
-ms.author: mimckitt
+description: Learn how to create Azure Virtual Machine Scale Sets that use Azure Spot Virtual Machines to save on costs.
+author: ju-shim
+ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 10/22/2021
-ms.reviewer: cynthn
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
-# Azure Spot Virtual Machines for virtual machine scale sets 
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+# Azure Spot Virtual Machines for Virtual Machine Scale Sets 
 
 Using Azure Spot Virtual Machines on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure will allocate the instance only if there is capacity available, but there is no SLA for these instances. An Azure Spot Virtual machine scale set is deployed in a single fault domain and offers no high availability guarantees.
+The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure will allocate the instance only if there is capacity available, but there is no SLA for these instances. An Azure Spot Virtual Machine Scale Set is deployed in a single fault domain and offers no high availability guarantees.
 
 ## Limitations
 
@@ -26,7 +24,7 @@ The following sizes are not supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
@@ -43,14 +41,13 @@ Pricing for Azure Spot Virtual Machine instances is variable, based on region an
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Azure Spot Virtual Machine or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
 
 
-
 ## Eviction policy
 
 When creating a scale set using Azure Spot Virtual Machines, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your evicted instances to the stopped-deallocated state allowing you to redeploy evicted instances. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your scale set instance quota and you will be charged for your underlying disks. 
 
-If you would like your instances to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual machine scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
+If you would like your instances to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual Machine Scale Sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
@@ -73,7 +70,7 @@ Try & restore benefits:
 - Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
 - Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
 - Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
-- Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exist for Pay-As-You-Go VMs.
+- Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exists for Pay-As-You-Go VMs.
 
 Try & restore is disabled in scale sets that use [Autoscale](virtual-machine-scale-sets-autoscale-overview.md). The number of VMs in the scale set is driven by the autoscale rules.
 
@@ -95,7 +92,7 @@ To deploy Azure Spot Virtual Machines on scale sets, you can set the new *Priori
 
 ## Portal
 
-The process to create a scale set that uses Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the Spot flag, eviction type, eviction policy and if you want to enable try to restore instances:
+The process to create a scale set that uses Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the Spot flag, eviction type, eviction policy and if you want to try to restore instances:
 ![Create a scale set with Azure Spot Virtual Machines](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-1.png)
 
 
@@ -107,7 +104,7 @@ The process to create a scale set with Azure Spot Virtual Machines is the same a
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --upgrade-policy-mode automatic \
     --single-placement-group false \
     --admin-username azureuser \
@@ -211,7 +208,7 @@ For more information, see [Testing a simulated eviction notification](../virtual
 **A:** Yes, you will be able to submit the request to increase your quota for Azure Spot Virtual Machines through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
-**Q:** Can I convert existing scale sets to Azure Spot Virtual machine scale sets?
+**Q:** Can I convert existing scale sets to Azure Spot Virtual Machine Scale Sets?
 
 **A:** No, setting the `Spot` flag is only supported at creation time.
 
@@ -226,14 +223,14 @@ For more information, see [Testing a simulated eviction notification](../virtual
 **A:** No, a scale set cannot support more than one priority type.
 
 
-**Q:**  Can I use autoscale with Azure Spot Virtual machine scale sets?
+**Q:**  Can I use autoscale with Azure Spot Virtual Machine Scale Sets?
 
-**A:** Yes, you can set autoscaling rules on your Azure Spot Virtual machine scale set. If your VMs are evicted, autoscale can try to create new Azure Spot Virtual Machines. Remember, you are not guaranteed this capacity though. 
+**A:** Yes, you can set autoscaling rules on your Azure Spot Virtual Machine Scale Set. If your VMs are evicted, autoscale can try to create new Azure Spot Virtual Machines. Remember, you are not guaranteed this capacity though. 
 
 
 **Q:**  Does autoscale work with both eviction policies (deallocate and delete)?
 
-**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, virtual machine scale set instances could fall below the set min count due to multiple spot evictions during scaling operations. 
+**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, Virtual Machine Scale Set instances could fall below the set min count due to multiple spot evictions during scaling operations. 
 
 
 **Q:** Where can I post questions?
@@ -242,4 +239,4 @@ For more information, see [Testing a simulated eviction notification](../virtual
 
 ## Next steps
 
-Check out the [virtual machine scale set pricing page](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) for pricing details.
+Check out the [Virtual Machine Scale Set pricing page](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) for pricing details.

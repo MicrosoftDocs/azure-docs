@@ -1,127 +1,120 @@
 ---
-title: Guidance for personal data stored in Azure Log Analytics| Microsoft Docs
-description: This article describes how to manage personal data stored in Azure Log Analytics and the methods to identify and remove it.
+title: Managing personal data in Azure Monitor Log Analytics and Application Insights
+description: This article describes how to manage personal data stored in Azure Monitor Log Analytics and the methods to identify and remove it.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/18/2018
+author: guywild
+ms.author: guywild
+ms.reviewer: meirm
+ms.date: 06/28/2022
+# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs Azure Monitor collects.
 
 ---
 
-# Guidance for personal data stored in Log Analytics and Application Insights
+# Managing personal data in Log Analytics and Application Insights
 
-Log Analytics is a data store where personal data is likely to be found. Application Insights stores its data in a Log Analytics partition. This article will discuss where in Log Analytics and Application Insights such data is typically found, as well as the capabilities available to you to handle such data.
+Log Analytics is a data store where personal data is likely to be found. Application Insights stores its data in a Log Analytics partition. This article explains where Log Analytics and Application Insights store personal data and how to manage this data.
 
-> [!NOTE]
-> For the purposes of this article _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you are using a workspace-based Application Insights resource, the information on log data will apply but if you are using the classic Application Insights resource then the  application data applies.
+In this article, _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you're using a workspace-based Application Insights resource, the information on log data applies. If you're using a classic Application Insights resource, the application data applies.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## Strategy for personal data handling
 
-While it will be up to you and your company to ultimately determine the strategy with which you will handle your private data (if at all), the following are some possible approaches. They are listed in order of preference from a technical point of view from most to least preferable:
+While it's up to you and your company to define a strategy for handling personal data, here are a few approaches, listed from most to least preferable from a technical point of view:
 
-* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private". This is _by far_ the preferred approach, saving you the need to create a very costly and impactful data handling strategy.
-* Where not possible, attempt to normalize the data to reduce the impact on the data platform and performance. For example, instead of logging an explicit User ID, create a lookup data that will correlate the username and their details to an internal ID that can then be logged elsewhere. That way, should one of your users ask you to delete their personal information, it is possible that only deleting the row in the lookup table corresponding to the user will be sufficient. 
-* Finally, if private data must be collected, build a process around the purge API path and the existing query API path to meet any obligations you may have around exporting and deleting any private data associated with a user.
+* Stop collecting personal data, or obfuscate, anonymize, or adjust collected data to exclude it from being considered "personal". This is _by far_ the preferred approach, which saves you the need to create a costly and impactful data handling strategy.
+* Normalize the data to reduce negative affects on the data platform and performance. For example, instead of logging an explicit User ID, create a lookup to correlate the username and their details to an internal ID that can then be logged elsewhere. That way, if a user asks you to delete their personal information, you can delete only the row in the lookup table that corresponds to the user. 
+* If you need to collect personal data, build a process using the purge API path and the existing query API to meet any obligations to export and delete any personal data associated with a user.
 
-## Where to look for private data in Log Analytics?
+## Where to look for personal data in Log Analytics
 
-Log Analytics is a flexible store, which while prescribing a schema to your data, allows you to override every field with custom values. Additionally, any custom schema can be ingested. As such, it is impossible to say exactly where Private data will be found in your specific workspace. The following locations, however, are good starting points in your inventory:
+Log Analytics prescribes a schema to your data, but allows you to override every field with custom values. You can also ingest custom schemas. As such, it's impossible to say exactly where personal data will be found in your specific workspace. The following locations, however, are good starting points in your inventory.
+
+> [!NOTE]
+> Some of the queries below use `search *` to query all tables in a workspace. We highly recommend you avoid using `search *`, which creates a highly inefficient query, whenever possible. Instead, query a specific table.
 
 ### Log data
 
-* *IP addresses*: Log Analytics collects a variety of IP information across many different tables. For example, the following query shows all tables where IPv4 addresses have been collected over the last 24 hours:
+* **IP addresses**: Log Analytics collects various IP information in multiple tables. For example, the following query shows all tables that collected IPv4 addresses in the last 24 hours:
     ```
     search * 
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *User IDs*: User IDs are found in a large variety of solutions and tables. You can look for a particular username across your entire dataset using the search command:
+    
+* **User IDs**: You'll find user usernames and user IDs in various solutions and tables. You can look for a particular username or user ID across your entire dataset using the search command:
     ```
-    search "[username goes here]"
+    search "<username or user ID>"
     ```
-  Remember to look not only for human-readable user names but also GUIDs that can directly be traced back to a particular user!
-* *Device IDs*: Like user IDs, device IDs are sometimes considered "private". Use the same approach as listed above for user IDs to identify tables where this might be a concern. 
-* *Custom data*: Log Analytics allows the collection in a variety of methods: custom logs and custom fields, the [HTTP Data Collector API](../logs/data-collector-api.md) , and custom data collected as part of system event logs. All of these are susceptible to containing private data, and should be examined to verify whether any such data exists.
-* *Solution-captured data*: Because the solution mechanism is an open-ended one, we recommend reviewing all tables generated by solutions to ensure compliance.
+    
+  Remember to look not only for human-readable usernames but also for GUIDs that can be traced back to a particular user.
+* **Device IDs**: Like user IDs, device IDs are sometimes considered personal data. Use the approach listed above for user IDs to identify tables that hold personal data. 
+* **Custom data**: Log Analytics lets you collect custom data through custom logs, custom fields, the [HTTP Data Collector API](../logs/data-collector-api.md), and as part of system event logs. Check all custom data for personal data.
+* **Solution-captured data**: Because the solution mechanism is open-ended, we recommend reviewing all tables generated by solutions to ensure compliance.
 
 ### Application data
 
-* *IP addresses*: While Application Insights will by default obfuscate all IP address fields to "0.0.0.0", it is a fairly common pattern to override this value with the actual user IP to maintain session information. The Analytics query below can be used to find any table that contains values in the IP address column other than "0.0.0.0" over the last 24 hours:
+* **IP addresses**: While Application Insights obfuscates all IP address fields to `0.0.0.0` by default, it's fairly common to override this value with the actual user IP to maintain session information. Use the query below to find any table that contains values in the *IP address* column other than `0.0.0.0` in the last 24 hours:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *User IDs*: By default, Application Insights will use randomly generated IDs for user and session tracking. However, it is common to see these fields overridden to store an ID more relevant to the application. For example: usernames, AAD GUIDs, etc. These IDs are often considered to be in-scope as personal data, and therefore, should be handled appropriately. Our recommendation is always to attempt to obfuscate or anonymize these IDs. Fields where these values are commonly found include session_Id, user_Id, user_AuthenticatedId, user_AccountId, as well as customDimensions.
-* *Custom data*: Application Insights allows you to append a set of custom dimensions to any data type. These dimensions can be *any* data. Use the following query to identify any custom dimensions collected over the last 24 hours:
+    
+* **User IDs**: By default, Application Insights uses randomly generated IDs for user and session tracking in fields such as *session_Id*, *user_Id*, *user_AuthenticatedId*, *user_AccountId*, and *customDimensions*. However, it's common to override these fields with an ID that's more relevant to the application, such as usernames or Microsoft Entra GUIDs. These IDs are often considered to be personal data. We recommend obfuscating or anonymizing these IDs. 
+* **Custom data**: Application Insights allows you to append a set of custom dimensions to any data type. Use the following query to identify custom dimensions collected in the last 24 hours:
     ```
     search * 
     | where isnotempty(customDimensions)
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *In-memory and in-transit data*: Application Insights will track exceptions, requests, dependency calls, and traces. Private data can often be collected at the code and HTTP call level. Review the exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](../app/api-filtering-sampling.md) where possible to obfuscate this data.
-* *Snapshot Debugger captures*: The [Snapshot Debugger](../app/snapshot-debugger.md) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. Snapshots will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. Unfortunately, this feature does not allow for selective deletion of snap points, or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, the recommendation is to turn off the feature.
+    
+* **In-memory and in-transit data**: Application Insights tracks exceptions, requests, dependency calls, and traces. You'll often find personal data at the code and HTTP call level. Review exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](../app/api-filtering-sampling.md) where possible to obfuscate this data.
+* **Snapshot Debugger captures**: The [Snapshot Debugger](../app/snapshot-debugger.md) feature in Application Insights lets you collect debug snapshots when Application Insights detects an exception on the production instance of your application. Snapshots expose the full stack trace leading to the exceptions and the values for local variables at every step in the stack. Unfortunately, this feature doesn't allow selective deletion of snap points or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate doesn't satisfy your compliance requirements, we recommend you turn off the feature.
 
-## How to export and delete private data
+## Exporting and deleting personal data
 
-As mentioned in the [strategy for personal data handling](#strategy-for-personal-data-handling) section earlier, it is __strongly__ recommended to if it all possible, to restructure your data collection policy to disable the collection of private data, obfuscating or anonymizing it, or otherwise modifying it to remove it from being considered "private". Handling the data will foremost result in costs to you and your team to define and automate a strategy, build an interface for your customers to interact with their data through, and ongoing maintenance costs. Further, it is computationally costly for Log Analytics and Application Insights, and a large volume of concurrent query or purge API calls have the potential to negatively impact all other interaction with Log Analytics functionality. That said, there are indeed some valid scenarios where private data must be collected. For these cases, data should be handled as described in this section.
-
-[!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
-
-### View and export
-
-For both view and export data requests, the [Log Analytics query API](https://dev.loganalytics.io/) or the  [Application Insights query API](https://dev.applicationinsights.io/quickstart) should be used. Logic to convert the shape of the data to an appropriate one to deliver to your users will be up to you to implement. [Azure Functions](https://azure.microsoft.com/services/functions/) makes a great place to host such logic.
+We __strongly__ recommend you restructure your data collection policy to stop collecting personal data, obfuscate or anonymize personal data, or otherwise modify such data until it's no longer considered personal. In handling personal, data you'll incur costs in defining and automating a strategy, building an interface through which your customers interact with their data, and ongoing maintenance. It's also computationally costly for Log Analytics and Application Insights, and a large volume of concurrent Query or Purge API calls can negatively affect all other interactions with Log Analytics functionality. However, if you have to collect personal data, follow the guidelines in this section.
 
 > [!IMPORTANT]
->  While the vast majority of purge operations may complete much quicker than the SLA, **the formal SLA for the completion of purge operations is set at 30 days** due to their heavy impact on the data platform used. This SLA meets GDPR requirements. It's an automated process so there is no way to request that an operation be handled faster. 
+>  While most purge operations complete much quicker, **the formal SLA for the completion of purge operations is set at 30 days** due to their heavy impact on the data platform. This SLA meets GDPR requirements. It's an automated process, so there's no way to expedite the operation. 
+### View and export
+
+Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
+
+You need to implement the logic for converting the data to an appropriate format for delivery to your users. [Azure Functions](https://azure.microsoft.com/services/functions/) is a great place to host such logic.
 
 ### Delete
 
 > [!WARNING]
 > Deletes in Log Analytics are destructive and non-reversible! Please use extreme caution in their execution.
 
-We have made available as part of a privacy handling a *purge* API path. This path should be used sparingly due to the risk associated with doing so, the potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handle private data.
+Azure Monitor's Purge API lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
 
-> [!NOTE]
-> Once the purge operation has been performed, the data cannot be accessed while the [purge operation status](/rest/api/loganalytics/workspacepurge/getpurgestatus) is *pending*. 
+Purge is a highly privileged operation. Grant the _Data Purger_ role in Azure Resource Manager cautiously due to the potential for data loss.
 
-Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be cautiously delegated due to the potential for data loss. 
-
-> [!IMPORTANT]
-> In order to manage system resources, purge requests are throttled at 50 requests per hour. You should batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. You should run the query before executing the purge request to verify that the results are expected. 
-
-
-
-Once the Azure Resource Manager role has been assigned, two new API paths are available: 
+To manage system resources, we limit purge requests to 50 requests an hour. Batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. Run the query before executing the purge request to verify the expected results.
 
 #### Log data
 
-* [POST purge](/rest/api/loganalytics/workspacepurge/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
-* GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
+* The [Workspace Purge POST API](/rest/api/loganalytics/workspacepurge/purge) takes an object specifying parameters of data to delete and returns a reference GUID. 
+* The [Get Purge Status POST API](/rest/api/loganalytics/workspace-purge/get-purge-status) returns an 'x-ms-status-location' header that includes a URL you can call to determine the status of your purge operation. For example:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
-> [!IMPORTANT]
->  While we expect the vast majority of purge operations to complete much quicker than our SLA, due to their heavy impact on the data platform used by Log Analytics, **the formal SLA for the completion of purge operations is set at 30 days**. 
-
 #### Application data
 
-* [POST purge](/rest/api/application-insights/components/purge) - takes an object specifying parameters of data to delete and returns a reference GUID
-* GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
+* The [Components - Purge POST API](/rest/api/application-insights/components/purge) takes an object specifying parameters of data to delete and returns a reference GUID.
+* The [Components - Get Purge Status GET API](/rest/api/application-insights/components/get-purge-status) returns an 'x-ms-status-location' header that includes a URL you can call to determine the status of your purge operation. For example:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-> [!IMPORTANT]
->  While the vast majority of purge operations may complete much quicker than the SLA, due to their heavy impact on the data platform used by Application Insights, **the formal SLA for the completion of purge operations is set at 30 days**.
-
 ## Next steps
-- To learn more about how Log Analytics data is collected, processed, and secured, see [Log Analytics data security](../logs/data-security.md).
-- To learn more about how Application Insights data is collected, processed, and secured, see [Application Insights data security](../app/data-retention-privacy.md).
+- Learn more about [how Log Analytics collects, processes, and secures data](../logs/data-security.md).
+- Learn more about [how Application Insights collects, processes, and secures data](../app/data-retention-privacy.md).

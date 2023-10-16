@@ -6,23 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
-author: lostmygithubaccount
-ms.author: copeters
+author: deeikele
+ms.author: deeikele
 ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) workspace YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/workspace.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -37,7 +37,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `resource_group` | string | **Required.** The resource group containing the workspace. If the resource group does not exist, a new one will be created. | | |
 | `hbi_workspace` | boolean | Whether the customer data is of high business impact (HBI), containing sensitive business information. For more information, see [Data encryption at rest](concept-data-encryption.md#encryption-at-rest). | | `false` |
 | `storage_account` | string | The fully qualified resource ID of an existing Azure storage account to use as the default storage account for the workspace. A storage account with premium storage or hierarchical namespace cannot be used as the default storage account. If omitted, a new storage account will be created. | | |
-| `container_registry` | string | The fully qualified resource ID of an existing Azure container registry to use as the default container registry for the workspace. Azure ML uses Azure Container Registry (ACR) for managing container images used for training and deployment. If omitted, a new container registry will be created. Creation is lazy loaded, so the container registry gets created the first time it is needed for an operation for either training or deployment. | | |
+| `container_registry` | string | The fully qualified resource ID of an existing Azure container registry to use as the default container registry for the workspace. Azure Machine Learning uses Azure Container Registry (ACR) for managing container images used for training and deployment. If omitted, a new container registry will be created. Creation is lazy loaded, so the container registry gets created the first time it is needed for an operation for either training or deployment. | | |
 | `key_vault` | string | The fully qualified resource ID of an existing Azure key vault to use as the default key vault for the workspace. If omitted, a new key vault will be created. | | |
 | `application_insights` | string | The fully qualified resource ID of an existing Azure application insights to use as the default application insights for the workspace. If omitted, a new application insights will be created. | | |
 | `customer_managed_key` | object | Azure Machine Learning stores metadata in an Azure Cosmos DB instance. By default the data is encrypted at rest with Microsoft-managed keys. To use your own customer-managed key for encryption, specify the customer-managed key information in this section. For more information, see [Data encryption for Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db). | | |
@@ -45,6 +45,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `customer_managed_key.key_uri` | string | The key URI of the customer-managed key to encrypt data at rest. The URI format is `https://<keyvault-dns-name>/keys/<key-name>/<key-version>`. | | |
 | `image_build_compute` | string | Name of the compute target to use for building environment Docker images when the container registry is behind a VNet. For more information, see [Secure workspace resources behind VNets](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | | |
 | `public_network_access` | string | Whether public endpoint access is allowed if the workspace will be using Private Link. For more information, see [Enable public access when behind VNets](how-to-configure-private-link.md#enable-public-access). | `enabled`, `disabled` | `disabled` |
+| `managed_network` | object | Azure Machine Learning Workspace managed network isolation. For more information, see [Workspace managed network isolation](how-to-managed-network.md). | | | 
 
 ## Remarks
 
@@ -73,6 +74,15 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: high business impact
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/hbi.yml":::
+
+## YAML: managed network with allow internet outbound
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/mvnet-allow-internet-outbound.yml":::
+
+## YAML: managed network with allow only approved outbound
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/mvnet-allow-only-approved-outbound.yml":::
+
 
 ## Next steps
 

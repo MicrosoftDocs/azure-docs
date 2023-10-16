@@ -6,23 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
-author: lostmygithubaccount
-ms.author: copeters
+author: vijetajo
+ms.author: vijetaj 
 ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) compute cluster (AmlCompute) YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -35,7 +35,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `location` | string | The location for the compute. If omitted, defaults to the workspace location. | | |
 | `size` | string | The VM size to use for the cluster. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use `az ml compute list-sizes`.  | `Standard_DS3_v2` |
 | `tier` | string | The VM priority tier to use for the cluster. Low-priority VMs are pre-emptible but come at a reduced cost compared to dedicated VMs. | `dedicated`, `low_priority` | `dedicated` |
-| `min_instances` | integer | The minimum number of nodes to use on the cluster. Setting the minimum number of nodes to `0` allows Azure ML to autoscale the cluster down to zero nodes when not in use. Any value larger than `0` will keep that number of nodes running, even if the cluster is not in use. | | `0` |
+| `min_instances` | integer | The minimum number of nodes to use on the cluster. Setting the minimum number of nodes to `0` allows Azure Machine Learning to autoscale the cluster down to zero nodes when not in use. Any value larger than `0` will keep that number of nodes running, even if the cluster is not in use. | | `0` |
 | `max_instances` | integer | The maximum number of nodes to use on the cluster. | | `1` |
 | `idle_time_before_scale_down` | integer | Node idle time in seconds before scaling down the cluster. | | `120` |
 | `ssh_public_access_enabled` | boolean | Whether to enable public SSH access on the nodes of the cluster. | | `false` |

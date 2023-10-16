@@ -1,9 +1,8 @@
 ---
-title: Azure Service Bus messaging overview | Microsoft Docs
-description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. It also explains concepts such as namespaces, queues, and topics in Service Bus. 
+title: Introduction to Azure Service Bus, an enterprise message broker
+description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration serverless message broker. 
 ms.topic: overview
-ms.date: 01/24/2022
-ms.custom: contperf-fy22q2
+ms.date: 02/24/2023
 ---
 
 # What is Azure Service Bus?
@@ -13,8 +12,6 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 - Safely routing and transferring data and control across service and application boundaries
 - Coordinating transactional work that requires a high-degree of reliability 
 
-> [!NOTE]
-> For a comparison of Azure messaging services, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json). 
 
 ## Overview
 Data is transferred between different applications and services using **messages**. A message is a container decorated with metadata, and contains data. The data can be any kind of information, including structured data encoded with the common formats such as the following ones: JSON, XML, Apache Avro, Plain Text.
@@ -50,7 +47,7 @@ Messages are sent to and received from **queues**. Queues store messages until t
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Messages in queues are ordered and timestamped on arrival. Once accepted by the broker, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus never leaves messages in memory or volatile storage after they've been reported to the client as accepted.
+Messages in queues are ordered and timestamped on arrival. Once the broker accepts the message, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus keeps messages in memory or volatile storage until they've been reported by the client as accepted.
 
 Messages are delivered in **pull** mode, only delivering messages when requested. Unlike the busy-polling model of some other cloud queues, the pull operation can be long-lived and only complete once a message is available. 
 
@@ -85,51 +82,48 @@ Service Bus also has advanced features that enable you to solve more complex mes
 
 ### Message sessions
 
-To realize a first-in, first-out (FIFO) guarantee in Service Bus, use sessions. [Message sessions](message-sessions.md) enable joint and ordered handling of unbounded sequences of related messages. 
+To realize a first-in, first-out (**FIFO**) guarantee in processing messages in Service Bus queue or subscriptions, use sessions. Sessions can also be used in implementing request-response patterns. The **request-response pattern** enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. For more information, see [Message sessions](message-sessions.md)
 
 ### Auto-forwarding
 
-The [auto-forwarding](service-bus-auto-forwarding.md) feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto-forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination).
+The **Auto-forwarding** feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto-forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). For more information, see [Chaining Service Bus entities with auto-forwarding](service-bus-auto-forwarding.md)
 
 ### Dead-lettering
 
-Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. You can then remove messages from the DLQ and inspect them.
+Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue (DLQ). The dead letter queue holds messages that can't be delivered to any receiver, or messages that can't be processed. You can then remove messages from the DLQ and inspect them. An application might, with help of an operator, correct issues and resubmit the message, log the fact that there was an error, and take a corrective action. For more information, see [Overview of Service Bus dead-letter queues](service-bus-dead-letter-queues.md). 
 
 ### Scheduled delivery
 
-You can submit messages to a queue or topic [for delayed processing](message-sequencing.md#scheduled-messages). For example, to schedule a job to become available for processing by a system at a certain time.
+You can submit messages to a queue or topic for delayed processing. For example, to schedule a job to become available for processing by a system at a certain time. For more information, see [Scheduled messages](message-sequencing.md#scheduled-messages).
 
 ### Message deferral
 
-When a queue or subscription client receives a message that it's willing to process, but for which processing isn't currently possible because of special circumstances within the application, the entity can [defer retrieval of the message](message-deferral.md) to a later point. The message remains in the queue or subscription, but it's set aside.
+When a queue or subscription client receives a message that it's willing to process, but for which processing isn't currently possible because of special circumstances within the application, the entity can defer retrieval of the message to a later point. The message remains in the queue or subscription, but it's set aside. For more information, see [Message deferral](message-deferral.md).
 
 ### Transactions
 
-A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction.
+A transaction groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction. For more information, see [Overview of Service Bus transaction processing](service-bus-transactions.md).
 
-### Filtering and actions
+### Filters and actions
 
-Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more [named subscription rules](topic-filters.md). For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message. For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule. For more information, see [Topic filters and actions](topic-filters.md).
 
 ### Auto-delete on idle
 
-[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there is traffic on the queue. The minimum duration is 5 minutes.
+[Auto-delete on idle](/dotnet/api/azure.messaging.servicebus.administration.queueproperties.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there's traffic on the queue. The minimum duration is 5 minutes.
 
 ### Duplicate detection
 
-If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies.
+If an error occurs that causes the client to have any doubt about the outcome of a send operation, duplicate detection takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies. For more information, see [Duplicate detection](duplicate-detection.md).
 
-### Shared access signature (SAS), Role-based access control, and managed identities
+### Security
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
-Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
+Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 
 ### Geo-disaster recovery
 
 When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue operating in a different region or datacenter.
-
-### Security
-
-Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 
 > [!NOTE]
 > For more information about these features, see [Advanced features of Azure Service Bus](advanced-features-overview.md).
@@ -147,7 +141,7 @@ Fully supported Service Bus client libraries are available via the Azure SDK.
 - [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
 - [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Azure Service Bus modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
 - [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 [Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md) and it can be used from any AMQP 1.0 compliant protocol client. Several open-source AMQP clients have samples that explicitly demonstrate Service Bus interoperability. Review the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus features with AMQP 1.0 clients directly.
@@ -169,7 +163,6 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 
 To get started using Service Bus messaging, see the following articles:
 
-- [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json).
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), or [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
 - [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/). 

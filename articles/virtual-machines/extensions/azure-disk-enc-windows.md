@@ -14,7 +14,7 @@ ms.date: 03/19/2020
 
 ## Overview
 
-Azure Disk Encryption leverages BitLocker to provide full disk encryption on Azure virtual machines running Windows.  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets in your key vault subscription.
+Azure Disk Encryption uses BitLocker to provide full disk encryption on Azure virtual machines running Windows.  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets in your key vault subscription.
 
 ## Prerequisites
 
@@ -27,14 +27,16 @@ For a full list of prerequisites, see [Azure Disk Encryption for Windows VMs](..
 ## Extension Schema
 
 There are two versions of extension schema for Azure Disk Encryption (ADE):
-- v2.2 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.
-- v1.1 - An older schema that requires Azure Active Directory (AAD) properties.
+- v2.2 - A newer recommended schema that does not use Microsoft Entra properties.
+- v1.1 - An older schema that requires Microsoft Entra properties.
 
 To select a target schema, the `typeHandlerVersion` property must be set equal to version of schema you want to use.
 
-### Schema v2.2: No AAD (recommended)
+<a name='schema-v22-no-azure-ad-recommended'></a>
 
-The v2.2 schema is recommended for all new VMs and does not require Azure Active Directory properties.
+### Schema v2.2: No Microsoft Entra ID (recommended)
+
+The v2.2 schema is recommended for all new VMs and does not require Microsoft Entra properties.
 
 ```json
 {
@@ -61,8 +63,9 @@ The v2.2 schema is recommended for all new VMs and does not require Azure Active
 }
 ```
 
+<a name='schema-v11-with-azure-ad'></a>
 
-### Schema v1.1: with AAD
+### Schema v1.1: with Microsoft Entra ID
 
 The 1.1 schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate` and is not recommended for new VMs.
 
@@ -151,9 +154,9 @@ Note: All values are case sensitive.
 
 ## Template deployment
 
-For an example of template deployment based on schema v2.2, see Azure QuickStart Template [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad).
+For an example of template deployment based on schema v2.2, see Azure Quickstart Template [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad).
 
-For an example of template deployment based on schema v1.1, see Azure QuickStart Template [encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm).
+For an example of template deployment based on schema v1.1, see Azure Quickstart Template [encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm).
 
 >[!NOTE]
 > Also if `VolumeType` parameter is set to All, data disks will be encrypted only if they are properly formatted.
@@ -173,4 +176,4 @@ Alternatively, you can file an Azure support incident. Go to [Azure support](htt
 ## Next steps
 
 * For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
-* For more information about Azure Disk Encryption for Windows, see [Windows virtual machines](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#windows-virtual-machines).
+* For more information about Azure Disk Encryption for Windows, see [Windows virtual machines](../../virtual-machines/windows/disk-encryption-overview.md).

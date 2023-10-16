@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Manage Linux updates
 > * Monitor changes and inventory
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -43,7 +43,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following e
 az vm create \
   --resource-group myResourceGroupMonitor \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

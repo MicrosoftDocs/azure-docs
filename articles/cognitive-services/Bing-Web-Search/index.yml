@@ -6,7 +6,7 @@ brand: azure
 
 metadata:
   title: Bing Search API documentation
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: The Bing Search APIs let you build web-connected apps and services that find webpages, images, news, locations, and more without advertisements.
   services: cognitive-services
   ms.service: cognitive-services
@@ -160,9 +160,9 @@ conceptualContent:
           url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
-          url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
+          url: ../bing-video-search/tutorial-bing-video-search-single-page-app.md
       footerLink:
-        url: ../Bing-Video-Search/overview.md
+        url: ../bing-video-search/overview.md
         text: See more
 
     - title: Bing Visual Search API
@@ -193,21 +193,21 @@ conceptualContent:
           url: ../bing-autosuggest/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Go
           itemType: quickstart
-          url: ../Bing-Autosuggest/quickstarts/client-libraries.md?pivots=programming-language-go
+          url: ../bing-autosuggest/quickstarts/client-libraries.md?pivots=programming-language-go
         - text: Use Java
           itemType: quickstart
-          url: ../Bing-Autosuggest/quickstarts/java.md
+          url: ../bing-autosuggest/quickstarts/java.md
         - text: Use Node.js
           itemType: quickstart
-          url: ../Bing-Autosuggest/quickstarts/nodejs.md
+          url: ../bing-autosuggest/quickstarts/nodejs.md
         - text: Use Python
           itemType: quickstart
-          url: ../Bing-Autosuggest/quickstarts/python.md
+          url: ../bing-autosuggest/quickstarts/python.md
         - text: Create a single page web-app
           itemType: quickstart
-          url: ../Bing-Autosuggest/tutorials/autosuggest.md
+          url: ../bing-autosuggest/tutorials/autosuggest.md
       footerLink:
-        url: ../Bing-Autosuggest/get-suggested-search-terms.md
+        url: ../bing-autosuggest/get-suggested-search-terms.md
         text: See more
 
     - title: Bing Spell Check API
@@ -336,7 +336,7 @@ additionalContent:
           - text: Bing Visual Search
             url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
           - text: Bing Spell Check
-            url: /python/api/overview/azure/cognitiveservices/spellcheck
+            url: /python/api/overview/azure/spell-check
       - title: Node.js SDK
         links:
           - text: Bing Web Search

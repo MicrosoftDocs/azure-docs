@@ -4,6 +4,8 @@
   items:
   - name: About Azure Container Instances
     href: container-instances-overview.md
+  - name: Resources and Quota Limits
+    href: container-instances-resource-and-quota-limits.md
 - name: Quickstarts
   expanded: true
   items:
@@ -19,6 +21,8 @@
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Terraform
+    href: container-instances-quickstart-terraform.md
   - name: Deploy a container instance - Docker CLI
     href: quickstart-docker-cli.md
 - name: Tutorials
@@ -43,6 +47,18 @@
     items:
     - name: Trigger with Azure Functions
       href: container-instances-tutorial-azure-function-trigger.md
+  - name: Deploy a confidential container group
+    items: 
+    - name: Deploy a confidential container group - Resource Manager
+      href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+    - name: Deploy a confidential container group - Portal
+      href: container-instances-tutorial-deploy-confidential-container-default-portal.md 
+  - name: Deploy a Spot container group
+    items: 
+    - name: Deploy a Spot container group - Azure CLI
+      href: container-instances-tutorial-deploy-spot-containers-cli.md
+    - name: Deploy a Spot container group - Portal
+      href: container-instances-tutorial-deploy-spot-containers-portal.md 
 - name: Samples
   items:
   - name: Code samples
@@ -51,12 +67,10 @@
     href: container-instances-samples-rm.md
 - name: Concepts
   items:
+  - name: Best practices and considerations
+    href: container-instances-best-practices-and-considerations.md
   - name: Container groups
     href: container-instances-container-groups.md
-  - name: Quotas and limits
-    href: container-instances-quotas.md
-  - name: Region availability
-    href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
   - name: Security
@@ -67,6 +81,12 @@
        href: container-instances-image-security.md
   - name: Virtual networking
     href: container-instances-virtual-network-concepts.md
+  - name: Confidential container groups
+    href: container-instances-confidential-overview.md
+  - name: Attestation in Confidential containers
+    href: confidential-containers-attestation-concepts.md 
+  - name: About Azure Container Instances Spot containers
+    href: container-instances-spot-containers-overview.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -87,8 +107,14 @@
       href: container-instances-dedicated-hosts.md
     - name: Deploy in availability zones (preview)
       href: availability-zones.md
+    - name: Configure DNS name reuse
+      href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector
       href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
+    - name: Deploy confidential containers using the Azure portal (preview)
+      href: container-instances-tutorial-deploy-confidential-container-default-portal.md
+    - name: Deploy confidential containers using ARM (preview)
+      href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
@@ -101,18 +127,22 @@
       href: container-instances-exec.md
     - name: Run a setup container (init)
       href: container-instances-init-container.md
-    - name: Use a managed identity (preview)
+    - name: Use a managed identity
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
     - name: Enable SSL endpoint in sidecar
       href: container-instances-container-group-ssl.md
+    - name: Enable automatic HTTPS with Caddy as reverse proxy
+      href: container-instances-container-group-automatic-ssl.md
     - name: Expose static IP with App Gateway
       href: container-instances-application-gateway.md  
     - name: Use Azure Firewall for ingress and egress
       href: container-instances-egress-ip-address.md
     - name: Configure container group egress with NAT gateway
       href: container-instances-nat-gateway.md
+    - name: Configure custom DNS settings for container group
+      href: container-instances-custom-dns.md
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -135,6 +165,8 @@
       href: container-instances-update.md
   - name: Monitor and log
     items:
+    - name: Monitor Azure Container Instances
+      href: monitor-azure-container-instances.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md
     - name: Get container logs and events
@@ -151,6 +183,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/container
+  - name: Azure CLI confcom extension
+    href: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
   - name: REST
     href: /rest/api/container-instances
   - name: PowerShell
@@ -162,22 +196,24 @@
   - name: Java
     href: /java/api/overview/azure/containerinstance
   - name: Node.js
-    href: /javascript/api/overview/azure/containerinstances
+    href: /javascript/api/overview/azure/container-instances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
   - name: YAML  
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Monitoring data
+    href: monitor-azure-container-instances-reference.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-container-instances
   - name: Region availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-instances/
   - name: Roadmap

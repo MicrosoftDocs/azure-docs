@@ -1,22 +1,21 @@
 ---
-title: Azure DDoS Protection Standard business continuity | Microsoft Docs
-description: Learn what to do in the event of an Azure service disruption impacting Azure DDoS Protection Standard.
+title: Azure DDoS Protection business continuity
+description: Learn what to do in the event of an Azure service disruption impacting Azure DDoS Protection.
 services: ddos-protection
-documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 04/16/2021
-ms.author: yitoh
-ms.topic: article
+ms.date: 10/12/2022
+ms.author: abell
+ms.topic: conceptual
 ---
-# Azure DDoS Protection Standard – business continuity
+# Azure DDoS Protection – business continuity
 
-Business continuity and disaster recovery in Azure DDoS Protection Standard enables your business to continue operating in the face of a disruption. This article discusses availability (intra-region) and disaster recovery.
+Business continuity and disaster recovery in Azure DDoS Protection enables your business to continue operating in the face of a disruption. This article discusses availability (intra-region) and disaster recovery.
 
 ## Overview
-Azure DDoS Protection Standard protects public IP addresses in virtual networks. Protection is simple to enable on any new or existing virtual network and does not require any application or resource changes.
+Azure DDoS Protection protects public IP addresses in virtual networks. Protection is simple to enable on any new or existing virtual network and does not require any application or resource changes.
 
 A Virtual Network (VNet) is a logical representation of your network in the cloud. VNets serve as a trust boundary to host your resources such as Azure Application Gateway, Azure Firewall and Azure Virtual Machines. It is created within the scope of a region. You can *create* VNets with same address space in two different regions (For example, US East and US West), but because they have the same address space, you can't connect them together. 
 
@@ -30,7 +29,7 @@ A: The virtual network and the resources in the affected region remains inaccess
 
 ![Simple Virtual Network Diagram.](../virtual-network/media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**Q: What can I to do re-create the same virtual network in a different region?**
+**Q: What can I do to re-create the same virtual network in a different region?**
 
 A: Virtual networks are fairly lightweight resources. You can invoke Azure APIs to create a VNet with the same address space in a different region. To recreate the same environment that was present in the affected region, you make API calls to redeploy the resources in the VNets that you had. If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway, and connect to your on-premises network.
 
@@ -44,4 +43,4 @@ To create a virtual network, see [Create a virtual network](../virtual-network/m
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure diagnostic logging](diagnostic-logging.md).

@@ -47,7 +47,7 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 
 5.	[Azure Storage analytics](/rest/api/storageservices/fileservices/storage-analytics)
 
-6.	[Azure Active directory](../../active-directory/fundamentals/active-directory-whatis.md)
+6.	[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
 
 
 ## Microsoft Azure Monitor logs
@@ -71,7 +71,7 @@ The core functionality of Azure Monitor logs is provided by a set of services th
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](/azure/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 
 This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
@@ -89,7 +89,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](https://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
+[Azure Backup](../../backup/index.yml) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
@@ -99,7 +99,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-introduction.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../azure-monitor/insights/solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
+[Management Solutions](/previous-versions/azure/azure-monitor/insights/solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
@@ -269,17 +269,19 @@ The following types of authenticated and anonymous requests are logged.
 | 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
+## Microsoft Entra ID
 
--	Improve application security with Azure AD multifactor authentication and Conditional Access.
+Microsoft Entra ID also includes a full suite of identity management capabilities including multifactor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
+
+-	Improve application security with Microsoft Entra multifactor authentication and Conditional Access.
 
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 
-Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](../../active-directory/reports-monitoring/overview-reports.md) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
+Microsoft Entra ID includes security, activity, and audit reports for your directory. [The Microsoft Entra audit Report](../../active-directory/reports-monitoring/overview-reports.md) helps customers to identify privileged actions that occurred in their Microsoft Entra ID. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
-The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure portal](https://portal.azure.com/), as described in [View your Audit Logs](../../active-directory/reports-monitoring/overview-reports.md). Here's a list of the reports included:
+The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Microsoft Entra ID via the [Azure portal](https://portal.azure.com/), as described in [View your Audit Logs](../../active-directory/reports-monitoring/overview-reports.md). Here's a list of the reports included:
 
 | Security reports  | Activity reports| Audit reports |
 | :------------- | :-------------| :-------------|
@@ -295,12 +297,12 @@ The reports provide the audit record for the event name, the actor who performed
 
 
 
-The data of these reports can be useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](../../active-directory/reports-monitoring/concept-reporting-api.md) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
+The data of these reports can be useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Microsoft Entra ID reporting [APIs](../../active-directory/reports-monitoring/concept-reporting-api.md) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
 
-Events in the Azure AD Audit report are retained for 180 days.
+Events in the Microsoft Entra audit report are retained for 180 days.
 
 > [!Note]
-> For more information about retention on reports, see [Azure Active Directory Report Retention Policies](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
+> For more information about retention on reports, see [Microsoft Entra report retention Policies](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
 
 For customers interested in storing their [audit events](../../active-directory/reports-monitoring/concept-audit-logs.md) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
 
@@ -337,5 +339,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+- [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

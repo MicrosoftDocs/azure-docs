@@ -1,9 +1,8 @@
 ---
-title: Register mobile apps that call web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Register mobile apps that call web APIs
 description: Learn how to build a mobile app that calls web APIs (app's registration)
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 08/18/2021
-ms.author: jmprieur
-ms.reviewer: brandwe
+ms.author: henrymbugua
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ---
@@ -31,7 +30,7 @@ Most mobile applications use interactive authentication. If your app uses this f
 
 ### Audience for integrated Windows authentication, username-password, and B2C
 
-If you have a Universal Windows Platform (UWP) app, you can use integrated Windows authentication (IWA) to sign in users. To use IWA or username-password authentication, your application needs to sign in users in your own line-of-business (LOB) developer tenant. In an independent software vendor (ISV) scenario, your application can sign in users in Azure Active Directory organizations. These authentication flows aren't supported for Microsoft personal accounts.
+If you have a Universal Windows Platform (UWP) app, you can use integrated Windows authentication (IWA) to sign in users. To use IWA or username-password authentication, your application needs to sign in users in your own line-of-business (LOB) developer tenant. In an independent software vendor (ISV) scenario, your application can sign in users in Microsoft Entra organizations. These authentication flows aren't supported for Microsoft personal accounts.
 
 You can also sign in users by using social identities that pass a B2C authority and policy. To use this method, you can use only interactive authentication and username-password authentication. Username-password authentication is currently supported only on Xamarin.iOS, Xamarin.Android, and UWP.
 
@@ -41,25 +40,23 @@ For more information, see [Scenarios and supported authentication flows](authent
 
 ### Interactive authentication
 
-When you build a mobile app that uses interactive authentication, the most critical registration step is the redirect URI. You can set interactive authentication through the [platform configuration on the **Authentication** blade](https://aka.ms/MobileAppReg).
+When you build a mobile app that uses interactive authentication, the most critical registration step is the redirect URI. This experience enables your app to get single sign-on (SSO) through Microsoft Authenticator (and Intune Company Portal on Android). It also supports device management policies.
 
-This experience will enable your app to get single sign-on (SSO) through Microsoft Authenticator (and Intune Company Portal on Android). It will also support device management policies.
-
-The app registration portal provides a preview experience to help you compute the brokered reply URI for iOS and Android applications:
-
-1. In the app registration portal, select **Authentication** > **Try out the new experience**.
-
-   ![The Authentication blade, where you choose a new experience](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
-
-2. Select **Add a platform**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
+1. Enter a **Name** for the application.
+1. For **Supported account types**, select **Accounts in this organizational directory only**.
+1. Select **Register**.
+1. Select **Authentication** and then select **Add a platform**.
 
    ![Add a platform](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. When the list of platforms is supported, select **iOS**.
+1. When the list of platforms is supported, select **iOS / macOS**.
 
    ![Choose a mobile application](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Enter your bundle ID, and then select **Register**.
+1. Enter your bundle ID, and then select **Configure**.
 
    ![Enter your bundle ID](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
@@ -76,11 +73,13 @@ If you prefer to manually configure the redirect URI, you can do so through the 
 
 ### Username-password authentication
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If your app uses only username-password authentication, you don't need to register a redirect URI for your application. This flow does a round trip to the Microsoft identity platform. Your application won't be called back on any specific URI.
 
 However, identify your application as a public client application. To do so:
 
-1. Still in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, select your app in **App registrations**, and then select **Authentication**.
+1. Still in the Microsoft Entra admin center, select your app in **App registrations**, and then select **Authentication**.
 1. In **Advanced settings** > **Allow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
 
    :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Enable public client setting on Authentication pane in Azure portal":::

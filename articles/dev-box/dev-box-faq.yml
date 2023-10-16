@@ -1,0 +1,95 @@
+### YamlMime:FAQ
+metadata:
+  title: "Microsoft Dev Box: Frequently asked questions" 
+  description: Frequently asked questions about Microsoft Dev Box. 
+  author: RoseHJM 
+  ms.author: rosemalcolm 
+  ms.service: dev-box 
+  ms.topic: faq 
+  ms.date: 05/16/2023 
+title: "Microsoft Dev Box: Frequently asked questions"
+summary: This article provides answers to some of the most commonly asked questions about [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box/).
+  
+# Remove all the comments in this template before you sign-off or merge to the main branch.
+
+# Remember that indentation is significant in YAML files.
+# If there is any disallowed spacing, the build will fail.
+
+sections:
+  - name: General FAQ
+    questions:
+      - question: Which repository providers does Dev Box support?
+        answer: Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery for Dev Box.  
+                For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)
+
+      - question: Dev boxes that I create from my custom image take an hour to provision and up to 30 minutes to start. How do I make provisioning and startup faster? # Question.
+        answer: |
+          When you create a generalized VM to capture to an image, the following issues can affect provisioning and startup times:
+          1. Enable the Read/Write cache on the OS disk. 
+             - To verify, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
+          2. Create the image using the following sysprep options:
+            `/generalize /oobe /mode:vm`.
+             - These options prevent a lengthy search for and installation of drivers during the first boot.
+          3. Enable nested virtualization in your base image.
+             - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**. 
+             - Or run the following PowerShell command, Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online 
+          4. Disable the reserved storage state feature in the image by using the following command: 
+            `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.   
+
+          For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
+
+      - question: Why does it take 25 minutes or more to provision a dev box?
+        answer: The provisioning process for a dev box involves interacting with several services, including authenticating with Microsoft Entra ID. The new dev box must be created, initiate networking connectivity services, authenticate to and join the Microsoft Entra ID, register with Intune, and check for any Microsoft Entra security requirements. Depending on the complexity of the dev box definition, there might also be installation and configuration tasks on the dev box itself to provide you with the environment you need to start work. When your dev box is fully provisioned, it's running, ready for you to sign in.
+
+      - question: How can I check my Dev Box quota? # Question.
+        answer: |
+                You can check your Dev Box quota using either: 
+                - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
+                - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
+
+      - question: How are backup, high-availability, and disaster recovery implemented in Microsoft Dev Box? 
+        answer: |
+          Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
+          Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
+
+          Dev Box doesn't provide high-availability and disaster recovery functions. If there's an Azure regional outage, customers lose access to Dev Box in that region. They must implement manual disaster recovery and re-create new Dev Boxes.
+          Customers should design and implement high-availability and disaster recovery solutions that suit their requirements. 
+
+      - question: What is the preferred monitoring solution for capturing metrics, usage, number of dev boxes assigned per developer, and so on?
+        answer: |
+           - Project admins can view dev box usage at pool level. Project admins can select a pool and see list of dev boxes that are currently in use.
+           - For Dev Box connectivity metrics, use the [Cloud PC connection quality report (preview)](/windows-365/enterprise/report-cloud-pc-connection-quality). Dev Box is built on top of Cloud PC. So, you can see the connectivity health of each dev box by using the Cloud PC dashboard in the Microsoft Intune admin center.  
+    
+      - question: Can I use a smart card, or other device that connects to my physical machine with Dev Box?
+        answer: Yes. Dev Box users can use smart card and other devices that are connected to the physical machine. Since Dev Box uses same RDP client as Azure Virtual Desktop, you can review following documentation to learn about all the different capabilities supported by RDP client. You can also review RDP client capabilities on different operating systems.
+                [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
+
+      - question: What if I use Linux as my development environment?
+        answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
+
+      - question: What to do when network connection health check fails?
+        answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/windows-365/enterprise/health-checks). Such health checks can make sure that Dev Box provisioning is successful and end-user experiences are optimal. If you see the failure of health check, please click “view details” to see what causes the failure and address the issue from there. Most of the time it can be your network policy that blocks the following service URLs and ports [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).           
+
+  - name: Dev Box hibernation
+    questions:
+      - question: Can I use auto-stop schedules to hibernate Dev Boxes on a schedule? # Question.
+        answer: 
+          The ability to use auto-stop schedules to initiate hibernation is in Preview.
+
+      - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
+        answer: |
+          - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
+          - The Windows + OS optimizations image contains optimized power settings, and they can't be used with hibernation.  
+          - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
+          - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
+
+            For more information, see [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation).
+
+additionalContent: |
+    ## Next steps
+
+    To learn more, see [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md).
+
+
+    
+    

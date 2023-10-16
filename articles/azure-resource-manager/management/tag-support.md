@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 10/20/2022
 ---
 
 # Tag support for Azure resources
@@ -54,6 +54,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | configurations | No | No |
 > | generateRecommendations | No | No |
 > | metadata | No | No |
+> | predict | No | No |
 > | recommendations | No | No |
 > | suppressions | No | No |
 
@@ -68,7 +69,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | farmBeats | Yes | Yes |
 > | farmBeats / eventGridFilters | No | No |
 > | farmBeats / extensions | No | No |
+> | farmBeats / solutions | No | No |
 > | farmBeatsExtensionDefinitions | No | No |
+> | farmBeatsSolutionDefinitions | No | No |
 
 ## Microsoft.AlertsManagement
 
@@ -79,7 +82,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | alerts | No | No |
 > | alertsMetaData | No | No |
 > | migrateFromSmartDetection | No | No |
-> | prometheusRuleGroups | Yes | Yes |
 > | smartDetectorAlertRules | Yes | Yes |
 > | smartGroups | No | No |
 
@@ -117,6 +119,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | connectedEnvironments | Yes | Yes |
+> | connectedEnvironments / certificates | Yes | Yes |
 > | containerApps | Yes | Yes |
 > | managedEnvironments | Yes | Yes |
 > | managedEnvironments / certificates | Yes | Yes |
@@ -153,6 +157,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | runtimeVersions | No | No |
 > | Spring | Yes | Yes |
 > | Spring / apps | No | No |
 > | Spring / apps / deployments | No | No |
@@ -213,6 +218,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | configurationProfiles / versions | Yes | Yes |
 > | patchJobConfigurations | Yes | Yes |
 > | patchJobConfigurations / patchJobs | No | No |
+> | patchSchedules | Yes | Yes |
+> | patchSchedules / associations | Yes | Yes |
 > | patchTiers | Yes | Yes |
 > | servicePrincipals | No | No |
 
@@ -231,6 +238,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | automationAccounts / privateEndpointConnections | No | No |
 > | automationAccounts / privateLinkResources | No | No |
 > | automationAccounts / runbooks | Yes | Yes |
+> | automationAccounts / runtimes | Yes | Yes |
 > | automationAccounts / softwareUpdateConfigurationMachineRuns | No | No |
 > | automationAccounts / softwareUpdateConfigurationRuns | No | No |
 > | automationAccounts / softwareUpdateConfigurations | No | No |
@@ -247,6 +255,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | accounts | Yes | Yes |
 > | accounts / datapools | No | No |
+> | workspaces | Yes | Yes |
+> | workspaces / eventgridfilters | No | No |
 
 ## Microsoft.AutonomousSystems
 
@@ -292,6 +302,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | b2cDirectories | Yes | No |
 > | b2ctenants | No | No |
+> | ciamDirectories | Yes | Yes |
 > | guestUsages | Yes | Yes |
 
 ## Microsoft.AzureArcData
@@ -299,11 +310,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | DataControllers | Yes | Yes |
+> | DataControllers | Yes | No |
 > | DataControllers / ActiveDirectoryConnectors | No | No |
-> | PostgresInstances | Yes | Yes |
-> | sqlManagedInstances | Yes | Yes |
-> | SqlServerInstances | Yes | Yes |
+> | PostgresInstances | Yes | No |
+> | SqlManagedInstances | Yes | No |
+> | SqlServerInstances | Yes | No |
+> | SqlServerInstances / Databases | Yes | No |
+> | SqlServerInstances / AvailabilityGroups | Yes | No |
 
 ## Microsoft.AzureCIS
 
@@ -314,25 +327,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | dstsServiceAccounts | Yes | Yes |
 > | dstsServiceClientIdentities | Yes | Yes |
 
-## Microsoft.AzureData
+## Microsoft.AzureScan
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | sqlServerRegistrations | Yes | Yes |
-> | sqlServerRegistrations / sqlServers | No | No |
-
-## Microsoft.AzurePercept
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | accounts / devices | No | No |
-> | accounts / devices / sensors | No | No |
-> | accounts / solutioninstances | No | No |
-> | accounts / solutions | No | No |
-> | accounts / targets | No | No |
+> | scanningAccounts | Yes | Yes |
 
 ## Microsoft.AzureSphere
 
@@ -353,6 +353,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | No | No |
+> | generateDeploymentLicense | No | No |
 > | linkedSubscriptions | Yes | Yes |
 > | registrations | Yes | Yes |
 > | registrations / customerSubscriptions | No | No |
@@ -366,11 +367,20 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | clusters | Yes | Yes |
 > | clusters / arcSettings | No | No |
 > | clusters / arcSettings / extensions | No | No |
-> | galleryimages | Yes | Yes |
+> | clusters / offers | No | No |
+> | clusters / publishers | No | No |
+> | clusters / publishers / offers | No | No |
+> | clusters / updates | No | No |
+> | clusters / updates / updateRuns | No | No |
+> | clusters / updateSummaries | No | No |
+> | galleryImages | Yes | Yes |
+> | marketplaceGalleryImages | Yes | Yes |
 > | networkinterfaces | Yes | Yes |
+> | registeredSubscriptions | No | No |
+> | storageContainers | Yes | Yes |
 > | virtualharddisks | Yes | Yes |
 > | virtualmachines | Yes | Yes |
-> | virtualmachines / extensions | Yes | Yes |
+> | virtualMachines / extensions | Yes | Yes |
 > | virtualmachines / hybrididentitymetadata | No | No |
 > | virtualnetworks | Yes | Yes |
 
@@ -395,6 +405,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Yes | Yes |
 > | batchAccounts / certificates | No | No |
+> | batchAccounts / detectors | No | No |
 > | batchAccounts / pools | No | No |
 
 ## Microsoft.Billing
@@ -405,6 +416,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts | No | No |
 > | billingAccounts / agreements | No | No |
 > | billingAccounts / appliedReservationOrders | No | No |
+> | billingAccounts / associatedTenants | No | No |
 > | billingAccounts / billingPermissions | No | No |
 > | billingAccounts / billingProfiles | No | No |
 > | billingAccounts / billingProfiles / billingPermissions | No | No |
@@ -448,7 +460,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / createBillingRoleAssignment | No | No |
 > | billingAccounts / customers | No | No |
 > | billingAccounts / customers / billingPermissions | No | No |
+> | billingAccounts / customers / billingRoleAssignments | No | No |
+> | billingAccounts / customers / billingRoleDefinitions | No | No |
 > | billingAccounts / customers / billingSubscriptions | No | No |
+> | billingAccounts / customers / createBillingRoleAssignment | No | No |
 > | billingAccounts / customers / initiateTransfer | No | No |
 > | billingAccounts / customers / policies | No | No |
 > | billingAccounts / customers / products | No | No |
@@ -467,6 +482,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / enrollmentAccounts / billingRoleDefinitions | No | No |
 > | billingAccounts / enrollmentAccounts / billingSubscriptions | No | No |
 > | billingAccounts / invoices | No | No |
+> | billingAccounts / invoices / summary | No | No |
 > | billingAccounts / invoices / transactions | No | No |
 > | billingAccounts / invoices / transactionSummary | No | No |
 > | billingAccounts / invoiceSections | No | No |
@@ -480,6 +496,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / invoiceSections / transactions | No | No |
 > | billingAccounts / invoiceSections / transfers | No | No |
 > | billingAccounts / lineOfCredit | No | No |
+> | billingAccounts / notificationContacts | No | No |
 > | billingAccounts / payableOverage | No | No |
 > | billingAccounts / paymentMethods | No | No |
 > | billingAccounts / payNow | No | No |
@@ -487,6 +504,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / policies | No | No |
 > | billingAccounts / products | No | No |
 > | billingAccounts / promotionalCredits | No | No |
+> | billingAccounts / reservationOrders | No | No |
+> | billingAccounts / reservationOrders / reservations | No | No |
 > | billingAccounts / reservations | No | No |
 > | billingAccounts / savingsPlanOrders | No | No |
 > | billingAccounts / savingsPlanOrders / savingsPlans | No | No |
@@ -516,6 +535,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | calculateMigrationCost | No | No |
 > | savingsPlanOrderAliases | No | No |
 > | savingsPlanOrders | No | No |
 > | savingsPlanOrders / savingsPlans | No | No |
@@ -626,10 +646,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | canMigrate | No | No |
 > | CdnWebApplicationFirewallManagedRuleSets | No | No |
 > | CdnWebApplicationFirewallPolicies | Yes | Yes |
 > | edgenodes | No | No |
-> | profiles | Yes | Yes |
+> | migrate | No | No |
+> | profiles | Yes | No |
 > | profiles / afdendpoints | Yes | Yes |
 > | profiles / afdendpoints / routes | No | No |
 > | profiles / customdomains | No | No |
@@ -639,6 +661,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | profiles / endpoints / origins | No | No |
 > | profiles / origingroups | No | No |
 > | profiles / origingroups / origins | No | No |
+> | profiles / policies | No | No |
 > | profiles / rulesets | No | No |
 > | profiles / rulesets / rules | No | No |
 > | profiles / secrets | No | No |
@@ -672,9 +695,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | artifactSetDefinitions | No | No |
 > | artifactSetSnapshots | No | No |
-> | chaosExperiments | Yes | Yes |
-> | chaosProviderConfigurations | No | No |
-> | chaosTargets | No | No |
 > | experiments | Yes | Yes |
 > | targets | No | No |
 
@@ -831,6 +851,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | galleries / applications / versions | Yes | No |
 > | galleries / images | Yes | No |
 > | galleries / images / versions | Yes | No |
+> | galleries / serviceArtifacts | Yes | Yes |
 > | hostGroups | Yes | Yes |
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
@@ -845,10 +866,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | snapshots | Yes | Yes |
 > | sshPublicKeys | Yes | Yes |
 > | virtualMachines | Yes | Yes |
+> | virtualMachines / applications | Yes | Yes |
 > | virtualMachines / extensions | Yes | Yes |
 > | virtualMachines / metricDefinitions | No | No |
 > | virtualMachines / runCommands | Yes | Yes |
 > | virtualMachineScaleSets | Yes | Yes |
+> | virtualMachineScaleSets / applications | No | No |
 > | virtualMachineScaleSets / extensions | No | No |
 > | virtualMachineScaleSets / networkInterfaces | No | No |
 > | virtualMachineScaleSets / publicIPAddresses | No | No |
@@ -866,6 +889,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | Ledgers | Yes | Yes |
+> | ManagedCCF | Yes | Yes |
 
 ## Microsoft.Confluent
 
@@ -883,6 +907,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | CacheNodes | Yes | Yes |
 > | enterpriseCustomers | Yes | Yes |
+> | ispCustomers | Yes | Yes |
+> | ispCustomers / ispCacheNodes | Yes | Yes |
 
 ## microsoft.connectedopenstack
 
@@ -918,18 +944,21 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | Clusters | Yes | Yes |
-> | Datastores | Yes | Yes |
-> | Hosts | Yes | Yes |
-> | ResourcePools | Yes | Yes |
+> | clusters | Yes | Yes |
+> | datastores | Yes | Yes |
+> | hosts | Yes | Yes |
+> | resourcepools | Yes | Yes |
 > | VCenters | Yes | Yes |
-> | VCenters / InventoryItems | No | No |
-> | VirtualMachines | Yes | Yes |
-> | VirtualMachines / Extensions | Yes | Yes |
-> | VirtualMachines / GuestAgents | No | No |
-> | VirtualMachines / HybridIdentityMetadata | No | No |
-> | VirtualMachineTemplates | Yes | Yes |
-> | VirtualNetworks | Yes | Yes |
+> | vcenters / inventoryitems | No | No |
+> | virtualmachines | Yes | Yes |
+> | VirtualMachines / AssessPatches | No | No |
+> | virtualmachines / extensions | Yes | Yes |
+> | virtualmachines / guestagents | No | No |
+> | virtualmachines / hybrididentitymetadata | No | No |
+> | VirtualMachines / InstallPatches | No | No |
+> | VirtualMachines / UpgradeExtensions | No | No |
+> | virtualmachinetemplates | Yes | Yes |
+> | virtualnetworks | Yes | Yes |
 
 ## Microsoft.Consumption
 
@@ -959,7 +988,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | containerGroupProfiles | Yes | Yes |
 > | containerGroups | Yes | Yes |
+> | containerScaleSets | Yes | Yes |
 > | serviceAssociationLinks | No | No |
 
 ## Microsoft.ContainerRegistry
@@ -1010,10 +1041,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | containerServices | Yes | Yes |
+> | fleetMemberships | No | No |
+> | fleets | Yes | Yes |
+> | fleets / members | No | No |
 > | managedClusters | Yes | Yes |
 > | ManagedClusters / eventGridFilters | No | No |
 > | managedclustersnapshots | Yes | Yes |
-> | openShiftManagedClusters | Yes | Yes |
 > | snapshots | Yes | Yes |
 
 ## Microsoft.CostManagement
@@ -1045,6 +1078,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | fetchMarketplacePrices | No | No |
 > | fetchPrices | No | No |
 > | Forecast | No | No |
+> | GenerateCostDetailsReport | No | No |
 > | GenerateDetailedCostReport | No | No |
 > | Insights | No | No |
 > | Pricesheets | No | No |
@@ -1088,6 +1122,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | grafana | Yes | Yes |
+> | grafana / privateEndpointConnections | No | No |
+> | grafana / privateLinkResources | No | No |
 
 ## Microsoft.DataBox
 
@@ -1095,6 +1131,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | jobs | Yes | Yes |
+> | jobs / eventGridFilters | No | No |
 
 ## Microsoft.DataBoxEdge
 
@@ -1144,6 +1181,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / proposals / entitlements / policies | No | No |
 > | workspaces / proposals / invitations | No | No |
 > | workspaces / proposals / scriptReferences | No | No |
+> | workspaces / proposals / virtualOutputReferences | No | No |
 > | workspaces / resourceReferences | No | No |
 > | workspaces / scripts | No | No |
 > | workspaces / scripts / scriptrevisions | No | No |
@@ -1173,6 +1211,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | dataFactorySchema | No | No |
 > | factories | Yes | Yes |
 > | factories / integrationRuntimes | No | No |
+> | factories / pipelines | No | No |
 
 > [!NOTE]
 > If you have Azure-SSIS integration runtimes in your data factory, their running cost will be tagged with data factory tags. Running Azure-SSIS integration runtimes must be stopped and restarted for new data factory tags to be applied to their running cost.
@@ -1264,6 +1303,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | assessForMigration | No | No |
 > | flexibleServers | Yes | Yes |
 > | getPrivateDnsZoneSuffix | No | No |
 > | servers | Yes | Yes |
@@ -1350,14 +1390,42 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | instances / sandboxes | Yes | Yes |
 > | instances / sandboxes / experiments | Yes | Yes |
 
+## Microsoft.DevCenter
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | devcenters | Yes | Yes |
+> | devcenters / attachednetworks | No | No |
+> | devcenters / catalogs | No | No |
+> | devcenters / devboxdefinitions | Yes | Yes |
+> | devcenters / environmentTypes | No | No |
+> | devcenters / galleries | No | No |
+> | devcenters / galleries / images | No | No |
+> | devcenters / galleries / images / versions | No | No |
+> | devcenters / images | No | No |
+> | networkconnections | Yes | Yes |
+> | projects | Yes | Yes |
+> | projects / allowedEnvironmentTypes | No | No |
+> | projects / attachednetworks | No | No |
+> | projects / devboxdefinitions | No | No |
+> | projects / environmentTypes | No | No |
+> | projects / pools | Yes | Yes |
+> | projects / pools / schedules | No | No |
+> | registeredSubscriptions | No | No |
+
+## Microsoft.DevHub
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | workflows | Yes | Yes |
+
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | ElasticPools | Yes | Yes |
-> | ElasticPools / IotHubTenants | Yes | Yes |
-> | ElasticPools / IotHubTenants / securitySettings | No | No |
 > | IotHubs | Yes | Yes |
 > | IotHubs / eventGridFilters | No | No |
 > | IotHubs / failover | No | No |
@@ -1396,16 +1464,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | labs / virtualMachines | Yes | Yes |
 > | schedules | Yes | Yes |
 
-## Microsoft.Diagnostics
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | apollo | No | No |
-> | azureKB | No | No |
-> | insights | No | No |
-> | solutions | No | No |
-
 ## Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
@@ -1423,6 +1481,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | cassandraClusters | Yes | Yes |
 > | databaseAccountNames | No | No |
 > | databaseAccounts | Yes | Yes |
+> | databaseAccounts / encryptionScopes | No | No |
 > | restorableDatabaseAccounts | No | No |
 
 ## Microsoft.DomainRegistration
@@ -1463,6 +1522,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | domains / topics | No | No |
 > | eventSubscriptions | No | No |
 > | extensionTopics | No | No |
+> | namespaces | Yes | Yes |
 > | partnerConfigurations | Yes | Yes |
 > | partnerDestinations | Yes | Yes |
 > | partnerNamespaces | Yes | Yes |
@@ -1492,13 +1552,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | namespaces / eventhubs / consumergroups | No | No |
 > | namespaces / networkrulesets | No | No |
 > | namespaces / privateEndpointConnections | No | No |
-
-## Microsoft.Experimentation
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | experimentWorkspaces | Yes | Yes |
 
 ## Microsoft.Falcon
 
@@ -1545,6 +1598,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | projects / environments / deployments | No | No |
 > | projects / environmentTypes | No | No |
 > | projects / pools | Yes | Yes |
+> | registeredSubscriptions | No | No |
 
 ## Microsoft.FluidRelay
 
@@ -1553,6 +1607,15 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | fluidRelayServers | Yes | Yes |
 > | fluidRelayServers / fluidRelayContainers | No | No |
+
+## Microsoft.Graph
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | AzureADApplication | Yes | Yes |
+> | AzureADApplicationPrototype | Yes | Yes |
+> | registeredSubscriptions | No | No |
 
 ## Microsoft.GuestConfiguration
 
@@ -1610,7 +1673,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | services / privateEndpointConnectionProxies | No | No |
 > | services / privateEndpointConnections | No | No |
 > | services / privateLinkResources | No | No |
+> | validateMedtechMappings | No | No |
 > | workspaces | Yes | Yes |
+> | workspaces / analyticsconnectors | Yes | Yes |
 > | workspaces / dicomservices | Yes | Yes |
 > | workspaces / eventGridFilters | No | No |
 > | workspaces / fhirservices | Yes | Yes |
@@ -1629,6 +1694,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | instances | Yes | Yes |
 > | instances / chambers | Yes | Yes |
 > | instances / chambers / accessProfiles | Yes | Yes |
+> | instances / chambers / fileRequests | No | No |
+> | instances / chambers / files | No | No |
 > | instances / chambers / workloads | Yes | Yes |
 > | instances / consortiums | Yes | Yes |
 
@@ -1661,6 +1728,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | provisionedClusters | Yes | Yes |
 > | provisionedClusters / agentPools | Yes | Yes |
 > | provisionedClusters / hybridIdentityMetadata | No | No |
+> | provisionedClusters / upgradeProfiles | No | No |
+> | storageSpaces | Yes | Yes |
+> | virtualNetworks | Yes | Yes |
 
 ## Microsoft.HybridData
 
@@ -1674,10 +1744,26 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | configurationGroupValues | Yes | Yes |
 > | devices | Yes | Yes |
-> | networkFunctions | Yes | Yes |
+> | networkFunctionPublishers | No | No |
+> | networkFunctionPublishers / networkFunctionDefinitionGroups | No | No |
+> | networkFunctionPublishers / networkFunctionDefinitionGroups / publisherNetworkFunctionDefinitionVersions | No | No |
+> | networkfunctions | Yes | Yes |
+> | networkFunctions / components | No | No |
 > | networkFunctionVendors | No | No |
+> | publishers | Yes | Yes |
+> | publishers / artifactStores | Yes | Yes |
+> | publishers / artifactStores / artifactManifests | Yes | Yes |
+> | publishers / configurationGroupSchemas | Yes | Yes |
+> | publishers / networkFunctionDefinitionGroups | Yes | Yes |
+> | publishers / networkFunctionDefinitionGroups / networkFunctionDefinitionVersions | Yes | Yes |
+> | publishers / networkFunctionDefinitionGroups / previewSubscriptions | Yes | Yes |
+> | publishers / networkServiceDesignGroups | Yes | Yes |
+> | publishers / networkServiceDesignGroups / networkServiceDesignVersions | Yes | Yes |
 > | registeredSubscriptions | No | No |
+> | siteNetworkServices | Yes | Yes |
+> | sites | Yes | Yes |
 > | vendors | No | No |
 
 ## Microsoft.ImportExport
@@ -1687,43 +1773,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | jobs | Yes | Yes |
 
-## Microsoft.IndustryDataLifecycle
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | baseModels | Yes | Yes |
-> | baseModels / entities | No | No |
-> | baseModels / relationships | No | No |
-> | builtInModels | No | No |
-> | builtInModels / entities | No | No |
-> | builtInModels / relationships | No | No |
-> | collaborativeInvitations | No | No |
-> | custodianCollaboratives | Yes | Yes |
-> | custodianCollaboratives / collaborativeImage | No | No |
-> | custodianCollaboratives / dataModels | No | No |
-> | custodianCollaboratives / dataModels / mergePipelines | No | No |
-> | custodianCollaboratives / invitations | No | No |
-> | custodianCollaboratives / invitations / termsOfUseDocuments | No | No |
-> | custodianCollaboratives / receivedDataPackages | No | No |
-> | custodianCollaboratives / termsOfUseDocuments | No | No |
-> | dataConsumerCollaboratives | Yes | Yes |
-> | dataproviders | No | No |
-> | derivedModels | Yes | Yes |
-> | derivedModels / entities | No | No |
-> | derivedModels / relationships | No | No |
-> | generateMappingTemplate | No | No |
-> | memberCollaboratives | Yes | Yes |
-> | memberCollaboratives / sharedDataPackages | No | No |
-> | modelMappings | Yes | Yes |
-> | pipelineSets | Yes | Yes |
-
 ## microsoft.insights
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | actiongroups | Yes | Yes |
+> | actiongroups / networkSecurityPerimeterAssociationProxies | No | No |
+> | actiongroups / networkSecurityPerimeterConfigurations | No | No |
 > | activityLogAlerts | Yes | Yes |
 > | alertrules | Yes | Yes |
 > | autoscalesettings | Yes | Yes |
@@ -1793,6 +1850,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | privateLinkScopes / scopedResources | No | No |
 > | rollbackToLegacyPricingModel | No | No |
 > | scheduledqueryrules | Yes | Yes |
+> | scheduledqueryrules / networkSecurityPerimeterAssociationProxies | No | No |
+> | scheduledqueryrules / networkSecurityPerimeterConfigurations | No | No |
 > | topology | No | No |
 > | transactions | No | No |
 > | webtests | Yes | Yes |
@@ -1853,7 +1912,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | vaults / eventGridFilters | No | No |
 > | vaults / keys | No | No |
 > | vaults / keys / versions | No | No |
-> | vaults / secrets | No | No |
+> | vaults / secrets | Yes | No |
 
 ## Microsoft.Kubernetes
 
@@ -1869,6 +1928,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | extensions | No | No |
+> | extensionTypes | No | No |
 > | fluxConfigurations | No | No |
 > | namespaces | No | No |
 > | privateLinkScopes | Yes | Yes |
@@ -1908,6 +1968,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | loadtests | Yes | Yes |
+> | loadtests / outboundNetworkDependenciesEndpoints | No | No |
+> | registeredSubscriptions | No | No |
 
 ## Microsoft.Logic
 
@@ -1951,6 +2013,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | aisysteminventories | Yes | Yes |
 > | registries | Yes | Yes |
+> | registries / codes | No | No |
+> | registries / codes / versions | No | No |
+> | registries / components | No | No |
+> | registries / components / versions | No | No |
+> | registries / environments | No | No |
+> | registries / environments / versions | No | No |
+> | registries / models | No | No |
+> | registries / models / versions | No | No |
 > | virtualclusters | Yes | Yes |
 > | workspaces | Yes | Yes |
 > | workspaces / batchEndpoints | Yes | Yes |
@@ -1963,9 +2033,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / components / versions | No | No |
 > | workspaces / computes | No | No |
 > | workspaces / data | No | No |
+> | workspaces / data / versions | No | No |
 > | workspaces / datasets | No | No |
 > | workspaces / datastores | No | No |
 > | workspaces / environments | No | No |
+> | workspaces / environments / versions | No | No |
 > | workspaces / eventGridFilters | No | No |
 > | workspaces / jobs | No | No |
 > | workspaces / labelingJobs | No | No |
@@ -1974,7 +2046,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / models / versions | No | No |
 > | workspaces / onlineEndpoints | Yes | Yes |
 > | workspaces / onlineEndpoints / deployments | Yes | Yes |
-> | workspaces / registries | Yes | Yes |
+> | workspaces / schedules | No | No |
 > | workspaces / services | No | No |
 
 > [!NOTE]
@@ -2048,10 +2120,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | privateStoreClient | No | No |
 > | privateStores | No | No |
 > | privateStores / AdminRequestApprovals | No | No |
+> | privateStores / anyExistingOffersInTheCollections | No | No |
 > | privateStores / billingAccounts | No | No |
 > | privateStores / bulkCollectionsAction | No | No |
 > | privateStores / collections | No | No |
+> | privateStores / collections / approveAllItems | No | No |
+> | privateStores / collections / disableApproveAllItems | No | No |
 > | privateStores / collections / offers | No | No |
+> | privateStores / collections / offers / upsertOfferWithMultiContext | No | No |
 > | privateStores / collections / transferOffers | No | No |
 > | privateStores / collectionsToSubscriptionsMapping | No | No |
 > | privateStores / fetchAllSubscriptionsInTenant | No | No |
@@ -2060,6 +2136,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | privateStores / queryApprovedPlans | No | No |
 > | privateStores / queryNotificationsState | No | No |
 > | privateStores / queryOffers | No | No |
+> | privateStores / queryUserOffers | No | No |
 > | privateStores / RequestApprovals | No | No |
 > | privateStores / requestApprovals / query | No | No |
 > | privateStores / requestApprovals / withdrawPlan | No | No |
@@ -2068,6 +2145,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | publishers / offers | No | No |
 > | publishers / offers / amendments | No | No |
 > | register | No | No |
+> | search | No | No |
 
 ## Microsoft.MarketplaceNotifications
 
@@ -2093,6 +2171,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | mediaservices / accountFilters | No | No |
 > | mediaservices / assets | No | No |
 > | mediaservices / assets / assetFilters | No | No |
+> | mediaservices / assets / tracks | No | No |
 > | mediaservices / contentKeyPolicies | No | No |
 > | mediaservices / eventGridFilters | No | No |
 > | mediaservices / graphInstances | No | No |
@@ -2122,6 +2201,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | assessmentProjects | Yes | Yes |
 > | migrateprojects | Yes | Yes |
+> | modernizeProjects | Yes | Yes |
 > | moveCollections | Yes | Yes |
 > | projects | Yes | Yes |
 
@@ -2146,14 +2226,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | mobileNetworks / simPolicies | Yes | Yes |
 > | mobileNetworks / sites | Yes | Yes |
 > | mobileNetworks / slices | Yes | Yes |
-> | networks | Yes | Yes |
-> | networks / sites | Yes | Yes |
 > | packetCoreControlPlanes | Yes | Yes |
 > | packetCoreControlPlanes / packetCoreDataPlanes | Yes | Yes |
 > | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | Yes | Yes |
-> | packetCores | Yes | Yes |
+> | packetCoreControlPlaneVersions | No | No |
+> | simGroups | Yes | Yes |
+> | simGroups / sims | No | No |
 > | sims | Yes | Yes |
-> | sims / simProfiles | Yes | Yes |
 
 ## Microsoft.Monitor
 
@@ -2194,6 +2273,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | azureWebCategories | No | No |
 > | bastionHosts | Yes | Yes |
 > | bgpServiceCommunities | No | No |
+> | cloudServiceSlots | No | No |
 > | connections | Yes | Yes |
 > | customIpPrefixes | Yes | Yes |
 > | ddosCustomPolicies | Yes | Yes |
@@ -2225,6 +2305,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | expressRouteProviderPorts | No | No |
 > | expressRouteServiceProviders | No | No |
 > | firewallPolicies | Yes, see [note below](#network-limitations) | Yes |
+> | firewallPolicies / ruleCollectionGroups | No | No |
 > | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
 > | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
@@ -2232,8 +2313,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | getDnsResourceReference | No | No |
 > | internalNotify | No | No |
+> | internalPublicIpAddresses | No | No |
 > | ipGroups | Yes | Yes |
 > | loadBalancers | Yes | Yes |
+> | loadBalancers / backendAddressPools | No | No |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
 > | networkExperimentProfiles | Yes | Yes |
@@ -2243,6 +2326,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkManagers | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
+> | networkSecurityGroups / securityRules | No | No |
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
@@ -2271,16 +2355,21 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | publicIPPrefixes | Yes | Yes |
 > | routeFilters | Yes | Yes |
 > | routeTables | Yes | Yes |
+> | routeTables / routes | No | No |
 > | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
 > | trafficManagerGeographicHierarchies | No | No |
 > | trafficmanagerprofiles | Yes, see [note below](#network-limitations) | Yes |
+> | trafficmanagerprofiles / azureendpoints | No | No |
+> | trafficmanagerprofiles / externalendpoints | No | No |
 > | trafficmanagerprofiles / heatMaps | No | No |
+> | trafficmanagerprofiles / nestedendpoints | No | No |
 > | trafficManagerUserMetricsKeys | No | No |
 > | virtualHubs | Yes | Yes |
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
 > | virtualNetworks / privateDnsZoneLinks | No | No |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworks / taggedTrafficConsumers | No | No |
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualRouters | Yes | Yes |
@@ -2294,7 +2383,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!NOTE]
 > For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported. Front Door doesn't support the use of # or : in the tag name.
 > 
-> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS and Traffic Manager tag names do not support special and unicode characters. The value can contain all characters.
 > 
 > Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 
@@ -2305,10 +2394,21 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | bareMetalMachines | Yes | Yes |
+> | cloudServicesNetworks | Yes | Yes |
 > | clusterManagers | Yes | Yes |
 > | clusters | Yes | Yes |
+> | clusters / admissions | No | No |
+> | defaultCniNetworks | Yes | Yes |
+> | disks | Yes | Yes |
+> | hybridAksClusters | Yes | Yes |
+> | hybridAksManagementDomains | Yes | Yes |
+> | hybridAksVirtualMachines | Yes | Yes |
+> | l2Networks | Yes | Yes |
+> | l3Networks | Yes | Yes |
 > | rackManifests | Yes | Yes |
 > | racks | Yes | Yes |
+> | storageAppliances | Yes | Yes |
+> | trunkedNetworks | Yes | Yes |
 > | virtualMachines | Yes | Yes |
 > | workloadNetworks | Yes | Yes |
 
@@ -2318,6 +2418,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | azureTrafficCollectors | Yes | Yes |
+> | azureTrafficCollectors / collectorPolicies | Yes | Yes |
 > | meshVpns | Yes | Yes |
 > | meshVpns / connectionPolicies | Yes | Yes |
 > | meshVpns / privateEndpointConnectionProxies | No | No |
@@ -2355,6 +2456,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | energyServices | Yes | Yes |
+> | energyServices / privateEndpointConnectionProxies | No | No |
+> | energyServices / privateEndpointConnections | No | No |
+> | energyServices / privateLinkResources | No | No |
 
 ## Microsoft.OpenLogisticsPlatform
 
@@ -2375,6 +2479,29 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / eventGridFilters | No | No |
 > | workspaces / shares | No | No |
 > | workspaces / shareSubscriptions | No | No |
+
+## Microsoft.OperationalInsights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | clusters | Yes | Yes |
+> | deletedWorkspaces | No | No |
+> | linkTargets | No | No |
+> | querypacks | Yes | Yes |
+> | storageInsightConfigs | No | No |
+> | workspaces | Yes | Yes |
+> | workspaces / dataExports | No | No |
+> | workspaces / dataSources | No | No |
+> | workspaces / linkedServices | No | No |
+> | workspaces / linkedStorageAccounts | No | No |
+> | workspaces / metadata | No | No |
+> | workspaces / networkSecurityPerimeterAssociationProxies | No | No |
+> | workspaces / networkSecurityPerimeterConfigurations | No | No |
+> | workspaces / query | No | No |
+> | workspaces / scopedPrivateLinkProxies | No | No |
+> | workspaces / storageInsightConfigs | No | No |
+> | workspaces / tables | No | No |
 
 ## Microsoft.Orbital
 
@@ -2405,16 +2532,27 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | peeringServiceProviders | No | No |
 > | peeringServices | Yes | Yes |
 
+## Microsoft.Pki
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | pkis | Yes | Yes |
+> | pkis / certificateAuthorities | No | No |
+> | pkis / enrollmentPolicies | Yes | Yes |
+
 ## Microsoft.PlayFab
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | playeraccountpools | Yes | Yes |
+> | playerAccountPools | Yes | Yes |
 > | titles | Yes | Yes |
+> | titles / automationRules | No | No |
 > | titles / segments | No | No |
-> | titles / titledatakeyvalues | No | No |
-> | titles / titleinternaldatakeyvalues | No | No |
+> | titles / titleDataSets | No | No |
+> | titles / titleInternalDataKeyValues | No | No |
+> | titles / titleInternalDataSets | No | No |
 
 ## Microsoft.PolicyInsights
 
@@ -2422,6 +2560,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | attestations | No | No |
+> | componentPolicyStates | No | No |
 > | eventGridFilters | No | No |
 > | policyEvents | No | No |
 > | policyMetadata | No | No |
@@ -2465,17 +2604,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | accounts | Yes | Yes |
 > | enterprisePolicies | Yes | Yes |
-
-## Microsoft.ProjectBabylon
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | deletedAccounts | No | No |
-> | getDefaultAccount | No | No |
-> | removeDefaultAccount | No | No |
-> | setDefaultAccount | No | No |
 
 ## Microsoft.ProviderHub
 
@@ -2558,6 +2686,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | appliances | Yes | Yes |
+> | telemetryconfig | No | No |
 
 ## Microsoft.ResourceGraph
 
@@ -2593,11 +2722,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | deploymentStacks / snapshots | No | No |
 > | links | No | No |
 > | resourceGroups | Yes | No |
+> | snapshots | No | No |
 > | subscriptions | Yes | No |
 > | tags | No | No |
 > | templateSpecs | Yes | Yes |
 > | templateSpecs / versions | Yes | Yes |
 > | tenants | No | No |
+> | validateResources | No | No |
 
 ## Microsoft.SaaS
 
@@ -2620,12 +2751,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | availabilitysets | Yes | Yes |
+> | AvailabilitySets | Yes | Yes |
 > | Clouds | Yes | Yes |
 > | VirtualMachines | Yes | Yes |
+> | VirtualMachines / HybridIdentityMetadata | No | No |
 > | VirtualMachineTemplates | Yes | Yes |
 > | VirtualNetworks | Yes | Yes |
-> | vmmservers | Yes | Yes |
+> | VMMServers | Yes | Yes |
 > | VMMServers / InventoryItems | No | No |
 
 ## Microsoft.Search
@@ -2647,6 +2779,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | alertsSuppressionRules | No | No |
 > | allowedConnections | No | No |
 > | antiMalwareSettings | No | No |
+> | applications | No | No |
 > | assessmentMetadata | No | No |
 > | assessments | No | No |
 > | assessments / governanceAssignments | No | No |
@@ -2662,6 +2795,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | customEntityStoreAssignments | Yes | Yes |
 > | dataCollectionAgents | No | No |
 > | dataScanners | Yes | Yes |
+> | dataSensitivitySettings | No | No |
 > | deviceSecurityGroups | No | No |
 > | discoveredSecuritySolutions | No | No |
 > | externalSecuritySolutions | No | No |
@@ -2682,6 +2816,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | MdeOnboardings | No | No |
 > | policies | No | No |
 > | pricings | No | No |
+> | query | No | No |
 > | regulatoryComplianceStandards | No | No |
 > | regulatoryComplianceStandards / regulatoryComplianceControls | No | No |
 > | regulatoryComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | No | No |
@@ -2703,6 +2838,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | subAssessments | No | No |
 > | tasks | No | No |
 > | topologies | No | No |
+> | vmScanners | No | No |
 > | workspaceSettings | No | No |
 
 ## Microsoft.SecurityDetonation
@@ -2717,8 +2853,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | azureDevOpsConnectors | Yes | Yes |
+> | azureDevOpsConnectors / orgs | No | No |
+> | azureDevOpsConnectors / orgs / projects | No | No |
+> | azureDevOpsConnectors / orgs / projects / repos | No | No |
+> | azureDevOpsConnectors / repos | No | No |
+> | azureDevOpsConnectors / stats | No | No |
 > | gitHubConnectors | Yes | Yes |
 > | gitHubConnectors / gitHubRepos | No | No |
+> | gitHubConnectors / owners | No | No |
+> | gitHubConnectors / owners / repos | No | No |
+> | gitHubConnectors / repos | No | No |
+> | gitHubConnectors / stats | No | No |
 
 ## Microsoft.SecurityInsights
 
@@ -2731,15 +2877,21 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | automationRules | No | No |
 > | bookmarks | No | No |
 > | cases | No | No |
+> | contentPackages | No | No |
+> | contentTemplates | No | No |
+> | dataConnectorDefinitions | No | No |
 > | dataConnectors | No | No |
 > | enrichment | No | No |
 > | entities | No | No |
 > | entityQueryTemplates | No | No |
 > | fileImports | No | No |
+> | huntsessions | No | No |
 > | incidents | No | No |
 > | metadata | No | No |
 > | MitreCoverageRecords | No | No |
 > | onboardingStates | No | No |
+> | overview | No | No |
+> | recommendations | No | No |
 > | securityMLAnalyticsSettings | No | No |
 > | settings | No | No |
 > | sourceControls | No | No |
@@ -2779,6 +2931,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | clusters | Yes | Yes |
 > | clusters / applications | No | No |
+> | clusters / applications / services | No | No |
+> | clusters / applicationTypes | No | No |
+> | clusters / applicationTypes / versions | No | No |
 > | edgeclusters | Yes | Yes |
 > | edgeclusters / applications | No | No |
 > | managedclusters | Yes | Yes |
@@ -2853,8 +3008,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | instancePools | Yes | Yes |
 > | managedInstances | Yes | Yes |
 > | managedInstances / administrators | No | No |
-> | managedInstances / databases | Yes | Yes |
+> | managedInstances / advancedThreatProtectionSettings | No | No |
+> | managedInstances / databases | Yes | No |
+> | managedInstances / databases / advancedThreatProtectionSettings | No | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
+> | managedInstances / databases / LongTermRetentionBackups | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
 > | managedInstances / dnsAliases | No | No |
 > | managedInstances / metricDefinitions | No | No |
@@ -2882,6 +3040,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / databases / auditRecords | No | No |
 > | servers / databases / automaticTuning | No | No |
 > | servers / databases / backupLongTermRetentionPolicies | No | No |
+> | servers / databases / LongTermRetentionBackups | No | No |
 > | servers / databases / backupShortTermRetentionPolicies | No | No |
 > | servers / databases / databaseState | No | No |
 > | servers / databases / dataMaskingPolicies | No | No |
@@ -2895,6 +3054,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / databases / metrics | No | No |
 > | servers / databases / recommendedSensitivityLabels | No | No |
 > | servers / databases / securityAlertPolicies | No | No |
+> | servers / databases / sqlvulnerabilityassessments | No | No |
 > | servers / databases / syncGroups | No | No |
 > | servers / databases / syncGroups / syncMembers | No | No |
 > | servers / databases / topQueries | No | No |
@@ -2929,12 +3089,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / securityAlertPolicies | No | No |
 > | servers / serviceObjectives | No | No |
+> | servers / sqlvulnerabilityassessments | No | No |
 > | servers / syncAgents | No | No |
 > | servers / tdeCertificates | No | No |
 > | servers / usages | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / vulnerabilityAssessments | No | No |
-> | virtualClusters | Yes | Yes |
+> | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
 
@@ -2969,7 +3130,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | storageAccounts / queueServices | No | No |
 > | storageAccounts / services | No | No |
 > | storageAccounts / services / metricDefinitions | No | No |
+> | storageAccounts / storageTaskAssignments | No | No |
 > | storageAccounts / tableServices | No | No |
+> | storageTasks | Yes | Yes |
 > | usages | No | No |
 
 ## Microsoft.StorageCache
@@ -2981,6 +3144,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | caches | Yes | Yes |
 > | caches / storageTargets | No | No |
 > | usageModels | No | No |
+
+## Microsoft.StorageMover
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | storageMovers | Yes | Yes |
+> | storageMovers / agents | No | No |
+> | storageMovers / endpoints | No | No |
+> | storageMovers / projects | No | No |
+> | storageMovers / projects / jobDefinitions | No | No |
+> | storageMovers / projects / jobDefinitions / jobRuns | No | No |
 
 ## Microsoft.StoragePool
 
@@ -3064,6 +3239,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / sqlDatabases | Yes | Yes |
 > | workspaces / sqlPools | Yes | Yes |
 
+> [!NOTE]
+> The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
+
+
 ## Microsoft.TestBase
 
 > [!div class="mx-tableFixed"]
@@ -3072,6 +3251,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | testBaseAccounts | Yes | Yes |
 > | testBaseAccounts / customerEvents | No | No |
 > | testBaseAccounts / emailEvents | No | No |
+> | testBaseAccounts / externalTestTools | No | No |
+> | testBaseAccounts / externalTestTools / testCases | No | No |
+> | testBaseAccounts / featureUpdateSupportedOses | No | No |
+> | testBaseAccounts / firstPartyApps | No | No |
 > | testBaseAccounts / flightingRings | No | No |
 > | testBaseAccounts / packages | Yes | Yes |
 > | testBaseAccounts / packages / favoriteProcesses | No | No |
@@ -3093,6 +3276,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | environments / privateLinkResources | No | No |
 > | environments / referenceDataSets | Yes | No |
 
+## Microsoft.UsageBilling
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | accounts | Yes | Yes |
+
 ## Microsoft.VideoIndexer
 
 > [!div class="mx-tableFixed"]
@@ -3107,6 +3297,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | imageTemplates | Yes | Yes |
 > | imageTemplates / runOutputs | No | No |
+> | imageTemplates / triggers | No | No |
 
 ## microsoft.visualstudio
 
@@ -3198,7 +3389,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | sourceControls | No | No |
 > | staticSites | Yes | Yes |
 > | staticSites / builds | No | No |
+> | staticSites / builds / linkedBackends | No | No |
 > | staticSites / builds / userProvidedFunctionApps | No | No |
+> | staticSites / linkedBackends | No | No |
 > | staticSites / userProvidedFunctionApps | No | No |
 > | validate | No | No |
 > | verifyHostingEnvironmentVnet | No | No |
@@ -3254,3 +3447,4 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Next steps
 
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
+

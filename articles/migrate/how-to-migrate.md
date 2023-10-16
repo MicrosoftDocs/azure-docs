@@ -1,11 +1,13 @@
 ---
 title: Add migration tools in Azure Migrate 
 description: Learn how to add migration tools in Azure Migrate. 
-author: anvar-ms 
-ms.author: anvar
-ms.manager: bsiva
+author: sunishvohra-ms 
+ms.author: sunishvohra
+ms.manager: vijain
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.service: azure-migrate
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 
@@ -30,11 +32,11 @@ This article describes how to add migration tools in [Azure Migrate](./migrate-s
     ![Options for selecting a migrate scenario](./media/how-to-migrate/migrate-scenario.png)
 
 
-## Select a server migration tool
+## Select a migration tool
 
 1. Add a tool:
 
-    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Azure Migrate Server Migration tool is automatically added to the project. To add additional migration tools, in **Servers**, next to **Migration tools**, select **Add more tools**.
+    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Migration and modernization tool is automatically added to the project. To add additional migration tools, in **Servers**, next to **Migration tools**, select **Add more tools**.
     
          ![Button to add additional migration tools](./media/how-to-migrate/add-migration-tools.png)
 
@@ -83,9 +85,9 @@ To migrate large amounts of data to Azure,  you can order an Azure Data Box for 
 1. In **Overview**, select **Explore more**.
 2. In **Explore more**, select **Data box**.
 3. In **Get started with Data Box**, select the subscription and resource group you want to use when ordering a Data Box.
-4. The **Transfer type** is an import to Azure. Specify the country in which the data resides, and the Azure region to which you want to transfer the data. 
+4. The **Transfer type** is an import to Azure. Specify the country/region in which the data resides, and the Azure region to which you want to transfer the data. 
 5. Click **Apply** to save the settings.
 
 ## Next steps
 
-Try out a migration using the Azure Migrate Server Migration tool for [Hyper-V](tutorial-migrate-hyper-v.md) or [VMware](tutorial-migrate-vmware.md) VMs.
+Try out a migration using the Migration and modernization tool for [Hyper-V](tutorial-migrate-hyper-v.md) or [VMware](tutorial-migrate-vmware.md) VMs.

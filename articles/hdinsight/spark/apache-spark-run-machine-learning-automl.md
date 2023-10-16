@@ -3,12 +3,12 @@ title: Run Azure Machine Learning workloads on Apache Spark in HDInsight
 description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 09/15/2022
 ---
 
 # Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight
 
-Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature and then iterate through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. This allows users to run AutoML experiments while sharing the compute with their other big data workloads.
+Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature. Iterate through combinations of algorithms and feature selections automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. This allows users to run AutoML experiments while sharing the compute with their other big data workloads.
 
 ## Install Azure Machine Learning on an HDInsight cluster
 
@@ -20,14 +20,11 @@ All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK.
 
 You can use Zeppelin notebooks to use AutoML as well.
 
-> [!Note]
-> Zeppelin has a [known issue](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) where PySpark3 doesn't pick the right version of Python. Please use the documented work-around.
-
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](/azure/python/python-sdk-azure-authenticate) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using an [Microsoft Entra application](../../active-directory/develop/app-objects-and-service-principals.md). An [Microsoft Entra user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
 
-The following code snippet creates an authentication token using an **Azure AD application**.
+The following code snippet creates an authentication token using an **Microsoft Entra application**.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -38,7 +35,7 @@ auth_sp = ServicePrincipalAuthentication(
 )
 ```
 
-The following code snippet creates an authentication token using an **Azure AD user**.
+The following code snippet creates an authentication token using an **Microsoft Entra user**.
 
 ```python
 from azure.common.credentials import UserPassCredentials
@@ -67,6 +64,5 @@ In the [automated machine learning configuration](/python/api/azureml-train-auto
 
 ## Next steps
 
-* For more information on the motivation behind automated machine learning, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
 * For more information on using Azure ML Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML project from Microsoft Research](https://www.microsoft.com/research/project/automl/)

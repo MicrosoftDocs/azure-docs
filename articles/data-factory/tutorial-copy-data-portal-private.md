@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -28,7 +28,7 @@ In this tutorial, you do the following steps:
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
-* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
+* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
 
 ### Create a blob and a SQL table
 
@@ -118,7 +118,8 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the data factory home page with the Orchestrate button highlighted.":::
+
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag the **Copy data** activity from the tool box to the pipeline designer surface. Enter **CopyFromBlobToSql** for the name.

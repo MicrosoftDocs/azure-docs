@@ -40,6 +40,30 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+    - name: Encrypt a registry with customer managed key
+      items:
+      - name: Customer managed keys - Overview
+        href: tutorial-customer-managed-keys.md
+      - name: Enable Customer managed key on your registry 
+        href: tutorial-enable-customer-managed-keys.md
+      - name: Rotate or revoke a Customer managed key
+        href: tutorial-rotate-revoke-customer-managed-keys.md
+      - name: Troubleshoot
+        href: tutorial-troubleshoot-customer-managed-keys.md
+    - name: Artifact Cache
+      items:
+      - name: Artifact Cache - Overview
+        href: tutorial-artifact-cache.md
+      - name: Enable Artifact Cache - Azure portal
+        href: tutorial-enable-artifact-cache.md
+      - name: Enable Artifact Cache with authentication - Azure portal
+        href: tutorial-enable-artifact-cache-auth.md
+      - name: Enable Artifact Cache - Azure CLI
+        href: tutorial-enable-artifact-cache-cli.md
+      - name: Enable Artifact Cache with authentication - Azure CLI
+        href: tutorial-enable-artifact-cache-auth-cli.md
+      - name: Troubleshoot 
+        href: tutorial-troubleshoot-artifact-cache.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -113,6 +137,8 @@
         items:
         - name: Delete image data - CLI
           href: container-registry-delete.md
+        - name: Soft delete policy
+          href: container-registry-soft-delete-policy.md
         - name: Retention policy for untagged manifests (preview)
           href: container-registry-retention-policy.md
         - name: Automatically purge tags and manifests (preview)
@@ -127,14 +153,16 @@
         href: container-registry-private-link.md
       - name: Configure public registry access
         href: container-registry-access-selected-networks.md
+      - name: Mitigate data exfiltration with dedicated data endpoints
+        href: container-registry-dedicated-data-endpoints.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
       - name: Allow access by trusted services
         href: allow-access-trusted-services.md
-      - name: Encrypt with customer-managed key
-        href: container-registry-customer-managed-keys.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
+      - name: Enable conditional access policy
+        href: container-registry-enable-conditional-access-policy.md
       - name: Authentication
         items:
         - name: Authentication overview
@@ -143,7 +171,7 @@
           href: container-registry-auth-service-principal.md
         - name: Authenticate with managed identity
           href: container-registry-authentication-managed-identity.md
-        - name: Authenticate with token (preview)
+        - name: Authenticate with token 
           href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
@@ -164,6 +192,8 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
+      - name: Sign and verify containers with notation (preview)
+        href: container-registry-tutorial-sign-build-push.md
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -185,22 +215,6 @@
           items:
           - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
-          - name: Scan with GitHub actions
-            href: github-action-scan.md
-    - name: Troubleshoot
-      expanded: false
-      items:
-        - name: Troubleshoot login
-          href: container-registry-troubleshoot-login.md
-        - name: Troubleshoot network issues
-          href: container-registry-troubleshoot-access.md
-        - name: Troubleshoot registry performance
-          href: container-registry-troubleshoot-performance.md
-        - name: Detect common issues
-          href: container-registry-check-health.md
-          displayName: check, health
-        - name: FAQ
-          href: container-registry-faq.yml
 - name: Tasks
   expanded: true
   items:
@@ -304,7 +318,7 @@
   - name: PowerShell
     href: /powershell/module/az.containerregistry
   - name: .NET
-    href: /dotnet/api/overview/azure/containerregistry
+    href: /dotnet/api/overview/azure/container-registry
   - name: Python
     href: /python/api/overview/azure/container-registry
   - name: Java
@@ -326,6 +340,24 @@
     href: ./policy-reference.md
   - name: Monitoring data
     href: monitor-service-reference.md
+- name: Troubleshoot
+  expanded: false
+  items:
+  - name: Troubleshoot login issues
+    href: container-registry-troubleshoot-login.md
+  - name: Troubleshoot network issues
+    href: container-registry-troubleshoot-access.md
+  - name: Troubleshoot performance issues
+    href: container-registry-troubleshoot-performance.md
+  - name: Detect common issues
+    href: container-registry-check-health.md
+    displayName: check, health
+  - name: Technical Support policies
+    href: container-registry-support-policies.md
+  - name: FAQ
+    href: container-registry-faq.yml
+  - name: API Deprecation
+    href: container-registry-api-deprecation.md
 - name: Resources
   expanded: false
   items:

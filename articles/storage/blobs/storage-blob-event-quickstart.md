@@ -1,13 +1,12 @@
 ---
-title: Send Azure Blob storage events to web endpoint - Azure CLI | Microsoft Docs
+title: Send Azure Blob storage events to web endpoint - Azure CLI
 description: Use Azure Event Grid to subscribe to Blob storage events. Send the events to a Webhook. Handle the events in a web application.
 author: normesta
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurecli
 ---
 
@@ -23,7 +22,7 @@ When you complete the steps described in this article, you see that the event da
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -74,7 +73,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your storage account
 
@@ -127,7 +126,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
     "contentType": "text/plain",
     "contentLength": 0,
     "blobType": "BlockBlob",
-    "url": "https://myblobstorageaccount.blob.core.windows.net/testcontainer/testblob1.txt",
+    "url": "https://myblobstorageaccount.blob.core.windows.net/testcontainer/testfile.txt",
     "sequencer": "00000000000000EB0000000000046199",
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"

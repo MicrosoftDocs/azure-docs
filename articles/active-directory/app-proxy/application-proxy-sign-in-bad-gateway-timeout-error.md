@@ -1,21 +1,21 @@
 ---
-title: Can't access this Corporate Application error with Azure Active Directory Application Proxy app
-description: How to resolve common access issues with Azure Active Directory Application Proxy applications.
+title: Can't access this Corporate Application error with Microsoft Entra application proxy app
+description: How to resolve common access issues with Microsoft Entra application proxy applications.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
 
 # "Can't Access this Corporate Application" error when using an Application Proxy application
 
-This article helps you troubleshoot common issues for the "This corporate app can't be accessed" error on an Azure AD Application Proxy application.
+This article helps you troubleshoot common issues for the "This corporate app can't be accessed" error on a Microsoft Entra application proxy application.
 
 ## Overview
 
@@ -23,7 +23,7 @@ When you see this error, find the status code on the error page. That code is li
 
 - **Gateway Timeout**: The Application Proxy service is unable to reach the connector. This error typically indicates a problem with the connector assignment, connector itself, or the networking rules around the connector.
 - **Bad Gateway**: The connector is unable to reach the backend application. This error could indicate a misconfiguration of the application.
-- **Forbidden**: The user is not authorized to access the application. This error can happen either when the user is not assigned to the application in Azure Active Directory, or if on the backend the user does not have permission to access the application.
+- **Forbidden**: The user is not authorized to access the application. This error can happen either when the user is not assigned to the application in Microsoft Entra ID, or if on the backend the user does not have permission to access the application.
 
 To find the code, look at the text at the bottom left of the error message for the "Status Code" field. Also look for any additional tips at the bottom of the page.
 
@@ -46,7 +46,7 @@ A bad gateway error indicates that the connector is unable to reach the backend 
 
 ## Forbidden errors
 
-If you see a forbidden error, the user has not been assigned to the application. This error could be either in Azure Active Directory or on the backend application.
+If you see a forbidden error, the user has not been assigned to the application. This error could be either in Microsoft Entra ID or on the backend application.
 
 To learn how to assign users to the application in Azure, see the [configuration documentation](application-proxy-add-on-premises-application.md#test-the-application).
 
@@ -59,8 +59,8 @@ As a first quick step, double check and fix the internal URL by opening the appl
 ## Check the application is assigned to a working Connector Group
 
 To verify the application is assigned to a working Connector Group:
-
-1. Open the application in the portal by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **All Applications.** Open the application, then select **Application Proxy** from the left menu.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don't see any warnings, move on to verify all [required ports](application-proxy-add-on-premises-application.md) are allowed.
 1. If the wrong Connector Group is showing, use the drop-down to select the correct group, and confirm you no longer see any warnings. If the intended Connector Group is showing, click the warning message to open the page with Connector management.
 1. From here, there are a few ways to drill in further:
@@ -73,7 +73,7 @@ After using these steps to ensure the application is assigned to a group with wo
 
 ## Check all required ports are open
 
-Verify that all required ports are open. For required ports, see the open ports section of [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md). If all the required ports are open, move to the next section.
+Verify that all required ports are open. For required ports, see the open ports section of [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](application-proxy-add-on-premises-application.md). If all the required ports are open, move to the next section.
 
 ## Check for other Connector Errors
 
@@ -85,7 +85,7 @@ You can also look directly at the Connector logs to identify any errors. Many of
 
 If the above didn't fix the problem, there are a few different possible causes. To identify the issue:
 
-If your application is configured to use integrated Windows authentication (IWA), test the application without single sign-on. If not, move to the next paragraph. To check the application without single sign-on, open your application through **Enterprise Applications,** and go to the **Single Sign-On** menu. Change the drop-down from "Integrated Windows authentication" to "Azure AD single sign-on disabled".
+If your application is configured to use integrated Windows authentication (IWA), test the application without single sign-on. If not, move to the next paragraph. To check the application without single sign-on, open your application through **Enterprise Applications,** and go to the **Single Sign-On** menu. Change the drop-down from "Integrated Windows authentication" to "Microsoft Entra single sign-on disabled".
 
 Now open a browser and try to access the application again. You should be prompted for authentication and get into the application. If you are able to authenticate, the problem is with the Kerberos Constrained Delegation (KCD) configuration that enables the single sign-on. For more information, see the KCD Troubleshoot page.
 
@@ -95,4 +95,4 @@ If you can reach the application from that machine, to look for issues or errors
 
 ## Next steps
 
-[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)

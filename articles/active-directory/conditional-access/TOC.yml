@@ -10,7 +10,7 @@
     href: require-tou.md
 - name: Tutorials
   items:
-  - name: Require Azure AD Multi-Factor Authentication
+  - name: Require multifactor Authentication
     href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -23,7 +23,7 @@
     items: 
      - name: Users and groups
        href: concept-conditional-access-users-groups.md
-     - name: Cloud apps or actions
+     - name: Target resources
        href: concept-conditional-access-cloud-apps.md
      - name: Conditions
        href: concept-conditional-access-conditions.md
@@ -37,16 +37,26 @@
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
     href: service-dependencies.md
+  - name: Filter for applications
+    href: concept-filter-for-applications.md
+  - name: Token protection
+    href: concept-token-protection.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
     href: workload-identity.md
+  - name: Continuous access evaluation
+    items:
+    - name: CAE for users
+      href: concept-continuous-access-evaluation.md
+    - name: CAE strict enforcement
+      href: concept-continuous-access-evaluation-strict-enforcement.md
+    - name: CAE for workload identities
+      href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
-  - name: Continuous access evaluation
-    href: concept-continuous-access-evaluation.md
 - name: How-to guides
   expanded: true
   items:
@@ -58,26 +68,46 @@
     items: 
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
+    - name: Require phishing-resistant MFA for administrators
+      href: how-to-policy-phish-resistant-admin-mfa.md
     - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block legacy authentication
       href: howto-conditional-access-policy-block-legacy.md
+    - name: Require MFA for guest users
+      href: howto-policy-guest-mfa.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
+    - name: Require MFA for Microsoft admin portals
+      href: how-to-policy-mfa-admin-portals.md
     - name: Require MFA for Azure management
       href: howto-conditional-access-policy-azure-management.md
     - name: Require MFA for risky sign-in
       href: howto-conditional-access-policy-risk.md
     - name: Require password change for risky users
       href: howto-conditional-access-policy-risk-user.md
-    - name: Require compliant or hybrid joined devices
-      href: howto-conditional-access-policy-compliant-device.md
+    - name: Require compliant or hybrid joined devices for admins
+      href: howto-conditional-access-policy-compliant-device-admin.md
+    - name: Block access for unknown or unsupported device platform
+      href: howto-policy-unknown-unsupported-device.md
     - name: Require approved app or app protection policy
       href: howto-policy-approved-app-or-app-protection.md
+    - name: Require app protection policy for Windows
+      href: how-to-app-protection-policy-windows.md
+    - name: No persistent browser session
+      href: howto-policy-persistent-browser-session.md
+    - name: Require compliant device, hybrid joined, or MFA for users
+      href: howto-conditional-access-policy-compliant-device.md
+    - name: Use application enforced restrictions
+      href: howto-policy-app-enforced-restriction.md
+    - name: Require MFA for Intune enrollment
+      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+    - name: Require authentication strength for external users
+      href: howto-conditional-access-policy-authentication-strength-external.md
   - name: Configure resilience defaults
     href: resilience-defaults.md
   - name: Configure report only mode
@@ -86,7 +116,7 @@
     href: block-legacy-authentication.md
   - name: Require terms of use
     href: terms-of-use.md
-  - name: Sign-in frequency and browser persistence controls
+  - name: Sign-in frequency and browser persistence control
     href: howto-conditional-access-session-lifetime.md
   - name: Troubleshooting
     items:
@@ -98,30 +128,30 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: Troubleshoot continuous access evaluation
       href: howto-continuous-access-evaluation-troubleshoot.md
-    - name: FAQ
-      href: faqs.md
+  - name: Approved client app migration
+    href: migrate-approved-client-app.md
   - name: Custom controls
     href: controls.md
   - name: Classic policies
     items:
-    - name: Classic policy migrations
-      href: policy-migration.md
-    - name: Migrate classic policies
+    - name: Migrate from classic policies
       href: policy-migration-mfa.md
 - name: Reference
   items:
   - name: Office 365 application
     href: reference-office-365-application-contents.md
-  - name: Beta Graph APIs
+  - name: Microsoft Graph APIs
     items: 
-    - name: conditionalAccessPolicy API
-      href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
-    - name: namedLocation API
-      href: /graph/api/resources/namedlocation?view=graph-rest-beta
-    - name: countryNamedLocation API
-      href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
-    - name: ipNamedLocation API
-      href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
+    - name: conditionalAccessPolicy
+      href: /graph/api/resources/conditionalaccesspolicy
+    - name: namedLocation
+      href: /graph/api/resources/namedlocation
+    - name: countryNamedLocation
+      href: /graph/api/resources/countrynamedlocation
+    - name: ipNamedLocation
+      href: /graph/api/resources/ipnamedlocation
+    - name: conditionalAccessTemplate
+      href: /graph/api/resources/conditionalaccesstemplate
 - name: Resources
   items:
   - name: Azure feedback forum

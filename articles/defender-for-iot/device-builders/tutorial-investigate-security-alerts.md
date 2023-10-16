@@ -9,7 +9,7 @@ ms.date: 01/13/2022
 
 This tutorial will help you learn how to investigate, and remediate the alerts issued by Defender for IoT. Remediating alerts is the best way to ensure compliance, and protection across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate security alerts
@@ -27,15 +27,15 @@ In this tutorial you will learn how to:
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
-- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
+- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md).
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md).
 
-- You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
+- You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md).
 
-- Learned how to [investigate security recommendations](quickstart-investigate-security-recommendations.md)
+- Learned how to [investigate security recommendations](quickstart-investigate-security-recommendations.md).
 
 ## Investigate security alerts
 
@@ -51,7 +51,7 @@ The Defender for IoT security alert list displays all of the aggregated security
 
 ## Investigate security alert details
 
-Opening each aggregated alert displays the detailed alert description, remediation steps, and device ID for each device that triggered an alert. The alert severity, and direct investigation is accessible using Log Analytics.
+Opening each aggregated alert displays the detailed alert description, remediation steps, and device ID for each device that triggered an alert. The alert severity and direct investigation is accessible using Log Analytics.
 
 **To investigate security alert details**:
 
@@ -61,15 +61,15 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 1. Select any security alert from the list to open it.
 
-1. Review the alert **description**, **severity**, **source of the detection**, **device details** of all devices that issued this alert in the aggregation period.
+1. Review the alert **description**, **severity**, **source of the detection**, and **device details** of all devices that issued this alert in the aggregation period.
 
     :::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigate and review the details of each device in an aggregated alert." lightbox="media/quickstart/drill-down-iot-alert-details-expanded.png":::
 
-1. After reviewing the alert specifics, use the **manual remediation step** instructions to help remediate, and resolve the issue that caused the alert.
+1. After reviewing the alert specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the alert.
 
     :::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Follow the manual remediation steps to help resolve or remediate your device security alerts":::
 
-## Investigate alerts in Log Analytics workspace
+## Investigate alerts in your Log Analytics workspace
 
 You can access your alerts and investigate them with the Log Analytics workspace.
 
@@ -84,10 +84,6 @@ You can access your alerts and investigate them with the Log Analytics workspace
 1. Select **Investigate alerts in Log Analytics workspace**.
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to select to investigate in the log analytics workspace.":::
-
-## Clean up resources
-
-There are no resources to clean up.
 
 ## Next steps
 

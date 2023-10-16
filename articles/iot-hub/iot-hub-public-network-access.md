@@ -2,14 +2,17 @@
 title: Managing public network access for Azure IoT Hub
 description: Documentation on how to disable and enable public network access for IoT hub
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/07/2021
 ---
 
 # Managing public network access for your IoT hub
+
+> [!IMPORTANT]
+> Disabling Public Network Access will prevent you from using Device Update for IoT Hub.
 
 To restrict access to only [a private endpoint for an IoT hub in your VNet](virtual-network-support.md), disable public network access. To do so, use the Azure portal or the `publicNetworkAccess` API. You can also allow public access by using the portal or the `publicNetworkAccess` API.
 
@@ -39,9 +42,9 @@ Disabling public network access is enforced on a specific IoT hub resource, ensu
 
 If public network access is disabled, all [IP Filter](iot-hub-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
 
-### Bug fix with built-in Event Hub compatible endpoint
+### Bug fix with built-in Event Hubs compatible endpoint
 
-There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hub endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
+There is a bug with IoT Hub where the [built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hubs endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
 
 ## Turn on network access using Azure portal
 
@@ -84,6 +87,6 @@ If you have trouble accessing your IoT hub, your network configuration could be 
 
 When trying to access your IoT hub with other tools, such as the Azure CLI, the error message may include `{"errorCode": 401002, "message": "Unauthorized"}` in the case where the request is not routed correctly to your IoT hub.
 
-To get access to the IoT hub, request permission from your IT administrator to add your IP address in the IP address range or to enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to the IoT Hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub.
+To get access to the IoT hub, request permission from your IT administrator to add your IP address in the IP address range or to enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to the IoT hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub.
 
 If the preceding commands do not work or you cannot turn on all network ranges, contact Microsoft support.

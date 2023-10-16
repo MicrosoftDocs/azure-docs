@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 04/12/2023
 ms.author: jburchel
 ---
 
@@ -18,7 +18,7 @@ By default, the Self Hosted Integration Runtime’s diagnostic and performance t
 
 ## Event logs
 
-When logged on locally to the Self Hosted Integration Runtime, specific events can be viewed using the [event viewer](/windows/win32/eventlog/viewing-the-event-log). The relevant events are captured in two event viewer journals named: **Connectors – Integration Runtime** and **Integration Runtime** respectively. While it’s possible to log on to to the Self Hosted Integration Runtime hosts individually to view these events, it's also possible to stream these events to a Log Analytics workspace in Azure monitor for ease of query and centralization purposes.
+When logged on locally to the Self Hosted Integration Runtime, specific events can be viewed using the [event viewer](/windows/win32/eventlog/viewing-the-event-log). The relevant events are captured in two event viewer journals named: **Connectors - Integration Runtime** and **Integration Runtime** respectively. While it’s possible to log on to to the Self Hosted Integration Runtime hosts individually to view these events, it's also possible to stream these events to a Log Analytics workspace in Azure monitor for ease of query and centralization purposes.
 
 ## Performance counters
 

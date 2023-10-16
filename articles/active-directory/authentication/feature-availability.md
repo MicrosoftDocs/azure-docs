@@ -1,39 +1,43 @@
 ---
-title: Azure Active Directory (Azure AD) feature availability in Azure Government
-description: Learn which Azure AD features are available in Azure Government. 
+title: Microsoft Entra feature availability in Azure Government
+description: Learn which Microsoft Entra features are available in Azure Government. 
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 04/13/2023
+
 
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: michmcla
+manager: amycolannino
+ms.reviewer: mattsmith
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory feature availability
+# Microsoft Entra feature availability
 
 <!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
 
-This following tables list Azure AD feature availability in Azure Government.
+This following tables list Microsoft Entra feature availability in Azure Government.
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
+
+## Microsoft Entra ID
 
 |Service     | Feature | Availability |
 |:------|---------|:------------:|
 |**Authentication, single sign-on, and MFA**|Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
 || Federated authentication (Active Directory Federation Services or federation with other identity providers) | &#x2705; |
 || Single sign-on (SSO) unlimited | &#x2705; | 
-|| Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Microsoft Authenticator only shows GUID and not UPN for compliance reasons. | 
+|| Multifactor authentication (MFA) | &#x2705; | 
 || Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
+|| Certificate-based authentication | &#x2705; | 
 || Service-level agreement | &#x2705; | 
-|**Applications access**|SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
+|**Applications access**|SaaS apps with modern authentication (Microsoft Entra application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
 || Group assignment to applications | &#x2705; | 
-|| Cloud app discovery (Microsoft Cloud App Security) | &#x2705; | 
+|| Cloud app discovery (Microsoft Defender for Cloud Apps) | &#x2705; | 
 || Application Proxy for on-premises, header-based, and Integrated Windows Authentication | &#x2705; | 
 || Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) | &#x2705; | 
 |**Authorization and Conditional Access**|Role-based access control (RBAC) | &#x2705; | 
@@ -44,8 +48,8 @@ This following tables list Azure AD feature availability in Azure Government.
 || Identity Protection (risk events investigation, SIEM connectivity) | See [Identity protection](#identity-protection) below. | 
 |**Administration and hybrid identity**|User and group management | &#x2705; | 
 || Advanced group management (Dynamic groups, naming policies, expiration, default classification) | &#x2705; | 
-|| Directory synchronization—Azure AD Connect (sync and cloud sync) | &#x2705; | 
-|| Azure AD Connect Health reporting | &#x2705; | 
+|| Directory synchronization—Microsoft Entra Connect (sync and cloud sync) | &#x2705; | 
+|| Microsoft Entra Connect Health reporting | &#x2705; | 
 || Delegated administration—built-in roles  | &#x2705; | 
 || Global password protection and management – cloud-only users | &#x2705; | 
 || Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | &#x2705; | 
@@ -69,9 +73,9 @@ This following tables list Azure AD feature availability in Azure Government.
 || Advanced security and usage reports | &#x2705; |
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |
 || Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
-|**Frontline workers**|SMS sign-in | Feature not available. |
-|| Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
-|| Delegated user management portal (My Staff) | Feature not available. |
+|**Frontline workers**|SMS sign-in | &#x2705; |
+|| Shared device sign-out | Enterprise state roaming for Windows 10 devices isn't available. |
+|| Delegated user management portal (My Staff) | &#10060; |
 
 
 ## Identity protection
@@ -79,11 +83,11 @@ This following tables list Azure AD feature availability in Azure Government.
 | Risk Detection | Availability |
 |----------------|:--------------------:|
 |Leaked credentials (MACE) | &#x2705; |
-|Azure AD threat intelligence | Feature not available. |
+|Microsoft Entra threat intelligence | &#10060; |
 |Anonymous IP address | &#x2705; | 
 |Atypical travel | &#x2705; |
-|Anomalous Token | Feature not available. |
-|Token Issuer Anomaly| Feature not available. |
+|Anomalous Token | &#x2705; |
+|Token Issuer Anomaly| &#x2705; |
 |Malware linked IP address | &#x2705; |
 |Suspicious browser | &#x2705; |
 |Unfamiliar sign-in properties | &#x2705; |
@@ -95,7 +99,6 @@ This following tables list Azure AD feature availability in Azure Government.
 |New country | &#x2705; |
 |Activity from anonymous IP address | &#x2705; |
 |Suspicious inbox forwarding | &#x2705; |
-|Azure AD threat intelligence | Feature not available. |
 |Additional risk detected | &#x2705; |
 
 
@@ -103,13 +106,8 @@ This following tables list Azure AD feature availability in Azure Government.
 
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
-|Workday to Azure AD User Provisioning | &#x2705; |
+|Workday to Microsoft Entra user provisioning | &#x2705; |
 |Workday Writeback | &#x2705; |
-|SuccessFactors to Azure AD User Provisioning | &#x2705; | 
+|SuccessFactors to Microsoft Entra user provisioning | &#x2705; | 
 |SuccessFactors to Writeback | &#x2705; |
-|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br> AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment |
-
-
-
-
-
+|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br> `AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment` |

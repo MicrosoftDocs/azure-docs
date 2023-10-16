@@ -1,19 +1,26 @@
 ---
-title: Self-host the developer portal
+title: Self-host the API Management developer portal
 titleSuffix: Azure API Management
-description: Learn how to self-host the API Management developer portal.
+description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 04/15/2021
+ms.date: 06/07/2022
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Self-host the API Management developer portal
 
-This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting gives you flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you are responsible for its upgrades. 
+This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting is one of several options to [extend the functionality](developer-portal-extend-custom-functionality.md) of the developer portal. For example, you can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you're responsible for its upgrades. 
 
-The following steps show how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure storage account.
+> [!IMPORTANT]
+> Consider self-hosting the developer portal only when you need to modify the core of the developer portal's codebase. This option requires advanced configuration, including:
+> * Deployment to a hosting platform, optionally fronted by a solution such as CDN for increased availability and performance
+> * Maintaining and managing hosting infrastructure
+> * Manual updates, including for security patches, which may require you to resolve code conflicts when upgrading the codebase
+
+> [!NOTE]
+> The self-hosted portal does not support visibility and access controls that are available in the managed developer portal.
 
 If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
 
@@ -27,7 +34,7 @@ To set up a local development environment, you need to have:
 - An Azure storage account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. See [Create a storage account](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Node.js (LTS version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-- Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli-windows).
+- Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli).
 
 ## Step 1: Set up local environment
 
@@ -75,7 +82,12 @@ Go to the `src` folder and open the `config.design.json` file.
   "managementApiUrl": "https://<service-name>.management.azure-api.net",
   "managementApiAccessToken": "SharedAccessSignature ...",
   "backendUrl": "https://<service-name>.developer.azure-api.net",
-  "useHipCaptcha": false
+  "useHipCaptcha": false,
+  "integration": {
+      "googleFonts": {
+          "apiKey": "..."
+      }
+  }
 }
 ```
 
@@ -103,12 +115,23 @@ Configure the file:
     ...
     ```
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha).
+1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
+
+1. In `integration`, under `googleFonts`, optionally set `apiKey` to a Google API key that allows access to the Web Fonts Developer API. This key is only needed if you want to add Google fonts in the Styles section of the developer portal editor. 
+
+    If you don't already have a key, you can configure one using the Google Cloud console. Follow these steps:
+    1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
+    1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
+    1. Select **Create credentials** > **API key**.
+    1. In the open dialog, copy the generated key and paste it as the value of `apiKey` in the `config.design.json` file. 
+    1. Select **Edit API key** to open the key editor.
+    1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
+    1. Select **Save**.
 
 ### config.publish.json file
 
 Go to the `src` folder and open the `config.publish.json` file.
-
+    
 ```json
 {
   "environment": "publishing",
@@ -122,7 +145,7 @@ Configure the file:
 
 1. Copy and paste the `managementApiUrl` and `managementApiAccessToken` values from the previous configuration file.
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha).
+1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
 ### config.runtime.json file
 
@@ -163,9 +186,9 @@ Configure the **Static website** feature in your storage account by providing ro
 
 1. Select **Save**.
 
-### Configure the CORS settings
+### Configure CORS settings for storage account
 
-Configure the Cross-Origin Resource Sharing (CORS) settings:
+Configure the Cross-Origin Resource Sharing (CORS) settings for the storage account:
 
 1. Go to your storage account in the Azure portal and select **CORS** from the menu on the left.
 
@@ -181,6 +204,22 @@ Configure the Cross-Origin Resource Sharing (CORS) settings:
 
 1. Select **Save**.
 
+### Configure CORS settings for developer portal backend
+
+Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
+
+* CAPTCHA verification
+* [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
+* [Delegation](api-management-howto-setup-delegation.md) of user authentication and product subscription 
+
+To add CORS settings:
+
+1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal settings** from the menu on the left.
+1. On the **Self-hosted portal configuration** tab, add one or more **Origin** domain values. For example:
+    * The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
+    * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
+1. Select **Save**.
+
 ## Step 3: Run the portal
 
 Now you can build and run a local portal instance in the development mode. In development mode, all the optimizations are turned off and the source maps are turned on.
@@ -191,7 +230,7 @@ Run the following command:
 npm start
 ```
 
-After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. Any changes to the codebase of the project will trigger a rebuild and refresh your browser window.
+After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. Any changes to the codebase of the project triggers a rebuild and refresh your browser window.
 
 ## Step 4: Edit through the visual editor
 
@@ -404,37 +443,6 @@ The conversion process is almost identical to setting up a generic self-hosted p
 > [!TIP]
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
 
-## Enable CAPTCHA
-
-When setting up the self-hosted portal, you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your developer portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
-
-### Update the JSON config files
-
-To enable the CAPTCHA in your self-hosted portal:
-
-1. Assign a custom domain (for example, `api.contoso.com`) to the **Developer portal** endpoint of your API Management service.
-
-    This domain applies to the managed version of your portal and the CAPTCHA endpoint. For steps, see [Configure a custom domain name for your Azure API Management instance](configure-custom-domain.md).
-
-1. Go to the `src` folder in the [local environment](#step-1-set-up-local-environment) for your self-hosted portal.
-
-1. Update the configuration `json` files:
-
-    | File | New value | Note |
-    | ---- | --------- | ---- |
-    | `config.design.json`| `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
-    |  | `"useHipCaptcha": true` | Change the value to `true` |
-    | `config.publish.json`| `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
-    |  | `"useHipCaptcha": true` | Change the value to `true` |
-    | `config.runtime.json` | `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
-
-1. [Publish](#step-5-publish-locally) the portal.
-
-1. [Upload](#step-6-upload-static-files-to-a-blob) and host the newly published portal.
-
-1. Expose the self-hosted portal through a custom domain.
-
-The portal domain's first and second levels need to match the domain set up in the first step. For example, `portal.contoso.com`. The exact steps depend on your hosting platform of choice. If you used an Azure storage account, you can refer to [Map a custom domain to an Azure Blob Storage endpoint](../storage/blobs/storage-custom-domain-name.md) for instructions.
 
 ## Next steps
 

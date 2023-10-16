@@ -20,7 +20,7 @@ The following script enables PowerShell remoting, and it creates a new firewall 
 
 ```powershell
 # For configuration of WinRM, see
-# https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management.
+# https://learn.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management.
 
 # Enable PowerShell remoting.
 Enable-PSRemoting -Force
@@ -104,7 +104,7 @@ Hybrid connections are configured from the networking section of the function ap
    
     :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Add a hybrid connection." border="true":::
 
-1. Enter information about the hybrid connection as shown right after the following screenshot. You have the option of making the **Endpoint Host** setting match the host name of the on-premises server to make it easier to remember the server later when you're running remote commands. The port matches the default Windows remote management service port that was defined on the server earlier.
+1. Enter information about the hybrid connection as shown after the following screenshot. For **Endpoint Host**, use the host name of the on-premises server for which you created the self-signed certificate. You'll have connection issues when the certificate name and the host name of the on-premise server don't match. The port matches the default Windows remote management service port that was defined on the server earlier.
   
       :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Add hybrid connection." border="true":::
 

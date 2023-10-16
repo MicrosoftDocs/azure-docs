@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a basic public load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart using the Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
-ms.custom: template-quickstart
+ms.date: 04/10/2023
+ms.custom: template-quickstart, devx-track-azurecli
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure CLI
@@ -16,7 +16,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -166,11 +166,17 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 
 ## Create a bastion host
 
-In this section, you'll create te resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.
 
 ```azurecli
   az network public-ip create \
@@ -188,7 +194,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
     --resource-group CreatePubLBQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
-    --address-prefixes 10.1.1.0/27
+    --address-prefixes 10.1.1.0/26
 ```
 
 ### Create bastion host

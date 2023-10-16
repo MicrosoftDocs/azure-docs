@@ -3,8 +3,8 @@ title: Use a Windows PC with Hadoop on HDInsight - Azure
 description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clusters with PowerShell, Visual Studio, and Linux tools. Develop big data solutions with .NET.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/20/2019
+ms.custom: hdinsightactive, hdiseo17may2017, devx-track-dotnet
+ms.date: 09/14/2023
 ---
 
 # Work in the Apache Hadoop ecosystem on HDInsight from a Windows PC
@@ -23,7 +23,7 @@ Examples of tasks you can do with PowerShell:
 * [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Manage clusters with PowerShell](hdinsight-administer-use-powershell.md).
 
-Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-az-ps) to get the latest version.
+Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) to get the latest version.
 
 ## Utilities you can run in a browser
 
@@ -35,15 +35,7 @@ The following utilities have a web UI that runs in a browser:
     * [Apache Hive View in Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Apache Tez View in Apache Ambari](./index.yml)
 
-## Data Lake (Hadoop) Tools for Visual Studio
-
-Use Data Lake Tools for Visual Studio to deploy and manage Storm topologies. Data Lake Tools also installs the SCP.NET SDK, which allows you to develop C# Storm topologies with Visual Studio.
-
 Before you go to the following examples, [install and try Data Lake Tools for Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
-
-Examples of tasks you can do with Visual Studio and Data Lake Tools for Visual Studio:
-* [Deploy and manage Storm topologies from Visual Studio](storm/apache-storm-deploy-monitor-topology-linux.md)
-* [Develop C# topologies for Storm using Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). The bits include example templates for Storm topologies you can connect to databases, such as Azure Cosmos DB and SQL Database.
 
 ## Visual Studio and the .NET SDK
 
@@ -76,7 +68,7 @@ Apache Spark clusters in HDInsight include Apache Zeppelin notebooks and kernels
 
 If you come across a situation where you must use a tool or technology that is only available on Linux, consider the following options:
 
-* **Bash on Ubuntu on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.
+* **Bash on Ubuntu on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) work as well.
 * **Docker for Windows** provides access to many Linux-based tools, and can be run directly from Windows. For example, you can use Docker to run the Beeline client for Hive directly from Windows. You can also use Docker to run a local Jupyter Notebook and remotely connect to Spark on HDInsight. [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** allows you to graphically browse the cluster file system over an SSH connection.
 
@@ -86,6 +78,6 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 ## Next steps
 
-If you're new to working in Linux-based clusters, see the follow articles:
+If you're new to work in Linux-based clusters, see the following articles:
 * [Set up Apache Hadoop, Apache Kafka, Apache Spark, or other clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Tips for HDInsight clusters on Linux](hdinsight-hadoop-linux-information.md)

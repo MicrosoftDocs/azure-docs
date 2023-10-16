@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: how-to
 ms.date: 03/30/2022
-ms.author: victorh 
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,6 +15,9 @@ ms.custom: devx-track-azurepowershell
 You can migrate Azure Firewall Standard to Azure Firewall Premium to take advantage of the new Premium capabilities. For more information about Azure Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
 This article guides you with the required steps to manually migrate your Standard firewall and policy to Premium.
+
+> [!TIP]
+> The easiest way to change your Azure Firewall SKU with no downtime is to use the **Change SKU** feature. For more information, see [Azure Firewall easy upgrade/downgrade](easy-upgrade.md).
 
 Before you start the migration, understand the [performance considerations](#performance-considerations) and plan ahead for the required maintenance window. Typical down time of 20-30 minutes is expected.
 
@@ -33,9 +36,9 @@ If you use Terraform to deploy the Azure Firewall, you can use Terraform to migr
 
 ## Performance considerations
 
-Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU, which scales to a maximum throughput of 30 Gbps comparable with the standard SKU. The 30-Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
+Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU, which scales to a higher throughput comparable with the standard SKU. For more information about Azure Firewall Performance, see [Azure Firewall Performance](firewall-performance.md)
 
-The firewall throughput might be lower than 30 Gbps when you’ve one or more signatures set to **Alert and Deny** or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full-scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
+Microsoft recommends customers perform full-scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
 
 ## Downtime
 
@@ -69,20 +72,20 @@ Usage example:
 > [!IMPORTANT]
 > The script doesn't migrate Threat Intelligence and SNAT private ranges settings. You'll need to note those settings before proceeding and migrate them manually. Otherwise, you might encounter inconsistent traffic filtering with your new upgraded firewall.
 
-This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
-```azurepowershell
+```powershell
 <#
     .SYNOPSIS
-        Given an Azure firewall policy id the script will transform it to a Premium Azure firewall policy. 
-        The script will first pull the policy, transform/add various parameters and then upload a new premium policy. 
-        The created policy will be named <previous_policy_name>_premium if no new name provided else new policy will be named as the parameter passed.  
+        Given an Azure firewall policy id the script will transform it to a Premium Azure firewall policy.
+        The script will first pull the policy, transform/add various parameters and then upload a new premium policy.
+        The created policy will be named <previous_policy_name>_premium if no new name provided else new policy will be named as the parameter passed.
     .Example
         Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name -NewPolicyName <optional param for the new policy name>
 #>
 
 param (
-    #Resource id of the azure firewall policy. 
+    #Resource id of the azure firewall policy.
     [Parameter(Mandatory=$true)]
     [string]
     $PolicyId,
@@ -107,16 +110,16 @@ function ValidatePolicy {
     Write-Host "Validating resource is as expected"
 
     if ($null -eq $Policy) {
-        Write-Error "Recived null policy"
+        Write-Error "Received null policy"
         exit(1)
     }
     if ($Policy.GetType().Name -ne "PSAzureFirewallPolicy") {
-        Write-Host "Resource must be of type Microsoft.Network/firewallPolicies" -ForegroundColor Red
+        Write-Error "Resource must be of type Microsoft.Network/firewallPolicies"
         exit(1)
     }
 
     if ($Policy.Sku.Tier -eq "Premium") {
-        Write-Host "Policy is already premium"
+        Write-Host "Policy is already premium" -ForegroundColor Green
         exit(1)
     }
 }
@@ -142,16 +145,21 @@ function TransformPolicyToPremium {
         [Parameter(Mandatory=$true)]
         [Microsoft.Azure.Commands.Network.Models.PSAzureFirewallPolicy]
         $Policy
-    )    
+    )
     $NewPolicyParameters = @{
-                        Name = (GetPolicyNewName -Policy $Policy) 
-                        ResourceGroupName = $Policy.ResourceGroupName 
-                        Location = $Policy.Location 
-                        ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy.Id 
-                        DnsSetting = $Policy.DnsSettings 
-                        Tag = $Policy.Tag 
-                        SkuTier = "Premium" 
+                        Name = (GetPolicyNewName -Policy $Policy)
+                        ResourceGroupName = $Policy.ResourceGroupName
+                        Location = $Policy.Location
+                        BasePolicy = $Policy.BasePolicy.Id
+                        ThreatIntelMode = $Policy.ThreatIntelMode
+                        ThreatIntelWhitelist = $Policy.ThreatIntelWhitelist
+                        PrivateRange = $Policy.PrivateRange
+                        DnsSetting = $Policy.DnsSettings
+                        SqlSetting = $Policy.SqlSetting
+                        ExplicitProxy  = $Policy.ExplicitProxy
+                        DefaultProfile  = $Policy.DefaultProfile
+                        Tag = $Policy.Tag
+                        SkuTier = "Premium"
     }
 
     Write-Host "Creating new policy"
@@ -204,10 +212,10 @@ If you use Azure Firewall Standard SKU with firewall policy, you can use the All
 
 The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
- 
+
 ### Migrate a VNET Hub Firewall
 
-- Deallocate the Standard Firewall 
+- Deallocate the Standard Firewall
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"

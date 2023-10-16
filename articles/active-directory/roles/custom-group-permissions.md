@@ -1,26 +1,22 @@
 ---
-title: Group management permissions for Azure AD custom roles (Preview) - Azure Active Directory
-description: Group management permissions for Azure AD custom roles (Preview) in the Azure portal, PowerShell, or Microsoft Graph API.
+title: Group management permissions for Microsoft Entra custom roles
+description: Group management permissions for Microsoft Entra custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/26/2021
+ms.date: 05/24/2022
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
 ---
 
-# Group management permissions for Azure AD custom roles (Preview)
+# Group management permissions for Microsoft Entra custom roles
 
-> [!IMPORTANT]
-> Group management permissions for Azure AD custom roles are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Group management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
+Group management permissions can be used in custom role definitions in Microsoft Entra ID to grant fine-grained access such as the following:
 
 - Manage group properties like name and description
 - Manage members and owners
@@ -28,10 +24,11 @@ Group management permissions can be used in custom role definitions in Azure Act
 - Read audit logs
 - Manage a specific type of group
 
-This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
+This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Microsoft Entra ID](custom-create.md).
 
-> [!NOTE]
-> Assigning custom roles at a group scope using the Azure portal is currently available **only** for Azure AD Premium P1.
+## License requirements
+
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## How to interpret group management permissions
 
@@ -147,5 +144,5 @@ The following permissions are available to delete groups.
 
 ## Next steps
 
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
-- [List Azure AD role assignments](view-assignments.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
+- [List Microsoft Entra role assignments](view-assignments.md)

@@ -1,7 +1,8 @@
 ---
 title: Move an app to another region
 description: Learn how to move App Service resources from one region to another.
-
+author: msangapu-msft
+ms.author: msangapu
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
@@ -43,10 +44,10 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 1. [Create a back up of the source app](manage-backup.md).
 1. [Create an app in a new App Service plan, in the target region](app-service-plan-manage.md#create-an-app-service-plan).
-2. [Restore the back up in the target app](web-sites-restore.md)
-2. If you use a custom domain, [bind it preemptively to the target app](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) with `awverify.` and [enable the domain in the target app](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+2. [Restore the back up in the target app](manage-backup.md)
+2. If you use a custom domain, [bind it preemptively to the target app](manage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
 3. Configure everything else in your target app to be the same as the source app and verify your configuration.
-4. When you're ready for the custom domain to point to the target app, [remap the domain name](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
+4. When you're ready for the custom domain to point to the target app, [remap the domain name](manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
 
 <!-- 1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source App Service resources and click on it.

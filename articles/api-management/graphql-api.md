@@ -1,98 +1,141 @@
 ---
-title: Import a GraphQL API using the Azure portal | Microsoft Docs
+title: Add a GraphQL API to Azure API Management | Microsoft Docs
 titleSuffix: 
-description: Learn how API Management supports GraphQL, add a GraphQL API, and GraphQL limitations.
+description: Learn how to add an existing GraphQL service as an API in Azure API Management using the Azure portal, Azure CLI, or Azure PowerShell. Manage the API and enable queries to pass through to the GraphQL endpoint.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 10/21/2021
-ms.custom: ignite-fall-2021
+ms.date: 04/10/2023
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Import a GraphQL API (preview)
+# Import a GraphQL API
 
-GraphQL is an open-source, industry-standard query language for APIs. Unlike endpoint-based (or REST-style) APIs designed around actions over resources, GraphQL APIs support a broader set of use cases and focus on data types, schemas, and queries.
-
-API Management tackles the security, authentication, and authorization challenges that come with publishing GraphQL APIs. Using API Management to expose your GraphQL APIs, you can:
-* Add a GraphQL service as APIs via Azure portal.  
-* Secure GraphQL APIs by applying both existing access control policies and a [new policy](graphql-validation-policies.md) to secure and protect against GraphQL-specific attacks. 
-* Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals. 
-
-[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
+[!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
 In this article, you'll:
 > [!div class="checklist"]
-> * Learn more about the benefits of using GraphQL APIs.
-> * Add a GraphQL API to your API Management instance.
+> * Add a pass-through GraphQL API to your API Management instance.
 > * Test your GraphQL API.
-> * Learn the limitations of your GraphQL API in API Management.
+
+If you want to import a GraphQL schema and set up field resolvers using REST or SOAP API endpoints, see [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md).
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A GraphQL API. 
+- Azure CLI
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+
+- Azure PowerShell
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Add a GraphQL API
 
-1. Navigate to your API Management instance.
-1. From the side navigation menu, under the **APIs** section, select **APIs**.
+#### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Define a new API**, select the **GraphQL** icon.
 
-    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Selecting GraphQL icon from list of APIs":::
+    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting GraphQL icon from list of APIs.":::
 
 1. In the dialog box, select **Full** and complete the required form fields.
 
-    :::image type="content" source="media/graphql-api/create-from-graphql-schema.png" alt-text="Demonstrate fields for creating GraphQL":::
+    :::image type="content" source="media/graphql-api/create-from-graphql-endpoint.png" alt-text="Screenshot of fields for creating a GraphQL API.":::
 
     | Field | Description |
     |----------------|-------|
-    | Display name | The name by which your GraphQL API will be displayed. |
-    | Name | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
-    | Upload schema file | Select to browse and upload your schema file. |
-    | Description | Add a description of your API. |
-    | URL scheme | Select HTTP, HTTPS, or Both. Default selection: *Both*. |
-    | API URL suffix| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
-    | Base URL | Uneditable field displaying your API base URL |
-    | Tags | Associate your GraphQL API with new or existing tags. |
-    | Products | Associate your GraphQL API with a product to publish it. |
-    | Gateways | Associate your GraphQL API with existing gateways. Default gateway selection: *Managed*. |
-    | Version this API? | Select to version control your GraphQL API. |
- 
-1. Click **Create**.
+    | **Display name** | The name by which your GraphQL API will be displayed. |
+    | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
+    | **GraphQL type** | Select **Pass-through GraphQL** to import from an existing GraphQL API endpoint.  |
+    | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use a common "swapi" GraphQL endpoint such as `https://swapi-graphql.azure-api.net/graphql` as a demo. |
+    | **Upload schema** | Optionally select to browse and upload your schema file to replace the schema retrieved from the GraphQL endpoint (if available).  |
+    | **Description** | Add a description of your API. |
+    | **URL scheme** |  Make a selection based on your GraphQL endpoint. Select one of the options that includes a WebSocket scheme (**WS** or **WSS**) if your GraphQL API includes the subscription type. Default selection: *HTTP(S)*. |
+    | **API URL suffix**| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
+    | **Base URL** | Uneditable field displaying your API base URL |
+    | **Tags** | Associate your GraphQL API with new or existing tags. |
+    | **Products** | Associate your GraphQL API with a product to publish it. |
+    | **Version this API?** | Select to apply a versioning scheme to your GraphQL API. |
 
-## Test your GraphQL API
+1. Select **Create**.
+1. After the API is created, browse or modify the schema on the **Design** tab.
+       :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Screenshot of exploring the GraphQL schema in the portal.":::
 
-1. Navigate to your API Management instance.
-1. From the side navigation menu, under the **APIs** section, select **APIs**.
-1. Under **All APIs**, select your GraphQL API.
-1. Select the **Test** tab to access the Test console. 
-1. Under **Headers**:
-    1. Select the header from the **Name** drop-down menu.
-    1. Enter the value to the **Value** field.
-    1. Add more headers by selecting **+ Add header**.
-    1. Delete headers using the **trashcan icon**.
-1. If you've added a product to your GraphQL API, apply product scope under **Apply product scope**.
-1. Under **Query editor**, either:
-    1. Select at least one field or subfield from the list in the side menu. The fields and subfields you select appear in the query editor.
-    1. Start typing in the query editor to compose a query.
+#### [Azure CLI](#tab/cli)
+
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
+
+```azurecli-interactive
+# API Management service-specific details
+APIMServiceName="apim-hello-world"
+ResourceGroupName="myResourceGroup"
+
+# API-specific details
+APIId="my-graphql-api"
+APIPath="myapi"
+DisplayName="MyGraphQLAPI"
+SpecificationFormat="GraphQL"
+SpecificationURL="<GraphQL backend endpoint>"
+
+# Import API
+az apim api import --path $APIPath --resource-group $ResourceGroupName \
+    --service-name $APIMServiceName --api-id $APIId \
+    --display-name $DisplayName --specification-format $SpecificationFormat --specification-url $SpecificationURL
+```
+
+After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command.
+
+
+#### [PowerShell](#tab/powershell)
+
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
+
+```powershell-interactive
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# API-specific details
+$apiId = "my-graphql-api"
+$apiPath = "myapi"
+$specificationFormat = "GraphQL"
+$specificationUrl = "<GraphQL backend endpoint>"
+
+# Get context of the API Management instance. 
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+
+# Import API
+Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
+```
+
+After importing the API, if needed, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
+
+---
+
+[!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
+
+### Test a subscription
+If your GraphQL  API supports a subscription, you can test it in the test console.
+
+1. Ensure that your API allows a WebSocket URL scheme (**WS** or **WSS**) that's appropriate for your API. You can enable this setting on the **Settings** tab.
+1. Set up a subscription query in the query editor, and then select **Connect** to establish a WebSocket connection to the backend service. 
+
+    :::image type="content" source="media/graphql-api/test-graphql-subscription.png" alt-text="Screenshot of a subscription query in the query editor.":::
+1. Review connection details in the **Subscription** pane. 
+
+    :::image type="content" source="media/graphql-api/graphql-websocket-connection.png" alt-text="Screenshot of Websocket connection in the portal.":::
     
-        :::image type="content" source="media/graphql-api/test-graphql-query.png" alt-text="Demonstrating adding fields to the query editor":::
+1. Subscribed events appear in the **Subscription** pane. The WebSocket connection is maintained until you disconnect it or you connect to a new WebSocket subscription.  
 
-1. Under **Query variables**, add variables to reuse the same query or mutation and pass different values.
-1. Click **Send**.
-1. View the **Response**.
+    :::image type="content" source="media/graphql-api/graphql-subscription-event.png" alt-text="Screenshot of GraphQL subscription events in the portal.":::
 
-    :::image type="content" source="media/graphql-api/graphql-query-response.png" alt-text="View the test query response":::
+## Secure your GraphQL API
 
-1. Repeat preceding steps to test different payloads.
-1. When testing is complete, exit test console.
-
-## Limitations
-
-* Only GraphQL pass through is supported. 
-* A single GraphQL API in API Management corresponds to only a single GraphQL backend endpoint.
+Secure your GraphQL API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

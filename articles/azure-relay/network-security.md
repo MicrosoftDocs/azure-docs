@@ -2,7 +2,7 @@
 title: Network security for Azure Relay
 description: This article describes how to use IP firewall rules and private endpoints with Azure Relay.
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 08/10/2023
 ---
 
 # Network security for Azure Relay 
@@ -20,7 +20,7 @@ By default, Relay namespaces are accessible from internet as long as the request
 
 This feature is helpful in scenarios in which Azure Relay should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Relay with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
-The IP firewall rules are applied at the Relay namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Relay namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+The IP firewall rules are applied at the Relay namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the Relay namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 For more information, see [How to configure IP firewall for a Relay namespace](ip-firewall-virtual-networks.md)
 

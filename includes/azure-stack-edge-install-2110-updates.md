@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 09/27/2021
+ms.date: 10/02/2023
 ---
 
 
@@ -56,6 +56,6 @@ ms.date: 09/27/2021
 
     Go to the local web UI and then go to **Software update** page. Verify that the device software and Kubernetes are successfully updated and the software version reflects that.
 
-    ![View updated software version in local UI](media/azure-stack-edge-install-2110-updates/install-updates-portal-12.png)
+    
 
 

@@ -1,9 +1,8 @@
 ---
-title: How to handle Intelligent Tracking Protection (ITP) in Safari | Azure
-titleSuffix: Microsoft identity platform
+title: How to handle Intelligent Tracking Protection (ITP) in Safari
 description: Single-page app (SPA) authentication when third-party cookies are no longer allowed.
 services: active-directory
-author: nickludwig
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/14/2022
-ms.author: ludwignick
-ms.reviewer: kkrishna
+ms.author: owenrichards
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
@@ -32,7 +31,7 @@ The solution outlined in this article works in all of these browsers, or anywher
 
 ## Overview of the solution
 
-To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires additional tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
+To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
 
 For the Microsoft identity platform, SPAs and native clients follow similar protocol guidance:
 
@@ -40,12 +39,12 @@ For the Microsoft identity platform, SPAs and native clients follow similar prot
   - PKCE is _required_ for SPAs on the Microsoft identity platform. PKCE is _recommended_ for native and confidential clients.
 - No use of a client secret
 
-SPAs have two additional restrictions:
+SPAs have two more restrictions:
 
-- [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) to enable CORS on login endpoints.
+- [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#redirect-uris-for-single-page-apps-spas) to enable CORS on login endpoints.
 - Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather than a 90-day lifetime.
 
-:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
+:::image type="content" source="media/v2-oauth-auth-code-spa/oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
 ## Performance and UX implications
 
@@ -59,16 +58,16 @@ There are two ways of accomplishing sign-in:
   - Consider having a pre-load sequence in the app that checks for a login session and redirects to the login page before the app fully unpacks and executes the JavaScript payload.
 - **Popups**
   - If the user experience (UX) of a full page redirect doesn't work for the application, consider using a popup to handle authentication.
-  - When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.js supports popups for authentication, as do most libraries.
+  - When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code, and tokens in local storage for the application to use. MSAL.js supports popups for authentication, as do most libraries.
   - Browsers are decreasing support for popups, so they may not be the most reliable option. User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
 
-     Apple [describes a popup method](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) as a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferral of permissions in the future, it will not impact the guidance here.
+     Apple [describes a popup method](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) as a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferal of permissions in the future, it will not impact the guidance here.
      
      Here, the popup is being used as a first party navigation to the login page so that a session is found and an auth code can be provided. This should continue working into the future.
 
 ### Using iframes
 
-A common pattern in web apps is to use an iframe to embed one app inside anotherd: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow.
+A common pattern in web apps is to use an iframe to embed one app inside another: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow. However, there are a couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
 
 Silent token acquisition no longer works when third-party cookies are blocked - the application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page.
 

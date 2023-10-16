@@ -2,14 +2,15 @@
 title: Hyperspace indexes for Apache Spark
 description: Performance optimization for Apache Spark using Hyperspace indexes
 services: synapse-analytics 
-author: juluczni
-ms.author: juluczni
+author: ekote
+ms.author: eskot
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 02/15/2022
-ms.reviewer: euang
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+ms.custom: devx-track-python
+ms.date: 02/10/2023
+ms.reviewer: eskot
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 # Hyperspace: An indexing subsystem for Apache Spark
@@ -28,6 +29,9 @@ You might want to carefully monitor your workloads and determine whether indexin
 This document is also available in notebook form, for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb).
 
 ## Setup
+
+>[!Note]
+> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 3.1 (EOLA), and Azure Synapse Runtime for Apache Spark 3.2 (EOLA). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3 (GA).
 
 To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 
@@ -238,7 +242,7 @@ deptLocation: String = /your-path/departments.parquet
 
 Let's verify the contents of the Parquet files we created to make sure they contain expected records in the correct format. Later, we'll use these data files to create Hyperspace indexes and run sample queries.
 
-Running the following cell produces and output that displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
+Running the following cell produces an output that displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
 
 :::zone pivot = "programming-language-scala"
 

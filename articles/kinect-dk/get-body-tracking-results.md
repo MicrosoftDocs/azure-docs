@@ -2,7 +2,7 @@
 title: Azure Kinect get body tracking results
 description: Learn how to get body tracking results using the Azure Kinect Body Tracking SDK.
 author: qm13
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.author: quentinm
 ms.reviewer: yijwan
 ms.date: 06/26/2019
@@ -67,10 +67,10 @@ case K4A_WAIT_RESULT_FAILED:
 
 ## Enqueue the capture and pop the results
 
-The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. Use the [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_ga093becd9bb4a63f5f4d56f58097a7b1e.html#ga093becd9bb4a63f5f4d56f58097a7b1e) function to add a new capture to the input queue. Use the [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_gaaf446fb1579cbbe0b6af824ee0a7458b.html#gaaf446fb1579cbbe0b6af824ee0a7458b) function o pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
+The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. Use the [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_ga093becd9bb4a63f5f4d56f58097a7b1e.html#ga093becd9bb4a63f5f4d56f58097a7b1e) function to add a new capture to the input queue. Use the [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_gaaf446fb1579cbbe0b6af824ee0a7458b.html#gaaf446fb1579cbbe0b6af824ee0a7458b) function to pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
 
-### Real-time processing
-Use this pattern for single-threaded applications that need real-time results and can accommodate dropped frames. The `simple_3d_viewer` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples) is an example of real-time processing.
+### No Wait processing
+Use this pattern for single-threaded applications that need immediate results and can accommodate dropped frames (e.g. viewing live video from a device). The `simple_3d_viewer` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples) is an example of no wait processing.
 
 ```C
 k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, 0);
@@ -92,12 +92,8 @@ if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
 }
 ```
 
-### Synchronous processing
-Use this pattern for applications that do not need real-time results or cannot accommodate dropped frames.
-
-Processing throughput may be limited.
-
-The `simple_sample.exe` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples) is an example of synchronous processing.
+### Wait processing
+Use this pattern for applications that do not need results for every frames (e.g. processing a video from a file). The `simple_sample.exe` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples/tree/d87e80a2775413ee65f40943bbb65057e4c41976/body-tracking-samples/simple_sample) is an example of wait processing.
 
 ```C
 k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);

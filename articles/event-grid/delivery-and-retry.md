@@ -2,11 +2,11 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 03/01/2023
 ---
 
 # Event Grid message delivery and retry
-Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event.
+Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, Event Grid delivers one event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!NOTE]
 > Event Grid doesn't guarantee order for event delivery, so subscribers may receive them out of order. 
@@ -20,13 +20,13 @@ The following table describes the types of endpoints and errors for which retry 
 
 | Endpoint Type | Error codes |
 | --------------| -----------|
-| Azure Resources | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden | 
-| Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
+| Azure Resources | 400 (Bad request), 413 (Request entity is too large) | 
+| Webhook | 400 (Bad request), 413 (Request entity is too large), 401 (Unauthorized) |
  
 > [!NOTE]
-> If Dead-Letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring Dead-Letter if you don't want these kinds of events to be dropped.
+> If dead-letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring dead-letter if you don't want these kinds of events to be dropped. Dead lettered events will be dropped when the dead-letter destination isn't found.
 
-If the error returned by the subscribed endpoint isn't among the above list, Event Grid performs the retry using policies described below:
+If the error returned by the subscribed endpoint isn't among the above list, Event Grid performs the retry using the policy described below:
 
 Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
@@ -42,17 +42,20 @@ Event Grid waits 30 seconds for a response after delivering a message. After 30 
 - Every 12 hours up to 24 hours
 
 
-If the endpoint responds within 3 minutes, Event Grid will attempt to remove the event from the retry queue on a best effort basis but duplicates may still be received.
+If the endpoint responds within 3 minutes, Event Grid attempts to remove the event from the retry queue on a best effort basis, but duplicates may still be received.
 
 Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
 
 ## Retry policy
-You can customize the retry policy when creating an event subscription by using the following two configurations. An event will be dropped if either of the limits of the retry policy is reached. 
+You can customize the retry policy when creating an event subscription by using the following two configurations. An event is dropped if either of the limits of the retry policy is reached. 
 
 - **Maximum number of attempts** - The value must be an integer between 1 and 30. The default value is 30.
 - **Event time-to-live (TTL)** -  The value must be an integer between 1 and 1440. The default value is 1440 minutes
 
 For sample CLI and PowerShell command to configure these settings, see [Set retry policy](manage-event-delivery.md#set-retry-policy).
+
+> [!NOTE]
+> If you set both `Event time to live (TTL)` and `Maximum number of attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 5 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 5 attempts, whichever happens first, the event is dead-lettered. If you set max delivery attempts to 10, with respect to [exponential retry schedule](#retry-schedule), max 6 number of delivery attempts happen before 30 minutes TTL will be reached, therefore setting max number of attempts to 10 will have no impact in this case and events will be dead-lettered after 30 minutes.
 
 ## Output batching 
 Event Grid defaults to sending each event individually to subscribers. The subscriber receives an array with a single event. You can configure Event Grid to batch events for delivery for improved HTTP performance in high-throughput scenarios. Batching is turned off by default and can be turned on per-subscription.
@@ -60,7 +63,7 @@ Event Grid defaults to sending each event individually to subscribers. The subsc
 ### Batching policy
 Batched delivery has two settings:
 
-* **Max events per batch** - Maximum number of events Event Grid will deliver per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
+* **Max events per batch** - Maximum number of events Event Grid delivers per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
 * **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
 
 Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
@@ -69,7 +72,7 @@ Batched delivery in configured on a per-event subscription basis via the portal,
 
 * All or none
 
-  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 60 seconds.
+  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 30 seconds.
 
 * Optimistic batching
 
@@ -84,7 +87,9 @@ Batched delivery in configured on a per-event subscription basis via the portal,
   It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in kilo bytes) when creating an event subscription. If only one setting is set, Event Grid uses (configurable) default values. See the following sections for the default values, and how to override them.
 
 ### Azure portal: 
-![Batch delivery settings](./media/delivery-and-retry/batch-settings.png)
+You see these settings on the **Additional Features** tab of the **Event Subscription** page. 
+
+:::image type="content" source="./media/delivery-and-retry/batch-settings.png" alt-text="Screenshot sowing the Additional Features tab of Event Subscription page with Batching section highlighted. ":::
 
 ### Azure CLI
 When creating an event subscription, use the following parameters: 
@@ -108,7 +113,7 @@ For more information on using Azure CLI with Event Grid, see [Route storage even
 
 
 ## Delayed Delivery
-As an endpoint experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first 10 events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
+As an endpoint experiences delivery failures, Event Grid begins to delay the delivery and retry of events to that endpoint. For example, if the first 10 events published to an endpoint fail, Event Grid assumes that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
 
 The functional purpose of delayed delivery is to protect unhealthy endpoints and the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
 
@@ -130,6 +135,9 @@ Before setting the dead-letter location, you must have a storage account with a 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
 You might want to be notified when an event has been sent to the dead-letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events. For an example of setting up a dead-letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
+
+> [!NOTE]
+> If you enable managed identity for dead-lettering, you'll need to add the managed identity to the appropriate role-based access control (RBAC) role on the Azure Storage account that will hold the dead-lettered events. For more information, see [Supported destinations and Azure roles](add-identity-roles.md#supported-destinations-and-azure-roles).
 
 ## Delivery event formats
 This section gives you examples of events and dead-lettered events in different delivery schema formats (Event Grid schema, CloudEvents 1.0 schema, and custom schema). For more information about these formats, see [Event Grid schema](event-schema.md) and [Cloud Events 1.0 schema](cloud-event-schema.md) articles. 
@@ -321,7 +329,7 @@ Event Grid uses HTTP response codes to acknowledge receipt of events.
 
 ### Success codes
 
-Event Grid considers **only** the following HTTP response codes as successful deliveries. All other status codes are considered failed deliveries and will be retried or deadlettered as appropriate. Upon receiving a successful status code, Event Grid considers delivery complete.
+Event Grid considers **only** the following HTTP response codes as successful deliveries. All other status codes are considered failed deliveries and will be retried or deadlettered as appropriate. When Event Grid receives a successful status code, it considers delivery complete.
 
 - 200 OK
 - 201 Created

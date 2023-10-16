@@ -1,10 +1,14 @@
 ---
 title: Azure Service Fabric deployment with PowerShell
 description: Learn about removing and deploying applications in Azure Service Fabric and how to perform these actions in PowerShell.
-
-ms.topic: conceptual
-ms.date: 01/19/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Deploy and remove applications using PowerShell
 
 > [!div class="op_single_selector"]
@@ -50,7 +54,7 @@ Before you run any PowerShell commands in this article, always start by using [C
 Connect-ServiceFabricCluster
 ```
 
-For examples of connecting to a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
+For examples of connecting to a remote cluster or cluster secured using Microsoft Entra ID, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## Upload the application package
 

@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl cluster
 description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing clusters.
-author: jeffj6123
-
 ms.topic: reference
-ms.date: 1/16/2020
-ms.author: jejarry
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl cluster
@@ -252,7 +253,7 @@ If connecting to secure cluster, specify an absolute path to a cert (.crt) and k
 
 |Argument|Description|
 | --- | --- |
-| --aad | Use Azure Active Directory for authentication. |
+| --aad | Use Microsoft Entra ID for authentication. |
 | --ca | Absolute path to CA certs directory to treat as valid or CA bundle file. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolics links. This is used to verify that the certificate returned by the cluster is valid. |
 | --cert | Absolute path to a client certificate file. |
 | --endpoint | Cluster endpoint URL, including port and HTTP or HTTPS prefix. Typically, the endpoint will look something like `https\://<your-url>\:19080`. If no endpoint is given, it will default to `http\://localhost\:19080`. |

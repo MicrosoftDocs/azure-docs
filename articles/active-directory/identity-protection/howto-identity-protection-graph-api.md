@@ -1,91 +1,83 @@
 ---
-title: Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection
-description: Learn how to query Microsoft Graph risk detections and associated information from Azure Active Directory
+title: Microsoft Graph PowerShell SDK and Microsoft Entra ID Protection
+description: Query Microsoft Graph risk detections and associated information from Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 09/13/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: sahandle
+manager: amycolannino
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK
+# Microsoft Entra ID Protection and the Microsoft Graph PowerShell 
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started) to get risky user details using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Microsoft Entra ID Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started) to manage risky users using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
 
+To successfully complete this tutorial, make sure you have the required prerequisites:
 
-## Connect to Microsoft Graph
+- Microsoft Graph PowerShell SDK is installed. For more information, see the article [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true).
+- Microsoft Graph PowerShell using a [Security Administrator](../roles/permissions-reference.md#security-administrator) role. The IdentityRiskEvent.Read.All, IdentityRiskyUser.ReadWrite.All Or IdentityRiskyUser.ReadWrite.All delegated permissions are required. To set the permissions to IdentityRiskEvent.Read.All and IdentityRiskyUser.ReadWrite.All, run:
 
-There are four steps to accessing Identity Protection data through Microsoft Graph:
+   ```powershell
+   Connect-MgGraph -Scopes "IdentityRiskEvent.Read.All","IdentityRiskyUser.ReadWrite.All"
+   ```
 
-- [Create a certificate](#create-a-certificate)
-- [Create a new app registration](#create-a-new-app-registration)
-- [Configure API permissions](#configure-api-permissions)
-- [Configure a valid credential](#configure-a-valid-credential)
-
-### Create a certificate
-
-In a production environment you would use a certificate from your production Certificate Authority, but in this sample we will use a self-signed certificate. Create and export the certificate using the following PowerShell commands.
+If you use app-only authentication, see the article [Use app-only authentication with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/app-only?view=graph-powershell-1.0&tabs=azure-portal&preserve-view=true). To register an application with the required application permissions, prepare a certificate and run:
 
 ```powershell
-$cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
-Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
+Connect-MgGraph -ClientID YOUR_APP_ID -TenantId YOUR_TENANT_ID -CertificateName YOUR_CERT_SUBJECT ## Or -CertificateThumbprint instead of -CertificateName
 ```
 
-### Create a new app registration
+## List risky detections using PowerShell
 
-1. In the Azure portal, browse to **Azure Active Directory** > **App registrations**.
-1. Select **New registration**.
-1. On the **Create** page, perform the following steps:
-   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API).
-   1. Under **Supported account types**, select the type of accounts that will use the APIs.
-   1. Select **Register**.
-1. Take note of the **Application (client) ID** and **Directory (tenant) ID** as you will need these items later.
+You can retrieve the risk detections by the properties of a risk detection in Identity Protection.
 
-### Configure API permissions
+```powershell
+# List all anonymizedIPAddress risk detections
+Get-MgRiskDetection -Filter "RiskType eq 'anonymizedIPAddress'" | Format-Table UserDisplayName, RiskType, RiskLevel, DetectedDateTime
 
-In this example, we configure application permissions allowing this sample to be used unattended. If granting permissions to a user who will be logged on, choose delegated permissions instead. More information about different permission types can be found in the article, [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md#permission-types).
+# List all high risk detections for the user 'User01'
+Get-MgRiskDetection -Filter "UserDisplayName eq 'User01' and Risklevel eq 'high'" | Format-Table UserDisplayName, RiskType, RiskLevel, DetectedDateTime
 
-1. From the **Application** you created, select **API permissions**.
-1. On the **Configured permissions** page, in the toolbar on the top, click **Add a permission**.
-1. On the **Add API access** page, click **Select an API**.
-1. On the **Select an API** page, select **Microsoft Graph**, and then click **Select**.
-1. On the **Request API permissions** page: 
-   1. Select **Application permissions**.
-   1. Select the checkboxes next to `IdentityRiskEvent.Read.All` and `IdentityRiskyUser.Read.All`.
-   1. Select **Add permissions**.
-1. Select **Grant admin consent for domain** 
-
-### Configure a valid credential
-
-1. From the **Application** you created, select **Certificates & secrets**.
-1. Under **certificates**, select **Upload certificate**.
-   1. Select the previously exported certificate from the window that opens.
-   1. Select **Add**.
-1. Take note of the **Thumbprint** of the certificate as you will need this information in the next step.
+```
 
 ## List risky users using PowerShell
 
-To enable the ability to query Microsoft Graph, we need to install the `Microsoft.Graph` module in our PowerShell window, using the `Install-Module Microsoft.Graph` command.
-
-Modify the following variables to include the information generated in the previous steps, then run them as a whole to get risky user details using PowerShell.
+You can retrieve the risky users and their risky histories in Identity Protection. 
 
 ```powershell
-$ClientID       = "<your client ID here>"        # Application (client) ID gathered when creating the app registration
-$tenantdomain   = "<your tenant domain here>"    # Directory (tenant) ID gathered when creating the app registration
-$Thumbprint     = "<your client secret here>"    # Certificate thumbprint gathered when configuring your credential
+# List all high risk users
+Get-MgRiskyUser -Filter "RiskLevel eq 'high'" | Format-Table UserDisplayName, RiskDetail, RiskLevel, RiskLastUpdatedDateTime
 
-Select-MgProfile -Name "beta"
-  
-Connect-MgGraph -ClientId $ClientID -TenantId $tenantdomain -CertificateThumbprint $Thumbprint
+#  List history of a specific user with detailed risk detection
+Get-MgRiskyUserHistory -RiskyUserId 375844b0-2026-4265-b9f1-ee1708491e05| Format-Table RiskDetail, RiskLastUpdatedDateTime, @{N="RiskDetection";E={($_). Activity.RiskEventTypes}}, RiskState, UserDisplayName
 
-Get-MgRiskyUser -All
+```
+
+## Confirm users compromised using PowerShell
+
+You can confirm users compromised and flag them as high risky users in Identity Protection.
+
+```powershell
+# Confirm Compromised on two users
+Confirm-MgRiskyUserCompromised -UserIds "577e09c1-5f26-4870-81ab-6d18194cbb51","bf8ba085-af24-418a-b5b2-3fc71f969bf3"
+```
+
+## Dismiss risky users using PowerShell
+
+You can bulk dismiss risky users in Identity Protection.
+
+```powershell
+# Get a list of high risky users which are more than 90 days old
+$riskyUsers= Get-MgRiskyUser -Filter "RiskLevel eq 'high'" | where RiskLastUpdatedDateTime -LT (Get-Date).AddDays(-90)
+# bulk dimmiss the risky users
+Invoke-MgDismissRiskyUser -UserIds $riskyUsers.Id
 ```
 
 ## Next steps
@@ -93,6 +85,4 @@ Get-MgRiskyUser -All
 - [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 - [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Get access without a user](/graph/auth-v2-service)
-- [Azure AD Identity Protection Service Root](/graph/api/resources/identityprotectionroot)
-- [Azure Active Directory Identity Protection](./overview-identity-protection.md)
+- [Microsoft Entra ID Protection](./overview-identity-protection.md)

@@ -10,32 +10,32 @@ metadata:
   ms.service: virtual-network
   ms.topic: hub-page
   ms.collection:
-  author: KumudD
-  ms.author: kumud
-  manager: mtillman
+  author: asudbring
+  ms.author: allensu
+  manager: kumudD
   ms.date: 09/08/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: What is Azure Networking? 
-      itemType: overview # controls the icon image and super-title text 
+    - title: Azure Networking services overview 
+      itemType: overview
       url: fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: Load-balancing options in Azure
-      itemType: architecture
-      url: /azure/architecture/guide/technology-choices/load-balancing-overview
+    - title: Azure network security
+      itemType: overview
+      url: ./security/index.yml
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Working remotely using Azure services
-      itemType: concept
-      url: working-remotely-support.md
+    - title: Azure Networking Solutions
+      itemType: deploy
+      url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
     
 
 # additionalContent section (optional)
@@ -111,7 +111,7 @@ additionalContent:
             - text: What is Azure Virtual Network NAT?
               url: ../virtual-network/nat-gateway/nat-overview.md
             - text: Create and configure NAT gateway resource
-              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+              url: ../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
             - text: See more
               url: ../virtual-network/nat-gateway/index.yml
 
@@ -191,10 +191,12 @@ additionalContent:
         # Card
         - title: DDoS protection
           links:
-            - text: What is Azure DDoS Protection Standard?
+            - text: What is Azure DDoS Protection?
+              url: ../ddos-protection/ddos-protection-overview.md
+            - text: Create DDoS Network Protection
               url: ../ddos-protection/manage-ddos-protection.md
-            - text: Manage DDoS Protection
-              url: ../ddos-protection/manage-ddos-protection.md
+            - text: Create DDoS IP Protection
+              url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
             - text: See more
               url: ../ddos-protection/index.yml
 
@@ -255,6 +257,6 @@ additionalContent:
             - text: What is Azure Monitor?
               url: ../network-watcher/network-watcher-monitoring-overview.md
             - text: What is Azure Monitor Network Insights?
-              url: ../azure-monitor/insights/network-insights-overview.md
+              url: ../network-watcher/network-insights-overview.md
             - text: See more
               url: ../azure-monitor/index.yml

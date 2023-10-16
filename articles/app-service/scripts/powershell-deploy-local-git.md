@@ -5,7 +5,7 @@ tags: azure-service-management
 
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.topic: sample
-ms.date: 03/20/2017
+ms.date: 12/06/2022
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
@@ -36,6 +36,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app with necessary resource group and App Service group. When the current directory contains a Git repository, also add an `azure` remote. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource in a resource group. |
+| [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) | Get a web app's publishing profile. |
 
 ## Next steps
 

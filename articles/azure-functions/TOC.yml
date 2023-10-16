@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Azure Functions
+    - name: Functions overview
       href: functions-overview.md
+    - name: Scenarios
+      href: functions-scenarios.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
@@ -18,63 +20,175 @@
     - name: Create your first function
       expanded: true
       items:
-        - name: Visual Studio Code
-          expanded: true
-          items:
-          - name: C#
+        - name: C#
+          items: 
+          - name: Visual Studio
+            displayName: C#, quickstart, get started
+            href: functions-create-your-first-function-visual-studio.md
+          - name: Visual Studio Code
+            displayName: C#, quickstart, get started
             href: create-first-function-vs-code-csharp.md
-          - name: Java
-            href: create-first-function-vs-code-java.md
-          - name: JavaScript
-            href: create-first-function-vs-code-node.md
-          - name: PowerShell
-            href: create-first-function-vs-code-powershell.md
-          - name: Python
-            href: create-first-function-vs-code-python.md
-          - name: TypeScript
-            href: create-first-function-vs-code-typescript.md
-          - name: Other (Go/Rust)
-            href: create-first-function-vs-code-other.md
-        - name: Visual Studio
-          href: functions-create-your-first-function-visual-studio.md
-        - name: Command line
-          expanded: false
-          items:
-          - name: C#
+          - name: Command line
+            displayName: C#, quickstart, get started
             href: create-first-function-cli-csharp.md
-          - name: Java
+        - name: Java  
+          items:
+          - name: Eclipse
+            displayName: Java, quickstart, get started
+            href: functions-create-maven-eclipse.md          
+          - name: Gradle
+            displayName: Java, quickstart, get started
+            href: functions-create-first-java-gradle.md
+          - name: IntelliJ IDEA
+            displayName: Java, quickstart, get started
+            href: functions-create-maven-intellij.md 
+          - name: Maven 
+            displayName: Java, quickstart, get started
             href: create-first-function-cli-java.md
-          - name: JavaScript
+          - name: Quarkus 
+            displayName: Java, quickstart, get started
+            href: functions-create-first-quarkus.md
+          - name: Spring Cloud
+            displayName: Java, quickstart, get started
+            href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
+          - name: Visual Studio Code
+            displayName: Java, quickstart, get started
+            href: create-first-function-vs-code-java.md 
+        - name: JavaScript
+          items:
+          - name: Visual Studio Code
+            displayName: JavaScript, quickstart, get started
+            href: create-first-function-vs-code-node.md
+          - name: Command line  
+            displayName: JavaScript, quickstart, get started
             href: create-first-function-cli-node.md
-          - name: PowerShell
+        - name: PowerShell
+          items:
+          - name: Visual Studio Code
+            displayName: PowerShell, quickstart, get started
+            href: create-first-function-vs-code-powershell.md
+          - name: Command line
+            displayName: PowerShell, quickstart, get started
             href: create-first-function-cli-powershell.md
-          - name: Python
+        - name: Python
+          items:
+          - name: Visual Studio Code
+            displayName: Python, quickstart, get started
+            href: create-first-function-vs-code-python.md
+          - name: Command line
+            displayName: Python, quickstart, get started
             href: create-first-function-cli-python.md
-          - name: TypeScript
+        - name: TypeScript
+          items:
+          - name: Visual Studio Code
+            displayName: TypeScript, quickstart, get started
+            href: create-first-function-vs-code-typescript.md
+          - name: Command line
+            displayName: TypeScript, quickstart, get started
             href: create-first-function-cli-typescript.md
-        - name: ARM template
-          displayName: Resource Manager
-          href: functions-create-first-function-resource-manager.md
+        - name: Other (Go/Rust)
+          items:
+          - name: Visual Studio Code
+            displayName: Go, Rust, quickstart, get started
+            href: create-first-function-vs-code-other.md
+        - name: Resource Manager
+          items:
+          - name: Bicep
+            displayName: ARM, Resource Manager, Template
+            href: functions-create-first-function-bicep.md
+          - name: ARM template
+            displayName: Resource Manager
+            href: functions-create-first-function-resource-manager.md
         - name: Azure Arc (preview)
           items:
-          - name: Publish code project
-            displayName: Arc, container, Kubernetes
-            href: create-first-function-arc-cli.md
-          - name: Publish Linux container
-            displayName: Arc, container, Kubernetes
-            href: create-first-function-arc-custom-container.md
-    - name: Connect to a database
-      items:
-        - name: Visual Studio Code
-          href: functions-add-output-binding-cosmos-db-vs-code.md
+            - name: Code-only publishing
+              displayName: Arc, container, Kubernetes
+              href: create-first-function-arc-cli.md
+            - name: Custom container
+              displayName: Arc, container, Kubernetes, Docker
+              href: create-first-function-arc-custom-container.md  
+        - name: Azure Container Apps (preview)
+          href: functions-deploy-container-apps.md
+          displayName: container, Docker, ACA 
     - name: Connect to storage
       items:
-        - name: Visual Studio Code
-          href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Visual Studio
-          href: functions-add-output-binding-storage-queue-vs.md
-        - name: Command line
-          href: functions-add-output-binding-storage-queue-cli.md
+        - name: C#
+          items: 
+          - name: Visual Studio
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs.md
+          - name: Visual Studio Code
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp
+          - name: Command line
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
+        - name: Java
+          items: 
+          - name: Visual Studio Code
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java
+          - name: Command line
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java
+        - name: JavaScript
+          items: 
+          - name: Visual Studio Code
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript
+          - name: Command line
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-javascript
+        - name: PowerShell
+          items: 
+          - name: Visual Studio Code
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell
+          - name: Command line
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-powershell
+        - name: Python
+          items: 
+          - name: Visual Studio Code
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python
+          - name: Command line
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+        - name: TypeScript
+          items: 
+          - name: Visual Studio Code
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-typescript
+          - name: Command line
+            displayName: Connect to storage
+            href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-typescript
+    - name: Connect to a database
+      items:
+        - name: C#
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp
+        - name: JavaScript
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript
+        - name: Python
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -101,19 +215,19 @@
           href: functions-identity-based-connections-tutorial-2.md
         - name: Access Azure SQL with managed identity
           href: functions-identity-access-azure-sql-with-managed-identity.md
+    - name: Low-latency Blob trigger using Event Grid
+      href: functions-event-grid-blob-trigger.md
+      displayName: storage, ngrok, local
     - name: Image resize with Event Grid
-      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
-      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
+      href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
       href: machine-learning-pytorch.md
-    - name: Create a custom Linux image
-      href: functions-create-function-linux-custom-image.md
-      displayName: container, docker
     - name: Functions on IoT Edge device
-      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
       href: functions-event-hub-cosmos-db.md
 - name: Samples
@@ -160,6 +274,8 @@
           items:
             - name: GitHub deployment
               href: ./scripts/functions-cli-create-function-app-github-continuous.md
+    - name: Azure PowerShell
+      href: create-resources-azure-powershell.md
 - name: Concepts
   items:
     - name: Best practices
@@ -177,13 +293,13 @@
           displayName: encryption, keys, mount, files
         - name: Error handling and function retries
           href: functions-bindings-error-pages.md
-          displayName: best practices
+          displayName: best practices, retry policies
         - name: Security
           href: security-concepts.md
           displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
-      displayName: migrate, migration, v3
+      displayName: migrate, migration, v3, v4, update, upgrade
     - name: Hosting and scale
       items:
         - name: Consumption plan
@@ -192,14 +308,18 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-    - name: Deployments
-      href: functions-deployment-technologies.md
+        - name: Azure Container Apps hosting (preview)
+          href: functions-container-apps-hosting.md   
+    - name: Deployment options
+      href: functions-deployment-technologies.md 
     - name: Events and messaging
       items:
         - name: Connect to services 
           href: event-messaging-bindings.md
         - name: Event-driven scaling
           href: event-driven-scaling.md
+        - name: Target-based scaling
+          href: functions-target-based-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
         - name: Concurrency
@@ -210,8 +330,6 @@
       items:
         - name: About triggers and bindings
           href: functions-triggers-bindings.md
-        - name: Binding example
-          href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
           displayName: bundles, extension bundles
@@ -221,6 +339,8 @@
           href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
     - name: Frameworks
       items:
         - name: Express.js
@@ -232,7 +352,14 @@
           displayName: secure, ssl
         - name: Security baseline
           href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
-    - name: Monitoring
+    - name: Reliability
+      items:
+        - name: Availability zones and disaster recovery 
+          href: ../reliability/reliability-functions.md?toc=/azure/azure-functions/TOC.json
+          displayName: availability zones, high-availability, zone redundancy, disaster recovery
+        - name: Migrate to a zone-redundant plan
+          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json 
+    - name: Monitor function executions
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
     - name: Diagnostics
@@ -240,7 +367,7 @@
     - name: Consumption plan costs
       href: functions-consumption-costs.md
       displayName: best practice
-    - name: Functions Proxies
+    - name: Serverless REST APIs
       href: functions-proxies.md
     - name: Networking options
       href: functions-networking-options.md
@@ -248,33 +375,31 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
-    - name: High availability 
-      href: azure-functions-az-redundancy.md
 - name: Languages
   items:
     - name: Supported languages
       href: supported-languages.md
     - name: C#
       items: 
-        - name: In-process
-          href: functions-dotnet-class-library.md
-        - name: Isolated process 
-          displayName: .NET isolated, .NET 5
+        - name: Isolated worker model 
+          displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
+        - name: In-process model
+          href: functions-dotnet-class-library.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
-    - name: F#
-      href: functions-reference-fsharp.md
+        - name: Execution mode comparison
+          href: dotnet-isolated-in-process-differences.md
     - name: JavaScript
-      href: functions-reference-node.md
+      href: functions-reference-node.md?tabs=javascript
+    - name: TypeScript
+      href: functions-reference-node.md?tabs=typescript
     - name: Java
       href: functions-reference-java.md
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
       href: functions-reference-python.md
-    - name: TypeScript
-      href: functions-reference-node.md#typescript
 - name: How-to guides
   items:
     - name: Develop
@@ -285,33 +410,22 @@
           items:
             - name: Develop and debug locally
               href: functions-develop-local.md
+              displayName: local.settings.json
             - name: Visual Studio Code development
               href: functions-develop-vs-code.md
+              displayName: VS Code, VS
             - name: Visual Studio development
               href: functions-develop-vs.md
+              displayName: VS
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
-            - name: Event Grid Blob Trigger local development
-              href: functions-event-grid-blob-trigger.md
         - name: Create functions
           items:
             - name: HTTP trigger
               items:
                 - name: Azure portal
                   href: functions-create-function-app-portal.md
-                - name: Command line
-                  href: ./create-first-function-cli-csharp.md
-                - name: Visual Studio
-                  href: ./functions-create-your-first-function-visual-studio.md
-                - name: Visual Studio Code
-                  href: ./create-first-function-vs-code-csharp.md
-                - name: Java using Gradle
-                  href: functions-create-first-java-gradle.md
-                - name: Java using Eclipse
-                  href: functions-create-maven-eclipse.md
-                - name: Java using IntelliJ IDEA
-                  href: functions-create-maven-intellij.md
                 - name: Kotlin using Maven
                   href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ
@@ -322,6 +436,9 @@
                   href: create-first-function-cli-python.md
                 - name: Premium plan
                   href: create-premium-plan-function-app-portal.md
+                - name: Linux container (Premium)
+                  href: functions-deploy-container.md
+                  displayName: container, Docker, custom
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
@@ -335,7 +452,7 @@
         - name: Connect to services
           items:
             - name: How to connect to services
-              displayName: bindings,integrate
+              displayName: bindings,integrate,add bindings
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -376,6 +493,15 @@
           href: functions-continuous-deployment.md
         - name: Deployment slots
           href: functions-deployment-slots.md
+        - name: Containers
+          items: 
+            - name: Work with containers 
+              href: functions-how-to-custom-container.md 
+            - name: Create functions in containers  
+              href: functions-create-container-registry.md
+            - name: Functions in Kubernetes
+              href: functions-kubernetes-keda.md
+              displayName: keda, container, docker
         - name: Build and deploy using Azure Pipelines
           href: functions-how-to-azure-devops.md
         - name: Build and deploy using GitHub Actions
@@ -384,38 +510,52 @@
           href: deployment-zip-push.md
         - name: Run from package
           href: run-functions-from-deployment-package.md
-        - name: Functions in Kubernetes
-          href: functions-kubernetes-keda.md
-          displayName: keda, container, docker
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/developer/jenkins/deploy-to-azure-functions?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
       items:
         - name: Manage a function app
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
+        - name: App Configuration references
+          href: ../app-service/app-service-configuration-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Set the runtime version
           href: set-runtime-version.md
         - name: Disable a function
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Geo-disaster recovery
-          href: functions-geo-disaster-recovery.md
         - name: Move across regions
           href: functions-move-across-regions.md
+        - name: Work with legacy Functions Proxies
+          href: legacy-proxies.md  
+    - name: Migrate
+      items:
+        - name: Migrate .NET apps to the isolated model
+          href: migrate-dotnet-to-isolated-model.md
+        - name: Migrate v3.x to v4.x
+          href: migrate-version-3-version-4.md
+        - name: Migrate v1.x to v4.x
+          href: migrate-version-1-version-4.md
+        - name: Node.js
+          items:
+            - name: Migrate to model v4.x
+              href: functions-node-upgrade-v4.md
+        - name: Update Java versions
+          href: update-java-versions.md  
     - name: Monitor
       items:
+        - name: Monitor function apps with Azure Monitor
+          href: monitor-functions.md
+          displayName: monitor metrics
         - name: Configure monitoring
           href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
         - name: Analyze telemetry data
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
-        - name: Monitor metrics
-          href: monitor-metrics.md
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
@@ -426,40 +566,40 @@
       items:
         - name: Configure auth providers
           items:
-            - name: Authenticate with Azure AD
-              href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Authenticate with Microsoft Entra ID
+              href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Facebook
-              href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with GitHub
-              href: ../app-service/configure-authentication-provider-github.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Google
-              href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Twitter
-              href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with an OpenID Connect provider
-              href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate using Sign in with Apple (Preview)
-              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-apple.md?toc=/azure/azure-functions/toc.json
         - name: Customize sign-ins/outs
-          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=/azure/azure-functions/toc.json
         - name: Access user identities
-          href: ../app-service/configure-authentication-user-identities.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-user-identities.md?toc=/azure/azure-functions/toc.json
         - name: Work with tokens
-          href: ../app-service/configure-authentication-oauth-tokens.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-oauth-tokens.md?toc=/azure/azure-functions/toc.json
         - name: Manage API versions
-          href: ../app-service/configure-authentication-api-version.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-api-version.md?toc=/azure/azure-functions/toc.json
         - name: File-based configuration
-          href: ../app-service/configure-authentication-file-based.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
         - name: Add SSL cert
-          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
-          href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json
         - name: Use a managed identity
-          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
         - name: Reference secrets from Key Vault
-          href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json
         - name: Encrypt site data
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
@@ -468,6 +608,12 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Azure Cache for Redis
+              items:
+                - name: Get started with VS Code 
+                  href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Create a write-behind cache 
+                  href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -481,13 +627,15 @@
             - name: SignalR
               items:
                 - name: C#
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=/azure/azure-functions/toc.json
                 - name: Java
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=/azure/azure-functions/toc.json
                 - name: JavaScript
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
                 - name: Python
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=%2fazure%2fazure-functions%2ftoc.json                  
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json
+            - name: Web PubSub
+              href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -500,6 +648,8 @@
               href: start-stop-vms/manage.md
             - name: Remove Start/Stop VMs
               href: start-stop-vms/remove.md
+            - name: Define pre-actions
+              href: start-stop-vms/pre-actions.md
             - name: Troubleshoot
               href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
@@ -515,8 +665,8 @@
               href: openapi-apim-integrate-visual-studio.md
               displayName: OpenAPI, Swagger
         - name: Use a managed identity
-          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Customize HTTP function endpoint
+          href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
+        - name: Customize endpoints with legacy proxies
           href: functions-create-serverless-api.md
         - name: Manage on-premises resources
           href: functions-hybrid-powershell.md
@@ -526,9 +676,11 @@
           href: functions-recover-storage-account.md
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
-          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
-          displayName: troubleshoot 
-        - name: Python functions
+          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
+          displayName: troubleshoot
+        - name: Node.js
+          href: functions-node-troubleshoot.md
+        - name: Python
           items:
             - name: General troubleshooting
               href: recover-python-functions.md
@@ -541,7 +693,7 @@
     - name: API references
       items:
         - name: ARM template
-          href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+          href: /azure/templates/microsoft.web/2022-03-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
         - name: Azure Functions Core Tools 
@@ -570,6 +722,22 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
+        - name: Azure Cache for Redis
+          items: 
+            - name: Overview
+              href: functions-bindings-cache.md
+              displayName: Azure Cache for Redis
+            - name: Trigger
+              items: 
+              - name: Pub Sub Trigger
+                href: functions-bindings-cache-trigger-redispubsub.md
+                displayName: Azure Cache for Redis
+              - name: List Trigger
+                href: functions-bindings-cache-trigger-redislist.md
+                displayName: Azure Cache for Redis
+              - name: Stream Trigger
+                href: functions-bindings-cache-trigger-redisstream.md
+                displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
@@ -590,10 +758,27 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+            - name: Migrate version 3.x to 4.x
+              href: migrate-cosmos-db-version-3-version-4.md
+              displayName: Azure Cosmos DB
+        - name: Azure Data Explorer
+          items:
+            - name: Overview
+              href: functions-bindings-azure-data-explorer.md
+              displayName: Azure Data Explorer
+            - name: Input
+              href: functions-bindings-azure-data-explorer-input.md
+              displayName: Azure Data Explorer
+            - name: Output
+              href: functions-bindings-azure-data-explorer-output.md
+              displayName: Azure Data Explorer
         - name: Azure SQL
           items:
             - name: Overview
               href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Trigger
+              href: functions-bindings-azure-sql-trigger.md
               displayName: Azure SQL
             - name: Input
               href: functions-bindings-azure-sql-input.md
@@ -602,7 +787,43 @@
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
         - name: Dapr
-          href: https://github.com/dapr/azure-functions-extension
+          items: 
+            - name: Overview
+              href: functions-bindings-dapr.md
+              displayName: Dapr
+            - name: Trigger
+              items: 
+              - name: Binding
+                href: functions-bindings-dapr-trigger.md
+                displayName: Dapr
+              - name: Service Invocation
+                href: functions-bindings-dapr-trigger-svc-invoke.md
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-trigger-topic.md
+                displayName: Dapr
+            - name: Input
+              items: 
+              - name: State
+                href: functions-bindings-dapr-input-state.md
+                displayName: Dapr
+              - name: Secret
+                href: functions-bindings-dapr-input-secret.md
+                displayName: Dapr
+            - name: Output
+              items: 
+              - name: State
+                href: functions-bindings-dapr-output-state.md
+                displayName: Dapr
+              - name: Invoke
+                href: functions-bindings-dapr-output-invoke.md 
+                displayName: Dapr
+              - name: Publish
+                href: functions-bindings-dapr-output-publish.md 
+                displayName: Dapr
+              - name: Binding
+                href: functions-bindings-dapr-output.md 
+                displayName: Dapr
         - name: Event Grid
           items:
             - name: Overview
@@ -634,7 +855,16 @@
               href: functions-bindings-event-iot-trigger.md
               displayName: Azure IoT Hubs
         - name: Kafka
-          href: https://github.com/azure/azure-functions-kafka-extension
+          items:
+            - name: Overview
+              href: functions-bindings-kafka.md
+              displayName: Kafka
+            - name: Trigger
+              href: functions-bindings-kafka-trigger.md
+              displayName: Kafka
+            - name: Output
+              href: functions-bindings-kafka-output.md
+              displayName: Kafka
         - name: HTTP and webhooks
           items:
             - name: Overview
@@ -716,6 +946,8 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+        - name: Web PubSub
+          href: ../azure-web-pubsub/reference-functions-bindings.md?toc=/azure/azure-functions/toc.json
     - name: Errors and diagnostics
       items:
         - name: .NET worker rules
@@ -728,16 +960,32 @@
             href: errors-diagnostics/sdk-rules/azf0001.md
           - name: AZF0002
             href: errors-diagnostics/sdk-rules/azf0002.md
+        - name: Diagnostic events
+          items:
+          - name: AZFD0001
+            href: errors-diagnostics/diagnostic-events/azfd0001.md
+          - name: AZFD0002
+            href: errors-diagnostics/diagnostic-events/azfd0002.md
+          - name: AZFD0003
+            href: errors-diagnostics/diagnostic-events/azfd0003.md
+          - name: AZFD0004
+            href: errors-diagnostics/diagnostic-events/azfd0004.md
+          - name: AZFD0005
+            href: errors-diagnostics/diagnostic-events/azfd0005.md
+          - name: AZFD0006
+            href: errors-diagnostics/diagnostic-events/azfd0006.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
+    - name: Monitoring data
+      href: monitor-functions-reference.md  
     - name: Networking FAQ
       href: functions-networking-faq.yml
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-functions
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-functions
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap

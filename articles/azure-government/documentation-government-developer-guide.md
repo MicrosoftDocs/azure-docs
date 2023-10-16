@@ -4,8 +4,8 @@ description: Provides guidance on developing applications for Azure Government
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.author: stevevi
-author: stevevi
+ms.author: eliotgra
+author: EliotSeattle
 recommendations: false
 ms.date: 03/07/2022
 ---
@@ -58,7 +58,7 @@ Navigate through the following links to get started using Azure Government:
 - [Connect with CLI](./documentation-government-get-started-connect-with-cli.md)
 - [Connect with Visual Studio](./documentation-government-connect-vs.md)
 - [Connect to Azure Storage](./documentation-government-get-started-connect-to-storage.md)
-- [Connect with Azure SDK for Python](/azure/developer/python/azure-sdk-sovereign-domain)
+- [Connect with Azure SDK for Python](/azure/developer/python/sdk/azure-sdk-sovereign-domain)
 
 ### Azure Government Video Library 
 

@@ -2,10 +2,10 @@
 title: Azure VMware Solution networking and connectivity
 description: Azure VMware Solution networking and connectivity description.
 ms.topic: include
-ms.date: 08/10/2021
+ms.service: azure-vmware
+ms.date: 09/24/2022
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- Used in articles\azure-vmware\introduction.md and articles\azure-vmware\concepts-networking.md 
@@ -19,5 +19,4 @@ articles\azure-vmware\includes\azure-vmware-solution-networking-description.md
 Each Azure VMware Solution environment is its own ExpressRoute region (its own virtual MSEE device), which lets you connect Global Reach to the 'local' peering location.  It allows you to connect multiple Azure VMware Solution instances in one region to the same peering location. 
 
 >[!NOTE]
->For locations where ExpressRoute Global Reach isn't enabled, for example, because of local regulations, you have to build a routing solution using Azure IaaS VMs. For some examples, see [AzureCAT-AVS/networking](https://github.com/Azure/AzureCAT-AVS/tree/main/networking).
-
+>For locations where ExpressRoute Global Reach isn't enabled, for example, because of local regulations, you have to build a routing solution using Azure IaaS VMs. For some examples, see [Azure Cloud Adoption Framework - Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity).

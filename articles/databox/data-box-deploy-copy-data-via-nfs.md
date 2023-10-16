@@ -2,13 +2,13 @@
 title: Tutorial to copy data to Azure Data Box via NFS| Microsoft Docs
 description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box by using NFS with the local web UI.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/11/2022
-ms.author: alkohli
+ms.date: 08/26/2022
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box via NFS
@@ -46,10 +46,10 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
  
 | Azure Storage type| Data Box shares                                       |
 |-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
-| Azure Block blobs (Archive)       |  <li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_BlockBlobArchive>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |
+| Azure Block blobs | <li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
+| Azure Block blobs (Archive)       |  <li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_BlockBlobArchive>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 

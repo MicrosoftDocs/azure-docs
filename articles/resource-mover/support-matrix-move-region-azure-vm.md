@@ -1,12 +1,13 @@
 ---
 title: Support matrix for moving Azure VMs to another region with Azure Resource Mover
 description: Review support for moving Azure VMs between regions with Azure Resource Mover. 
-author: rayne-wiselman
+author: ankitaduttaMSFT
 manager: evansma
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.author: raynew
+ms.date: 03/21/2023
+ms.author: ankitadutta
+ms.custom: engagement-fy23, UpdateFrequency.5
 
 ---
 
@@ -154,6 +155,7 @@ Network security group | Supported | Specify an existing resource in the target 
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.
 Dynamic IP address | Supported | You can't currently configure this. The value defaults to the source value.<br/><br/> If the NIC on the source has dynamic IP addressing, the NIC on the target VM is also dynamic by default.
 IP configurations | Supported | You can't currently configure this. The value defaults to the source value.
+VNET Peering | Not Retained | The VNET which is moved to the target region will not retain its VNET peering configuration present in the source region. To retain the peering, it needs to do be done again manually in the target region.
 
 ## Outbound access requirements
 
@@ -167,7 +169,7 @@ Azure VMs that you want to move need outbound access.
 **Name** | **Azure public cloud** | **Details** 
 --- | --- | --- 
 Storage | `*.blob.core.windows.net`  | Allows data to be written from the VM to the cache storage account in the source region. 
-Azure Active Directory | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
+Microsoft Entra ID | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
 Replication | `*.hypervrecoverymanager.windowsazure.com` | Allows the VM to communicate with the Site Recovery service. 
 Service Bus | `*.servicebus.windows.net` | Allows the VM to write Site Recovery monitoring and diagnostics data. 
 
@@ -180,7 +182,6 @@ If you're using a network security group (NSG) rules to control outbound connect
     - *AzureKeyVault*
     - *GuestAndHybridManagement*
 - We recommend you test rules in a non-production environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags). 
-
 
 ## Next steps
 

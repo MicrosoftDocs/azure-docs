@@ -1,18 +1,12 @@
 ---
 title: 'How to: Use AzureClient for local testing'
 description: How to use AzureClient to test an application without a service
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: reference
 ms.service: azure-fluid
 ---
 
 # How to: Use AzureClient for local testing
-
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 This article walks through the steps to configure **AzureClient** in local mode and use it to test your Fluid application locally.
 
@@ -28,17 +22,17 @@ This article walks through the steps to configure **AzureClient** in local mode 
         connection: {
             tenantId: LOCAL_MODE_TENANT_ID,
             tokenProvider: new InsecureTokenProvider("", { id: "123", name: "Test User" }),
-            orderer: "http://localhost:7070",
-            storage: "http://localhost:7070",
+            endpoint: "http://localhost:7070",
+            type: "remote",
         },
     };
 
     const azureClient = new AzureClient(clientProps);
 ```
 
-This example uses the **InsecureTokenProvider** to generate and sign authentication tokens that the Azure Fluid Relay service will accept. However, as the name implies, this is insecure and should not be used in production environments. For more information about InsecureTokenProvider, refer to [Authentication and authorization in your app](https://fluidframework.com/docs/build/auth/#the-token-provider).
+This example uses the **InsecureTokenProvider** to generate and sign authentication tokens that the Azure Fluid Relay service will accept. However, as the name implies, this implementation is insecure and shouldn't be used in production environments. For more information about InsecureTokenProvider, see [Authentication and authorization in your app](https://fluidframework.com/docs/build/auth/#the-token-provider).
 
-To run locally, you first configure the orderer and storage URLs to point to the domain and port that the local Azure Fluid Relay service instance is running at (http://localhost:7070 by default). The final step is to set the `tenantId` to `LOCAL_MODE_TENANT_ID`. All of these settings together configure AzureClient to work with a local Azure Fluid Relay service.  
+To run locally, you first configure the endpoint to point to the domain, and port that the local Azure Fluid Relay service instance is running at (http://localhost:7070 by default). The final step is to set the `tenantId` to `LOCAL_MODE_TENANT_ID`. All of these settings together configure AzureClient to work with a local Azure Fluid Relay service.  
 
 ## Enabling debug logging
 

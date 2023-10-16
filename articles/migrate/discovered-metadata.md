@@ -4,8 +4,10 @@ description: Provides details of the metadata discovered by Azure Migrate applia
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 02/24/2023
+ms.custom: engagement-fy23
 ---
 
 # Metadata discovered by Azure Migrate appliance 
@@ -38,7 +40,9 @@ Number of disks | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk
 Disk size list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)
 Network adapters list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
 CPU utilization | cpu.usage.average
-Memory utilization |mem.usage.average
+Memory utilization | mem.usage.average
+Processor model/name | vm.Config.Hardware.CpuModel 
+Number of Sockets in a Processor | vm.Config.Hardware.NumCpuPkgs
 **Per disk details** |
 Disk key value | disk.Key
 Dikunit number | disk.UnitNumber
@@ -132,7 +136,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for server siz
 
 ## Collected data for Physical servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP etc.
+The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP, etc.
 
 ### Windows server metadata
 
@@ -272,9 +276,6 @@ Architecture | uname
 
 Azure Migrate appliance used for discovery of VMware VMs can also collect data on SQL Server instances and databases.
 
-> [!Note]
-> Currently this feature is only available for servers running in your VMware environment.
-
 ### SQL database metadata
 
 **Database Metadata** |	**Views/ SQL Server properties**
@@ -290,6 +291,8 @@ Drive letter of location containing data files | SERVERPROPERTY, and Software\Mi
 List of database files | sys.databases, sys.master_files
 Service broker is enabled or not | sys.databases
 Database is enabled for change data capture or not | sys.databases
+Always On Availability Group databases and states | sys.dm_hadr_database_replica_states 
+
 
 ### SQL Server metadata
 
@@ -325,6 +328,8 @@ Size of temp database | sys.master_files, sys.configurations, sys.dm_os_sys_info
 No. of logins | sys.logins
 List of linked servers | sys.servers
 List of agent job |	[msdb].[dbo].[sysjobs], [sys].[syslogins], [msdb].[dbo].[syscategories]
+Always On Availability Groups, Replicas, and their states | sys.availability_groups, sys.dm_hadr_availability_group_states, sys.availability_group_listeners, sys.availability_group_listener_ip_addresses, sys.availability_replicas, sys.dm_hadr_availability_replica_states 
+Always On Failover Clustered Instance | sys.dm_hadr_cluster, sys.dm_hadr_cluster_members, sys.dm_hadr_cluster_networks 
 
 ### Performance metadata
 
@@ -343,17 +348,32 @@ File size| sys.master_files| Recommended SKU size (Storage dimension)
 
 ## ASP.NET web apps data
 
-Azure Migrate appliance used for discovery of VMware VMs can also collect data on ASP.NET web applications.
+Azure Migrate appliance used for discovery of VMs can also collect data on ASP.NET web applications.
 
-> [!Note]
-> Currently this feature is only available for servers running in your VMware environment.
-
-Here's the web apps configuration data that the appliance collects from each Windows server discovered in your VMware environment.
+Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
 
 **Entity** | **Data**
 --- | ---
 Web apps | Application Name <br/>Configuration Path <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode
 Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuration Location <br/>Version <br/>FQDN <br/>Credentials used for discovery <br/>List of Applications
+
+## Java web apps data
+
+**Entity** | **Data**
+--- | ---
+Web apps | Application Name <br/> Web Server ID <br/> Web Server Name <br/> Display Name<br/> Directories <br/>Configurations <br/>Bindings <br/>Discovered Frameworks (may contain JVM version) <br/>Requests (CPU requests) <br/>Limits (CPU Limits) <br/> WorkloadType <br/> Application Scratch Path <br/>Static Folders
+Web server | OS Type <br/> OS Name<br/> OS Version <br/> OS Architecture<br/> Host Name <br/> CatalinaHomes <br/> Tomcat Version <br/>JVM Version<br/> User Name <br/> User ID<br/> Group Name<br/> Group ID
+
+## Spring Boot web apps data
+
+The Azure Migrate appliance used for discovery can also collect data on Spring Boot web applications.
+
+Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
+
+**Entity** | **Data**
+--- | ---
+Web apps | Application name <br/>Maven artifact name <br/>JAR file location <br/>JAR file checksum <br/>JAR file size<br/>Spring Boot version<br/>Maven build JDK version <br/> Application property files <br/>Certificates file names <br/> Static content location <br/> Application port <br/> Binding ports (including app port) <br/> Logging configuration <br/> JAR file last modified time
+OS runtime | OS installed JDK version <br/> JVM options <br/> JVM heap memory <br/> OS name <br/> OS version <br/> Environment variables
 
 ## Application dependency data
 

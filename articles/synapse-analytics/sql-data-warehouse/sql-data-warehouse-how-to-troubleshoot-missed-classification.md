@@ -1,15 +1,14 @@
 ---
 title: Troubleshoot misclassified workload in a dedicated SQL pool
-description: Identify and troubleshoot scenarios where workloads are misclassified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.   
-author: kedodd
-ms.author: kedodd
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: how-to  
-ms.subservice: sql-dw 
-ms.date: 03/09/2022
-ms.custom: template-how-to  
+description: Identify and troubleshoot scenarios where workloads are misclassified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: wiassaf
+ms.date: 03/09/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: how-to
+ms.custom: template-how-to
 ---
 
 # Troubleshooting a misclassified workload in Azure Synapse Analytics
@@ -21,7 +20,7 @@ Azure Synapse Analytics provides workload management capabilities like [classify
 However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. First, you should query basic information for troubleshooting misclassified workload scenarios.
 
 > [!NOTE]
-> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, Azure Synapse workspaces adds MI to the **dbo** role. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
+> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, for Azure Synapse workspaces the MI runs as **dbo**. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
 
 ## Basic troubleshooting information
 
@@ -133,11 +132,11 @@ EXEC sp_droprolemember '[Resource Class]', membername;
 
 ### Some administrative users are always mapped to smallrc workload group
 
-Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Azure Active Directory admin (user or group member), or a database owner. These users may still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
+Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Microsoft Entra admin (user or group member), or a database owner. These users may still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
 
 **Recommendation**: These administrative users can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). It is recommended that critical or performance-sensitive workloads not run as one of these administrative users in the dedicated SQL pool.
 
-The Azure Synapse Workspace SQL Admin login and the Azure Synapse Azure Active Directory admin (user or group member) are specified in the Azure portal:
+The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal:
 
 :::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Identifying the service admin by looking at the Workspace SQL Admin Login field" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png":::
 

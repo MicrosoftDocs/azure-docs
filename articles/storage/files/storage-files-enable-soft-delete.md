@@ -2,12 +2,11 @@
 title: Enable soft delete - Azure file shares
 description: Learn how to enable soft delete on Azure file shares for data recovery and preventing accidental deletion.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: kendownie
-ms.subservice: files 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 services: storage
 ---
 
@@ -22,7 +21,7 @@ Azure Files offers soft delete for file shares so that you can more easily recov
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Getting started
@@ -30,7 +29,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 # [Portal](#tab/azure-portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your storage account and select **File shares** under **Data storage**.
 1. Select **Enabled** next to **Soft delete**.
 1. Select **Enabled** for **Soft delete for all file shares**.
@@ -64,7 +63,7 @@ Get-AzStorageFileServiceProperty `
 # [Azure CLI](#tab/azure-cli)
 To enable soft delete, you must update a file client's service properties. The following example enables soft delete for all file shares in a storage account. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
-```bash
+```azurecli
 resourceGroupName="<resource-group>"
 storageAccountName="<storage-account>"
 
@@ -77,7 +76,7 @@ az storage account file-service-properties update \
 
 You can verify if soft delete is enabled and view its retention policy with the following command:
 
-```bash
+```azurecli
 az storage account file-service-properties show \
     -resource-group $resourceGroupName \
     -account-name $storageAccountName
@@ -124,7 +123,7 @@ Restore-AzRmStorageShare `
 # [Azure CLI](#tab/azure-cli)
 To restore a soft deleted file share, you must first get the `--deleted-version` value of the share. To get that value, use the following command to list out all the deleted shares for your storage account.
 
-```bash
+```azurecli
 az storage share-rm list \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
@@ -133,7 +132,7 @@ az storage share-rm list \
 
 Once you've identified the share you'd like to restore, you can use it with the following command to restore it:
 
-```bash
+```azurecli
 az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
 ```
 
@@ -164,7 +163,7 @@ Update-AzStorageFileServiceProperty `
 # [Azure CLI](#tab/azure-cli)
 You can use the following command to disable soft delete on your storage account.
 
-```bash
+```azurecli
 az storage account file-service-properties update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

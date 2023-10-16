@@ -9,25 +9,25 @@ ms.topic: conceptual
 ---
 
 # Event Grid on Kubernetes with Azure Arc features
-Event Grid on Kubernetes offers a rich set of features that help you integrate your Kubernetes workloads and realize hybrid architectures. It shares the same [rest API](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics) (starting with version 2020-10-15-preview), [Event Grid CLI](/cli/azure/eventgrid), Azure portal experience, [management SDKs](../sdk-overview.md#management-sdks), and [data plane SDKs](../sdk-overview.md#data-plane-sdks) with Azure Event Grid, the other edition of the same service. When you're ready to publish events, you can use the [data plane SDK examples provided in different languages](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) that work for both editions of Event Grid.
+Event Grid on Kubernetes offers a rich set of features that help you integrate your Kubernetes workloads and realize hybrid architectures. It shares the same [rest API](/rest/api/eventgrid/controlplane-preview/topics) (starting with version 2020-10-15-preview), [Event Grid CLI](/cli/azure/eventgrid), Azure portal experience, [management SDKs](../sdk-overview.md#management-sdks), and [data plane SDKs](../sdk-overview.md#data-plane-sdks) with Azure Event Grid, the other edition of the same service. When you're ready to publish events, you can use the [data plane SDK examples provided in different languages](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) that work for both editions of Event Grid.
 
-Although Event Grid on Kubernetes and Azure Event Grid share many features and the goal is to provide the same user experience, there are some differences given the unique requirements they seek to meet and the stage in which they are on their software lifecycle. For example, the only type of topic available in Event Grid on Kubernetes are Event Grid Topics that sometimes are also referred as custom topics. Other types of topics (see below) are either not applicable or support for them is not yet available. The main differences between the two editions of Event Grid are presented in the table below.
+Although Event Grid on Kubernetes and Azure Event Grid share many features and the goal is to provide the same user experience, there are some differences given the unique requirements they seek to meet and the stage in which they are on their software lifecycle. For example, the only type of topic available in Event Grid on Kubernetes are Event Grid topics that sometimes are also referred as custom topics. Other types of topics are either not applicable or support for them isn't yet available. The main differences between the two editions of Event Grid are presented in the following table.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 
 ## Event Grid on Kubernetes vs. Event Grid on Azure
 
 | Feature | Event Grid on Kubernetes | Azure Event Grid |
 |:--|:-:|:-:|
-| [Event Grid Topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics) | ✔ | ✔ |
+| [Event Grid topics](/rest/api/eventgrid/controlplane-preview/topics) | ✔ | ✔ |
 | [CNCF Cloud Events schema](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md) | ✔ | ✔ |
 | Event Grid and custom schemas | ✘* | ✔ |
 | Reliable delivery | ✔ | ✔ |
 | Metrics  | ✔** | ✔ |
 | Azure Monitor  | ✘ | ✔ |
 | [Dead-letter location](../manage-event-delivery.md#set-dead-letter-location) | ✘ | ✔ |
-| [Forward events to another event grid topic](event-handlers.md#azure-event-grid) | ✔ | ✘ |
+| [Forward events to another Event Grid topic](event-handlers.md#azure-event-grid) | ✔ | ✘ |
 | [System Topics](../system-topics.md) | ✘ | ✔ |
 | [Domain Topics](../event-domains.md) | ✘ | ✔ |
 | [Partner Events](../partner-events-overview.md) | ✘ | ✔ |
@@ -35,8 +35,8 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md) | ✘ | ✔ |
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
 | [Advanced filtering](filter-events.md) | ✔*** | ✔ |
-| [Webhook AuthN/AuthZ with AAD](../secure-webhook-delivery.md) | ✘ | ✔ |
-| [Event delivery with resource identity](/rest/api/eventgrid/controlplane-version2021-06-01-preview/event-subscriptions/create-or-update) | ✘ | ✔ |
+| [Webhook AuthN/AuthZ with Microsoft Entra ID](../secure-webhook-delivery.md) | ✘ | ✔ |
+| [Event delivery with resource identity](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update) | ✘ | ✔ |
 | Same set of data plane SDKs | ✔ | ✔ |
 | Same set of management SDKs | ✔ | ✔ |
 | Same Event Grid CLI | ✔ | ✔ |

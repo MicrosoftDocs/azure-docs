@@ -1,26 +1,22 @@
 ---
 title: DROP EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
-description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge 
-keywords: 
-services: sql-edge
+description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 05/19/2020
 ---
-
 # DROP EXTERNAL STREAM (Transact-SQL)
 
-Drops a streaming job. 
+Drops a streaming job.
 
 ## Syntax
 
-```sql
-DROP EXTERNAL STREAM {external_stream_name}  
+```syntaxsql
+DROP EXTERNAL STREAM { external_stream_name }
 ```
 
 ## See also
 
-- [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md) 
+- [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md)

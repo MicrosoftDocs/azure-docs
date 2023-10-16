@@ -1,21 +1,22 @@
 ---
-title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
-description: Learn how to use P2S VPN to connect to your VNet using Azure AD authentication.
+title: 'VPN client for OpenVPN protocol P2S connections: Microsoft Entra authentication'
+titleSuffix: Azure Virtual WAN
+description: Learn how to use P2S VPN to connect to your VNet using Microsoft Entra authentication.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---
-# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication
+# Configure a VPN client for P2S OpenVPN protocol connections: Microsoft Entra authentication
 
-This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
+This article helps you configure a VPN client to connect using point-to-site VPN and Microsoft Entra authentication. Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Microsoft Entra authentication is supported only for OpenVPN® protocol connections.
 >
 
 ## <a name="profile"></a>Working with client profiles
@@ -28,7 +29,7 @@ For every computer that wants to connect to the VNet via the VPN client, you nee
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
-When working with a certificate-based profile, make sure that the appropriate certificates are installed on the client computer. For more information about certificates, see [Install client certificates](certificates-point-to-site.md).
+When working with a certificate-based profile, make sure that the appropriate certificates are installed on the client computer. You can install and specify more than one certificate when using the Azure VPN client version 2.1963.44.0 or higher. For more information about certificates, see [Install client certificates](certificates-point-to-site.md).
 
 ![Screenshot showing certificates certificate authentication.](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
@@ -144,114 +145,10 @@ These steps help you configure your connection to connect automatically with Alw
 
     ![Screenshot shows the results of the diagnosis.](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## FAQ
+## Optional client settings
 
-### How do I add DNS suffixes to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-    <dnssuffixes>
-          <dnssuffix>.mycorp.com</dnssuffix>
-          <dnssuffix>.xyz.com</dnssuffix>
-          <dnssuffix>.etc.net</dnssuffix>
-    </dnssuffixes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### How do I add custom DNS servers to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<dnsservers>
-		<dnsserver>x.x.x.x</dnsserver>
-        <dnsserver>y.y.y.y</dnsserver>
-	</dnsservers>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-> [!NOTE]
-> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
->
-
-### How do I add custom routes to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<includeroutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-	</includeroutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### <a name="force-tunneling"></a>How do I direct all traffic to the VPN tunnel (force tunnel)?
-
-You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<includeroutes>
-		<route>
-			<destination>0.0.0.0</destination><mask>1</mask>
-		</route>
-		<route>
-			<destination>128.0.0.0</destination><mask>1</mask>
-		</route>
-	</includeroutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### How do I block (exclude) routes from the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<excluderoutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-	</excluderoutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### Can I import the profile from a command-line prompt?
-
-You can import the profile from a command-line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
-
-```
-azurevpn -i azurevpnconfig.xml 
-```
-To force the import, use the **-f** switch.
-
+You can configure optional settings for the Azure VPN Client, such as forced tunneling, exclude routes, DNS, and certificate authentication settings. For steps, see [Configure Azure VPN Client optional settings](azure-vpn-client-optional-configurations-windows.md).
 
 ## Next steps
 
-For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
+For more information, see [Create a Microsoft Entra tenant for P2S Open VPN connections that use Microsoft Entra authentication](openvpn-azure-ad-tenant.md).

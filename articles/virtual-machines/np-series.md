@@ -1,19 +1,19 @@
 ---
 title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
-author: luismcMSFT
+author: charest
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/09/2021
-ms.author: luismc
+ms.date: 03/07/2023
+ms.author: marccharest
 ---
 
 # NP-series 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon 8171M (Skylake) CPUs with all core turbo clock speed of 3.2 GHz.
+The NP-series virtual machines are powered by [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon 8171M (Skylake) CPUs with all core turbo clock speed of 3.2 GHz.
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -40,27 +40,31 @@ VM Generation Support: Generation 1<br>
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Please follow this page [Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe, SouthEast Asia, and SouthCentral US.
+**A:** Follow this page [Increase VM-family vCPU quotas](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, SouthCentral US, West Europe, SouthEast Asia, Japan East, and Canada Central.
 
 **Q:** What version of Vitis should I use? 
 
-**A:** Xilinx recommends [Vitis 2021.1](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html), you can also use the Development VM marketplace options (Vitis 2021.1 Development VM for Ubuntu 18.04, Ubuntu 20.04, and CentOS 7.8)
+**A:** Xilinx recommends [Vitis 2022.1](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html), you can also use the Development VM marketplace options (Vitis 2022.1 Development VM for Ubuntu 18.04, Ubuntu 20.04, and CentOS 7.8)
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud. Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
+**A:** No, you can develop on-premises and deploy to the cloud. Make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
+
+**Q:** What shell version is supported and how can I get the development files?
+
+**A:** The FPGAs in Azure NP VMs support Xilinx Shell 2.1 (gen3x16-xdma-shell_2.1). See Xilinx Page [Xilinx/Azure with Alveo U250](https://www.xilinx.com/microsoft-azure.html) to get the development shell files.
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 
-**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Please use **design.azure.xclbin**.
+**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Use **design.azure.xclbin**.
 
 **Q:** Where should I get all the XRT / Platform files?
 
-**A:** Please visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
+**A:** Visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 
-**A:** xrt_202110.2.11.680
+**A:** xrt_202210.2.13.479 
 
 **Q:** What is the target deployment platform?
 
@@ -76,13 +80,13 @@ VM Generation Support: Generation 1<br>
 
 **A:** Xilinx and Microsoft have validated Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, and CentOS 7.8.
 
- Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
-
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu1804_deployment_image)
-
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu2004_deployment_image)
-
-[Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_centos78_deployment_image)
+>Xilinx has created the following marketplace images to simplify the deployment of these VMs: 
+>
+>- Xilinx Alveo U250 2022.1 Deployment VM [Ubuntu18.04](https://portal.azure.com/#create/xilinx.vitis2022_1_ubuntu1804_development_imagevitis2022_1_ubuntu1804)
+>
+>- Xilinx Alveo U250 2022.1 Deployment VM [Ubuntu20.04](https://portal.azure.com/#create/xilinx.vitis2022_1_ubuntu2004_development_imagevitis2022_1_ubuntu2004)
+>
+>- Xilinx Alveo U250 2022.1 Deployment VM [CentOS7.8](https://portal.azure.com/#create/xilinx.vitis2022_1_centos78_development_imagevitis2022_1_centos78)
 
 **Q:** Can I deploy my Own Ubuntu / CentOS VMs and install XRT / Deployment Target Platform? 
 
@@ -90,50 +94,44 @@ VM Generation Support: Generation 1<br>
 
 **Q:** If I deploy my own Ubuntu18.04 VM then what are the required packages and steps?
 
-**A:** Use Kernel 4.15 per [Xilinx XRT documentation](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug1451-xrt-release-notes.pdf)
-       
-Install the following packages.
-- xrt_202110.2.11.680_18.04-amd64-xrt.deb
-       
-- xrt_202110.2.11.680_18.04-amd64-azure.deb
-       
-- xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
-       
-- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb  
+**A:** Follow the guidance in Xilinx XRT documentation [Xilinx XRT documentation](https://docs.xilinx.com/r/en-US/ug1451-xrt-release-notes/XRT-Operating-System-Support)
 
-**Q:** On Ubuntu, after rebooting my VM I can't find my FPGA(s): 
-
-**A:** Please verify that your kernel hasn't been upgraded (uname -a). If so, please downgrade to  kernel 4.1X. 
+>Install the following packages.
+>- xrt_202210.2.13.479_18.04-amd64-xrt.deb
+>
+>- xrt_202210.2.13.479_18.04-amd64-azure.deb
+>       
+>- xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
+>       
+>- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb  
 
 **Q:** If I deploy my own Ubuntu20.04 VM then what are the required packages and steps?
 
-**A:** Use Kernel 5.4 per [Xilinx XRT documentation](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug1451-xrt-release-notes.pdf)
+**A:** Follow the guidance in Xilinx XRT documentation [Xilinx XRT documentation](https://docs.xilinx.com/r/en-US/ug1451-xrt-release-notes/XRT-Operating-System-Support)
        
-Install the following packages.
-- xrt_202110.2.11.680_20.04-amd64-xrt.deb
-       
-- xrt_202110.2.11.680_20.04-amd64-azure.deb
-       
-- xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
-       
-- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb  
-
+>Install the following packages.
+>- xrt_202210.2.13.479_20.04-amd64-xrt.deb
+>       
+>- xrt_202210.2.13.479_20.04-amd64-azure.deb
+>       
+>- xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
+>       
+>- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb 
 
 **Q:** If I deploy my own CentOS7.8 VM then what are the required packages and steps?
 
-**A:** Use Kernel version: 3.10.0-1160.15.2.el7.x86_64
+**A:** Follow the guidance in Xilinx XRT documentation [Xilinx XRT documentation](https://docs.xilinx.com/r/en-US/ug1451-xrt-release-notes/XRT-Operating-System-Support)
 
- Install the following packages.
-   
- - xrt_202110.2.11.680_7.8.2003-x86_64-xrt.rpm 
-      
- - xrt_202110.2.11.680_7.8.2003-x86_64-azure.rpm 
-     
- - xilinx-u250-gen3x16-xdma-platform-2.1-3.noarch.rpm.tar.gz 
-      
- - xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  
+ >Install the following packages.  
+ >- xrt_202210.2.13.479_7.8.2003-x86_64-xrt.rpm
+ >     
+ >- xrt_202210.2.13.479_7.8.2003-x86_64-azure.rpm
+ >    
+ >- xilinx-u250-gen3x16-xdma-platform-2.1-3.noarch.rpm.tar.gz 
+ >     
+ >- xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  
 
-**Q:** What are the differences between OnPrem and NP VMs?
+**Q:** What are the differences between on-premise FPGAs and NP VMs?
 
 **A:** 
 <br>
@@ -141,14 +139,14 @@ Install the following packages.
 <br>
 On Azure NP VMs, only the role endpoint (Device ID 5005), which uses the XOCL driver, is present.
 
-OnPrem FPGA, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
+In on-premise FPGAs, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
 
 <br>
 <b>- Regarding XRT: </b>
 <br>
-On Azure NP VMs, the XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
+On Azure NP VMs, the XDMA 2.1 platform only supports Host_Mem(SB). 
 <br>
-To enable Host_Mem(SB) (up to 1 Gb RAM):  sudo xbutil host_mem --enable --size 1g 
+To enable Host_Mem(SB) (up to 1-Gb RAM):  sudo xbutil host_mem --enable --size 1g 
 <br>
 To disable Host_Mem(SB): sudo xbutil host_mem --disable 
 <br>
@@ -156,10 +154,10 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 <br>
 Starting on XRT2021.1:
 
-OnPrem FPGA in Linux exposes
+On-premise FPGA in Linux exposes
 [M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html).
 <br>
-This feature is not supported in Azure NP VMs.
+This feature isn't supported in Azure NP VMs.
  
 **Q:** Can I run xbmgmt commands? 
 
@@ -178,7 +176,9 @@ This feature is not supported in Azure NP VMs.
 
 **A:** Need to run xbutil query and look at the lower portion. 
 
+**Q:** Do Azure NP VMs support FPGA bitstreams with Networking GT Kernel connections?
 
+**A:** No. The FPGA Attestation service performs a series of validations on a design checkpoint file and will generate an error if the user's application contains connections to the FPGA card's QSFP networking ports.
 
 ## Other sizes and information
 

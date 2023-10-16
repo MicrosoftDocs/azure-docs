@@ -1,28 +1,29 @@
 ---
 title: Slow query logs - Azure Database for MySQL - Flexible Server
-description: Describes the slow query logs available in Azure Database for MySQL Flexible Server.
-author: savjani
-ms.author: pariks
+description: Describes the slow query logs available in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: code-sidd
+ms.author: sisawant
 ms.date: 9/21/2020
 ---
-# Slow query logs in Azure Database for MySQL Flexible Server
+# Slow query logs in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In Azure Database for MySQL Flexible Server, the slow query log is available to users to configure and access. Slow query logs are disabled by default and can be enabled to assist with identifying performance bottlenecks during troubleshooting.
+In Azure Database for MySQL - Flexible Server, the slow query log is available to users to configure and access. Slow query logs are disabled by default and can be enabled to assist with identifying performance bottlenecks during troubleshooting.
 
 For more information about the MySQL slow query log, see the [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) in the MySQL engine documentation.
 
 ## Configure slow query logging
-By default, the slow query log is disabled. To enable logs, set the `slow_query_log` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->.
+By default, the slow query log is disabled. To enable logs, set the `slow_query_log` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI.
 
 Other parameters you can adjust to control slow query logging behavior include:
 
-- **long_query_time**: log a query if it takes longer than `long_query_time` (in seconds) to complete. The default is 10 seconds.
+- **long_query_time**: log a query if it takes longer than `long_query_time` (in seconds) to complete. The default is 10 seconds. Server parameter `long_query_time` applies globally to all newly established connections in MySQL. However, it doesn't affect threads that are already connected. It's recommended to reconnect to Azure Database for MySQL - Flexible Server from the application or restarting the server will help clear out threads with older values of "long_query_time" and apply the updated parameter value.
 - **log_slow_admin_statements**: determines if administrative statements (ex. `ALTER_TABLE`, `ANALYZE_TABLE`) are logged.
-- **log_queries_not_using_indexes**: determines if queries that do not use indexes are logged.
+- **log_queries_not_using_indexes**: determines if queries that don't use indexes are logged.
 - **log_throttle_queries_not_using_indexes**: limits the number of non-indexed queries that can be written to the slow query log. This parameter takes effect when `log_queries_not_using_indexes` is set to *ON*
 
 > [!IMPORTANT]

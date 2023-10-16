@@ -5,6 +5,9 @@
   - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
+  - name: Azure Policy glossary
+    displayName: policy, terminology, vocabulary, glossary
+    href: policy-glossary.md
 - name: Quickstarts
   expanded: false
   items:
@@ -51,15 +54,15 @@
   - name: Route policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./tutorials/route-state-change-events.md
-  - name: Implement Azure Policy as Code with GitHub
-    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
-    href: ./tutorials/policy-as-code-github.md
   - name: Implement Azure Policy with Azure DevOps
     displayName: devops, pipelines, releases
     href: ./tutorials/policy-devops-pipelines.md
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+  - name: "Add user assign identities to virtual machines"
+    displayName: remediate, identity, user assign, virtual machines, monitoring agent
+    href: ./tutorials/modify-virtual-machine-identity.md
 - name: Samples
   items:
   - name: Index
@@ -99,70 +102,82 @@
       items:
       - name: Australian Government ISM PROTECTED
         href: ./samples/australia-ism.md
-      - name: Azure Security Benchmark
-        href: ./samples/azure-security-benchmark.md
       - name: Canada Federal PBMM
         href: ./samples/canada-federal-pbmm.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
         href: ./samples/cis-azure-1-1-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/cis-azure-1-3-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.4.0
+        href: ./samples/cis-azure-1-4-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 2.0.0
+        href: ./samples/cis-azure-2-0-0.md
       - name: CMMC Level 3
         href: ./samples/cmmc-l3.md
-      - name: FedRAMP Moderate
-        href: ./samples/fedramp-moderate.md
       - name: FedRAMP High
         href: ./samples/fedramp-high.md
+      - name: FedRAMP Moderate
+        href: ./samples/fedramp-moderate.md
       - name: HIPAA HITRUST 9.2
         href: ./samples/hipaa-hitrust-9-2.md
       - name: IRS 1075 September 2016
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
-      - name: PCI DSS 3.2.1
-        href: ./samples/pci-dss-3-2-1.md
-      - name: RMIT Malaysia
-        href: ./samples/rmit-malaysia.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/azure-security-benchmark.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
-      - name: NIST SP 800-53 Rev. 5
-        href: ./samples/nist-sp-800-53-r5.md
+      - name: New Zealand ISM Restricted v3.5
+        href: ./samples/nz-ism-restricted-3-5.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/nist-sp-800-53-r4.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: PCI DSS 3.2.1
+        href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 4.0
+        href: ./samples/pci-dss-4-0.md
+      - name: RBI ITF Banks v2016
+        href: ./samples/rbi-itf-banks-2016.md
+      - name: RBI ITF NBFC v2017
+        href: ./samples/rbi-itf-nbfc-2017.md
+      - name: RMIT Malaysia
+        href: ./samples/rmit-malaysia.md
+      - name: SWIFT CSP-CSCF 2021
+        href: ./samples/swift-csp-cscf-2021.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins
       items:
-      - name: Azure Security Benchmark
-        href: ./samples/gov-azure-security-benchmark.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/gov-cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
         href: ./samples/gov-cis-azure-1-1-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/gov-cis-azure-1-3-0.md
       - name: CMMC Level 3
         href: ./samples/gov-cmmc-l3.md
-      - name: DoD Impact Level 4
-        href: ./samples/gov-dod-impact-level-4.md
-      - name: DoD Impact Level 5
-        href: ./samples/gov-dod-impact-level-5.md
-      - name: FedRAMP Moderate
-        href: ./samples/gov-fedramp-moderate.md
       - name: FedRAMP High
         href: ./samples/gov-fedramp-high.md
+      - name: FedRAMP Moderate
+        href: ./samples/gov-fedramp-moderate.md
       - name: IRS 1075 September 2016
         href: ./samples/gov-irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/gov-iso-27001.md
-      - name: NIST SP 800-53 Rev. 5
-        href: ./samples/gov-nist-sp-800-53-r5.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/gov-azure-security-benchmark.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/gov-nist-sp-800-53-r4.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/gov-nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/gov-nist-sp-800-171-r2.md
   - name: Compute security baselines
     items:
+    - name: Docker host security baseline
+      href: ./samples/guest-configuration-baseline-docker.md
     - name: Linux security baseline
       href: ./samples/guest-configuration-baseline-linux.md
     - name: Windows security baseline
@@ -184,12 +199,24 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
-  - name: React to policy state change events
-    displayName: event grid, subject, topic, subscription
-    href: ./concepts/event-overview.md
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md
+  - name: Applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Compliance states
+    displayName: compliance, states, evaluation
+    href: ./concepts/compliance-states.md
+  - name: Attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
+  - name: Remediation structure
+    displayName: remediate, remediation task, deployment, deployIfNotExist, modify
+    href: ./concepts/remediation-structure.md
+  - name: React to policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./concepts/event-overview.md
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
@@ -210,26 +237,15 @@
     - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
       href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-  - name: Guest configuration
-    items:
-    - name: Understand Azure Policy's guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration.md
-    - name: Changes to behavior in PowerShell Desired State Configuration for guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-custom.md
-    - name: Understand Azure Policy's guest configuration assignment resources
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-assignments.md
-    - name: Remediation options for guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-policy-effects.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
-      href: /security/benchmark/azure/baselines/policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /security/benchmark/azure/baselines/azure-policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: How-to guides
   items:
+  - name: Safe deployment of Azure Policy assignments
+    displayName: policy, assignments, sdp
+    href: ./how-to/policy-safe-deployment-practices.md
   - name: Azure Policy extension for VS Code
     displayName: visual studio code
     href: ./how-to/extension-for-vscode.md
@@ -242,35 +258,6 @@
   - name: Export Azure Policy resources
     displayName: github, json, definition
     href: ./how-to/export-resources.md
-  - name: Guest configuration
-    items:
-    - name: Setup a guest configuration authoring environment
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-setup.md
-    - name: Create custom guest configuration package artifacts
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create.md
-    - name: Test guest configuration package artifacts
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-test.md
-    - name: Sign guest configuration packages
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-signing.md
-    - name: Publish guest configuration packages
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-publish.md
-    - name: Create a guest configuration assignment
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-assignment.md
-    - name: Create custom guest configuration definitions
-      displayName: powershell, dsc
-      href: ./how-to/guest-configuration-create-definition.md
-    - name: Azure Automation state configuration to guest configuration migration planning
-      displayName: powershell, dsc, automation
-      href: ./how-to/guest-configuration-azure-automation-migration.md
-    - name: Planning a change from Desired State Configuration extension for Linux to guest configuration
-      displayname: powershell, dsc, extension
-      href: ./how-to/guest-configuration-desired-state-configuration-extension-migration.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
@@ -297,10 +284,10 @@
     items:
     - name: Deploy Azure Monitor at scale
       displayName: monitor, diagnostic settings, dependency agent
-      href: ../../azure-monitor/best-practices.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/best-practices.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy

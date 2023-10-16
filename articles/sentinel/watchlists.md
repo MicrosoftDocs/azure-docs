@@ -4,8 +4,7 @@ description: Learn what watchlists are in Microsoft and when to use them.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
-ms.date: 02/07/2022
+ms.date: 01/05/2023
 ---
 
 # Use watchlists in Microsoft Sentinel
@@ -38,6 +37,7 @@ Before you create a watchlist, be aware of the following limitations:
 
 - The use of watchlists should be limited to reference data, as they aren't designed for large data volumes.
 - The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
+- Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.
 - Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.
 - File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.

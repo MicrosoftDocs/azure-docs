@@ -2,16 +2,19 @@
 title: Azure Functions Dedicated hosting 
 description: Learn about the benefits of running Azure Functions on a dedicated App Service hosting plan.
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 01/26/2023
 ---
 
 # Dedicated hosting plans for Azure Functions
 
-This article is about hosting your function app in an App Service plan, including in an App Service Environment (ASE). For other hosting options, see the [hosting plan article](functions-scale.md).
+This article is about hosting your function app with dedicated resources in an App Service plan, including in an App Service Environment (ASE). For other hosting options, see the [hosting plan article](functions-scale.md).
 
-An App Service plan defines a set of compute resources for an app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional hosting. One or more function apps can be configured to run on the same computing resources (App Service plan) as other App Service apps, such as web apps. These plans include Basic, Standard, Premium, and Isolated SKUs. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
+An App Service plan defines a set of dedicated compute resources for an app to run. These dedicated compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional hosting. One or more function apps can be configured to run on the same computing resources (App Service plan) as other App Service apps, such as web apps. The dedicated App Service plans supported for function app hosting include Basic, Standard, Premium, and Isolated SKUs. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
-Consider an App Service plan in the following situations:
+> [!IMPORTANT]
+> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function executions, you should instead consider the [Consumption plan](consumption-plan.md), where you are billed based on function executions.  
+
+Consider a dedicated App Service plan in the following situations:
 
 * You have existing, underutilized VMs that are already running other App Service instances.
 * You want to provide a custom image on which to run your functions.

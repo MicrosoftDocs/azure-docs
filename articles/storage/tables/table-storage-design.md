@@ -1,13 +1,12 @@
 ---
-title: Design scalable and performant tables in Azure table storage. | Microsoft Docs
-description: Learn to design scalable and performant tables in Azure table storage. Review table partitions, Entity Group Transactions, and capacity and cost considerations.
+title: Design scalable and performant tables in Azure Table storage.
+description: Learn to design scalable and performant tables in Azure Table storage. Review table partitions, Entity Group Transactions, and capacity and cost considerations.
 services: storage
-ms.service: storage
-author: tamram
-ms.author: tamram
+ms.service: azure-table-storage
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: article
 ms.date: 03/09/2020
-ms.subservice: tables
 ---
 
 # Design scalable and performant tables
@@ -17,7 +16,7 @@ ms.subservice: tables
 To design scalable and performant tables, you must consider factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations are familiar, but while there are some similarities between the Azure Table service storage model and relational models, there are also important differences. These differences typically lead to different designs that may look counter-intuitive or wrong to someone familiar with relational databases, yet make sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (or rows in relational database terminology) of data or for datasets that must support high transaction volumes. Therefore, you must think differently about how you store your data and understand how the Table service works. A well-designed NoSQL data store can enable your solution to scale much further and at a lower cost than a solution that uses a relational database. This guide helps you with these topics.  
 
 ## About the Azure Table service
-This section highlights some of the key features of the Table service that are especially relevant to designing for performance and scalability. If you're new to Azure Storage and the Table service, first read [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md) and [Get started with Azure Table Storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) before reading the remainder of this article. Although the focus of this guide is on the Table service, it includes discussion of the Azure Queue and Blob services, and how you might use them with the Table service.  
+This section highlights some of the key features of the Table service that are especially relevant to designing for performance and scalability. If you're new to Azure Storage and the Table service, first read [Get started with Azure Table Storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) before reading the remainder of this article. Although the focus of this guide is on the Table service, it includes discussion of the Azure Queue and Blob services, and how you might use them with the Table service.  
 
 What is the Table service? As you might expect from the name, the Table service uses a tabular format to store data. In the standard terminology, each row of the table represents an entity, and the columns store the various properties of that entity. Every entity has a pair of keys to uniquely identify it, and a timestamp column that the Table service uses to track when the entity was last updated. The timestamp is applied automatically, and you cannot manually overwrite the timestamp with an arbitrary value. The Table service uses this last-modified timestamp (LMT) to manage optimistic concurrency.  
 

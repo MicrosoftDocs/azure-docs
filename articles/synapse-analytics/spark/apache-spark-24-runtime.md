@@ -1,18 +1,26 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 2.4
-description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 2.4.
-author: DaniBunny 
+title: Azure Synapse Runtime for Apache Spark 2.4 (unsupported)
+description: Versions of Spark, Scala, Python, and .NET for Apache Spark 2.4.
+author: ekote 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 04/18/2022 
-ms.author: dacoelho 
-ms.custom: has-adal-ref
+ms.author: eskot 
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 2.4
+# Azure Synapse Runtime for Apache Spark 2.4 (unsupported)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 2.4.
+
+> [!WARNING]
+> End of Support Notification for Azure Synapse Runtime for Apache Spark 2.4
+> * Effective September 29, 2023, the Azure Synapse will discontinue official support for Spark 2.4 Runtimes. 
+> * Post September 29, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 2.4, but we will not provide any official support for it.
+> * We strongly advise to proactively upgrade their workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md)).
+
 
 ## Component versions
 |  Component   | Version   |  
@@ -26,6 +34,20 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Delta Lake | 0.6|
 | Python | 3.6|
 
+>[!Note]
+> Following are the recent library changes for Apache Spark 2.4 Python runtime:
+>
+> Modifications:
+>
+> - conda 4.3.21 --> 4.9.2
+> - libgcc-ng 9.3.0 --> 12.1.0
+> - libgfortran-ng 9.3.0 --> 7.5.0
+> - libgomp=9.3.0 --> 12.1.0
+> - nest-asyncio 1.5.5 --> 1.5.6
+>
+> New additions:
+> - cached_property=1.5.2
+> - backports-entry-points-selectable=1.1.1
 
 ## Scala and Java libraries
 
@@ -595,637 +617,370 @@ zstd-jni-1.3.2-2.jar
  
 ## Python libraries
 
-_libgcc_mutex=0.1
-
-_openmp_mutex=4.5
-
-c-ares=1.16.1
-
-ca-certificates=2020.6.20
-
-certifi=2020.6.20
-
-cffi=1.14.3
-
-chardet=3.0.4
-
-cryptography=3.1.1
-
-conda=4.3.21
-
-conda-env=2.6.0
-
-cytoolz=0.8.2
-
-gperftools=2.7
-
-h5py=2.10.0
-
-hdf5=1.10.6
-
-jpeg=9d
-
-krb5=1.17.1
-
-ld_impl_linux-64=2.35
-
-libblas=3.9.0
-
-libcblas=3.9.0
-
-libcurl=7.71.1
-
-libedit=3.1.20191231
-
-libev=4.33
-
-libffi=3.2.1
-
-libgcc-ng=9.3.0
-
-libgfortran-ng=9.3.0
-
-libgfortran4=7.5.0
-
-libgfortran5=9.3.0
-
-libgomp=9.3.0
-
-libiconv=1.16
-
-liblapack=3.9.0
-
-libnghttp2=1.41.0
-
-libopenblas=0.3.12
-
-libssh2=1.9.0
-
-libstdcxx-ng=9.3.0
-
-numpy=1.18.5
-
-ncurses=6.2
-
-openssl=1.1.1
-
-perl=5.32.0
-
-pip=20.2.4
-
-pygments=2.7.3
-
-pyopenssl=19.1.0
-
-python=3.6.11
-
-python_abi=3.6
-
-readline=8.0
-
-requests=2.24.0
-
-sentencepiece=0.1.9
-
-setuptools=41.4.0
-
-six=1.15.0
-
-sqlite=3.33.0
-
-tk=8.6.1
-
-toolz=0.11.1
-
-urllib3=1.25.10
-
-unixodbc=2.3.9
-
-xz=5.2.5
-
-wheel=0.30.0
-
-yaml=0.2.5
-
-zlib=1.2.11
-
-absl-py=0.11.0
-
-adal=1.2.4
-
-adlfs=0.5.5
-
-aiohttp=3.7.2
-
-alembic=1.4.1
-
-altair=4.1.0
-
-appdirs=1.4.4
-
-applicationinsights=0.11.9
-
-asn1crypto=1.4.0
-
-astor=0.8.1
-
-astroid=2.4.2
-
-astunparse=1.6.3
-
-async-timeout=3.0.1
-
-attrs=20.3.0
-
-azure-common=1.1.25
-
-azure-core=1.8.2
-
-azure-datalake-store=0.0.51
-
-azure-graphrbac=0.61.1
-
-azure-identity=1.4.1
-
-azure-mgmt-authorization=0.61.0
-
-azure-mgmt-containerregistry=2.8.0
-
-azure-mgmt-keyvault=2.2.0
-
-azure-mgmt-resource=12.0.0
-
-azure-mgmt-storage=11.2.0
-
-azure-storage-blob=12.5.0
-
-azure-storage-common=2.1.0
-
-azure-storage-queue=12.1.5
-
-azureml-automl-core=1.22.0
-
-azureml-automl-runtime=1.22.0
-
-azureml-core=1.22.0
-
-azureml-dataprep=2.9.0
-
-azureml-dataprep-native=29.0.0
-
-azureml-dataprep-rslex=1.7.0
-
-azureml-dataset-runtime=1.22.0
-
-azureml-defaults=1.22.0
-
-azureml-interpret=1.22.0
-
-azureml-mlflow=1.16.0
-
-azureml-model-management-sdk=1.0.1b6.post1
-
-azureml-opendatasets=1.18.0
-
-azureml-pipeline=1.22.0
-
-azureml-pipeline-core=1.22.0
-
-azureml-pipeline-steps=1.22.0
-
-azureml-sdk=1.22.0
-
-azure-storage-blob=12.5.0
-
-azureml-telemetry=1.22.0
-
-azureml-train=1.22.0
-
-azureml-train-automl=1.22.0
-
-azureml-train-automl-client=1.22.0.post1
-
-azureml-train-automl-runtime=1.22.0.post1
-
-azureml-train-core=1.22.0
-
-azureml-train-restclients-hyperdrive=1.22.0
-
-backports.tempfile=1.0
-
-backports.weakref=1.0.post1
-
-beautifulsoup4=4.9.3
-
-bitarray=1.6.1
-
-bokeh=2.2.3
-
-boto=2.49.0
-
-boto3=1.15.14
-
-botocore=1.18.14
-
-Bottleneck=1.3.2
-
-bpemb=0.3.2
-
-cachetools=4.1.1
-
-certifi=2020.6.20
-
-click=7.1.2
-
-cloudpickle=1.6.0
-
-configparser=3.7.4
-
-contextlib2=0.6.0.post1
-
-cycler=0.10.0
-
-cython=0.29.21
-
-cytoolz=0.8.2
-
-databricks-cli=0.14.0
-
-dataclasses=0.8
-
-datashape=0.5.2
-
-decorator=4.4.2
-
-Deprecated=1.2.10
-
-dill=0.3.2
-
-distro=1.5.0
-
-docker=4.3.1
-
-docutils=0.16
-
-dotnetcore2=2.1.17
-
-entrypoints=0.3
-
-et-xmlfile=1.0.1
-
-filelock=3.0.12
-
-fire=0.3.1
-
-flair=0.5
-
-Flask=1.0.3
-
-fsspec=0.8.4
-
-fusepy=3.0.1
-
-future=0.18.2
-
-gast=0.3.3
-
-gensim=3.8.3
-
-geographiclib=1.50
-
-geopy=2.0.0
-
-gitdb=4.0.5
-
-GitPython=3.1.11
-
-google-auth=1.23.0
-
-google-auth-oauthlib=0.4.2
-
-google-pasta=0.2.0
-
-gorilla=0.3.0
-
-grpcio=1.33.2
-
-gunicorn=19.9.0
-
-html5lib=1.1
-
-hummingbird-ml=0.0.6
-
-hyperopt=0.2.5
-
-idna=2.10
-
-idna-ssl=1.1.0
-
-imageio=2.9.0
-
-importlib-metadata=1.7.0
-
-interpret-community=0.16.0
-
-interpret-core=0.2.1
-
-ipykernel=5.5.3
-
-ipython=7.8.0
-
-ipython-genutils=0.2.0
-
-ipywidgets=7.6.3
-
-isodate=0.6.0
-
-isort=5.6.4
-
-itsdangerous=1.1.0
-
-jdcal=1.4.1
-
-jeepney=0.4.3
-
-Jinja2=2.11.2
-
-jmespath=0.10.0
-
-joblib=0.14.1
-
-json-logging-py=0.2
-
-jsonpickle=1.4.1
-
-jsonschema=3.2.0
-
-Keras-Applications=1.0.8
-
-Keras-Preprocessing=1.1.2
-
-keras2onnx=1.6.0
-
-kiwisolver=1.3.1
-
-koalas=1.2.0
-
-langdetect=1.0.8
-
-lazy-object-proxy=1.4.3
-
-liac-arff=2.5.0
-
-lightgbm=2.3.0
-
-Mako=1.1.3
-
-Markdown=3.3.3
-
-MarkupSafe=1.1.1
-
-matplotlib=3.2.2
-
-mccabe=0.6.1
-
-mistune=0.8.4
-
-mleap=0.16.1
-
-mlflow=1.11.0
-
-more-itertools=8.6.0
-
-mpld3=0.3
-
-mpmath=1.1.0
-
-msal=1.5.0
-
-msal-extensions=0.2.2
-
-msrest=0.6.19
-
-msrestazure=0.6.4
-
-multidict=5.0.0
-
-multipledispatch=0.6.0
-
-mypy=0.780
-
-mypy-extensions=0.4.3
-
-ndg-httpsclient=0.5.1
-
-networkx=2.5
-
-nimbusml=1.7.1
-
-nltk=3.5
-
-nose=1.3.7
-
-oauthlib=3.1.0
-
-odo=0.5.0
-
-olefile=0.46
-
-onnx=1.6.0
-
-onnxconverter-common=1.6.0
-
-onnxmltools=1.4.1
-
-onnxruntime=1.3.0
-
-openpyxl=3.0.5
-
-opt-einsum=3.3.0
-
-packaging=20.4
-
-pandas=0.25.3
-
-pandasql=0.7.3
-
-pathspec=0.8.0
-
-patsy=0.5.1
-
-pickleshare=0.7.5
-
-Pillow=8.0.1
-
-plotly=4.12.0
-
-pluggy=0.13.1
-
-pmdarima=1.1.1
-
-portalocker=1.7.1
-
-prometheus-client=0.8.0
-
-prometheus-flask-exporter=0.18.1
-
-protobuf=3.13.0
-
-psutil=5.7.2
-
-py=1.9.0
-
-py-cpuinfo=5.0.0
-
-py4j=0.10.7
-
-pyarrow=1.0.1
-
-pyasn1=0.4.8
-
-pyasn1-modules=0.2.8
-
-pycrypto=2.6.1
-
-pycparser=2.20
-
-PyJWT=1.7.1
-
-pylint=2.6.0
-
-pymssql=2.1.5
-
-pyodbc=4.0.30
-
-pyopencl=2020.1
-
-pyparsing=2.4.7
-
-pyrsistent=0.17.3
-
-pyspark=2.4.5
-
-pytest=5.3.2
-
-python-dateutil=2.8.1
-
-python-editor=1.0.4
-
-pytools=2021.1
-
-pytz=2020.1
-
-PyWavelets=1.1.1
-
-PyYAML=5.3.1
-
-querystring-parser=1.2.4
-
-regex=2020.10.28
-
-requests-oauthlib=1.3.0
-
-retrying=1.3.3
-
-rsa=4.6
-
-ruamel.yaml=0.16.12
-
-ruamel.yaml.clib=0.2.2
-
-s3transfer=0.3.3
-
-sacremoses=0.0.43
-
-scikit-image=0.17.2
-
-scikit-learn=0.22.2.post1
-
-scipy=1.5.2
-
-seaborn=0.11.0
-
-SecretStorage=3.1.2
-
-segtok=1.5.10
-
-shap=0.34.0
-
-skl2onnx=1.4.9
-
-sklearn-pandas=1.7.0
-
-smart-open=1.9.0
-
-smmap=3.0.4
-
-soupsieve=2.0.1
-
-SQLAlchemy=1.3.13
-
-sqlitedict=1.7.0
-
-sqlparse=0.4.1
-
-statsmodels=0.10.2
-
-tabulate=0.8.7
-
-tb-nightly=1.14.0a20190603
-
-tensorboard=2.3.0
-
-tensorboard-plugin-wit=1.7.0
-
-tensorflow=2.0.0b1
-
-tensorflow-estimator=2.3.0
-
-termcolor=1.1.0
-
-textblob=0.15.3
-
-tf-estimator-nightly=1.14.0.dev2019060501
-
-tf2onnx=1.7.2
-
-tifffile=2020.9.3
-
-tokenizers=0.9.2
-
-toml=0.10.2
-
-torch=1.7.0
-
-tornado=6.1
-
-tqdm=4.48.2
-
-transformers=3.4.0
-
-typed-ast=1.4.1
-
-typing-extensions=3.7.4.3
-
-urllib3=1.25.10
-
-wcwidth=0.2.5
-
-webencodings=0.5.1
-
-websocket-client=0.57.0
-
-Werkzeug=1.0.1
-
-wheel=0.30.0
-
-wrapt=1.11.2
-
-xgboost=0.90
-
-zict=1.0.0
-
-zipp=0.6.0
+- conda:
+    - _libgcc_mutex=0.1
+    - _openmp_mutex=4.5
+    - brotlipy=0.7.0
+    - c-ares=1.16.1
+    - ca-certificates=2020.6.20
+    - cached-property=1.5.2
+    - cached_property=1.5.2
+    - certifi=2020.6.20
+    - cffi=1.14.3
+    - chardet=3.0.4
+    - conda=4.9.2
+    - conda-env=2.6.0
+    - cryptography=3.1.1
+    - cytoolz=0.8.2
+    - gperftools=2.7
+    - h5py=2.10.0
+    - hdf5=1.10.6
+    - idna=2.10
+    - jpeg=9d
+    - krb5=1.17.1
+    - ld_impl_linux-64=2.35
+    - libblas=3.9.0
+    - libcblas=3.9.0
+    - libcurl=7.71.1
+    - libedit=3.1.20191231
+    - libev=4.33
+    - libffi=3.2.1
+    - libgcc-ng=12.1.0
+    - libgfortran-ng=7.5.0
+    - libgfortran4=7.5.0
+    - libgomp=12.1.0
+    - libiconv=1.16
+    - liblapack=3.9.0
+    - libnghttp2=1.41.0
+    - libopenblas=0.3.12
+    - libssh2=1.9.0
+    - libstdcxx-ng=9.3.0
+    - ncurses=6.2
+    - numpy=1.18.5
+    - openssl=1.1.1h
+    - perl=5.32.0
+    - pip=20.2.4
+    - pycparser=2.20
+    - pygments=2.7.3
+    - pyopenssl=19.1.0
+    - pysocks=1.7.1
+    - python=3.6.11
+    - python_abi=3.6
+    - readline=8.0
+    - requests=2.24.0
+    - sentencepiece=0.1.92
+    - setuptools=41.4.0
+    - six=1.15.0
+    - sqlite=3.33.0
+    - tk=8.6.10
+    - toolz=0.11.1
+    - unixodbc=2.3.9
+    - urllib3=1.25.10
+    - wheel=0.30.0
+    - xz=5.2.5
+    - yaml=0.2.5
+    - zlib=1.2.11
+- pip:
+    - absl-py==0.11.0
+    - adal==1.2.4
+    - adlfs==0.5.5
+    - aiohttp==3.7.2
+    - alembic==1.4.1
+    - altair==4.1.0
+    - appdirs==1.4.4
+    - applicationinsights==0.11.9
+    - argon2-cffi==21.1.0
+    - asn1crypto==1.4.0
+    - astor==0.8.1
+    - astroid==2.4.2
+    - astunparse==1.6.3
+    - async-generator==1.10
+    - async-timeout==3.0.1
+    - attrs==20.3.0
+    - azure-common==1.1.25
+    - azure-core==1.15.0
+    - azure-datalake-store==0.0.51
+    - azure-graphrbac==0.61.1
+    - azure-identity==1.4.1
+    - azure-mgmt-authorization==0.61.0
+    - azure-mgmt-containerregistry==2.8.0
+    - azure-mgmt-keyvault==2.2.0
+    - azure-mgmt-resource==12.0.0
+    - azure-mgmt-storage==11.2.0
+    - azure-storage-blob==12.5.0
+    - azure-storage-common==2.1.0
+    - azure-storage-queue==12.1.5
+    - azureml-automl-core==1.32.0
+    - azureml-automl-runtime==1.32.0
+    - azureml-core==1.32.0
+    - azureml-dataprep==2.18.0
+    - azureml-dataprep-native==36.0.0
+    - azureml-dataprep-rslex==1.16.1
+    - azureml-dataset-runtime==1.32.0
+    - azureml-defaults==1.32.0
+    - azureml-interpret==1.32.0
+    - azureml-mlflow==1.32.0
+    - azureml-model-management-sdk==1.0.1b6.post1
+    - azureml-opendatasets==1.32.0
+    - azureml-pipeline==1.32.0
+    - azureml-pipeline-core==1.32.0
+    - azureml-pipeline-steps==1.32.0
+    - azureml-sdk==1.32.0
+    - azureml-telemetry==1.32.0
+    - azureml-train==1.32.0
+    - azureml-train-automl==1.32.0
+    - azureml-train-automl-client==1.32.0
+    - azureml-train-automl-runtime==1.32.0
+    - azureml-train-core==1.32.0
+    - azureml-train-restclients-hyperdrive==1.32.0
+    - backcall==0.2.0
+    - backports-datetime-fromisoformat==1.0.0
+    - backports-entry-points-selectable==1.1.1
+    - backports-tempfile==1.0
+    - backports-weakref==1.0.post1
+    - beautifulsoup4==4.9.3
+    - bitarray==1.6.1
+    - bleach==4.1.0
+    - bokeh==2.2.3
+    - boto==2.49.0
+    - boto3==1.15.14
+    - botocore==1.18.14
+    - bottleneck==1.3.2
+    - bpemb==0.3.2
+    - cachetools==4.1.1
+    - click==7.1.2
+    - cloudpickle==1.6.0
+    - configparser==3.7.4
+    - contextlib2==0.6.0.post1
+    - contextvars==2.4
+    - cycler==0.10.0
+    - cython==0.29.21
+    - databricks-cli==0.14.0
+    - dataclasses==0.8
+    - datashape==0.5.2
+    - decorator==4.4.2
+    - defusedxml==0.7.1
+    - deprecated==1.2.10
+    - dill==0.3.2
+    - distlib==0.3.6
+    - distro==1.5.0
+    - docker==4.3.1
+    - docutils==0.16
+    - dotnetcore2==2.1.17
+    - entrypoints==0.3
+    - et-xmlfile==1.0.1
+    - fastapi==0.63.0
+    - filelock==3.0.12
+    - fire==0.3.1
+    - flair==0.5
+    - flask==1.0.3
+    - flatbuffers==2.0
+    - fsspec==0.8.4
+    - fusepy==3.0.1
+    - future==0.18.2
+    - gast==0.3.3
+    - gensim==3.8.3
+    - geographiclib==1.50
+    - geopy==2.0.0
+    - gitdb==4.0.5
+    - gitpython==3.1.11
+    - google-api-core==1.30.0
+    - google-auth==1.32.1
+    - google-auth-oauthlib==0.4.2
+    - google-pasta==0.2.0
+    - googleapis-common-protos==1.53.0
+    - gorilla==0.3.0
+    - grpcio==1.33.2
+    - gunicorn==20.1.0
+    - h11==0.12.0
+    - heapdict==1.0.1
+    - html5lib==1.1
+    - hummingbird-ml==0.0.6
+    - hyperopt==0.2.5
+    - idna-ssl==1.1.0
+    - imageio==2.9.0
+    - immutables==0.16
+    - importlib-metadata==1.7.0
+    - importlib-resources==5.4.0
+    - interpret-community==0.18.1
+    - interpret-core==0.2.1
+    - ipykernel==5.5.3
+    - ipython==7.8.0
+    - ipython-genutils==0.2.0
+    - ipywidgets==7.6.3
+    - isodate==0.6.0
+    - isort==5.6.4
+    - itsdangerous==1.1.0
+    - jdcal==1.4.1
+    - jedi==0.18.1
+    - jeepney==0.4.3
+    - jinja2==2.11.2
+    - jmespath==0.10.0
+    - joblib==0.14.1
+    - json-logging-py==0.2
+    - jsonpickle==1.4.1
+    - jsonschema==3.2.0
+    - jupyter-client==7.1.2
+    - jupyter-core==4.9.2
+    - jupyterlab-pygments==0.1.2
+    - jupyterlab-widgets==1.1.1
+    - keras-applications==1.0.8
+    - keras-preprocessing==1.1.2
+    - keras2onnx==1.6.0
+    - kiwisolver==1.3.1
+    - koalas==1.2.0
+    - langdetect==1.0.8
+    - lazy-object-proxy==1.4.3
+    - liac-arff==2.5.0
+    - lightgbm==2.3.0
+    - mako==1.1.3
+    - markdown==3.3.3
+    - markupsafe==1.1.1
+    - matplotlib==3.2.2
+    - mccabe==0.6.1
+    - mistune==0.8.4
+    - mleap==0.16.1
+    - mlflow==1.18.0
+    - mlflow-skinny==1.20.2
+    - more-itertools==8.6.0
+    - mpld3==0.3
+    - mpmath==1.1.0
+    - msal==1.5.0
+    - msal-extensions==0.2.2
+    - msrest==0.6.19
+    - msrestazure==0.6.4
+    - multidict==5.0.0
+    - multipledispatch==0.6.0
+    - mypy==0.780
+    - mypy-extensions==0.4.3
+    - nbclient==0.5.9
+    - nbconvert==6.0.7
+    - nbformat==5.1.3
+    - ndg-httpsclient==0.5.1
+    - nest-asyncio==1.5.6
+    - networkx==2.5
+    - nimbusml==1.7.1
+    - nltk==3.5
+    - nose==1.3.7
+    - notebook==6.1.5
+    - oauthlib==3.1.0
+    - odo==0.5.0
+    - olefile==0.46
+    - onnx==1.7.0
+    - onnxconverter-common==1.6.0
+    - onnxmltools==1.4.1
+    - onnxruntime==1.8.0
+    - opencensus==0.7.13
+    - opencensus-context==0.1.2
+    - opencensus-ext-azure==1.0.8
+    - openpyxl==3.0.5
+    - opt-einsum==3.3.0
+    - packaging==20.4
+    - pandas==0.25.3
+    - pandasql==0.7.3
+    - pandocfilters==1.5.0
+    - parso==0.8.2
+    - pathspec==0.8.0
+    - patsy==0.5.1
+    - pexpect==4.8.0
+    - pickleshare==0.7.5
+    - pillow==8.0.1
+    - platformdirs==2.4.0
+    - plotly==4.12.0
+    - pluggy==0.13.1
+    - pmdarima==1.1.1
+    - portalocker==1.7.1
+    - prometheus-client==0.8.0
+    - prometheus-flask-exporter==0.18.1
+    - prompt-toolkit==2.0.10
+    - protobuf==3.13.0
+    - psutil==5.7.2
+    - ptyprocess==0.7.0
+    - py==1.9.0
+    - py-cpuinfo==5.0.0
+    - py4j==0.10.7
+    - pyarrow==1.0.1
+    - pyasn1==0.4.8
+    - pyasn1-modules==0.2.8
+    - pycrypto==2.6.1
+    - pydantic==1.9.2
+    - pyjwt==1.7.1
+    - pylint==2.6.0
+    - pymssql==2.1.5
+    - pyodbc==4.0.30
+    - pyopencl==2020.1
+    - pyparsing==2.4.7
+    - pyrsistent==0.17.3
+    - pyspark==2.4.5
+    - pytest==5.3.2
+    - python-dateutil==2.8.1
+    - python-editor==1.0.4
+    - pytools==2021.1
+    - pytz==2020.1
+    - pywavelets==1.1.1
+    - pyyaml==5.3.1
+    - pyzmq==22.3.0
+    - querystring-parser==1.2.4
+    - regex==2020.10.28
+    - requests-oauthlib==1.3.0
+    - retrying==1.3.3
+    - rsa==4.6
+    - ruamel-yaml==0.16.12
+    - ruamel-yaml-clib==0.2.2
+    - s3transfer==0.3.3
+    - sacremoses==0.0.43
+    - scikit-image==0.17.2
+    - scikit-learn==0.22.2.post1
+    - scipy==1.5.2
+    - seaborn==0.11.0
+    - secretstorage==3.1.2
+    - segtok==1.5.10
+    - send2trash==1.8.0
+    - shap==0.34.0
+    - skl2onnx==1.4.9
+    - sklearn-pandas==1.7.0
+    - smart-open==1.9.0
+    - smmap==3.0.4
+    - soupsieve==2.0.1
+    - sqlalchemy==1.3.13
+    - sqlitedict==1.7.0
+    - sqlparse==0.4.1
+    - starlette==0.13.6
+    - statsmodels==0.10.2
+    - tabulate==0.8.7
+    - tb-nightly==1.14.0a20190603
+    - tensorboard==2.3.0
+    - tensorboard-plugin-wit==1.7.0
+    - tensorflow==2.0.1
+    - tensorflow-estimator==2.3.0
+    - termcolor==1.1.0
+    - terminado==0.12.1
+    - testpath==0.5.0
+    - textblob==0.15.3
+    - tf-estimator-nightly==1.14.0.dev2019060501
+    - tf2onnx==1.7.2
+    - tifffile==2020.9.3
+    - tokenizers==0.9.2
+    - toml==0.10.2
+    - torch==1.7.0
+    - tornado==6.1
+    - tqdm==4.48.2
+    - traitlets==4.3.3
+    - transformers==3.4.0
+    - typed-ast==1.4.1
+    - typing-extensions==3.7.4.3
+    - uvicorn==0.13.2
+    - virtualenv==20.8.1
+    - wcwidth==0.2.5
+    - webencodings==0.5.1
+    - websocket-client==0.57.0
+    - werkzeug==1.0.1
+    - widgetsnbextension==3.5.2
+    - wrapt==1.11.2
+    - xgboost==0.90
+    - yarl==1.6.3
+    - zict==1.0.0
+    - zipp==3.4.1
 
 ## Next steps
 

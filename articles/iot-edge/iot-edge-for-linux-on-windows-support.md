@@ -3,7 +3,7 @@ title: Supported operating systems, container engines - Azure IoT Edge for Linux
 description: Learn which operating systems can run Azure IoT Edge for Linux on Windows
 author: PatAltimore
 ms.author: fcabrera
-ms.date: 03/15/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge for Linux on Windows supported systems
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether generally available or in preview. 
 
@@ -19,9 +19,9 @@ This article provides details about which systems are supported by IoT Edge for 
 
 If you experience problems while using Azure IoT Edge for Linux on Windows, there are several ways to seek support. Try one of the following channels for support:
 
-**Reporting bugs** – Bugs can be reported on the [issues page](https://github.com/azure/iotedge-eflow/issues) of the project. Bugs related to Azure IoT Edge can be reported on the [IoT Edge issues page](https://github.com/azure/iotedge/issues). Fixes rapidly make their way from the projects in to product updates.
+**Reporting bugs** - Bugs can be reported on the [issues page](https://github.com/azure/iotedge-eflow/issues) of the project. Bugs related to Azure IoT Edge can be reported on the [IoT Edge issues page](https://github.com/azure/iotedge/issues). Fixes rapidly make their way from the projects in to product updates.
 
-**Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com).
+**Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com).
 
 
 ## Container engines
@@ -49,12 +49,24 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 | ---------------- | ----- |  ----- |
 | EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+| EFLOW 1.4 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
 
+For more information about Windows ARM64 supported processors, see [Windows Processor Requirements](/windows-hardware/design/minimum/windows-processor-requirements).
 
-## Virtual machines
+## Nested virtualization
 
-Azure IoT Edge for Linux on Windows can run in Windows virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. In order to run the EFLOW virtual machine inside a Windows VM, the host VM must support nested virtualization. There are two forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local VM or Azure VM. For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
+Azure IoT Edge for Linux on Windows (EFLOW) can run in Windows virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. In order to run the EFLOW virtual machine inside a Windows VM, the host VM must support nested virtualization. EFLOW supports the following nested virtualization scenarios:
 
+| Version | Hyper-V VM | Azure VM | VMware ESXi VM | Other Hypervisor | 
+| ---------------- | ----- |  ----- | ----- | ----- | 
+| EFLOW 1.1 LTS | ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) | - |  
+| EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![CR](./media/support/green-check.png) | ![CR](./media/support/green-check.png) |  ![CR](./media/support/green-check.png) | - |
+| EFLOW 1.4 LTS | ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) | - |  
+ 
+For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
+
+### VMware virtual machine
+Azure IoT Edge for Linux on Windows supports running inside a Windows virtual machine running on top of [VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html) product family. Specific networking and virtualization configurations are needed to support this scenario. For more information about VMware configuration, see [EFLOW Nested virtualization](./nested-virtualization.md).
 
 ## Releases
 
@@ -64,8 +76,9 @@ The following table lists the components included in each release. Each release 
 
 | Release | IoT Edge | CBL-Mariner | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
-| **1.1 LTS** | 1.1 | 1.0 | - |
-| **Continuous Release** | 1.2 | 1.0 | 3.12.3 | 
+| **1.1 LTS** | 1.1 | 2.0 | - |
+| **Continuous Release** | 1.3 | 2.0 | 3.12.3 |
+| **1.4 LTS** | 1.4 | 2.0 | 3.12.3 |
 
 
 ## Minimum system requirements

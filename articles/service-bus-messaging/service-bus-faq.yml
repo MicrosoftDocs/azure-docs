@@ -4,6 +4,7 @@ metadata:
   description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
   ms.topic: faq
   ms.service: service-bus-messaging
+  ms.custom: ignite-2022
   ms.date: 02/16/2022
 title: Azure Service Bus - Frequently asked questions (FAQ)
 summary: |
@@ -37,11 +38,9 @@ sections:
       - question: |
           What is a partitioned entity?
         answer: |
-          A conventional queue or topic is handled by a single message broker and stored in one messaging store. Supported only in the Basic and Standard messaging tiers, a [partitioned queue, or topic](service-bus-partitioning.md) is handled by multiple message brokers and stored in multiple messaging stores. This feature means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. Also, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable.
+          A conventional queue or topic is handled by a single message broker and stored in one messaging store. A [partitioned queue, or topic](service-bus-partitioning.md) is handled by multiple message brokers and stored in multiple messaging stores. This feature means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. Also, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable.
           
           Ordering isn't ensured when using partitioned entities. In the event that a partition is unavailable, you can still send and receive messages from the other partitions.
-          
-           Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
           
       - question: Where does Azure Service Bus store data?
         answer: |
@@ -60,12 +59,12 @@ sections:
           
           See the following table for the outbound TCP ports you need to open to use these protocols to communicate with Azure Service Bus:
           
-          | Protocol | Port | Details | 
+          | Protocol | Ports | Details | 
           | -------- | ----- | ------- | 
-          | AMQP | 5671 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+          | AMQP | 5671, 5672 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
           | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
           
-          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Microsoft Entra ID (when used) run over HTTPS. 
           
           The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
           
@@ -213,7 +212,7 @@ sections:
           ```
           ## Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
 
-          No. It's not possible to disable TLS 1.0 or 1.1 on Service Bus namespaces. In your client applications connecting to Service Bus, use TLS 1.2 or above. For more information, see [Enforcing TLS 1.2 use with Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
+          Yes, you can disable TLS 1.0 or 1.1 on Service Bus namespaces by setting the minimum TLS version. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md).
           
 additionalContent: |
   ## Next steps

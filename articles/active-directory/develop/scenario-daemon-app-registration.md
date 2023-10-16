@@ -1,8 +1,8 @@
 ---
-title: Register daemon apps that call web APIs - Microsoft identity platform | Azure
+title: Register daemon apps that call web APIs
 description: Learn how to build a daemon app that calls web APIs - app registration
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/01/2021
-ms.author: jmprieur
+ms.author: dmwendia
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
 ---
@@ -21,7 +22,7 @@ For a daemon application, here's what you need to know when you register the app
 
 ## Supported account types
 
-Daemon applications make sense only in Azure Active Directory (Azure AD) tenants. So when you create the application, choose one of the following options:
+Daemon applications make sense only in Microsoft Entra tenants. So when you create the application, choose one of the following options:
 
 - **Accounts in this organizational directory only**. This choice is the most common one because daemon applications are written by line-of-business (LOB) developers.
 - **Accounts in any organizational directory**. You'll make this choice if you're an Independent Software Vendor (ISV) providing a utility tool to your customers. You'll need your customers' tenant admins to approve it.
@@ -36,13 +37,13 @@ A daemon application can request only application permissions to APIs (not deleg
 
 ![App permissions and admin consent](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
-The web API that you want to call needs to define _Application permissions (app roles)_, not delegated permissions. For details on how to expose such an API, see [Protected web API: App registration - when your web API is called by a daemon app](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+The web API that you want to call needs to define _Application permissions (app roles)_, not delegated permissions. For details on how to expose such an API, see [Protected web API: App registration - when your web API is called by a daemon app](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-service-or-daemon-app).
 
 Daemon applications require that a tenant admin pre-consent to the application calling the web API. Tenant admins provide this consent on the same **API permission** page by selecting **Grant admin consent to _our organization_**
 
 If you're an ISV building a multitenant application, you should read the section [Deployment - case of multitenant daemon apps](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

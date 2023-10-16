@@ -2,18 +2,19 @@
 title: Create a TypeScript function using Visual Studio Code - Azure Functions
 description: Learn how to create a TypeScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 11/18/2021
+ms.date: 02/06/2023
 ms.devlang: typescript
-ms.custom: mode-ui
+ms.custom: mode-ui, vscode-azure-extension-update-complete, devx-track-js
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
-
 In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+[!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
+
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-typescript.md) of this article.
 
@@ -23,40 +24,63 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Node.js 14.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/) (preview). Use the `node --version` command to check your version.  
+::: zone pivot="nodejs-model-v3" 
++ [Node.js 18.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
+::: zone-end
+::: zone pivot="nodejs-model-v4" 
++ [Node.js 18.x](https://nodejs.org/en/download/releases/) or above. Use the `node --version` command to check your version.  
+
++ [TypeScript 4.x](https://www.typescriptlang.org/). Use the `tsc -v` command to check your version.
+::: zone-end
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
++ The [Azure Functions extension v1.10.4](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) or above for Visual Studio Code.
 
+::: zone pivot="nodejs-model-v3" 
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
+::: zone-end
+::: zone pivot="nodejs-model-v4" 
++ [Azure Functions Core Tools v4.0.5382 or above](functions-run-local.md#install-the-azure-functions-core-tools).
+::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you'll publish your function code to Azure. 
+In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you publish your function code to Azure. 
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
+1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
-    ![Choose Create a new project](media/functions-create-first-function-vs-code/create-new-project.png)
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose a directory location for your project workspace and choose **Select**.
+2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+::: zone pivot="nodejs-model-v3" 
+3. Provide the following information at the prompts:
 
-1. Provide the following information at the prompts:
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language for your function project**|Choose `TypeScript`.|
+    |**Select a TypeScript programming model**|Choose `Model V3`|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
-    + **Select a language for your function project**: Choose `TypeScript`.
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=typescript#generated-project-files).
+::: zone-end
+::: zone pivot="nodejs-model-v4" 
+3. Provide the following information at the prompts:
 
-    + **Select a template for your project's first function**: Choose `HTTP trigger`.
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language for your function project**|Choose `TypeScript`.|
+    |**Select a TypeScript programming model**|Choose `Model V4`|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`|
 
-    + **Provide a function name**: Type `HttpExample`.
-
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
-    + **Select how you would like to open your project**: Choose `Add to workspace`.
-
-1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript). 
+::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -64,46 +88,13 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-## Publish the project to Azure
+## Create the function app in Azure
 
-In this section, you create a function app and related resources in your Azure subscription and then deploy your code.
+[!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
 
-> [!IMPORTANT]
-> Publishing to an existing function app overwrites the content of that app in Azure. 
+## Deploy the project to Azure
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
-
-    ![Publish your project to Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
-
-1. Provide the following information at the prompts:
-
-    + **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
-
-    + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
-
-    + **Select Function App in Azure**: Choose `+ Create new Function App`. (Don't choose the `Advanced` option, which isn't covered in this article.)
-
-    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. 
-
-    + **Select a runtime**: Choose the version of Node.js you've been running on locally. You can use the `node --version` command to check your version.
-
-    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.
-
-    The extension shows the status of individual resources as they are being created in Azure in the notification area.
-
-    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
-
-1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
-
-    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
-
-    A notification is displayed after your function app is created and the deployment package is applied. 
-
-    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
-
-4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
-
-    ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

@@ -4,13 +4,15 @@ description: This article provides an overview of components and architecture us
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/19/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # VMware to Azure disaster recovery architecture - Classic
 
 This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For architecture details in Preview, [see this article](vmware-azure-architecture-preview.md)
+For details about modernized architecture, [see this article](vmware-azure-architecture-modernized.md)
 
 
 ## Architectural components
@@ -31,7 +33,7 @@ The following table and graphic provide a high-level view of the components used
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-modernized.md).
 
 ### Outbound connectivity for URLs
 
@@ -40,7 +42,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 

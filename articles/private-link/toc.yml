@@ -12,6 +12,9 @@
     href: create-private-endpoint-powershell.md
   - name: Create a private endpoint - Azure CLI
     href: create-private-endpoint-cli.md
+  - name: Create a private endpoint - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-private-endpoint-bicep.md
   - name: Create a private endpoint - ARM template
     displayName: Azure Resource Manager
     href: create-private-endpoint-template.md
@@ -21,18 +24,23 @@
     href: create-private-link-service-powershell.md
   - name: Create a Private Link service - Azure CLI
     href: create-private-link-service-cli.md
+  - name: Create a Private Link service - Bicep
+    displayName: ARM, Template, Resource Manager
+    href: create-private-link-service-bicep.md
   - name: Create a Private Link service - ARM template
     displayName: Azure Resource Manager
     href: create-private-link-service-template.md
   expanded: true
 - name: Tutorials
   items: 
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
+  - name: Deploy a private endpoint with a private resolver
+    href: tutorial-dns-on-premises-private-resolver.md
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
-  - name: Connect to a Cosmos DB account
-    href: tutorial-private-endpoint-cosmosdb-portal.md
-  - name: Connect to a web app
-    href: tutorial-private-endpoint-webapp-portal.md
+  - name: Connect to an Azure Cosmos DB account
+    href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: SQL
     items:
     - name: Connect to a SQL server - Azure portal
@@ -53,12 +61,18 @@
     href: private-endpoint-dns.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
+  - name: Private Link and DNS in Azure Virtual WAN
+    href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
+  - name: Azure Firewall traffic inspection
+    href: inspect-traffic-with-azure-firewall.md
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
+      href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
+  - name: Configure an application security group
+    href: configure-asg-private-endpoint.md
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
   - name: Manage network policies for private endpoints
@@ -67,8 +81,6 @@
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
     href: manage-private-endpoint.md
-  - name: Inspect traffic with Azure Firewall
-    href: inspect-traffic-with-azure-firewall.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot private endpoint connectivity problems
@@ -78,7 +90,7 @@
 - name: Reference
   items:
   - name: The Azure CLI
-    href: /cli/azure/network
+    href: /cli/azure/network/private-link-service
   - name: Azure PowerShell
     href: /powershell/module/az.network
   - name: .NET
@@ -97,8 +109,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

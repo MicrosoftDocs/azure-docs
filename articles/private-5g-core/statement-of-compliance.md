@@ -1,16 +1,16 @@
 ---
 title: Statement of compliance
-titleSuffix: Azure Private 5G Core Preview
-description: Information on Azure Private 5G Core Preview's compliance with specifications. 
-author: djrmetaswitch
-ms.author: drichards
+titleSuffix: Azure Private 5G Core
+description: Information on Azure Private 5G Core's compliance with specifications. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 01/20/2022
 ms.custom: template-concept
 ---
 
-# Statement of compliance - Azure Private 5G Core Preview
+# Statement of compliance - Azure Private 5G Core
 
 This article provides information on the standards for which Azure Private 5G Core provides support.
 
@@ -30,7 +30,20 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 - TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access.
 - TS 29.272: Evolved Packet System (EPS); Mobility Management Entity (MME) and Serving GPRS Support Node (SGSN) related interfaces based on Diameter protocol.
 - TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunneling Protocol for Control plane (GTPv2-C); Stage 3.
+- TS 33.401: 3GPP System Architecture Evolution (SAE); Security architecture.
 - TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP).
+
+### 5G handover procedures
+
+- TS 23.502: Procedures for the 5G System (5GS):
+  - 4.9.1.2: Xn based inter NG-RAN handover.
+  - 4.9.1.3: Inter NG-RAN node N2 based handover.
+
+### 4G handover procedures
+
+- TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access: 
+  - 5.5.1.1 X2-based handover.
+  - 5.5.1.2 S1-based handover.
 
 ### Policy and charging control (PCC) framework
 
@@ -65,7 +78,6 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
   - TS 29.504: 5G System; Unified Data Repository Services; Stage 3.
   - TS 29.505: 5G System; Usage of the Unified Data Repository services for Subscription Data; Stage 3.
 - AUSF - TS 29.509: 5G System; Authentication Server Services; Stage 3.
-- NRF - TS 29.510: 5G System; Network function repository services; Stage 3.
 - AMF - TS 29.518: 5G System; Access and Mobility Management Services; Stage 3.
 
 ### Security
@@ -81,22 +93,21 @@ The implementation of all of the 3GPP specifications given in [3GPP specificatio
 
 - IETF RFC 768: User Datagram Protocol.
 - IETF RFC 791: Internet Protocol.
-- IETF RFC 2474: Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers.
+- IETF RFC 2279: UTF-8, a transformation format of ISO 10646.
 - IETF RFC 2460: Internet Protocol, Version 6 (IPv6) Specification.
+- IETF RFC 2474: Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers.
+- IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax.
 - IETF RFC 4291: IP Version 6 Addressing Architecture.
 - IETF RFC 4960: Stream Control Transmission Protocol.
-- IETF RFC 2279: UTF-8, a transformation format of ISO 10646.
-- IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax.
 - IETF RFC 5789: PATCH Method for HTTP.
+- IETF RFC 6458: Sockets API Extensions for the Stream Control Transmission Protocol (SCTP).
+- IETF RFC 6733: Diameter Base Protocol.
+- IETF RFC 6749: The OAuth 2.0 Authorization Framework.
 - IETF RFC 6902: JavaScript Object Notation (JSON) Patch.
 - IETF RFC 7396: JSON Merge Patch.
 - IETF RFC 7540: Hypertext Transfer Protocol Version 2 (HTTP/2).
 - IETF RFC 7807: Problem Details for HTTP APIs.
 - IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format.
-- IETF RFC 3748: Extensible Authentication Protocol (EAP).
-- IETF RFC 4187: Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA).
-- IETF RFC 5448: Improved Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA').
-- IETF RFC 6749: The OAuth 2.0 Authorization Framework.
 
 ## ITU-T Recommendations
 

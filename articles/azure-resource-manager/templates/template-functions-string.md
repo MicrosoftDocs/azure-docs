@@ -2,7 +2,8 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # String functions for ARM templates
@@ -22,6 +23,7 @@ Resource Manager provides the following functions for working with strings in yo
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [join](#join)
 * [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -148,7 +150,8 @@ The output from the preceding example with the default values is:
 
 Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
 
-In Bicep, use [string interpolation](../bicep/bicep-functions-string.md#concat) instead of the `concat` function.
+In Bicep, use [string interpolation](../bicep/data-types.md#strings) instead of the [`concat()`](../bicep/bicep-functions-string.md#concat) function to improve readability. However, in some cases such as string replacement in [multi-line strings](../bicep/data-types.md#multi-line-strings), you may need to fall back on using the [`concat()`](../bicep/bicep-functions-string.md#concat) function or the [`replace()` function](../bicep/bicep-functions-string.md#replace).
+
 
 ### Parameters
 
@@ -455,6 +458,8 @@ Unique scoped to deployment for a resource group
 "[guid(resourceGroup().id, deployment().name)]"
 ```
 
+The `guid` function implements the algorithm from [RFC 4122 §4.3](https://www.ietf.org/rfc/rfc4122.txt). The original source can be found in [GuidUtility](https://github.com/LogosBible/Logos.Utility/blob/e7fc45123da090b8cf34da194a1161ed6a34d20d/src/Logos.Utility/GuidUtility.cs) with some modifications.
+
 ### Return value
 
 A string containing 36 characters in the format of a globally unique identifier.
@@ -499,6 +504,38 @@ The output from the preceding example with the default values is:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+In Bicep, use the [join](../bicep/bicep-functions-string.md#join) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array of string |An array of string to join. |
+| delimiter |Yes  |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by using different delimiters.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/join.json":::
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
 
 <a id="json"></a>
 

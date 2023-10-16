@@ -9,8 +9,8 @@ metadata:
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
-  author: v-ksreedevan
-  ms.author: v-ksreedevan
+  author: jyothisuri
+  ms.author: jsuri
   ms.date: 07/08/2020
   ms.custom: seo-azure-migrate
   keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
@@ -39,12 +39,18 @@ landingContent:
             url: ./tutorial-discover-physical.md
           - text: Assess servers using imported data
             url: ./tutorial-discover-import.md
-          - text: Migrate VMware VMs with Server Migration
+          - text: Assess SQL instances for migration to Azure SQL
+            url: ./tutorial-assess-sql.md
+          - text: Migrate VMware VMs with Migration and modernization
             url: ./server-migrate-overview.md
-          - text: Migrate Hyper-V VMs with Server Migration
+          - text: Migrate Hyper-V VMs with Migration and modernization
             url: ./tutorial-migrate-hyper-v.md
-          - text: Migrate physical servers/VMs with Server Migration
+          - text: Migrate physical servers/VMs with Migration and modernization
             url: ./tutorial-migrate-physical-virtual-machines.md
+          - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
+            url: ./tutorial-modernize-asp-net-aks.md
+          - text: Create an Azure Spring Apps assessment
+            url: ./how-to-create-azure-spring-apps-assessment.md
 
   - title: Start deployment
     linkLists:
@@ -67,12 +73,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Business case
+            url: ./how-to-build-a-business-case.md
           - text: Add assessment tools
             url: ./how-to-assess.md
           - text: Discover application inventory
             url: ./how-to-discover-applications.md
           - text: Add migration tools
             url: ./how-to-migrate.md
+          - text: Upgrade Windows OS
+            url: ./how-to-upgrade-windows.md
           - text: Scale VMware assessment
             url: ./scale-vmware-assessment.md
           - text: Automate and scale migration

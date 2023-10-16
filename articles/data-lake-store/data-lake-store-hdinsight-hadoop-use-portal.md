@@ -27,10 +27,10 @@ Before you begin, ensure that you've met the following requirements:
 
 * **An Azure subscription**. Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. Follow the instructions from [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md). You must also create a root folder on the account.  In this article, a root folder called __/clusters__ is used.
-* **An Azure Active Directory service principal**. This how-to guide provides instructions on how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you're an administrator, you can skip this prerequisite and continue.
+* **a Microsoft Entra service principal**. This how-to guide provides instructions on how to create a service principal in Microsoft Entra ID. However, to create a service principal, you must be a Microsoft Entra administrator. If you're an administrator, you can skip this prerequisite and continue.
 
 >[!NOTE]
->You can create a service principal only if you're an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. Also, the service principal must be created with a certificate, as described at [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+>You can create a service principal only if you're a Microsoft Entra administrator. Your Microsoft Entra administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. Also, the service principal must be created with a certificate, as described at [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 >
 
 ## Create an HDInsight cluster
@@ -74,14 +74,14 @@ To create a HDInsight cluster with Data Lake Storage Gen1 as an additional stora
 
 ## Configure Data Lake Storage Gen1 access
 
-In this section, you configure Data Lake Storage Gen1 access from HDInsight clusters using an Azure Active Directory service principal.
+In this section, you configure Data Lake Storage Gen1 access from HDInsight clusters using a Microsoft Entra service principal.
 
 ### Specify a service principal
 
 From the Azure portal, you can either use an existing service principal or create a new one.
 
 To create a service principal from the Azure portal:
-1. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
+1. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Microsoft Entra ID.
 
 To use an existing service principal from the Azure portal:
 
@@ -187,8 +187,6 @@ For information on how to copy data from Blob storage to a storage account with 
 You can use a Spark cluster to run Spark jobs on data that is stored in a Data Lake Storage Gen1. For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 ### Use Data Lake Storage Gen1 in a Storm topology
-
-You can use the storage account with Data Lake Storage Gen1 to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Storage Gen1 with Apache Storm with HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## See also
 

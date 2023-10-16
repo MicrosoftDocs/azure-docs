@@ -1,8 +1,13 @@
 ---
 title: Static IP address for container group
 description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app
-ms.topic: article
-ms.date: 03/16/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ---
 
 # Expose a static IP address for a container group
@@ -114,7 +119,8 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP"
+  --servers "$ACI_IP" \ 
+  --priority 100
 ```
 
 

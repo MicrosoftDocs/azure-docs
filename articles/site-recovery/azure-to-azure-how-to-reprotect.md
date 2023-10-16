@@ -1,13 +1,13 @@
 ---
-title: Reprotect Azure VMs to the primary region with Azure Site Recovery | Microsoft Docs
+title: Reprotect Azure VMs to the primary region with Azure Site Recovery
 description: Describes how to reprotect Azure VMs after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: gaggupta
+author: ankitaduttaMSFT
+manager: jsuri
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 07/14/2023
+ms.author: ankitadutta
 ---
 
 # Reprotect failed over Azure VMs to the primary region
@@ -26,18 +26,18 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 
 1. In **Vault** > **Replicated items**, right-click the failed over VM, and select **Re-Protect**. The reprotection direction should show from secondary to primary.
 
-   ![Screenshot shows a virtual machine with a contextual menu with Re-protect selected.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png" alt-text="Screenshot shows a virtual machine with a contextual menu with Re-protect selected." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png":::
 
 1. Review the resource group, network, storage, and availability sets. Then select **OK**. If there are any resources marked as new, they're created as part of the reprotection process.
 1. The reprotection job seeds the target site with the latest data. After the job finishes, delta replication takes place. Then, you can fail over back to the primary site. You can select the storage account or the network you want to use during reprotect, using the customize option.
 
-   ![Customize option](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png" alt-text="Screenshot displays Customize option on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png":::
 
 ### Customize reprotect settings
 
 You can customize the following properties of the target VM during reprotection.
 
-![Customize](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
+:::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png" alt-text="Screenshot displays Customize on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png":::
 
 |Property |Notes  |
 |---------|---------|
@@ -46,7 +46,7 @@ You can customize the following properties of the target VM during reprotection.
 |Capacity reservation | Configure a capacity reservation for the VM. You can create a new capacity reservation group to reserve capacity or select an existing capacity reservation group. [Learn more](azure-to-azure-how-to-enable-replication.md#enable-replication) about capacity reservation. |
 |Target storage (Secondary VM doesn't use managed disks) | You can change the storage account that the VM uses after failover. |
 |Replica managed disks (Secondary VM uses managed disks) | Site Recovery creates replica managed disks in the primary region to mirror the secondary VM's managed disks. |
-|Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. |
+|Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. </br>By default, type of storage account (Standard storage account or Premium Block Blob storage account) that you have selected for the source VM in original primary location is used. For example, during replication from original source to target, if you have selected *High Churn*, during re-protection back from target to original source, Premium Block blob will be used by default. You can configure and change it for re-protection. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).|
 |Availability set | If the VM in the secondary region is part of an availability set, you can choose an availability set for the target VM in the primary region. By default, Site Recovery tries to find the existing availability set in the primary region, and use it. During customization, you can specify a new availability set. |
 
 ### What happens during reprotection?
@@ -76,24 +76,36 @@ When you trigger a reprotect job, and the target VM and disks don't exist, the f
 
 #### Estimated time to do the reprotection
 
-In most cases, Azure Site Recovery doesn't replicate the complete data to the source region.
-The following conditions determine how much data is replicated:
+In most cases, Azure Site Recovery doesn't replicate the complete data to the source region. The amount of data replicated depends on the following conditions:
 
-1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change/delete, then during reprotection a complete initial replication will happen because there's no data available on the source region to use. Data transfer happens at ~23% of the disk throughput.
-1. If the source VM data is accessible, then only differentials are computed by comparing both the disks and then transferred. Check the table below to get the estimated time. The differential calculation and comparison happens at ~46% of the disk throughput, and then the transfer of differential data happens at ~23% of the disk throughput.
+1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change or delete, a complete initial replication will happen during reprotection because there's no data available on the source region to use. In this case, the reprotection time taken will be at least as long as the initial replication time taken from the primary to the disaster recovery location.
+2.	If the source VM data is accessible, then differentials are computed by comparing both the disks and only the differences are transferred. 
+   In this case, the **reprotection  time** is greater than or equal to the `checksum calculation time + checksum differentials transfer time + time taken to process the recovery points from Azure Site Recovery agent + auto scale time`.
 
-|Example situation | Time taken to reprotect |
-|---|---|
-|Source region has 1 VM with 1-TB standard disk.<br/>Only 127-GB data is used, and the rest of the disk is empty.<br/>Disk type is standard with 60-MBps throughput.<br/>No data change after failover.| Approximate time: 75-105 minutes.<br/> During reprotection, Site Recovery will populate the checksum of all data, which operates at 46% of the disk throughput - 28 MBps. So the total time that it will take is 127 GB/28 MBps, approximately 76 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
-|Source region has 1 VM with 1-TB standard disk.<br/>Only 127-GB data is used and rest of the disk is empty.<br/>Disk type is standard with 60-MBps throughput.<br/>45-GB data changes after failover.| Approximate time: 2-2.5 hours.<br/> During reprotection, Site Recovery will populate the checksum of all data, which operates at 46% of the disk throughput - 28 MBps. The total time that it will take is 127 GB/28 MBps, approximately 76 minutes.<br/>Transfer speed is approximately 23% of throughput, or 14 MBps. Therefore, transfer time to apply changes of 45 GB that is 45 GB/14 MBps, approximately 55 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
-|Source region has 1 VM with 1-TB standard disk.<br/>Only 20-GB data is used and rest of the disk is empty.<br/>Disk type is standard with 60-MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5-GB data change after failover. Total populated data is therefore 20 GB.| Approximate time: 30-60 mins.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/> Transfer speed is approximately 23% of throughput, or 14 MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/14 MBps, approximately 24 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
-|Source region has 1 VM with 1-TB premium disk.<br/>Only 127-GB data is used, and the rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>No data change after failover.| Approximate time: 30-60 mins.<br/>During reprotection, Site Recovery will populate the checksum of all data, which operates at 46% of disk throughput - 92 MBps. The total time that it will take is 127 GB/92 MBps, approximately 25 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
-|Source region has 1 VM with 1-TB premium disk.<br/>Only 127-GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>45-GB data changes after failover.| Approximate time: 45-75 mins.<br/>During reprotection, Site Recovery will populate the checksum of all data, which operates at 46% of disk throughput - 92 MBps. The total time that it will take is 127 GB/92 MBps, approximately 25 minutes. </br>Transfer speed is approximately 23% of throughput, or 46 MBps. Therefore, transfer time to apply changes of 45 GB that is 45 GB/46 MBps, approximately 17 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
-|Source region has 1 VM with 1-TB premium disk.<br/>Only 20-GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5-GB data change after failover. Total populated data is therefore 20 GB| Approximate time: 10-40 minutes.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/>Transfer speed is approximately 23% of throughput, or 46-MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/46 MBps, approximately 8 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes |
+**Factors governing reprotection time in scenario 2**
 
-When the VM is re-protected after failing back to the primary region (that is, if the VM is re-protected from primary region to DR region), the target VM, and associated NIC(s) are deleted.
+The following factors affect the reprotection time when the source VM is accessible in scenario 2:
 
-When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
+1. **Checksum calculation time** - The time taken to complete the enable replication process from the primary to the disaster recovery location is used as a benchmark for the checksum differential calculation. Navigate to **Recovery Services vaults** > **Monitoring** > **Site Recovery jobs** to see the time taken to complete the enable replication process. This will be the minimum time required to complete the checksum calculation.
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png" alt-text="Screenshot displays duration of reprotection of a VM on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png":::
+
+1. **Checksum differential data transfer** happens at approximately 23% of disk throughput.
+1. **The time taken to process the recovery points sent from Azure Site Recovery agent** – Azure Site Recovery agent continues to send recovery points during the checksum calculation and transfer phase, as well. However, Azure Site Recovery processes them only once the checksum diff transfer is complete. 
+   The time taken to process recovery points will be around one-fifth (1/5th) of the time taken for checksum differentials calculation and checksum differentials transfer time (time for checksum diff calculation + time for checksum diff transfer). For example, if the time taken for checksum differential calculation and checksum differential transfer is 15 hours, the time taken to process the recovery points from the agent will be three hours.
+1. The **auto scale time** is approximately 20-30 minutes.
+
+
+**Example scenario:**
+
+Let's take the example from the following screenshot, where Enable Replication from the primary to the disaster recovery location took an hour and 12 minutes. The Checksum calculation time would be at least an hour and 12 minutes. Assuming that the amount of data change post failover is 45 GB, and the disk has a throughput of 60 Mbps, the differential transfer will occur at 14 Mbps, and the time taken for differential transfer will be 45 GB / 14 Mbps, that is approximately 55 minutes. The time taken to process the recovery points is approximately one-fifth of the total time taken for the checksum calculation (72 minutes) and time taken for data transfer (55minutes), which is approximately 25 minutes.   Additionally, it takes 20-30 minutes for auto-scaling. So, the total time for reprotection should be at least three hours.
+
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png" alt-text="Screenshot displays example duration of reprotection of a VM on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png":::
+
+The above is a simple illustration of how to estimate the reprotection time. 
+
+When the VM is re-protected from disaster recovery region to primary region (that is, after failing over from the primary region to disaster recovery region), the target VM (original source VM), and associated NIC(s) are deleted.
+
+However, when the VM is re-protected again from the primary region to disaster recovery region after failback, we do not delete the VM and associated NIC(s) in the disaster recovery region that were created during the earlier failover.
 
 ## Next steps
 

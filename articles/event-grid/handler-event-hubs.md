@@ -2,7 +2,7 @@
 title: Event hub as an event handler for Azure Event Grid events
 description: Describes how you can use event hubs as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 09/19/2023
 ---
 
 # Event hub as an event handler for Azure Event Grid events
@@ -18,7 +18,7 @@ See the following examples:
 | [Quickstart: Route custom events to Azure Event Hubs with Azure CLI](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
 | [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
-[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
+[!INCLUDE [message-headers](./includes/message-headers.md)]
 
 
 ## REST examples (for PUT)
@@ -69,13 +69,13 @@ See the following examples:
 ```
 
 ## Delivery properties
-Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set custom headers on the events that are delivered to Azure Event Hubs.
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that the destination requires. You can set custom headers on the events that are delivered to Azure Event Hubs.
 
-If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
+If you need to publish events to a specific partition within an event hub, set the `PartitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 
 | Header name | Header type |
 | :-- | :-- |
-|`PartitionKey` | Static |
+|`PartitionKey` | Static or dynamic |
 
 For more information, see [Custom delivery properties](delivery-properties.md). 
 

@@ -2,39 +2,33 @@
 title: Microsoft 365 Defender integration with Microsoft Sentinel | Microsoft Docs
 description: Learn how using Microsoft 365 Defender together with Microsoft Sentinel lets you use Microsoft Sentinel as your universal incidents queue while seamlessly applying Microsoft 365 Defender's strengths to help investigate Microsoft 365 security incidents. Also, learn how to ingest Defender components' advanced hunting data into Microsoft Sentinel.
 author: yelevin
-ms.topic: conceptual
-ms.date: 03/23/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.topic: conceptual
+ms.date: 02/01/2023
 ---
 
 # Microsoft 365 Defender integration with Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
-> The Microsoft 365 Defender connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-> [!IMPORTANT]
->
-> **Microsoft Defender for Cloud Apps** was formerly known as **Microsoft Cloud App Security** or **MCAS**.
->
-> You may see the old names still in use for a period of time.
-
-## Incident integration
-
-Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all Microsoft 365 Defender incidents into Microsoft Sentinel and keep them synchronized between both portals. Incidents from Microsoft 365 Defender (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Sentinel, incidents will remain bi-directionally synced with Microsoft 365 Defender, allowing you to take advantage of the benefits of both portals in your incident investigation.
+Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all Microsoft 365 Defender incidents into Microsoft Sentinel and keep them synchronized between both portals. Incidents from Microsoft 365 Defender include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Sentinel, incidents will remain bi-directionally synced with Microsoft 365 Defender, allowing you to take advantage of the benefits of both portals in your incident investigation.
 
 This integration gives Microsoft 365 security incidents the visibility to be managed from within Microsoft Sentinel, as part of the primary incident queue across the entire organization, so you can see – and correlate – Microsoft 365 incidents together with those from all of your other cloud and on-premises systems. At the same time, it allows you to take advantage of the unique strengths and capabilities of Microsoft 365 Defender for in-depth investigations and a Microsoft 365-specific experience across the Microsoft 365 ecosystem. Microsoft 365 Defender enriches and groups alerts from multiple Microsoft 365 products, both reducing the size of the SOC’s incident queue and shortening the time to resolve. The component services that are part of the Microsoft 365 Defender stack are:
 
-- **Microsoft Defender for Endpoint** (formerly Microsoft Defender ATP)
-- **Microsoft Defender for Identity** (formerly Azure ATP)
-- **Microsoft Defender for Office 365** (formerly Office 365 ATP)
-- **Microsoft Defender for Cloud Apps** (formerly Microsoft Cloud App Security)
+- **Microsoft Defender for Endpoint (MDE)**
+- **Microsoft Defender for Identity (MDI)**
+- **Microsoft Defender for Office 365 (MDO)**
+- **Microsoft Defender for Cloud Apps (MDA)**
 
-In addition to collecting alerts from these components, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
+Other services whose alerts are collected by Microsoft 365 Defender include:
 
-### Common use cases and scenarios
+- **Microsoft Purview Data Loss Prevention (DLP)** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
+- **Microsoft Entra ID Protection (AADIP)** ([Learn more](/defender-cloud-apps/aadip-integration))
+
+In addition to collecting alerts from these components and other services, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
+
+> [!IMPORTANT]
+> The Microsoft 365 Defender connector is now generally available!
+
+## Common use cases and scenarios
 
 - One-click connect of Microsoft 365 Defender incidents, including all alerts and entities from Microsoft 365 Defender components, into Microsoft Sentinel.
 
@@ -44,16 +38,16 @@ In addition to collecting alerts from these components, Microsoft 365 Defender g
 
 - In-context deep link between a Microsoft Sentinel incident and its parallel Microsoft 365 Defender incident, to facilitate investigations across both portals.
 
-### Connecting to Microsoft 365 Defender
+## Connecting to Microsoft 365 Defender
 
-Once you have enabled the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md), Microsoft 365 Defender incidents will appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
+Install the Microsoft 365 Defender solution for Microsoft Sentinel and enable the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md). Microsoft 365 Defender incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
 - It can take up to 10 minutes from the time an incident is generated in Microsoft 365 Defender to the time it appears in Microsoft Sentinel.
 
 - Incidents will be ingested and synchronized at no extra cost.
 
-Once the Microsoft 365 Defender integration is connected, all the component alert connectors (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
+Once the Microsoft 365 Defender integration is connected, the connectors for all the integrated components and services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
 
-### Microsoft 365 Defender incidents and Microsoft incident creation rules
+## Microsoft 365 Defender incidents and Microsoft incident creation rules
 
 - Incidents generated by Microsoft 365 Defender, based on alerts coming from Microsoft 365 security products, are created using custom Microsoft 365 Defender logic.
 
@@ -61,12 +55,9 @@ Once the Microsoft 365 Defender integration is connected, all the component aler
 
 - Using both mechanisms together is completely supported, and can be used to facilitate the transition to the new Microsoft 365 Defender incident creation logic. Doing so will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365, and Defender for Cloud Apps) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 Defender-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Microsoft Entra ID Protection) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
 
-    > [!NOTE]
-    > All Microsoft Defender for Cloud Apps alert types are now being onboarded to Microsoft 365 Defender.
-
-### Working with Microsoft 365 Defender incidents in Microsoft Sentinel and bi-directional sync
+## Working with Microsoft 365 Defender incidents in Microsoft Sentinel and bi-directional sync
 
 Microsoft 365 Defender incidents will appear in the Microsoft Sentinel incidents queue with the product name **Microsoft 365 Defender**, and with similar details and functionality to any other Sentinel incidents. Each incident contains a link back to the parallel incident in the Microsoft 365 Defender portal.
 
@@ -94,4 +85,5 @@ The Microsoft 365 Defender connector also lets you stream **advanced hunting** e
 In this document, you learned how to benefit from using Microsoft 365 Defender together with Microsoft Sentinel, using the Microsoft 365 Defender connector.
 
 - Get instructions for [enabling the Microsoft 365 Defender connector](connect-microsoft-365-defender.md).
-- Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-cases.md).
+- Check [availability of different Microsoft 365 Defender data types](microsoft-365-defender-cloud-support.md) in the different Microsoft 365 and Azure clouds.
+- Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-incidents.md).

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.workload: data-services 
 ms.topic: tutorial
-ms.date: 07/06/2021
+ms.date: 08/10/2023
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
-* **Azure SQL Database**. This database contains the source data. Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
+* **Azure SQL Database**. This database contains the source data. Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
 * **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 ## Azure services to access SQL server

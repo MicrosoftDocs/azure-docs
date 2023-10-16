@@ -4,16 +4,16 @@ description: Learn about how to restore Azure Database for PostgreSQL backups.
 ms.topic: how-to
 ms.date: 01/21/2022
 ms.custom: devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Database for PostgreSQL backups
 
 This article explains how to restore a database to an Azure PostgreSQL server backed up by Azure Backup.
 
-You can restore a database to any Azure PostgreSQL server within the same subscription, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
+You can restore a database to any Azure PostgreSQL server of a different/same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
 
 ## Restore Azure PostgreSQL database
 
@@ -43,6 +43,9 @@ You can restore a database to any Azure PostgreSQL server within the same subscr
      1. Select **Review + Restore** to trigger validation to check if the service has [restore permissions on the target server](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). These permissions must be [granted manually](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Screenshot showing the selected restore type as Restore as Database." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
+
+> [!IMPORTANT]
+> The DB user whose credentials were chosen via the key vault will have all the privileges over the restored database and any existing DB user boundaries will be overridden. For eg: If the backed up database had any DB user specific permissions/constraints such as DB user A can access few tables, and DB user B can access few other tables, such permissions will not be preserved after restore. If you want to preserve those permissions, use restore as files and use the pg_restore command with the relevant switch.
 
    - **Restore as Files: Dump the backup files to the target storage account (blobs).**
 

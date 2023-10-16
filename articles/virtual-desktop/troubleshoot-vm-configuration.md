@@ -60,9 +60,9 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](../virtual-network/create-peering-different-subscriptions.md).
 
-**Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
+**Cause 2:** When using Microsoft Entra Domain Services, the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+**Fix 2:** To update the DNS settings for the virtual network containing Microsoft Entra Domain Services, see [Update DNS settings for the Azure virtual network](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Cause 3:** The network interface's DNS server settings don't point to the appropriate DNS server on the virtual network.
 
@@ -172,8 +172,6 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 ## Troubleshooting issues with the Azure Virtual Desktop side-by-side stack
 
-The Azure Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019 and newer. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Azure Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
-
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
 - With the Azure portal creation template
@@ -187,7 +185,7 @@ The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-sid
 > [!div class="mx-imgBorder"]
 > ![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, make sure you're running [a supported operating system](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os). If you are, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell.md) on how to reinstall the side-by-side stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, make sure you're running [a supported operating system](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os). If you are, follow the instructions in [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool) for how to reinstall the side-by-side stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -207,7 +205,7 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell.md).
+2. Install the side-by-side stack by following the steps to [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool).
 
 ## How to fix an Azure Virtual Desktop side-by-side stack that malfunctions
 
@@ -216,80 +214,49 @@ There are known circumstances that can cause the side-by-side stack to malfuncti
 - Not following the correct order of the steps to enable the side-by-side stack
 - Auto update to Windows 10 Enhanced Versatile Disc (EVD)
 - Missing the Remote Desktop Session Host (RDSH) role
-- Running enablesxsstackrc.ps1 multiple times
-- Running enablesxsstackrc.ps1 in an account that doesn't have local admin privileges
 
-The instructions in this section can help you uninstall the Azure Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to "Register the VM with the Azure Virtual Desktop host pool" in [Create a host pool with PowerShell](create-host-pools-powershell.md) to reinstall the side-by-side stack.
+The instructions in this section can help you uninstall the Azure Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, follow the steps to [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool) to reinstall the side-by-side stack.
 
 The VM used to run remediation must be on the same subnet and domain as the VM with the malfunctioning side-by-side stack.
 
 Follow these instructions to run remediation from the same subnet and domain:
 
 1. Connect with standard Remote Desktop Protocol (RDP) to the VM from where fix will be applied.
-2. Download PsExec from [https://docs.microsoft.com/sysinternals/downloads/psexec](/sysinternals/downloads/psexec).
-3. Unzip the downloaded file.
-4. Start command prompt as local administrator.
-5. Navigate to folder where PsExec was unzipped.
-6. From command prompt, use the following command:
+
+1. [Download and install PsExec](/sysinternals/downloads/psexec).
+
+1. Start command prompt as local administrator, then navigate to folder where PsExec was unzipped.
+
+1. From command prompt, use the following command, where `<VMname>` is the hostname name of the VM with the malfunctioning side-by-side stack. If this is the first time you have run PsExec, you'll also need to accept the PsExec License Agreement to continue by clicking **Agree**.
 
     ```cmd
-            psexec.exe \\<VMname> cmd
+    psexec.exe \\<VMname> cmd
     ```
 
-    >[!NOTE]
-    >VMname is the machine name of the VM with the malfunctioning side-by-side stack.
+1. After the command prompt session opens on the VM with the malfunctioning side-by-side stack, run the following command and confirm that an entry named rdp-sxs is available. If not, a side-by-side stack isn't present on the VM so the issue isn't tied to the side-by-side stack.
 
-7. Accept the PsExec License Agreement by clicking Agree.
+   ```cmd
+   qwinsta
+   ```
 
-    > [!div class="mx-imgBorder"]
-    > ![Software license agreement screenshot.](media/SoftwareLicenseTerms.png)
+   > [!div class="mx-imgBorder"]
+   > ![Administrator command prompt](media/AdministratorCommandPrompt.png)
 
-    >[!NOTE]
-    >This dialog will show up only the first time PsExec is run.
-
-8. After the command prompt session opens on the VM with the malfunctioning side-by-side stack, run qwinsta and confirm that an entry named rdp-sxs is available. If not, a side-by-side stack isn't present on the VM so the issue isn't tied to the side-by-side stack.
-
-    > [!div class="mx-imgBorder"]
-    > ![Administrator command prompt](media/AdministratorCommandPrompt.png)
-
-9. Run the following command, which will list Microsoft components installed on the VM with the malfunctioning side-by-side stack.
+1. Run the following command, which will list Microsoft components installed on the VM with the malfunctioning side-by-side stack.
 
     ```cmd
-        wmic product get name
+    wmic product get name
     ```
 
-10. Run the command below with product names from step above.
+1. Run the command below with product names from step above, for example:
 
     ```cmd
-        wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
+    wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
     ```
 
-11. Uninstall all products that start with "Remote Desktop."
+1. Uninstall all products that start with **Remote Desktop**.
 
-12. After all Azure Virtual Desktop components have been uninstalled, follow the instructions for your operating system:
-
-13. If your operating system is Windows Server, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool).
-
-If your operating system is Microsoft Windows 10, continue with the instructions below:
-
-14. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
-
-    ```cmd
-        \\<VMname>\c$\
-    ```
-
-    >[!NOTE]
-    >VMname is the machine name of the VM with the malfunctioning side-by-side stack.
-
-15. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
-
-    ```PowerShell
-    Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
-    Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
-    Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
-    ```
-
-16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
+1. After all Azure Virtual Desktop components have been uninstalled, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool). You can then reinstall the side-by-side stack by following the steps to [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool).
 
 ## Remote Desktop licensing mode isn't configured
 
@@ -348,7 +315,7 @@ Golden images must not include the Azure Virtual Desktop agent. You can install 
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

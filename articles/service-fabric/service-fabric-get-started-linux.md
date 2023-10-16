@@ -1,16 +1,18 @@
 ---
 title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-
-ms.topic: conceptual
-ms.date: 10/16/2020
-ms.custom: devx-track-js
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet, devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
-# service-fabric-get-started-linux.md
-# service-fabric-get-started-mac.md
-# service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
+
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
@@ -84,7 +86,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Add Azul JDK Key to your APT keyring and setup its repository.
+6. Add Azul JDK Key to your APT keyring and set up its repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
@@ -158,14 +160,6 @@ sudo yum install servicefabricsdkcommon
 
 ---
 
-## Included packages
-The Service Fabric runtime that comes with the SDK installation includes the packages in the following table. 
-
- | | DotNetCore | Java | Python | NodeJS | 
---- | --- | --- | --- |---
-**Ubuntu** | 2.0.7 | AzulJDK 1.8 | Implicit from npm | latest |
-**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
-
 ## Set up a local cluster
 1. Start a local Service Fabric cluster for development.
 
@@ -187,14 +181,14 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
 3. Start the cluster.<br/>
+    <b>Ubuntu 20.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    ```
+
     <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
-    ```
-
-    <b>Ubuntu 16.04 LTS:</b>
-    ```bash
-    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
 
     >[!TIP]

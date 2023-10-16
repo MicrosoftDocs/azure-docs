@@ -1,19 +1,19 @@
 ---
-title: Workday attribute reference for Azure Active Directory
-description: Learn which which attributes that you can fetch from Workday using XPATH queries in Azure Active Directory.
+title: Workday attribute reference for Microsoft Entra ID
+description: Learn which which attributes that you can fetch from Workday using XPATH queries in Microsoft Entra ID.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Workday attribute reference for Azure Active Directory
+# Workday attribute reference for Microsoft Entra ID
 
 This section provides a list of attributes that you can fetch from Workday using XPATH queries. Based on the Workday Web Services API version, you plan to use, refer to the appropriate section. 
 
@@ -136,13 +136,13 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 | 12 | Company                               | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data\[translate\(string\(wd:Organization\_Data/wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]\),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'\)='COMPANY'\]/wd:Organization\_Data/wd:Organization\_Name/text\(\)                                                     |
 | 13 | ContingentWorkerID                    | wd:Worker/wd:Worker\_Reference/wd:ID\[@wd:type='Contingent\_Worker\_ID'\]/text\(\)                                                                                                                                                                                                                                                                                                     |
 | 14 | CountryReference                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Reference/wd:ID\[@wd:type='ISO\_3166\-1\_Alpha\-3\_Code'\]/text\(\)                                                                                                                                           |
-| 15 | CountryReferenceFriendly              | Not supported\.                                                                                                                                                                                                                                                                                                                                                                        |
+| 15 | CountryReferenceFriendly              |  wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary\_Job=1\]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                                                                                     |
 | 16 | CountryReferenceNumeric               | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Reference/wd:ID\[@wd:type='ISO\_3166\-1\_Numeric\-3\_Code'\]/text\(\)                                                                                                                                         |
 | 17 | CountryReferenceTwoLetter             | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Reference/wd:ID\[@wd:type='ISO\_3166\-1\_Alpha\-2\_Code'\]/text\(\)                                                                                                                                           |
 | 18 | CountryRegionReference                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Region\_Descriptor/text\(\)                                                                                                                                                                                   |
 | 19 | EmailAddress                          | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Contact\_Data/wd:Email\_Address\_Data\[wd:Usage\_Data/@wd:Public='1' and string\(wd:Usage\_Data/wd:Type\_Data/wd:Type\_Reference/wd:ID\[@wd:type='Communication\_Usage\_Type\_ID'\]\)='WORK'\]/wd:Email\_Address/text\(\)                                                                                                               |
 | 20 | EmployeeID                            | wd:Worker/wd:Worker\_Reference/wd:ID\[@wd:type='Employee\_ID'\]/text\(\)                                                                                                                                                                                                                                                                                                               |
-| 21 | FacilityLocation                      | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data\[translate\(string\(wd:Organization\_Data/wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]\),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'\)='FACILITY'\]/wd:Organization\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                                                                                       |
+| 21 | FacilityLocation                      | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data/wd:Organization\_Data\[translate(string(wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')='LOCATION\_HIERARCHY'\]/wd:Organization\_Name/text\(\)                                                                                                                                                                                                                                                                                                                                                                      |
 | 22 | Fax                                   | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Contact\_Data/wd:Phone\_Data\[wd:Usage\_Data/@wd:Public='1' and string\(wd:Usage\_Data/wd:Type\_Data/wd:Type\_Reference/wd:ID\[@wd:type='Communication\_Usage\_Type\_ID'\]\)='WORK' and string\(wd:Phone\_Device\_Type\_Reference/wd:ID\[@wd:type='Phone\_Device\_Type\_ID'\]\)='Fax'\]/@wd:Workday_Traditional_Formatted_Phone      |
 | 23 | FirstName                             | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Name\_Data/wd:Legal\_Name\_Data/wd:Name\_Detail\_Data/wd:First\_Name/text\(\)                                                                                                                                                                                                                                                           |
 | 24 | JobClassificationID                   | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Job\_Classification\_Summary\_Data/wd:Job\_Classification\_Reference/wd:ID\[@wd:type='Job\_Classification\_Reference\_ID'\]/text\(\)                                                                                                                                     |
@@ -204,7 +204,7 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
 ## Custom XPATH values
-The table below provides a list of other commonly used custom XPATH API expressions when provisioning workers from Workday to Active Directory or Azure AD. Please test the XPATH API expressions provided here with your version of Workday referring to the instructions captured in the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
+The table below provides a list of other commonly used custom XPATH API expressions when provisioning workers from Workday to Active Directory or Microsoft Entra ID. Please test the XPATH API expressions provided here with your version of Workday referring to the instructions captured in the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
 
 To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](/contribute) to the article. 
 

@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/04/2021
+ms.date: 08/25/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge device
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
@@ -25,52 +25,24 @@ Your first step when troubleshooting IoT Edge should be to use the `check` comma
 
 You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Linux:
 
 ```bash
 sudo iotedge check
 ```
-
-On Windows:
-
-```powershell
-iotedge check
-```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.1 -->
-:::moniker range=">=iotedge-2020-11"
-
-```bash
-sudo iotedge check
-```
-
-:::moniker-end
-<!-- end 1.2 -->
 
 The troubleshooting tool runs many checks that are sorted into these three categories:
 
-* *Configuration checks* examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with the config file and the container engine.
+* *Configuration checks* examine details that could prevent IoT Edge devices from connecting to the cloud, including issues with the config file and the container engine.
 * *Connection checks* verify that the IoT Edge runtime can access ports on the host device and that all the IoT Edge components can connect to the IoT Hub. This set of checks returns errors if the IoT Edge device is behind a proxy.
 * *Production readiness checks* look for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
 The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, your devices will need access to the container image.
 
-<!-- <1.2> -->
-:::moniker range=">=iotedge-2020-11"
-
-In a scenario using nested IoT Edge devices, you can get access to the diagnostics image on child devices by routing the image pull through the parent devices.
+In a scenario using nested IoT Edge devices, you can get access to the diagnostics image on downstream devices by routing the image pull through the parent devices.
 
 ```bash
 sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
 ```
-
-<!-- </1.2> -->
-:::moniker-end
 
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
@@ -80,33 +52,9 @@ When you need to gather logs from an IoT Edge device, the most convenient way is
 
 Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last six hours, `6d` since the last six days, `6m` since the last six minutes and so on. Include the `--help` flag to see a complete list of options.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-On Linux:
-
 ```bash
 sudo iotedge support-bundle --since 6h
 ```
-
-On Windows:
-
-```powershell
-iotedge support-bundle --since 6h
-```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-```bash
-sudo iotedge support-bundle --since 6h
-```
-
-:::moniker-end
-<!-- end 1.2 -->
 
 By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
 
@@ -129,7 +77,7 @@ For more information, see [Collect and transport metrics](how-to-collect-and-tra
 
 ## Check your IoT Edge version
 
-If you're running an older version of IoT Edge, then upgrading may resolve your issue. The `iotedge check` tool checks that the IoT Edge security daemon is the latest version, but does not check the versions of the IoT Edge hub and agent modules. To check the version of the runtime modules on your device, use the commands `iotedge logs edgeAgent` and `iotedge logs edgeHub`. The version number is declared in the logs when the module starts up.
+If you're running an older version of IoT Edge, then upgrading may resolve your issue. The `iotedge check` tool checks that the IoT Edge security daemon is the latest version, but doesn't check the versions of the IoT Edge hub and agent modules. To check the version of the runtime modules on your device, use the commands `iotedge logs edgeAgent` and `iotedge logs edgeHub`. The version number is declared in the logs when the module starts up.
 
 For instructions on how to update your device, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
@@ -153,85 +101,6 @@ This command will output all the edgeAgent [reported properties](./module-edgeag
 ## Check the status of the IoT Edge security manager and its logs
 
 The [IoT Edge security manager](iot-edge-security-manager.md) is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Linux:
-
-* View the status of the IoT Edge security manager:
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
-* View the logs of the IoT Edge security manager:
-
-   ```bash
-   sudo journalctl -u iotedge -f
-   ```
-
-* View more detailed logs of the IoT Edge security manager:
-
-  1. Edit the IoT Edge daemon settings:
-
-     ```bash
-     sudo systemctl edit iotedge.service
-     ```
-
-  2. Update the following lines:
-
-     ```bash
-     [Service]
-     Environment=IOTEDGE_LOG=debug
-     ```
-
-  3. Restart the IoT Edge security daemon:
-
-     ```bash
-     sudo systemctl cat iotedge.service
-     sudo systemctl daemon-reload
-     sudo systemctl restart iotedge
-     ```
-
-On Windows:
-
-* View the status of the IoT Edge security manager:
-
-   ```powershell
-   Get-Service iotedge
-   ```
-
-* View the logs of the IoT Edge security manager:
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-   ```
-
-* View only the last 5 minutes of the IoT Edge security manager logs:
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog -StartTime ([datetime]::Now.AddMinutes(-5))
-   ```
-
-* View more detailed logs of the IoT Edge security manager:
-
-  1. Add a system-level environment variable:
-
-     ```powershell
-     [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
-     ```
-
-  2. Restart the IoT Edge Security Daemon:
-
-     ```powershell
-     Restart-Service iotedge
-     ```
-
-:::moniker-end
-<!--end 1.1 -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
 
 * View the status of the IoT Edge system services:
 
@@ -261,9 +130,6 @@ On Windows:
      sudo iotedge system restart
      ```
 
-:::moniker-end
-<!-- end 1.2 -->
-
 ## Check container logs for issues
 
 Once the IoT Edge security daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing.
@@ -282,7 +148,7 @@ You can retrieve the container logs from several places:
 
 ## Clean up container logs
 
-By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If large container logs are affecting your IoT Edge device performance, use the following command to force remove the container along with its related logs.
+By default the Moby container engine doesn't set container log size limits. Over time extensive logs can lead to the device filling up with logs and running out of disk space. If large container logs are affecting your IoT Edge device performance, use the following command to force remove the container along with its related logs.
 
 If you're still troubleshooting, wait until after you've inspected the container logs to take this step.
 
@@ -293,56 +159,9 @@ If you're still troubleshooting, wait until after you've inspected the container
 docker rm --force <container name>
 ```
 
-For ongoing logs maintenance and production scenarios, [place limits on log size](production-checklist.md#place-limits-on-log-size).
+For ongoing logs maintenance and production scenarios, [Set up default logging driver](production-checklist.md#set-up-default-logging-driver).
 
 ## View the messages going through the IoT Edge hub
-
-<!--1.1 -->
-:::moniker range="iotedge-2018-06"
-
-You can view the messages going through the IoT Edge hub, and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set `RuntimeLogLevel` in your yaml configuration file. To open the file:
-
-On Linux:
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-On Windows:
-
-   ```cmd
-   notepad C:\ProgramData\iotedge\config.yaml
-   ```
-
-By default, the `agent` element will look like the following example:
-
-   ```yaml
-   agent:
-     name: edgeAgent
-     type: docker
-     env: {}
-     config:
-       image: mcr.microsoft.com/azureiotedge-agent:1.1
-       auth: {}
-   ```
-
-Replace `env: {}` with:
-
-   ```yaml
-   env:
-     RuntimeLogLevel: debug
-   ```
-
-   > [!WARNING]
-   > YAML files cannot contain tabs as indentation. Use 2 spaces instead. Top-level items cannot have leading whitespace.
-
-Save the file and restart the IoT Edge security manager.
-
-<!-- end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
 
 You can view the messages going through the IoT Edge hub and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set the `RuntimeLogLevel` environment variable in the deployment manifest.
 
@@ -356,9 +175,6 @@ Both the edgeHub and edgeAgent modules have this runtime log environment variabl
 * info
 * debug
 * verbose
-
-<!-- end 1.2 -->
-:::moniker-end
 
 You can also check the messages being sent between IoT Hub and IoT devices. View these messages by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
@@ -382,15 +198,50 @@ You can also restart modules remotely from the Azure portal. For more informatio
 
 ## Check your firewall and port configuration rules
 
-Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound. This configuration is based on the [Services Assisted Communication pattern](/archive/blogs/clemensv/service-assisted-communication-for-connected-devices), which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for specific scenarios where Azure IoT Hub needs to push messages to the Azure IoT Edge device. Cloud-to-device messages are protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. The Azure IoT Edge Security Manager governs how this communication can be established, see [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound. This configuration is based on the [Services Assisted Communication pattern](/archive/blogs/clemensv/service-assisted-communication-for-connected-devices), which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for [specific scenarios](#anchortext) where Azure IoT Hub needs to push messages to the Azure IoT Edge device. Cloud-to-device messages are protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. The Azure IoT Edge Security Manager governs how this communication can be established, see [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
-While IoT Edge provides enhanced configuration for securing Azure IoT Edge runtime and deployed modules, it is still dependent on the underlying machine and network configuration. Hence, it is imperative to ensure proper network and firewall rules are set up for secure edge to cloud communication. The following table can be used as a guideline when configuration firewall rules for the underlying servers where Azure IoT Edge runtime is hosted:
+While IoT Edge provides enhanced configuration for securing Azure IoT Edge runtime and deployed modules, it's still dependent on the underlying machine and network configuration. Hence, it's imperative to ensure proper network and firewall rules are set up for secure edge to cloud communication. The following table can be used as a guideline when configuration firewall rules for the underlying servers where Azure IoT Edge runtime is hosted:
 
 |Protocol|Port|Incoming|Outgoing|Guidance|
 |--|--|--|--|--|
-|MQTT|8883|BLOCKED (Default)|BLOCKED (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open when using MQTT as the communication protocol.<li>1883 for MQTT is not supported by IoT Edge. <li>Incoming (Inbound) connections should be blocked.</ul>|
-|AMQP|5671|BLOCKED (Default)|OPEN (Default)|<ul> <li>Default communication protocol for IoT Edge. <li> Must be configured to be Open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol.<li>5672 for AMQP is not supported by IoT Edge.<li>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<li>Incoming (Inbound) connections should be blocked.</ul></ul>|
-|HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li>Incoming (Inbound) connection should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with leaf devices that may send method requests. In this case, Port 443 does not need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP is not supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) cannot be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.</ul>|
+|MQTT|8883|BLOCKED (Default)|BLOCKED (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open when using MQTT as the communication protocol.<li>1883 for MQTT isn't supported by IoT Edge. <li>Incoming (Inbound) connections should be blocked.</ul>|
+|AMQP|5671|BLOCKED (Default)|OPEN (Default)|<ul> <li>Default communication protocol for IoT Edge. <li> Must be configured to be Open if Azure IoT Edge isn't configured for other supported protocols or AMQP is the desired communication protocol.<li>5672 for AMQP isn't supported by IoT Edge.<li>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<li>Incoming (Inbound) connections should be blocked.</ul></ul>|
+|HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li><a id="anchortext">Incoming (Inbound) connection</a> should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with downstream devices that may send method requests. In this case, Port 443 doesn't need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP isn't supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.</ul>|
+
+
+## Last resort: stop and recreate all containers
+
+Sometimes, a system might require significant special modification to work with existing networking or operating system constraints. For example, a system could require a different data disk mount and proxy settings. If you tried all previous steps and still get container failures, the docker system caches or persisted network settings might not up to date with the latest reconfiguration. In this case, the last resort option is to use [`docker prune`](https://docs.docker.com/engine/reference/commandline/system_prune/) get a clean start from scratch. 
+
+The following command stops the IoT Edge system (and thus all containers), uses the "all" and "volume" option for `docker prune` to remove all containers and volumes. Review the warning that the command issues and confirm with `y` when ready.
+
+```bash
+sudo iotedge system stop
+docker system prune --all --volumes
+```
+
+```output
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all volumes not used by at least one container
+  - all images without at least one container associated to them
+  - all build cache
+
+Are you sure you want to continue? [y/N]
+```
+
+Start the system again. To be safe, apply any potentially remaining configuration and start the system with one command.
+
+```bash
+sudo iotedge config apply
+```
+
+Wait a few minutes and check again. 
+
+```bash
+sudo iotedge list
+```
 
 ## Next steps
 

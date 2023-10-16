@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/09/2022
+ms.date: 05/19/2022
 ---
 # Application volume group FAQs
 
@@ -112,6 +112,16 @@ Creating a volume group involves many different steps, and not all of them can b
 ## Why can’t I edit the volume group description?
 
 In the current implementation, the application volume group has a focus on the initial creation and deletion of a volume group only. 
+
+## Can I clone a volume created with application volume group? 
+
+Yes, you can clone a volume created by the application volume group. You can do so by selecting a snapshot and [restoring it to a new volume](snapshots-restore-new-volume.md). Cloning is a process outside of the application volume group workflow. As such, consider the following restrictions:
+
+* When you clone a single volume, none of the dependencies specific to the volume group are checked.
+* The cloned volume is not part of the volume group.
+* The cloned volume is always placed on the same storage endpoint as the source volume.
+* Currently, the listed IP addresses for the mount instructions might not display the optimal IP address as the recommended address for mounting the volume. To achieve the lowest latency for the cloned volume, you need to mount with the same IP address as the source volume.
+ 
 
 ## What are the rules behind the proposed throughput for my HANA data and log volumes?
 

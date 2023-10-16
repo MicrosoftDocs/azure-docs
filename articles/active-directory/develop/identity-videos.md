@@ -1,16 +1,15 @@
 ---
-title: Microsoft identity platform videos | Azure
+title: Microsoft identity platform videos
 description: A list of videos about modern authentication and the Microsoft identity platform
 services: active-directory
-author: mmacy
+author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/03/2020
-ms.author: marsma
+ms.date: 01/06/2023
+ms.author: davidmu
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: celested
 ---
@@ -41,7 +40,7 @@ ___
 :::row-end:::
 :::row:::
   :::column:::
-        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform</a> (20:30)
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft identity platform</a> (20:30)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/JpeMeTjQJ04]
@@ -176,12 +175,12 @@ ___
 
 
 <!-- IMAGES -->
-[auth-fund-01-img]: ./media/identity-videos/aad-auth-fund-01.jpg
-[auth-fund-02-img]: ./media/identity-videos/aad-auth-fund-02.jpg
-[auth-fund-03-img]: ./media/identity-videos/aad-auth-fund-03.jpg
-[auth-fund-04-img]: ./media/identity-videos/aad-auth-fund-04.jpg
-[auth-fund-05-img]: ./media/identity-videos/aad-auth-fund-05.jpg
-[auth-fund-06-img]: ./media/identity-videos/aad-auth-fund-06.jpg
+[auth-fund-01-img]: ./media/identity-videos/auth-fund-01.jpg
+[auth-fund-02-img]: ./media/identity-videos/auth-fund-02.jpg
+[auth-fund-03-img]: ./media/identity-videos/auth-fund-03.jpg
+[auth-fund-04-img]: ./media/identity-videos/auth-fund-04.jpg
+[auth-fund-05-img]: ./media/identity-videos/auth-fund-05.jpg
+[auth-fund-06-img]: ./media/identity-videos/auth-fund-06.jpg
 
 <!-- VIDEOS -->
 [auth-fund-01-vid]: https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1
@@ -193,7 +192,7 @@ ___
 
 ## Microsoft identity platform basics
 
-Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Azure Active Directory. The One Dev Question videos are 1-2 minutes in length.
+Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Microsoft Entra ID. The One Dev Question videos are 1-2 minutes in length.
 ___
 
 :::row:::
@@ -240,13 +239,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Role of Azure AD </a>
+        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Role of Microsoft Entra ID </a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Role of Azure AD app objects</a>
+        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Role of Microsoft Entra app objects</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/HEpq_YSmuWw]
@@ -282,7 +281,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Azure Active Directory app types and how do they compare?</a>
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Microsoft Entra app types and how do they compare?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/NrydwrckYaw]

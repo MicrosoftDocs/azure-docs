@@ -1,15 +1,16 @@
 ---
-title: 'Tutorial: Load data using Azure portal & SSMS'
+title: "Tutorial: Load data using Azure portal & SSMS"
 description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to an Azure Synapse Analytics SQL pool.
-author: joannapea 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 01/12/2021
+author: joannapea
 ms.author: joanpo
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, synapse-analytics
+ms.reviewer: wiassaf
+ms.date: 01/12/2021
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - synapse-analytics
 ---
 
 # Tutorial: Load data to  Azure Synapse Analytics SQL pool
@@ -25,7 +26,7 @@ This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from
 > * Generate a year of data in the date dimension and sales fact tables
 > * Create statistics on the newly loaded data
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Before you begin
 

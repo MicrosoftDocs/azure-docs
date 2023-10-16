@@ -1,10 +1,13 @@
 ---
 title: Create clusters on Windows Server and Linux 
 description: Service Fabric clusters run on Windows Server and Linux. You can deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
-services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Overview of Service Fabric clusters on Azure
@@ -24,7 +27,7 @@ A Service Fabric cluster on Azure is an Azure resource that uses and interacts w
 ![Service Fabric Cluster][Image]
 
 ### Virtual machine
-A [virtual machine](../virtual-machines/index.yml) that's part of a cluster is called a node though, technically, a cluster node is a Service Fabric runtime process. Each node is assigned a node name (a string). Nodes have characteristics, such as [placement properties](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Each machine or VM has an auto-start service, *FabricHost.exe*, that starts running at boot time and then starts two executables, *Fabric.exe* and *FabricGateway.exe*, which make up the node. A production deployment is one node per physical or virtual machine. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of *Fabric.exe* and *FabricGateway.exe*.
+A [virtual machine](../virtual-machines/index.yml) that's part of a cluster is called a node though, technically, a cluster node is a Service Fabric runtime process. Each node is assigned a node name (a string). Nodes have characteristics, such as [placement properties](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Each machine or VM has an auto-start service, *FabricHost.exe*, which starts running at boot time and then starts two executables, *Fabric.exe* and *FabricGateway.exe*, which make up the node. A production deployment is one node per physical or virtual machine. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of *Fabric.exe* and *FabricGateway.exe*.
 
 Each VM is associated with a virtual network interface card (NIC) and each NIC is assigned a private IP address.  A VM is assigned to a virtual network and local balancer through the NIC.
 
@@ -43,7 +46,7 @@ For more information, read [Service Fabric node types and virtual machine scale 
 ### Azure Load Balancer
 VM instances are joined behind an [Azure load balancer](../load-balancer/load-balancer-overview.md), which is associated with a [public IP address](../virtual-network/ip-services/public-ip-addresses.md) and DNS label.  When you provision a cluster with *&lt;clustername&gt;*, the DNS name, *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* is the DNS label associated with the load balancer in front of the scale set.
 
-VMs in a cluster have only [private IP addresses](../virtual-network/ip-services/private-ip-addresses.md).  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set. Or, you can setup a single load balancer for multiple node types.  The primary node type has the DNS label *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*, other node types have the DNS label *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*.
+VMs in a cluster have only [private IP addresses](../virtual-network/ip-services/private-ip-addresses.md).  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set. Or, you can set up a single load balancer for multiple node types.  The primary node type has the DNS label *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*, other node types have the DNS label *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*.
 
 ### Storage accounts
 Each cluster node type is supported by an [Azure storage account](../storage/common/storage-introduction.md) and managed disks.
@@ -59,12 +62,13 @@ For more information, read [Node-to-node security](service-fabric-cluster-securi
 ### Client-to-node security
 Client-to-node security authenticates clients and helps secure communication between a client and individual nodes in the cluster. This type of security helps ensure that only authorized users can access the cluster and the applications that are deployed on the cluster. Clients are uniquely identified through either their X.509 certificate security credentials. Any number of optional client certificates can be used to authenticate admin or user clients with the cluster.
 
-In addition to client certificates, Azure Active Directory can also be configured to authenticate clients with the cluster.
+In addition to client certificates, Microsoft Entra ID can also be configured to authenticate clients with the cluster.
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 
 ### Role-based access control
-Azure role-based access control (Azure RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  Azure RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your AAD with Azure RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
+
+Azure role-based access control (Azure RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  Azure RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your Microsoft Entra ID with Azure RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
 
 Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
 

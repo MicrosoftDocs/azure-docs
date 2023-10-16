@@ -1,15 +1,16 @@
 ---
 title: Backend Pool Management
 titleSuffix: Azure Load Balancer
-description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer
+description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 2/17/2022
-ms.author: allensu 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 02/03/2023
+ms.author: mbender 
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
+
 # Backend pool management
 
 The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
@@ -20,7 +21,7 @@ There are two ways of configuring a backend pool:
 
 * IP address
 
-To preallocate a backend pool with an IP address range that later will contain virtual machines and virtual machine scale sets, configure the pool by IP address and virtual network ID.
+To preallocate a backend pool with an IP address range that later will contain virtual machines and Virtual Machine Scale Sets, configure the pool by IP address and virtual network ID.
 This article focuses on configuration of backend pools by IP addresses.
 
 ## Configure backend pool by IP address and virtual network
@@ -83,7 +84,7 @@ $net = @{
     Name = 'myNic'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus'
-    PrivateIpAddress = '10.0.0.4'
+    PrivateIpAddress = '10.0.0.5'
     Subnet = $virtualNetwork.Subnets[0]
 }
 $nic = New-AzNetworkInterface @net
@@ -207,20 +208,23 @@ az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --nics myNic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
 
 ### Limitations
   * IP based backends can only be used for Standard Load Balancers
-  * Limit of 100 IP addresses in the backend pool for IP based LBs
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
+  * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in an IP based backend pool
   * ACI containers aren't currently supported by IP based LBs
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
+  * A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously.
+  * Internet routing preference IPs are currently not supported with IP based backend pools. Any Internet routing preference IPs in IP based backend pools will be billed and routed via the default Microsoft global network.
+  * If backend pools are constantly changing (due to the constant addition or removal of backend resources). This may cause reset signals sent back to the source from the backend resource. As a workaround, you can use retries.
 
 >[!Important]
 > When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.

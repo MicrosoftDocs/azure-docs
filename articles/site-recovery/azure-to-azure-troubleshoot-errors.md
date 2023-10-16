@@ -1,17 +1,18 @@
 ---
 title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
-author: rochakm
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: rochakm
+ms.date: 07/29/2022
+ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
 
-This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
+This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
 ## Azure resource quota issues (error code 150097)
 
@@ -31,7 +32,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -200,7 +201,7 @@ A connection can't be established to Microsoft 365 authentication and identity I
 #### Fix the problem
 
 Azure Site Recovery required access to Microsoft 365 IP ranges for authentication.
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to Microsoft Entra ID. We no longer support IP address-based NSG rules.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
@@ -383,7 +384,7 @@ Go to **Virtual machines** > **Settings** > **Extensions** and check for any ext
 
 ## VM provisioning state isn't valid (error code 150019)
 
-To enable replication on the VM, its provisioning state must be **Succeeded**. Follow these steps to check the provisioning state:
+To enable replication on the VM, its provisioning state must be **Succeeded**. Perform the following steps to check the provisioning state:
 
 1. In the Azure portal, select the **Resource Explorer** from **All Services**.
 1. Expand the **Subscriptions** list and select your subscription.
@@ -535,7 +536,7 @@ Delete the replica disk identified in the error message and retry the failed pro
 
 ## Enable protection failed as the installer is unable to find the root disk (error code 151137)
 
-This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is valid issue in Agent version 9.35 only.
+This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is a valid issue in Agent version 9.35 only.
 
 ### Possible Causes
 
@@ -543,7 +544,7 @@ The installer is unable to find the root disk that hosts the root file-system.
 
 ### Fix the problem
 
-Follow the below steps to fix this issue -
+Perform the following steps to fix this issue.
 
 1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
 
@@ -570,6 +571,12 @@ Follow the below steps to fix this issue -
 
     `./install -d /usr/local/ASR -r MS -q -v Azure`
 6. If the installer succeeds, retry the enable replication job.
+
+## Troubleshoot and handle time changes on replicated servers
+This error occurs when the source machine's time moves forward and then moves back in short time, to correct the change. You may not notice the change as the time is corrected very quickly.
+
+**How to fix**: 
+To resolve this issue, wait till system time crosses the skewed future time. Another option is to disable and enable replication once again, which is only feasible for forward replication (data replicated from primary to secondary region) and is not applicable for reverse replication (data replicated from secondary to primary region). 
 
 ## Next steps
 

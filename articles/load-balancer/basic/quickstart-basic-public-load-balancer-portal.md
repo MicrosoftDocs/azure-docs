@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a basic public load balancer - Azure portal'
 titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart. 
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 04/10/2023
 ms.custom: template-quickstart
 ---
 
@@ -23,7 +23,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the virtual network
 
@@ -70,13 +70,19 @@ In this section, you'll create a virtual network and subnet.
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ## Create load balancer
 
@@ -295,4 +301,3 @@ To learn more about Azure Load Balancer, continue to:
 
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](../load-balancer-overview.md)
-

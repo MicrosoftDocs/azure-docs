@@ -1,19 +1,21 @@
 ---
 title: 'Quickstart: Create a public load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer using Azure PowerShell
-author: asudbring
-ms.author: allensu
-ms.date: 03/17/2022
+description: This quickstart shows how to create a load balancer using Azure PowerShell.
+author: mbender-ms
+ms.author: mbender
+ms.date: 05/01/2023
 ms.topic: quickstart
 ms.service: load-balancer
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -161,6 +163,9 @@ Use a NAT gateway to provide outbound internet access to resources in the backen
 
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway ##
 $ip = @{
@@ -254,7 +259,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ## Create virtual machines
 
-In this section, you'll create the two virtual machines for the backend pool of the load balancer.
+In this section, you create the two virtual machines for the backend pool of the load balancer.
 
 * Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 
@@ -298,8 +303,8 @@ $ns = @{
 $nsg = Get-AzNetworkSecurityGroup @ns
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
-for ($i=1; $i -le 2; $i++)
-{
+for ($i=1; $i -le 2; $i++){
+
     ## Command to create network interface for VMs ##
     $nic = @{
         Name = "myNicVM$i"

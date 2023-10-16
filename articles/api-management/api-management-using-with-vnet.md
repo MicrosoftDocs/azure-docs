@@ -1,6 +1,6 @@
 ---
-title: Connect to a virtual network using Azure API Management
-description: Learn how to set up a connection to a virtual network in Azure API Management and access API backends through it.
+title: Deploy Azure API Management instance to external VNet
+description: Learn how to deploy (inject) your Azure API instance to a virtual network in external mode and access API backends through it.
 services: api-management
 author: dlepow
 
@@ -8,17 +8,16 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: danlep
-ms.custom: devx-track-azurepowershell
 ---
-# Connect to a virtual network using Azure API Management
+# Deploy your Azure API Management instance to a virtual network - external mode
 
-Azure API Management can be deployed inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
+Azure API Management can be deployed (injected) inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
 This article explains how to set up VNet connectivity for your API Management instance in the *external* mode, where the developer portal, API gateway, and other API Management endpoints are accessible from the public internet, and backend services are located in the network. 
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Connect to external VNet":::
 
-For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md). 
+For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -82,11 +81,14 @@ The API Management service depends on several Azure services. When API Managemen
 
 ## Routing
 
-+ A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNet.
++ A load-balanced public IP address (VIP) is reserved to provide access to the API Management endpoints and resources outside the VNet.
   + The public VIP can be found on the **Overview/Essentials** blade in the Azure portal.
-+ An IP address from a subnet IP range (DIP) is used to access resources within the VNet.
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+
+[!INCLUDE [api-management-virtual-network-vip-dip](../../includes/api-management-virtual-network-vip-dip.md)]
+
+[!INCLUDE [api-management-virtual-network-forced-tunneling](../../includes/api-management-virtual-network-forced-tunneling.md)]
 
 ## <a name="network-configuration-issues"> </a>Common network configuration issues
 

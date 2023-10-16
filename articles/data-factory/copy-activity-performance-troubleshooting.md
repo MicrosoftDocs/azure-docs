@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 06/21/2023
 ---
 
 # Troubleshoot copy activity performance
@@ -186,7 +186,7 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - Azure SQL Database tier is not high enough.
 
-    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and consider to upgrade the Azure SQL Database tier.
+    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the Azure SQL Database tier.
 
     - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
 
@@ -217,13 +217,38 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
     
+
+### The OOM Issue of reading large JSON/Excel/XML files
+
+- **Symptoms**: When you read large JSON/Excel/XML files, you meet the out of memory (OOM) issue during the activity execution.
+
+- **Cause**:
+
+    - **For large XML files**:
+    The OOM issue of reading large XML files is by design. The cause is that the whole XML file must be read into memory as it is a single object, then the schema is inferred, and the data is retrieved.
+    - **For large Excel files**:
+    The OOM issue of reading large Excel files is by design. The cause is that the SDK (POI/NPOI) used must read the whole excel file into memory, then infer the schema and get data.
+    - **For large JSON files**:
+    The OOM issue of reading large JSON files is by design when the JSON file is a single object.
+
+- **Recommendation**: Apply one of the following options to solve your issue.
+
+    - **Option-1**: Register an online self-hosted integration runtime with powerful machine (high CPU/memory) to read data from your large file through your copy activity.
+    - **Option-2**: Use optimized memory and big size cluster (for example, 48 cores) to read data from your large file through the mapping data flow activity.
+    - **Option-3**: Split the large file into small ones, then use copy or mapping data flow activity to read the folder.
+    - **Option-4**: If you are stuck or meet the OOM issue during copy the XML/Excel/JSON folder, use the foreach activity + copy/mapping data flow activity in your pipeline to handle each file or subfolder.
+    - **Option-5**: Others:
+        - For XML, use Notebook activity with memory optimized cluster to read data from files if each file has the same schema. Currently, Spark has different implementations to handle XML.
+        - For JSON, use different document forms (for example, **Single document**, **Document per line** and **Array of documents**) in [JSON settings](format-json.md#source-format-options) under mapping data flow source. If the JSON file content is **Document per line**, it consumes very little memory.
+
+
 ## Other references
 
 Here is performance monitoring and tuning references for some of the supported data stores:
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure SQL Database: You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and check the Database Transaction Unit (DTU) percentage.
 * Azure Synapse Analytics: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).

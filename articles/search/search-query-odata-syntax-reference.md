@@ -8,12 +8,12 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 07/18/2022
 
 ---
 # OData expression syntax reference for Azure Cognitive Search
 
-Azure Cognitive Search uses [OData expressions](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can be complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure Cognitive Search REST API. For example, path expressions are used to refer to sub-fields of complex fields everywhere in the API, such as when listing sub-fields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md).
+Azure Cognitive Search uses [OData expressions](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can be complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure Cognitive Search REST API. For example, path expressions are used to refer to subfields of complex fields everywhere in the API, such as when listing subfields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md).
 
 This article describes all these forms of OData expressions using a formal grammar. There is also an [interactive diagram](#syntax-diagram) to help visually explore the grammar.
 
@@ -24,7 +24,7 @@ We can describe the subset of the OData language supported by Azure Cognitive Se
 - [`$filter`](search-query-odata-filter.md), defined by the `filter_expression` rule.
 - [`$orderby`](search-query-odata-orderby.md), defined by the `order_by_expression` rule.
 - [`$select`](search-query-odata-select.md), defined by the `select_expression` rule.
-- Field paths, defined by the `field_path` rule. Field paths are used throughout the API. They can refer to either top-level fields of an index, or sub-fields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
+- Field paths, defined by the `field_path` rule. Field paths are used throughout the API. They can refer to either top-level fields of an index, or subfields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
 
 After the EBNF is a browsable [syntax diagram](https://en.wikipedia.org/wiki/Syntax_diagram) that allows you to interactively explore the grammar and the relationships between its rules.
 
@@ -130,7 +130,7 @@ sign ::= '+' | '-'
 
 /* In practice integer literals are limited in length to the precision of
 the corresponding EDM data type. */
-integer_literal ::= digit+
+integer_literal ::= sign? digit+
 
 float_literal ::=
     sign? whole_part fractional_part? exponent?

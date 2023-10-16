@@ -2,7 +2,8 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.custom: devx-track-arm-template
+ms.date: 08/22/2023
 ---
 
 # Object functions for ARM templates
@@ -13,6 +14,7 @@ Resource Manager provides several functions for working with objects in your Azu
 * [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
+* [items](#items)
 * [json](#json)
 * [length](#length)
 * [null](#null)
@@ -163,6 +165,146 @@ The output from the preceding example with the default values is:
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
+## items
+
+`items(object)`
+
+Converts a dictionary object to an array. See [toObject](template-functions-lambda.md#toobject) about converting an array to an object.
+
+In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| object |Yes |object |The dictionary object to convert to an array. |
+
+### Return value
+
+An array of objects for the converted dictionary. Each object in the array has a `key` property that contains the key value for the dictionary. Each object also has a `value` property that contains the properties for the object.
+
+### Example
+
+The following example converts a dictionary object to an array. For each object in the array, it creates a new object with modified values.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "copy": [
+      {
+        "name": "modifiedListOfEntities",
+        "count": "[length(items(variables('entities')))]",
+        "input": {
+          "key": "[items(variables('entities'))[copyIndex('modifiedListOfEntities')].key]",
+          "fullName": "[items(variables('entities'))[copyIndex('modifiedListOfEntities')].value.displayName]",
+          "itemEnabled": "[items(variables('entities'))[copyIndex('modifiedListOfEntities')].value.enabled]"
+        }
+      }
+    ],
+    "entities": {
+      "item002": {
+        "enabled": false,
+        "displayName": "Example item 2",
+        "number": 200
+      },
+      "item001": {
+        "enabled": true,
+        "displayName": "Example item 1",
+        "number": 300
+      }
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "modifiedResult": {
+      "type": "array",
+      "value": "[variables('modifiedListOfEntities')]"
+    }
+  }
+}
+```
+
+The preceding example returns:
+
+```json
+"modifiedResult": {
+  "type": "Array",
+  "value": [
+    {
+      "fullName": "Example item 1",
+      "itemEnabled": true,
+      "key": "item001"
+    },
+    {
+      "fullName": "Example item 2",
+      "itemEnabled": false,
+      "key": "item002"
+    }
+  ]
+}
+```
+
+The following example shows the array that is returned from the items function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "entities": {
+      "item002": {
+        "enabled": false,
+        "displayName": "Example item 2",
+        "number": 200
+      },
+      "item001": {
+        "enabled": true,
+        "displayName": "Example item 1",
+        "number": 300
+      }
+    },
+    "entitiesArray": "[items(variables('entities'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "itemsResult": {
+      "type": "array",
+      "value": "[variables('entitiesArray')]"
+    }
+  }
+}
+```
+
+The example returns:
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
+    }
+  ]
+}
+```
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
+
 <a id="json"></a>
 
 ## json
@@ -185,7 +327,7 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [format](template-functions-string.md#format) function to create the string that you pass to the function.
 
 You can also use [null()](#null) to get a null value.
 
@@ -291,7 +433,7 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 

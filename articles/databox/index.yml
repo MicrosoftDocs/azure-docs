@@ -4,16 +4,16 @@ title: Azure Data Box documentation - Offline transfer # < 60 chars
 summary: Use the Azure Data Box devices for offline data transfer when you are limited by time, network, or cost. Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy.  # < 160 chars
 
 metadata:
-  title: Azure Data Box Documentation - Offline Transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Explore Azure Data Box, a storage device for offline data migration to the cloud. Learn more about data transfer services using a secure proprietary storage device. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Data Box Documentation - Offline Transfer
+  description: Explore Azure Data Box, a storage device for offline data migration to the cloud. Learn more about data transfer services using a secure proprietary storage device.
   services: databox
-  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: databox
   ms.subservice: pod
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: alkohli #Required; your GitHub user alias, with correct capitalization.
-  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/16/2019 #Required; mm/dd/yyyy format.
+  author: stevenmatthew
+  ms.author: shaas
+  ms.date: 08/16/2019
   ms.custom: seo-azure-migrate
   keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer 
 
@@ -52,7 +52,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Import data offline with Data Box 
-            url: /learn/modules/move-data-with-azure-data-box/
+            url: /training/modules/move-data-with-azure-data-box/
 
   # Card
   - title: View requirements

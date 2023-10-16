@@ -1,14 +1,13 @@
 ---
-title: Azure CLI Script Sample - Delete containers by prefix | Microsoft Docs
+title: Azure CLI Script Sample - Delete containers by prefix
 description: Delete Azure Storage blob containers based on a container name prefix, then clean up the deployment. See help links for commands used in the script sample.
 services: storage
-author: tamram
-ms.service: storage
-ms.subservice: blobs
+author: stevenmatthew
+ms.service: azure-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/01/2022
-ms.author: tamram 
+ms.author: shaas 
 ms.custom: devx-track-azurecli
 ---
 
@@ -18,7 +17,7 @@ This script first creates a few sample containers in Azure Blob storage, then de
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

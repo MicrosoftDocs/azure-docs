@@ -1,113 +1,117 @@
 ---
-title: Configure Azure Active Directory B2C with Akamai Web Application Firewall
+title: Configure Azure Active Directory B2C with Akamai Web Application Protector
 titleSuffix: Azure AD B2C
-description: Configure Akamai Web application firewall with Azure AD B2C
+description: Configure Akamai Web Application Protector with Azure AD B2C
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2022
+ms.date: 05/04/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Configure Akamai with Azure Active Directory B2C
+# Configure Azure Active Directory B2C with Akamai Web Application Protector
 
-In this sample article, learn how to enable [Akamai Web Application Firewall (WAF)](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) solution for Azure Active Directory B2C (Azure AD B2C) tenant using custom domains. Akamai WAF helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
+Learn to enable Akamai Web Application Protector (WAP) for Azure Active Directory B2C (Azure AD B2C) tenant using custom domains. Akamai WAP helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
 
->[!NOTE]
->This feature is in public preview.
+Learn more on akamai.com: [What Is a Web Application Firewall (WAF)?](https://www.akamai.com/glossary/what-is-a-waf)
 
-Benefits of using Akamai WAF solution:
+Benefits of using WAF:
 
-- An edge platform that allows traffic management to your services.
+* Control traffic management to your services
+* Configure in front of an Azure AD B2C tenant
+* Manipulate traffic to protect and secure your identity infrastructure
 
-- Can be configured in front of your Azure AD B2C tenant.
+This article applies to:
 
-- Allows fine grained manipulation of traffic to protect and secure your identity infrastructure.
-
-This article applies to both [Web Application Protector (WAP)](https://www.akamai.com/us/en/products/security/web-application-protector-enterprise-waf-firewall-ddos-protection.jsp) and [Kona Site Defender (KSD)](https://www.akamai.com/us/en/products/security/kona-site-defender.jsp) WAF solutions that Akamai offers.
+WAP: [Web Application Protector](https://www.akamai.com/products/web-application-protector)
+KSD: [Kona Site Defender](https://www.akamai.com/us/en/products/security/kona-site-defender.jsp) 
 
 ## Prerequisites
 
-To get started, you'll need:
-
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- An [Akamai WAF](https://www.akamai.com/us/en/akamai-free-trials.jsp) account.
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to your Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 
+* An Akamai WAP account
+  * Go to akamai.com for [Explore all Akamai products and trials](https://www.akamai.com/us/en/akamai-free-trials.jsp)
 
 ## Scenario description
 
-Akamai WAF integration includes the following components:
+Akamai WAP integration includes the following components:
 
-- **Azure AD B2C Tenant** – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
-
-- [**Azure Front Door**](../frontdoor/front-door-overview.md) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Cloudflare WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
-
-- [**Akamai WAF**](https://www.akamai.com/us/en/resources/waf.jsp) – The web application firewall, which manages all traffic that is sent to the authorization server.
+* **Azure AD B2C** – the authorization server that verifies user credentials with custom policies in the tenant. Also known as the identity provider (IdP).
+* **Azure Front Door** – enables custom domains for the Azure B2C tenant
+  * Traffic from Akamai WAP routs to Azure Front Door then goes to the Azure AD B2C tenant
+  * [What is Azure Front Door?](../frontdoor/front-door-overview.md) 
+* **Akamai WAP** – The web application firewall that manages traffic sent to the authorization server
+  * See, [Web Application Protector](https://www.akamai.com/us/en/resources/waf.jsp)
 
 ## Integrate with Azure AD B2C
 
-1. To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by Azure Front Door. Learn how to [enable Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).  
+For custom domains in Azure AD B2C, use the custom domain feature in Azure Front Door. 
 
-1. After custom domain for Azure AD B2C is successfully configured using Azure Front Door, [test the custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
+See, [Enable custom domains for Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow).  
 
-## Onboard with Akamai
+When the custom domain for Azure AD B2C is configured using Azure Front Door, use the following instructions to test the custom domain.
 
-[Sign-up](https://www.akamai.com) and create an Akamai account.
+See, [Test your custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain), then proceed to the next section.  
 
-### Create and configure property
+## Create an Akamai account
 
-1. [Create a new property](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
+1. Go to [akamai.com](https://www.akamai.com).
+2. Select **Learn more**.
+3. On the **Cloud Computing Services** page, select **Create account**.
 
-1. Configure the property settings as:
+### Create and configure a property
 
-    | Property | Value |
-    |:---------------|:---------------|
-    |Property version | Select Standard or Enhanced TLS (preferred) |
-    |Property hostnames | Add a property hostname. This is the name of your custom domain, for example, `login.domain.com`. <BR> Create or modify a certificate with the appropriate settings for the custom domain name. Learn more about [creating a certificate](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
+A property is a configuration file that tells our edge servers how to handle and respond to incoming requests from your end users. Properties are created and maintained in Property Manager.
 
-1. Set the origin server property configuration settings as:
+To learn more, go to techdocs.akamai.com for [What is a Property?](https://techdocs.akamai.com/start/docs/prop)
 
-    |Property| Value |
-    |:-----------|:-----------|
-    | Origin type | Your origin |
-    | Origin server hostname | yourafddomain.azurefd.net |
-    | Forward host header | Incoming Host Header |
-    | Cache key hostname| Incoming Host Header |
+1. Go to control.akamai.com to sign in: [Akamai Control Center sign in page](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
+2. Go to Property Manager.
+3. For **Property version**, select **Standard** or **Enhanced TLS** (recommended).
+4. For **Property hostnames**, add a property hostname, your custom domain. For example, `login.domain.com`. 
+
+  > [!IMPORTANT]
+  > Create or modify certificates with correct custom domain name settings. </br> Go to techdocs.akamai.com for [Configure HTTPS hostnames](https://techdocs.akamai.com/property-mgr/docs/serve-content-over-https). 
+
+#### Origin server property configuration settings
+
+Use the following settings for origin server.
+
+1. For **Origin type**, enter your type.
+2. For **Origin server hostname** enter your hostname. For example, `yourafddomain.azurefd.net`
+3. For **Forward host header**, use **Incoming Host Header**.
+4. For **Cache key hostname** use **Incoming Host Header**.
 
 ### Configure DNS
 
-Create a CNAME record in your DNS such as `login.domain.com` that points to the Edge hostname in the Property hostname field.
+Create a Canonical Name (CNAME) record in your DNS, such as `login.domain.com`, which points to the Edge hostname in the **Property hostname** field.
 
-### Configure Akamai WAF
+### Configure Akamai WAP
 
-1. [Configure Akamai WAF](https://learn.akamai.com/en-us/webhelp/kona-site-defender/kona-site-defender-quick-start/GUID-6294B96C-AE8B-4D99-8F43-11B886E6C39A.html#GUID-6294B96C-AE8B-4D99-8F43-11B886E6C39A).
+1. To get started with WAP configuration, go to techdocs.akamai.com for [App & API Protector](https://techdocs.akamai.com/cloud-security/docs/app-api-protector).
+2. During configuration, for items in **Attack Group**, under **Rule Actions**, select **Deny**.
 
-1. Ensure that **Rule Actions** for all items listed under the **Attack Group** are set to **Deny**.
-
-    ![Image shows rule action set to deny](./media/partner-akamai/rule-action-deny.png)
-
-Learn more about [how the control works and configuration options](https://control.akamai.com/dl/security/GUID-81C0214B-602A-4663-839D-68BCBFF41292.html).
-
-<!-- docutune:ignore "Security Center" -->
+    ![Screenshot of denied attack groups, in the Rule Action column.](./media/partner-akamai/rule-action-deny.png)
 
 ### Test the settings
 
-Check the following to ensure all traffic to Azure AD B2C is going through the custom domain:
+To ensure traffic to Azure AD B2C goes through the custom domain:
 
-- Make sure all incoming requests to Azure AD B2C custom domain are routed via Akamai WAF and using valid TLS connection.
-- Ensure all cookies are set correctly by Azure AD B2C for the custom domain.
-- The Akamai WAF dashboard available under Defender for Cloud console display charts for all traffic that pass through the WAF along with any attack traffic.
+* Confirm WAP routes incoming requests to the Azure AD B2C custom domain
+  * Ensure a valid TLS connection
+* Ensure Azure AD B2C sets cookies correctly for the custom domain
+* The WAP dashboard in Defender for Cloud console has WAP traffic charts
+  * Attack traffic also appears
 
 ## Next steps
 
-- [Configure a custom domain in Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
+* [Enable custom domains for Azure Active Directory B2C](./custom-domain.md?pivots=b2c-user-flow)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)

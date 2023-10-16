@@ -1,9 +1,9 @@
 ---
-author: sebansal
+author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
 ms.date: 05/28/2021
-ms.author: ambapat
+ms.author: mbaldwin
 ---
 
 Azure Key Vault service supports two resource types: Vaults and Managed HSMs. The following two sections describe the service limits for each of them respectively.
@@ -40,11 +40,12 @@ This section describes service limits for resource type `vaults`.
 
 | Transactions type | Maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
-| All transactions |4,000 |
+| Secret<br>CREATE secret| 300 |
+| All other transactions |4,000 |
 
 For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](../articles/key-vault/general/overview-throttling.md).
 
-<sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. For example, HSM-other transactions per subscription are limited to 10,000 transactions in 10 seconds per subscription.
+<sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit.
 
 #### Backup keys, secrets, certificates
 

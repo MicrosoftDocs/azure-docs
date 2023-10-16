@@ -2,7 +2,7 @@
 title: Tutorial - Configure Azure Analysis Services roles | Microsoft Docs
 description: In this tutorial, learn how to configure Azure Analysis Services administrator and user roles by using the Azure portal or SQL Server Management Studio.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: owend
@@ -25,7 +25,7 @@ To learn more about user security in Azure Analysis Services, see [Authenticatio
 
 ## Prerequisites
 
-- An Azure Active Directory in your subscription.
+- A Microsoft Entra ID in your subscription.
 - Created an [Azure Analysis Services server](../analysis-services-create-server.md) in your subscription.
 - Have [server administrator](../analysis-services-server-admins.md) permissions.
 - [Add the adventureworks sample model](../analysis-services-create-sample-model.md) to your server.
@@ -55,7 +55,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
     ![Connect in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Choosing Active Directory Universal with MFA Support is recommended. This type of authentication type supports [non-interactive and multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
+    > Choosing Active Directory Universal with MFA Support is recommended. This type of authentication type supports [non-interactive and multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-overview). 
 
 3. In **Object Explorer**, expand to see server objects. Right-click to see server properties.
    
@@ -63,11 +63,11 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
 
 ## Add a user account to the server administrator role
 
-In this task, you add a user or group account from your Azure AD to the server administrator role. If specifying a security group, use `obj:groupid@tenantid`.
+In this task, you add a user or group account from your Microsoft Entra ID to the server administrator role. If specifying a security group, use `obj:groupid@tenantid`.
 
 1. In **Object Explorer**, right-click your server name, and then click **Properties**. 
 2. In the **Analysis Server Properties** window, click **Security** > **Add**.
-3. In the **Select a User or Group** window, enter a user or group account in your Azure AD, and then click **Add**. 
+3. In the **Select a User or Group** window, enter a user or group account in your Microsoft Entra ID, and then click **Add**. 
    
      ![Add server admin](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
 
@@ -85,7 +85,7 @@ In this task, you add a user or group account to the Internet Sales Administrato
 
     ![New Query Editor Window](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
 
-3. In the **XMLAQuery**, change the value for **"memberName":** to a user or group account in your Azure AD. By default, the account you're signed in with is included; however, you do not need to add your own account because you are already a server administrator.
+3. In the **XMLAQuery**, change the value for **"memberName":** to a user or group account in your Microsoft Entra ID. By default, the account you're signed in with is included; however, you do not need to add your own account because you are already a server administrator.
 
     ![TMSL script in XMLA query](./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png)
 
@@ -94,7 +94,7 @@ In this task, you add a user or group account to the Internet Sales Administrato
 
 ## Add a new model database role and add a user or group
 
-In this task, you use the [Create](/analysis-services/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
+In this task, you use the [Create](/analysis-services/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Microsoft Entra ID.
 
 1. In **Object Explorer**, right-click **adventureworks**, and then click **New Query** > **XMLA**. 
 2. Copy and paste the following TMSL script into the query editor:
@@ -120,7 +120,7 @@ In this task, you use the [Create](/analysis-services/tmsl/create-command-tmsl) 
     }
     ```
 
-3. Change `"memberName": "globalsales@adventureworks.com"` object value to a user or group account in your Azure AD.
+3. Change `"memberName": "globalsales@adventureworks.com"` object value to a user or group account in your Microsoft Entra ID.
 4. Press **F5**, to execute the script.
 
 ## Verify your changes

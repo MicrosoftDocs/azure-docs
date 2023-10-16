@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 10/05/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -22,7 +22,9 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 ## Terms for features in public preview
 
 - We encourage you to use public preview features for evaluation purposes only.
+
 - [Service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) don't apply to public preview features.
+
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
@@ -36,6 +38,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Force password reset](force-password-reset.md) | GA | NA | |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
 | [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
+| [Smart lockout](threat-management.md) | GA | GA | |
 
 ## OAuth 2.0 application authorization flows
 
@@ -45,7 +48,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 |---------|:---------:|:---------:|---------|
 [Authorization code](authorization-code-flow.md) | GA | GA | Allows users to sign in to web applications. The web application receives an authorization code. The authorization code is redeemed to acquire a token to call web APIs.|
 [Authorization code with PKCE](authorization-code-flow.md)| GA | GA | Allows users to sign in to mobile and single-page applications. The application receives an authorization code using proof key for code exchange (PKCE). The authorization code is redeemed to acquire a token to call web APIs.  |
-[Client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4)| GA | GA | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.  <br />  <br />  To use this feature in an Azure AD B2C tenant, use the Azure AD endpoint of your Azure AD B2C tenant. For more information, see [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). This flow doesn't use your Azure AD B2C [user flow or custom policy](user-flow-overview.md) settings. |
+[Client credentials flow](client-credentials-grant-flow.md)| Preview | Preview | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. |
 [Device authorization grant](https://tools.ietf.org/html/rfc8628)| NA | NA | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  |
 [Implicit flow](implicit-flow-single-page-application.md) | GA | GA |  Allows users to sign in to single-page applications. The app gets tokens directly without performing a back-end server credential exchange.|
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
@@ -100,8 +103,8 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
 |[Apple](identity-provider-apple-id.md) | GA | GA | |
-|[Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
-|[Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
+|[Microsoft Entra ID (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
+|[Microsoft Entra ID (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
@@ -123,7 +126,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
-|[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
+|[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Microsoft Entra ID](identity-provider-azure-ad-single-tenant.md).  |
 |[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |
 
@@ -131,9 +134,11 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-|[API connectors](api-connectors-overview.md) | Preview | GA | |
-|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | Preview | GA | |
-|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | Preview | GA | |
+|[After federating with an identity provider during sign-up](api-connectors-overview.md?pivots=b2c-user-flow#after-federating-with-an-identity-provider-during-sign-up) | GA | GA | |
+|[Before creating the user](api-connectors-overview.md?pivots=b2c-user-flow#before-creating-the-user) | GA | GA | |
+|[Before including application claims in token](api-connectors-overview.md?pivots=b2c-user-flow#before-sending-the-token-preview)| Preview | GA | |
+|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | GA | GA | |
+|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | GA | GA | |
 |[Secure with OAuth2 bearer authentication](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
 |[Secure API key authentication](secure-rest-api.md#api-key-authentication) | NA | GA | |
 
@@ -154,11 +159,11 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
-| [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | Preview |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
+| [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | GA |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
-| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
+| [Microsoft Entra multifactor authentication authentication](multi-factor-auth-technical-profile.md) | GA |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
-| [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
+| [Microsoft Entra ID](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
 | [Display controls](display-controls.md) | GA |  |
 | [Sub journeys](subjourneys.md) | GA | |
@@ -170,6 +175,12 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
 | [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
+
+## Other features 
+
+| Feature | Status | Notes |
+| ------- | :--: | ----- |
+| [Go-Local add-on](data-residency.md#go-local-add-on) | GA | Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md).  |
 
 ## Responsibilities of custom policy feature-set developers
 

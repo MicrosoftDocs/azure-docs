@@ -52,6 +52,11 @@ We provide rich operations to develop notebooks:
 + [Collapse a cell output](#collapse-a-cell-output)
 + [Notebook outline](#notebook-outline)
 
+> [!NOTE]
+> 
+> In the notebooks, there is a SparkSession automatically created for you, stored in a variable called `spark`. Also there is a variable for SparkContext which is called `sc`. Users can access these variables directly and should not change the values of these variables.
+
+
 <h3 id="add-a-cell">Add a cell</h3>
 
 There are multiple ways to add a new cell to your notebook.
@@ -71,6 +76,7 @@ Synapse notebooks support four Apache Spark languages:
 * Spark (Scala)
 * Spark SQL
 * .NET Spark (C#)
+* SparkR (R)
 
 You can set the primary language for new added cells from the dropdown list in the top command bar.
 
@@ -87,6 +93,7 @@ You can use multiple languages in one notebook by specifying the correct languag
 |%%spark| Scala | Execute a **Scala** query against Spark Context.  |  
 |%%sql| SparkSQL | Execute a **SparkSQL** query against Spark Context.  |
 |%%csharp | .NET for Spark C# | Execute a **.NET for Spark C#** query against Spark Context. |
+|%%sparkr | R | Execute a **R** query against Spark Context. |
 
 The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to pySpark.
 
@@ -159,7 +166,7 @@ Select the **Undo** / **Redo** button or press **Z** / **Shift+Z** to revoke the
    ![Screenshot of Synapse undo cells of aznb](./media/apache-spark-development-using-notebooks/synapse-undo-cells-aznb.png)
 
 Supported undo cell operations:
-+ Insert/Delete cell: You could revoke the delete operations by selecting **Undo**, the text content will be kept along with the cell.
++ Insert/Delete cell: You could revoke the delete operations by selecting **Undo**, the text content is kept along with the cell.
 + Reorder cell.
 + Toggle parameter.
 + Convert between Code cell and Markdown cell.
@@ -269,7 +276,7 @@ Select the **Cancel All** button to cancel the running cells or cells waiting in
 
 ### Notebook reference
 
-You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than **five**.  
+You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You receive an exception if the statement depth is larger than **five**.  
 
 Example:
 ``` %run /<path>/Notebook1 { "parameterInt": 1, "parameterFloat": 2.5, "parameterBool": true,  "parameterString": "abc" } ```.
@@ -279,7 +286,7 @@ Notebook reference works in both interactive mode and Synapse pipeline.
 > [!NOTE]
 > - ```%run``` command currently only supports to pass a absolute path or notebook name only as parameter, relative path is not supported. 
 > - ```%run``` command currently only supports to 4 parameter value types: `int`, `float`, `bool`, `string`, variable replacement operation is not supported.
-> - The referenced notebooks are required to be published. You need to publish the notebooks to reference them. Synapse Studio does not recognize the unpublished notebooks from the Git repo. 
+> - The referenced notebooks are required to be published. You need to publish the notebooks to reference them unless [Reference unpublished notebook](#reference-unpublished-notebook) is enabled. Synapse Studio does not recognize the unpublished notebooks from the Git repo.
 > - Referenced notebooks do not support statement that depth is larger than **five**.
 >
 
@@ -287,7 +294,7 @@ Notebook reference works in both interactive mode and Synapse pipeline.
 
 ### Variable explorer
 
-Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables will show up automatically as they are defined in the code cells. Clicking on each column header will sort the variables in the table.
+Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables show up automatically as they are defined in the code cells. Clicking on each column header sorts the variables in the table.
 
 You can select the **Variables** button on the notebook command bar to open or hide the variable explorer.
 
@@ -315,6 +322,8 @@ The number of tasks per each job or stage help you to identify the parallel leve
 ### Spark session configuration
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
+
+You can also create a configuration from the Apache Spark configuration or select an existing configuration. For details, please refer to [Apache Spark Configuration Management](../../synapse-analytics/spark/apache-spark-azure-create-spark-configuration.md).
 
 [![Screenshot of session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
@@ -378,12 +387,12 @@ Parameterized session configuration allows you to replace the value in %%configu
 } 
 ```
 
-Notebook will use default value if run a notebook in interactive mode directly or no parameter that match "activityParameterName" is given from Pipeline Notebook activity.
+Notebook uses default value if run a notebook in interactive mode directly or no parameter that match "activityParameterName" is given from Pipeline Notebook activity.
 
 During the pipeline run mode, you can configure pipeline Notebook activity settings as below:
 ![Screenshot of parameterized session configuration](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
 
-If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When run this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
+If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When running this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
 
 > [!NOTE]
 >  If run pipeline failed because of using this new %%configure magic, you can check more error information by running %%configure magic cell in the interactive mode of the notebook. 
@@ -446,14 +455,14 @@ You can access data in the primary storage account directly. There's no need to 
 
 ## IPython Widgets
 
-Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
+Widgets are eventful Python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (for example, Scala, SQL, C#) yet. 
 
 ### To use IPython Widget
 1. You need to import `ipywidgets` module first to use the Jupyter Widget framework.
    ```python
    import ipywidgets as widgets
    ```
-2. You can use top-level `display` function to render a widget, or leave a expression of **widget** type at the last line of code cell.
+2. You can use top-level `display` function to render a widget, or leave an expression of **widget** type at the last line of code cell.
    ```python
    slider = widgets.IntSlider()
    display(slider)
@@ -464,11 +473,11 @@ Widgets are eventful python objects that have a representation in the browser, o
    slider
    ```
    
-3. Run the cell, the widget will display at the output area.
+3. Run the cell, the widget displays at the output area.
 
    ![Screenshot of ipython widgets slider](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
 
-4. You can use multiple `display()` calls to render the same widget instance multiple times, but they will remain in sync with each other.
+4. You can use multiple `display()` calls to render the same widget instance multiple times, but they remain in sync with each other.
 
    ```python
    slider = widgets.IntSlider()
@@ -510,7 +519,7 @@ Widgets are eventful python objects that have a representation in the browser, o
    |`widgets.jslink()`|You can use `widgets.link()` function to link two similar widgets.|
    |`FileUpload` widget| Not support yet.|
 
-2. Global `display` function provided by Synapse does not support displaying multiple widgets in 1 call (i.e. `display(a, b)`), which is different from IPython `display` function.
+2. Global `display` function provided by Synapse does not support displaying multiple widgets in one call (that is, `display(a, b)`), which is different from IPython `display` function.
 3. If you close a notebook that contains IPython Widget, you will not be able to see or interact with it until you execute the corresponding cell again.
 
 
@@ -560,9 +569,11 @@ Available cell magics:
 
 --- 
 
-## Reference unpublished notebook
 
-Reference unpublished notebook is helpful when you want to debug "locally", when enabling this feature, notebook run will fetch the current content in web cache, if you run a cell including a reference notebooks statement, you will reference the presenting notebooks in the current notebook browser instead of a saved versions in cluster, that means the changes in your notebook editor can be referenced immediately by other notebooks without having to be published(Live mode) or committed(Git mode), by leveraging this approach you can easily avoid common libraries getting polluted during developing or debugging process. 
+<h2 id="reference-unpublished-notebook">Reference unpublished notebook</h2>
+
+
+Reference unpublished notebook is helpful when you want to debug "locally", when enabling this feature, notebook run fetches the current content in web cache, if you run a cell including a reference notebooks statement, you reference the presenting notebooks in the current notebook browser instead of a saved versions in cluster, that means the changes in your notebook editor can be referenced immediately by other notebooks without having to be published(Live mode) or committed(Git mode), by leveraging this approach you can easily avoid common libraries getting polluted during developing or debugging process. 
 
 You can enable Reference unpublished notebook from Properties panel: 
 
@@ -601,7 +612,7 @@ You can reuse your notebook sessions conveniently now without having to start ne
 
    ![Screenshot of notebook-manage-sessions](./media/apache-spark-development-using-notebooks/synapse-notebook-manage-sessions.png)
 
-In the **Active sessions** list you can see the session information and the corresponding notebook that is currently attached to the session. You can operate Detach with notebook, Stop the session, and View in monitoring from here. Moreover, you can easily connect your selected notebook to an active session in the list started from another notebook, the session will be detached from the previous notebook (if it's not idle) then attach to the current one.
+In the **Active sessions**, list you can see the session information and the corresponding notebook that is currently attached to the session. You can operate Detach with notebook, Stop the session, and View in monitoring from here. Moreover, you can easily connect your selected notebook to an active session in the list started from another notebook, the session is detached from the previous notebook (if it's not idle) then attach to the current one.
 
    ![Screenshot of notebook-sessions-list](./media/apache-spark-development-using-notebooks/synapse-notebook-sessions-list.png)
 
@@ -658,7 +669,7 @@ To parameterize your notebook, select the ellipses (...) to access the **more co
 
 ---
 
-Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters in order to overwrite the default values. 
+Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. The execution engine adds a new cell beneath the parameters cell with input parameters in order to overwrite the default values. 
 
 
 ### Assign parameters values from a pipeline
@@ -731,5 +742,5 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
-- [.NET for Apache Spark documentation](/dotnet/spark)
+- [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 - [Azure Synapse Analytics](../index.yml)

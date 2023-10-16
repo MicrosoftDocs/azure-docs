@@ -1,13 +1,13 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 03/31/2022
+ms.date: 09/29/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
 ms.workload: identity
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: CelesteDG
 ---
 
@@ -15,56 +15,62 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
-## March 2022
+## September 2023
 
-### New articles
-
-- [B2B direct connect overview (Preview)](b2b-direct-connect-overview.md)
-- [Configure cross-tenant access settings for B2B direct connect (Preview)](cross-tenant-access-settings-b2b-direct-connect.md)
+This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. For more information about the rebranding, see the [New name for Azure Active Directory](/azure/active-directory/fundamentals/new-name) article.
 
 ### Updated articles
 
-- [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
-- [B2B direct connect overview (Preview)](b2b-direct-connect-overview.md)
-- [Configure cross-tenant access settings for B2B direct connect (Preview)](cross-tenant-access-settings-b2b-direct-connect.md)
-- [External Identities documentation](index.yml)
-- [Billing model for Azure AD External Identities](external-identities-pricing.md)
-- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
-- [Azure Active Directory B2B collaboration code and PowerShell samples](code-samples.md)
-- [Overview: Cross-tenant access with Azure AD External Identities (Preview)](cross-tenant-access-overview.md)
-- [Add Google as an identity provider for B2B guest users](google-federation.md)
-- [Invite internal users to B2B collaboration](invite-internal-users.md)
-- [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
-- [Azure Active Directory B2B best practices](b2b-fundamentals.md)
-- [Azure Active Directory B2B collaboration FAQs](faq.yml)
-- [Configure cross-tenant access settings for B2B collaboration (Preview)](cross-tenant-access-settings-b2b-collaboration.md)
-- [External Identities in Azure Active Directory](external-identities-overview.md)
-- [Leave an organization as a B2B collaboration user](leave-the-organization.md)
-- [Configure external collaboration settings](external-collaboration-settings-configure.md)
-- [Reset redemption status for a guest user (Preview)](reset-redemption-status.md)
+- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md) - Editorial updates
+- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md) - Editorial updates
+- [Overview of Microsoft Entra External ID](external-identities-overview.md) - Editorial updates
+- [Billing model for Microsoft Entra External ID](external-identities-pricing.md) - Editorial updates
+- [Microsoft Entra B2B collaboration FAQs](faq.yml) - Editorial updates
+- [Grant Microsoft Entra B2B users access to your on-premises applications](hybrid-cloud-to-on-premises.md) - Editorial updates
+- [Grant locally managed partner accounts access to cloud resources using Microsoft Entra B2B collaboration](hybrid-on-premises-to-cloud.md) - Editorial updates
+- [Microsoft Entra B2B collaboration for hybrid organizations](hybrid-organizations.md) - Editorial updates
+- [Microsoft Entra B2B collaboration invitation redemption](redemption-experience.md) - Editorial updates
+- [Self-service for Microsoft Entra B2B collaboration sign-up](self-service-portal.md) - Editorial updates
+- [Add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md) - Editorial updates
+- [Set up tenant restrictions v2](tenant-restrictions-v2.md) - Feature availability updates
+- [Troubleshooting Microsoft Entra B2B collaboration](troubleshoot.md) - Editorial updates
+- [Properties of a Microsoft Entra B2B collaboration user](user-properties.md) - Editorial updates
+- [B2B collaboration overview](what-is-b2b.md) - Editorial updates
+- [Add Microsoft Entra ID as an identity provider for External ID](default-account.md) - Editorial updates
+- [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md) - Editorial updates
+- [Add Microsoft Entra B2B collaboration users in the Microsoft Entra admin center](add-users-administrator.md) - Editorial updates
+- [Tutorial: Enforce multifactor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Editorial updates
+- [Configure cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md) - Editorial updates
+- [Configure cross-tenant access settings for B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md) - Editorial updates
+- [Add Facebook as an identity provider for External Identities](facebook-federation.md) - Editorial updates
+- [Add Google as an identity provider for B2B guest users](google-federation.md) - Editorial updates
 
-## February 2022
-
-### Updated articles
-
-- [Add Google as an identity provider for B2B guest users](google-federation.md)
-- [External Identities in Azure Active Directory](external-identities-overview.md)
-- [Overview: Cross-tenant access with Azure AD External Identities (Preview)](cross-tenant-access-overview.md)
-- [B2B collaboration overview](what-is-b2b.md)
-- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
-- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
-- [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
-- [Azure Active Directory B2B best practices](b2b-fundamentals.md)
-- [Azure Active Directory B2B collaboration FAQs](faq.yml)
-- [Email one-time passcode authentication](one-time-passcode.md)
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
-- [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
-- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
-- [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
-
-## January 2022
+## August 2023
 
 ### Updated articles
 
-- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
+- [B2B collaboration user claims mapping in Azure Active Directory](claims-mapping.md) - UPN claims behavior update
+- [Self-service sign-up](self-service-sign-up-overview.md) - Customer content reference update 
+- [Cross-tenant access overview](cross-tenant-access-overview.md) - New storage model update
+- [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) - New storage model update
+- [Configure B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md) - New storage model update
+  
+## July 2023
+
+### New article
+
+- [Sponsors field for B2B users (preview)](b2b-sponsors.md)
+
+### Updated articles
+
+- [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates
+- [Enforce multifactor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
+- [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates
+- [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections
+- [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
+- [Leave an organization](leave-the-organization.md) - Screenshot update
+- [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
+
+
+
+

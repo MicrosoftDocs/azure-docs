@@ -4,6 +4,8 @@ description: In this article, learn how to restore Azure Files using the Azure B
 ms.topic: conceptual
 ms.date: 1/27/2020 
 ms.custom: devx-track-azurepowershell
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Files with PowerShell

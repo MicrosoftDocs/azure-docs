@@ -3,7 +3,7 @@ title: Control network traffic in Azure HDInsight
 description: Learn techniques for controlling inbound and outbound traffic to Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 05/23/2023
 ---
 
 # Control network traffic in Azure HDInsight
@@ -25,7 +25,7 @@ If you plan on using **network security groups** to control network traffic, per
 1. Identify the Azure region that you plan to use for HDInsight.
 
 2. Identify the service tags required by HDInsight for your region. There are multiple ways to obtain these service tags:
-    1. Consult the list of published service tags in [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md). 
+    1. Consult the list of published service tags in [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
     2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to find a service tag for your region.
     3. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
@@ -42,9 +42,9 @@ For more information on controlling outbound traffic from HDInsight clusters, se
 
 ### Forced tunneling to on-premises
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network or Firewall. Forced tunneling of all data transfer back to on-premise is _not_ recommended due to large volumes of data transfer and potential performance impact.
+Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network or Firewall. Forced tunneling of all data transfer back to on-premises is _not_ recommended due to large volumes of data transfer and potential performance impact.
 
-Customers who are interested to setup forced tunneling, should use [custom metastores](./hdinsight-use-external-metadata-stores.md) and setup the appropriate connectivity from the cluster subnet or on-premise network to these custom metastores.
+Customers who are interested to setup forced tunneling, should use [custom metastores](./hdinsight-use-external-metadata-stores.md) and setup the appropriate connectivity from the cluster subnet or on-premises network to these custom metastores.
 
 To see an example of the UDR setup with Azure Firewall, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 

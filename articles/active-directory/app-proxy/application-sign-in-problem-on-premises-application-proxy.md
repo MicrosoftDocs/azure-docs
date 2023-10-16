@@ -1,19 +1,19 @@
 ---
-title: Problem signing in to on-premises app using Azure Active Directory Application Proxy
-description: Troubleshooting common issues faced when you are unable to sign in to an on-premises application integrated using the Azure Active Directory Application Proxy
+title: Problem signing in to on-premises app using Microsoft Entra application proxy
+description: Troubleshooting common issues faced when you are unable to sign in to an on-premises application integrated using the Microsoft Entra application proxy
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
 
-# Problems signing in to an on-premises application using the Azure Active Directory Application Proxy
+# Problems signing in to an on-premises application using the Microsoft Entra application proxy
 
 If you are having problems signing in an on-premises application, you can try following the steps below to resolving your problem.
 
@@ -30,7 +30,9 @@ The following documents can help you to resolve some of the most common issues i
   * [I don't know what ports to open for my application](application-proxy-add-on-premises-application.md)
   * [I encountered a problem because there was no working connector in a connector group for my application](application-proxy-connectivity-no-working-connector.md)
 
-## I'm having a problem configuring the Azure AD Application Proxy in the admin portal
+<a name='im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal'></a>
+
+## I'm having a problem configuring the Microsoft Entra application proxy in the admin portal
   The following documents can help you to resolve some of the most common issues in this category.
   * [I am having difficulty configuring an application Proxy application](application-proxy-config-how-to.md)
   * [I don't know how to configure single sign-on to my application Proxy application](application-proxy-config-sso-how-to.md)

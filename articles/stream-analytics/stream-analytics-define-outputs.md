@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 01/14/2022
+ms.date: 01/18/2023
 ---
 
 # Outputs from Azure Stream Analytics
@@ -22,19 +22,22 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> , Managed Identity|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Microsoft Entra user </br> , Managed Identity|
 |[Azure Data Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
 |[Azure Database for PostgreSQL](postgresql-database-output.md)|Yes|Username and password auth|
 |[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth, </br> Managed Identity|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
-|[Power BI](power-bi-output.md)|No|Azure Active Directory user, </br> Managed Identity|
+|[Power BI](power-bi-output.md)|No|Microsoft Entra user, </br> Managed Identity|
 |[Azure Table storage](table-storage-output.md)|Yes|Account key|
-|[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key|
-|[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key|
+|[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key, </br> Managed Identity|
+|[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key, </br> Managed Identity|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Functions](azure-functions-output.md)|Yes|Access key|
+
+> [!IMPORTANT] 
+> Azure Stream Analytics uses Insert or Replace API by design. This operation replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 ## Partitioning
 
@@ -45,6 +48,20 @@ Additionally, for more advanced tuning of the partitions, the number of output w
 ## Output batch size
 
 All outputs support batching, but only some support batch size explicitly. Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically the Stream Analytics engine doesn't write one message at a time, and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
+
+## Avro and Parquet file splitting behavior
+
+A Stream Analytics query can generate multiple schemas for a given output. The list of columns projected, and their type, can change on a row-by-row basis.
+By design, the Avro and Parquet formats do not support variable schemas in a single file.
+
+The following behaviors may occur when directing a stream with variable schemas to an output using these formats:
+
+- If the schema change can be detected, the current output file will be closed, and a new one initialized on the new schema. Splitting files as such will severely slow down the output when schema changes happen frequently. With back pressure this will in turn severely impact the overall performance of the job
+- If the schema change cannot be detected, the row will most likely be rejected, and the job become stuck as the row can't be output. Nested columns, or multi-type arrays, are situations that won't be discovered and be rejected.
+
+It is highly recommended to consider outputs using the Avro or Parquet format to be strongly typed, or schema-on-write, and queries targeting them to be written as such (explicit conversions and projections for a uniform schema).
+
+If multiple schemas need to be generated, consider creating multiple outputs and splitting records into each destination by using a `WHERE` clause.
 
 ## Parquet output batching window properties
 

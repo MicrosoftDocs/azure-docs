@@ -1,7 +1,7 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
 description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 09/17/2021
+ms.date: 03/01/2023
 ms.topic: how-to
 ---
 
@@ -12,9 +12,9 @@ Service providers using [Azure Lighthouse](../overview.md) can use the **My cust
 > [!TIP]
 > While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
-To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
+To access the **My customers** page in the Azure portal, enter "My customers" in the search box near the top of the Azure portal. You can also select **All services**, then search for **Azure Lighthouse**, or search for "Azure Lighthouse". From the Azure Lighthouse page, select **Manage your customers**.
 
-Keep in mind that the top **Customers** section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups to your Azure Active Directory (Azure AD) tenant through Azure Lighthouse. If you work with other customers (such as through the [Cloud Solution Provider (CSP) program](/partner-center/csp-overview)), you won’t see info about those customers in the **Customers** section unless you have [onboarded their resources to Azure Lighthouse](onboard-customer.md) (though you may see details about certain CSP customers in the [Cloud Solution Provider (Preview) section](#cloud-solution-provider-preview) lower on the page).
+Keep in mind that the top **Customers** section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups to your Microsoft Entra tenant through Azure Lighthouse. If you work with other customers (such as through the [Cloud Solution Provider (CSP) program](/partner-center/csp-overview)), you won't see info about those customers in the **Customers** section unless you [onboarded their resources to Azure Lighthouse](onboard-customer.md). However, you may see details about certain CSP customers in the [Cloud Solution Provider (Preview) section](#cloud-solution-provider-preview) lower on the page.
 
 > [!NOTE]
 > Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).
@@ -24,7 +24,7 @@ Keep in mind that the top **Customers** section of the **My customers** page onl
 To view customer details, select **Customers** on the left side of the **My customers** page.
 
 > [!IMPORTANT]
-> In order to see this information, users must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) in the onboarding process.
+> In order to see this information, users must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role that includes Reader access) in the onboarding process.
 
 For each customer, you'll see the customer's name, customer ID (tenant ID), and the **Offer ID** and **Offer version** associated with the engagement. In the **Delegations** column, you'll see the number of delegated subscriptions and/or the number of delegated resource groups.
 
@@ -67,11 +67,11 @@ You can work directly in the context of a delegated subscription within the Azur
 
 1. Select the **Directory + subscriptions** or **Settings** icon near the top of the Azure portal.
 1. In the [Directories + subscriptions settings page](../../azure-portal/set-preferences.md#directories--subscriptions), ensure that the **Advanced filters** toggle is [turned off](../../azure-portal/set-preferences.md#subscription-filters).
-1. In the **Default subscription filter** section, select the appropriate directory and subscription. (If you have been granted access to one or more resource groups, rather than to an entire subscription, select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource group(s).)
+1. In the **Default subscription filter** section, select the appropriate directory and subscription. (If you've been granted access to one or more resource groups, rather than to an entire subscription, select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource group(s).)
 
 :::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Screenshot of the default subscription filter with one delegated subscription selected.":::
 
-After that, when you access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter.
+After that, when you access a service that supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter.
 
 You can change the default subscription at any time by following the steps above and choosing a different subscription, or selecting multiple subscriptions. You can also select **All directories**, then check the **Select all** box, if you want the filter to include all of the subscriptions to which you have access.
 
@@ -80,13 +80,13 @@ You can change the default subscription at any time by following the steps above
 > [!IMPORTANT]
 > Checking the **Select all** box sets the filter to show all of the subscriptions to which you *currently* have access. If you later gain access to additional subscriptions—for example, after you've onboarded a new customer to Azure Lighthouse—these subscriptions will not automatically be added to your filter. You'll need to return to **Directories + subscriptions** and select the additional subscriptions (or uncheck and then recheck **Select all** again).
 
-You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within an individual service.
+You can also work on delegated subscriptions or resource groups by selecting the subscription or resource group from within an individual service (as long as that service supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md#enhanced-services-and-scenarios)).
 
 ## Cloud Solution Provider (Preview)
 
 A separate **Cloud Solution Provider (Preview)** section of the **My customers** page shows billing info and resources for your CSP customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started). For more information, see [Get started with your Microsoft Partner Agreement billing account](../../cost-management-billing/understand/mpa-overview.md).
 
-Such CSP customers will appear in this section whether or not you have also onboarded them to Azure Lighthouse. Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of **My customers** in order for you to onboard them to Azure Lighthouse.
+These CSP customers appear in this section whether or not you also onboarded them to Azure Lighthouse. Similarly, a CSP customer doesn't have to appear in the **Cloud Solution Provider (Preview)** section of **My customers** in order for you to onboard them to Azure Lighthouse.
 
 ## Next steps
 

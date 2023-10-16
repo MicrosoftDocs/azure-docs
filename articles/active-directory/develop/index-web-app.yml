@@ -6,12 +6,12 @@ summary: >
   our quickstarts, tutorials, and in-depth how-to guides.
 
 metadata:
-   author: mmacy
-   ms.author: marsma
-   ms.date: 04/01/2022
-   ms.service: active-directory
-   ms.subservice: develop
-   ms.topic: landing-page
+  author: Dickson-Mwendia
+  ms.author: dmwendia
+  ms.date: 09/21/2023
+  ms.service: active-directory
+  ms.subservice: develop
+  ms.topic: landing-page
 
 landingContent:
 
@@ -21,28 +21,28 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: ASP.NET
-            url: web-app-quickstart.md?pivots=devlang-aspnet
+            url: quickstart-web-app-aspnet-sign-in.md
           - text: ASP.NET Core
-            url: web-app-quickstart.md?pivots=devlang-aspnet-core
+            url: quickstart-web-app-aspnet-core-sign-in.md
           - text: Java
-            url: web-app-quickstart.md?pivots=devlang-java
+            url: quickstart-web-app-java-sign-in.md
           - text: Node.js with MSAL
-            url: web-app-quickstart.md?pivots=devlang-nodejs-msal
-          - text: Node.js with Passport
-            url: web-app-quickstart.md?pivots=devlang-nodejs-passport
+            url: quickstart-web-app-nodejs-msal-sign-in.md
           - text: Python
-            url: web-app-quickstart.md?pivots=devlang-python
+            url: quickstart-web-app-python-sign-in.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial
         links:
           - text: ASP.NET
-            url: tutorial-v2-asp-webapp.md
+            url: ./web-app-tutorial-01-register-application.md
           - text: Blazor Server
-            url: tutorial-blazor-webassembly.md
+            url: tutorial-blazor-server.md
           - text: Node.js with Express
             url: tutorial-v2-nodejs-webapp-msal.md
-  - title: "Scenarios in depth"
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+  - title: "Web apps in depth"
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -50,6 +50,12 @@ landingContent:
             url: scenario-web-app-sign-user-overview.md
           - text: Web app that calls a web API
             url: scenario-web-app-call-api-overview.md
+  - title: "Scenarios in depth"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure web app accesses storage and Microsoft Graph
+            url: multi-service-web-app-overview.md          
 ## ROW  ################################################### ROW 2 ##
   # - title: $CARD_TITLE
   #   linkLists:

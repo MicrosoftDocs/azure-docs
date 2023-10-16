@@ -1,10 +1,10 @@
 ---
 title: Image tag best practices
 description: Best practices for tagging and versioning Docker container images when pushing images to and pulling images from an Azure container registry
-author: stevelasker
+author: tejaswikolli-web
 ms.topic: article
-ms.date: 07/10/2019
-ms.author: stevelas
+ms.date: 10/11/2022
+ms.author: tejaswikolli
 ---
 
 # Recommendations for tagging and versioning container images
@@ -26,8 +26,6 @@ A framework team ships version 1.0. They know they’ll ship updates, including 
 
 * `:1` – a stable tag for the major version. `1` represents the “newest” or “latest” 1.* version.
 * `:1.0`- a stable tag for version 1.0, allowing a developer to bind to updates of 1.0, and not be rolled forward to 1.1 when it is released.
-
-The team also uses the `:latest` tag, which points to the latest stable tag, no matter what the current major version is.
 
 When base image updates are available, or any type of servicing release of the framework, images with the stable tags are updated to the newest digest that represents the most current stable release of that version.
 

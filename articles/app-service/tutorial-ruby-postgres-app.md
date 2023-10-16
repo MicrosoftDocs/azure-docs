@@ -4,7 +4,9 @@ description: Learn how to get a Linux Ruby app working in Azure App Service, wit
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Build a Ruby and Postgres app in Azure App Service on Linux
@@ -34,7 +36,7 @@ To complete this tutorial:
 - [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 - [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prepare local Postgres
 
@@ -472,10 +474,10 @@ In this tutorial, you learned how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your app.
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

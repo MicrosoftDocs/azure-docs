@@ -2,7 +2,7 @@
 title: Specify marketplace images for a lab in Azure Lab Services
 description: This article shows you how to specify which Marketplace images can be used during lab creation.
 ms.topic: how-to
-ms.date: 03/04/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If you're using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Specify Marketplace images available to lab creators (deprecated)](specify-marketplace-images-1.md).
+> If you're using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Specify Marketplace images available to lab creators](specify-marketplace-images-1.md).
 
 As an admin, you can specify the Marketplace images that educators can use when creating labs.
 
@@ -47,5 +47,5 @@ To disable one or images:
 
 - As an educator, [create and manage labs](how-to-manage-classroom-labs.md).
 - As an educator, [configure and publish templates](how-to-create-manage-template.md).
-- As an educator, [configure and control usage of a lab](how-to-configure-student-usage.md).
+- As an educator, [configure and control usage of a lab](how-to-manage-lab-users.md).
 - As a student, [access labs](how-to-use-lab.md).

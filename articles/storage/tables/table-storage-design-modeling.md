@@ -1,13 +1,12 @@
 ---
-title: Modeling relationships in Azure Table storage design | Microsoft Docs
+title: Modeling relationships in Azure Table storage design
 description: Understand the modeling process when designing your Azure Table storage solution. Read about one-to-many, one-to-one, and inheritance relationships.
 services: storage
-ms.service: storage
-author: tamram
-ms.author: tamram
+ms.service: azure-table-storage
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
-ms.subservice: tables
 ---
 # Modeling relationships
 This article discusses the modeling process to help you design your Azure Table storage solutions.
@@ -17,7 +16,7 @@ Building domain models is a key step in the design of complex systems. Typically
 ## One-to-many relationships
 One-to-many relationships between business domain objects occur frequently: for example, one department has many employees. There are several ways to implement one-to-many relationships in the Table service each with pros and cons that may be relevant to the particular scenario.  
 
-Consider the example of a large multi-national corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
+Consider the example of a large multi-national/regional corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
 
 
 ![Store separate department and employee entities](media/storage-table-design-guide/storage-table-design-IMAGE01.png)

@@ -4,10 +4,10 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 02/16/2022
+ms.date: 01/17/2023
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, passwordless-python
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)
@@ -18,163 +18,386 @@ ms.custom: devx-track-python, mode-api
 > * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 
-This article shows you how to use Python to send messages a Service Bus topic and receive messages from a subscription to the topic. 
+
+In this tutorial, you complete the following steps: 
+
+1. Create a Service Bus namespace, using the Azure portal.
+2. Create a Service Bus topic, using the Azure portal.
+3. Create a Service Bus subscription to that topic, using the Azure portal.
+4. Write a Python application to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to: 
+    * Send a set of messages to the topic.
+    * Receive those messages from the subscription.
 
 > [!NOTE]
-> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples).
-
+> This quickstart provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built Python samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
 
 ## Prerequisites
-- An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
-- Python 3.5 or higher, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install).
+
+- An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Python 3.7 or higher, with the [Azure Python SDK](/azure/developer/python/sdk/azure-sdk-overview) package installed.
+
+>[!NOTE]
+> This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
+
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
+## Code setup 
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+To follow this quickstart using passwordless authentication and your own Azure account:
+
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
+* Sign in with your Azure account at the terminal or command prompt with `az login`. 
+* Use the same account when you add the appropriate role to your resource later in the tutorial.
+* Run the tutorial code in the same terminal or command prompt.
+
+>[!IMPORTANT]
+> Make sure you sign in with `az login`. The `DefaultAzureCredential` class in the passwordless code uses the Azure CLI credentials to authenticate with Microsoft Entra ID.
+
+To use the passwordless code, you'll need to specify a:
+
+* fully qualified service bus namespace, for example: *\<service-bus-namespace>.servicebus.windows.net*
+* topic name
+* subscription name
+
+### [Connection string](#tab/connection-string)
+
+To follow this quickstart using a connection string to authenticate, you don't use your own Azure account. Instead, you'll use the connection string for the service bus namespace.
+
+To use the connection code, you'll need to specify a:
+
+* connection string
+* topic name
+* subscription name
+
+---
+
+### Use pip to install packages
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path. Change the directory to the folder where you want to have your samples.
+
+1. Install packages:
+
+    ```shell
+    pip install azure-servicebus
+    pip install azure-identity
+    pip install aiohttp
+    ```
+
+### [Connection string](#tab/connection-string)
+
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path. Change the directory to the folder where you want to have your samples.
+
+1. Install package:
+
+    ```bash
+    pip install azure-servicebus
+    ```
+
+---
 
 ## Send messages to a topic
 
-1. Add the following import statement. 
+The following sample code shows you how to send a batch of messages to a Service Bus topic. See code comments for details.
+
+Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *send.py*, and add the following code into it.
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+1. Add the following `import` statements.
 
     ```python
-    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.servicebus import ServiceBusMessage
+    from azure.identity.aio import DefaultAzureCredential
     ```
-2. Add the following constants. 
+
+2. Add the constants and define a credential.
 
     ```python
-    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
-    TOPIC_NAME = "<TOPIC NAME>"
-    SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    TOPIC_NAME = "TOPIC_NAME"
+
+    credential = DefaultAzureCredential()
     ```
     
     > [!IMPORTANT]
-    > - Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your namespace.
-    > - Replace `<TOPIC NAME>` with the name of the topic.
-    > - Replace `<SUBSCRIPTION NAME>` with the name of the subscription to the topic. 
+    > - Replace `FULLY_QUALIFIED_NAMESPACE` with the fully qualified namespace for your Service Bus namespace.
+    > - Replace `TOPIC_NAME` with the name of the topic.
+
+    In the preceding code, you used the Azure Identity client library's `DefaultAzureCredential` class. When the app runs locally during development, `DefaultAzureCredential` will automatically discover and authenticate to Azure using the account you logged into the Azure CLI with. When the app is deployed to Azure, `DefaultAzureCredential` can authenticate your app to Microsoft Entra ID via a managed identity without any code changes.
+
 3. Add a method to send a single message.
 
     ```python
-    def send_single_message(sender):
-        # create a Service Bus message
+    async def send_single_message(sender):
+        # Create a Service Bus message
         message = ServiceBusMessage("Single Message")
         # send the message to the topic
-        sender.send_messages(message)
+        await sender.send_messages(message)
         print("Sent a single message")
     ```
 
-    The sender is a object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+    The sender is an object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+
 4. Add a method to send a list of messages.
 
     ```python
-    def send_a_list_of_messages(sender):
-        # create a list of messages
+    async def send_a_list_of_messages(sender):
+        # Create a list of messages
         messages = [ServiceBusMessage("Message in list") for _ in range(5)]
         # send the list of messages to the topic
-        sender.send_messages(messages)
+        await sender.send_messages(messages)
         print("Sent a list of 5 messages")
     ```
+
 5. Add a method to send a batch of messages.
 
     ```python
-    def send_batch_message(sender):
-        # create a batch of messages
-        batch_message = sender.create_message_batch()
-        for _ in range(10):
-            try:
-                # add a message to the batch
-                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
-            except ValueError:
-                # ServiceBusMessageBatch object reaches max_size.
-                # New ServiceBusMessageBatch object can be created here to send more data.
-                break
-        # send the batch of messages to the topic
-        sender.send_messages(batch_message)
+    async def send_batch_message(sender):
+        # Create a batch of messages
+        async with sender:
+            batch_message = await sender.create_message_batch()
+            for _ in range(10):
+                try:
+                    # Add a message to the batch
+                    batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+                except ValueError:
+                    # ServiceBusMessageBatch object reaches max_size.
+                    # New ServiceBusMessageBatch object can be created here to send more data.
+                    break
+            # Send the batch of messages to the topic
+            await sender.send_messages(batch_message)
         print("Sent a batch of 10 messages")
     ```
+
 6. Create a Service Bus client and then a topic sender object to send messages.
 
-    ```python
-    # create a Service Bus client using the connection string
-    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
-    with servicebus_client:
-        # get a Topic Sender object to send messages to the topic
-        sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
-        with sender:
-            # send one message        
-            send_single_message(sender)
-            # send a list of messages
-            send_a_list_of_messages(sender)
-            # send a batch of messages
-            send_batch_message(sender)
+    ```Python
+    async def run():
+        # create a Service Bus client using the credential.
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+            # Get a Topic Sender object to send messages to the topic
+            sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+            async with sender:
+                # Send one message
+                await send_single_message(sender)
+                # Send a list of messages
+                await send_a_list_of_messages(sender)
+                # Send a batch of messages
+                await send_batch_message(sender)
+            # Close credential when no longer needed.
+            await credential.close()
     
+    asyncio.run(run())
     print("Done sending messages")
     print("-----------------------")
     ```
- 
+
+### [Connection string](#tab/connection-string)
+
+1. Add the following `import` statements.
+
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.servicebus import ServiceBusMessage
+    ```
+
+2. Add the following constants. 
+
+    ```python
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
+    TOPIC_NAME = "TOPIC_NAME"
+    ```
+    
+    > [!IMPORTANT]
+    > - Replace `NAMESPACE_CONNECTION_STRING` with the connection string for your namespace.
+    > - Replace `TOPIC_NAME` with the name of the topic.
+
+3. Add a method to send a single message.
+
+    ```python
+    async def send_single_message(sender):
+        # Create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the topic
+        await sender.send_messages(message)
+        print("Sent a single message")
+    ```
+
+    The sender is an object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+
+4. Add a method to send a list of messages.
+
+    ```python
+    async def send_a_list_of_messages(sender):
+        # Create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the topic
+        await sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+
+5. Add a method to send a batch of messages.
+
+    ```python
+    async def send_batch_message(sender):
+        # Create a batch of messages
+        async with sender:
+            batch_message = await sender.create_message_batch()
+            for _ in range(10):
+                try:
+                    # Add a message to the batch
+                    batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+                except ValueError:
+                    # ServiceBusMessageBatch object reaches max_size.
+                    # New ServiceBusMessageBatch object can be created here to send more data.
+                    break
+            # Send the batch of messages to the topic
+            await sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+
+6. Create a Service Bus client and then a topic sender object to send messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient.from_connection_string(
+            conn_str=NAMESPACE_CONNECTION_STR,
+            logging_enable=True) as servicebus_client:
+            # Get a Topic Sender object to send messages to the topic
+            sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+            async with sender:
+                # Send one message
+                await send_single_message(sender)
+                # Send a list of messages
+                await send_a_list_of_messages(sender)
+                # Send a batch of messages
+                await send_batch_message(sender)
+    
+    asyncio.run(run())
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+
+---
+
 ## Receive messages from a subscription
-Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds. 
 
-```python
-with servicebus_client:
-    # get the Subscription Receiver object for the subscription    
-    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
-    with receiver:
-        for msg in receiver:
-            print("Received: " + str(msg))
-            # complete the message so that the message is removed from the subscription
-            receiver.complete_message(msg)
-```
+The following sample code shows you how to receive messages from a subscription. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
 
-## Full code
+Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code into it.
 
-```python
-from azure.servicebus import ServiceBusClient, ServiceBusMessage
+### [Passwordless (Recommended)](#tab/passwordless)
 
-CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
-TOPIC_NAME = "<TOPIC NAME>"
-SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
 
-def send_single_message(sender):
-    message = ServiceBusMessage("Single Message")
-    sender.send_messages(message)
-    print("Sent a single message")
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.identity.aio import DefaultAzureCredential
+    
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    SUBSCRIPTION_NAME = "SUBSCRIPTION_NAME"
+    TOPIC_NAME = "TOPIC_NAME"
+    
+    credential = DefaultAzureCredential()
+    ```
 
-def send_a_list_of_messages(sender):
-    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
-    sender.send_messages(messages)
-    print("Sent a list of 5 messages")
+2. Create a Service Bus client and then a subscription receiver object to receive messages.
 
-def send_batch_message(sender):
-    batch_message = sender.create_message_batch()
-    for _ in range(10):
-        try:
-            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
-        except ValueError:
-            # ServiceBusMessageBatch object reaches max_size.
-            # New ServiceBusMessageBatch object can be created here to send more data.
-            break
-    sender.send_messages(batch_message)
-    print("Sent a batch of 10 messages")
+    ```python
+    async def run():
+        # create a Service Bus client using the credential
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Subscription Receiver object for the subscription
+                receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, 
+                subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the subscription
+                        await receiver.complete_message(msg)
+            # Close credential when no longer needed.
+            await credential.close()
+    ```
+    
+3. Call the `run` method.
 
-servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    ```python
+    asyncio.run(run())
+    ```
 
-with servicebus_client:
-    sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
-    with sender:
-        send_single_message(sender)
-        send_a_list_of_messages(sender)
-        send_batch_message(sender)
+### [Connection string](#tab/connection-string)
 
-print("Done sending messages")
-print("-----------------------")
+1. Similar to the send sample, add `import` statements and define constants that you should replace with your own values.
 
-with servicebus_client:
-    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
-    with receiver:
-        for msg in receiver:
-            print("Received: " + str(msg))
-            receiver.complete_message(msg)
-```
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
+    SUBSCRIPTION_NAME = "SUBSCRIPTION_NAME"
+    TOPIC_NAME = "TOPIC_NAME"
+    ```
+
+2. Create a Service Bus client and then a subscription receiver object to receive messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient.from_connection_string(
+            conn_str=NAMESPACE_CONNECTION_STR,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Subscription Receiver object for the subscription
+                receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, 
+                subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the subscription
+                        await receiver.complete_message(msg)
+    ```
+
+3. Call the `run` method.
+
+    ```python
+    asyncio.run(run())
+    ```
+
+---
 
 ## Run the app
-When you run the application, you should see the following output: 
+
+Open a command prompt that has Python in its path, and then run the code to send and receive messages for a subscription under a topic.
+
+```shell
+python send.py; python recv.py
+```
+
+You should see the following output: 
 
 ```console
 Sent a single message

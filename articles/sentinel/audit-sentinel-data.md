@@ -1,16 +1,14 @@
 ---
 title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
-author: batamig
+author: limwainstein
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
 # Audit Microsoft Sentinel queries and activities
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how you can view audit data for queries run and activities performed in your Microsoft Sentinel workspace, such as for internal and external compliance requirements in your Security Operations (SOC) workspace.
 
@@ -33,7 +31,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -59,7 +57,7 @@ For more information, see [Microsoft Sentinel data included in Azure Activity lo
 
 ### Find all actions taken by a specific user in the last 24 hours
 
-The following **AzureActivity** table query lists all actions taken by a specific Azure AD user in the last 24 hours.
+The following **AzureActivity** table query lists all actions taken by a specific Microsoft Entra user in the last 24 hours.
 
 ```kql
 AzureActivity

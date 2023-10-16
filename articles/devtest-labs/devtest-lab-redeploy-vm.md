@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Redeploy a VM in a lab in Azure DevTest Labs
@@ -21,7 +22,8 @@ To redeploy a VM in a lab in Azure DevTest Labs, take the following steps:
 6. In the Virtual Machine page for your VM, select **Redeploy** under **OPERATIONS** in the left menu.
 
     ![Screen capture shows the Virtual Machine page with Redeploy selected.](media/devtest-lab-redeploy-vm/redeploy.png)
-7. Read the information on the page, and select **Redeploy** button. 9. Check the status of the redeploy operation in the **Notifications** window.
+7. Read the information on the page, and select **Redeploy** button. 
+8. Check the status of the redeploy operation in the **Notifications** window.
 
     ![Redeploy status](media/devtest-lab-redeploy-vm/redeploy-status.png)
 

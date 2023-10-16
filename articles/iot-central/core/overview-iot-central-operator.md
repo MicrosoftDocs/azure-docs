@@ -1,16 +1,14 @@
 ---
 title: Azure IoT Central device management guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to manage the IoT devices connected to your IoT Central application. 
+description: This guide describes how to manage the IoT devices connected to your IoT Central application at scale. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/07/2022
+ms.date: 05/19/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, iot-central-frontdoor]
 
-# Device groups, jobs, use dashboards and create personal dashboards
-# This article applies to operators.
 ---
 
 # IoT Central device management guide
@@ -39,13 +37,15 @@ IoT Central lets you search devices by device name, ID, property value, or cloud
 
 ## Add devices
 
-Use the **Devices** page to add individual devices, or [import devices](howto-manage-devices-in-bulk.md#import-devices) in bulk from a CSV file:
+Use the **Devices** page to add individual devices:
 
 :::image type="content" source="media/overview-iot-central-operator/add-devices.png" alt-text="Screenshot that shows add device options.":::
 
+You can [import devices](howto-manage-devices-in-bulk.md#import-devices) in bulk from a CSV file.
+
 ## Group your devices
 
-On the **Device groups** page, you can use queries to define groups of devices. You can use device groups to:
+On the **Device groups** page, you can use queries to define groups of devices. Use device groups to:
 
 - Monitor aggregate data from devices on the **Device explorer** page.
 - Manage groups of devices in bulk by using jobs.
@@ -59,11 +59,18 @@ Use the **Devices** page to manage individual devices connected to your applicat
 
 :::image type="content" source="media/overview-iot-central-operator/device-management-options​.png" alt-text="Screenshot showing the device management options.":::
 
-For individual device, you can complete tasks such as [block or unblock it](howto-manage-devices-individually.md#device-status-values), [attach it to a gateway](tutorial-define-gateway-device-type.md), [approve it](howto-manage-devices-individually.md#device-status-values), [migrate it to a new device template](howto-edit-device-template.md#migrate-a-device-across-versions), [associate it with an organization](howto-create-organizations.md), and [generate a map to transform the incoming telemetry and properties](howto-map-data.md).
+For an individual device, you can complete tasks such as:
+
+- [Block or unblock it](howto-manage-devices-individually.md#device-status-values)
+- [Attach it to a gateway](tutorial-define-gateway-device-type.md)
+- [Approve it](howto-manage-devices-individually.md#device-status-values)
+- [Migrate it to a new device template](howto-edit-device-template.md#migrate-a-device-across-versions)
+- [Associate it with an organization](howto-create-organizations.md)
+- [Generate a map to transform the incoming telemetry and properties](howto-map-data.md).
 
 You can also set writable properties and cloud properties that are defined in the device template, and call commands on the device.
 
-To manage IoT Edge devices, you can use the IoT Central UI to[create and edit deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
+To manage IoT Edge devices, you can use the IoT Central UI to create and edit [deployment manifests](concepts-iot-edge.md), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
 
 Use the **Jobs** page to manage your devices in bulk. Jobs can update properties, run commands, or assign a new device template on multiple devices. To learn more, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
@@ -74,17 +81,17 @@ Use the **Jobs** page to manage your devices in bulk. Jobs can update properties
 
 To monitor individual devices, use the custom device views on the **Devices** page. A solution builder defines these custom views as part of the [device template](concepts-device-templates.md). These views can show device telemetry and property values. An example is the **Overview** view shown in the following screenshot:
 
-:::image type="content" source="media/overview-iot-central-operator/simulated-telemetry.png" alt-text="Screenshot that shows a device view":::
+:::image type="content" source="media/overview-iot-central-operator/simulated-telemetry.png" alt-text="Screenshot that shows a custom device view.":::
 
 To monitor aggregate data from multiple devices, use device groups and the **Data explorer** page. To learn more, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 ## Customize
 
-You can further customize the device management and monitoring experience using the following tools:
+You can further customize the device management and monitoring experience by using the following tools:
 
 - Create more views to display on the **Devices** page for individual devices by adding view definitions to your [device templates](concepts-device-templates.md).
 - Customize the text that describes your devices in the application. To learn more, see [Change application text](howto-customize-ui.md#change-application-text).
-- Create [custom device management dashboards](howto-manage-dashboards.md). A dashboard can include a [pinned query](howto-manage-dashboards.md#pin-analytics-to-dashboard) from the **Data explorer**.
+- Create [custom device management dashboards](howto-manage-dashboards.md). A dashboard can include a [pinned query](howto-manage-dashboards.md#pin-data-explorer-query-to-dashboard) from the **Data explorer**.
 
 ## Automate
 
@@ -94,7 +101,6 @@ To automate device management tasks, you can use:
 - [Job scheduling](howto-manage-devices-in-bulk.md#create-and-run-a-job) for regular device management tasks.
 - The Azure CLI to manage your devices from a scripting environment. To learn more, see [az iot central](/cli/azure/iot/central).
 - The IoT Central REST API to manage your devices programmatically. To learn more, see [How to use the IoT Central REST API to manage devices](howto-manage-devices-with-rest-api.md).
-Rules, CLI, REST API, job schedule
 
 ## Troubleshoot and remediate device issues
 

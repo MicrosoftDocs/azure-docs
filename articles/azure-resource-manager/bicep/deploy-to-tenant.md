@@ -2,16 +2,17 @@
 title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Tenant deployments with Bicep file
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Microsoft Entra tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
 
 ## Supported resources
 
@@ -59,7 +60,7 @@ targetScope = 'tenant'
 
 The principal deploying the template must have permissions to create resources at the tenant scope. The principal must have permission to execute the deployment actions (`Microsoft.Resources/deployments/*`) and to create the resources defined in the template. For example, to create a management group, the principal must have Contributor permission at the tenant scope. To create role assignments, the principal must have Owner permission.
 
-The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
+The Global Administrator for the Microsoft Entra ID doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
 
 1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 
@@ -140,7 +141,7 @@ Resources defined within the Bicep file are applied to the tenant.
 targetScope = 'tenant'
 
 // create resource at tenant
-resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2021-04-01' = {
   ...
 }
 ```
@@ -202,7 +203,7 @@ The following template creates a management group.
 targetScope = 'tenant'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2021-04-01' = {
   name: mgName
   properties: {}
 }
@@ -217,7 +218,7 @@ The following template assigns a role at the tenant scope.
 ```bicep
 targetScope = 'tenant'
 
-@description('principalId if the user that will be given contributor access to the resourceGroup')
+@description('principalId of the user that will be given contributor access to the resourceGroup')
 param principalId string
 
 @description('roleDefinition for the assignment - default is owner')
@@ -225,7 +226,7 @@ param roleDefinitionId string = '8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
 
 var roleAssignmentName = guid(principalId, roleDefinitionId)
 
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-03-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: roleAssignmentName
   properties: {
     roleDefinitionId: tenantResourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionId)

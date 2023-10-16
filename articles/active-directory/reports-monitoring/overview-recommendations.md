@@ -1,210 +1,67 @@
 ---
-
-title: What is Azure Active Directory recommendations (preview)? | Microsoft Docs
-description: Provides a general overview of Azure Active Directory recommendations.
+title: What are Microsoft Entra recommendations?
+description: Provides a general overview of Microsoft Entra recommendations so you can keep your tenant secure and healthy.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/01/2022
-ms.author: markvi
+ms.date: 10/03/2023
+ms.author: sarahlipsey
 ms.reviewer: hafowler  
 
-# Customer intent: As an Azure AD administrator, I want guidance to so that I can keep my Azure AD tenant in a healthy state.
-ms.collection: M365-identity-device-management
+# Customer intent: As a Microsoft Entra administrator, I want guidance to so that I can keep my Microsoft Entra tenant in a healthy state.
+
 ---
 
-# What is Azure Active Directory recommendations (preview)?
+# What are Microsoft Entra recommendations?
 
-This feature is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Keeping track of all the settings and resources in your tenant can be overwhelming. The Microsoft Entra recommendations feature helps monitor the status of your tenant so you don't have to. These recommendations help ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Microsoft Entra ID.
 
-Ideally, you want your Azure Active Directory (Azure AD) tenant to be in a secure and healthy state. However, trying to keep your knowledge regarding the management of the various components in your tenant up to date can become overwhelming.
+Microsoft Entra recommendations now include *identity secure score* recommendations. These recommendations provide similar insights into the security of your tenant. Identity secure score recommendations include *secure score points*, which are calculated as an overall score based on several security factors. For more information, see [What is Identity Secure Score](concept-identity-secure-score.md). 
 
-This is where Azure AD recommendations can help you.
+All these Microsoft Entra recommendations provide you with personalized insights with actionable guidance to:
 
-The Azure AD recommendations feature provides you personalized insights with actionable guidance to:
+- Help you identify opportunities to implement best practices for Microsoft Entra related features.
+- Improve the state of your Microsoft Entra tenant.
+- Optimize the configurations for your scenarios.
 
-- Help you identify opportunities to implement best practices for Azure AD-related features.
-- Improve the state of your Azure AD tenant.
+This article gives you an overview of how you can use Microsoft Entra recommendations.
 
-This article gives you an overview of how you can use Azure AD recommendations.
+## How does it work?
 
+On a daily basis, Microsoft Entra ID analyzes the configuration of your tenant. During this analysis, Microsoft Entra ID compares the configuration of your tenant with security best practices and recommendation data. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Microsoft Entra identity overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first.
 
+![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-overview.png) 
 
-## What it is 
+Your identity secure score, which appears at the top of the page, is a numerical representation of the health of your tenant. Recommendations that apply to the Identity Secure Score are given individual scores in the table at the bottom of the page. These scores are added up to generate your Identity Secure Score. For more information, see [What is identity secure score](concept-identity-secure-score.md).
 
-The [Azure Advisor](../../advisor/advisor-overview.md) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, Reliability (formerly called High availability), and security of your Azure resources.
+![Screenshot of the identity secure score.](./media/overview-recommendations/identity-secure-score.png)
 
-Azure AD recommendations:
+Each recommendation contains a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*, so your step-by-step action plan impacts the entire tenant and not just a specific resource.
 
-- Is the Azure AD specific implementation of Azure Advisor. 
-- Supports you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. 
- 
-## Recommendation object
+## Are Microsoft Entra recommendations related to Azure Advisor?
 
-Azure AD tracks the status of a recommendation in a related object. This object includes attributes that are used to characterize the recommendation and a body to store the actionable guidance. 
+The Microsoft Entra recommendations feature is the Microsoft Entra specific implementation of [Azure Advisor](../../advisor/advisor-overview.md), which is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes your resource configuration and usage data to recommend solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
 
+Microsoft Entra recommendations use similar data to support you with the roll-out and management of Microsoft's best practices for Microsoft Entra tenants to keep your tenant in a secure and healthy state. The Microsoft Entra recommendations feature provides a holistic view into your tenant's security, health, and usage. 
 
-Each object is characterized by:
+## Recommendation availability and license requirements
 
-- **Title** - A short summary of what the recommendation is about.
+The recommendations listed in the following table are currently available in public preview or general availability. The license requirements for recommendations in public preview are subject to change. The table provides the impacted resources and links to available documentation.
 
-- **Priority** - Possible values are: low, medium, high
+| Recommendation  | Impacted resources | Required license | Availability |
+|---- |---- |---- |---- |
+| [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users | All licenses | Generally available |
+| [Migrate applications from AD FS to Microsoft Entra ID](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Applications | All licenses | Generally available |
+| [Migrate from ADAL to MSAL](recommendation-migrate-from-adal-to-msal.md) | Applications | All licenses | Generally available |
+| [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | All licenses | Preview |
+| [Minimize MFA prompts from known devices](recommendation-mfa-from-known-devices.md)  | Users | All licenses | Generally available |
+| [Remove unused applications](recommendation-remove-unused-apps.md) | Applications | [Microsoft Entra Workload ID Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-id) | Preview |
+| [Remove unused credentials from applications](recommendation-remove-unused-credential-from-apps.md) | Applications | [Microsoft Entra Workload ID Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-id) | Preview |
+| [Renew expiring application credentials](recommendation-renew-expiring-application-credential.md) | Applications | [Microsoft Entra Workload ID Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-id) | Preview |
+| [Renew expiring service principal credentials](recommendation-renew-expiring-service-principal-credential.md) | Applications | [Microsoft Entra Workload ID Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-id) | Preview |
 
-- **Status** - Possible values are: Active, Dismissed, Postponed, CompletedByUser, CompletedBySystem.
-
-    - A recommendation is marked as CompletedByUser if you mark the recommendation as complete.
-
-    - A recommendation is marked as CompletedBySystem if a recommendation that did once apply is no longer applicable to you because you have taken the necessary steps.
- 
-
-- **Impacted Resources** - A definition of the scope of a recommendation. Possible values are either a list of the impacted resources or **Tenant level**.    
-
-- **Updated at** - The timestamp of the last status update.
-
-
-![Reporting](./media/overview-recommendations/recommendations-object.png)
-
-
-
-The body of a recommendation object contains the actionable guidance:
-
-- **Description** - An explanation of what it is that Azure AD has detected and related background information.
-
-- **Value** - An explanation of why completing the recommendation will benefit you, and the value of the associated feature. 
-
-- **Action Plan** - Detailed instructions to step-by-step implement a recommendation.
-
-
-
-## How it works
-
-On a daily basis, Azure AD analyzes the configuration of your tenant. During an analysis, Azure AD compares the  data of the known recommendations with the actual configuration. If a recommendation is flagged as applicable to your tenant, the recommendation status and its corresponding resources are marked as active. 
-
-
-In the recommendations or resource list, you can use the **Status** information to determine your action item.
-
-As an administrator, you should review your tenant's recommendations, and their associated resources periodically. 
-
-- **Dismiss**
-
-- **Mark complete** 
-
-- **Postpone**
-
-- **Reactivate**
-
-
-### Dismiss
-
-If you don't like a recommendation, or if you have another reason for not applying it, you can dismiss it. In this case, Azure AD asks you for a reason for dismissing a recommendation.
-
-![Help us provide better recommendations](./media/overview-recommendations/provide-better-recommendations.png)
-
-
-### Mark as complete
-
-Use this state to indicate that you have:
-
-- Completed the recommendation.
-- Taken action for an individual resource. 
-
-A recommendation or resource that has been marked as complete is again evaluated when Azure AD compares the available recommendations with your current configuration.
-
-
-### Postpone 
-
-Postpone a recommendation or resource to address it in the future. The recommendation or resource will be marked as Active again when the date that the recommendation or resource is postponed to occurs.
-
-### Reactivate
-Accidentally dismissed, completed, or postponed a recommendation or resource. Mark it as active again to keep it top of mind.
-
-
-## Common tasks
-
-### Enable recommendations
-
-To enable your Azure AD recommendations:
-
-1. Navigate to the **[Preview features](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PreviewHub)** page.
-2. Set the **State** to **On**.
-
-    ![Enable Azure AD recommendations](./media/overview-recommendations/enable-azure-ad-recommendations.png)
-
-
-
-### Manage recommendations
-
-To manage your Azure AD recommendations:
-
-1. Navigate to the [Azure AD overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page.
-
-2. On the Azure AD overview page, in the toolbar, click **Recommendations (Preview)**.
-  
-    ![Manage Azure AD recommendations](./media/overview-recommendations/manage-azure-ad-recommendations.png)
-
-
-
-### Update the status of a resource 
-
-To update the status of a resource, you have to right click a resource to bring up the edit menu. 
-
-
-## Who can access it?
-
-The Azure AD recommendations feature supports all editions of Azure AD. In other words, there is no specific subscription or license required to use this feature. 
-
-To (re-) view your recommendations, you need to be:
-
-- Global reader
-
-- Security reader
-
-- Reports reader
-
-
-To manage your recommendations, you need to be:
-
-- Global admin
-
-- Security admin
-
-- Security operator
-
-- Cloud app admin
-
-- App admin
-
-
-
-
-## What you should know
-
-- On the recommendations page, you might not see all supported recommendations. This is because Azure AD only displays the recommendations that apply to your tenant.
-
-- Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address.
-
-**Right now:** 
-
-- You can update the status of a recommendation with a read only roles (global reader, security reader, reports reader). This is a known issue that will be fixed.
-
-- The only action recorded in the audit log is completing recommendations.
-
-- Audit logs do not capture actions taken by reader roles. 
-
-
-
-## Next steps
-
-* [Activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md)
-* [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Send logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
+Microsoft Entra-only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed.

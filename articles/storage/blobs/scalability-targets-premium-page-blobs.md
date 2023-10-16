@@ -2,21 +2,19 @@
 title: Scalability targets for premium page blob storage accounts
 titleSuffix: Azure Storage
 description: A premium performance page blob storage account is optimized for read/write operations. This type of storage account backs an unmanaged disk for an Azure virtual machine.
-services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.author: tamram
-ms.subservice: common
+ms.author: akashdubey
 ---
 
 # Scalability and performance targets for premium page blob storage accounts
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](/support/legal/sla/storage/v1_5/).
+The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ## Scale targets for premium page blob accounts
 

@@ -15,10 +15,10 @@ ms.custom: ignite-fall-2021
 Microsoft has invested in Azure native security capabilities that organizations can leverage to defeat ransomware attack techniques found in both high-volume, everyday attacks, and sophisticated targeted attacks.
 
 Key capabilities include:
-- **Native Threat Detection**: Microsoft Defender for Cloud provides high-0quality threat detection and response capabilities, also called Extended Detection and Response (XDR). This helps you:
+- **Native Threat Detection**: Microsoft Defender for Cloud provides high-quality threat detection and response capabilities, also called Extended Detection and Response (XDR). This helps you:
   - Avoid wasting time and talent of scarce security resources to build custom alerts using raw activity logs.
   - Ensure effective security monitoring, which often enables security teams to rapidly approve use of Azure services.
-- **Passwordless and Multi-factor authentication**: Azure Active Directory MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
+- **Passwordless and multifactor authentication**: Microsoft Entra multifactor authentication, Microsoft Entra Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Microsoft Entra ID). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
 - **Native Firewall and Network Security**: Microsoft built native DDoS attack mitigations, Firewall, Web Application Firewall, and many other controls into Azure. These security 'as a service' help simplify the configuration and implementation of security controls. These give organizations the choice of using native services or virtual appliances versions of familiar vendor capabilities to simplify their Azure security. 
 
 ## Microsoft Defender for Cloud
@@ -40,9 +40,9 @@ Keeping your resources safe is a joint effort between your cloud provider, Azure
 
 Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud whether they're in Azure or not - as well as on premises.
 
-Microsoft Defender for Cloud's threat protection enables you to detect and prevent threats at the Infrastructure as a Service (IaaS) layer, non-Azure servers as well as for Platforms as a Service (PaaS) in Azure.
+Defender for Cloud's threat protection enables you to detect and prevent threats at the Infrastructure as a Service (IaaS) layer, non-Azure servers as well as for Platforms as a Service (PaaS) in Azure.
 
-Security Center's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
+Defender for Cloud's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
 
 Key Features:
 - Continuous security assessment: Identify Windows and Linux machines with missing security updates or insecure OS settings and vulnerable Azure configurations. Add optional watchlists or events you want to monitor. 
@@ -103,7 +103,7 @@ Key Features:
 ## Additional resources
 
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
-- [Build great solutions with the Microsoft Azure Well-Architected Framework](/learn/paths/azure-well-architected-framework/)
+- [Build great solutions with the Microsoft Azure Well-Architected Framework](/training/paths/azure-well-architected-framework/)
 - [Azure Top Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)
 - [Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)
 - [Microsoft Azure Resource Center](https://azure.microsoft.com/resources/)
@@ -113,9 +113,9 @@ Key Features:
 - [Zero Trust Guidance Center](/security/zero-trust/)
 - [Azure Web Application Firewall](../../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp32)
 - [Azure VPN gateway](../../vpn-gateway/openvpn-azure-ad-tenant.md#enable-authentication)
-- [Azure Active Directory Multi-Factor Authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
-- [Azure AD Identity Protection](../../active-directory/authentication/concept-password-ban-bad.md)
-- [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md)
+- [Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
+- [Microsoft Entra ID Protection](../../active-directory/authentication/concept-password-ban-bad.md)
+- [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md)
 - [Microsoft Defender for Cloud documentation](../../defender-for-cloud/index.yml)
 
 ## Conclusion
@@ -125,7 +125,7 @@ Microsoft focuses heavily on both security of our cloud and providing you the se
 We look forward to partnering with you in addressing ransomware protection, detection, and prevention in a holistic manner.
 
 Connect with us:
-- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity&#64;microsoft.com) 
+- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity@microsoft.com)
 - [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).

@@ -1,11 +1,12 @@
 ---
-title: Enterprise reference architecture
+title: Deploy Azure DevTest Labs (enterprise reference architecture)
 description: See a reference architecture and considerations for Azure DevTest Labs in an enterprise.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/14/2022
+ms.date: 09/30/2023
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # DevTest Labs enterprise reference architecture
@@ -46,7 +47,7 @@ On-premises, a [remote desktop gateway](/windows-server/remote/remote-desktop-se
 
 ### Networking components
 
-In this architecture, [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) provides identity and access management across all networks. Lab VMs usually have a local administrative account for access. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
+In this architecture, [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) provides identity and access management across all networks. Lab VMs usually have a local administrative account for access. If there's a Microsoft Entra ID, on-premises, or [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
 
 [Azure networking topology](../networking/fundamentals/networking-overview.md) controls how lab resources access and communicate with on-premises networks and the internet. This architecture shows a common way that enterprises network DevTest Labs. The labs connect with [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), through the ExpressRoute or site-to-site VPN connection, to the on-premises network.
 
@@ -65,7 +66,7 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
 
 - Resources per resource group per resource type. The default limit for [resources per resource group per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Putting all VMs in the same resource group hits this limit much sooner, especially if the VMs have many extra disks.
 
-- Storage accounts. Every lab in DevTest Labs comes with a storage account. The Azure quota for [number of storage accounts per region per subscription is 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). So the maximum number of DevTest Labs in one region is also 250.
+- Storage accounts. Every lab in DevTest Labs comes with a storage account. The Azure quota for [number of storage accounts per region per subscription is 250](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits) by default. So the maximum number of DevTest Labs in one region is also 250. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../quotas/storage-account-quota-requests.md).
 
 - Role assignments. A role assignment gives a user or principal access to a resource. Azure has a limit of [2,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 

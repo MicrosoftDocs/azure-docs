@@ -7,23 +7,23 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 06/16/2022
 ms.author: cherylmc
 
 ---
 # Manage secure access to resources in spoke VNets for User VPN clients
 
-This article shows you how to use Virtual WAN and Azure Firewall rules and filters to manage secure access for connections to your resources in Azure over point-to site IKEv2 or Open VPN connections. This configuration is helpful if you have remote users for whom you want to restrict access to Azure resources, or to secure your resources in Azure.
+This article shows you how to use Virtual WAN and Azure Firewall rules and filters to manage secure access for connections to your resources in Azure over point-to site IKEv2 or OpenVPN connections. This configuration is helpful if you have remote users for whom you want to restrict access to Azure resources, or to secure your resources in Azure.
 
 The steps in this article help you create the architecture in the following diagram to allow User VPN clients to access a specific resource (VM1) in a spoke VNet connected to the virtual hub, but not other resources (VM2). Use this architecture example as a basic guideline.
 
-:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram: Secured virtual hub" :::
+:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram of a Secured virtual hub.":::
 
 ## Prerequisites
 
 [!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
 
-* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Microsoft Entra authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
 ## Create a virtual WAN
 
@@ -37,15 +37,15 @@ The point-to-site (P2S) configuration defines the parameters for connecting remo
 
 When selecting the authentication method, you have three choices. Each method has specific requirements. Select one of the following methods, and then complete the steps.
 
-* **Azure Active Directory authentication:** Obtain the following:
+* **Microsoft Entra authentication:** Obtain the following:
 
-   * The **Application ID** of the Azure VPN Enterprise Application registered in your Azure AD tenant.
+   * The **Application ID** of the Azure VPN Enterprise Application registered in your Microsoft Entra tenant.
    * The **Issuer**. Example: `https://sts.windows.net/your-Directory-ID`.
-   * The **Azure AD tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
+   * The **Microsoft Entra tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -53,15 +53,21 @@ When selecting the authentication method, you have three choices. Each method ha
 
 In this section, you create the virtual hub with a point-to-site gateway. When configuring, you can use the following example values:
 
-* **Hub private IP address space:** 10.0.0.0/24
+* **Hub private IP address space:** 10.1.0.0/16
 * **Client address pool:** 10.5.0.0/16
 * **Custom DNS Servers:** You can list up to 5 DNS Servers
 
-[!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
+### Basics page
+
+[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
+
+### Point to site page
+
+[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. 
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
@@ -97,7 +103,7 @@ Once you complete these steps, you will have created an architecture that allows
 1. Under Security, select **Azure Firewall policies**.
 1. Select **Create Azure Firewall Policy**.
 1. Under **Policy details**, type in a name and select the region your virtual hub is deployed in.
-1. Select **Next: DNS Settings (preview)**.
+1. Select **Next: DNS Settings**.
 1. Select **Next: Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. Provide a name for the collection. Set the type as **Network**. Add a priority value **100**.
@@ -125,18 +131,22 @@ In this section, you need to ensure that the traffic is routed through Azure Fir
 1. Verify that the VNet connection and the Branch connection private traffic is secured by Azure Firewall.
 1. Select **Save**.
 
+> [!NOTE]
+> If you want to inspect traffic destined to private endpoints using Azure Firewall in a secured virtual hub, see [Secure traffic destined to private endpoints in Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
+You need to add /32 prefix for each private endpoint in the **Private traffic prefixes** under Security configuration of your Azure Firewall manager for them to be inspected via Azure Firewall in secured virtual hub. If these /32 prefixes are not configured, traffic destined to private endpoints will bypass Azure Firewall.
+
 ## <a name="validate"></a>Validate
 
 Verify the setup of your secured hub.
 
 1. Connect to the **Secured Virtual Hub** via VPN from your client device.
 1. Ping the IP address **10.18.0.4** from your client. You should see a response.
-1. Ping the IP address **10.18.0.5** from your client. You should not be able to see a response.
+1. Ping the IP address **10.18.0.5** from your client. You shouldn't be able to see a response.
 
 ### Considerations
 
 * Make sure that the **Effective Routes Table** on the secured virtual hub has the next hop for private traffic by the firewall. To access the Effective Routes Table, navigate to your **Virtual Hub** resource. Under **Connectivity**, select **Routing**, and then select **Effective Routes**. From there, select the **Default** Route table.
-* Verify that you created rules in the [Create Rules](#create-rules) section. If these steps are missed, the rules you created will not actually be associated to the hub and the route table and packet flow will not use Azure Firewall.
+* Verify that you created rules in the [Create Rules](#create-rules) section. If these steps are missed, the rules you created won't actually be associated to the hub and the route table and packet flow won't use Azure Firewall.
 
 ## Next steps
 

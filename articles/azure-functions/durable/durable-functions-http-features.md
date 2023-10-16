@@ -3,9 +3,9 @@ title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 05/10/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python
+ms.devlang: csharp, java, javascript, powershell, python
 ---
 
 # HTTP Features
@@ -45,11 +45,11 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 **index.js**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
 
 **function.json**
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json":::
 
 # [Python](#tab/python)
 
@@ -144,6 +144,24 @@ Push-OutputBinding -Name Response -Value $Response
   ]
 }
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStart")
+public HttpResponseMessage httpStart(
+        @HttpTrigger(name = "req", route = "orchestrators/{functionName}") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        @BindingName("functionName") String functionName,
+        final ExecutionContext context) {
+
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance(functionName);
+    context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
+    return durableContext.createCheckStatusResponse(req, instanceId);
+}
+```
+
 ---
 
 Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
@@ -256,7 +274,11 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-The feature is currently supported in PowerShell.
+This feature isn't available in PowerShell.
+
+# [Java](#tab/java)
+
+This feature isn't available in Java.
 
 ---
 
@@ -278,7 +300,7 @@ The "call HTTP" API can automatically implement the client side of the polling c
 
 ### Managed identities
 
-Durable Functions natively supports calls to APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
+Durable Functions natively supports calls to APIs that accept Microsoft Entra tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
 
 The following code is an example of an orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](/rest/api/compute/virtualmachines).
 
@@ -358,11 +380,15 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell) 
 
-The feature is currently supported in PowerShell.
+This feature isn't available in PowerShell.
+
+# [Java](#tab/java)
+
+This feature isn't available in Java.
 
 ---
 
-In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net/.default`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
+In the previous example, the `tokenSource` parameter is configured to acquire Microsoft Entra tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net/.default`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
 
 At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the Authorization header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
 
@@ -372,7 +398,7 @@ At runtime, the configured token source automatically returns an OAuth 2.0 acces
 
 You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
-Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Microsoft Entra bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Microsoft Entra ID, see [Azure services that support Microsoft Entra authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### Limitations
 

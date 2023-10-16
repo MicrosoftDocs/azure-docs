@@ -1,25 +1,25 @@
 ---
 title: TextBox UI element
-description: Describes the Microsoft.Common.TextBox UI element for Azure portal. Use for adding unformatted text.
-author: tfitzmac
-
+description: Describes the Microsoft.Common.TextBox UI element for Azure portal that's used for adding unformatted text.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.author: tomfitz
-
+ms.date: 08/23/2022
 ---
 
 # Microsoft.Common.TextBox UI element
 
-A user-interface (UI) element that can be used to add unformatted text. The `Microsoft.Common.TextBox` element is a single-line input field, but supports multi-line input with the `multiLine` property.
+The `TextBox` user-interface (UI) element can be used to add unformatted text. The element is a single-line input field, but supports multi-line input with the `multiLine` property.
 
 ## UI sample
 
 The `TextBox` element uses a single-line or multi-line text box.
 
-:::image type="content" source="media/managed-application-elements/microsoft-common-textbox.png" alt-text="Microsoft.Common.TextBox element single-line text box.":::
+Example of single-line text box.
 
-:::image type="content" source="media/managed-application-elements/microsoft-common-textbox-multi-line.png" alt-text="Microsoft.Common.TextBox element multi-line text box.":::
+:::image type="content" source="media/managed-application-elements/microsoft-common-textbox.png" alt-text="Screenshot of a single-line text box using the Microsoft.Common.TextBox UI element.":::
+
+Example of multi-line text box.
+
+:::image type="content" source="media/managed-application-elements/microsoft-common-textbox-multi-line.png" alt-text="Screenshot of a multi-line text box using the Microsoft.Common.TextBox UI element.":::
 
 ## Schema
 
@@ -75,34 +75,47 @@ The examples show how to use a single-line text box and a multi-line text box.
 
 The following example uses a text box with the [Microsoft.Solutions.ArmApiControl](microsoft-solutions-armapicontrol.md) control to check the availability of a resource name.
 
+In this example, when you enter a storage account name and exit the text box, the control checks if the name is valid and if it's available. If the name is invalid or already exists, an error message is displayed. A storage account name that's valid and available is shown in the output.
+
 ```json
-"basics": [
-    {
+{
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Azure.CreateUIDef",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "basics": [
+      {
         "name": "nameApi",
         "type": "Microsoft.Solutions.ArmApiControl",
         "request": {
-            "method": "POST",
-            "path": "[concat(subscription().id, '/providers/Microsoft.Storage/checkNameAvailability?api-version=2021-04-01')]",
-            "body": {
-                "name": "[basics('txtStorageName')]",
-                "type": "Microsoft.Storage/storageAccounts"
-            }
+          "method": "POST",
+          "path": "[concat(subscription().id, '/providers/Microsoft.Storage/checkNameAvailability?api-version=2021-09-01')]",
+          "body": {
+            "name": "[basics('txtStorageName')]",
+            "type": "Microsoft.Storage/storageAccounts"
+          }
         }
-    },
-    {
+      },
+      {
         "name": "txtStorageName",
         "type": "Microsoft.Common.TextBox",
         "label": "Storage account name",
         "constraints": {
-            "validations": [
-                {
-                    "isValid": "[basics('nameApi').nameAvailable]",
-                    "message": "[basics('nameApi').message]"
-                }
-            ]
+          "validations": [
+            {
+              "isValid": "[basics('nameApi').nameAvailable]",
+              "message": "[basics('nameApi').message]"
+            }
+          ]
         }
+      }
+    ],
+    "steps": [],
+    "outputs": {
+      "textBox": "[basics('txtStorageName')]"
     }
-]
+  }
+}
 ```
 
 ### Multi-line
@@ -148,3 +161,4 @@ This example uses the `multiLine` property to create a multi-line text box with 
 
 - For an introduction to creating UI definitions, see [CreateUiDefinition.json for Azure managed application's create experience](create-uidefinition-overview.md).
 - For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- To learn more about functions, see [CreateUiDefinition functions](create-uidefinition-functions.md).

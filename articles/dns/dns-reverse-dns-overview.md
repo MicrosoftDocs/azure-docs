@@ -3,14 +3,15 @@ title: Overview of reverse DNS in Azure - Azure DNS
 description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: rohinkoul
+author: greg-lindsay
 manager: KumuD
 ms.service: dns
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: devx-track-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2021
-ms.author: rohink
+ms.date: 04/27/2023
+ms.author: greglin
 ---
 
 # Overview of reverse DNS and support in Azure
@@ -32,7 +33,7 @@ For example, the DNS record `www.contoso.com` is implemented using a DNS 'A' rec
 When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for you for the IP addresses you owned. They may also allow you to host the ARPA zone in a DNS service of your choice, such as Azure DNS.
 
 > [!NOTE]
-> Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it is hosted in the ARPA zone for the corresponding IP address block. Separate zones are used for IPv4 and IPv6 address blocks.
+> Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it's hosted in the ARPA zone for the corresponding IP address block. Separate zones are used for IPv4 and IPv6 address blocks.
 
 ### IPv4
 

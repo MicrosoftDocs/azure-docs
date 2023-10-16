@@ -1,15 +1,34 @@
 ---
-title: Offline backup for DPM and Azure Backup Server
+title: Offline seeding workflow for DPM and MABS using customer-owned disks with Azure Import/Export - Azure Backup
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
-ms.topic: conceptual
-ms.date: 05/24/2020
+ms.topic: how-to
+ms.date: 12/05/2022
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
-# Offline backup workflow for DPM and Azure Backup Server (MABS)
 
->[!IMPORTANT]
-> These steps are applicable for DPM 2019 UR1 (or above) and MABS v3 UR1 (or above).
+# Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export
+
+This article describes how to send the initial full backup data from DPM/MABS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from MARS to Azure using customer-owned disks](backup-azure-backup-import-export.md).
 
 System Center Data Protection Manager and Azure Backup Server (MABS) integrate with Azure Backup and use several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.
+
+In this article, you'll learn about:
+
+> [!div class="checklist"]
+> - Offline-seeding process
+> - Supported capabilities
+> - Prerequisites
+> - Workflow
+> - How to initiate offline backup
+> - How to prepare SATA drives and ship to Azure
+> - How to update the tracking and shipping details on the Azure import job
+
+>[!IMPORTANT]
+> These steps are applicable for DPM 2019 UR1 (or above) and MABS v3 UR1 (or higher). Ensure that you've the latest MARS agent (version 2.0.9250.0 or higher) before following the below section. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-customer-owned-disks-importexport-is-not-working).
+
+## Offline-seeding process
 
 The offline-seeding process of Azure Backup is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy on one or more hard drives to an Azure datacenter. This article provides an overview and further steps that finish this workflow for System Center Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS).
 
@@ -18,39 +37,37 @@ The offline-seeding process of Azure Backup is tightly integrated with the [Azur
 >
 > The MABS UR1 update also brings the preview for Offline Backup using Azure Data Box in MABS. Contact [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) to learn more.
 
-## Overview
+## Supported capabilities
 
 With the offline-seeding capability of Azure Backup and the Azure Import/Export service, it's simple to upload the data offline to Azure by using disks. The offline backup process involves the following steps:
 
-> [!div class="checklist"]
->
-> * The backup data is written to a staging location instead of being sent over the network.
-> * The data on the staging location is then written to one or more SATA disks by using the *AzureOfflineBackupDiskPrep* utility.
-> * An Azure import job is automatically created by the utility.
-> * The SATA drives are then sent to the nearest Azure datacenter.
-> * After the upload of the backup data to Azure is finished, Azure Backup copies the backup data to the backup vault and the incremental backups are scheduled.
+* The backup data is written to a staging location instead of being sent over the network.
+* The data on the staging location is then written to one or more SATA disks by using the *AzureOfflineBackupDiskPrep* utility.
+* An Azure import job is automatically created by the utility.
+* The SATA drives are then sent to the nearest Azure datacenter.
+* After the upload of the backup data to Azure is finished, Azure Backup copies the backup data to the backup vault and the incremental backups are scheduled.
 
 ## Prerequisites
 
 Ensure that the following prerequisites are met before you start the offline backup workflow:
 
-* A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) has been created. To create one, follow the steps in [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)tutorial-backup-windows-server-to-azure#create-a-recovery-services-vault).
+* A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) has been created. To create one, follow the steps in [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
 * Ensure that only the [latest version of Microsoft Azure Recovery Services agent](https://aka.ms/azurebackup_agent) is installed on the SC DPM or MABS and registered to Recovery Services vault.
-* Update Rollup 1 is installed on SC DPM 2019 or MABS v3.
+* Update Rollup 1 is installed on SC DPM 2019 or MABS v3, along with the [latest MARS agent](https://aka.ms/azurebackup_agent).
 
   > [!NOTE]
-  > With DPM 2019 UR1 and MABS v3 UR1 the offline seeding authenticates using Azure Active Directory.
+  > With DPM 2019 UR1 and MABS v3 UR1 the offline seeding authenticates using Microsoft Entra ID.
 
 * On the DPM or MABS server, make sure Microsoft Edge or Internet Explorer 11 is installed, and JavaScript is enabled.
 * Create an Azure Storage account in the same subscription as the Recovery Services vault.
-* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
-* Register the Microsoft.ImportExport resource provider with the subscription containing the Azure Storage account. To register the resource provider:
+* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
+* Register the Microsoft.DataBox resource provider with the subscription containing the Azure Storage account. To register the resource provider:
     1. In the main menu, select **Subscriptions**.
     2. If you're subscribed to multiple subscriptions, select the subscription you're using for the offline backup. If you use only one subscription, then your subscription appears.
     3. In the subscription menu, select **Resource Providers** to view the list of providers.
-    4. In the list of providers scroll down to Microsoft.ImportExport. If the Status is NotRegistered, select **Register**.
+    4. In the list of providers scroll down to Microsoft.DataBox. If the Status is NotRegistered, select **Register**.
 
-       ![Registering the resource provider](./media/backup-azure-backup-server-import-export/register-import-export.png)
+       :::image type="content" source="./media/backup-azure-backup-import-export/register-import-export-inline.png" alt-text="Screenshot shows how to register the resource provider." lightbox="./media/backup-azure-backup-import-export/register-import-export-expanded.png":::
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * For disks sent to Azure, ensure that only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../import-export/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
@@ -64,15 +81,15 @@ The information in this section helps you complete the offline-backup workflow s
 
 1. When you create a new protection group with online protection or add online protection to existing protection group, you see the following screen. To select Initial online Replication method, select **Transfer using my own disk** and select **Next**.
 
-    ![Import screen](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
+    ![Screenshot shows the import pane.](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
 2. The Azure sign-in page will open. Sign in using your Azure user account, which has *owner* role permission on the Azure Subscription.
 
-    ![Azure sign-in page](./media/backup-azure-backup-server-import-export/choose-initial-online-replication.png)
+    ![Screenshot shows the Azure sign-in page.](./media/backup-azure-backup-server-import-export/choose-initial-online-replication.png)
 
 3. Provide the inputs on the **Use your Own Disk** page.
 
-   ![Inputs for Use your own disk](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
+   ![Screenshot shows how how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
 
    The description of the inputs is as follows:
 
@@ -86,11 +103,11 @@ The information in this section helps you complete the offline-backup workflow s
 
 4. Complete the workflow to create or update the protection. And to initiate the offline-backup copy, right-click the **Protection Group**, and then choose the **Create recovery point** option. You then choose the **Online Protection** option.
 
-   ![Create recovery point](./media/backup-azure-backup-server-import-export/create-recovery-point.png)
+   ![Screenshot shows how to create recovery point.](./media/backup-azure-backup-server-import-export/create-recovery-point.png)
 
 5. Monitor the Online Replica Creation job in the monitoring pane. The job should complete successfully with the warning *Waiting for Azure Import job to finish*.
 
-   ![Complete recovery point](./media/backup-azure-backup-server-import-export/complete-recovery-point.png)
+   ![Screenshot shows the complete recovery point.](./media/backup-azure-backup-server-import-export/complete-recovery-point.png)
 
 6. After the operation finishes, the staging location is ready to be used for disk preparation.
 
@@ -117,64 +134,104 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     | Parameter | Description |
     | --- | --- |
-    | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file. |
+    | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |    
 
     When you run the command, the utility requests the selection of the Azure Import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a screen like the one that follows.
 
-      ![Disk preparation console](./media/backup-azure-backup-server-import-export/disk-prep-console.png)
+      :::image type="content" source="./media/backup-azure-backup-import-export/diskprepconsole0_1.png" alt-text="Screenshot shows the Azure disk preparation tool input.":::
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure.
 1. Provide confirmation for the formatting of the drive when prompted.
 1. You're prompted to sign into your Azure subscription. Provide your credentials.
 
-    ![Azure sign-in screen](./media/backup-azure-backup-server-import-export/signin-disk-prep.png)
+    :::image type="content" source="./media/backup-azure-backup-import-export/signindiskprep.png" alt-text="Screenshot shows the Azure subscription sign-in process.":::
 
     The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
-    At the end of successful execution of the tool, the command prompt provides three pieces of information:
-    * One or more disks you provided are prepared for shipping to Azure.
-    * You receive confirmation that your import job has been created. The  import job uses the name you provided.
-    * The tool displays the shipping address for the Azure datacenter.
+1. After the successful copy of the data from the staging location to the disks, the tool shows the following details:
 
-     ![Azure disk preparation complete](./media/backup-azure-backup-server-import-export/console.png)
+   - The list of disks prepared for seeding.
+   - The name of the storage account, resource group, and country/region of the Import/Export Job.
 
-1. At the end of the command execution, you also see the option to update shipping information.
+   The tool lists the fields required to create the Import/Export Job.* Enter the following details:
 
-1. Ship the disks to the address that the tool provided and keep the tracking number for future reference.
+   | Required Parameter | Detail|
+   | --- | --- |
+   | Contact Name | Name of the contact for the Import/Export Job |
+   | Contact Number | Phone number of the contact for the Import/Export Job |
+   | Valid Email Id | Email ID to notify for the Import/Export Job |
+   | Shipping Address | The return shipping address |
+   | Country | Return shipping country/region |
+   | Postal Code | Return shipping postal code |
 
-   > [!IMPORTANT]
-   > No two Azure import jobs can have the same tracking number. Ensure that drives prepared by the utility under a single Azure import job are shipped together in a single package and that there's a single unique tracking number for the package. Don't combine drives prepared as part of different Azure import jobs in a single package.
+   **All fields are required.*
 
-## Update shipping details on the Azure Import job
 
-The following procedure updates the Azure Import job shipping details. This information includes details about:
+   You can [edit these parameters](#update-the-tracking-and-shipping-details-on-the-azure-import-job) in future in the Azure portal for the *Import/Export Job*.    
 
-* the name of the carrier who delivers the disks to Azure
-* return shipping details for your disks
+   :::image type="content" source="./media/backup-azure-backup-import-export/create-import-export-jobs-inline.png" alt-text="Screenshot shows how to create the import/export jobs." lightbox="./media/backup-azure-backup-import-export/create-import-export-jobs-expanded.png":::
 
-   1. Sign in to your Azure subscription.
-   2. In the main menu, select **All services** and in the All services dialog, type Import. When you see **Import/Export jobs**, select it.
-       ![Entering Shipping Information](./media/backup-azure-backup-server-import-export/search-import-job.png)
+   After you enter these parameters and run the tool successfully, you receive a confirmation of the successful creation of the import job.
 
-       The list of **Import/export jobs** menu opens, and the list of all Import/export jobs in the selected subscription appears.
+   :::image type="content" source="./media/backup-azure-backup-import-export/confirmation-after-successful-tool-run-inline.png" alt-text="Screenshot shows the confirmation after tool is run successfully." lightbox="./media/backup-azure-backup-import-export/confirmation-after-successful-tool-run-expanded.png":::
 
-   3. If you have multiple subscriptions, be sure to select the subscription used to import the backup data. Then select the newly created Import job to open its details.
+   >[!Important]
+   >The tool also displays the Azure data centre address to which the disks need to be shipped along with a list of supported carriers.
 
-       ![Review Shipping Information](./media/backup-azure-backup-server-import-export/import-job-found.png)
+Ship the disks to the address that the tool provided. Keep the tracking number for future reference and update it in the Azure portal as soon as possible.
 
-   4. On the Settings menu for the Import job, select **Manage Shipping Info** and enter the return shipping details.
+> [!IMPORTANT]
+> No two Azure import jobs can have the same tracking number. Ensure that drives prepared by the utility under a single Azure import job are shipped together in a single package and that there's a single unique tracking number for the package. Don't combine drives prepared as part of different Azure import jobs in a single package.
 
-       ![Storing Shipping Information](./media/backup-azure-backup-server-import-export/shipping-info.png)
+## Update the tracking and shipping details on the Azure import job
 
-   5. When you have the tracking number from your shipping carrier, select the banner in the Azure Import job overview page and enter the following details:
+This section helps you update the Azure import job shipping details, which include details about:
 
-      > [!IMPORTANT]
-      > Ensure that the carrier information and tracking number are updated within two weeks of Azure import job creation. Failure to verify this information within two weeks can result in the job being deleted, and drives not being processed.
+* The name of the carrier that delivers the disks to Azure.
+* Return-shipping details for your disks.
+* Modify the notification email for the import job.
 
-      ![Job overview](./media/backup-azure-backup-server-import-export/job-overview.png)
+### Update the tracking details
 
-      ![Tracking information](./media/backup-azure-backup-server-import-export/tracking-info.png)
+To update the tracking details, follow these steps:
+
+1. Sign in to the Azure subscription.
+1. On the main menu, select **All services**.
+1. On the **All services** pane, enter **Azure Data Box** in the search box, and then select it from the search result.
+
+    :::image type="content" source="./media/backup-azure-backup-import-export/search-import-job-inline.png" alt-text="Screenshot shows how to enter shipping information." lightbox="./media/backup-azure-backup-import-export/search-import-job-expanded.png":::
+
+    On the **Azure Data Box** menu, the list of all Azure Data Box jobs under the selected subscription appears (including **Import/Export**).
+
+1. Enter *Import/Export* on the search box to filter the *Import/Export jobs*, or enter the job name directly, and then select the newly created import job to view its details.
+
+   If you've multiple subscriptions, select the subscription used to import the backup data.
+
+    :::image type="content" source="./media/backup-azure-backup-import-export/import-job-found-inline.png" alt-text="Screenshot shows how to review shipping information." lightbox="./media/backup-azure-backup-import-export/import-job-found-expanded.png":::
+
+1. Select the job, and then on the **Overview** pane, add the *Carrier and Tracking Number* to update the *Tracking information*.
+
+
+    :::image type="content" source="./media/backup-azure-backup-import-export/shipping-information-inline.png" alt-text="Screenshot shows how to store shipping information." lightbox="./media/backup-azure-backup-import-export/shipping-information-expanded.png":::
+
+### Add return-shipping details 
+
+To add the return-shipping details, follow these steps:
+
+1. Select **Job Details** under **General**, and then **Edit Address**.
+1. Update the *carrier*, *carrier account number*, *contact details*, and the *return shipping address details*
+1. Select **Save**.
+
+ :::image type="content" source="./media/backup-azure-backup-import-export/add-tracking-information-inline.png" alt-text="Screenshot shows how to add return shipping details." lightbox="./media/backup-azure-backup-import-export/add-tracking-information-expanded.png":::
+
+### Edit notification email
+
+To update the email addresses that are notified on the Import job progress, select **Edit notification details**.
+ 
+:::image type="content" source="./media/backup-azure-backup-import-export/edit-notification-email-inline.png" alt-text="Screenshot shows to how to edit notification email." lightbox="./media/backup-azure-backup-import-export/edit-notification-email-expanded.png":::
+
+> [!IMPORTANT]
+> Ensure that the carrier information and tracking number are updated within two weeks of Azure import job creation. Failure to verify this information within two weeks can result in the job being deleted and drives not being processed.
 
 ### Time to process the drives
 
@@ -182,7 +239,7 @@ The amount of time it takes to process an Azure import job varies. The process t
 
 ### Monitor Azure import job status
 
-You can monitor the status of your Import job from the Azure portal by navigating to the **Import/Export jobs** page and selecting your job. For more information on the status of the Import jobs, see the [Storage Import Export service](../import-export/storage-import-export-service.md) article.
+You can monitor the status of your Import job from the Azure portal by navigating to the **Import/Export jobs** page and selecting your job. For more information on the status of the Import jobs, see the [Azure Data Box](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview) page.
 
 ### Complete the workflow
 

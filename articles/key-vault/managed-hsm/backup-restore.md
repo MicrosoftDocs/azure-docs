@@ -4,11 +4,12 @@ description: This document explains full backup/restore and selective restore
 services: key-vault
 author: mbaldwin
 tags: azure-key-vault
+ms.custom: devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/04/2023
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
@@ -39,6 +40,10 @@ Backup is a long running operation but will immediately return a Job ID. You can
 
 While the backup is in progress, the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
+> [!IMPORTANT]
+> Public internet access must **not** be blocked from the storage accounts being used to backup or restore resources.
+
+
 ```azurecli-interactive
 # time for 500 minutes later for SAS token expiry
 
@@ -66,7 +71,7 @@ az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobac
 Full restore allows you to completely restore the contents of the HSM with a previous backup, including all keys, versions, attributes, tags, and role assignments. Everything currently stored in the HSM will be wiped out, and it will return to the same state it was in when the source backup was created.
 
 > [!IMPORTANT]
-> Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup within last 30 minutes before a `restore` operation can be performed.
+> Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup at least 30 minutes prior to a `restore` operation can be performed.
 
 Restore is a data plane operation. The caller starting the restore operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/restore/start/action**. The source HSM where the backup was created and the destination HSM where the restore will be performed **must** have the same Security Domain. See more [about Managed HSM Security Domain](security-domain.md).
 
@@ -75,7 +80,7 @@ You must provide the following information to execute a full restore:
 - Storage account name
 - Storage account blob container
 - Storage container SAS token with permissions `rl`
-- Storage container folder name where the source backup is store
+- Storage container folder name where the source backup is stored
 
 Restore is a long running operation but will immediately return a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 

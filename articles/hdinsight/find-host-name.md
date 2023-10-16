@@ -3,14 +3,14 @@ title: How to get the host names of Azure HDInsight cluster nodes
 description: Learn about how to get host names and FQDN name of Azure HDInsight cluster nodes.
 ms.service: hdinsight
 ms.topic: how-to
-author: yanancai
-ms.author: yanacai
-ms.date: 03/23/2021
+author: reachnijel
+ms.author: nijelsf
+ms.date: 09/19/2023
 ---
 
 # Find the host names of cluster nodes
 
-HDInsight cluster is created with public DNS `clustername.azurehdinsight.net`. When you SSH to individual nodes or set connection to cluster nodes with in the same custom virtual network, you need to use host name, or fully qualified domain names (FQDN) of cluster nodes.
+HDInsight cluster is created with public DNS `clustername.azurehdinsight.net`. When you SSH to individual nodes or set up a connection to cluster nodes within the same custom virtual network, you need to use the host name or fully qualified domain names (FQDN) of cluster nodes.
 
 In this article, you learn how to get the host names of cluster nodes. You can get it manually through Ambari Web UI or automatically through Ambari REST API.
 
@@ -33,9 +33,9 @@ Here are some examples of how to retrieve the FQDN for the nodes in the cluster.
 The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the host names.
 
 ```bash
-export password=''
-export clusterName=''
-curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" \
+export PASSWORD=''
+export CLUSTER_NAME=''
+curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" \
 | jq -r '.items[].Hosts.host_name'
 ```  
 

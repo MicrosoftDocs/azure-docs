@@ -2,22 +2,22 @@
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: include
-ms.date: 08/06/2021
+ms.date: 10/11/2022
 ms.author: lianwei
 ---
 
-Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group from the previous step, providing the following information:
+Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *webpubsub* extension to the current version.
 
-- Resource name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
+```azurecli-interactive
+az extension add --upgrade --name webpubsub
+```
+
+Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group you've created. The following command creates a _Free_ Web PubSub resource under resource group _myResourceGroup_ in _EastUS_:
 
   > [!Important]
   > Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub in the following examples.
 
-- Resource group name: **myResourceGroup**.
-- The location: **EastUS**.
-- Sku: **Free_F1**
-
-```azurecli-interactive
+```azurecli
 az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
 ```
 

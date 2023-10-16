@@ -4,20 +4,19 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 
-author: Blackmist
-ms.author: larryfr
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 05/08/2020
-
+ms.date: 06/23/2022
 ---
 
 # Data science with a Windows Data Science Virtual Machine
 
 The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment where you can perform data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started with your analysis for on-premises, cloud, or hybrid deployments. 
 
-The DSVM works closely with Azure services. It can read and process data that's already stored on Azure, in Azure Synapse (formerly SQL DW),Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning.
+The DSVM works closely with Azure services. It can read and process data that's already stored on Azure, in Azure Synapse (formerly SQL DW), Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning.
 
 In this article, you'll learn how to use your DSVM to perform data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
@@ -73,7 +72,7 @@ When you're in the notebook, you can explore your data, build the model, and tes
 
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
-For R, you can use an IDE like RStudio that can be found on the start menu or on the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
+For R, you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
 
 For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root Conda environment, is configured on PTVS. To enable Anaconda Python 2.7, take the following steps:
 
@@ -153,7 +152,7 @@ In Visual Studio, you can do the same clone operation. The  following screenshot
 
 ![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.png)
 
-You can find more information on using Git to work with your GitHub repository from resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
+You can find more information on using Git to work with your GitHub repository from resources available on github.com. The [cheat sheet](https://training.github.com/downloads/github-git-cheat-sheet/) is a useful reference.
 
 ## Access Azure data and analytics services
 ### Azure Blob storage

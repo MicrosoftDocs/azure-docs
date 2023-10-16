@@ -2,11 +2,11 @@
 title: Charge back Azure Reservation costs
 description: Learn how to view Azure Reservation costs for chargeback.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -14,13 +14,13 @@ ms.author: banders
 
 Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day.
 
-Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a reservation discount, the *AdditionalInfo* section in the usage file contains the reservation details. For more information, see [Download usage from the Azure portal](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
+Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a reservation discount, the *AdditionalInfo* section in the usage file contains the reservation details. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
 ## See reservation usage data for show back and charge back
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to **Cost Management + Billing** 
-3. Select **Cost analysis** from left navigation 
+2. Navigate to **Cost Management + Billing**.
+3. Select **Cost analysis** from left navigation.
 4. Under **Actual Cost**, select the **Amortized Cost** metric.
 5. To see which resources were used by a reservation, apply a filter for **Reservation** and then select reservations.
 6. Set the **Granularity** to **Monthly** or **Daily**.
@@ -34,13 +34,14 @@ Here's a video showing how to view reservation usage costs at subscription, reso
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 
 ## Get the data for show back and charge back
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to **Cost Management + Billing** 
-3. Select **Export** from left navigation 
-4. Click on **Add** button
-5. Select Amortized cost as the metric button and setup your export
 
-the EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to **Cost Management + Billing**.
+3. Select **Export** from left navigation.
+4. Select **Add**.
+5. Select Amortized cost as the metric button and setup your export.
+
+The EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. 
 
 ## Get Azure consumption and reservation usage data using API
 
@@ -75,8 +76,8 @@ If you're an EA admin, you can download the CSV file that contains new usage dat
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Select the billing account.
-2. Click **Usage + charges**.
-3. Click **Download**.  
+2. Select **Usage + charges**.
+3. Select **Download**.  
 ![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. In **Usage Details**, select **Amortized usage data**.
 

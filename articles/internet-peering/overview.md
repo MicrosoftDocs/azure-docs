@@ -1,13 +1,13 @@
 ---
 title: Set up peering with Microsoft
-titleSuffix: Azure
-description: Overview of peering
+description: Overview of peering.
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 12/15/2020
-ms.author: prmitiki
+ms.author: halkazwini
+ms.custom: template-overview
 ---
 
 # Internet peering overview

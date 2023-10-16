@@ -1,32 +1,37 @@
 ---
 title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
-description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
+description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment jobs. 
 services: machine-learning
-ms.author: nibaccam
-author: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 10/21/2021
+ms.date: 08/01/2023
 ms.topic: how-to
-ms.custom: contperf-fy21q2, automl
+ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 ---
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many runs are created and each run creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. You can further generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model by default. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. Learn more about how you can generate a [Responsible AI dashboard.](how-to-responsible-ai-insights-ui.md)
 
 For example, automated ML generates the following charts based on experiment type.
 
 | Classification| Regression/forecasting |
-| ----------------------------------------------------------- | ---------------------------------------- |
-| [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)        |
-| [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true) |
-| [Precision-recall (PR) curve](#precision-recall-curve)      |                                          |
-| [Lift curve](#lift-curve)                                   |                                          |
-| [Cumulative gains curve](#cumulative-gains-curve)           |                                          |
+| ----------------------------------------------------------- | --------------------------------------------------------|
+| [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)                       |
+| [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true)                |
+| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon](#forecast-horizon) |
+| [Lift curve](#lift-curve)                                   |                                                         |
+| [Cumulative gains curve](#cumulative-gains-curve)           |                                                         |
 | [Calibration curve](#calibration-curve)                     |                     
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -35,22 +40,20 @@ For example, automated ML generates the following charts based on experiment typ
   - The [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) (no code required)
   - The [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)
 
-## View run results
+## View job results
 
-After your automated ML experiment completes, a history of the runs can be found via:
-  - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
-  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
+After your automated ML experiment completes, a history of the jobs can be found via:
+  - A browser with [Azure Machine Learning studio](https://ml.azure.com)
+  - A Jupyter notebook using the [JobDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-1. In the left menu, select **Experiments**.
+1. In the left menu, select **Jobs**.
 1. Select your experiment from the list of experiments.
-1. In the table at the bottom of the page, select an automated ML run.
+1. In the table at the bottom of the page, select an automated ML job.
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
 1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts.
-
-![Steps to view metrics in studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
 ## Classification metrics
 
@@ -85,12 +88,9 @@ weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by
 
 ### Binary vs. multiclass classification metrics
 
-Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics will be reported no matter if a dataset has two classes or more than two classes. Binary classification metrics will only be reported when the data is binary, or the users activate the option. 
+Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics are reported if a dataset has two or more classes. Binary classification metrics are reported only when the data is binary.
 
-> [!Note]
-> When a binary classification task is detected, we use `numpy.unique` to find the set of labels and the later label will be used as the `true` class. Since there is a sorting procedure in `numpy.unique`, the choice of `true` class will be stable.
-
-Note that multiclass classification metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`. For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
+Note, multiclass classification metrics are intended for multiclass classification. When applied to a binary dataset, these metrics don't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`. For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
 Besides, although automatic detection of binary classification is supported, it is still recommended to always specify the `true` class manually to make sure the binary classification metrics are calculated for the correct class.
 
@@ -204,14 +204,32 @@ spearman_correlation| Spearman correlation is a nonparametric measure of the mon
 
 ### Metric normalization
 
-Automated ML normalizes regression and forecasting metrics which enables comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
+Automated ML normalizes regression and forecasting metrics which enable comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
 
 While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
 
 >[!Note]
 >The range of data is not saved with the model. If you do inference with the same model on a holdout test set, `y_min` and `y_max` may change according to the test data and the normalized metrics may not be directly used to compare the model's performance on training and test sets. You can pass in the value of `y_min` and `y_max` from your training set to make the comparison fair.
 
-When evaluating a forecasting model on time series data, automated ML takes extra steps to ensure that normalization happens per time series ID (grain), because each time series likely has a different distribution of target values.
+### Forecasting metrics: normalization and aggregation
+
+Calculating metrics for forecasting model evaluation requires some special considerations when the data contains multiple time series. There are two natural choices for aggregating metrics over multiple series:
+
+1. A **macro average** wherein the evaluation metrics from _each series_ are given equal weight,
+2. A **micro average** wherein evaluation metrics for each prediction have equal weight.
+
+These cases have direct analogies to macro and micro averaging in [multi-class classification](#binary-vs-multiclass-classification-metrics). 
+
+The distinction between macro and micro averaging can be important when selecting a primary metric for model selection. For example, consider a retail scenario where you want to forecast demand for a selection of consumer products. Some products sell at much higher volumes than others. If you choose a micro-averaged RMSE as the primary metric, it's possible that the high-volume items will contribute a majority of the modeling error and, consequently, dominate the metric. The model selection algorithm may then favor models with higher accuracy on the high-volume items than on the low-volume ones. In contrast, a macro-averaged, normalized RMSE gives low-volume items approximately equal weight to the high-volume items.
+
+The following table shows which of AutoML's forecasting metrics use macro vs. micro averaging:  
+
+Macro averaged | Micro averaged
+-- | --
+`normalized_mean_absolute_error`, `normalized_median_absolute_error`, `normalized_root_mean_squared_error`, `normalized_root_mean_squared_log_error` | `mean_absolute_error`, `median_absolute_error`, `root_mean_squared_error`, `root_mean_squared_log_error`, `r2_score`, `explained_variance`, `spearman_correlation`, `mean_absolute_percentage_error`
+
+**Note that macro-averaged metrics normalize each series separately**. The normalized metrics from each series are then averaged to give the final result. The correct choice of macro vs. micro depends on the business scenario, but we generally recommend using `normalized_root_mean_squared_error`.
+
 ## Residuals
 
 The residuals chart is a histogram of the prediction errors (residuals) generated for regression and forecasting experiments. Residuals are calculated as `y_predicted - y_true` for all samples and then displayed as a histogram to show model bias.
@@ -237,6 +255,20 @@ In this example, note that the better model has a predicted vs. true line that i
 
 ### Predicted vs. true chart for a bad model
 ![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## Forecast horizon
+
+For forecasting experiments, the forecast horizon chart plots the relationship between the models predicted value and the actual values mapped over time per cross validation fold, up to 5 folds. The x axis maps time based on the frequency you provided during training setup. The vertical line in the chart marks the forecast horizon point also referred to as the horizon line, which is the time period at which you would want to start generating predictions. To the left of the forecast horizon line, you can view historic training data to better visualize past trends. To the right of the forecast horizon, you can visualize the predictions (the purple line) against the actuals (the blue line) for the different cross validation folds and time series identifiers. The shaded purple area indicates the confidence intervals or variance of predictions around that mean. 
+
+You can choose which cross validation fold and time series identifier combinations to display by clicking the edit pencil icon on the top right corner of the chart. Select from the first 5 cross validation folds and up to 20 different time series identifiers to visualize the chart for your various time series.  
+
+>[!IMPORTANT]
+> This chart is available in the training run for models generated from training and validation data as well as in the test run based on training data and test data. We allow up to 20 data points before and up to 80 data points after the forecast origin.
+> For DNN models, this chart in the training run shows data from the last epoch i.e. after the model has been trained completely.
+> This chart in the test run can have gap before the horizon line if validation data was explicitly provided during the training run. 
+>This is becasue training data and test data is used in the test run leaving out the validation data which results in gap.
+
+![Forecast horizon chart](./media/how-to-understand-automated-ml/forecast-horizon.png)
 
 ## Metrics for image models (preview)
 
@@ -292,11 +324,22 @@ The mAP, precision and recall values are logged at an epoch-level for image obje
 
 ![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 
+## Responsible AI dashboard for best recommended AutoML model (preview)
+
+The Azure Machine Learning Responsible AI dashboard provides a single interface to help you implement Responsible AI in practice effectively and efficiently.  Responsible AI dashboard is only supported using tabular data and is only supported on classification and regression models. It brings together several mature Responsible AI tools in the areas of: 
+
+* Model performance and fairness assessment 
+* Data exploration 
+* Machine learning interpretability 
+* Error analysis 
+
+While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting the model’s fairness, viewing its explanations (also known as which dataset features a model used to make its predictions), inspecting its errors and potential blind spots are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview)
+
+See how you can generate this [dashboard via the UI or the SDK.](how-to-responsible-ai-insights-sdk-cli.md)
+
 ## Model explanations and feature importances
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
-
-For a code first experience, see how to set up [model explanations for automated ML experiments with the Azure Machine Learning Python SDK](how-to-machine-learning-interpretability-automl.md).
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model uses to make predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
 
 > [!NOTE]
 > Interpretability, best model explanation, is not available for automated ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 

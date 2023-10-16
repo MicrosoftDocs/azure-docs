@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: web-application-firewall
   ms.topic: faq
-  ms.date: 05/05/2020
+  ms.date: 08/25/2023
   ms.author: victorh
 title: Frequently asked questions for Azure Web Application Firewall on Application Gateway
 summary: This article answers common questions about Azure Web Application Firewall (WAF)  on Application Gateway features and functionality. 
@@ -20,7 +20,7 @@ sections:
         answer: |
           Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
           
-          An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
+          An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Door.
           
       - question: |
           What features does the WAF SKU support?
@@ -45,7 +45,7 @@ sections:
       - question: |
           What rules are currently available for WAF?
         answer: |
-          WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), and [3.1](application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+          WAF currently supports CRS [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), [3.1](application-gateway-crs-rulegroups-rules.md#owasp31) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
           
           * SQL injection protection
           * Cross-site scripting protection
@@ -55,12 +55,14 @@ sections:
           * Prevention against bots, crawlers, and scanners
           * Detection of common application misconfigurations (that is, Apache, IIS, and so on)
           
-          For more information, see [OWASP top-10 vulnerabilities](https://owasp.org/www-project-top-ten/).
+          For more information, see [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
+
+          CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
           
       - question: |
           What content types does WAF support?
         answer: |
-          Application Gateway WAF support the following content types for managed rules:
+          Application Gateway WAF supports the following content types for managed rules:
           
           * application/json
           * application/xml
@@ -70,6 +72,8 @@ sections:
           And for custom rules:
           
           * application/x-www-form-urlencoded
+          * application/soap+xml, application/xml, text/xml
+          * application/json
           * multipart/form-data
           
       - question: |
@@ -79,7 +83,16 @@ sections:
           
           ### Does WAF store customer data?
           
-          No, WAF does not store customer data.
+          No, WAF doesn't store customer data.
+
+      - question: |
+          How does the Azure WAF work with WebSockets?
+        answer: |
+          Azure Application Gateway natively supports WebSocket. WebSocket on Azure WAF on Azure Application Gateway doesn't require any extra configuration to work. However, WAF doesn't inspect the WebSocket traffic. After the initial handshake between client and server, the data exchange between client and server can be of any format, for example binary or encrypted. So Azure WAF can't always parse the data, it just acts as a pass-through proxy for the data.
+
+          For more information, see [Overview of WebSocket support in Application Gateway](../../application-gateway/application-gateway-websocket.md).
+
+
 
 additionalContent: |
 

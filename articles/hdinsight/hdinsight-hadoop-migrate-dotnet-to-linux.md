@@ -3,10 +3,9 @@ title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure
 description: Learn how to use .NET applications for streaming MapReduce on Linux-based HDInsight.
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-dotnet
 ms.topic: how-to
-ms.date: 02/27/2018
-
+ms.date: 09/14/2023
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
 
@@ -17,9 +16,6 @@ Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mon
 Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).
 
 For more information on compatibility between Mono and .NET, see the [Mono compatibility (https://www.mono-project.com/docs/about-mono/compatibility/)](https://www.mono-project.com/docs/about-mono/compatibility/) document.
-
-> [!IMPORTANT]  
-> The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## Automated portability analysis
 
@@ -63,5 +59,3 @@ For more information on accessing logs, see the following documents:
 * [Use C# with MapReduce on HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 * [Use C# user-defined functions with Apache Hive and Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
-
-* [Develop C# topologies for Apache Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

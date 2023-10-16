@@ -49,7 +49,7 @@ The following list contains the ports used by an App Service Environment. All po
 ## Outbound Connectivity and DNS Requirements
 For an App Service Environment to function properly, it also requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) article.
 
-App Service Environments require a valid DNS infrastructure configured for the virtual network.  If the DNS configuration is changed after the creation of an App Service Environment, developers can force an App Service Environment to pick up the new DNS configuration.  If you trigger a rolling environment reboot using the **Restart** icon, the environment picks up the new DNS configuration. (The **Restart** icon is located at the top of the App Service Environment management blade, in the [Azure portal][NewPortal].)
+App Service Environments require a valid DNS infrastructure configured for the virtual network.  If the DNS configuration is changed after the creation of an App Service Environment, developers can force an App Service Environment to pick up the new DNS configuration.  If you trigger a rolling environment reboot using the **Restart** icon, the environment picks up the new DNS configuration. (The **Restart** icon is located at the top of the App Service Environment management blade, in the [Azure portal](https://portal.azure.com).)
 
 It's also recommended that any custom DNS servers on the vnet be set up ahead of time before creating an App Service Environment.  If a virtual network's DNS configuration is changed during the creation of an App Service Environment, the App Service Environment creation process will fail.  Similarly, if there's a custom DNS server that's unreachable or unavailable on the other end of a VPN gateway, the App Service Environment creation process will also fail.
 
@@ -138,6 +138,5 @@ For more information, see [Securely connecting to Backend resources from an App 
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
-[NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->

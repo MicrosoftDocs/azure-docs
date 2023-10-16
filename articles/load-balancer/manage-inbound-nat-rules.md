@@ -1,14 +1,15 @@
 ---
 title: Manage inbound NAT rules for Azure Load Balancer
-description: In this article, you'll learn how to add and remove and inbound NAT rule in the Azure portal.
-author: asudbring
-ms.author: allensu
+description: In this article, you learn how to add and remove and inbound NAT rule using the Azure portal, PowerShell and CLI.
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/15/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.date: 05/01/2023
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli,engagement-fy23
 ---
-# Manage inbound NAT rules for Azure Load Balancer using the Azure portal
+
+# Manage inbound NAT rules for Azure Load Balancer
 
 An inbound NAT rule is used to forward traffic from a load balancer frontend to one or more instances in the backend pool. 
 
@@ -18,23 +19,24 @@ There are two types of inbound NAT rule:
 
 * Multiple virtual machines - An inbound NAT rule that targets multiple virtual machines in the backend pool of the load balancer
 
-In this article, you'll learn how to add and remove an inbound NAT rule for both types. You'll learn how to change the frontend port allocation in a multiple instance inbound NAT rule.
+In this article, you learn how to add and remove an inbound NAT rule for both types. You learn how to change the frontend port allocation in a multiple instance inbound NAT rule. You can choose from the Azure portal, PowerShell, or CLI examples.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Add a single VM inbound NAT rule
 
+Choose this option to configure a rule for a single VM. Select Azure portal, PowerShell, or CLI for instructions.
+
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example, you'll create an inbound NAT rule to forward port **500** to backend port **443**. 
+In this example, you create an inbound NAT rule to forward port **500** to backend port **443**. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -68,8 +70,6 @@ In this example, you'll create an inbound NAT rule to forward port **500** to ba
 
 # [**PowerShell**](#tab/inbound-nat-rule-powershell)
 
-In this example, you'll create an inbound NAT rule to forward port **500** to backend port **443**.
-
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
 Use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) to create the inbound NAT rule.
@@ -100,9 +100,14 @@ $lb | Set-AzLoadBalancer
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-In this example, you'll create an inbound NAT rule to forward port **500** to backend port **443**.
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+In this example, you will create an inbound NAT rule to forward port **500** to backend port **443**. You will then attach the inbound NAT rule to a VM's NIC
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
+
+Use [az network nic ip-config inbound-nat-rule add](/cli/azure/network/nic/ip-config/inbound-nat-rule) to add the inbound NAT rule to a VM's NIC
+
 
 ```azurecli
     az network lb inbound-nat-rule create \
@@ -111,17 +116,25 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
         --name myInboundNATrule \
         --protocol Tcp \
         --resource-group myResourceGroup \
-        --backend-pool-name myBackendPool \
         --frontend-ip-name myFrontend \
         --frontend-port 500
+
+    az network nic ip-config inbound-nat-rule add \
+        --resource-group myResourceGroup \
+        --nic-name MyNic \
+        --ip-config-name MyIpConfig \
+        --inbound-nat-rule MyNatRule \
+        --lb-name myLoadBalancer
+
 ```
 ---
 
 ## Add a multiple VMs inbound NAT rule
+Choose this option to configure a rule with a range of ports to a backend pool of virtual machines. Select Azure portal, PowerShell, or CLI for instructions.
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter **Maximum number of machines in backend pool** with a value of **500**. This setting will limit the backend pool to **500** virtual machines.
+In this example, you create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter **Maximum number of machines in backend pool** with a value of **500**. This setting limits the backend pool to **500** virtual machines.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -154,7 +167,7 @@ In this example, you'll create an inbound NAT rule to forward a range of ports s
 
 # [**PowerShell**](#tab/inbound-nat-rule-powershell)
 
-In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter `-FrontendPortRangeEnd` with a value of **1000**. This setting will limit the backend pool to **500** virtual machines.
+In this example, you create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter `-FrontendPortRangeEnd` with a value of **1000**. This setting limits the backend pool to **500** virtual machines.
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
@@ -188,7 +201,7 @@ $lb | Set-AzLoadBalancer
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter `--frontend-port-range-end` with a value of **1000**. This setting will limit the backend pool to **500** virtual machines.
+In this example, you create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter `--frontend-port-range-end` with a value of **1000**. This setting limits the backend pool to **500** virtual machines.
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
 
@@ -212,7 +225,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from **500** to **1000**. This setting will increase the maximum number of machines in the backend pool to **1000**.
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you change the **Maximum number of machines in backend pool** from **500** to **1000**. This setting increases the maximum number of machines in the backend pool to **1000**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -234,7 +247,7 @@ To accommodate more virtual machines in the backend pool in a multiple instance 
 
 # [**PowerShell**](#tab/inbound-nat-rule-powershell)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the parameter `-FrontendPortRangeEnd` to **1500**. This setting will increase the maximum number of machines in the backend pool to **1000**.
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you change the parameter `-FrontendPortRangeEnd` to **1500**. This setting increases the maximum number of machines in the backend pool to **1000**.
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
@@ -264,7 +277,7 @@ $lb | Set-AzLoadBalancerInboundNatRuleConfig @rule
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the parameter `--frontend-port-range-end` to **1500**. This setting will increase the maximum number of machines in the backend pool to **1000**
+To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you change the parameter `--frontend-port-range-end` to **1500**. This setting increases the maximum number of machines in the backend pool to **1000**
 
 Use [az network lb inbound-nat-rule update](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-update) to change the frontend port allocation.
 
@@ -303,7 +316,7 @@ Port mappings for the virtual machines in the backend pool can be viewed by usin
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example, you'll remove an inbound NAT rule.
+In this example, you remove an inbound NAT rule.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -321,7 +334,7 @@ In this example, you'll remove an inbound NAT rule.
 
 # [**PowerShell**](#tab/inbound-nat-rule-powershell)
 
-In this example, you'll remove an inbound NAT rule.
+In this example, you remove an inbound NAT rule.
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
@@ -346,7 +359,7 @@ $lb | Set-AzLoadBalancer
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-In this example, you'll remove an inbound NAT rule.
+In this example, you remove an inbound NAT rule.
 
 Use [az network lb inbound-nat-rule delete](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-delete) to remove the rule.
 
@@ -361,7 +374,7 @@ Use [az network lb inbound-nat-rule delete](/cli/azure/network/lb/inbound-nat-ru
 
 ## Next steps
 
-In this article, you learned how to manage inbound NAT rules for an Azure Load Balancer.
+In this article, you learned how to manage inbound NAT rules for an Azure Load Balancer using the Azure portal, PowerShell and CLI.
 
 For more information about Azure Load Balancer, see:
 - [What is Azure Load Balancer?](load-balancer-overview.md)

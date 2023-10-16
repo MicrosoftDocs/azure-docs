@@ -2,12 +2,12 @@
 title: Supported FHIR features in FHIR service 
 description: This article explains which features of the FHIR specification that are implemented in Azure Health Data Services
 services: healthcare-apis
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
-ms.author: mikaelw
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Supported FHIR Features
@@ -55,11 +55,11 @@ All the operations that are supported that extend the REST API.
 | [$validate](validation-against-profiles.md)              | Yes       | Yes       |         |
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
-| $purge-history         | Yes       | Yes       |         |
+| [$purge-history](purge-history.md)         | Yes       | Yes       |         |
 
 ## Role-based access control
 
-FHIR service uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. 
+FHIR service uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for access control. 
 
 ## Service limits
 
@@ -73,3 +73,5 @@ In this article, you've read about the supported FHIR features in the FHIR servi
  
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

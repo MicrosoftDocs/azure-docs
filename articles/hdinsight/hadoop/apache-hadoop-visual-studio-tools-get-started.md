@@ -5,7 +5,7 @@ keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 09/19/2023
 ---
 
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries
@@ -13,8 +13,6 @@ ms.date: 04/07/2022
 Learn how to use Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio (Data Lake Tools). Use the tool to connect to [Apache Hadoop clusters in Azure HDInsight](apache-hadoop-introduction.md) and submit Hive queries.  
 
 For more information about using HDInsight, see [Get started with HDInsight](apache-hadoop-linux-tutorial-get-started.md).  
-
-For more information on connecting to Apache Storm, see [Develop C# topologies for Apache Storm by using the Data Lake tools](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 You can use Data Lake Tools for Visual Studio to access Azure Data Lake Analytics and HDInsight. For information about Data Lake Tools, see [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 

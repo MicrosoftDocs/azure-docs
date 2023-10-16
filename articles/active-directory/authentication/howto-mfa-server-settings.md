@@ -1,26 +1,26 @@
 ---
-title: Configure MFA Server - Azure Active Directory
-description: Learn how to configure settings for Azure MFA Server in the Azure portal
+title: Configure MFA Server
+description: Learn how to configure settings for Azure MFA Server
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: michmcla
+manager: amycolannino
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
 # Configure MFA Server settings
 
-This article helps you to manage Azure MFA Server settings in the Azure portal.
+This article helps you to manage Azure MFA Server settings.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure AD Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
 The following MFA Server settings are available:
 
@@ -33,12 +33,14 @@ The following MFA Server settings are available:
 
 ## One-time bypass
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The one-time bypass feature allows a user to authenticate a single time without performing multi-factor authentication. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
 
 To create a one-time bypass, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Search for and select **Azure Active Directory**, then browse to **Security** > **MFA** > **One-time bypass**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **One-time bypass**.
 1. Select **Add**.
 1. If necessary, select the replication group for the bypass.
 1. Enter the username as `username@domain.com`. Enter the number of seconds that the bypass should last and the reason for the bypass.
@@ -53,11 +55,11 @@ You can set a time period to allow authentication attempts after a user is authe
 Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress.
 
 >[!NOTE]
-> The caching feature is not intended to be used for sign-ins to Azure Active Directory (Azure AD).
+> The caching feature is not intended to be used for sign-ins to Microsoft Entra ID.
 
 To set up caching, complete the following steps:
 
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Caching rules**.
+1. Browse to **Protection** > **Multifactor authentication** > **Caching rules**.
 1. Select **Add**.
 1. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**.
 1. If necessary, select an authentication type and specify an application.

@@ -1,0 +1,111 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for NoSQL documentation
+summary: Azure Cosmos DB for NoSQL accounts provides support for querying items with flexible schemas and native support for JSON.
+
+metadata:
+  title: Azure Cosmos DB for NoSQL
+  description: Azure Cosmos DB for NoSQL accounts provides support for querying items with flexible schemas and native support for JSON.
+  services: cosmos-db
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.date: 02/28/2023
+  ms.custom: ignite-2022
+landingContent:
+  - title: About API for NoSQL 
+    linkLists:
+      - linkListType: concept
+        links:    
+          - text: Model document data
+            url: modeling-data.md   
+          - text: Change feed
+            url: ../change-feed.md  
+          - text: Integrated cache
+            url: ../integrated-cache.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using a .NET console app 
+            url: quickstart-dotnet.md
+          - text: Manage your data using a JavaScript app
+            url: quickstart-nodejs.md   
+          - text: Manage your data using a Go app
+            url: quickstart-go.md
+          - text: Create resources using a Bicep template
+            url: quickstart-template-bicep.md
+      - linkListType: tutorial
+        links:
+          - text: Build a .NET web app
+            url: tutorial-dotnet-web-app.md
+          - text: Build a Java console app with Async SDK
+            url: quickstart-java.md?tabs=async
+          - text: Create a Jupyter notebook
+            url: tutorial-create-notebook.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an account
+            url: how-to-create-account.md
+          - text: Create a container
+            url: how-to-create-container.md
+          - text: Develop .NET applications
+            url: how-to-dotnet-get-started.md
+          - text: Develop Python applications
+            url: how-to-python-get-started.md
+  - title: Query items from a container
+    linkLists:
+      - linkListType: concept
+        links:   
+          - text: Getting started with SQL queries
+            url: query/getting-started.md
+          - text: Optimize request costs
+            url: ../optimize-cost-reads-writes.md
+      - linkListType: how-to-guide
+        links:   
+          - text: Working with JSON
+            url: query/working-with-json.md
+          - text: Joins
+            url: query/join.md
+          - text: Parameterized queries
+            url: query/parameterized-queries.md
+          - text: Tune query performance 
+            url: query-metrics.md
+      - linkListType: tutorial
+        links: 
+          - text: Query using the Data Explorer
+            url: tutorial-query.md
+  - title: Secure your account
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Store keys in Azure Key Vault
+            url: ../store-credentials-key-vault.md 
+          - text: Configure cross-origin resource sharing (CORS)
+            url: how-to-configure-cross-origin-resource-sharing.md 
+      - linkListType: how-to-guide
+        links:
+          - text: Use managed identity to access data
+            url: ../managed-identity-based-authentication.md  
+          - text: Configure role-based access control
+            url: ../how-to-setup-rbac.md 
+          - text: Configure customer-managed keys
+            url: ../how-to-setup-customer-managed-keys.md 
+  - title: Get training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Build a .NET app
+            url: /training/modules/build-dotnet-app-cosmos-db-sql-api/
+          - text: Build a Node.js app
+            url: /training/modules/build-node-cosmos-app-vscode/
+          - text: Build a Java app
+            url: /training/modules/build-cosmos-db-java-app/
+      - linkListType: video
+        links:
+          - text: Azure Friday - Extension for Azure Functions update with AAD support
+            url: /shows/azure-friday/azure-cosmos-db-extension-for-azure-functions-update-with-aad-support

@@ -29,10 +29,10 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
     ```sql
     SELECT *
     FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
-This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
+This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Microsoft Entra passthrough for Microsoft Entra logins and SAS token for SQL logins). 
 
 - `OPENROWSET` with `DATA_SOURCE` can be used to access files on specified storage account:
 
@@ -40,35 +40,35 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 
     This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principals can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Microsoft Entra principals can access files only using their [Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
 
 
 ## Security
 
 A database user must have `ADMINISTER BULK OPERATIONS` permission to use the `OPENROWSET` function.
 
-The storage administrator must also enable a user to access the files by providing valid SAS token or enabling Azure AD principal to access storage files. Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
+The storage administrator must also enable a user to access the files by providing valid SAS token or enabling Microsoft Entra principal to access storage files. Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET` use the following rules to determine how to authenticate to storage:
 - In `OPENROWSET` without `DATA_SOURCE` authentication mechanism depends on caller type.
   - Any user can use `OPENROWSET` without `DATA_SOURCE` to read publicly available files on Azure storage.
-  - Azure AD logins can access protected files using their own [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has `Storage Reader` permission on Azure storage).
+  - Microsoft Entra logins can access protected files using their own [Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) if Azure storage allows the Microsoft Entra user to access underlying files (for example, if the caller has `Storage Reader` permission on Azure storage).
   - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS token, or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files. 
-- In `OPENROWSET` with `DATA_SOURCE` authentication mechanism is defined in database scoped credential assigned to the referenced data source. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that isn't public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
+- In `OPENROWSET` with `DATA_SOURCE` authentication mechanism is defined in database scoped credential assigned to the referenced data source. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Microsoft Entra identity of caller](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (if caller is Microsoft Entra principal). If `DATA_SOURCE` references Azure storage that isn't public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
 
 Caller must have `REFERENCES` permission on credential to use it to authenticate to storage.
 
 ## Syntax
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
+--OPENROWSET syntax for reading Parquet or Delta Lake files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
     FORMAT= ['PARQUET' | 'DELTA'] }  
@@ -109,7 +109,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 
 ## Arguments
 
-You have two choices for input files that contain the target data for querying. Valid values are:
+You have three choices for input files that contain the target data for querying. Valid values are:
 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
@@ -310,6 +310,8 @@ Parquet files contain column metadata, which will be read, type mappings can be 
 
 For the CSV files, column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
+Have in mind that if you are reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. In that case, please use OPENROWSET WITH clause.
+
 > [!IMPORTANT]
 > There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
@@ -348,8 +350,11 @@ Parquet and Delta Lake files contain type descriptions for every column. The fol
 | INT64 |INT(64, true) |bigint |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS) |time - TIME(NANOS) is not supported |
-|INT64 |TIMESTAMP (MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS) is not supported |
+| INT64 |TIME (MICROS) | time |
+| INT64 |TIME (NANOS) | Not supported |
+| INT64 |TIMESTAMP ([normalized to utc](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#instant-semantics-timestamps-normalized-to-utc)) (MILLIS / MICROS) | datetime2 |
+| INT64 |TIMESTAMP ([not normalized to utc](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#local-semantics-timestamps-not-normalized-to-utc)) (MILLIS / MICROS) | bigint - make sure that you explicitly adjust `bigint` value with the timezone offset before converting it to a datetime value. |
+| INT64 |TIMESTAMP (NANOS) | Not supported |
 |[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(8000), serialized into JSON |
 |[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serialized into JSON |
 
@@ -481,7 +486,7 @@ FROM
     OPENROWSET(
         BULK (
             'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
-            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet'
         ),
         FORMAT='PARQUET'
     )

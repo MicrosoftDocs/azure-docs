@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 05/01/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -19,8 +19,8 @@ ms.author: alkohli
 You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge Pro GPU device by using the Azure portal.
 
 > [!IMPORTANT] 
-> We recommend that you enable multifactor authentication for the user who manages VMs that are deployed on your device from the cloud.
-        
+> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Enable Microsoft Entra multifactor authentication](/training/modules/secure-aad-users-with-mfa/4-exercise-mfa).
+
 ## VM deployment workflow
 
 The high-level summary of the deployment workflow is as follows:
@@ -91,9 +91,10 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
     |Edge resource group  |Select the resource group to add the image to. |
     |Save image as      | The name for the VM image that you're creating from the VHD you uploaded to the storage account.        |
     |OS type     |Choose from Windows or Linux as the operating system of the VHD you'll use to create the VM image.         |
+    |VM generation    |Choose Gen 1 or Gen 2 as the generation of the image you'll use to create the VM. For Gen 2 VMs, secure boot is enabled by default.        |
    
 
-    ![Screenshot showing the Add image page for a virtual machine, with the Add button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
+    ![Screenshot showing the Add image page for a virtual machine with the Add button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
 
 1. The VHD is downloaded, and the VM image is created. Image creation takes several minutes to complete. You'll see a notification for the successful completion of the VM image.<!--There's a fleeting notification that image creation is in progress, but I didn't see any notification that image creation completed successfully.-->
 
@@ -102,7 +103,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 1. After the VM image is successfully created, it's added to the list of images on the **Images** pane.
 
-    ![Screenshot that shows the Images pane in Virtual Machines view of an Azure Stack Edge device. The entry for a VM image is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
+    ![Screenshot that shows the Images pane in Virtual Machines view of an Azure Stack Edge device.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
 
     The **Deployments** pane updates to indicate the status of the deployment.
 
@@ -128,7 +129,7 @@ Follow these steps to create a VM after you've created a VM image.
     |Virtual machine name     | Enter a name for the new virtual machine.        |
     |Edge resource group     | Create a new resource group for all the resources associated with the VM.        |
     |Image     | Select from the VM images available on the device.        |
-    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).<br>For a GPU VM, select a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). |
+    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).<br>For a GPU VM, select a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized). |
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
     |SSH public key | Displayed when you select the **SSH public key** authentication type. Paste in the SSH public key. |
@@ -222,4 +223,3 @@ Follow these steps to connect to a Windows VM.
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
 - [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
 - [Monitor CPU and memory on a VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
-

@@ -6,14 +6,14 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
-ms.reviewer: sawinark
+ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.date: 08/10/2023
 ---
 
 # Troubleshoot SSIS Integration Runtime management
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides troubleshooting guidance for management issues in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), also known as SSIS IR.
 
@@ -35,8 +35,8 @@ You might see this issue when you're provisioning a new SSIS IR or while IR is r
 
 * A network connection issue. Check whether the host name for SQL Database or SQL Managed Instance  is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
 * Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
-* Login failed during Microsoft Azure Active Directory (Azure AD)
- authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
+* Login failed during Microsoft Entra ID
+ authentication (managed identity). Add the managed identity of your factory to a Microsoft Entra group, and make sure the managed identity has access permissions to your catalog database server.
 * Connection timeout. This error is always caused by a security-related configuration. We recommend that you:
   1. Create a new VM.
   1. Join the VM to the same Microsoft Azure Virtual Network of IR if IR is in a virtual network.

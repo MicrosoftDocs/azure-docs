@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS
-description: Learn to implement SHA with header-based SSO to Oracle EBS using F5’s BIG-IP Easy Button guided configuration
+description: Learn to implement SHA with header-based SSO to Oracle EBS using F5 BIG-IP Easy Button Guided Configuration
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,114 +8,106 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/31/2022
+ms.date: 03/23/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS
+# Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS
 
-In this article, learn to secure Oracle Enterprise Business Suite (EBS) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+Learn to secure Oracle E-Business Suite (EBS) using Microsoft Entra ID, with F5 BIG-IP Easy Button Guided Configuration. Integrating a BIG-IP with Microsoft Entra ID has many benefits:
 
-Integrating a BIG-IP with Azure AD provides many benefits, including:
+* Improved Zero Trust governance through Microsoft Entra preauthentication and Conditional Access 
+  * See, [What is Conditional Access?](../conditional-access/overview.md)
+  * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
+* Full SSO between Microsoft Entra ID and BIG-IP published services
+* Managed identities and access from one control plane
+  * See, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
+Learn more:
 
-* Full SSO between Azure AD and BIG-IP published services
-
-* Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
-
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+* [Integrate F5 BIG-IP with Microsoft Entra ID](./f5-integration.md)
+* [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
 
-This scenario looks at the classic **Oracle EBS application** that uses **HTTP authorization headers** to manage access to protected content.
+This scenario covers the classic Oracle EBS application that uses HTTP authorization headers to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
+Legacy applications lack modern protocols to support Microsoft Entra integration. Modernization is costly, time consuming, and introduces downtime risk. Instead, use an F5 BIG-IP Application Delivery Controller (ADC) to bridge the gap between legacy applications and the modern ID control plane, with protocol transitioning.
 
-Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
+A BIG-IP in front of the app enables overlay of the service with Microsoft Entra preauthentication and header-based SSO. This configuration improves application security posture.
 
 ## Scenario architecture
 
-The secure hybrid access solution for this scenario is made up of several components including a multi-tiered Oracle architecture:
+The secure hybrid access (SHA) solution has the following components:
 
-**Oracle EBS Application:** BIG-IP published service to be protected by Azure AD SHA.
+* **Oracle EBS application** - BIG-IP published service to be protected by Microsoft Entra SHA
+* **Microsoft Entra ID**  - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP
+  * With SSO, Microsoft Entra ID provides BIG-IP session attributes
+* **Oracle Internet Directory (OID)** - hosts the user database
+  * BIG-IP verifies authorization attributes with LDAP
+* **Oracle E-Business Suite AccessGate** - validates authorization attributes with the OID service, then issues EBS access cookies 
+* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application 
+  * Authentication is delegated to the SAML IdP, then header-based SSO to the Oracle application occurs
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
+SHA supports SP- and IdP-initiated flows. The following diagram illustrates the SP-initiated flow.
 
-**Oracle Internet Directory (OID):** Hosts the user database. BIG-IP checks via LDAP for authorization attributes. 
+   ![Diagram of secure hybrid access, based on the SP-initiated flow.](./media/f5-big-ip-oracle/sp-initiated-flow.png)
 
-**Oracle AccessGate:** Validates authorization attributes through back channel with OID service, before issuing EBS access cookies 
-
-**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle application.
-
-SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
-
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-oracle/sp-initiated-flow.png)
-
-| Steps| Description |
-| -------- |-------|
-| 1| User connects to application endpoint (BIG-IP) |
-| 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
-| 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
-| 4| User is redirected back to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
-| 5| BIG-IP performs LDAP query for users Unique ID (UID) attribute |
-| 6| BIG-IP injects returned UID attribute as user_orclguid header in EBS session cookie request to Oracle AccessGate |
-| 7| Oracle AccessGate validates UID against Oracle Internet Directory (OID) service and issues EBS access cookie
-| 8| EBS user headers and cookie sent to application and returns the payload to the user |
+1. User connects to application endpoint (BIG-IP).
+2. BIG-IP APM access policy redirects user to Microsoft Entra ID (SAML IdP).
+3. Microsoft Entra preauthenticates user and applies Conditional Access policies.
+4. User is redirected to BIG-IP (SAML SP) and SSO occurs using the issued SAML token.
+5. BIG-IP performs an LDAP query for the user Unique ID (UID) attribute.
+6. BIG-IP injects returned UID attribute as user_orclguid header in Oracle EBS session cookie request to Oracle AccessGate.
+7. Oracle AccessGate validates UID against OID service and issues Oracle EBS access cookie.
+8. Oracle EBS user headers and cookie sent to application and returns the payload to the user.
 
 ## Prerequisites
 
-Prior BIG-IP experience isn’t necessary, but you need:
+You need the following components:
 
-* An Azure AD free subscription or above
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* Global Administrator, Cloud Application Administrator, or Application Administrator.
+* A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
+  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+* Any of the following F5 BIG-IP license SKUs:
+  * F5 BIG-IP&reg; Best bundle
+  * F5 BIG-IP Access Policy Manager&trade; (APM) standalone license
+  * F5 BIG-IP Access Policy Manager&trade; (APM) add-on license on a BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
+  * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
+* User identities synchronized from an on-premises directory to Microsoft Entra ID
+  * See, [Microsoft Entra Connect Sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
+* An SSL certificate to publish services over HTTPS, or use default certificates while testing
+  * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
+* An Oracle EBS, Oracle AccessGate, and an LDAP-enabled Oracle Internet Database (OID)
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
+## BIG-IP configuration method
 
-* Any of the following F5 BIG-IP license SKUs
+This tutorial uses the Guided Configuration v16.1 Easy Button template. With the Easy Button, admins no longer go back and forth to enable services for SHA.  The APM Guided Configuration wizard and Microsoft Graph handle deployment and policy management. This integration ensures applications support identity federation, SSO, and Conditional Access, thus reducing administrative overhead.
 
-  * F5 BIG-IP® Best bundle
+   >[!NOTE] 
+  > Replace example strings or values with those in your environment.
 
-  * F5 BIG-IP Access Policy Manager™ (APM) standalone license
+## Register the Easy Button
 
-  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-  * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
+Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
-* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD or created directly within Azure AD and flowed back to your on-premises directory
+Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
-* An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+Create a tenant app registration to authorize the Easy Button access to Graph. The BIG-IP pushes configurations to establish a trust between a SAML SP instance for published application, and Microsoft Entra ID as the SAML IdP.
 
-* An [SSL Web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
-
-* An existing Oracle EBS suite including Oracle AccessGate and an LDAP enabled OID (Oracle Internet Database)
-
-## BIG-IP configuration methods
-
-There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. With the Easy Button, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures that applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
-
->[!NOTE] 
-> All example strings or values referenced throughout this guide should be replaced with those for your actual environment.
-
-## Register Easy Button
-
-Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
-
-This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
-
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) with Application Administrative rights
-
-2. From the left navigation pane, select the **Azure Active Directory** service
-
-3. Under Manage, select **App registrations > New registration**
-
-4. Enter a display name for your application. For example, F5 BIG-IP Easy Button
-
-5. Specify who can use the application > **Accounts in this organizational directory only**
-
-6. Select **Register** to complete the initial app registration
-
-7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **New registration**.
+4. Enter an application **Name**. For example, F5 BIG-IP Easy Button.
+5. Specify who can use the application > **Accounts in this organizational directory only**.
+6. Select **Register**.
+7. Navigate to **API permissions**.
+8. Authorize the following Microsoft Graph **Application permissions**:
 
    * Application.Read.All
    * Application.ReadWrite.All
@@ -128,269 +120,303 @@ This first step creates a tenant app registration that will be used to authorize
    * Policy.ReadWrite.ConditionalAccess
    * User.Read.All
 
-8. Grant admin consent for your organization
+9. Grant admin consent for your organization.
+10. Go to **Certificates & Secrets**.
+11. Generate a new **Client Secret**. Make a note of the Client Secret.
+12. Go to **Overview**. Make a note of the Client ID and Tenant ID.
 
-9. Go to **Certificates & Secrets**, generate a new **Client secret** and note it down
+## Configure the Easy Button
 
-10. Go to **Overview**, note the **Client ID** and **Tenant ID**
+1. Initiate the APM **Guided Configuration**.
+2. Start the **Easy Button** template.
+3. Navigate to **Access > Guided Configuration > Microsoft Integration**.
+4. Select **Microsoft Entra Application**.
 
-## Configure Easy Button
+   ![Screenshot of the Microsoft Entra Application option.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-Initiate the APM's **Guided Configuration** to launch the **Easy Button** Template.
+5. Review the configuration options.
+6. Select **Next**.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+   ![Screenshot of configuration options and the Next option.](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
-   ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
+7. Use the graphic to help publish your application.
 
-2. Review the list of configuration steps and select **Next**
-
-   ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
-
-3. Follow the sequence of steps required to publish your application.
-
-   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
+   ![Screenshot of graphic indicating configuration areas.](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
 
 ### Configuration Properties
 
-The **Configuration Properties** tab creates a BIG-IP application config and SSO object. Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
+The **Configuration Properties** tab creates a BIG-IP application config and SSO object. The **Azure Service Account Details** section represents the client you registered in your Microsoft Entra tenant, as an application. With these settings, a BIG-IP OAuth client registers a SAML SP in your tenant, with SSO properties. Easy Button does this action for BIG-IP services published and enabled for SHA.
 
-Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
+To reduce time and effort, reuse global settings to publish other applications.
 
-1. Provide a unique **Configuration Name** that enables an admin to easily distinguish between Easy Button configurations
+1. Enter a **Configuration Name**.
+2. For **Single sign-on (SSO) & HTTP Headers**, select **On**.
+3. For **Tenant ID, Client ID**, and **Client Secret** enter what you noted during Easy Button client registration.
+4. Confirm the BIG-IP connects to your tenant.
+5. Select **Next**.
 
-2. Enable **Single Sign-On (SSO) & HTTP Headers**
-
-3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
-
-4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
-
-   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
+   ![Screenshot of input on the Configuration Properties dialog.](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
-The Service Provider settings define the properties for the SAML SP instance of the application protected through SHA.
+Use Service Provider settings for the properties of the SAML SP instance of the protected application.
 
-1. Enter **Host**. This is the public FQDN of the application being secured
+1. For **Host**, enter the public FQDN of the application.
+2. For **Entity ID**, enter the identifier Microsoft Entra ID uses for the SAML SP requesting a token.
 
-2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
+   ![Screenshot for Service Provider input and options.](./media/f5-big-ip-oracle/service-provider-settings.png)
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-oracle/service-provider-settings.png)
+3. (Optional) In **Security Settings**, select or clear the **Enable Encrypted Assertion** option. Encrypting assertions between Microsoft Entra ID and the BIG-IP APM means the content tokens can't be intercepted, nor personal or corporate data compromised.
+4. From the **Assertion Decryption Private Key** list, select **Create New**
 
-   Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+   ![Screenshot of Create New options in the Assertion Decryption Private Key dropdown.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-3. From the **Assertion Decryption Private Key** list, select **Create New**
+5. Select **OK**. 
+6. The **Import SSL Certificate and Keys** dialog appears in a new tab.
+7. Select **PKCS 12 (IIS)**.
+8. The certificate and private key are imported. 
+9. Close the browser tab to return to the main tab.
 
-   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
+   ![Screenshot of input for Import Type, Certificate and Key Name, and Password.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-4. Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab 
+6. Select **Enable Encrypted Assertion**.
+7. For enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate private key BIG-IP APM uses to decrypt Microsoft Entra assertions.
+8. For enabled encryption,from the **Assertion Decryption Certificate** list, select the certificate BIG-IP uploads to Microsoft Entra ID to encrypt the issued SAML assertions.
 
-5. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+   ![Screenshot of selected certificates for Assertion Decryption Private Key and Assertion Decryption Certificate.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
-   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
+<a name='azure-ad'></a>
 
-6. Check **Enable Encrypted Assertion**
+### Microsoft Entra ID
 
-7. If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM uses to decrypt Azure AD assertions
+Easy Button has application templates for Oracle PeopleSoft, Oracle E-Business Suite, Oracle JD Edwards, SAP ERP and a generic SHA template. The following screenshot is the Oracle E-Business Suite option under Azure Configuration.
 
-8. If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP uploads to Azure AD for encrypting the issued SAML assertions.
+1. Select **Oracle E-Business Suite**.
+2. Select **Add**.
 
-   ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
-
-### Azure Active Directory
-
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **Oracle E-Business Suite > Add**.
-
-![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
+   ![Screenshot of the Oracle E-Business Suite option under Azure Configuration.](./media/f5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on [MyApps portal](https://myapplications.microsoft.com/)
-
-2. In the **Sign On URL (optional)** enter the public FQDN of the EBS application being secured, along with the default path for the Oracle EBS homepage
+1. Enter a **Display Name** for the app BIG-IP creates in your Microsoft Entra tenant, and the icon on MyApps.
+2. In **Sign On URL (optional)**, enter the EBS application public FQDN.
+3. Enter the default path for the Oracle EBS homepage.
 
     ![Screenshot for Azure configuration add display info](./media/f5-big-ip-oracle/azure-configuration-add-display-info.png)
 
-3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
+3. Next to the **Signing Key** and **Signing Certificate**, select the **refresh** icon.
+4. Locate the certificate you imported.
+5. In **Signing Key Passphrase**, enter the certificate password.
+6. (Optional) Enable **Signing Option**. This option ensures BIG-IP accepts tokens and claims signed by Microsoft Entra ID.
 
-4. Enter the certificate’s password in **Signing Key Passphrase**
+    ![Screenshot of options and entries for Signing Key, Signing Certificate, and Signing Key Passphrase.](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-5. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
+7. For **User And User Groups**, add a user or group for testing, otherwise all access is denied. Users and user groups are dynamically queried from the Microsoft Entra tenant and authorize access to the application. 
 
-    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
-
-6. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
-
-    ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+    ![Screenshot of the Add option under User And User Groups.](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
-When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.
+When a user authenticates, Microsoft Entra ID issues a SAML token with default claims and attributes identifying the user. The **User Attributes & Claims** tab has default claims to issue for the new application. Use this area to configure more claims. If needed, add Microsoft Entra attributes, however the Oracle EBS scenario requires the default attributes.
 
-   ![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
-
-You can include additional Azure AD attributes if necessary, but the Oracle EBS scenario only requires the default attributes.
+   ![Screenshot of options and entries for User Attributes and Claims.](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
 
 #### Additional User Attributes
 
-The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.
+The **Additional User Attributes** tab supports distributed systems that require attributes stored in directories for session augmentation. Attributes fetched from an LDAP source are injected as more SSO headers to control access based on roles, partner ID, etc.
 
-1. Enable the **Advanced Settings** option
+1. Enable the **Advanced Settings** option.
+2. Check the **LDAP Attributes** check box.
+3. In **Choose Authentication Server**, select **Create New**.
+4. Depending on your setup, select **Use pool** or **Direct** server connection mode for the target LDAP service server address. For a single LDAP server, select **Direct**.
+5. For **Service Port**, enter **3060** (Default), **3161** (Secure), or another port for the Oracle LDAP service.
+6. Enter a **Base Search DN**. Use the distinguished name (DN) to search for groups in a directory.
+7. For **Admin DN**, enter the account distinguished name APM uses to authenticate LDAP queries.
+8. For **Admin Password**, enter the password.
 
-2. Check the **LDAP Attributes** check box
+   ![Screenshot of options and entries for Additional User Attributes.](./media/f5-big-ip-oracle/additional-user-attributes.png)
 
-3. Select **Create New** in **Choose Authentication Server**
-
-4. Select **Use pool** or **Direct** server connection mode depending on your setup. This provides the **Server Address** of the target LDAP service. If using a single LDAP server, select **Direct**.
-
-5. Enter **Service Port** as 3060 (Default), 3161 (Secure), or any other port your Oracle LDAP service operates on
-
-6. Enter the **Base Search DN** (distinguished name) from which to search. This search DN is used to search groups across a whole directory.
-
-7. Set the **Admin DN** to the exact distinguished name for the account the APM will use to authenticate for LDAP queries, along with its password
-
-   ![Screenshot for additional user attributes](./media/f5-big-ip-oracle/additional-user-attributes.png)
-
-8. Leave all default **LDAP Schema Attributes**
+9. Leave the default **LDAP Schema Attributes**.
 
    ![Screenshot for LDAP schema attributes](./media/f5-big-ip-oracle/ldap-schema-attributes.png)
 
-9. Under **LDAP Query Properties**, set the **Search Dn** to the base node of the LDAP server from which to search for user objects 
+10. Under **LDAP Query Properties**, for **Search Dn** enter the LDAP server base node for user object search.
+11. For **Required Attributes**, enter the user object attribute name to be returned from the LDAP directory. For EBS, the default is **orclguid**.
 
-10. Add the name of the user object attribute that must be returned from the LDAP directory. For EBS, the default is **orclguid**
-
-    ![Screenshot for LDAP query properties.png](./media/f5-big-ip-oracle/ldap-query-properties.png)
+    ![Screenshot of entries and options for LDAP Query Properties](./media/f5-big-ip-oracle/ldap-query-properties.png)
 
 #### Conditional Access Policy
 
-Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies control access based on device, application, location, and risk signals. Policies are enforced after Microsoft Entra preauthentication. The Available Policies view has Conditional Access policies with no user actions. The Selected Policies view has policies for cloud apps. You can't deselect these policies or move them to Available Policies because they're enforced at the tenant level.
 
-The **Available Policies** view, by default, will list all Conditional Access policies that do not include user-based actions.
+To select a policy for the application to be published:
 
-The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
+1. In **Available Policies**, select a policy.
+2. Select the **right arrow**.
+3. Move the policy to **Selected Policies**.
 
-To select a policy to be applied to the application being published:
+   > [!NOTE]
+   > The **Include** or **Exclude** option is selected for some policies. If both options are checked, the policy is unenforced.
 
-1. Select the desired policy in the **Available Policies** list
+   ![Screenshot of the Exclude option selected for four polices.](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
-2. Select the right arrow and move it to the **Selected Policies** list
-
-   The selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the policy is not enforced.
-
-   ![Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
-
-> [!NOTE]
-> The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+   > [!NOTE]
+   > Select the **Conditional Access Policy** tab and the policy list appears. Select **Refresh** and the wizard queries your tenant. Refresh appears for deployed applications.
 
 ### Virtual Server Properties
 
-A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
+A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for application client requests. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Then, traffic is directed according to policy.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
+1. Enter a **Destination Address**, an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS that enables clients to resolve the external URL, of the BIG-IP published application, to the IP. Use a test computer localhost DNS for testing.
+3. For **Service Port**, enter **443**, and select **HTTPS**.
+4. Select **Enable Redirect Port**.
+5. For **Redirect Port**, enter **80**, and select **HTTP**. This action redirects incoming HTTP client traffic to HTTPS.
+6. Select the **Client SSL Profile** you created, or leave the default for testing. Client SSL Profile enables the virtual server for HTTPS. Client connections are encrypted over TLS. 
 
-2. Enter **Service Port** as *443* for HTTPS
-
-3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
-
-4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
-
-   ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+   ![Screenshot of options and selections for Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
-The **Application Pool tab** details the services behind a BIG-IP, represented as a pool containing one or more application servers.
+The **Application Pool** tab has services behind a BIG-IP, a pool with one or more application servers.
 
-1. Choose from **Select a Pool**. Create a new pool or select an existing one
+1. From **Select a Pool**, select **Create New**, or select another option.
+2. For **Load Balancing Method**, select **Round Robin**.
+3. Under **Pool Servers**, select and enter an **IP Address/Node Name** and **Port** for the servers hosting Oracle EBS.
+4. Select **HTTPS**.
 
-2. Choose the **Load Balancing Method** as *Round Robin*
+   ![Screenshot of options and selections for Pool Properties](./media/f5-big-ip-oracle/application-pool.png)
 
-3. For **Pool Servers** select an existing node or specify an IP and port for the servers hosting the Oracle EBS application.
+5. Under **Access Gate Pool** confirm the **Access Gate Subpath**. 
+6. For **Pool Servers** select and enter an **IP Address/Node Name** and **Port** for the servers hosting Oracle EBS.
+7. Select **HTTPS**.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
-
-4. The **Access Gate Pool** specifies the servers Oracle EBS uses for mapping an SSO authenticated user to an Oracle E-Business Suite session. Update **Pool Servers** with the IP and port for of the Oracle application servers hosting the application
-
-   ![Screenshot for AccessGate pool](./media/f5-big-ip-oracle/accessgate-pool.png)
+   ![Screenshot of options and entries for Access Gate Pool.](./media/f5-big-ip-oracle/accessgate-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
-The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the Oracle EBS application expects headers, enable **HTTP Headers** and enter the following properties.
+The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. The Oracle EBS application expects headers, therefore enable HTTP headers.
 
-* **Header Operation:** replace
-* **Header Name:** USER_NAME
-* **Header Value:** %{session.sso.token.last.username}
+1. On **Single Sign-On & HTTP Headers**, select **HTTP Headers**.
+2. For **Header Operation**, select **replace**.
+3. For **Header Name**, enter **USER_NAME**.
+4. For **Header Value**, enter **%{session.sso.token.last.username}**.
+5. For **Header Operation**, select **replace**.
+6. For **Header Name**, enter **USER_ORCLGUID**.
+7. For **Header Value**, enter **%{session.ldap.last.attr.orclguid}**.
 
-* **Header Operation:** replace
-* **Header Name:** USER_ORCLGUID
-* **Header Value:** %{session.ldap.last.attr.orclguid}
+   ![Screenshot of entries and selections for Header Operation, Header Name, and Header Value.](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
-   ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
-
->[!NOTE] 
->APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure
+   >[!NOTE] 
+   >APM session variables in curly brackets are case-sensitive.
 
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to [F5's docs](https://support.f5.com/csp/article/K18390492) for details on these settings.
+Use BIG-IP Session Management to define conditions for user session termination or continuation. 
 
-What isn’t covered here however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
+To learn more, go to support.f5.com for [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492)
 
-Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
+Single Log-Out (SLO) functionality ensures sessions between the IdP, BIG-IP, and the user agent, terminate when users sign out. When the Easy Button instantiates a SAML application in your Microsoft Entra tenant, it populates the Logout URL with the APM SLO endpoint. Thus, IdP-initiated sign out, from the My Apps portal, terminates the session between the BIG-IP and a client.
 
-If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
+See, Microsoft [My Apps](https://myapplications.microsoft.com/)
 
-If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+The SAML federation metadata for the published application is imported from the tenant. This action provides the APM with the SAML sign out endpoint for Microsoft Entra ID. Then, SP-initiated sign out terminates the client and Microsoft Entra session. Ensure the APM knows when a user signs out.
 
-## Summary
+If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Microsoft Entra sign-out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions termination. Add an SLO function to the applications **Sign out** button to redirect the client to the Microsoft Entra SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
-This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
+If you can't change the app, have the BIG-IP listen for the application sign out call and then trigger SLO. 
 
-## Next steps
+Learn more:
 
-From a browser, connect to the **Oracle EBS application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+* [PeopleSoft SLO Logout](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
+* Go to support.f5.com for: 
+  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
+  * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+## Deploy
+
+1. Select **Deploy** to commit settings.
+2. Verify the application appears in the tenant Enterprise applications list.
+
+## Test
+
+1. From a browser, connect to the Oracle EBS application external URL, or select the application icon in the [My Apps](https://myapps.microsoft.com/). 
+2. Authenticate to Microsoft Entra ID.
+3. You're redirected to the BIG-IP virtual server for the application and signed in by SSO.
+
+For increased security, block direct application access, thereby enforcing a path through the BIG-IP.
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+Sometimes, the Guided Configuration templates lack flexibility for requirements. 
 
-You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+Learn more: [Tutorial: Configure F5 BIG-IP's Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md). 
 
-![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+### Manually change configurations
 
-At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+Alternatively, in BIG-IP disable the Guided Configuration strict management mode to manually change configurations. Wizard templates automate most configurations.
 
-> [!NOTE] 
-> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+1. Navigate to **Access > Guided Configuration**.
+2. On the right end of the row for your application configuration, select the **padlock** icon. 
+
+   ![Screenshot of the padlock icon](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+
+After you disable strict mode, you can't make changes with the wizard. However, BIG-IP objects associated with the published app instance are unlocked for management.
+
+   > [!NOTE] 
+   > If you re-enable strict mode, new configurations overwrite settings performed without the Guided Configuration. We recommend the advanced configuration method for production services.
 
 ## Troubleshooting
 
-Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
+Use the following instructions to help troubleshoot issues.
 
-1. Navigate to **Access Policy > Overview > Event Logs > Settings**
+### Increase log verbosity
 
-2. Select the row for your published application then **Edit > Access System Logs**
+Use BIG-IP logging to isolate issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Increase the log verbosity level.
 
-3. Select **Debug** from the SSO list then **OK**
+1. Navigate to **Access Policy > Overview > Event Logs**.
+2. Select **Settings**.
+3. Select the row for your published application.
+4. Select **Edit > Access System Logs**.
+5. From the SSO list, select **Debug**.
+6. Select **OK**.
+7. Reproduce the issue.
+8. Inspect the logs. 
 
-Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+Revert the settings changes because verbose mode generates excessive data. 
 
-If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+### BIG-IP error message
 
-1. Navigate to **Access > Overview > Access reports**
+If a BIG-IP error appears after Microsoft Entra preauthentication, the issue might relate to Microsoft Entra ID and BIG-IP SSO.
 
-2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+1. Navigate to **Access > Overview.
+2. Select **Access reports**.
+3. Run the report for the last hour.
+4. Review the logs for clues. 
 
-If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+Use the **View session** link for your session to confirm the APM receives expected Microsoft Entra claims.
 
-1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+### No BIG-IP error message
 
-2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source
+If no BIG-IP error page appears, the issue might relate to the back-end request, or BIG-IP and application SSO.
 
-See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+1. Navigate to **Access Policy > Overview**.
+2. Select **Active Sessions**.
+3. Select the link for your active session.
 
-The following command from a bash shell validates the APM service account used for LDAP queries and can successfully authenticate and query a user object:
+Use the **View Variables** link to investigate SSO issues, particularly if the BIG-IP APM doesn't obtain correct attributes from Microsoft Entra ID, or another source.
 
-```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
+Learn more:
 
-For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this [F5 knowledge article on LDAP Query](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-authentication-methods/ldap-query.html).
+* Go to devcentral.f5.com for [APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107)
+* Go to techdocs.f5.com for [Manual Chapter: Session Variables](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html)
+
+### Validate the APM service account
+
+Use the following bash shell command to validate the APM service account for LDAP queries. The command authenticates and queries user objects.
+
+```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)"```
+
+Learn more:
+
+* Go to support.f5.com for [K11072: Configuring LDAP remote authentication for AD](https://support.f5.com/csp/article/K11072) 
+* Go to techdocs.f5.com for [Manual Chapter: LDAP Query](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-authentication-methods/ldap-query.html)

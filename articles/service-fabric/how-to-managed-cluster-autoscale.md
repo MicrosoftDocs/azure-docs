@@ -2,11 +2,15 @@
 title: Configure autoscaling for Service Fabric managed cluster nodes
 description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 2/14/2022
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Introduction to Autoscaling on Service Fabric managed clusters
-[Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the amount of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
+[Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the number of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
 
 
 **Requirements and supported metrics:**
@@ -21,7 +25,7 @@ ms.date: 2/14/2022
 
 
 A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
-* If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instance. Do this every 30 minutes, but never have more than twenty instances in total.
+* If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instances. Do this every 30 minutes, but never have more than twenty instances in total.
 * If all instances of my gateway are using less than 40% cores on average, then scale the service in by removing one instance. Do this every 30 minutes, but never have fewer than three instances in total.
 
 ## Example autoscale deployment

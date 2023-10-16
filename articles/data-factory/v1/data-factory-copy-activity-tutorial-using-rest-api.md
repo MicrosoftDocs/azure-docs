@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen 
 ms.custom: devx-track-azurepowershell
 robots: noindex
@@ -43,7 +43,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
 * Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 
-  1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
+  1. Create a Web application named **ADFCopyTutorialApp** in Microsoft Entra ID.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
   4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
@@ -217,7 +217,7 @@ The following table provides descriptions for the JSON properties used in the sn
 | tableName | Specified the **table** to which the data is copied. | 
 | frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
 
-There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
+There are three columns - **ID**, **FirstName**, and **LastName** - in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 
 For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
 
@@ -306,8 +306,10 @@ Run the following command after updating the name of the data factory you are us
 $adf = "ADFCopyTutorialDF"
 ```
 
-## Authenticate with AAD
-Run the following command to authenticate with Azure Active Directory (AAD): 
+<a name='authenticate-with-aad'></a>
+
+## Authenticate with Microsoft Entra ID
+Run the following command to authenticate with Microsoft Entra ID: 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };

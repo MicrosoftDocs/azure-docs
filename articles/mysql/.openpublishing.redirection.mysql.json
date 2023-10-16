@@ -2,37 +2,37 @@
     "redirections": [
     {
         "source_path_from_root": "/articles/mysql/concepts-aad-authentication.md",
-        "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
+        "redirect_url": "/azure/mysql/single-server/concepts-azure-ad-authentication",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/concepts-compute-unit-and-storage.md",
-        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_url": "/azure/mysql/single-server/concepts-pricing-tiers",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/concepts-service-tiers.md",
-        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_url": "/azure/mysql/single-server/concepts-pricing-tiers",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/policy-samples.md",
-        "redirect_url": "/azure/mysql/policy-reference",
+        "redirect_url": "/azure/mysql/single-server/policy-reference",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/store-php-create-mysql-database.md",
-        "redirect_url": "/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal",
+        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/reference-data-in-stored-procedures.md",
-        "redirect_url": "/azure/mysql/reference-stored-procedures",
+        "redirect_url": "/azure/mysql/single-server/reference-stored-procedures",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/reference-sync-data-store-procedures.md",
-        "redirect_url": "/azure/mysql/reference-stored-procedures",
+        "redirect_url": "/azure/mysql/single-server/reference-stored-procedures",
         "redirect_document_id": false
     },
     {
@@ -59,6 +59,746 @@
         "source_path_from_root": "/articles/mysql/reference-azure-cli.md",
         "redirect_url": "/cli/azure/mysql",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/tutorial-provision-mysql-server-using-azure-resource-manager-templates.md",
+        "redirect_url": "/azure/mysql/single-server/tutorial-provision-mysql-server-using-azure-resource-manager-templates",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concept-monitoring-best-practices.md",
+        "redirect_url": "/azure/mysql/single-server/concept-monitoring-best-practices",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concept-operation-excellence-best-practices.md",
+        "redirect_url": "/azure/mysql/single-server/concept-operation-excellence-best-practices",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concept-performance-best-practices.md",
+        "redirect_url": "/azure/mysql/single-server/concept-performance-best-practices",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concept-reserved-pricing.md",
+        "redirect_url": "/azure/mysql/single-server/concept-reserved-pricing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-aks.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-aks",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-audit-logs.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-audit-logs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-azure-ad-authentication.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-azure-ad-authentication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-azure-advisor-recommendations.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-azure-advisor-recommendations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-backup.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-backup",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-business-continuity.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-business-continuity",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-certificate-rotation.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-certificate-rotation",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-compatibility.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-compatibility",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-connection-libraries.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-connection-libraries",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-connectivity.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-connectivity",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-connectivity-architecture.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-connectivity-architecture",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-data-access-and-security-vnet.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-data-access-and-security-vnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-data-access-security-private-link.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-data-access-security-private-link",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-database-application-development.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-database-application-development",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-data-encryption-mysql.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-data-encryption-mysql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-data-in-replication.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-data-in-replication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-firewall-rules.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-firewall-rules",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-high-availability.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-high-availability",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-infrastructure-double-encryption.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-infrastructure-double-encryption",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-limits.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-limits",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-migrate-dbforge-studio-for-mysql.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-migrate-dbforge-studio-for-mysql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-migrate-dump-restore.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-migrate-dump-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-migrate-import-export.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-migrate-import-export",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-migrate-mydumper-myloader.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-migrate-mydumper-myloader",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-monitoring.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-monitoring",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-performance-recommendations.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-performance-recommendations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-planned-maintenance-notification.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-planned-maintenance-notification",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-pricing-tiers.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-query-performance-insight.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-query-performance-insight",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-query-store.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-query-store",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-read-replicas.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-read-replicas",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-security.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-server-logs.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-server-logs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-server-parameters.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-server-parameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-servers.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-servers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-ssl-connection-security.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-ssl-connection-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-supported-versions.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-supported-versions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-version-policy.md",
+        "redirect_url": "/azure/mysql/concepts-version-policy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-cpp.md",
+        "redirect_url": "/azure/mysql/single-server/connect-cpp",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-csharp.md",
+        "redirect_url": "/azure/mysql/single-server/connect-csharp",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-go.md",
+        "redirect_url": "/azure/mysql/single-server/connect-go",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-java.md",
+        "redirect_url": "/azure/mysql/single-server/connect-java",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-nodejs.md",
+        "redirect_url": "/azure/mysql/single-server/connect-nodejs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-php.md",
+        "redirect_url": "/azure/mysql/single-server/connect-php",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-python.md",
+        "redirect_url": "/azure/mysql/single-server/connect-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-ruby.md",
+        "redirect_url": "/azure/mysql/single-server/connect-ruby",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/connect-workbench.md",
+        "redirect_url": "/azure/mysql/single-server/connect-workbench",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-alert-on-metric.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-alert-on-metric",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-auto-grow-storage-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-auto-grow-storage-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-auto-grow-storage-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-auto-grow-storage-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-auto-grow-storage-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-auto-grow-storage-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-audit-logs-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-audit-logs-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-audit-logs-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-audit-logs-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-private-link-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-private-link-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-private-link-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-private-link-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-server-logs-in-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-server-logs-in-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-server-logs-in-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-server-logs-in-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-server-parameters-using-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-server-parameters-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-server-parameters-using-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-server-parameters-using-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-sign-in-azure-ad-authentication.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-configure-ssl.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-configure-ssl",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-connection-string.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-connection-string",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-connection-string-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-connection-string-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-connect-overview-single-server.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-connect-overview-single-server",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-connect-webapp.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-connect-webapp",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-connect-with-managed-identity.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-connect-with-managed-identity",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-create-manage-server-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-create-manage-server-portal",
+        "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/mysql/howto-create-users.md",
+    "redirect_url": "/azure/mysql/single-server/how-to-create-users",
+    "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-data-encryption-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-data-encryption-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-data-encryption-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-data-encryption-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-data-encryption-troubleshoot.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-data-encryption-troubleshoot",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-data-encryption-validation.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-data-encryption-validation",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-data-in-replication.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-data-in-replication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-decide-on-right-migration-tools.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-decide-on-right-migration-tools",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-deny-public-network-access.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-deny-public-network-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-double-encryption.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-double-encryption",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-fix-corrupt-database.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-fix-corrupt-database",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-major-version-upgrade.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-major-version-upgrade",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-manage-firewall-using-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-manage-firewall-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-manage-firewall-using-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-manage-firewall-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-manage-single-server-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-manage-single-server-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-manage-vnet-using-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-manage-vnet-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-manage-vnet-using-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-manage-vnet-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-migrate-online.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-migrate-online",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-migrate-rds-mysql-data-in-replication.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-migrate-rds-mysql-data-in-replication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-migrate-rds-mysql-workbench.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-migrate-rds-mysql-workbench",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-migrate-single-flexible-minimum-downtime.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-migrate-single-flexible-minimum-downtime",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-move-regions-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-move-regions-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-read-replicas-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-read-replicas-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-read-replicas-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-read-replicas-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-read-replicas-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-read-replicas-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-redirection.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-redirection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restart-server-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restart-server-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restart-server-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restart-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restart-server-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restart-server-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restore-dropped-server.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restore-dropped-server",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restore-server-cli.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restore-server-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restore-server-portal.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restore-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-restore-server-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-restore-server-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-server-parameters.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-server-parameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/how-to-stop-start-server.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-stop-start-server",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-tls-configurations.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-tls-configurations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-common-connection-issues.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-common-connection-issues",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-common-errors.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-common-errors",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-high-cpu-utilization.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-high-cpu-utilization",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-low-memory-issues.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-low-memory-issues",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-query-performance.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-query-performance",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-query-performance-new.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-query-performance-new",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-replication-latency.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-replication-latency",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-troubleshoot-sys-schema.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-troubleshoot-sys-schema",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/overview.md",
+        "redirect_url": "/azure/mysql/single-server/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/partners-migration-mysql.md",
+        "redirect_url": "/azure/mysql/single-server/partners-migration-mysql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/policy-reference.md",
+        "redirect_url": "/azure/mysql/single-server/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/quickstart-create-mysql-server-database-using-arm-template.md",
+        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-arm-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/quickstart-create-mysql-server-database-using-azure-cli.md",
+        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/quickstart-create-mysql-server-database-using-azure-portal.md",
+        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/quickstart-create-mysql-server-database-using-azure-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/quickstart-create-server-up-azure-cli.md",
+        "redirect_url": "/azure/mysql/single-server/quickstart-create-server-up-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/quickstart-mysql-github-actions.md",
+        "redirect_url": "/azure/mysql/single-server/quickstart-mysql-github-actions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/reference-stored-procedures.md",
+        "redirect_url": "/azure/mysql/single-server/reference-stored-procedures",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/sample-scripts-azure-cli.md",
+        "redirect_url": "/azure/mysql/single-server/sample-scripts-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/sample-scripts-java-connection-pooling.md",
+        "redirect_url": "/azure/mysql/single-server/sample-scripts-java-connection-pooling",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/security-controls-policy.md",
+        "redirect_url": "/azure/mysql/single-server/security-controls-policy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server-overview.md",
+        "redirect_url": "/azure/mysql/single-server/single-server-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server-whats-new.md",
+        "redirect_url": "/azure/mysql/single-server/single-server-whats-new",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/tutorial-design-database-using-cli.md",
+        "redirect_url": "/azure/mysql/single-server/tutorial-design-database-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/tutorial-design-database-using-portal.md",
+        "redirect_url": "/azure/mysql/single-server/tutorial-design-database-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/tutorial-design-database-using-powershell.md",
+        "redirect_url": "/azure/mysql/single-server/tutorial-design-database-using-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-supported-versions.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-connect-to-a-gateway-node",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/concepts-compute-storage.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-service-tiers-storage",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-decide-on-right-migration-tools.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-decide-on-right-migration-tools",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-single-flexible-minimum-downtime.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-migrate-single-flexible-minimum-downtime",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
+        "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-wordpress-app-service.md",
+        "redirect_url": "/azure/app-service/quickstart-wordpress",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/index.yml",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/index.yml",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal.md",
+        "redirect_url": "/azure/mysql/flexible-server/quickstart-create-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-create-users.md",
+        "redirect_url": "/azure/mysql/how-to-create-users",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/app-development-best-practices.md",
+        "redirect_url": "/azure/mysql/app-development-best-practices",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/select-right-deployment-type.md",
+        "redirect_url": "/azure/mysql/select-right-deployment-type",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
+        "redirect_url": "/azure/mysql/how-to-troubleshoot-replication-latency",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-archive-laravel.md",
+        "redirect_url": "/azure/mysql/flexible-server/tutorial-php-database-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/videos.md",
+        "redirect_url": "https://aka.ms/mysql-intro-vid",
+        "redirect_document_id": false
     }
-    ]
+  ]
 }

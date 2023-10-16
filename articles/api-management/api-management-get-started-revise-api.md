@@ -88,7 +88,7 @@ In this tutorial, you learn how to:
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Use this procedure to create and update a release.
 
@@ -120,7 +120,7 @@ Use this procedure to create and update a release.
 
    The notes you specify appear in the change log. You can see them in the output of the previous command.
 
-1. When you create a release, the `--notes` parameter is optional. You can add or change the notes later using the [az apim api release update](/cli/azure/apim/api/release#az_apim_api_release_update) command:
+1. When you create a release, the `--notes` parameter is optional. You can add or change the notes later using the [az apim api release update](/cli/azure/apim/api/release#az-apim-api-release-update) command:
 
    ```azurecli
    az apim api release update --resource-group apim-hello-word-resource-group \

@@ -1,14 +1,16 @@
 ---
-title: 'Tutorial: Query Performance Insight for Azure Database for MySQL Flexible Server'
-description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL Flexible Server.'
-author: SudheeshGH
-ms.author: sunaray
+title: 'Tutorial: Query Performance Insight for Azure Database for MySQL - Flexible Server'
+description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.'
 ms.service: mysql
+ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 
-# Tutorial: Query Performance Insight for Azure Database for MySQL Flexible Server
+# Tutorial: Query Performance Insight for Azure Database for MySQL - Flexible Server
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Query Performance Insight proposes to provide intelligent query analysis for databases. The most preferred insights are the workload patterns and the longer-running queries. Understanding these insights can help you find which queries to optimize to improve overall performance and to use your available resources efficiently. 
@@ -18,7 +20,7 @@ Query Performance Insight is designed to help you spend less time troubleshootin
 * The query details: view the history of execution with minimum, maximum, average, and standard deviation query time.
 * The resource utilizations (CPU, memory, and storage).
  
-This article discusses how to use MySQL slow query logs, the Log Analytics tool, and workbooks templates to visualize Query Performance Insight for Azure Database for MySQL Flexible Server.
+This article discusses how to use MySQL slow query logs, the Log Analytics tool, and workbooks templates to visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.
 
 In this tutorial, you'll learn how to:
 >[!div class="checklist"]
@@ -29,7 +31,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- [Create an Azure Database for MySQL Flexible Server instance](./quickstart-create-server-portal.md).
+- [Create an Azure Database for MySQL - Flexible Server instance](./quickstart-create-server-portal.md).
 - [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
 
@@ -145,7 +147,7 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 ## View query insights by using workbooks 
 
-1. In the Azure portal, on the left pane, under **Monitoring** for your Azure Database for MySQL Flexible Server instance, select **Workbooks**.
+1. In the Azure portal, on the left pane, under **Monitoring** for your Azure Database for MySQL - Flexible Server instance, select **Workbooks**.
 
 1.	Select the **Query Performance Insight** template. 
 
@@ -165,7 +167,7 @@ In the workbook, you can view the following visualizations:
 
 >[!Note]
 > * To view resource utilization, you can use the Overview template.
-> * You can also edit these templates and customize them according to your requirements. For more information, see [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+> * You can also edit these templates and customize them according to your requirements. For more information, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 > * For a quick view, you can also pin the workbooks or Log Analytics query to your Dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
 
 In Query Performance Insight, two metrics that can help you find potential bottlenecks are *duration* and *execution count*. Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. 
@@ -175,5 +177,3 @@ In some cases, a high execution count can lead to more network round trips. Roun
 ## Next steps
 - [Learn more about Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and their rich visualization options.
 - [Learn more about slow query logs](concepts-slow-query-logs.md).
-
-

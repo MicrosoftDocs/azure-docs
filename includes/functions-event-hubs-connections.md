@@ -25,15 +25,20 @@ This connection string should be stored in an application setting with a name ma
 
 ### Identity-based connections
 
-If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md?tabs=extensionv5), instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
+If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md?tabs=extensionv5), instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
 
 In this mode, the extension requires the following properties:
 
-| Property                  | Environment variable template                       | Description                                | Example value                                        |
-|---------------------------|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| Fully Qualified Namespace | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs namespace. | <event_hubs_namespace>.servicebus.windows.net |
+| Property   | Environment variable template     | Description     | Example value     |
+|--------------|----------|-----|----------|
+| Fully Qualified Namespace | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs namespace. | `myeventhubns.servicebus.windows.net`|
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+
+> [!NOTE]
+> When using [Azure App Configuration](../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../articles/key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> 
+> For example, `<CONNECTION_NAME_PREFIX>:fullyQualifiedNamespace`.
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

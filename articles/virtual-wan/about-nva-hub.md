@@ -2,18 +2,17 @@
 title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
-services: virtual-wan
-author: cherylmc
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/02/2021
-ms.author: cherylmc
+ms.date: 06/30/2023
+ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
 ---
 # About NVAs in a Virtual WAN hub
 
-Customers can deploy select Network Virtual Appliances (NVAs) directly into a Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into a Virtual WAN hub. For a full list of available partners, see the [Partners](#partner) section of this article.
+Customers can deploy select Network Virtual Appliances (NVAs) directly into a Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into a Virtual WAN hub. For a full list of available partners, see the [Partners](#partners) section of this article.
 
 ## Key benefits
 
@@ -32,8 +31,10 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 > [!IMPORTANT]
 > To ensure you get the best support for this integrated solution, make sure you have similar levels of support entitlement with both Microsoft and your Network Virtual Appliance provider.
 
-## <a name ="partner"></a> Partners
+## Partners
 
+The following tables describes the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVA's deployed in the Virtual Hub.
+ 
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
 
 ## Basic use cases
@@ -48,7 +49,7 @@ Branch sites can then access workloads in Azure deployed in virtual networks in 
 
 ### Security provided by Azure Firewall along with connectivity NVA
 
-Customers can deploy an Azure Firewall along side their connectivity-based NVAs. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You may also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
+Customers can deploy an Azure Firewall along side their connectivity-based NVAs. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You can also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
 
 :::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall." lightbox="./media/about-nva-hub/global-transit-firewall.png":::
 
@@ -56,7 +57,7 @@ Customers can deploy an Azure Firewall along side their connectivity-based NVAs.
 
 Customers can also deploy NVAs into a Virtual WAN hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the NVA in the hub and also use the same appliance to inspect all North-South, East-West, and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
 
-Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partner).
+Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partners).
 
 :::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA." lightbox="./media/about-nva-hub/global-transit-ngfw.png":::
 
@@ -84,16 +85,35 @@ NVA Partners may create different resources depending on their appliance deploym
 
 :::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Managed Application resource groups":::
 
+
+### Managed resource group permissions
+
+By default, all managed resource groups have a deny-all Microsoft Entra assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
+
+However, partners may create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
+
+Permissions on resources in existing managed resource groups aren't dynamically updated as new permitted actions are added by partners and require a manual refresh.
+
+To refresh permissions on the managed resource groups, customers can leverage the [Refresh Permissions REST API ](/rest/api/managedapplications/applications/refresh-permissions).
+
+> [!NOTE]
+> To properly apply new permissions, refresh permissions API must be called with an additional query parameter **targetVersion**. The value for targetVersion is provider-specific. Please reference your provider's documentation for the latest version number.
+
+```http-interactive
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}/refreshPermissions?api-version=2019-07-01&targetVersion={targetVersion}
+```
+
 ### <a name="units"></a>NVA Infrastructure Units
 
 When you create an NVA in a Virtual WAN hub, you must choose the number of NVA Infrastructure Units you want to deploy it with. An **NVA Infrastructure Unit** is a unit of aggregate bandwidth capacity for an NVA in a Virtual WAN hub. An **NVA Infrastructure Unit** is similar to a VPN [Scale Unit](pricing-concepts.md#scale-unit) in terms of the way you think about capacity and sizing.
 
-* 1 NVA Infrastructure Unit represents 500 Mbps of aggregate bandwidth for all branch site connections coming into this NVA, at a cost of $0.25/hour.
-* Azure supports from 1-80 NVA Infrastructure Units for a given NVA virtual hub deployment.
-* Each partner may offer different NVA Infrastructure Unit bundles that are a subset of all supported NVA Infrastructure Unit configurations.
+* NVA Infrastructure Units are a guideline for how much aggregate networking throughput the **virtual machine infrastructure** on which NVA's are deployed can support.  1 NVA Infrastructure Unit corresponds to 500 Mbps of aggregate throughput. This 500 Mbps number does not take into consideration differences between the software that runs on Network Virtual Appliances. Depending on the features turned on in the NVA or partner-specific software implementation, networking functions such as encryption/decryption, encapsulation/decapsulation or deep packet inspection may be more intensive, meaning you may see less throughput than the NVA infrastructure unit. For a mapping of Virtual WAN NVA infrastructure units to expected throughputs, please contact the vendor. 
+*  Azure supports deployments ranging from 2-80 NVA Infrastructure Units for a given NVA virtual hub deployment, but partners may choose which scale units they support. As such, you may not be able to deploy all possible scale unit configurations.
 
-Similar to VPN Scale Units, if you pick *1 NVA Infrastructure Unit = 500 Mbps*, it implies that two instances for redundancy will be created, each having a maximum throughput of 500 Mbps. For example, if you had five branches, each doing 10 Mbps at the branch, you'll need an aggregate of 50 Mbps at the head end. Planning for aggregate capacity of the NVA should be done after assessing the capacity needed to support the number of branches to the hub.
+NVAs in Virtual WAN are deployed to ensure you always are able to achieve at minimum the vendor-specific throughput numbers for a particular chosen scale unit. To achieve this, NVAs in Virtual WAN are overprovisioned with additional capacity in the form of multiple instances in a 'n+1' manner. This means that at any given time you may see aggregate throughput across the instances to be greater than the vendor-specific throughput numbers. This ensures if an instance is unhealthy, the remaining 'n' instance(s) can service customer traffic and provide the vendor-specific throughput for that scale unit.
 
+If the total amount of traffic that passes through a NVA at a given time goes above the vendor-specific throughput numbers for the chosen scale unit, events that may cause a NVA instance to be unavailable including but not limited to routine Azure platform maintenance activities or software upgrades can result in service or connectivity disruption. To minimize service disruptions, you should choose the scale unit based on your peak traffic profile and vendor-specific throughput numbers for a particular scale unit as opposed to relying on best-case throughput numbers observed during testing.
+ 
 ## <a name="configuration"></a>NVA configuration process
 
 Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA has been provisioned into the virtual hub, any additional configuration that may be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA isn't available.
@@ -112,8 +132,8 @@ NVA in the virtual hub is available in the following regions:
 |---|---|
 | North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe|
-| Middle East | UAE North |
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central|
+| Middle East | UAE North, Qatar Central |
 | Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
 | Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
 | Africa | South Africa North |

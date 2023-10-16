@@ -1,30 +1,30 @@
 ---
-title: Microsoft identity platform authentication flows & app scenarios | Azure
+title: Microsoft identity platform app types and authentication flows
 description: Learn about application scenarios for the Microsoft identity platform, including authenticating identities, acquiring tokens, and calling protected APIs.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
-ms.assetid:
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/03/2020
-ms.author: jmprieur
+ms.date: 08/11/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
-#Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
+# Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ---
 
-# Authentication flows and application scenarios
+# Microsoft identity platform app types and authentication flows
 
-The Microsoft identity platform supports authentication for different kinds of modern application architectures. All of the architectures are based on the industry-standard protocols [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md). By using the [authentication libraries for the Microsoft identity platform](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs.
+The Microsoft identity platform supports authentication for different kinds of modern application architectures. All of the architectures are based on the industry-standard protocols [OAuth 2.0 and OpenID Connect](./v2-protocols.md). By using the [authentication libraries for the Microsoft identity platform](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs.
 
 This article describes authentication flows and the application scenarios that they're used in.
 
 ## Application categories
 
-Tokens can be acquired from several types of applications, including:
+[Security tokens](./security-tokens.md) can be acquired from several types of applications, including:
 
 - Web apps
 - Mobile apps
@@ -39,7 +39,7 @@ The following sections describe the categories of applications.
 
 Authentication scenarios involve two activities:
 
-- **Acquiring security tokens for a protected web API**: We recommend that you use the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md), developed and supported by Microsoft.
+- **Acquiring security tokens for a protected web API**: We recommend that you use the [Microsoft Authentication Library (MSAL)](msal-overview.md), developed and supported by Microsoft.
 - **Protecting a web API or a web app**: One challenge of protecting these resources is validating the security token. On some platforms, Microsoft offers [middleware libraries](reference-v2-libraries.md).
 
 ### With users or without users
@@ -74,7 +74,7 @@ The available authentication flows differ depending on the sign-in audience. Som
 
 For more information, see [Supported account types](v2-supported-account-types.md#account-type-support-in-authentication-flows).
 
-## Application scenarios
+## Application types
 
 The Microsoft identity platform supports authentication for these app architectures:
 
@@ -106,7 +106,7 @@ To help protect a web app that signs in a user:
 
 - If you develop in .NET, you use ASP.NET or ASP.NET Core with the ASP.NET OpenID Connect middleware. Protecting a resource involves validating the security token, which is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) and not MSAL libraries.
 
-- If you develop in Node.js, you use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) or [Passport.js](https://github.com/AzureAD/passport-azure-ad).
+- If you develop in Node.js, you use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 For more information, see [Web app that signs in users](scenario-web-app-sign-user-overview.md).
 
@@ -124,17 +124,17 @@ For a desktop app to call a web API that signs in users, use the interactive tok
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
-There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
+There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Microsoft Entra ID. These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
 
-Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](https://aka.ms/msal-net-device-code-flow).
+Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](v2-oauth2-device-code.md).
 
 ![Device code flow](media/scenarios/device-code-flow-app.svg)
 
 Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token-username-password.md) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
-Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
+Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Microsoft Entra ID. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
-In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing [dual token cache serialization](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
+In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing dual token cache serialization, you can use backward-compatible and forward-compatible token caches.
 
 For more information, see [Desktop app that calls web APIs](scenario-desktop-overview.md).
 
@@ -146,14 +146,14 @@ Similar to a desktop app, a mobile app calls the interactive token-acquisition m
 
 MSAL iOS and MSAL Android use the system web browser by default. However, you can direct them to use the embedded web view instead. There are specificities that depend on the mobile platform: Universal Windows Platform (UWP), iOS, or Android.
 
-Some scenarios, like those that involve Conditional Access related to a device ID or a device enrollment, require a broker to be installed on the device. Examples of brokers are Microsoft Company Portal on Android and Microsoft Authenticator on Android and iOS. MSAL can now interact with brokers. For more information about brokers, see [Leveraging brokers on Android and iOS](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS).
+Some scenarios, like those that involve Conditional Access related to a device ID or a device enrollment, require a broker to be installed on the device. Examples of brokers are Microsoft Company Portal on Android and Microsoft Authenticator on Android and iOS. MSAL can now interact with brokers. For more information about brokers, see [Leveraging brokers on Android and iOS](msal-net-use-brokers-with-xamarin-apps.md).
 
 For more information, see [Mobile app that calls web APIs](scenario-mobile-overview.md).
 
 > [!NOTE]
 > A mobile app that uses MSAL.iOS, MSAL.Android, or MSAL.NET on Xamarin can have app protection policies applied to it. For instance, the policies might prevent a user from copying protected text. The mobile app is managed by Intune and is recognized by Intune as a managed app. For more information, see [Microsoft Intune App SDK overview](/intune/app-sdk).
 >
-> The [Intune App SDK](/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Azure AD on its own.
+> The [Intune App SDK](/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Microsoft Entra ID on its own.
 
 ### Protected web API
 
@@ -175,7 +175,7 @@ For more information, see [Web API that calls web APIs](scenario-web-api-call-ap
 
 Apps that have long-running processes or that operate without user interaction also need a way to access secure web APIs. Such an app can authenticate and get tokens by using the app's identity. The app proves its identity by using a client secret or certificate.
 
-You can write such daemon apps that acquire a token for the calling app by using the [client credential](scenario-daemon-acquire-token.md#acquiretokenforclient-api) acquisition methods in MSAL. These methods require a client secret that you add to the app registration in Azure AD. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
+You can write such daemon apps that acquire a token for the calling app by using the [client credential](scenario-daemon-acquire-token.md#acquiretokenforclient-api) acquisition methods in MSAL. These methods require a client secret that you add to the app registration in Microsoft Entra ID. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
 
 ![A daemon app called by other apps and APIs](media/scenarios/daemon-app.svg)
 
@@ -185,7 +185,7 @@ For more information, see [Daemon application that calls web APIs](scenario-daem
 
 You use authentication flows to implement the application scenarios that are requesting tokens. There isn't a one-to-one mapping between application scenarios and authentication flows.
 
-Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flows. For more information, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md).
+Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flows. For more information, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](./v2-protocols.md).
 
 <table>
  <thead>
@@ -259,7 +259,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
    <td><a href="scenario-daemon-overview.md">Daemon app that calls web APIs</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Client credentials</a></td>
-   <td>App-only permissions that have no user and are used only in Azure AD organizations</td>
+   <td>App-only permissions that have no user and are used only in Microsoft Entra organizations</td>
  </tr>
 
   <tr>
@@ -291,9 +291,6 @@ Microsoft Authentication Libraries support multiple platforms:
 
 You can also use various languages to build your applications.
 
-> [!NOTE]
-> Some application types aren't available on every platform.
-
 In the Windows column of the following table, each time .NET Core is mentioned, .NET Framework is also possible. The latter is omitted to avoid cluttering the table.
 
 |Scenario  | Windows | Linux | Mac | iOS | Android
@@ -311,5 +308,8 @@ For more information, see [Microsoft identity platform authentication libraries]
 
 ## Next steps
 
-* Learn more about [authentication basics](./authentication-vs-authorization.md) and [access tokens in the Microsoft identity platform](access-tokens.md).
-* Learn more about [securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).
+For more information about authentication, see:
+
+- [Authentication vs. authorization.](./authentication-vs-authorization.md)
+- [Microsoft identity platform access tokens.](access-tokens.md)
+- [Securing access to IoT apps.](/azure/architecture/example-scenario/iot-aad/iot-aad#security)

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
- ms.service: storage
+ author: khdownie
+ ms.service: azure-file-storage
  ms.topic: include
- ms.date: 08/28/2020
- ms.author: rogarana
+ ms.date: 06/02/2022
+ ms.author: kendownie
  ms.custom: include file
 ---
 Azure Files offers four different tiers of storage, premium, transaction optimized, hot, and cool to allow you to tailor your shares to the performance and price requirements of your scenario:
@@ -21,7 +21,5 @@ Premium file shares are deployed in the **FileStorage storage account** kind and
 When selecting a storage tier for your workload, consider your performance and usage requirements. If your workload requires single-digit latency, or you are using SSD storage media on-premises, the premium tier is probably the best fit. If low latency isn't as much of a concern, for example with team shares mounted on-premises from Azure or cached on-premises using Azure File Sync, standard storage may be a better fit from a cost perspective.
 
 Once you've created a file share in a storage account, you cannot move it to tiers exclusive to different storage account kinds. For example, to move a transaction optimized file share to the premium tier, you must create a new file share in a FileStorage storage account and copy the data from your original share to a new file share in the FileStorage account. We recommend using AzCopy to copy data between Azure file shares, but you may also use tools like `robocopy` on Windows or `rsync` for macOS and Linux. 
-
-File shares deployed within GPv2 storage accounts can be moved between the standard tiers (transaction optimized, hot, and cool) without creating a new storage account and migrating data, but you will incur transaction costs when you change your tier. When you move a share from a hotter tier to a cooler tier, you will incur the cooler tier's write transaction charge for each file in the share. Moving a file share from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file in the share.
 
 See [Understanding Azure Files billing](../articles/storage/files/understanding-billing.md) for more information.

@@ -1,30 +1,31 @@
 ---
-title: Transfer an Azure subscription to a different Azure AD directory
-description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
+title: Transfer an Azure subscription to a different Microsoft Entra directory
+description: Learn how to transfer an Azure subscription and known related resources to a different Microsoft Entra directory.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/04/2021
+ms.custom: devx-track-azurecli
+ms.date: 09/28/2023
 ms.author: rolyon
 ---
 
-# Transfer an Azure subscription to a different Azure AD directory
+# Transfer an Azure subscription to a different Microsoft Entra directory
 
-Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not transferred to the target directory.
+Organizations might have several Azure subscriptions. Each subscription is associated with a particular Microsoft Entra directory. To make management easier, you might want to transfer a subscription to a different Microsoft Entra directory. When you transfer a subscription to a different Microsoft Entra directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not transferred to the target directory.
 
-This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
+This article describes the basic steps you can follow to transfer a subscription to a different Microsoft Entra directory and re-create some of the resources after the transfer.
 
 If you want to instead **block** the transfer of subscriptions to different directories in your organization, you can configure a subscription policy. For more information, see [Manage Azure subscription policies](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 > [!NOTE]
-> For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
+> For Azure Cloud Solution Providers (CSP) subscriptions, changing the Microsoft Entra directory for the subscription isn't supported.
 
 ## Overview
 
-Transferring an Azure subscription to a different Azure AD directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage other Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
+Transferring an Azure subscription to a different Microsoft Entra directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage other Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
 
 > [!IMPORTANT]
 > In some scenarios, transferring a subscription might require downtime to complete the process. Careful planning is required to assess whether downtime will be required for your transfer.
@@ -43,11 +44,11 @@ The following diagram shows the basic steps you must follow when you transfer a 
 
 The following are some reasons why you might want to transfer a subscription:
 
-- Because of a company merger or acquisition, you want to manage an acquired subscription in your primary Azure AD directory.
-- Someone in your organization created a subscription and you want to consolidate management to a particular Azure AD directory.
+- Because of a company merger or acquisition, you want to manage an acquired subscription in your primary Microsoft Entra directory.
+- Someone in your organization created a subscription and you want to consolidate management to a particular Microsoft Entra directory.
 - You have applications that depend on a particular subscription ID or URL and it isn't easy to modify the application configuration or code.
-- A portion of your business has been split into a separate company and you need to move some of your resources into a different Azure AD directory.
-- You want to manage some of your resources in a different Azure AD directory for security isolation purposes.
+- A portion of your business has been split into a separate company and you need to move some of your resources into a different Microsoft Entra directory.
+- You want to manage some of your resources in a different Microsoft Entra directory for security isolation purposes.
 
 ### Alternate approaches
 
@@ -70,7 +71,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-key-vaults) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
-| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Azure AD authentication enabled to a different directory. For more information, see [Use Azure Active Directory authentication](../azure-sql/database/authentication-aad-overview.md). | 
+| Azure SQL databases with Microsoft Entra authentication integration enabled | Yes | No | [Check Azure SQL databases with Microsoft Entra authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Microsoft Entra authentication enabled to a different directory. For more information, see [Use Microsoft Entra authentication](/azure/azure-sql/database/authentication-aad-overview). |
+| Azure database for MySQL with Microsoft Entra authentication integration enabled | Yes | No |  | You cannot transfer an Azure database for MySQL (Single and Flexible server) with Microsoft Entra authentication enabled to a different directory. | 
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
@@ -78,11 +80,15 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Managed Disks | Yes | Yes |  |  If you are using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments i.e. again grant required permissions to Disk Encryption Sets in the Key Vaults. |
 | Azure Kubernetes Service | Yes | No |  | You cannot transfer your AKS cluster and its associated resources to a different directory. For more information, see [Frequently asked questions about Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
-| Azure Active Directory Domain Services | Yes | No |  | You cannot transfer an Azure AD Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.yml) |
+| Microsoft Entra Domain Services | Yes | No |  | You cannot transfer a Microsoft Entra Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Microsoft Entra Domain Services](../active-directory-domain-services/faqs.yml) |
 | App registrations | Yes | Yes |  |  |
+| Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
+| Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
+| Azure Service Bus | Yes | Yes | |You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
+| Azure Synapse Analytics Workspace | Yes | Yes |  | You must update the tenant ID associated with the Synapse Analytics Workspace. If the workspace is associated with a Git repository, you must update the [workspace's Git configuration](../synapse-analytics/cicd/source-control.md#switch-to-a-different-git-repository). For more information, see [Recovering Synapse Analytics workspace after transferring a subscription to a different Microsoft Entra directory (tenant)](../synapse-analytics/how-to-recover-workspace-after-tenant-move.md). |
 
 > [!WARNING]
-> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 To get a list of some of the Azure resources that are impacted when you transfer a subscription, you can also run a query in [Azure Resource Graph](../governance/resource-graph/overview.md). For a sample query, see [List impacted resources when transferring an Azure subscription](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription).
 
@@ -122,7 +128,13 @@ To complete these steps, you will need:
     az extension list
     ```
 
-1. If not, install the *resource-graph* extension.
+1. If you are using a preview version or an older version of the *resource-graph* extension, use [az extension update](/cli/azure/extension#az-extension-update) to update the extension.
+
+    ```azurecli
+    az extension update --name resource-graph
+    ```
+
+1. If the *resource-graph* extension is not installed, use [az extension add](/cli/azure/extension#az-extension-add) to install the extension.
 
     ```azurecli
     az extension add --name resource-graph
@@ -218,10 +230,10 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 ### List key vaults
 
-When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
+When you create a key vault, it is automatically tied to the default Microsoft Entra tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
-> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 - If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
 
@@ -229,12 +241,14 @@ When you create a key vault, it is automatically tied to the default Azure Activ
     az keyvault show --name MyKeyVault
     ```
 
-### List Azure SQL databases with Azure AD authentication
+<a name='list-azure-sql-databases-with-azure-ad-authentication'></a>
 
-- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/authentication-aad-configure.md).
+### List Azure SQL databases with Microsoft Entra authentication
+
+- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Microsoft Entra authentication integration enabled. For more information, see [Configure and manage Microsoft Entra authentication with SQL](/azure/azure-sql/database/authentication-aad-configure).
 
     ```azurecli
-    az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
+    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" --query data[*].[id] -o tsv)
     ```
 
 ### List ACLs
@@ -253,7 +267,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
     subscriptionId=$(az account show --output tsv --query id)
     ```
     
-1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies (in `bash`).
+1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Microsoft Entra directory dependencies (in `bash`).
 
     ```azurecli
     az graph query -q 'resources 
@@ -273,8 +287,8 @@ In this step, you transfer the subscription from the source directory to the tar
 
 1. Transfer the subscription to a different directory.
 
-    - If you want to keep the current billing ownership, follow the steps in [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    - If you want to also transfer the billing ownership, follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different directory, you must check the **Subscription Azure AD tenant** check box.
+    - If you want to keep the current billing ownership, follow the steps in [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - If you want to also transfer the billing ownership, follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different directory, you must check the **Subscription Microsoft Entra tenant** check box.
 
 1. Once you finish transferring the subscription, return back to this article to re-create the resources in the target directory.
 
@@ -386,5 +400,5 @@ If your intent is to remove access from users in the source directory so that th
 
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
-- [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 - [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)

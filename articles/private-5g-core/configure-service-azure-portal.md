@@ -1,16 +1,16 @@
 ---
-title: Configure a service
-titleSuffix: Azure Private 5G Core Preview
-description: With this how-to guide, learn how to configure a service for Azure Private 5G Core Preview through the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+title: Configure a service - Azure portal
+titleSuffix: Azure Private 5G Core
+description: With this how-to guide, learn how to configure a service for Azure Private 5G Core through the Azure portal. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Configure a service for Azure Private 5G Core Preview - Azure portal
+# Configure a service for Azure Private 5G Core - Azure portal
 
 *Services* are representations of a particular set of QoS information that you want to offer to UEs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources. 
 For more information, see [Policy control](policy-control.md).
@@ -27,7 +27,7 @@ In this how-to guide, we'll configure a service using the Azure portal.
 
 In this step, you'll configure basic settings for your new service using the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to configure a service.
 :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 1. In the **Resource** menu, select **Services**.
@@ -38,7 +38,8 @@ In this step, you'll configure basic settings for your new service using the Azu
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal. It shows the Create option in the command bar.":::
 
-1. On the **Basics** configuration tab, use the information you collected in [Collect top-level setting values](collect-required-information-for-service.md#collect-top-level-setting-values) to fill out each of the fields.
+1. On the **Basics** configuration tab, use the information you collected in [Collect top-level setting values](collect-required-information-for-service.md#collect-top-level-setting-values) to fill out each of the fields.  
+If you do not want to specify a QoS for this service, turn off the **Configured** toggle. If the toggle is off, the service will inherit the QoS of the parent SIM Policy.
 
     :::image type="content" source="media/configure-service-azure-portal/create-service-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a service.":::
 

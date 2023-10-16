@@ -1,12 +1,11 @@
 ---
 title: Migrate default Hive metastore to external metastore on Azure HDInsight
 description: Migrate default Hive metastore to external metastore on Azure HDInsight
-author: kevxmsft
-ms.author: kevx
-ms.reviewer: 
+author: reachnijel
+ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 11/4/2020
+ms.date: 09/15/2023
 ---
 
 # Migrate default Hive metastore DB to external metastore DB
@@ -59,7 +58,7 @@ An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import fo
     hdfs dfs -put $TARGET_FILE /bacpacs/
     ```
 
-4. Import the BACPAC file to a new database with steps listed [here](../../azure-sql/database/database-import.md).
+4. Import the BACPAC file to a new database with steps listed [here](/azure/azure-sql/database/database-import).
 
 5. The new database is ready to be [configured as external metastore DB on a new HDInsight cluster](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation).
 

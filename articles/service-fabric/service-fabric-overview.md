@@ -2,8 +2,11 @@
 title: Overview of Azure Service Fabric
 description: Service Fabric is a distributed systems platform for building scalable, reliable, and easily managed microservices.
 ms.topic: overview
-ms.date: 09/22/2020
-ms.custom: contperf-fy21q1
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Overview of Azure Service Fabric
@@ -43,7 +46,7 @@ For [Windows development](service-fabric-get-started.md), the Service Fabric .NE
 ## Compliance
 
 Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all Azure compliance certifications, including: SOC, ISO, PCI DSS, HIPAA, and GDPR. For a complete list, see
-[Microsoft Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+[Microsoft compliance offerings](/compliance/regulatory/offering-home).
 
 ## Next steps
 

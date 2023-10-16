@@ -2,12 +2,11 @@
 title: Attach a data disk to a Windows VM in Azure by using PowerShell
 description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
 author: roygara
-ms.service: virtual-machines
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: how-to
-ms.date: 10/16/2018
+ms.date: 06/08/2022
 ms.author: rogarana
-ms.subservice: disks 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -23,6 +22,12 @@ First, review these tips:
 * To use premium SSDs, you'll need a [premium storage-enabled VM type](../sizes-memory.md), like the DS-series or GS-series virtual machine.
 
 This article uses PowerShell within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+
+## Lower latency
+
+In select regions, the disk attach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk attach command, `Add-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform an attach, like `Update-AzVM`. You don't need to take any action other than calling the explicit attach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
 ## Add an empty data disk to a virtual machine
 

@@ -1,79 +1,65 @@
 ---
 title: Log Analytics integration with Power BI and Excel
-description: How to send results from Log Analytics to Power BI
-ms.topic: conceptual
-author: roygalMS
-ms.author: roygal
-ms.date: 11/03/2020
+description: Learn how to send results from a query in Log Analytics to Power BI.
+ms.topic: how-to
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
+ms.date: 02/06/2023
 
 ---
-# Log Analytics integration with Power BI
+# Integrate Log Analytics with Power BI
 
-This article focuses on ways to feed data from Log Analytics into Microsoft Power BI to create more visually appealing reports and dashboards. 
+[Azure Monitor Logs](../logs/data-platform-logs.md) provides an end-to-end solution for ingesting logs. From [Log Analytics](../data-platform.md), Azure Monitor's user interface for querying logs, you can connect log data to Microsoft's [Power BI](https://powerbi.microsoft.com/) data visualization platform. 
 
-## Background 
+This article explains how to feed data from Log Analytics into Power BI to produce reports and dashboards based on log data.
 
-Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../data-platform.md) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md). 
+> [!NOTE]
+> You can use free Power BI features to integrate and create reports and dashboards. More advanced features, such as sharing your work, scheduled refreshes, dataflows, and incremental refresh might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
-Microsoft Power BI is Microsoft’s data visualization platform. For more information on how to get started, see [Power BI’s homepage](https://powerbi.microsoft.com/). 
+## Prerequisites
 
+- To export the query to a .txt file that you can use in Power BI Desktop, you need [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+- To create a new dataset based on your query directly in the Power BI service:
+  - You need a Power BI account.
+  - You must give permission in Azure for the Power BI service to write logs. For more information, see [Prerequisites to configure Azure Log Analytics for Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure#prerequisites).
 
-In general, you can use free Power BI features to integrate and create visually appealing reports and dashboards.
+## Permissions required
 
-More advanced features may require purchasing a Power BI Pro or premium account. These features include: 
- - sharing your work 
- - scheduled refreshes
- - Power BI apps 
- - dataflows and incremental refresh 
+- To export the query to a .txt file that you can use in Power BI Desktop, you need `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+- To create a new dataset based on your query directly in the Power BI service, you need `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
-For more information, see [learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/) 
+## Create Power BI datasets and reports from Log Analytics queries
 
-## Integrating queries  
+From the **Export** menu in Log Analytics, select one of the two options for creating Power BI datasets and reports from your Log Analytics queries:
 
-Power BI uses the [M query language](/powerquery-m/power-query-m-language-specification/) as its main querying language. 
+:::image type="content" source="media/log-powerbi/export-to-power-bi-log-analytics-option.png" alt-text="Screenshot showing Export to Power BI option in the Log Analytics Export menu." lightbox="media/log-powerbi/export-to-power-bi-log-analytics-option.png":::
+ 
+- **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service. Otherwise, consider exporting the query as a new dataset.
+- **Power BI (new Dataset)**: This option creates a new dataset based on your query directly in the Power BI service. After the dataset has been created, you can create reports, use Analyze in Excel, share it with others, and use other Power BI features. For more information, see [Create a Power BI dataset directly from Log Analytics](/power-bi/connect-data/create-dataset-log-analytics).
 
-Log Analytics queries can be exported to M and used in Power BI directly. After running a successful query, select the **Export to Power BI (M query)** from the **Export** button in Log Analytics UI top action bar.
+## Collect data with Power BI dataflows
 
+[Power BI dataflows](/power-bi/service-dataflows-overview) also allow you to collect and store data. A dataflow is a type of cloud ETL (extract, transform, and load) process that helps you collect and prepare your data. A dataset is the "model" designed to help you connect different entities and model them for your needs.
 
-:::image type="content" source="media/log-powerbi/export-query2.png" alt-text="Log Analytics query showing export option menu pulldown" border="true":::
+## Incremental refresh
 
-Log Analytics creates a .txt file containing the M code that can be used directly in Power BI.
+Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature. To use incremental refresh on dataflows, you need Power BI Premium.
 
-## Connecting your logs to a dataset 
+Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all the data again and again when you run the query. You can save large amounts of data but add a new increment of data every time the query is run. This behavior is ideal for longer-running reports.
 
-A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, copy the M code exported from Log Analytics into a blank query in Power BI. 
+Power BI incremental refresh relies on the existence of a **datetime** field in the result set. Before you configure incremental refresh, make sure your Log Analytics query result set includes at least one **datetime** field.
 
-For more information, see [Understanding Power BI datasets](/power-bi/service-datasets-understand/). 
-
-## Collect data with Power BI dataflows 
-
-Power BI dataflows also allow you to collect and store data. For more information, see [Power BI Dataflows](/power-bi/service-dataflows-overview).
-
-A dataflow is a type of "cloud ETL" designed to help you collect and prep your data. A dataset is the "model" designed to help you connect different entities and model them for your needs.
-
-## Incremental refresh 
-
-Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature, but you need Power BI Premium to use it.  
-
-
-Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add a new increment of data every time the query is run. This behavior is ideal for longer running reports.
-
-Power BI incremental refresh relies on the existence of a *datetime* filed in the result set. Before configuring incremental refresh, make sure your Log Analytics query result set includes at least one *datetime* filed. 
-
-To learn more and how to configure incremental refresh, see [Power BI Datasets and Incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
+To learn more and how to configure incremental refresh, see [Power BI datasets and incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
 
 ## Reports and dashboards
 
 After your data is sent to Power BI, you can continue to use Power BI to create reports and dashboards.
 
-For more information, see [this guide on how to create your first Power BI model and report](/learn/modules/build-your-first-power-bi-report/).  
-
-## Excel integration
-
-You can use the same M integration used in Power BI to integrate with an Excel spreadsheet. For more information, see this [guide on how to integrate with excel](https://support.microsoft.com/office/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a) and then paste the M query exported from Log Analytics.
-
-Additional information can be found in [Integrate Log Analytics and Excel](log-excel.md)
+For more information, see [Create and share your first Power BI report](/training/modules/build-your-first-power-bi-report/).
 
 ## Next steps
 
-Get started with [Log Analytics queries](./log-query-overview.md).
+Learn how to:
+- [Get started with Log Analytics queries](./log-query-overview.md).
+- [Integrate Log Analytics and Excel](log-excel.md).

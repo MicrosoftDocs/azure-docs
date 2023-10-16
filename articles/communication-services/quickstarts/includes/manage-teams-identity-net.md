@@ -17,6 +17,9 @@ ms.author: gistefan
 
 - The latest version [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 
+## Final code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ManageTeamsIdentityMobileAndDesktop).
+
 ## Set up
 
 ### Create a new C# application
@@ -39,8 +42,8 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Identity --prerelease
-dotnet add package Microsoft.Identity.Client --version 4.36.2
+dotnet add package Azure.Communication.Identity
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### Set up the app framework
@@ -74,27 +77,38 @@ namespace CommunicationAccessTokensQuickstart
 }
 ```
 
-### Step 1: Receive the Azure AD user token via the MSAL library
+<a name='step-1-receive-the-azure-ad-user-token-and-object-id-via-the-msal-library'></a>
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
+### Step 1: Receive the Microsoft Entra user token and object ID via the MSAL library
+
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). The code below retrieves Microsoft Entra client ID and tenant ID from environment variables named `AAD_CLIENT_ID` and `AAD_TENANT_ID`. It's essential to configure the MSAL client with the correct authority, based on the `AAD_TENANT_ID` environment variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
 
 ```csharp
-string appId = "<contoso_application_id>";
-string tenantId = "<contoso_tenant_id>";
+// This code demonstrates how to fetch an AAD client ID and tenant ID 
+// from an environment variable.
+string appId = Environment.GetEnvironmentVariable("AAD_CLIENT_ID");
+string tenantId = Environment.GetEnvironmentVariable("AAD_TENANT_ID");
 string authority = $"https://login.microsoftonline.com/{tenantId}";
 string redirectUri = "http://localhost";
 
+// Create an instance of PublicClientApplication
 var aadClient = PublicClientApplicationBuilder
                 .Create(appId)
                 .WithAuthority(authority)
                 .WithRedirectUri(redirectUri)
                 .Build();
 
-string scope = "https://auth.msft.communication.azure.com/Teams.ManageCalls";
+List<string> scopes = new() {
+    "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+    "https://auth.msft.communication.azure.com/Teams.ManageChats"
+};
 
-var teamsUserAadToken = await aadClient
-                        .AcquireTokenInteractive(new List<string> { scope })
+// Retrieve the AAD token and object ID of a Teams user
+var result = await aadClient
+                        .AcquireTokenInteractive(scopes)
                         .ExecuteAsync();
+string teamsUserAadToken =  result.AccessToken;
+string userObjectId =  result.UniqueId;
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -110,12 +124,15 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
-### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+<a name='step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token'></a>
+
+### Step 3: Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
 
 Use the `GetTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```csharp
-var accessToken = await client.GetTokenForTeamsUserAsync(teamsUserAadToken.AccessToken);
+var options = new GetTokenForTeamsUserOptions(teamsUserAadToken, appId, userObjectId);
+var accessToken = await client.GetTokenForTeamsUserAsync(options);
 Console.WriteLine($"Token: {accessToken.Value.Token}");
 ```
 

@@ -1,12 +1,12 @@
 ---
-title: azcopy | Microsoft Docs
+title: azcopy
 description: This article provides reference information for the azcopy command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 07/21/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -29,13 +29,13 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 
 ## Options
 
-**--cap-mbps** (float)  Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+`--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
 
-**--help** Help for azcopy
+`-h`, `--help`    help for azcopy
 
-**--output-type**  (string) Format of the command's output. The choices include: text, json. The default value is `text`. (default `text`)
+`--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-**--trusted-microsoft-suffixes** (string) Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 
@@ -52,7 +52,9 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 - [azcopy jobs show](storage-ref-azcopy-jobs-show.md)
 - [azcopy list](storage-ref-azcopy-list.md)
 - [azcopy login](storage-ref-azcopy-login.md)
+- [azcopy login status](storage-ref-azcopy-login-status.md)
 - [azcopy logout](storage-ref-azcopy-logout.md)
 - [azcopy make](storage-ref-azcopy-make.md)
 - [azcopy remove](storage-ref-azcopy-remove.md)
 - [azcopy sync](storage-ref-azcopy-sync.md)
+- [azcopy set-properties](storage-ref-azcopy-set-properties.md)

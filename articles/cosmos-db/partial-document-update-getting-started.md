@@ -1,349 +1,451 @@
 ---
-title: Getting started with Azure Cosmos DB Partial Document Update
-description: This article provides example for how to use Partial Document Update with .NET, Java, Node SDKs
-author: rothja
+title: Get started with partial document update
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Learn how to use the partial document update feature with the .NET, Java, and Node SDKs for Azure Cosmos DB for NoSQL.
+author: AbhinavTrips
+ms.author: abtripathi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
-ms.date: 12/09/2021
-ms.author: jroth
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022, devx-track-dotnet, devx-track-extended-java
+ms.date: 05/23/2023
 ---
 
-# Azure Cosmos DB Partial Document Update: Getting Started
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+# Get started with Azure Cosmos DB Partial Document Update
 
-This article provides examples for how to use Partial Document Update with .NET, Java, Node SDKs, along with common errors that you may encounter. Code samples for the following scenarios have been provided:
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-- Executing a single patch operation
-- Combining multiple patch operations
-- Conditional patch syntax based on filter predicate
-- Executing patch operation as part of a Transaction
+This article provides examples that illustrate how to use Partial Document Update with .NET, Java, and Node SDKs. It also describes common errors that you might encounter.
 
-## .NET
+This article links to code samples for the following scenarios:
 
-Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 SDK](sql/sql-api-sdk-dotnet-standard.md) is available from version *3.23.0* onwards. You can download it from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.23.0)
+- Run a single patch operation
+- Combine multiple patch operations
+- Use conditional patch syntax based on filter predicate
+- Run patch operation as part of a transaction
+
+## Prerequisites
+
+- An existing Azure Cosmos DB account.
+  - If you have an Azure subscription, [create a new account](nosql/how-to-create-account.md?tabs=azure-portal).
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
+
+## [.NET](#tab/dotnet)
+
+Support for Partial Document Update (Patch API) in the [Azure Cosmos DB .NET v3 SDK](nosql/sdk-dotnet-v3.md) is available starting with version *3.23.0*. You can download it from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.23.0).
 
 > [!NOTE]
-> A complete partial document update sample can be found in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) on GitHub.
+> Find a complete Partial Document Update sample in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) on GitHub.
 
-**Executing a single patch operation**
+- Run a single patch operation:
 
-```csharp
-ItemResponse<SalesOrder> response = await container.PatchItemAsync<SalesOrder>(
-    id: order.Id,
-    partitionKey: new PartitionKey(order.AccountNumber),
-    patchOperations: new[] { PatchOperation.Replace("/TotalDue", 0) });
+    ```csharp
+    ItemResponse<Product> response = await container.PatchItemAsync<Product>(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        partitionKey: new PartitionKey("road-bikes"),
+        patchOperations: new[] {
+            PatchOperation.Replace("/price", 355.45)
+        }
+    );
+    
+    Product updated = response.Resource;
+    ```
 
-SalesOrder updated = response.Resource;
-```
+- Combine multiple patch operations:
 
-**Combining multiple patch operations**
+    ```csharp
+    List<PatchOperation> operations = new ()
+    {
+        PatchOperation.Add("/color", "silver"),
+        PatchOperation.Remove("/used"),
+        PatchOperation.Increment("/price", 50.00),
+        PatchOperation.Add("/tags/-", "featured-bikes")
+    };
+    
+    ItemResponse<Product> response = await container.PatchItemAsync<Product>(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        partitionKey: new PartitionKey("road-bikes"),
+        patchOperations: operations
+    );
+    ```
 
-```csharp
-List<PatchOperation> patchOperations = new List<PatchOperation>();
-patchOperations.Add(PatchOperation.Add("/nonExistentParent/Child", "bar"));
-patchOperations.Add(PatchOperation.Remove("/cost"));
-patchOperations.Add(PatchOperation.Increment("/taskNum", 6));
-patchOperations.Add(PatchOperation.Set("/existingPath/newproperty",value));
+- Use conditional patch syntax based on filter predicate:
 
-container.PatchItemAsync<item>(
-                id: 5,
-                partitionKey: new PartitionKey("task6"),
-                patchOperations: patchOperations );
-```
+    ```csharp
+    PatchItemRequestOptions options = new()
+    {
+        FilterPredicate = "FROM products p WHERE p.used = false"
+    };
+    
+    List<PatchOperation> operations = new ()
+    {
+        PatchOperation.Replace($"/price", 100.00),
+    };
+    
+    ItemResponse<Product> response = await container.PatchItemAsync<Product>(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        partitionKey: new PartitionKey("road-bikes"),
+        patchOperations: operations,
+        requestOptions: options
+    );
+    ```
 
-**Conditional patch syntax based on filter predicate**
+- Run patch operation as a part of a transaction:
 
-```csharp
-PatchItemRequestOptions patchItemRequestOptions = new PatchItemRequestOptions
-{
-    FilterPredicate = "from c where (c.TotalDue = 0 OR NOT IS_DEFINED(c.TotalDue))"
-};
-response = await container.PatchItemAsync<SalesOrder>(
-    id: order.Id,
-    partitionKey: new PartitionKey(order.AccountNumber),
-    patchOperations: new[] { PatchOperation.Replace("/ShippedDate", DateTime.UtcNow) },
-    patchItemRequestOptions);
+    ```csharp
+    TransactionalBatchPatchItemRequestOptions options = new()
+    {
+        FilterPredicate = "FROM products p WHERE p.used = false"
+    };
+    
+    List<PatchOperation> operations = new ()
+    {
+        PatchOperation.Add($"/new", true),
+        PatchOperation.Remove($"/used")
+    };
+    
+    TransactionalBatch batch = container.CreateTransactionalBatch(
+        partitionKey: new PartitionKey("road-bikes")
+    );
+    batch.PatchItem(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        patchOperations: operations,
+        requestOptions: options
+    );
+    batch.PatchItem(
+        id: "892f609b-8885-44df-a9ed-cce6c0bd2b9e",
+        patchOperations: operations,
+        requestOptions: options
+    );
+    
+    TransactionalBatchResponse response = await batch.ExecuteAsync();
+    bool success = response.IsSuccessStatusCode;
+    ```
 
-SalesOrder updated = response.Resource;
-```
+## [Java](#tab/java)
 
-**Executing patch operation as a part of a Transaction**
-
-
-```csharp
-List<PatchOperation> patchOperationsUpdateTask = new List<PatchOperation>()
-            {
-                PatchOperation.Add("/children/1/pk", "patched"),
-                PatchOperation.Remove("/description"),
-                PatchOperation.Add("/taskNum", 8),
-		        PatchOperation.Replace("/taskNum", 12)
-            };
-
-TransactionalBatchPatchItemRequestOptions requestOptionsFalse = new TransactionalBatchPatchItemRequestOptions()
-            {
-                FilterPredicate = "from c where c.taskNum = 3"
-            };
-
-TransactionalBatchInternal transactionalBatchInternalFalse = (TransactionalBatchInternal)containerInternal.CreateTransactionalBatch(new Cosmos.PartitionKey(testItem.pk));
-transactionalBatchInternalFalse.PatchItem(id: testItem1.id, patchOperationsUpdateTaskNum12, requestOptionsFalse);
-transactionalBatchInternalFalse.PatchItem(id: testItem2.id, patchOperationsUpdateTaskNum12, requestOptionsFalse);
-transactionalBatchInternalFalse.ExecuteAsync());
-```
-
-## Java
-
-Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 SDK](sql/sql-api-sdk-java-v4.md) is available from version *4.21.0* onwards. You can either add it to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
+Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Java v4 SDK](nosql/sdk-java-v4.md) is available starting with version *4.21.0*. You can either add it to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
 
 ```xml
 <dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-cosmos</artifactId>
-	<version>4.21.0</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>LATEST</version>
 </dependency>
 ```
 
 > [!NOTE]
-> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/patch/sync) on GitHub
+> Find the full sample in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/patch/sync) on GitHub.
 
-**Executing a single patch operation**
+- Run a single patch operation:
 
-```java
-CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-cosmosPatchOperations.add("/registered", true);
+    ```java
+    CosmosItemResponse<Product> response = container.patchItem(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        new PartitionKey("road-bikes"),
+        CosmosPatchOperations
+            .create()
+            .replace("/price", 355.45),
+        Product.class
+    );
 
-CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
+    Product updated = response.getItem();
+    ```
 
-CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
-                                      cosmosPatchOperations, options, Family.class);
-```
+- Combine multiple patch operations:
 
-**Combining multiple patch operations**
+    ```java
+    CosmosPatchOperations operations = CosmosPatchOperations
+        .create()
+        .add("/color", "silver")
+        .remove("/used")
+        .increment("/price", 50);
 
-```java
-CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-cosmosPatchOperations.add("/registered", true)
-                     .replace("/parents/0/familyName", "Doe");
-CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
+    CosmosItemResponse<Product> response = container.patchItem(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        new PartitionKey("road-bikes"),
+        operations,
+        Product.class
+    );
+    ```
 
-CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
-                                      cosmosPatchOperations, options, Family.class);
-```
+- Use conditional patch syntax based on filter predicate:
 
-**Conditional patch syntax based on filter predicate**
+    ```java
+    CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
+    options.setFilterPredicate("FROM products p WHERE p.used = false");
 
-```java
-CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-                                                                   .add("/vaccinated", true);
-CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
-options.setFilterPredicate("from f where f.registered = true");
+    CosmosPatchOperations operations = CosmosPatchOperations
+        .create()
+        .replace("/price", 100.00);
 
-CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
-                                      cosmosPatchOperations, options, Family.class);
-```
+    CosmosItemResponse<Product> response = container.patchItem(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        new PartitionKey("road-bikes"),
+        operations,
+        options,
+        Product.class
+    );
+    ```
 
-**Executing patch operation as a part of a Transaction**
+- Run patch operation as a part of a transaction:
 
-```java
-CosmosBatch batch = CosmosBatch.createCosmosBatch(new PartitionKey(family.getLastName()));
-batch.createItemOperation(family);
+    ```java
+    CosmosBatchPatchItemRequestOptions options = new CosmosBatchPatchItemRequestOptions();
+    options.setFilterPredicate("FROM products p WHERE p.used = false");
 
-CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create().add("/registered", false);
-batch.patchItemOperation(family.getId(), cosmosPatchOperations);
+    CosmosPatchOperations operations = CosmosPatchOperations
+        .create()
+        .add("/new", true)
+        .remove("/used");
 
-CosmosBatchResponse response = container.executeCosmosBatch(batch);
-if (response.isSuccessStatusCode()) {
-    // if transactional batch succeeds   
-}
-```
+    CosmosBatch batch = CosmosBatch.createCosmosBatch(
+        new PartitionKey("road-bikes")
+    );
+    batch.patchItemOperation(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        operations,
+        options
+    );
+    batch.patchItemOperation(
+        "892f609b-8885-44df-a9ed-cce6c0bd2b9e",
+        operations,
+        options
+    );
 
-## Node.js
+    CosmosBatchResponse response = container.executeCosmosBatch(batch);
+    boolean success = response.isSuccessStatusCode();
+    ```
 
-Support for Partial document update (Patch API) in the [Azure Cosmos DB JavaScript SDK](sql/sql-api-sdk-node.md) is available from version *3.15.0* onwards. You can download it from the [NPM Registry](https://www.npmjs.com/package/@azure/cosmos/v/3.15.0)
+## [Node.js](#tab/nodejs)
+
+Support for Partial Document Update (Patch API) in the [Azure Cosmos DB JavaScript SDK](nosql/sdk-nodejs.md) is available starting with version *3.15.0*. You can download it from the [npm Registry](https://www.npmjs.com/package/@azure/cosmos).
 
 > [!NOTE]
-> A complete partial document update sample can be found in the [.js v3 samples repository](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/ItemManagement.ts#L167) on GitHub. In the sample, as the container is created without a partition key specified, the JavaScript SDK
-resolves the partition key values from the items through the container's partition
-key definition.
+> Find a complete Partial Document Update sample in the [.js v3 samples repository](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/ItemManagement.ts#L167) on GitHub. In the sample, as the container is created without a partition key specified, the JavaScript SDK resolves the partition key values from the items through the container's partition key definition.
 
-**Executing a single patch operation**
+- Run a single patch operation:
+
+    ```javascript
+    const operations =
+    [
+        { op: 'replace', path: '/price', value: 355.45 }
+    ];
+    
+    const { resource: updated } = await container
+        .item(
+            'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            'road-bikes'
+        )
+        .patch(operations);
+    ```
+
+- Combine multiple patch operations:
+
+    ```javascript
+    const operations =
+    [
+        { op: 'add', path: '/color', value: 'silver' },
+        { op: 'remove', path: '/used' }
+    ];
+    
+    const { resource: updated } = await container
+        .item(
+            'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            'road-bikes'
+        )
+        .patch(operations);
+    ```
+
+- Use conditional patch syntax based on filter predicate:
+
+    ```javascript
+    const filter = 'FROM products p WHERE p.used = false'
+
+    const operations =
+    [
+        { op: 'replace', path: '/price', value: 100.00 }
+    ];
+    
+    const { resource: updated } = await container
+        .item(
+            'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            'road-bikes'
+        )
+        .patch(
+            body = operations,
+            options = filter
+        );
+    ```
+
+---
+
+## [Python (Preview)](#tab/python)
+
+Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python SDK](nosql/sdk-python.md) is available in Preview starting with version *4.4.0b2*. You can download it from the [pip Registry](https://pypi.org/project/azure-cosmos/4.4.0b2/).
+
+> [!NOTE]
+> Find a complete Partial Document Update sample in the [python samples repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/document_management.py#L105C8-L122) on GitHub. 
+
+- Run a single patch operation:
+
+    ```python
+    operations =
+    [
+        { op: 'replace', path: '/price', value: 355.45 }
+    ]
+    
+    response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
+    
+    ```
+
+- Combine multiple patch operations:
+
+    ```python
+    operations =
+    [
+        { op: 'add', path: '/color', value: 'silver' },
+        { op: 'remove', path: '/used' }
+    ]
+    
+    response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
+
+    ```
+
+- Use conditional patch syntax based on filter predicate:
+
+    ```python
+    filter = "from products p WHERE p.used = false"
+
+    operations =
+    [
+        { op: 'replace', path: '/price', value: 100.00 }
+    ]
+
+    try:
+        container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations, filter_predicate=filter)
+    except exceptions.CosmosHttpResponseError as e:
+        print('\nError occured. {0}'.format(e.message))
+    
+    ```
+
+---
+
+## Support for server-side programming
+
+Partial Document Update operations can also be [executed on the server-side](stored-procedures-triggers-udfs.md) using stored procedures, triggers, and user-defined functions.
 
 ```javascript
-const patchSource = itemDefList[1];
+this.patchDocument = function (documentLink, patchSpec, options, callback) {
+    if (arguments.length < 2) {
+        throw new Error(ErrorCodes.BadRequest, sprintf(errorMessages.invalidFunctionCall, 'patchDocument', 2, arguments.length));
+    }
+    if (patchSpec === null || !(typeof patchSpec === "object" || Array.isArray(patchSpec))) {
+        throw new Error(ErrorCodes.BadRequest, errorMessages.patchSpecMustBeObjectOrArray);
+    }
 
-const replaceOperation: PatchOperation[] = 
-    [{ 
-      op: "replace", 
-      path: "/lastName", 
-      value: "Martin" 
-    }];
+    var documentIdTuple = validateDocumentLink(documentLink, false);
+    var collectionRid = documentIdTuple.collId;
+    var documentResourceIdentifier = documentIdTuple.docId;
+    var isNameRouted = documentIdTuple.isNameRouted;
 
-const { resource: patchSource1 } = await container.item(patchSource.lastName).patch(replaceOperation); 
-console.log(`Patched ${patchSource1.lastName} to new ${patchSource1.lastName}.`); 
-```
+    patchSpec = JSON.stringify(patchSpec);
+    var optionsCallbackTuple = validateOptionsAndCallback(options, callback);
 
-**Combining multiple patch operations**
+    options = optionsCallbackTuple.options;
+    callback = optionsCallbackTuple.callback;
 
-```javascript
-const multipleOperations: PatchOperation[] = [ 
-    { 
-      op: "add", 
-      path: "/aka", 
-      value: "MeFamily" 
-    }, 
-    { 
-      op: "add", 
-      path: "/years", 
-      value: 12 
-    }, 
-    { 
-      op: "replace", 
-      path: "/lastName", 
-      value: "Jose" 
-    }, 
-    { 
-      op: "remove", 
-      path: "/parents" 
-    }, 
-    { 
-      op: "set", 
-      path: "/children/firstName", 
-      value: "Anderson" 
-    }, 
-    { 
-      op: "incr", 
-      path: "/years", 
-      value: 5 
-    } 
-  ]; 
+    var etag = options.etag || '';
+    var indexAction = options.indexAction || '';
 
-const { resource: patchSource2  } = await container.item(patchSource.id).patch(multipleOperations); 
- ```
-
-**Conditional patch syntax based on filter predicate**
-
-```javascript
-const operations : PatchOperation[] = [ 
-    { 
-      op: "add", 
-      path: "/newImproved", 
-      value: "it works" 
-    } 
-  ]; 
-
-const condition = "from c where NOT IS_DEFINED(c.newImproved)"; 
-
-const { resource: patchSource3 } = await container 
-    .item(patchSource.id) 
-    .patch({ condition, operations }); 
-
-console.log(`Patched ${patchSource3} to new ${patchSource3}.`); 
-```
-
-## Support for Server-Side programming
-
-Partial Document Update operations can also be [executed on the server-side](stored-procedures-triggers-udfs.md) using Stored procedures, triggers, and user-defined functions.
-
-
-```javascript
-        this.patchDocument = function (documentLink, patchSpec, options, callback) { 
-                if (arguments.length < 2) { 
-                    throw new Error(ErrorCodes.BadRequest, sprintf(errorMessages.invalidFunctionCall, 'patchDocument', 2, arguments.length)); 
+    return collectionObjRaw.patch(
+        collectionRid,
+        documentResourceIdentifier,
+        isNameRouted,
+        patchSpec,
+        etag,
+        indexAction,
+        function (err, response) {
+            if (callback) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(undefined, JSON.parse(response.body), response.options);
                 }
-                if (patchSpec === null || !(typeof patchSpec === "object" || Array.isArray(patchSpec))) { 
-                    throw new Error(ErrorCodes.BadRequest, errorMessages.patchSpecMustBeObjectOrArray); 
-                } 
-
-                var documentIdTuple = validateDocumentLink(documentLink, false); 
-                var collectionRid = documentIdTuple.collId; 
-                var documentResourceIdentifier = documentIdTuple.docId; 
-                var isNameRouted = documentIdTuple.isNameRouted; 
-
-                patchSpec = JSON.stringify(patchSpec); 
-                var optionsCallbackTuple = validateOptionsAndCallback(options, callback); 
-
-                options = optionsCallbackTuple.options; 
-                callback = optionsCallbackTuple.callback; 
-
-                var etag = options.etag || ''; 
-                var indexAction = options.indexAction || ''; 
-
-                return collectionObjRaw.patch( 
-                    collectionRid, 
-                    documentResourceIdentifier, 
-                    isNameRouted, 
-                    patchSpec, 
-                    etag, 
-                    indexAction, 
-                    function (err, response) { 
-                        if (callback) { 
-                            if (err) { 
-                                callback(err); 
-                            } else { 
-                                callback(undefined, JSON.parse(response.body), response.options); 
-                            } 
-                        } else { 
-                            if (err) { 
-                                throw err; 
-                            } 
-                        } 
-                    } 
-                ); 
-            }; 
+            } else {
+                if (err) {
+                    throw err;
+                }
+            }
+        }
+    );
+}; 
 ```
+
 > [!NOTE]
-> Definition of validateOptionsAndCallback can be found in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
+> Find the definition of `validateOptionsAndCallback` in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
 
-
-**Sample parameter for patch operation**
+Sample stored procedure for patch operation:
 
 ```javascript
-function () {
-   var doc = {
-      "id": "exampleDoc",
-      "field1": {
-         "field2": 10,
-         "field3": 20
-      }
-   };
-   var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
-         if (err) throw err;
-         var patchSpec = [
-            {"op": "add", "path": "/field1/field2", "value": 20}, 
-            {"op": "remove", "path": "/field1/field3"}
-         ];
-         isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
-               if (err) throw err;
-               else {
-                  getContext().getResponse().setBody(docPatched);
-               }
-            }
-         }
-         if(!isAccepted) throw new Error("patch was't accepted")
-      }
-   }
-   if(!isAccepted) throw new Error("create wasn't accepted")
+function patchDemo() {
+    var doc = {
+        "id": "exampleDoc",
+        "fields": {
+            "field1": "exampleString",
+            "field2": 20,
+            "field3": 40
+        }
+    };
+    
+    var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            getContext().getResponse().setBody("Example document successfully created.");
+            
+            var patchSpec = [
+                { "op": "add", "path": "/fields/field1", "value": "newExampleString" },
+                { "op": "remove", "path": "/fields/field2" },
+                { "op": "incr", "path": "/fields/field3", "value": 10 }
+            ];
+            
+            var isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
+                if (err) {
+                    throw err;
+                }
+                else {
+                    getContext().getResponse().appendBody(" Example document successfully patched.");
+                }
+            });
+            
+            if (!isAccepted) throw new Error("Patch wasn't accepted");
+        }
+    });
+
+    if (!isAccepted) throw new Error("Create wasn't accepted.");
 }
 ```
 
 ## Troubleshooting
 
-Here is a list of common errors that you might encounter while using this feature:
+Here's some common errors that you might encounter while using this feature:
 
 | **Error Message** | **Description** |
 | ------------ | -------- |
-| Invalid patch request: check syntax of patch specification| The Patch operation syntax is invalid. Please review [the specification](partial-document-update.md#rest-api-reference-for-partial-document-update)
-| Invalid patch request: Cannot patch system property `SYSTEM_PROPERTY`. | Patching system-generated properties like `_id`, `_ts`, `_etag`, `_rid` is not supported. To learn more: [Partial Document Update FAQs](partial-document-update-faq.yml#is-partial-document-update-supported-for-system-generated-properties-) 
-| The number of patch operations cannot exceed 10 | There is a limit of 10 patch operations that can be added in a single patch specification. To learn more: [Partial Document Update FAQs](partial-document-update-faq.yml#is-there-a-limit-to-the-number-of-partial-document-update-operations-)
-| For Operation(`PATCH_OPERATION_INDEX`): Index(`ARRAY_INDEX`) to operate on is out of array bounds | The index of array element to be patched is out of bounds 
-| For Operation(`PATCH_OPERATION_INDEX`)): Node(`PATH`) to be replaced has been removed earlier in the transaction.| The path you are trying to patch does not exist.
-| For Operation(`PATCH_OPERATION_INDEX`): Node(`PATH`) to be removed is absent. Note: it may also have been removed earlier in the transaction.  | The path you are trying to patch does not exist.
-| For Operation(`PATCH_OPERATION_INDEX`): Node(`PATH`) to be replaced is absent. | The path you are trying to patch does not exist.
-| For Operation(`PATCH_OPERATION_INDEX`): Node(`PATH`) is not a number.| Increment operation can only work on integer and float. To learn more: [Supported Operations](partial-document-update.md#supported-operations)
-| For Operation(`PATCH_OPERATION_INDEX`): Add Operation can only create a child object of an existing node(array or object) and cannot create path recursively, no path found beyond: `PATH`. | Child paths can be added to an object or array node type. Also, to create `n`th child, `n-1`th child should be present 
-| For Operation(`PATCH_OPERATION_INDEX`): Given Operation can only create a child object of an existing node(array or object) and cannot create path recursively, no path found beyond: `PATH`. | Child paths can be added to an object or array node type. Also, to create `n`th child, `n-1`th child should be present 
+| Invalid patch request: check syntax of patch specification. | The patch operation syntax is invalid. For more information, see [the Partial Document Update specification](partial-document-update.md#rest-api-reference-for-partial-document-update). |
+| Invalid patch request: Can't patch system property `SYSTEM_PROPERTY`. | System-generated properties like `_id`, `_ts`, `_etag`, `_rid` aren't modifiable using a patch operation. For more information, see [Partial Document Update FAQs](partial-document-update-faq.yml#is-partial-document-update-supported-for-system-generated-properties-). |
+| The number of patch operations can't exceed 10. | There's a limit of 10 patch operations that can be added in a single patch specification. For more information, see [Partial Document Update FAQs](partial-document-update-faq.yml#is-there-a-limit-to-the-number-of-partial-document-update-operations-). |
+| For Operation(`PATCH_OPERATION_INDEX`): Index(`ARRAY_INDEX`) to operate on is out of array bounds. | The index of array element to be patched is out of bounds. |
+| For Operation(`PATCH_OPERATION_INDEX`)): Node(`PATH`) to be replaced has been removed earlier in the transaction. | The path you're trying to patch doesn't exist. |
+| For Operation(`PATCH_OPERATION_INDEX`): Node(`PATH`) to be removed is absent. Note: it might also have been removed earlier in the transaction. | The path you're trying to patch doesn't exist. |
+| For Operation(`PATCH_OPERATION_INDEX`): Node(`PATH`) to be replaced is absent. | The path you're trying to patch doesn't exist. |
+| For Operation(`PATCH_OPERATION_INDEX`): Node(`PATH`) isn't a number. | Increment operation can only work on integer and float. For more information, see: [Supported Operations](partial-document-update.md#supported-operations). |
+| For Operation(`PATCH_OPERATION_INDEX`): Add Operation can only create a child object of an existing node (array or object) and can't create path recursively, no path found beyond: `PATH`. | Child paths can be added to an object or array node type. Also, to create `n`th child, `n-1`th child should be present. |
+| For Operation(`PATCH_OPERATION_INDEX`): Given Operation can only create a child object of an existing node(array or object) and can't create path recursively, no path found beyond: `PATH`. | Child paths can be added to an object or array node type. Also, to create `n`th child, `n-1`th child should be present. |
 
 ## Next steps
 
-- Learn more about conceptual overview of [Partial Document Update](partial-document-update.md)
+- [Frequently asked questions about Partial Document Update in Azure Cosmos DB](partial-document-update-faq.yml)

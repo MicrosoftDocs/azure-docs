@@ -4,10 +4,10 @@ title: Azure Durable Functions documentation # <60 chars
 summary: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. # < 160 chars
 
 metadata:
-  title: Azure Durable Functions documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Durable Functions documentation
+  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment.
   ms.service: azure-functions 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: ggailey777 
   ms.author: azfundocs 
   ms.date: 10/04/2019 
@@ -49,7 +49,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create a long-running serverless workflow
-            url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/
+            url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/
       - linkListType: video
         links:
           - text: Watch how to get started

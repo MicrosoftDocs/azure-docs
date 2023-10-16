@@ -1,26 +1,25 @@
 ---
-title: Define unique keys for an Azure Cosmos container
-description: Learn how to define unique keys for an Azure Cosmos container using Azure portal, PowerShell, .NET, Java, and various other SDKs. 
-author: ThomasWeiss
+title: Define unique keys for an Azure Cosmos DB container
+description: Learn how to define unique keys for an Azure Cosmos DB container using Azure portal, PowerShell, .NET, Java, and various other SDKs. 
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: thweiss
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-
+ms.author: sidandrews
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-2022, devx-track-dotnet, devx-track-extended-java
 ---
 
-# Define unique keys for an Azure Cosmos container
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+# Define unique keys for an Azure Cosmos DB container
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-This article presents the different ways to define [unique keys](unique-keys.md) when creating an Azure Cosmos container. It's currently possible to perform this operation either by using the Azure portal or through one of the SDKs.
+This article presents the different ways to define [unique keys](unique-keys.md) when creating an Azure Cosmos DB container. It's currently possible to perform this operation either by using the Azure portal or through one of the SDKs.
 
 ## Use the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account) or select an existing one.
+1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account) or select an existing one.
 
 1. Open the **Data Explorer** pane and select the container that you want to work on.
 
@@ -36,7 +35,7 @@ This article presents the different ways to define [unique keys](unique-keys.md)
 
 ## Use PowerShell
 
-To create a container with unique keys see, [Create an Azure Cosmos container with unique key and TTL](manage-with-powershell.md#create-container-unique-key-ttl)
+To create a container with unique keys see, [Create an Azure Cosmos DB container with unique key and TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## Use the .NET SDK
 

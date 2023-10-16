@@ -1,83 +1,148 @@
 ---
-title: Manage a VM pool in Azure Lab Services
-description: Learn how to manage a VM pool in Azure Lab Services
+title: Manage a lab VM pool
+titleSuffix: Azure Lab Services
+description: Learn how to manage a lab VM pool in Azure Lab Services and change the number of lab virtual machines that are available for lab users.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 07/04/2023
 ---
 
-# Manage a VM pool in Lab Services
+# Manage a lab virtual machine pool in Azure Lab Services
 
-The **Virtual machine pool** page of a lab allows educators to set how many VMs are available for use and manage the state of those VMs.
+Learn how you can manage the pool of lab virtual machines (VMs) in Azure Lab Services. Change the capacity of the lab to add or remove lab VMs, connect to a lab, or manage the state of individual lab VMs.
 
-- Start and stop all the VMs at once.
-- Start and stop specific VMs.
-- Reset a VM.
-- Connect to a student's VM.
-- Change the lab capacity.
+The lab virtual machine pool represents the set of lab VMs that are available for lab users to connect to. The lab VM creation starts when you publish a lab template, or when you update the lab capacity.
 
-VMs can be in one of a few states.
+When you synchronize the lab user list with a Microsoft Entra group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership.
 
-- **Unassigned**. These VMs aren't assigned to students yet. These VMs won't be started when a schedule runs.
-- **Stopped**. VM is turned off and not available for use.
-- **Starting**.  VM is starting.  It's not yet available for use.
-- **Running**. VM is running and available for use.
-- **Stopping**.  VM is stopping and not available for use.
+## Prerequisites
 
-> [!WARNING]
-> Turning on a student VM will not affect the quota for the student. Make sure to stop all VMs manually or using a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
-## Manually starting VMs
+## Lab VM states
 
-You can start all VMs in a lab by selecting the **Start all** button at the top of the page.
+A lab VM can be in one of the following states:
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/start-all-vms-button.png" alt-text="Screenshot that shows the Virtual machine pool page and the Start all button is highlighted.":::
+- **Unassigned**. The lab VM is not assigned to a lab user yet. The lab VM doesn't automatically start with the lab schedule.
+- **Stopped**. The lab VM is turned off and not available for use.
+- **Starting**.  The lab VM is starting.  It's not yet available for use.
+- **Running**. The lab VM is running and is available for use.
+- **Stopping**.  The lab VM is stopping and not available for use.
 
-Individual VMs can be started by clicking the state toggle.  The toggle will read **Starting** as the VM starts up, and then **Running** once the VM has started.  You can also select multiple VMs using the checks to the left of the **Name** column. Once the VMs are checked, select the **Start** button at the top of the screen.
+## Change lab capacity
 
-## Manually stopping VMs
+When you synchronize the lab user list with a Microsoft Entra group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership. When you add or remove a user, the lab capacity increases or decreases accordingly. Lab users are also automatically registered and assigned to their lab VM.
 
-You can select the **Stop all** button to stop all of the VMs.
+If you manage the lab user list manually, you can modify the lab capacity to modify the number of lab VMs that are available for lab users.
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png" alt-text="Screenshot that shows the Virtual machine pool page and the Stop all button is highlighted.":::
+1. Go to the **Virtual machine pool** page for the lab.
 
-Individual VMs can be stopped by clicking the state toggle.  The toggle will read **Stopping** as the VM shuts down, and then **Stopped** once the VM has shutdown.  You can also select multiple VMs using the checks to the left of the **Name** column. Once the VMs are checked, select the **Stop** button at the top of the screen.
+1. Select **Lab capacity** on the toolbar
 
-## Reset VMs
+1. In the **Lab capacity** window, update the number of lab VMs.
 
-To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar.
+    :::image type="content" source="./media/how-to-manage-vm-pool/virtual-machine-pool-update-lab-capacity.png" alt-text="Screenshot of Lab capacity window.":::
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/reset-vm-button.png" alt-text="Screenshot of virtual machine pool.  Reset button is highlighted.":::
+## Manually start lab VMs
 
-On the **Reset virtual machine(s)** dialog box, select **Reset**.
+To manually start all lab VMs:
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png" alt-text="Screenshot of reset virtual machine confirmation dialog.":::
+1. Go to the **Virtual machine pool** page for the lab.
 
-### Redeploy VMs
+1. Select the **Start all** button at the top of the page.
 
-In the [April 2022 Update (preview)](lab-services-whats-new.md), redeploying VMs replaces the previous reset VM behavior.  In the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com), the command is named **Troubleshoot** and is available in the student's view of their VMs.
+    :::image type="content" source="./media/how-to-manage-vm-pool/start-all-vms-button.png" alt-text="Screenshot that shows the Virtual machine pool page and the Start all button is highlighted.":::
 
-If students are facing difficulties accessing their VM, redeploying the VM may provide a resolution for the issue. Redeploying, unlike resetting, doesn't cause the data on the OS to be lost.  When you [redeploy a VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows), Azure Lab Services will shut down the VM, move it to a new host, and restart it.  You can think of it as a refresh of the underlying VM for the student’s machine.  The student doesn’t need to re-register to the lab or do any other action.  Any data you saved in the OS disk (usually C: drive) of the VM will still be available after the redeploy operation.  Anything saved on the temporary disk (usually D: drive) will be lost.
+To start individual lab VMs:
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/redeploy-vms.png" alt-text="Screenshot of redeploy virtual machine menu option.":::
+1. Go to the **Virtual machine pool** page for the lab.
 
-## Connect to VMs
+1. In the list of lab VMs, select the state toggle control for individual lab VMs.
 
-Educators can connect to a student VM as long as it's turned on. Verify the student *isn't* connected to the VM first. By connecting to the VM, you can access local files on the VM and help students troubleshoot issues.
+    The toggle text changes to **Starting** as the VM starts up, and then **Running** once the VM has started.
 
-To connect to the student VM, hover the mouse on the VM in the list and select the **Connect** button.  For further instructions based on the operating system you're using, see [Connect to a lab VM](connect-virtual-machine.md).
+1. Alternately, select multiple VMs using the checks to the left of the **Name** column, and then select the **Start** button at the top of the page.
 
-## Set lab capacity
+> [!NOTE]
+> When you start a lab VM *from the virtual machine pool page*, it doesn't affect the available [quota hours](./classroom-labs-concepts.md#quota) for the lab user. Make sure to stop all lab VMs manually or use a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
 
-To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar and update number of VMs on the **Lab capacity** window on the right.
+## Manually stop lab VMs
 
-:::image type="content" source="./media/how-to-manage-vm-pool/virtual-machine-pool-update-lab-capacity.png" alt-text="Screenshot of Lab capacity window.":::
+To manually stop all lab VMs:
 
-If using [Teams](how-to-manage-vm-pool-within-teams.md) or [Canvas](how-to-manage-vm-pool-within-canvas.md) integration, lab capacity will automatically be updated when Azure Lab Services syncs the user list.
+1. Go to the **Virtual machine pool** page for the lab.
 
-## Export list of VMs
+1. Select the **Stop all** button to stop all of the lab VMs.
 
-1. Switch to the **Virtual machine pool** tab.
-2. Select **...** (ellipsis) on the toolbar and then select **Export CSV**.
+    :::image type="content" source="./media/how-to-manage-vm-pool/stop-all-vms-button.png" alt-text="Screenshot that shows the Virtual machine pool page and the Stop all button is highlighted.":::
+
+To start individual lab VMs:
+
+1. Go to the **Virtual machine pool** page for the lab.
+
+1. In the list of lab VMs, select the state toggle control for individual lab VMs.
+
+    The toggle text changes to **Stopping** as the VM starts up, and then **Stopped** once the VM has shut down.
+
+1. Alternately, select multiple VMs using the checks to the left of the **Name** column, and then select the **Stop** button at the top of the page.
+
+## Reimage lab VMs
+
+When you reimage a lab VM, Azure Lab Services shuts down the lab VM, deletes it, and recreates a new lab VM from the original lab template. You can think of a reimage operation as a refresh of the entire VM.
+
+> [!CAUTION]
+> After you reimage a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. Learn how you can [store the user data outside the lab VM](./troubleshoot-access-lab-vm.md#store-user-data-outside-the-lab-vm).
+
+To reimage one or more lab VMs:
+
+1. Go to the **Virtual machine pool** page for the lab.
+
+1. Select one or multiple VMs from the list, and then select **Reimage** in the toolbar.
+
+    :::image type="content" source="./media/how-to-manage-vm-pool/reset-vm-button.png" alt-text="Screenshot of virtual machine pool.  Reimage button is highlighted.":::
+
+1. On the **Reimage virtual machine** dialog box, and then select **Reimage** to start the operation.
+
+    After the reimage operation finishes, the lab VMs are recreated from the lab template, and assigned to the lab users.
+
+## Redeploy lab VMs
+
+When you redeploy a lab VM, Azure Lab Services shuts down the lab VM, moves the lab VM to a new node in the Azure infrastructure, and then powers it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab.
+
+All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM is still available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation.
+
+To redeploy one or more lab VMs:
+
+1. Go to the **Virtual machine pool** page for the lab.
+
+1. Select one or multiple VMs from the list, and then select **Redeploy** in the toolbar.
+
+    :::image type="content" source="./media/how-to-manage-vm-pool/redeploy-vm-button.png" alt-text="Screenshot that shows the virtual machine pool in the Lab Services web portal, highlighting the Redeploy button.":::
+
+1. On the **Redeploy virtual machine** dialog box, select **Redeploy** to start the redeployment.
+
+## Connect to lab VMs
+
+You can connect to a lab user's VM, for example to access local files on the lab VM and help lab users troubleshoot issues. To connect to a lab VM, it must be running.
+
+1. Go to the **Virtual machine pool** page for the lab.
+
+1. Verify that the lab user is *not* connected to the lab VM. 
+
+1. Hover over the lab VM in the list, and then select the **Connect** button.
+
+    For further instructions based on the operating system you're using, see [Connect to a lab VM](connect-virtual-machine.md).
+
+## Export the list of lab VMs
+
+1. Go to the **Virtual machine pool** page for the lab.
+
+1. Select **...** (ellipsis) on the toolbar, and then select **Export CSV**.
 
     :::image type="content" source="./media/how-to-manage-vm-pool/virtual-machines-export-csv.png" alt-text="Screenshot of virtual machine pool page in Azure Lab Services.  The Export CSV menu item is highlighted.":::
 
@@ -86,5 +151,5 @@ If using [Teams](how-to-manage-vm-pool-within-teams.md) or [Canvas](how-to-manag
 See the following articles:
 
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
 - [As a lab user, access labs](how-to-use-lab.md)

@@ -38,11 +38,11 @@
       items:
       - name: Overview (authentication and authorization)
         href: relay-authentication-and-authorization.md      
-      - name: Use Azure Active Directory 
+      - name: Use Microsoft Entra ID 
         items:
-        - name: Authenticate with managed identities (Preview)
+        - name: Authenticate with managed identities
           href: authenticate-managed-identity.md 
-        - name: Authenticate from an application (Preview)
+        - name: Authenticate from an application
           href: authenticate-application.md
     - name: Network security
       href: network-security.md      
@@ -83,6 +83,8 @@
       href: diagnostic-logs.md
 - name: Reference
   items:
+  - name: REST
+    href: /rest/api/relay/
   - name: .NET
     items:
     - name: Microsoft.Azure.Relay

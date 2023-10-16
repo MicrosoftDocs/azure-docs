@@ -1,10 +1,12 @@
 ---
 title: Grant an application access to other Azure resources
-description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
-
-ms.topic: article
-ms.date: 12/09/2019
-ms.custom: subject-rbac-steps
+description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Microsoft Entra ID-based authentication.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Granting a Service Fabric application's managed identity access to Azure resources

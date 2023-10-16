@@ -13,7 +13,7 @@ As an extension of the Azure location construct, a *custom location* provides a 
 
 Since the custom location is an Azure Resource Manager resource that supports [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md), an administrator or operator can determine which users have access to create resource instances on:
 
-* A namespace within a Kubernetes cluster to target deployment of Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale instances.
+* A namespace within a Kubernetes cluster to target deployment of Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL servers.
 * The compute, storage, networking, and other vCenter or Azure Stack HCI resources to deploy and manage VMs.
 
 For example, a cluster operator could create a custom location **Contoso-Michigan-Healthcare-App** representing a namespace on a Kubernetes cluster in your organization's Michigan Data Center. The operator can then assign Azure RBAC permissions to application developers on this custom location so that they can deploy healthcare-related web applications. The developers can then deploy these applications without having to know details of the namespace and Kubernetes cluster.
@@ -25,7 +25,7 @@ On Arc-enabled Kubernetes clusters, a custom location represents an abstraction 
 
 ## Architecture for Arc-enabled Kubernetes
 
-When an administrator enables the custom locations feature on a cluster, a ClusterRoleBinding is created, authorizing the Azure AD application used by the Custom Locations Resource Provider (RP). Once authorized, Custom Locations RP can create ClusterRoleBindings or RoleBindings needed by other Azure RPs to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of RPs to authorize.
+When an administrator enables the custom locations feature on a cluster, a ClusterRoleBinding is created, authorizing the Microsoft Entra application used by the Custom Locations Resource Provider (RP). Once authorized, Custom Locations RP can create ClusterRoleBindings or RoleBindings needed by other Azure RPs to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of RPs to authorize.
 
 [ ![Use custom locations](../kubernetes/media/conceptual-custom-locations-usage.png) ](../kubernetes/media/conceptual-custom-locations-usage.png#lightbox)
 

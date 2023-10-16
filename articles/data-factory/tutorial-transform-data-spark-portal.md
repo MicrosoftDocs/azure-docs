@@ -6,7 +6,7 @@ ms.subservice: tutorials
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 06/07/2021
+ms.date: 01/11/2023
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!NOTE]
 > HdInsight supports only general-purpose storage accounts with standard tier. Make sure that the account is not a premium or blob only storage account.
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 
 ### Upload the Python script to your Blob storage account
@@ -76,34 +76,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a data factory
 
-1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
-   
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
-1. In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**. 
-      
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png" alt-text="&quot;New data factory&quot; pane":::
- 
-   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **&lt;yourname&gt;ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
-  
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/name-not-available-error.png" alt-text="Error when a name is not available":::
-1. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
-1. For **Resource Group**, take one of the following steps:
-     
-   - Select **Use existing**, and select an existing resource group from the drop-down list. 
-   - Select **Create new**, and enter the name of a resource group.   
-         
-   Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
-1. For **Version**, select **V2**.
-1. For **Location**, select the location for the data factory. 
-
-   For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
-
-1. Select **Create**.
-
-1. After the creation is complete, you see the **Data factory** page. Select the **Author & Monitor** tile to start the Data Factory UI application on a separate tab.
-
-    :::image type="content" source="./media/tutorial-transform-data-spark-portal/data-factory-home-page.png" alt-text="Home page for the data factory, with the &quot;Author & Monitor&quot; tile":::
+Follow the steps in the article [Quickstart: Create a data factory by using the Azure portal](quickstart-create-data-factory.md) to create a data factory if you don't already have one to work with.
 
 ## Create linked services
 You author two linked services in this section: 
@@ -146,7 +119,7 @@ You author two linked services in this section:
    
    e. For **Service principal id**, enter the ID of the service principal that has permission to create an HDInsight cluster. 
    
-      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). The **Service principal id** is equivalent to the *Application ID*, and a **Service principal key** is equivalent to the value for a *Client secret*.
+      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create a Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). The **Service principal id** is equivalent to the *Application ID*, and a **Service principal key** is equivalent to the value for a *Client secret*.
    
    f. For **Service principal key**, enter the key. 
    
@@ -247,8 +220,3 @@ To learn how to transform data by running a Hive script on an Azure HDInsight cl
 
 > [!div class="nextstepaction"]
 > [Tutorial: Transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
-
-
-
-
-

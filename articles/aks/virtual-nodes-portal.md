@@ -1,210 +1,202 @@
 ---
-title: Create virtual nodes using the portal in Azure Kubernetes Services (AKS)
+title: Create virtual nodes in Azure Kubernetes Service (AKS) using the Azure portal
 description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
-services: container-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 05/09/2023
 ms.custom: references_regions
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
 
-This article shows you how to use the Azure portal to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
+Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) clusters. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking (Azure CNI). AKS clusters are created with *basic* networking (kubenet) by default.
+
+This article shows you how to create a virtual network and subnets, and then deploy an AKS cluster that uses advanced networking using the Azure portal.
 
 > [!NOTE]
-> [This article](virtual-nodes.md) gives you an overview of the region availability and limitations using virtual nodes.
+> For an overview of virtual node region availability and limitations, see [Use virtual nodes in AKS](virtual-nodes.md).
 
 ## Before you begin
 
-Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking (Azure CNI). By default, AKS clusters are created with *basic* networking (kubenet). This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+You need the ACI service provider registered on your subscription.
 
-If you have not previously used ACI, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
+* Check the status of the ACI provider registration using the [`az provider list`][az-provider-list] command.
 
-```azurecli-interactive
-az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
-```
+    ```azurecli-interactive
+    az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+    ```
 
-The *Microsoft.ContainerInstance* provider should report as *Registered*, as shown in the following example output:
+    The following example output shows the *Microsoft.ContainerInstance* provider is *Registered*:
 
-```output
-Namespace                    RegistrationState    RegistrationPolicy
----------------------------  -------------------  --------------------
-Microsoft.ContainerInstance  Registered           RegistrationRequired
-```
+    ```output
+    Namespace                    RegistrationState    RegistrationPolicy
+    ---------------------------  -------------------  --------------------
+    Microsoft.ContainerInstance  Registered           RegistrationRequired
+    ```
 
-If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:
+* If the provider is *NotRegistered*, register it using the [`az provider register`][az-provider-register] command.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerInstance
-```
-
-## Sign in to Azure
-
-Sign in to the Azure portal at https://portal.azure.com.
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerInstance
+    ```
 
 ## Create an AKS cluster
 
-In the top left-hand corner of the Azure portal, select **Create a resource** > **Kubernetes Service**.
+1. Navigate to the Azure portal home page.
+2. Select **Create a resource** > **Containers**.
+3. On the **Azure Kubernetes Service (AKS)** resource, select **Create**.
+4. On the **Basics** page, configure the following options:
+   * *Project details*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*.
+   * *Cluster details*: Enter a **Kubernetes cluster name**, such as *myAKSCluster*. Select a region and Kubernetes version for the AKS cluster.
+5. Select **Next: Node pools** and check **Enable virtual nodes*.
+    :::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="Screenshot that shows creating a cluster with virtual nodes enabled on the Azure portal. The option 'Enable virtual nodes' is highlighted.":::
+6. Select **Review + create**.
+7. After the validation completes, select **Create**.
 
-On the **Basics** page, configure the following options:
+By default, this process creates a managed cluster identity, which is used for cluster communication and integration with other Azure services. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity.
 
-- *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-- *CLUSTER DETAILS*: Select a region and Kubernetes version for the AKS cluster.
-- *PRIMARY NODE POOL*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
-     - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
-
-Click **Next: Node Pools**.
-
-On the **Node Pools** page, select *Enable virtual nodes*.
-
-:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In a browser, shows creating a cluster with virtual nodes enabled on the Azure portal. The option 'Enable virtual nodes' is highlighted.":::
-
-By default, a cluster identity is created. This cluster identity is used for cluster communication and integration with other Azure services. By default, this cluster identity is a managed identity. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity.
-
-The cluster is also configured for advanced networking. The virtual nodes are configured to use their own Azure virtual network subnet. This subnet has delegated permissions to connect Azure resources between the AKS cluster. If you don't already have delegated subnet, the Azure portal creates and configures the Azure virtual network and subnet for use with the virtual nodes.
-
-Select **Review + create**. After the validation is complete, select **Create**.
-
-It takes a few minutes to create the AKS cluster and to be ready for use.
+This process configures the cluster for advanced networking and the virtual nodes to use their own Azure virtual network subnet. The subnet has delegated permissions to connect Azure resources between the AKS cluster. If you don't already have a delegated subnet, the Azure portal creates and configures an Azure virtual network and subnet with the virtual nodes.
 
 ## Connect to the cluster
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. To manage a Kubernetes cluster, use [kubectl][kubectl], the Kubernetes command-line client. The `kubectl` client is pre-installed in the Azure Cloud Shell.
+The Azure Cloud Shell is a free interactive shell you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. To manage a Kubernetes cluster, use [kubectl][kubectl], the Kubernetes command-line client. The `kubectl` client is pre-installed in the Azure Cloud Shell.
 
-To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following example gets credentials for the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
 
-Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your Kubernetes cluster. The following example gets credentials for the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
+    ```azurecli-interactive
+    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```
 
-```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-```
+2. Verify the connection to your cluster using the [`kubectl get nodes`][kubectl-get].
 
-To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
+    ```azurecli-interactive
+    kubectl get nodes
+    ```
 
-```console
-kubectl get nodes
-```
+    The following example output shows the single VM node created and the virtual Linux node named *virtual-node-aci-linux*:
 
-The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-aci-linux*:
-
-```output
-NAME                           STATUS    ROLES     AGE       VERSION
-virtual-node-aci-linux         Ready     agent     28m       v1.11.2
-aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
-```
+    ```output
+    NAME                           STATUS    ROLES     AGE       VERSION
+    virtual-node-aci-linux         Ready     agent     28m       v1.11.2
+    aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
+    ```
 
 ## Deploy a sample app
 
-In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined. These settings allow the pod to be scheduled on the virtual node and confirm that the feature is successfully enabled.
+1. In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: aci-helloworld
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aci-helloworld
-  template:
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
-      labels:
-        app: aci-helloworld
+      name: aci-helloworld
     spec:
-      containers:
-      - name: aci-helloworld
-        image: mcr.microsoft.com/azuredocs/aci-helloworld
-        ports:
-        - containerPort: 80
-      nodeSelector:
-        kubernetes.io/role: agent
-        beta.kubernetes.io/os: linux
-        type: virtual-kubelet
-      tolerations:
-      - key: virtual-kubelet.io/provider
-        operator: Exists
-```
+      replicas: 1
+      selector:
+        matchLabels:
+          app: aci-helloworld
+      template:
+        metadata:
+          labels:
+            app: aci-helloworld
+        spec:
+          containers:
+          - name: aci-helloworld
+            image: mcr.microsoft.com/azuredocs/aci-helloworld
+            ports:
+            - containerPort: 80
+          nodeSelector:
+            kubernetes.io/role: agent
+            beta.kubernetes.io/os: linux
+            type: virtual-kubelet
+          tolerations:
+          - key: virtual-kubelet.io/provider
+            operator: Exists
+    ```
 
-Run the application with the [kubectl apply][kubectl-apply] command.
+    The YAML defines a [nodeSelector][node-selector] and [toleration][toleration], which allows the pod to be scheduled on the virtual node. The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
 
-```azurecli-interactive
-kubectl apply -f virtual-node.yaml
-```
+2. Run the application using the [`kubectl apply`][kubectl-apply] command.
 
-Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `virtual-node-helloworld` pod has been scheduled on the `virtual-node-linux` node.
+    ```azurecli-interactive
+    kubectl apply -f virtual-node.yaml
+    ```
 
-```console
-kubectl get pods -o wide
-```
+3. View the pods scheduled on the node using the [`kubectl get pods`][kubectl-get] command with the `-o wide` argument.
 
-```output
-NAME                                     READY     STATUS    RESTARTS   AGE       IP           NODE
-virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
-```
+    ```azurecli-interactive
+    kubectl get pods -o wide
+    ```
 
-The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
+    The following example output shows the `virtual-node-helloworld` pod scheduled on the `virtual-node-linux` node.
+
+    ```output
+    NAME                                     READY     STATUS    RESTARTS   AGE       IP           NODE
+    virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
+    ```
 
 > [!NOTE]
-> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A current limitation of virtual nodes is that you can't use integrated Azure AD service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
+> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A limitation of virtual nodes is you can't use integrated Microsoft Entra service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## Test the virtual node pod
 
-To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
+To test the pod running on the virtual node, browse to the demo application with a web client. The pod is assigned an internal IP address, so you can easily test the connectivity from another pod on the AKS cluster.
 
-```console
-kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
-```
+1. Create a test pod and attach a terminal session to it using the following `kubectl run` command.
 
-Install `curl` in the pod using `apt-get`:
+    ```console
+    kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+    ```
 
-```console
-apt-get update && apt-get install -y curl
-```
+2. Install `curl` in the pod using the following `apt-get` command.
 
-Now access the address of your pod using `curl`, such as *http://10.241.0.4*. Provide your own internal IP address shown in the previous `kubectl get pods` command:
+    ```console
+    apt-get update && apt-get install -y curl
+    ```
 
-```console
-curl -L http://10.241.0.4
-```
+3. Access the address of your pod using the following `curl` command and provide your internal IP address.
 
-The demo application is displayed, as shown in the following condensed example output:
+    ```console
+    curl -L http://10.241.0.4
+    ```
 
-```output
-<html>
-<head>
-  <title>Welcome to Azure Container Instances!</title>
-</head>
-[...]
-```
+    The following condensed example output shows the demo application.
 
-Close the terminal session to your test pod with `exit`. When your session is ended, the pod is the deleted.
+    ```output
+    <html>
+    <head>
+      <title>Welcome to Azure Container Instances!</title>
+    </head>
+    [...]
+    ```
+
+4. Close the terminal session to your test pod with `exit`, which also deletes the pod.
+
+    ```console
+    exit
+    ```
 
 ## Next steps
 
-In this article, a pod was scheduled on the virtual node and assigned a private, internal IP address. You could instead create a service deployment and route traffic to your pod through a load balancer or ingress controller. For more information, see [Create a basic ingress controller in AKS][aks-basic-ingress].
+In this article, you scheduled a pod on the virtual node and assigned a private, internal IP address. If you want, you can instead create a service deployment and route traffic to your pod through a load balancer or ingress controller. For more information, see [Create a basic ingress controller in AKS][aks-basic-ingress].
 
 Virtual nodes are one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
 
-- [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
-- [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
-- [Check out the Autoscale sample for Virtual Nodes][virtual-node-autoscale]
-- [Read more about the Virtual Kubelet open source library][virtual-kubelet-repo]
+* [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
+* [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
+* [Autoscale for virtual nodes][virtual-node-autoscale]
+* [Virtual Kubelet open source library][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-[azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[aks-github]: https://github.com/azure/aks/issues]
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 [acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
-[aks-network]: ./configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md

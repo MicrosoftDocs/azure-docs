@@ -2,9 +2,9 @@
 title: HC-series - Azure Virtual Machines
 description: Specifications for the HC-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 03/04/2023
 ms.reviewer: jushiman
 ---
 
@@ -30,13 +30,16 @@ HC-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 | Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max Ethernet vNICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | All | 700 | 4 | 8 |
+| Standard_HC44-16rs | 16 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | All | 700 | 4 | 8 |
+| Standard_HC44-32rs | 32 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | All | 700 | 4 | 8 |
+
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hc-series-overview.md)
-- Supported [software stack](./workloads/hpc/hc-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hc-series-performance.md) of the HC-series VM
+- [Architecture and VM topology](hc-series-overview.md)
+- Supported [software stack](hc-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hc-series-performance.md) of the HC-series VM
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

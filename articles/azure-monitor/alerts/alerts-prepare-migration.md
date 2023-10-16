@@ -1,15 +1,14 @@
 ---
 title: Update logic apps & runbooks for alerts migration
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
-author: yanivlavi
-ms.author: yalavi
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 06/20/2023
+ms.reviewer: yalavi
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
 
 > [!NOTE]
-> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 >
 
 If you choose to voluntarily migrate your classic alert rules to new alert rules, there are some differences between the two systems. This article explains those differences and how you can prepare for the change.
@@ -23,7 +22,7 @@ The following table is a reference to the programmatic interfaces for both class
 | Deployment script type | Classic alerts | New metric alerts |
 | ---------------------- | -------------- | ----------------- |
 |REST API     | [microsoft.insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert)        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert)        |
+|Azure CLI     | `az monitor alert`        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Reference](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Reference](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager template | [For classic alerts](./alerts-enable-template.md)|[For new metric alerts](./alerts-metric-create-templates.md)|
 
@@ -156,5 +155,4 @@ If you're using a partner integration that's not listed here, confirm with the p
 
 ## Next steps
 
-- [How to use the migration tool](alerts-using-migration-tool.md)
 - [Understand how the migration tool works](alerts-understand-migration.md)

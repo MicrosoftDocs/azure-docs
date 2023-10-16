@@ -1,13 +1,13 @@
 ---
 title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
-author: ju-shim
+author: lauradolan
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/26/2021
-ms.author: jushiman
+ms.date: 08/26/2022
+ms.author: ladolan
 ---
 
 # Support for generation 2 VMs on Azure
@@ -35,7 +35,7 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Dsv3-series](dv3-dsv3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dv4-series](dv4-dsv4-series.md) | :heavy_check_mark: |  :heavy_check_mark: |
 |[Dsv4-series](dv4-dsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-|[Dav4-series](dav4-dasv4-series.md) | :heavy_check_mark: |  :x: |
+|[Dav4-series](dav4-dasv4-series.md) | :heavy_check_mark: |  :heavy_check_mark: |
 |[Dasv4-series](dav4-dasv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddv4-series](ddv4-ddsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddsv4-series](ddv4-ddsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
@@ -43,13 +43,15 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Dadsv5-series](dasv5-dadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[DCasv5-series](dcasv5-dcadsv5-series.md) |  :x: | :heavy_check_mark: |
 |[DCadsv5-series](dcasv5-dcadsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Dpsv5-series](dpsv5-dpdsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Dpdsv5-series](dpsv5-dpdsv5-series.md) |  :x: | :heavy_check_mark: |
 |[Dv5-series](dv5-dsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dsv5-series](dv5-dsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddv5-series](ddv5-ddsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddsv5-series](ddv5-ddsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ev3-series](ev3-esv3-series.md) | :heavy_check_mark: | :x: |
 |[Esv3-series](ev3-esv3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-|[Ev4-series](ev4-esv4-series.md) |  :heavy_check_mark:|  :x: |
+|[Ev4-series](ev4-esv4-series.md) |  :heavy_check_mark:|  :heavy_check_mark: |
 |[Esv4-series](ev4-esv4-series.md) |  :heavy_check_mark:| :heavy_check_mark: |
 |[Eav4-series](eav4-easv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Easv4-series](eav4-easv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
@@ -59,6 +61,8 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Eadsv5-series](easv5-eadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[ECasv5-series](ecasv5-ecadsv5-series.md) |  :x: | :heavy_check_mark: |
 |[ECadsv5-series](ecasv5-ecadsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Epsv5-series](epsv5-epdsv5-series.md) |  :x: | :heavy_check_mark: |
+|[Epdsv5-series](epsv5-epdsv5-series.md) |  :x: | :heavy_check_mark: |
 |[Edv5-series](edv5-edsv5-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[Edsv5-series](edv5-edsv5-series.md) |  :heavy_check_mark: | :heavy_check_mark: |
 |[Ev5-series](ev5-esv5-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
@@ -66,12 +70,10 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Fsv2-series](fsv2-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[FX-series](fx-series.md) |  :x:  | :heavy_check_mark: |
 |[GS-series](sizes-previous-gen.md#gs-series) | :x:| :heavy_check_mark: |
-|[H-series](h-series.md) |  :heavy_check_mark:  |  :x:  |
 |[HB-series](hb-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[HBv2-series](hbv2-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[HBv3-series](hbv3-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[HC-series](hc-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
-|[Ls-series](sizes-previous-gen.md#ls-series) |  :x: | :heavy_check_mark: |
 |[Lsv2-series](lsv2-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[M-series](m-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[Mv2-series](mv2-series.md)<sup>1</sup> |  :x: | :heavy_check_mark: |
@@ -80,6 +82,7 @@ Azure now offers generation 2 support for the following selected VM series:
 |[NCv2-series](ncv2-series.md)  |  :heavy_check_mark:  | :heavy_check_mark: |
 |[NCv3-series](ncv3-series.md) |  :heavy_check_mark: | :heavy_check_mark: |
 |[NCasT4_v3-series](nct4-v3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
+|[NC A100 v4-series](nc-a100-v4-series.md) |  :x: | :heavy_check_mark: |
 |[ND-series](nd-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[ND A100 v4-series](nda100-v4-series.md) |  :x: | :heavy_check_mark: |
 |[NDv2-series](ndv2-series.md) |  :x: | :heavy_check_mark: |
@@ -102,7 +105,7 @@ Generation 2 VMs support the following Marketplace images:
 * Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP3, SP2
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 21.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
+* Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
 * RHEL 8.5, 8.4, 8.3, 8.2, 8.1, 8.0, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.4, 8.3, 8.2, 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 8.4 LVM, 8.3 LVM, 8.2 LVM, 8.1, 7.9 LVM, 7.9, 7.8, 7.7
@@ -144,7 +147,7 @@ For more information, see [Trusted launch](trusted-launch.md).
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
+| [Azure disk encryption](../virtual-machines/disk-encryption-overview.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 
@@ -162,7 +165,7 @@ In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketp
 
 Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Virtual Machines**
 3. Under **Services**, select **Virtual machines**.
 4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.

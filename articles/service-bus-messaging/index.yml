@@ -5,15 +5,15 @@ summary: Learn how to set up messaging that connects applications and services a
 
 metadata:
   title: Azure Service Bus Messaging documentation
-  description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   services: service-bus-messaging
-  ms.service: service-bus-messaging #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: service-bus-messaging
   ms.subservice: 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: spelluru #Required; your GitHub user alias, with correct capitalization.
-  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 01/13/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,14 +27,16 @@ landingContent:
         links:
           - text: What is Service Bus Messaging?
             url: service-bus-messaging-overview.md
+          - text: Use Service Bus with JMS 2.0
+            url: how-to-use-java-message-service-20.md
       - linkListType: concept
         links:
-          - text: Compare Azure messaging services
-            url: ../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json
           - text: Compare Azure queues and Service Bus queues
             url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
           - text: Queues, topics, and subscriptions
             url: service-bus-queues-topics-subscriptions.md   
+          - text: Premium messaging
+            url: service-bus-premium-messaging.md   
       - linkListType: architecture
         links:
           - text: Reference architecture for queues and events
@@ -53,6 +55,8 @@ landingContent:
             url: service-bus-quickstart-powershell.md
           - text: Azure Resource Manager template
             url: service-bus-resource-manager-namespace-queue.md
+          - text: Bicep
+            url: service-bus-resource-manager-namespace-queue-bicep.md
   
     # Card
   - title: Create Service Bus topics and subscriptions
@@ -73,6 +77,8 @@ landingContent:
             url: service-bus-dotnet-get-started-with-queues.md
           - text: Java
             url: service-bus-java-how-to-use-queues.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
@@ -80,7 +86,7 @@ landingContent:
           - text: PHP
             url: service-bus-php-how-to-use-queues.md
   # Card
-  - title: Publish and subscribe for messages
+  - title: Publish and subscribe for messages - topics and subscriptions
     linkLists:
       - linkListType: quickstart
         links:
@@ -88,6 +94,8 @@ landingContent:
             url: service-bus-dotnet-how-to-use-topics-subscriptions.md
           - text: Java
             url: service-bus-java-how-to-use-topics-subscriptions.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python
@@ -96,18 +104,41 @@ landingContent:
             url: service-bus-php-how-to-use-topics-subscriptions.md
 
   # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Update inventory using topics and subscriptions
+            url: service-bus-tutorial-topics-subscriptions-portal.md
+          - text: Handle Service Bus events using Logic Apps and Functions
+            url: service-bus-to-event-grid-integration-example.md
+
+  # Card
   - title: Learn modules
     linkLists:
       - linkListType: learn
         links:
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
           - text: Implement message-based communication workflows with Azure Service Bus
-            url: /learn/modules/implement-message-workflows-with-service-bus/
+            url: /training/modules/implement-message-workflows-with-service-bus/
           - text: Discover Azure message queues
-            url: /learn/modules/discover-azure-message-queue/
+            url: /training/modules/discover-azure-message-queue/
           - text: Enable asynchronous messaging in Java apps by using JMS and Azure Service Bus
-            url: /learn/modules/cloud-scale-messaging-with-jms-service-bus/
+            url: /training/modules/cloud-scale-messaging-with-jms-service-bus/
+
+  # Card
+  - title: Use JMS with Service Bus
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use JMS 2.0 with Service Bus
+            url: how-to-use-java-message-service-20.md
+          - text: JMS 2.0 entities to use with Service Bus
+            url: java-message-service-20-entities.md
+          - text: JMS developer guide
+            url: jms-developer-guide.md
+
 
   # Card
   - title: Monitor and manage
@@ -134,7 +165,9 @@ landingContent:
             url: service-bus-authentication-and-authorization.md
           - text: Authenticate with Shared Access Signature
             url: service-bus-sas.md
-          - text: Authenticate managed identities with Azure Active Directory
+          - text: Authenticate managed identities with Microsoft Entra ID
             url: service-bus-managed-service-identity.md            
-          - text: Authenticate an application with Azure Active Directory
+          - text: Authenticate an application with Microsoft Entra ID
             url: authenticate-application.md
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md

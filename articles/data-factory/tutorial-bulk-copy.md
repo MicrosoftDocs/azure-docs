@@ -6,8 +6,8 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 08/10/2023
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory using PowerShell
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
 * **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 **Prepare the source Azure SQL Database**:
 
-Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to Azure Synapse Analytics.
+Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article. This tutorial copies all the tables from this sample database to Azure Synapse Analytics.
 
 **Prepare the sink Azure Synapse Analytics**:
 

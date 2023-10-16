@@ -6,23 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
-
-author: tracychms
-ms.author: tracych
+ms.custom: cliv2, event-tier1-build-2022
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
 ms.date: 10/21/2021
-ms.reviewer: laobri
 ---
 
 # CLI (v2) batch endpoint YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -32,7 +31,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. | | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
-| `auth_mode` | string | The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based authentication is supported. | `aad_token` | `aad_token` |
+| `auth_mode` | string | The authentication method for the endpoint. Currently only Microsoft Entra token-based authentication is supported. | `aad_token` | `aad_token` |
 | `defaults` | object | Default settings for the endpoint. | | |
 | `defaults.deployment_name` | string | Name of the deployment that will serve as the default deployment for the endpoint. | | |
 
@@ -46,7 +45,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/endpoint.yml":::
 
 ## Next steps
 

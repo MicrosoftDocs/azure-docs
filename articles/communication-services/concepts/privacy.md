@@ -1,12 +1,12 @@
 ---
 title: Region availability and data residency for Azure Communication Services
 description: Learn about data residency, and privacy related matters on Azure Communication Services
-author: chpalm
+author: tophpalmer
 manager: anvalent
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 03/07/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: references_regions
@@ -18,7 +18,7 @@ Azure Communication Services is committed to helping our customers meet their pr
 
 ## Data residency
 
-When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest are retained in that geography, in a data center selected internally by Communication Services. Data **may** transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
 
 The list of geographies you can choose from includes:
 - Africa
@@ -38,30 +38,27 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
-> [!NOTE]
-> For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
-
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
 
 ## Data residency and events
 
-Any Event Grid system topic configured with Azure Communication Services will be created in a global location. To support reliable delivery, a global Event Grid system topic may store the event data in any Microsoft data center. When you configure Event Grid with Azure Communication Services, you're delivering your event data to Event Grid, which is an Azure resource under your control. While Azure Communication Services may be configured to utilize Azure Event Grid, you're responsible for managing your Event Grid resource and the data stored within it.
+Any Event Grid system topic configured with Azure Communication Services is created in a global location. To support reliable delivery, a global Event Grid system topic may store the event data in any Microsoft data center. When you configure Event Grid with Azure Communication Services, you're delivering your event data to Event Grid, which is an Azure resource under your control. While Azure Communication Services may be configured to utilize Azure Event Grid, you're responsible for managing your Event Grid resource and the data stored within it.
 
 ## Relating humans to Azure Communication Services identities
 
 Your application manages the relationship between human users and Communication Service identities. When you want to delete data for a human user, you must delete data involving all Communication Service identities correlated for the user.
 
 There are two categories of Communication Service data:
-- **API Data.** This data is created and managed by Communication Service APIs, a typical example being Chat messages managed through Chat APIs.
-- **Azure Monitor Logs** This data is created by the service and managed through the Azure Monitor data platform. This data includes telemetry and metrics to help you understand your Communication Services usage. This is not managed by Communication Service APIs.
+- **API Data.** This data is created and managed with Communication Service APIs, for example, Chat messages managed through Chat APIs.
+- **Azure Monitor Logs** This data is created by the service and managed through the Azure Monitor data platform. This data includes telemetry and metrics to help you understand your Communication Services usage.
 
 ## API data
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity revokes all associated access tokens and deletes their chat messages. For more information on how to remove an identity [see this page](../quickstarts/identity/access-tokens.md).
 
 - DeleteIdentity
 
@@ -78,7 +75,9 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Chat threads and messages are retained until explicitly deleted. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
+Azure Communication Services stores chat messages indefinitely till they are deleted. Chat thread participants can use ListMessages to view message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidentally deleted messages are not recoverable by the system.
+
+Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
 - `Get Thread`
 - `Get Message`
@@ -103,12 +102,15 @@ Audio and video communication is ephemerally processed by the service and no cal
 
 Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
 
+### Email
+Email message content is ephemerally stored for processing in the resource's ```Data Location``` specified by you during resource provisioning. Email message delivery logs are available in Azure Monitor Logs, where you are in control to define the workspace to store logs. Domain sender usernames (or MailFrom) values are stored in the resource's ```Data Location``` until explicitly deleted. Recipient's email addresses that result in hard bounced messages are temporarily retained for spam and abuse prevention and detection.
+
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
+Azure Communication Services feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data, [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Additional resources
 
 - [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
-- [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)
+- [Azure Interactive Map - Where is my customer data?](https://infrastructuremap.microsoft.com/)

@@ -2,21 +2,22 @@
 title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 10/24/2022
 ms.service: stream-analytics
+ms.author: ebnkruma
 ---
 
 # Use Stream Analytics to process exported data from Application Insights
 
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is the ideal tool for processing data [exported from Application Insights](../azure-monitor/app/export-telemetry.md). Stream Analytics can pull data from a variety of sources. It can transform and filter the data, and then route it to a variety of sinks.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is the ideal tool for processing data [exported from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry). Stream Analytics can pull data from a variety of sources. It can transform and filter the data, and then route it to a variety of sinks.
 
 In this example, we'll create an adaptor that takes data from Application Insights using continuous export, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/app/export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 > [!IMPORTANT]
-> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](../azure-monitor/app/convert-classic-resource.md) to use [diagnostic settings](../azure-monitor/app/export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry.
+> Continuous export will be deprecated on February 29, 2024 and is only supported for classic Application Insights resources. Azure Stream Analytics does not support reading from AppInsights with diagnostic settings.
 
 
 ![Block diagram for export through Stream Analytics to PowerBI.](./media/app-insights-export-stream-analytics/020.png)
@@ -38,7 +39,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 ## Start continuous export to Azure storage
 
-[Continuous export](../azure-monitor/app/export-telemetry.md) moves data from Application Insights into Azure storage. 
+[Continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry) moves data from Application Insights into Azure storage. 
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
    
@@ -55,7 +56,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Screenshot of add continuous export and choose event types.](./media/app-insights-export-stream-analytics/080.png)
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../azure-monitor/essentials/metrics-charts.md) and individual events in [diagnostic search](../azure-monitor/app/diagnostic-search.md).
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../azure-monitor/essentials/metrics-charts.md) and individual events in [diagnostic search](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search).
    
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -100,7 +101,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource **all lower case**.
 * `1234...` is the instrumentation key of the Application Insights resource, **omitting dashes**. 
-* `PageViews` is the type of data you want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-data-model.md).
+* `PageViews` is the type of data you want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model).
 * `/{date}/{time}` is a pattern written literally.
 
 > [!NOTE]
@@ -191,7 +192,7 @@ Wait until the job is Running.
 ## See results in Power BI
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/app/export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 
 Open Power BI with your work or school account, and select the dataset and table that you defined as the output of the Stream Analytics job.
@@ -207,6 +208,6 @@ Now you can use this dataset in reports and dashboards in [Power BI](https://pow
 * Check that you [set the date format](#set-path-prefix-pattern) correctly to YYYY-MM-DD (with dashes).
 
 ## Next steps
-* [Continuous export](../azure-monitor/app/export-telemetry.md)
-* [Detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
+* [Continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry)
+* [Detailed data model reference for the property types and values.](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model)
 * [Application Insights](../azure-monitor/app/app-insights-overview.md)

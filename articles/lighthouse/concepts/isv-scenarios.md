@@ -1,13 +1,13 @@
 ---
 title: Azure Lighthouse in  ISV scenarios
 description: The capabilities of Azure Lighthouse can be used by ISVs for more flexibility with customer offerings.
-ms.date: 09/08/2021
+ms.date: 05/10/2023
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse in ISV scenarios
 
-A common scenario for [Azure Lighthouse](../overview.md) is when a service provider manages resources in its customers' Azure Active Directory (Azure AD) tenants. The capabilities of Azure Lighthouse can also be used by Independent Software Vendors (ISVs) using SaaS-based offerings with their customers. Azure Lighthouse can be especially useful for ISVs who are offering managed services or support that require access to the subscription scope.
+A typical scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in its customers' Microsoft Entra tenants. However, the capabilities of Azure Lighthouse can also be used by Independent Software Vendors (ISVs) using SaaS-based offerings with their customers. Azure Lighthouse can be especially useful for ISVs who are offering managed services or support that require access to the subscription scope.
 
 ## Managed Service offers in Azure Marketplace
 
@@ -23,11 +23,11 @@ For more information, see [Azure Lighthouse and Azure managed applications](mana
 
 ## SaaS-based multi-tenant offerings
 
-An additional scenario is where the ISV hosts the resources in a subscription in their own tenant, then uses Azure Lighthouse to let customers access these resources. The customer can then log in to their own tenant and access these resources as needed. The ISV maintains their IP in their own tenant, and can use their own support plan to raise tickets related to the solution hosted in their tenant, rather than the customer's plan. Since the resources are in the ISV's tenant, all actions can be performed directly by the ISV, such as logging into VMs, installing apps, and performing maintenance tasks.
+An additional scenario is where the ISV hosts resources in a subscription in their own tenant, then uses Azure Lighthouse to let customers access those specific resources. Once this access is granted, the customer can log in to their own tenant and access the resources as needed. The ISV maintains their IP in their own tenant, and can use their own support plan to raise tickets related to the solution hosted in their tenant, rather than the customer's plan. Since the resources are in the ISV's tenant, all actions can be performed directly by the ISV, such as logging into VMs, installing apps, and performing maintenance tasks.
 
-In this scenario, users in the customer’s tenant are essentially granted access as a "managing tenant", even though the customer is not managing the ISV's resources. Because they are accessing the ISV's tenant directly, it’s important to grant only the minimum permissions necessary, so that customers cannot inadvertently make changes to the solution or other ISV resources.
+In this scenario, users in the customer’s tenant are essentially granted access as a "managing tenant", even though the customer is not managing the ISV's resources. Because they are accessing the ISV's tenant directly, it’s important to grant only the minimum permissions necessary, so that customers can't inadvertently make changes to the solution or other ISV resources.
 
-To enable this architecture, the ISV needs to obtain the object ID for a user group in the customer’s Azure AD tenant, along with their tenant ID. The ISV then builds an ARM template granting this user group the appropriate permissions, and [deploys it on the ISV's subscription](../how-to/onboard-customer.md) that contains the resources which the customer will access.
+To enable this architecture, the ISV needs to obtain the object ID for a user group in the customer's Microsoft Entra tenant, along with their tenant ID. The ISV then builds an ARM template granting this user group the appropriate permissions, and [deploys it on the ISV's subscription](../how-to/onboard-customer.md) that contains the resources that the customer will access.
 
 ## Next steps
 

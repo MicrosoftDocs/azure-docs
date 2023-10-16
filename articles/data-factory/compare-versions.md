@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 04/12/2023
 ---
 # Compare Azure Data Factory with Data Factory version 1
 

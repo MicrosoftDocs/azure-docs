@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to create a Azure Database f
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -19,7 +20,7 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -36,9 +37,9 @@ Use the following steps to test connectivity to the MySQL server from the VM by 
 1. To SSH into the VM, start by getting the public IP address and then use MySQL tools to connect
 
    ```bash
-   publicIp=$(az vm list-ip-addresses --resource-group $resourceGroup --name $vm --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
+   PUBLIC_IP=$(az vm list-ip-addresses --resource-group $RESOURCE_GROUP --name $VM --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
    
-   ssh azureuser@$publicIp
+   ssh azureuser@$PUBLIC_IP
    ```
 
 1. Download MySQL tools and connect to the server. Substitute <server_name> and <admin_user> with your values.
@@ -57,7 +58,7 @@ Use the following steps to test connectivity to the MySQL server from the VM by 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name $resourceGroup
+az group delete --name $RESOURCE_GROUP
 ```
 
 ## Sample reference

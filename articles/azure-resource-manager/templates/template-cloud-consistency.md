@@ -5,7 +5,7 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seodec18, devx-track-arm-template, devx-track-azurecli
 ---
 
 # Develop ARM templates for cloud consistency
@@ -17,12 +17,12 @@ A key benefit of Azure is consistency. Development investments for one location 
 Microsoft offers intelligent, enterprise-ready cloud services in many locations, including:
 
 * The global Azure platform supported by a growing network of Microsoft-managed datacenters in regions around the world.
-* Isolated sovereign clouds like Azure Germany, Azure Government, and Azure China 21Vianet. Sovereign clouds provide a consistent platform with most of the same great features that global Azure customers have access to.
+* Isolated sovereign clouds like Azure Germany, Azure Government, and Microsoft Azure operated by 21Vianet. Sovereign clouds provide a consistent platform with most of the same great features that global Azure customers have access to.
 * Azure Stack, a hybrid cloud platform that lets you deliver Azure services from your organization's datacenter. Enterprises can set up Azure Stack in their own datacenters, or consume Azure Services from service providers, running Azure Stack in their facilities (sometimes known as hosted regions).
 
 At the core of all these clouds, Azure Resource Manager provides an API that allows a wide variety of user interfaces to communicate with the Azure platform. This API gives you powerful infrastructure-as-code capabilities. Any type of resource that is available on the Azure cloud platform can be deployed and configured with Azure Resource Manager. With a single template, you can deploy and configure your complete application to an operational end state.
 
-![Azure environments](./media/templates-cloud-consistency/environments.png)
+:::image type="content" source="./media/templates-cloud-consistency/environments.png" alt-text="Diagram of various Azure environments including global Azure, sovereign clouds, and Azure Stack.":::
 
 The consistency of global Azure, the sovereign clouds, hosted clouds, and a cloud in your datacenter helps you benefit from Azure Resource Manager. You can reuse your development investments across these clouds when you set up template-based resource deployment and configuration.
 
@@ -210,7 +210,7 @@ Knowing that Azure regions and clouds may differ in their available services, yo
 
 A template deploys and configures resources. A resource type is provided by a resource provider. For example, the compute resource provider (Microsoft.Compute), provides multiple resource types such as virtualMachines and availabilitySets. Each resource provider provides an API to Azure Resource Manager defined by a common contract, enabling a consistent, unified authoring experience across all resource providers. However, a resource provider that is available in global Azure may not be available in a sovereign cloud or an Azure Stack region.
 
-![Resource providers](./media/templates-cloud-consistency/resource-providers.png)
+:::image type="content" source="./media/templates-cloud-consistency/resource-providers.png" alt-text="Diagram illustrating the relationship between resource providers, resource types, and API versions.":::
 
 To verify the resource providers that are available in a given cloud, run the following script in the [Azure CLI](/cli/azure/):
 
@@ -439,7 +439,7 @@ Endpoint namespaces can also be used in the output of a template as information 
 In general, avoid hardcoded endpoints in a template. The best practice is to use the reference template function to retrieve the endpoints dynamically. For example, the endpoint most commonly hardcoded is the endpoint namespace for storage accounts. Each storage account has a unique FQDN that is constructed by concatenating the name of the storage account with the endpoint namespace. A blob storage account named mystorageaccount1 results in different FQDNs depending on the cloud:
 
 * `mystorageaccount1.blob.core.windows.net` when created on the global Azure cloud.
-* `mystorageaccount1.blob.core.chinacloudapi.cn` when created in the Azure China 21Vianet cloud.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` when created in the Azure operated by 21Vianet cloud.
 
 The following reference template function retrieves the endpoint namespace from the storage resource provider:
 
@@ -650,7 +650,7 @@ It's a challenge to keep track of all related settings, capabilities, and limita
 
 The following image shows a typical example of a development process for a team using an integrated development environment (IDE). At different stages in the timeline, different test types are executed. Here, two developers are working on the same solution, but this scenario applies equally to a single developer or a large team. Each developer typically creates a local copy of a central repository, enabling each one to work on the local copy without impacting the others who may be working on the same files.
 
-![Diagram shows two sets of unit tests and integration tests in parallel on local I D E, which merge in the C I / C D development flow into unit tests, then integration tests, then test deployment, then deployment.](./media/templates-cloud-consistency/workflow.png)
+:::image type="content" source="./media/templates-cloud-consistency/workflow.png" alt-text="Diagram showing parallel unit tests and integration tests in local IDEs, merging into CI/CD development flow with unit tests, integration tests, test deployment, and final deployment.":::
 
 Consider the following tips for testing and automation:
 

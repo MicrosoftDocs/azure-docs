@@ -1,91 +1,133 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using Go | Microsoft Docs
-description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-author: normesta
-ms.author: normesta
-ms.date: 12/10/2021
-ms.service: storage
-ms.subservice: blobs
+title: "Quickstart: Azure Blob Storage client library for Go"
+titleSuffix: Azure Storage
+description: In this quickstart, you learn how to use the Azure Blob Storage client library for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 08/29/2023
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: golang
-ms.custom: mode-api
+ms.custom: mode-api, passwordless-go, devx-track-go
 ---
 
-# Quickstart: Upload, download, and list blobs using Go
+# Quickstart: Azure Blob Storage client library for Go
 
-In this quickstart, you learn how to use the Go programming language to upload, download, and list block blobs in a container in Azure Blob storage.
+Get started with the Azure Blob Storage client library for Go to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
+
+[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) | [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
 
 ## Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure storage account - [create a storage account](../common/storage-account-create.md)
+- [Go 1.18+](https://go.dev/dl/)
 
-Make sure you have the following more prerequisites installed:
+## Setting up
 
-- [Go 1.17 or above](https://go.dev/dl/)
-- [Azure Storage Blob SDK for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/), using the following command:
+This section walks you through preparing a project to work with the Azure Blob Storage client library for Go.
 
-    `go get -u github.com/Azure/azure-sdk-for-go/sdk/storage/azblob`
-
-    > [!NOTE]
-    > Make sure that you capitalize `Azure` in the URL to avoid case-related import problems when working with the SDK. Also capitalize `Azure` in your import statements.
-
-## Download the sample application
+### Download the sample application
 
 The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 
-```bash
+```console
 git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
 ```
 
-This command clones the repository to your local git folder. To open the Go sample for Blob storage, look for `storage-quickstart.go` file.
+This command clones the repository to your local git folder. To open the Go sample for Blob Storage, look for the file named `storage-quickstart.go`.
 
-## Sign in with Azure CLI
+### Install the packages
 
-To support local development, the Azure Identity credential type `DefaultAzureCredential` authenticates users signed into the Azure CLI.
+To work with blob and container resources in a storage account, install the [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/) package using the following command:
 
-Run the following command to sign into the Azure CLI:
+```console
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
+```
+To authenticate with Microsoft Entra ID (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
-```azurecli
-az login
+```console
+go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-Azure CLI authentication isn't recommended for applications running in Azure.
+## Authenticate to Azure and authorize access to blob data
+
+Application requests to Azure Blob Storage must be authorized. Using `DefaultAzureCredential` and the Azure Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
+
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+
+`DefaultAzureCredential` is a credential chain implementation provided by the Azure Identity client library for Go. `DefaultAzureCredential` supports multiple authentication methods and determines which method to use at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+
+To learn more about the order and locations in which `DefaultAzureCredential` looks for credentials, see [Azure Identity library overview](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential).
+
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Once it's deployed to Azure, your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This transition between environments doesn't require any code changes.
+
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+### Assign roles to your Microsoft Entra user account
+
+[!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
+
+### Sign-in and connect your app code to Azure using DefaultAzureCredential
+
+You can authorize access to data in your storage account using the following steps:
+
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your storage account. The following example shows how to authenticate via the Azure CLI:
+
+    ```azurecli
+    az login
+    ```
+
+2. To use `DefaultAzureCredential` in a Go application, install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command::
+
+    ```console
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, you can use the same code to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/go/azure-sdk-authentication-managed-identity) tutorial.
 
 To learn more about different authentication methods, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
 ## Run the sample
 
-This sample creates an Azure storage container, uploads a blob, lists the blobs in the container, then downloads the blob data into a buffer.
+The code example performs the following actions:
+- Creates a client object authorized for data access via `DefaultAzureCredential`
+- Creates a container in a storage account
+- Uploads a blob to the container
+- Lists the blobs in the container
+- Downloads the blob data into a buffer
+- Deletes the blob and container resources created by the app
 
-Before you run the sample, open the `storage-quickstart.go` file. Replace `<StorageAccountName>` with the name of your Azure storage account.
+Before you run the sample, open the *storage-quickstart.go* file. Replace `<storage-account-name>` with the name of your Azure storage account.
 
-Then run the application with the `go run` command:
+Then run the application using the following command:
 
-```azurecli
+```console
 go run storage-quickstart.go
 ```
 
-The following output is an example of the output returned when running the application:
+The output of the app is similar to the following example:
 
-```output
+```console
 Azure Blob storage quick start sample
-Creating a container named quickstart-4052363832531531139
-Creating a dummy file to test the upload and download
+Creating a container named quickstart-sample-container
+Uploading a blob named sample-blob
 Listing the blobs in the container:
-blob-8721479556813186518
+sample-blob
+Blob contents:
 
-hello world this is a blob
+Hello, world! This is a blob.
 
-Press enter key to delete the blob fils, example container, and exit the application.
+Press enter key to delete resources and exit the application.
 
 Cleaning up.
-Deleting the blob blob-8721479556813186518
-Deleting the blob quickstart-4052363832531531139
+Deleting the blob sample-blob
+Deleting the container quickstart-sample-container
 ```
 
-When you press the key to continue, the sample program deletes the storage container and the files.
+When you press the enter key at the prompt, the sample program deletes the blob and container resources created by the app.
 
 > [!TIP]
 > You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
@@ -93,167 +135,135 @@ When you press the key to continue, the sample program deletes the storage conta
 
 ## Understand the sample code
 
-Next, we walk through the sample code so that you can understand how it works.
+Next, we walk through the sample code to understand how it works.
 
-### Create ContainerURL and BlobURL objects
+### Authorize access and create a client object
 
-First, create the references to the ContainerURL and BlobURL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, Upload, and Download to issue REST APIs.
+Working with any Azure resource using the SDK begins with creating a client object. To create the client object, the code sample calls [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient) with the following values:
 
-- Authenticate to Azure using the [**DefaultAzureCredential**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#NewDefaultAzureCredential).
+- **serviceURL** - the URL of the storage account
+- **cred** - a Microsoft Entra credential obtained via the `azidentity` module
+- **options** - client options; pass nil to accept the default values
 
-- Use [**NewServiceClient**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewServiceClient) struct to store your credentials.
-
-- Instantiate a new [**ContainerURL**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ServiceClient.NewContainerClient), and a new [**BlockBlobClient**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewBlockBlobClient) object to run operations on container (Create) and blobs (Upload and Download).
-
-Once you have the ContainerURL, you can instantiate the **BlobURL** object that points to a blob, and perform operations such as upload, download, and copy.
-
-> [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
-
-In this section, you create a new container. The container is called **quickstartblobs-[random string]**.
+The following code example creates a client object to interact with container and blob resources in a storage account:
 
 ```go
-url := "https://storageblobsgo.blob.core.windows.net/"
+// TODO: replace <storage-account-name> with your actual storage account name
+url := "https://<storage-account-name>.blob.core.windows.net/"
 ctx := context.Background()
 
-// Create a default Azure credential
 credential, err := azidentity.NewDefaultAzureCredential(nil)
-if err != nil {
-    log.Fatal("Invalid credentials with error: " + err.Error())
-}
+handleError(err)
 
-serviceClient, err := azblob.NewServiceClient(url, credential, nil)
-if err != nil {
-    log.Fatal("Invalid credentials with error: " + err.Error())
-}
+client, err := azblob.NewClient(url, credential, nil)
+handleError(err)
+```
 
+### Create a container
+The code sample creates a new container resource in the storage account. If a container with the same name already exists, a `ResourceExistsError` is raised.
+
+> [!IMPORTANT]
+> Container names must be lowercase. To learn more about naming requirements for containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
+The following code example creates a new container called *quickstart-sample-container* in the storage account:
+
+```go
 // Create the container
-containerName := fmt.Sprintf("quickstart-%s", randomString())
+containerName := "quickstart-sample-container"
 fmt.Printf("Creating a container named %s\n", containerName)
-
-containerClient := serviceClient.NewContainerClient(containerName)
-_, err = containerClient.Create(ctx, nil)
-
-if err != nil {
-    log.Fatal(err)
-}
+_, err = client.CreateContainer(ctx, containerName, nil)
+handleError(err)
 ```
 
 ### Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.
+The code sample creates a byte array with some data, and uploads the data as a buffer to a new blob resource in the specified container. 
 
-The SDK offers [high-level APIs](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/storage/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadBufferToBlockBlob*** function uses StageBlock (PutBlock) operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses Upload (PutBlob) instead to complete the transfer in a single transaction.
-
-The following example uploads the file to your container called **quickstartblob-[randomstring]**.
+The following code example uploads the blob data to the specified container using the [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer) method:
 
 ```go
-data := []byte("\nhello world this is a blob\n")
-blobName := "quickstartblob" + "-" + randomString()
-
-var blockOptions azblob.HighLevelUploadToBlockBlobOption
-
-blobClient, err := azblob.NewBlockBlobClient(url+containerName+"/"+blobName, credential, nil)
-if err != nil {
-    log.Fatal(err)
-}
+data := []byte("\nHello, world! This is a blob.\n")
+blobName := "sample-blob"
 
 // Upload to data to blob storage
-_, err = blobClient.UploadBufferToBlockBlob(ctx, data, blockOptions)
-
-if err != nil {
-    log.Fatalf("Failure to upload to blob: %+v", err)
-}
+fmt.Printf("Uploading a blob named %s\n", blobName)
+_, err = client.UploadBuffer(ctx, containerName, blobName, data, &azblob.UploadBufferOptions{})
+handleError(err)
 ```
 
 ### List the blobs in a container
 
-Get a list of files in the container using the **ListBlobs** method on a **ContainerURL**. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again.
+The code sample lists the blobs in the specified container. This example uses [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.NewListBlobsFlatPager), which returns a pager for blobs starting from the specified Marker. Here, we use an empty Marker to start enumeration from the beginning, and continue paging until there are no more results. This method returns blob names in lexicographic order.
+
+The following code example lists the blobs in the specified container:
 
 ```go
-	// List the blobs in the container
-pager := containerClient.ListBlobsFlat(nil)
+// List the blobs in the container
+fmt.Println("Listing the blobs in the container:")
 
-for pager.NextPage(ctx) {
-    resp := pager.PageResponse()
+pager := client.NewListBlobsFlatPager(containerName, &azblob.ListBlobsFlatOptions{
+	Include: azblob.ListBlobsInclude{Snapshots: true, Versions: true},
+})
 
-    for _, v := range resp.ContainerListBlobFlatSegmentResult.Segment.BlobItems {
-        fmt.Println(*v.Name)
-    }
-}
+for pager.More() {
+	resp, err := pager.NextPage(context.TODO())
+	handleError(err)
 
-if err = pager.Err(); err != nil {
-    log.Fatalf("Failure to list blobs: %+v", err)
-}
-
-// Download the blob
-get, err := blobClient.Download(ctx, nil)
-if err != nil {
-    log.Fatal(err)
+	for _, blob := range resp.Segment.BlobItems {
+		fmt.Println(*blob.Name)
+	}
 }
 ```
 
 ### Download the blob
 
-Download blobs using the **Download** low-level function on a BlobURL will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection fails while reading, it will make other requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
+The code sample downloads a blob using the [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method, and creates a retry reader for reading data. If a connection fails while reading, the retry reader makes other requests to re-establish a connection and continue reading. You can specify retry reader options using the [RetryReaderOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#RetryReaderOptions) struct.
 
-The following code downloads the blob using the **Download** function. The contents of the blob is written into a buffer and shown on the console.
+The following code example downloads a blob and writes the contents to the console:
 
 ```go
 // Download the blob
-get, err := blobClient.Download(ctx, nil)
-if err != nil {
-    log.Fatal(err)
-}
+get, err := client.DownloadStream(ctx, containerName, blobName, nil)
+handleError(err)
 
-downloadedData := &bytes.Buffer{}
-reader := get.Body(azblob.RetryReaderOptions{})
-_, err = downloadedData.ReadFrom(reader)
-if err != nil {
-    log.Fatal(err)
-}
-err = reader.Close()
-if err != nil {
-    log.Fatal(err)
-}
+downloadedData := bytes.Buffer{}
+retryReader := get.NewRetryReader(ctx, &azblob.RetryReaderOptions{})
+_, err = downloadedData.ReadFrom(retryReader)
+handleError(err)
 
+err = retryReader.Close()
+handleError(err)
+
+// Print the contents of the blob we created
+fmt.Println("Blob contents:")
 fmt.Println(downloadedData.String())
 ```
 
 ### Clean up resources
 
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **Delete** method.
+If you no longer need the blobs uploaded in this quickstart, you can delete the individual blob using the [DeleteBlob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteBlob) method, or the entire container and its contents using the [DeleteContainer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteContainer) method.
 
 ```go
-// Cleaning up the quick start by deleting the blob and container
-fmt.Printf("Press enter key to delete the blob fils, example container, and exit the application.\n")
-bufio.NewReader(os.Stdin).ReadBytes('\n')
-fmt.Printf("Cleaning up.\n")
-
 // Delete the blob
 fmt.Printf("Deleting the blob " + blobName + "\n")
 
-_, err = blobClient.Delete(ctx, nil)
-if err != nil {
-    log.Fatalf("Failure: %+v", err)
-}
+_, err = client.DeleteBlob(ctx, containerName, blobName, nil)
+handleError(err)
 
 // Delete the container
-fmt.Printf("Deleting the blob " + containerName + "\n")
-_, err = containerClient.Delete(ctx, nil)
-
-if err != nil {
-    log.Fatalf("Failure: %+v", err)
-}
+fmt.Printf("Deleting the container " + containerName + "\n")
+_, err = client.DeleteContainer(ctx, containerName, nil)
+handleError(err)
 ```
-
-## Resources for developing Go applications with blobs
-
-See these additional resources for Go development with Blob storage:
-
-- View and install the [Go client library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) for Azure Storage on GitHub.
-- Explore [Blob storage samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#example-package) written using the Go client library.
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using Go. For more information about the Azure Storage Blob SDK, view the [Source Code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) and [API Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob).
+In this quickstart, you learned how to upload, download, and list blobs using Go.
+
+To see Blob storage sample apps, continue to:
+
+> [!div class="nextstepaction"]
+> [Azure Blob Storage library for Go samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#example-package)
+
+- To learn more, see the [Azure Blob Storage client library for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob).
+- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Go Developers](/azure/developer/go/overview).

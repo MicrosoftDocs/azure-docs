@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 08/29/2023
 ms.author: banders
 ---
 
@@ -30,15 +30,22 @@ Roles on the billing account have the highest level of permissions. By default, 
 
 Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions and other purchases from the previous month.
 
-A billing profile is automatically created for your billing account. It contains one invoice section by default. You may create additional sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. You'll see these sections on the billing profile's invoice reflecting the usage of each subscription and purchases you've assigned to it.
+A billing profile is automatically created for your billing account. It contains one invoice section by default. You may create more sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. The sections are shown on the billing profile's invoice reflecting the usage of each subscription and purchases you've assigned to it.
 
 Roles on the billing profiles have permissions to view and manage invoices and payment methods. Assign these roles to users who pay invoices like members of the accounting team in your organization. For more information, see [billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
 
 ### Each billing profile gets a monthly invoice
 
 A monthly invoice is generated at the beginning of the month for each billing profile. The invoice contains all charges from the previous month.
 
-You can view the invoice, download documents and change setting to get future invoices by email, in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](../manage/download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+You can view the invoice, download documents and the change setting to get future invoices by email, in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](../manage/download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+
+If an invoice becomes overdue, past-due email notifications are only sent to users with role assignments on the overdue billing profile. Ensure that users who should receive overdue notifications have one of the following roles:
+
+- Billing profile owner
+- Billing profile contributor
+- Invoice manager
 
 ### Invoice payment methods
 
@@ -47,7 +54,7 @@ Each billing profile has its own payment methods that are used to pay its invoic
 | Type             | Definition  |
 |------------------|-------------|
 |Azure credits    |  Credits are automatically applied to the eligible charges on your invoice, reducing the amount that you need to pay. For more information, see [track Azure credit balance for your billing profile](../manage/mca-check-azure-credits-balance.md). |
-|Check/wire transfer | If your account is approved for payment through check/wire transfer. You can pay the amount due for your invoice through check/wire transfer. The instructions for payment are given on the invoice |
+|Wire transfer | If your account is approved for payment through wire transfer, you can pay the amount due for your invoice with a wire transfer. The instructions for payment are given on the invoice. |
 |Credit card | Customers who sign up for Azure through the Azure website can pay through a credit card. |
 
 ### Apply policies to control purchases
@@ -56,12 +63,12 @@ Apply policies to control Azure Marketplace and Reservation purchases using a bi
 
 ### Azure plans determine pricing and service level agreement for subscriptions
 
-Azure plans determine the pricing and service level agreements for Azure subscriptions. They are automatically enabled when you create a billing profile. All invoice sections that are associated with the billing profile can use these plans. Users with access to the invoice section use the plans to create Azure subscriptions. The following Azure plans are supported in billing accounts for Microsoft Customer Agreement:
+Azure plans determine the pricing and service level agreements for Azure subscriptions. They're automatically enabled when you create a billing profile. All invoice sections that are associated with the billing profile can use these plans. Users with access to the invoice section use the plans to create Azure subscriptions. The following Azure plans are supported in billing accounts for Microsoft Customer Agreement:
 
 | Plan             | Definition  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Allow users to create subscriptions that can run any workloads.  |
-|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. |
+|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. Azure Plan for DevTest is only available for Microsoft Customer Agreement customers who purchase through a Microsoft Sales representative. |
 
 ## Invoice sections
 

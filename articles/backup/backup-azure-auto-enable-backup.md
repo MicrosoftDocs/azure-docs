@@ -1,8 +1,11 @@
 ---
 title: Auto-Enable Backup on VM Creation using Azure Policy
 description: 'An article describing how to use Azure Policy to auto-enable backup for all VMs created in a given scope'
-ms.topic: conceptual
-ms.date: 11/08/2019
+ms.topic: how-to
+ms.date: 10/17/2022
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Auto-Enable Backup on VM Creation using Azure Policy
@@ -46,15 +49,15 @@ The below steps describe the end-to-end process of assigning Policy 1: **Configu
 
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Filter the list for **Category=Backup** and select the policy named 'Configure backup on VMs of a location to an existing central Vault in the same location'.
-![Policy Dashboard](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
+3. Filter the list for **Category=Backup** and select the policy named *Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location*.
+:::image type="content" source="./media/backup-azure-auto-enable-backup/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard." lightbox="./media/backup-azure-auto-enable-backup/policy-dashboard-expanded.png":::
 4. Select the name of the policy. You'll be redirected to the detailed definition for this policy.
-![Policy Definition pane](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+![Screenshot showing the Policy Definition pane.](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
 5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
 6. Under **Basics**, select the three dots next to the **Scope** field. This opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for VMs in a particular resource group.
-![Policy Assignment Basics](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
+![Screenshot showing the Policy Assignment Basics tab.](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
 7. In the **Parameters** tab, choose a location from the drop-down, and select the vault and backup policy to which the VMs in the scope must be associated. You can also choose to specify a tag name and an array of tag values. A VM which contains any of the specified values for the given tag will be excluded from the scope of the policy assignment.
-![Policy Assignment Parameters](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
+![Screenshot showing the Policy Assignment Parameters pane.](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
 8. Ensure that **Effect** is set to deployIfNotExists.
 9. Navigate to **Review+create** and select **Create**.
 

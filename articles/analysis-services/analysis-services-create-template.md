@@ -3,11 +3,11 @@ title: Quickstart - Create an Azure Analysis Services server resource by using A
 description: Quickstart showing how to an Azure Analysis Services server resource by using an Azure Resource Manager template.
 author: minewiskan
 ms.author: owend
-ms.date: 10/12/2021
+ms.date: 01/26/2023
 ms.topic: quickstart
-ms.service: azure-analysis-services
+ms.service: analysis-services
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell, subject-armqs, references_regions, mode-arm
+ms.custom: subject-armqs, references_regions, mode-arm, devx-track-arm-template
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 ---
 
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+* **Microsoft Entra ID**: Your subscription must be associated with a Microsoft Entra tenant. And, you need to be signed in to Azure with an account in that Microsoft Entra ID. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Review the template
 
@@ -38,7 +38,7 @@ A single [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysi
 
 1. Select the following Deploy to Azure link to sign in to Azure and open a template. The template is used to create an Analysis Services server resource and specify required and optional properties.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.analysisservices%2Fanalysis-services-create%2Fazuredeploy.json)
+   [![Deploy to Azure button](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.analysisservices%2Fanalysis-services-create%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 

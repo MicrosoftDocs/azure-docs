@@ -2,16 +2,14 @@
 title: 'Reference: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine 
 description: Details on tools included in the Ubuntu Data Science Virtual Machine
-author: timoklimmer
+author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python
-
-ms.author: tklimmer
-ms.date: 05/12/2021
+ms.custom: devx-track-python, devx-track-linux
+ms.author: jcioffi
+ms.reviewer: mattmcinnes
+ms.date: 04/18/2023
 ms.topic: reference
-
-
 ---
 
 # Reference: Ubuntu (Linux) Data Science Virtual Machine
@@ -83,9 +81,9 @@ easier to troubleshoot issues, compared to developing on a Spark cluster.
 
 ## IDEs and editors
 
-You have a choice of several code editors, including VS.Code, PyCharm, RStudio, IntelliJ, vi/Vim, Emacs. 
+You have a choice of several code editors, including VS.Code, PyCharm, IntelliJ, vi/Vim, Emacs. 
 
-VS.Code, PyCharm, RStudio, and IntelliJ are graphical editors. To use them, you need to be signed in to a graphical
+VS.Code, PyCharm, and IntelliJ are graphical editors. To use them, you need to be signed in to a graphical
 desktop. You open them by using desktop and application menu shortcuts.
 
 Vim and Emacs are text-based editors. On Emacs, the ESS add-on package makes working with R easier within the Emacs
@@ -135,7 +133,7 @@ The following Azure tools are installed on the VM:
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
   * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
-  * **R**: The Azure-related libraries in R are AzureML and RODBC.
+  * **R**: The Azure-related libraries in R are Azure Machine Learning and RODBC.
   * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
 
 ## Azure Machine Learning
@@ -144,7 +142,7 @@ Azure Machine Learning is a fully managed cloud service that enables you to buil
 
 After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
-Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
+Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](../index.yml).
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 

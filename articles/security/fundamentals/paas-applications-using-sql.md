@@ -3,9 +3,8 @@ title: Securing PaaS Databases in Azure | Microsoft Docs
 description: "Learn about Azure SQL Database and Azure Synapse Analytics security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
-author: techlake
-manager: barbkess
-editor: ''
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid:
 ms.service: security
@@ -13,17 +12,17 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/31/2023
 ms.author: terrylan
 
 ---
 # Best practices for securing PaaS databases in Azure
 
-In this article, we discuss a collection of [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) security best practices for securing your platform-as-a-service (PaaS) web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
+In this article, we discuss a collection of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) security best practices for securing your platform-as-a-service (PaaS) web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
-Azure SQL Database and Azure Synapse Analytics provide a relational database service for your internet-based applications. Let’s look at services that help protect your applications and data when using Azure SQL Database and Azure Synapse Analytics in a PaaS deployment:
+Azure SQL Database and Azure Synapse Analytics provide a relational database service for your internet-based applications. Let's look at services that help protect your applications and data when using Azure SQL Database and Azure Synapse Analytics in a PaaS deployment:
 
-- Azure Active Directory authentication (instead of SQL Server authentication)
+- Microsoft Entra authentication (instead of SQL Server authentication)
 - Azure SQL firewall
 - Transparent Data Encryption (TDE)
 
@@ -33,28 +32,30 @@ Azure SQL Database can be configured to use one of two types of authentication:
 
 - **SQL authentication** uses a username and password. When you created the server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner.
 
-- **Azure Active Directory authentication** uses identities managed by Azure Active Directory and is supported for managed and integrated domains. To use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can.
+- **Microsoft Entra authentication** uses identities managed by Microsoft Entra ID and is supported for managed and integrated domains. To use Microsoft Entra authentication, you must create another server admin called the "Microsoft Entra admin," which is allowed to administer Microsoft Entra users and groups. This admin can also perform all operations that a regular server admin can.
 
-[Azure Active Directory authentication](../../active-directory/develop/authentication-vs-authorization.md) is a mechanism of connecting to Azure SQL Database and Azure Synapse Analytics by using identities in Azure Active Directory (AD). Azure AD provides an alternative to SQL Server authentication so you can stop the proliferation of user identities across database servers. Azure AD authentication enables you to centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.  
+[Microsoft Entra authentication](../../active-directory/develop/authentication-vs-authorization.md) is a mechanism of connecting to Azure SQL Database and Azure Synapse Analytics by using identities in Microsoft Entra ID. Microsoft Entra ID provides an alternative to SQL Server authentication so you can stop the proliferation of user identities across database servers. Microsoft Entra authentication enables you to centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.  
 
-### Benefits of using Azure AD instead of SQL authentication
+<a name='benefits-of-using-azure-ad-instead-of-sql-authentication'></a>
+
+### Benefits of using Microsoft Entra ID instead of SQL authentication
 
 - Allows password rotation in a single place.
-- Manages database permissions using external Azure AD groups.
-- Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure AD.
+- Manages database permissions using external Microsoft Entra groups.
+- Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Microsoft Entra ID.
 - Uses contained database users to authenticate identities at the database level.
 - Supports token-based authentication for applications connecting to SQL Database.
-- Supports domain federation with Active Directory Federation Services (ADFS) or native user/password authentication for a local Azure AD without domain synchronization.
-- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Supports domain federation with Active Directory Federation Services (ADFS) or native user/password authentication for a local Microsoft Entra ID without domain synchronization.
+- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). MFA includes strong authentication with a range of easy verification options. Verification options are phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/authentication-mfa-ssms-overview).
 
-To learn more about Azure AD authentication, see:
+To learn more about Microsoft Entra authentication, see:
 
-- [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](../../azure-sql/database/authentication-aad-overview.md)
+- [Use Microsoft Entra authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-overview)
 - [Authentication to Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [Token-based authentication support for Azure SQL Database using Azure AD authentication](../../azure-sql/database/authentication-aad-overview.md)
+- [Token-based authentication support for Azure SQL Database using Microsoft Entra authentication](/azure/azure-sql/database/authentication-aad-overview)
 
 > [!NOTE]
-> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+> To ensure that Microsoft Entra ID is a good fit for your environment, see [Microsoft Entra features and limitations](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 ## Restrict access based on IP address
 
@@ -64,8 +65,8 @@ SQL Database default source IP address restrictions allow access from any Azure 
 
 To learn more about Azure SQL Firewall and IP restrictions, see:
 
-- [Azure SQL Database and Azure Synapse Analytics access control](../../azure-sql/database/logins-create-manage.md)
-- [Azure SQL Database and Azure Synapse Analytics firewall rules](../../azure-sql/database/firewall-configure.md)
+- [Azure SQL Database and Azure Synapse Analytics access control](/azure/azure-sql/database/logins-create-manage)
+- [Azure SQL Database and Azure Synapse Analytics firewall rules](/azure/azure-sql/database/firewall-configure)
 
 ## Encrypt data at rest
 

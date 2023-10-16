@@ -2,15 +2,15 @@
 title: Build a trusted user access service using Azure Functions in Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a trusted user access service for Communication Services with Azure Functions
-author: ddematheu2
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
+ms.custom: devx-track-js
 ---
 
 # Build a trusted user access service using Azure Functions
@@ -41,6 +41,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 You may also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
+- [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

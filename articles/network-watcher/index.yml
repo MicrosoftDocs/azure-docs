@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Network Watcher documentation
+title: Network Watcher documentation
 summary: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
 metadata:
-  title: Azure Network Watcher Documentation
+  title: Network Watcher Documentation
   description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
   services: network-watcher
   ms.service: network-watcher
+  ms.custom: ignite-2022
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
-  ms.date: 08/29/2019
-
+  author: halkazwini
+  ms.author: halkazwini
+  ms.date: 02/12/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -24,19 +24,25 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Network Watcher?
-            url: network-watcher-monitoring-overview.md
+            url: network-watcher-overview.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Network Watcher
-            url: /learn/modules/intro-to-azure-network-watcher
+            url: /training/modules/intro-to-azure-network-watcher
+          - text: Configure Network Watcher
+            url: /training/modules/configure-network-watcher
+      - linkListType: deploy
+        links: 
+          - text: Monitor the Azure network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%206
 
   # Card (optional)
   - title: Diagnose VM traffic filter problem
     linkLists:
       - linkListType: concept
         links:
-          - text: IP Flow verify
-            url: network-watcher-ip-flow-verify-overview.md
+          - text: IP flow verify overview
+            url: ip-flow-verify-overview.md
       - linkListType: quickstart  
         links:
           - text: Diagnose VM traffic filter problem
@@ -47,7 +53,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Diagnose VM routing problem with next hop
+          - text: Next hop overview
             url: network-watcher-next-hop-overview.md
       - linkListType: tutorial  
         links:
@@ -59,34 +65,40 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Diagnose outbound VM communication issues
-            url: network-watcher-connectivity-overview.md
+          - text: Connection troubleshoot overview
+            url: connection-troubleshoot-overview.md
+          - text: Connection monitor overview
+            url: connection-monitor-overview.md
       - linkListType: tutorial  
         links:
-          - text: Diagnose VM routing problem
+          - text: Troubleshoot connections
             url: network-watcher-connectivity-portal.md
           - text: Monitor communication between VMs
-            url: connection-monitor.md          
+            url: monitor-vm-communication.md          
   
   # Card (optional)
-  - title: Log VM network traffic
+  - title: Log network traffic
     linkLists:
       - linkListType: concept
         links:
-          - text: Log VM network traffic
+          - text: NSG flow log overview
             url: network-watcher-nsg-flow-logging-overview.md
       - linkListType: tutorial  
         links:
           - text: Log VM network traffic
-            url: network-watcher-nsg-flow-logging-portal.md
-      - linkListType: tutorial 
+            url: nsg-flow-logs-tutorial.md           
+  
+  # Card (optional)
+  - title: Traffic analytics
+    linkLists:
+      - linkListType: concept
         links:
-          - text: Configure NSG flow logs
-            url: network-watcher-nsg-flow-logging-portal.md
-          - text: Analyze NSG flow logs using Traffic Analytics
+          - text: Traffic analytics overview
             url: traffic-analytics.md
-          - text: Log VM network traffic
-            url: network-watcher-nsg-flow-logging-portal.md              
+      - linkListType: tutorial  
+        links:
+          - text: Deploy and manage traffic analytics
+            url: traffic-analytics-policy-portal.md
 
   # Card (optional)
   - title: Reference
@@ -94,7 +106,7 @@ landingContent:
       - linkListType: reference  
         links:
           - text: Azure PowerShell
-            url: /powershell/module/az.network/#network_watcher
+            url: /powershell/module/az.network/#network-watcher
           - text: Azure CLI
             url: /cli/azure/network/watcher
           - text: REST

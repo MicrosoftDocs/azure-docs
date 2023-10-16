@@ -1,14 +1,13 @@
 ---
-title: Instead of ETL, design ELT 
+title: Instead of ETL, design ELT
 description: Implement flexible data loading strategies for dedicated SQL pools within Azure Synapse Analytics.
 author: joannapea
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/20/2020
 ms.author: joanpo
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
+ms.date: 11/20/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -110,12 +109,11 @@ Use the following SQL data type mapping when loading Parquet files:
 |                            INT64                             |         TIME (MILLIS)                 |       time       |
 |                            INT64                             | TIMESTAMP   (MILLIS)                  |    datetime2     |
 | [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                 LIST                  |   varchar(max)   |
-| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md |                  MAP                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
 >- SQL dedicated pools do not currently support Parquet data types with MICROS and NANOS precision. 
->- You may experience the following error if types are mismatched between Parquet and SQL or if you have unsupported Parquet data types: 
->**"HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException: ..."**
+>- You may experience the following error if types are mismatched between Parquet and SQL or if you have unsupported Parquet data types: `HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException:...`
 >- Loading a value outside the range of 0-127 into a tinyint column for Parquet and ORC file format is not supported.
 
 For an example of creating external objects, see [Create external tables](../sql/develop-tables-external-tables.md?tabs=sql-pool).

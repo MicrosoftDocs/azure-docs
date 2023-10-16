@@ -1,11 +1,15 @@
 ---
 title: Azure PowerShell Samples - Service Fabric 
 description: Learn about the creation and management of Azure Service Fabric clusters, apps, and services using PowerShell.
-
 ms.topic: sample
-ms.date: 11/29/2018
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Azure Service Fabric PowerShell samples
 
 The following table includes links to PowerShell scripts samples that create and manage Service Fabric clusters, applications, and services.

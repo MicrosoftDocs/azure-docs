@@ -1,33 +1,33 @@
 ---
-title: Get a token in a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Get a token in a web app that calls web APIs
 description: Learn how to acquire a token for a web app that calls web APIs
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/25/2020
-ms.author: jmprieur
+ms.date: 08/11/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Acquire a token for the app
 
-You've built your client application object. Now, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is done in the controller:
+You've built your client application object. Now, you use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is done in the controller:
 
-- Get a token for the web API by using the token cache. To get this token, you call the MSAL `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
+- Get a token for the web API by using the token cache. To get this token, you call the Microsoft Authentication Library (MSAL) `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
 - Call the protected API, passing the access token to it as a parameter.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
 *Microsoft.Identity.Web* adds extension methods that provide convenience services for calling Microsoft Graph or a downstream web API. These methods are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
 
-If, however, you do want to manually acquire a token, the following code shows an example of using *Microsoft.Identity.Web* to do so in a home controller. It calls Microsoft Graph using the REST API (instead of the Microsoft Graph SDK). To get a token to call the downstream API, you inject the `ITokenAcquisition` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions, getting a token for the user (`GetAccessTokenForUserAsync`) or for the application itself (`GetAccessTokenForAppAsync`) in a daemon scenario.
+If, however, you do want to manually acquire a token, the following code shows an example of using *Microsoft.Identity.Web* to do so in a home controller. It calls Microsoft Graph using the REST API (instead of the Microsoft Graph SDK). Usually, you don't need to get a token, you need to build an Authorization header that you add to your request. To get an authorization header, you inject the `IAuthorizationHeaderProvider` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions. This interface has methods that produce a string containing the protocol (Bearer, Pop, ...) and a token. To get an authorization header to call an API on behalf of the user, use (`CreateAuthorizationHeaderForUserAsync`). To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use (`CreateAuthorizationHeaderForAppAsync`).
 
 The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
 
@@ -35,11 +35,11 @@ The controller methods are protected by an `[Authorize]` attribute that ensures 
 [Authorize]
 public class HomeController : Controller
 {
- readonly ITokenAcquisition tokenAcquisition;
+ readonly IAuthorizationHeaderProvider authorizationHeaderProvider;
 
- public HomeController(ITokenAcquisition tokenAcquisition)
+ public HomeController(IAuthorizationHeaderProvider authorizationHeaderProvider)
  {
-  this.tokenAcquisition = tokenAcquisition;
+  this.authorizationHeaderProvider = authorizationHeaderProvider;
  }
 
  // Code for the controller actions (see code below)
@@ -47,7 +47,7 @@ public class HomeController : Controller
 }
 ```
 
-The `ITokenAcquisition` service is injected by ASP.NET by using dependency injection.
+ASP.NET Core makes `IAuthorizationHeaderProvider` available by dependency injection.
 
 Here's simplified code for the action of the `HomeController`, which gets a token to call Microsoft Graph:
 
@@ -57,11 +57,11 @@ public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+ string accessToken = await authorizationHeaderProvider.CreateAuthorizationHeaderForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
- client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ client.DefaultRequestHeaders.Add("Authorization", accessToken);
  string json = await client.GetStringAsync(url);
 }
 ```
@@ -73,7 +73,7 @@ The `AuthorizeForScopes` attribute on top of the controller action (or of the Ra
 There are other complex variations, such as:
 
 - Calling several APIs.
-- Processing incremental consent and conditional access.
+- Processing incremental consent and Conditional Access.
 
 These advanced steps are covered in chapter 3 of the [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) tutorial.
 
@@ -81,43 +81,61 @@ These advanced steps are covered in chapter 3 of the [3-WebApp-multi-APIs](https
 
 The code for ASP.NET is similar to the code shown for ASP.NET Core:
 
-- A controller action, protected by an [Authorize] attribute, extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller. (ASP.NET uses `HttpContext.User`.)
-- From there, it builds an MSAL.NET `IConfidentialClientApplication` object.
-- Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
-- If interaction is required, the web app needs to challenge the user (re-sign in) and ask for more claims.
+- A controller action, protected by an `[Authorize]` attribute, extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller (ASP.NET uses `HttpContext.User`). This ensures that only authenticated users can use the app. 
+**Microsoft.Identity.Web** adds extension methods to the Controller that provide convenience services to call Microsoft Graph or a downstream web API, or to get an authorization header, or even a token. The methods used to call an API directly are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
 
-The following code snippet is extracted from [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) in the [ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC code sample:
+If, however, you do want to manually acquire a token or build an authorization header, the following code shows how to use Microsoft.Identity.Web to do so in a controller. It calls an API (Microsoft Graph) using the REST API instead of the Microsoft Graph SDK. 
 
-```C#
-public async Task<ActionResult> ReadMail()
+To get an authorization header, you get an `IAuthorizationHeaderProvider` service from the controller using an extension method `GetAuthorizationHeaderProvider`. To get an authorization header to call an API on behalf of the user, use `CreateAuthorizationHeaderForUserAsync`. To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use `CreateAuthorizationHeaderForAppAsync`.
+
+The following snippet shows the action of the `HomeController`, which gets an authorization header to call Microsoft Graph as a REST API:
+
+```csharp
+[Authorize]
+public class HomeController : Controller
 {
-    IConfidentialClientApplication app = MsalAppBuilder.BuildConfidentialClientApplication();
-    AuthenticationResult result = null;
-    var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
-    string[] scopes = { "Mail.Read" };
+ [AuthorizeForScopes(Scopes = new[] { "user.read" })]
+ public async Task<IActionResult> Profile()
+ {
+  // Get an authorization header.
+  IAuthorizationHeaderProvider authorizationHeaderProvider = this.GetAuthorizationHeaderProvider();
+  string[] scopes = new string[]{"user.read"};
+  string authorizationHeader = await authorizationHeaderProvider.CreateAuthorizationHeaderForUserAsync(scopes);
 
-    try
-    {
-        // try to get token silently
-        result = await app.AcquireTokenSilent(scopes, account).ExecuteAsync().ConfigureAwait(false);
-    }
-    catch (MsalUiRequiredException)
-    {
-        ViewBag.Relogin = "true";
-        return View();
-    }
-
-    // More code here
-    return View();
+  // Use the access token to call a protected web API.
+  HttpClient client = new HttpClient();
+  client.DefaultRequestHeaders.Add("Authorization", authorizationHeader);
+  string json = await client.GetStringAsync(url);
+ }
 }
 ```
 
-For details see the code for [BuildConfidentialClientApplication()](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs) and [GetMsalAccountId](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Utils/ClaimPrincipalExtension.cs#L38) in the code sample
+The following snippet shows the action of the `HomeController`, which gets an access token to call Microsoft Graph as a REST API:
+
+```csharp
+[Authorize]
+public class HomeController : Controller
+{
+ [AuthorizeForScopes(Scopes = new[] { "user.read" })]
+ public async Task<IActionResult> Profile()
+ {
+  // Get an authorization header.
+  ITokenAcquirer tokenAcquirer = TokenAcquirerFactory.GetDefaultInstance().GetTokenAcquirer();
+  string[] scopes = new string[]{"user.read"};
+  string token = await await tokenAcquirer.GetTokenForUserAsync(scopes);
+
+  // Use the access token to call a protected web API.
+  HttpClient client = new HttpClient();
+  client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+  string json = await client.GetStringAsync(url);
+ }
+}
+```
 
 
 # [Java](#tab/java)
 
-In the Java sample, the code that calls an API is in the getUsersFromGraph method in [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
+In the Java sample, the code that calls an API is in the `getUsersFromGraph` method in [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
 The method attempts to call `getAuthResultBySilentFlow`. If the user needs to consent to more scopes, the code processes the `MsalInteractionRequiredException` object to challenge the user.
 
@@ -177,28 +195,51 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 // Code omitted here
 ```
 
+# [Node.js](#tab/nodejs)
+
+In the Node.js sample, the code that acquires a token is in the `acquireToken` method of the `AuthProvider` class.
+
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="79-121":::
+
+This access token is then used to handle requests to the `/profile` endpoint:
+
+:::code language="js" source="~/ms-identity-node/App/routes/users.js" range="29-39":::
+
 # [Python](#tab/python)
 
-In the Python sample, the code that calls Microsoft Graph is in [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+In the Python sample, the code that calls the API is in *app.py*.
 
-The code attempts to get a token from the token cache. Then, after setting the authorization header, it calls the web API. If it can't get a token, it signs the user in again.
+The code attempts to get a token from the token cache. If it can't get a token, it redirects the user to the sign-in route. Otherwise, it can proceed to call the API.
 
-```python
-@app.route("/graphcall")
-def graphcall():
-    token = _get_token_from_cache(app_config.SCOPE)
-    if not token:
-        return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service.
-        app_config.ENDPOINT,
-        headers={'Authorization': 'Bearer ' + token['access_token']},
-        ).json()
-    return render_template('display.html', result=graph_data)
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="60-71":::
 
 ---
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 Move on to the next article in this scenario,
-[Call a web API](scenario-web-app-call-api-call-api.md).
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=nodejs).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=python).
+
+---

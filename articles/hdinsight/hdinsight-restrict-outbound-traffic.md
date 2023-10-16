@@ -4,7 +4,7 @@ description: Learn how to configure outbound network traffic restriction for Azu
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 03/31/2022
+ms.date: 04/24/2023
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall
@@ -98,7 +98,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_6 | TCP | * | SQL | 1433 , 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers. Refer to [Azure SQL Database and Azure Synapse Analytics connectivity architecture](../azure-sql/database/connectivity-architecture.md) to see why 11000-11999 port range is also needed in addition to 1433. |
+    | Rule_6 | TCP | * | SQL | 1433 , 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers. Refer to [Azure SQL Database and Azure Synapse Analytics connectivity architecture](/azure/azure-sql/database/connectivity-architecture) to see why 11000-11999 port range is also needed in addition to 1433. |
     | Rule_7 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: Enter application rule collection":::

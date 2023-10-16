@@ -1,12 +1,12 @@
 ---
 title: Tutorial to verify data upload from Azure Data Box Disk to storage account
 description: Use this tutorial to learn how to verify the data uploaded from your Azure Data Box Disk to Azure storage account.
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/17/2021
-ms.author: alkohli
+ms.date: 05/05/2022
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -38,9 +38,15 @@ When Microsoft receives and scans the disk, job status is updated to **Received*
 
 The data automatically gets copied once the disks are connected to a server in the Azure datacenter. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
 
-Once the copy is complete, order status updates to **Completed**. The **DATA COPY DETAILS** show the path to the copy log, which reports any errors during the data copy.
+Once the copy is complete, order status updates to **Completed**. The **DATA COPY DETAILS** show the path to the copy log, which reports any errors during the data copy. 
 
-![Screenshot of the Overview pane for a Data Box Disk import order in Copy Completed state. The Overview option, Copy Completed order status, and Copy Log Path are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+As of March 2022, you can choose **View by Storage Account(s)** or **View by Managed Disk(s)** to display the data copy details.
+
+[![Screenshot of the Data Copy Details.](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)](media/data-box-disk-deploy-picked-up/data-box-portal-completed-inline.png#lightbox)
+
+If you have an order from before March 2022, the data copy details will be shown as below:
+
+:::image type="content" source="media/data-box-disk-deploy-picked-up/data-box-portal-completed-old.png" alt-text="Screenshot of the Data Copy Details prior to March 2022.":::
 
 If the copy completes with errors, see [troubleshoot upload errors](data-box-disk-troubleshoot-upload.md).
 

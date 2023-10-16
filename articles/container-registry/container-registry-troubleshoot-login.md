@@ -2,7 +2,9 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 08/11/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Troubleshoot registry login
@@ -17,7 +19,7 @@ May include one or more of the following:
 * Unable to login to registry and you receive error `unauthorized: authentication required` or `unauthorized: Application not registered with AAD`
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
-* Unable to access a registry using `az acr login` and you receive error `CONNECTIVITY_REFRESH_TOKEN_ERROR. Access to registry was denied. Response code: 403.Unable to get admin user credentials with message: Admin user is disabled.Unable to authenticate using AAD or admin login credentials.`
+* Unable to access a registry using `az acr login` and you receive error `CONNECTIVITY_REFRESH_TOKEN_ERROR. Access to registry was denied. Response code: 403. Unable to get admin user credentials with message: Admin user is disabled. Unable to authenticate using AAD or admin login credentials.`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
 * Unable to access registry and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden` - See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
@@ -27,17 +29,17 @@ May include one or more of the following:
 * Docker isn't configured properly in your environment - [solution](#check-docker-configuration)
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
 * The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
-* The registry public access is disabled.Public network access rules on the registry prevent access - [solution](container-registry-troubleshoot-access.md#configure-public-access-to-registry)
+* The registry public access is disabled. Public network access rules on the registry prevent access - [solution](container-registry-troubleshoot-access.md#configure-public-access-to-registry)
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
 ## Further diagnosis 
 
-Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Azure Active Directory login problems. 
+Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Microsoft Entra login problems. 
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
-If you're experiencing problems using the registry with Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
+Follow the instructions from the [AKS support doc](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) if you fail to pull images from ACR to the AKS cluster.
 
 > [!NOTE]
 > Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
@@ -61,7 +63,7 @@ When using `docker login`, provide the full login server name of the registry, s
 docker login myregistry.azurecr.io
 ```
 
-When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
+When using [az acr login](/cli/azure/acr#az-acr-login) with a Microsoft Entra identity, first [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
 ```azurecli
 az acr login --name myregistry
@@ -85,12 +87,12 @@ Check the validity of the credentials you use for your scenario, or were provide
 Related links:
 
 * [Authentication overview](container-registry-authentication.md#authentication-options)
-* [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
+* [Individual login with Microsoft Entra ID](container-registry-authentication.md#individual-login-with-azure-ad)
 * [Login with service principal](container-registry-auth-service-principal.md)
 * [Login with managed identity](container-registry-authentication-managed-identity.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Login with admin account](container-registry-authentication.md#admin-account)
-* [Azure AD authentication and authorization error codes](../active-directory/develop/reference-aadsts-error-codes.md)
+* [Microsoft Entra authentication and authorization error codes](../active-directory/develop/reference-aadsts-error-codes.md)
 * [az acr login](/cli/azure/acr#az-acr-login) reference
 
 ### Confirm credentials are authorized to access registry
@@ -108,9 +110,9 @@ Related links:
 * [Azure roles and permissions - Azure Container Registry](container-registry-roles.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
-* [Azure AD authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
+* [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret)
+* [Microsoft Entra authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### Check that credentials aren't expired
 
@@ -124,7 +126,7 @@ Related links:
 
 * [Reset service principal credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
 * [Regenerate token passwords](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
-* [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
+* [Individual login with Microsoft Entra ID](container-registry-authentication.md#individual-login-with-azure-ad)
 
 ## Advanced troubleshooting
 

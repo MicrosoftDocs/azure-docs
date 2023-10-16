@@ -2,8 +2,8 @@
 title: Geocoding coverage in Microsoft Azure Maps Search service
 titleSuffix: Microsoft Azure Maps
 description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/30/2021
 ms.topic: reference
 ms.service: azure-maps
@@ -12,9 +12,9 @@ services: azure-maps
 
 # Azure Maps geocoding coverage
 
-The Azure Maps [Search service](/rest/api/maps/search) supports geocoding, which means that your API request can have search terms, like an address or the name of a place, and returns the result as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](/rest/api/maps/search/getsearchaddress) receives queries that contain location information, and returns results as latitude and longitude coordinates.
+The [Search service] supports geocoding, which means that your API request can have search terms, like an address or the name of a place, and returns the result as latitude and longitude coordinates. For example, [Get Search Address] receives queries that contain location information, and returns results as latitude and longitude coordinates.
 
-However, the Azure Maps [Search service](/rest/api/maps/search) doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
+However, the [Search service] doesn't have the same level of information and accuracy for all countries/regions. Use this article to determine what kind of locations you can reliably search for in each region.
 
 The ability to geocode in a country/region is dependent upon the road data coverage and geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
 
@@ -206,7 +206,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Sweden                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Switzerland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tajikistan                                          |                 |                 |       ✓      |      ✓     |          ✓         |
-| Turkey                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Türkiye                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkmenistan                                        |                 |                 |              |      ✓     |           ✓        |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |           ✓        |
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -227,7 +227,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Burkina Faso                                        |                |              |       ✓      |      ✓     |        ✓          |
 | Burundi                                             |                |              |       ✓      |      ✓     |        ✓          |
 | Cameroon                                            |                |              |       ✓      |      ✓     |        ✓          |
-| Cape Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
+| Cabo Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
 | Central African Republic                            |                |              |       ✓      |      ✓     |        ✓          |
 | Chad                                                |                |              |              |      ✓     |        ✓          |
 | Congo                                               |                |              |              |      ✓     |        ✓          |
@@ -269,7 +269,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Qatar                                               |        ✓       |              |       ✓     |      ✓     |        ✓          |
 | Réunion                                             |        ✓       |        ✓     |       ✓     |      ✓     |        ✓          |
 | Rwanda                                              |                |              |       ✓      |      ✓     |        ✓          |
-| Saint Helena                                        |                |              |              |      ✓     |        ✓          |
+| Saint Helena, Ascension, and Tristan da Cunha       |                |              |              |      ✓     |        ✓          |
 | São Tomé & Príncipe                                 |                |              |       ✓      |      ✓     |        ✓          |
 | Saudi Arabia                                        |        ✓       |              |       ✓      |      ✓     |        ✓          |
 | Senegal                                             |                |              |       ✓      |      ✓     |        ✓          |
@@ -293,4 +293,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 
 Learn more about Azure Maps geocoding:
 > [!div class="nextstepaction"]
-> [Azure Maps Search service](/rest/api/maps/search)
+> [Azure Maps Search service]
+
+[Search service]: /rest/api/maps/search
+[Azure Maps Search service]: /rest/api/maps/search
+[Get Search Address]: /rest/api/maps/search/get-search-address

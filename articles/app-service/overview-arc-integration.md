@@ -2,7 +2,10 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 03/09/2022
+ms.custom: devx-track-azurecli
+ms.date: 03/15/2023
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -28,12 +31,12 @@ The following public preview limitations apply to App Service Kubernetes environ
 | Supported Azure regions                                 | East US, West Europe                                                                  |
 | Cluster networking requirement                          | Must support `LoadBalancer` service type |
 | Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
-| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
+| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-all-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
 | Feature: Key vault references                           | Not available (depends on managed identities)                                         |
 | Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                         |
 | Feature: In-portal editing for Functions and Logic Apps | Not available                                                                         |
-| Feature: Portal listing of Functions or keys            | Not available if cluster is not publicly reachable                                    |
+| Feature: Portal listing of Functions or keys            | Not available if cluster isn't publicly reachable                                    |
 | Feature: FTP publishing                                 | Not available                                                                         |
 | Logs                                                    | Log Analytics must be configured with cluster extension; not per-site                 |
 
@@ -68,12 +71,13 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [Which built-in application stacks are supported?](#which-built-in-application-stacks-are-supported)
 - [Are all app deployment types supported?](#are-all-app-deployment-types-supported)
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
-- [Are networking features supported?](#are-networking-features-supported)
+- [Are all networking features supported?](#are-all-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
 - [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
+- [Which Kubernetes distributions can I deploy the extension on?](#which-kubernetes-distributions-can-i-deploy-the-extension-on)
 
 ### How much does it cost?
 
@@ -81,7 +85,7 @@ App Service on Azure Arc is free during the public preview.
 
 ### Are both Windows and Linux apps supported?
 
-Only Linux-based apps are supported, both code and custom containers. Windows apps are not supported.
+Only Linux-based apps are supported, both code and custom containers. Windows apps aren't supported.
 
 ### Which built-in application stacks are supported?
 
@@ -89,15 +93,15 @@ All built-in Linux stacks are supported.
 
 ### Are all app deployment types supported?
 
-FTP deployment is not supported. Currently `az webapp up` is also not supported. Other deployment methods are supported, including Git, ZIP, CI/CD, Visual Studio, and Visual Studio Code.
+FTP deployment isn't supported. Currently `az webapp up` is also not supported. Other deployment methods are supported, including Git, ZIP, CI/CD, Visual Studio, and Visual Studio Code.
 
 ### Which App Service features are supported?
 
-During the preview period, certain App Service features are being validated. When they're supported, their left navigation options in the Azure portal will be activated. Features that are not yet supported remain grayed out.
+During the preview period, certain App Service features are being validated. When they're supported, their left navigation options in the Azure portal will be activated. Features that aren't yet supported remain grayed out.
 
-### Are networking features supported?
+### Are all networking features supported?
 
-No. Networking features such as hybrid connections, Virtual Network integration, or IP restrictions, are not supported. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
+No. Networking features such as hybrid connections or Virtual Network integration, aren't supported.  [Access restriction](app-service-ip-restrictions.md) support was added in April 2022. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
 
 ### Are managed identities supported?
 
@@ -111,7 +115,7 @@ All applications deployed with Azure App Service on Kubernetes with Azure Arc ar
 
 Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
 
-By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
+By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
@@ -119,7 +123,11 @@ When creating a Kubernetes environment resource, some subscriptions might see a 
 
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
-ARM64 based clusters are not supported at this time.  
+ARM64 based clusters aren't supported at this time.  
+
+### Which Kubernetes distributions can I deploy the extension on?
+
+The extension has been validated on AKS, AKS on Azure Stack HCI, Google Kubernetes Engine, Amazon Elastic Kubernetes Service and Kubernetes Cluster API.
 
 ## Extension Release Notes
 
@@ -198,6 +206,27 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.12.2
+```
+
+### Application services extension v 0.13.0 (April 2022)
+
+- Added support for Application Insights codeless integration for Node JS applications
+- Added support for [Access Restrictions](app-service-ip-restrictions.md) via CLI
+- More details provided when extension fails to install, to assist with troubleshooting issues 
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.0
+```
+### Application services extension v 0.13.1 (April 2022)
+
+- Update to resolve upgrade failures seen during auto upgrade of clusters to v 0.13.0
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.1
 ```
 
 ## Next steps

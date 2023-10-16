@@ -12,10 +12,10 @@ metadata:
 title: Frequently asked questions for application enclaves on Intel SGX confidential VMs
 summary: |
   This article provides answers to some of the most common questions about running [confidential computing workloads on Intel SGX Azure virtual machines](overview.md).
-  
+
   If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select Get support.
-  
-  
+
+
 
 sections:
   - name: Ignored
@@ -26,63 +26,63 @@ sections:
           Here are some ways you can deploy a DCsv2 VM:
              - Using an [Azure Resource Manager Template](../virtual-machines/windows/template-description.md)
              - From the [Azure portal](https://portal.azure.com/#create/hub)
-             - In the [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) marketplace solution template. The marketplace solution template will help constrain a customer to the supported scenarios (regions, images, availability, disk encryption). 
-          
+             - In the [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) marketplace solution template. The marketplace solution template will help constrain a customer to the supported scenarios (regions, images, availability, disk encryption).
+
       - question: |
           How can I deploy DCsv3 or DCdsv3 series VMs on Azure?
         answer: |
           The v3 Intel SGX VMs currently in preview. You can deploy them the same way you can deploy a v2 Intel SGX VM:
              - Using an [Azure Resource Manager Template](../virtual-machines/windows/template-description.md)
              - From the [Azure portal](https://portal.azure.com/#create/hub)
-             - In the [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) marketplace solution template. The marketplace solution template will help constrain a customer to the supported scenarios (regions, images, availability, disk encryption). 
+             - In the [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) marketplace solution template. The marketplace solution template will help constrain a customer to the supported scenarios (regions, images, availability, disk encryption).
 
       - question: |
           Will all OS images work with Intel SGX virtual machines?
         answer: |
           No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 20.04, and Windows Server 2019 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/generation-2.md) and [Windows](../virtual-machines/generation-2.md)
-          
+
       - question: |
           Intel SGX virtual machines are grayed out in the portal and I can't select one
         answer: |
           Based on the information bubble next to the VM, there are different actions to take:
              -	**UnsupportedGeneration**: Change the generation of the virtual machine image to “Gen2”.
              -	**NotAvailableForSubscription**: The region isn't yet available for your subscription. Select an available region.
-             -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for some confidential computing VMs. 
-          
+             -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for some confidential computing VMs.
+
       - question: |
           Intel SGX virtual machines don't show up when I try to search for them in the portal size selector
         answer: |
-          Make sure you've selected an [available region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure you select “clear all filters” in the size selector. 
-          
+          Make sure you've selected an [available region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure you select “clear all filters” in the size selector.
+
       - question: |
           Can I enable Accelerated Networking with Intel SGX on Azure confidential computing?
-        answer:  It depends. 
-            - Accelerated Networking isn't supported on DC-Series or DCsv2-Series virtual machines. Accelerated Networking cannot be enabled for confidential computing virtual machine deployment or Azure Kubernetes Service cluster deployment running on these VM sizes. 
+        answer:  It depends.
+            - Accelerated Networking isn't supported on DC-Series or DCsv2-Series virtual machines. Accelerated Networking cannot be enabled for confidential computing virtual machine deployment or Azure Kubernetes Service cluster deployment running on these VM sizes.
             - Accelerated networking is supported on DCdsv3-Series and DCsv3-Series VMs through CLI provisioning and ARM templates only.
 
       - question: |
           Can I use Azure Dedicated Host with these machines?
         answer: |
-          Azure Dedicated Host support DCsv2-series virtual machines. Azure Dedicated Host provides a single-tenant physical server to run your virtual machines on. Users usually use Azure Dedicated Host to address compliance requirements around physical security, data integrity, and monitoring. 
+          Azure Dedicated Host support DCsv2-series virtual machines. Azure Dedicated Host provides a single-tenant physical server to run your virtual machines on. Users usually use Azure Dedicated Host to address compliance requirements around physical security, data integrity, and monitoring.
 
       - question: |
           I get an Azure Resource Manager template deployment failure error: "Operation could not be completed as it results in exceeding approved standard DC Family Cores Quota"
         answer: |
-          [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for some confidential computing VMs. 
-          
+          [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for some confidential computing VMs.
+
       - question: |
           What’s the difference between DCsv2-Series, DC-Series, DCdsv3-Series and DCsv3-Series VMs?
         answer: |
           - DC-Series VMs run on older 6-core Intel Processors with Intel SGX and have less total memory, less Enclave Page Cache (EPC) memory, and are available in only two regions (US East and Europe West in Standard_DC2s and Standard_DC4s sizes). There are no plans to make these VMs Generally Available and they are not recommended for production use. To deploy these VMs, use the  Confidential Compute DC-Series VM [Preview] Marketplace instance.
-          - DCsv2-Series VMs run on 8-core Intel Processors and have more total memory, EPC sizes, and are available in more regions. These machines are generally available. 
-          - DCsv3-Series and DCdsv3-Series VMs are the latest generation of Intel SGX machines. In this generation, CPU Cores have increased 6x (up to a maximum of 48 cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock entirely new scenarios. These VMs also support Intel Total Memory Encryption (TME). As of November 1st, 2021, these VMs are still in public preview and are not suitable for production use. 
+          - DCsv2-Series VMs run on 8-core Intel Processors and have more total memory, EPC sizes, and are available in more regions. These machines are generally available.
+          - DCsv3-Series and DCdsv3-Series VMs are the latest generation of Intel SGX machines. In this generation, CPU Cores have increased 6x (up to a maximum of 48 cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock entirely new scenarios. These VMs also support Intel Total Memory Encryption (TME). As of November 1st, 2021, these VMs are still in public preview and are not suitable for production use.
           - DCdsv3-Series VMs are different from DCsv3-Series VMs because they have local disk support.
 
       - question: |
           Are Intel SGX virtual machines available globally?
         answer: |
-          No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
-          
+          No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions.
+
       - question: |
           Is hyper-threading OFF on these machines?
         answer: |
@@ -91,8 +91,8 @@ sections:
       - question: |
           How do I install the Open Enclave SDK on Intel SGX virtual machines?
         answer: |
-          For instructions on how to install the OE SDK on an Azure or on-premise Machine, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
-               
+          For instructions on how to install the OE SDK on an Azure or on-premises machine, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
+
           You can also look into the Open Enclave SDK GitHub for OS-specific installation instructions:
              - [Install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
-             - [Install the OE SDK on Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
+             - [Install the OE SDK on Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_20.04.md)

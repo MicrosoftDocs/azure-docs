@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Logz.io - Azure AD Integration | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Logz.io - Azure AD Integration.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Logz.io'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Logz.io - Microsoft Entra Integration.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) set up for Logz.io - Azure AD Integration
+# Tutorial: Microsoft Entra single sign-on (SSO) set up for Logz.io
 
 ## Single sign-on (SSO) for the Logz.io - Azure portal integration
 
@@ -29,15 +29,17 @@ The advantages of providing your users access to the Logz.io Azure resource via 
 
 Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'll need the credentials you create in this process to set up the resource. 
 
-### Creating SSO connectivity for your Logz.io resource in Azure Active Directory 
+<a name='creating-sso-connectivity-for-your-logzio-resource-in-azure-active-directory'></a>
 
-You'll create an Azure Active Directory (AD) Enterprise application to allow you use SSO to connect to your Logz.io account from your Azure resource. 
+### Creating SSO connectivity for your Logz.io resource in Microsoft Entra ID 
+
+You'll create a Microsoft Entra Enterprise application to allow you use SSO to connect to your Logz.io account from your Azure resource. 
 
 ### Prerequisites: 
 
 To get started, you need the following privileges:
 
-* Access to Azure Active Directory (AAD)
+* Access to Microsoft Entra ID
 * Permissions to create a new Enterprise Application
 * Owner role permissions for the Azure subscription for which you are creating the Logz.io resource 
 
@@ -45,27 +47,29 @@ To be able to access and use the SSO link that is created for a Logz.io-Azure in
 
 #### Setting up an SSO link for the Logz.io - Azure portal resource
 
-##### Add the Logz.io-Azure Active Directory Integration from the gallery
+<a name='add-the-logzio-azure-active-directory-integration-from-the-gallery'></a>
 
-To configure SSO for the Logz.io resource in the Azure portal, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
+##### Add the Logz.io-Microsoft Entra Integration from the gallery
 
-1. Sign in to the Azure portal using a Microsoft account.
-2. In the Azure portal, in **Logz.io | Overview**, in the **+ Add** menu, select **Enterprise application**.
+To configure SSO for the Logz.io resource in the Azure portal, you need to add the Logz.io - Microsoft Entra Integration from the gallery to your list of managed SaaS apps.
 
-   ![Enterprise application option](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-ovrview-enterprise-apps.png)
-   
-3. In the Azure Active Directory Gallery, browse to the **Logz.io - Azure AD Integration** application and select it.
-4. Rename the integration with a relevant name and click **Create**. (In the steps that follow, we used the name **AD app for a logz.io resource**)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Logz.io - Microsoft Entra Integration** in the search box.
+1. Select **Logz.io - Microsoft Entra Integration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Rename the integration with a relevant name and click **Create**. (In the steps that follow, we used the name **AD app for a logz.io resource**)
 
    ![Rename the integration](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-rename-logzio-ad-integration.png)
 
 ##### Copy the Application ID
 
-In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
+In **AD app for a logz.io resource | Overview** > **Properties**, copy the **Application ID** property.
 
 ![Copy Application ID](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-copy-application-id-2.png)
 
-##### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
+
+##### Configure Microsoft Entra SSO
 
 1. In  **AD app for a logz.io resource | Overview > Getting Started**, in **2. Set up single sign on**, click **Get started** to open **Single sign-on**.
 
@@ -100,13 +104,15 @@ If you don't want to configure this option, your organization will have to assig
 
 ![User assignment not required](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-user-assignment-required-no.png)
 
-### Enable SSO for your Logz.io resource via Azure Active Directory
+<a name='enable-sso-for-your-logzio-resource-via-azure-active-directory'></a>
 
-When you create a Logz.io account, use the AD app you created for the Logz.io resource to enable single sign-on with Azure Active Directory.  
+### Enable SSO for your Logz.io resource via Microsoft Entra ID
 
-The Logz.io AAD app resource name is automatically populated as you type.
+When you create a Logz.io account, use the AD app you created for the Logz.io resource to enable single sign-on with Microsoft Entra ID.  
 
-![Select your Logz AAD app to enable SSO](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-select-logz-aad-app.png)
+The Logz.io Microsoft Entra app resource name is automatically populated as you type.
+
+![Select your Logz Microsoft Entra app to enable SSO](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-select-logz-aad-app.png)
 
 
 The SSO link is displayed when you sign into your Logz.io resource.  <br>
@@ -118,56 +124,65 @@ You'll have to configure your logs in Azure to ensure they're sent to Logz.io.
 
 ![One click SSO to Logz.io](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-logzio-sso-link.png)
 
-## Azure Active Directory single sign-on for an existing Logz.io account
+<a name='azure-active-directory-single-sign-on-for-an-existing-logzio-account'></a>
 
-In this section, you'll learn how to integrate Logz.io - Azure AD Integration with Azure Active Directory (Azure AD). When you integrate Logz.io - Azure AD Integration with Azure AD, you can:
+## Microsoft Entra single sign-on for an existing Logz.io account
 
-* Control in Azure AD who has access to Logz.io - Azure AD Integration.
-* Enable your users to be automatically signed-in to Logz.io - Azure AD Integration with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+In this section, you'll learn how to integrate Logz.io - Microsoft Entra Integration with Microsoft Entra ID. When you integrate Logz.io - Microsoft Entra Integration with Microsoft Entra ID, you can:
+
+* Control in Microsoft Entra ID who has access to Logz.io - Microsoft Entra Integration.
+* Enable your users to be automatically signed-in to Logz.io - Microsoft Entra Integration with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ### Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Logz.io - Azure AD Integration single sign-on (SSO) enabled subscription.
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Logz.io - Microsoft Entra Integration single sign-on (SSO) enabled subscription.
 
 ### Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* Logz.io - Azure AD Integration supports **IDP** initiated SSO.
+* Logz.io - Microsoft Entra Integration supports **IDP** initiated SSO.
 
-### Add Logz.io - Azure AD Integration from the gallery
+<a name='add-logzio---azure-ad-integration-from-the-gallery'></a>
 
-To configure the integration of Logz.io - Azure AD Integration into Azure AD, you need to add Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
+### Add Logz.io - Microsoft Entra Integration from the gallery
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Logz.io - Azure AD Integration** in the search box.
-1. Select **Logz.io - Azure AD Integration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+To configure the integration of Logz.io - Microsoft Entra Integration into Microsoft Entra ID, you need to add Logz.io - Microsoft Entra Integration from the gallery to your list of managed SaaS apps.
 
-### Configure and test Azure AD SSO for Logz.io - Azure AD Integration
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Logz.io - Microsoft Entra Integration** in the search box.
+1. Select **Logz.io - Microsoft Entra Integration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-Configure and test Azure AD SSO with Logz.io - Azure AD Integration using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Logz.io - Azure AD Integration.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-To configure and test Azure AD SSO with Logz.io - Azure AD Integration, perform the following steps:
+<a name='configure-and-test-azure-ad-sso-for-logzio---azure-ad-integration'></a>
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Logz.io - Azure AD Integration SSO](#configure-logzio-azure-ad-integration-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Logz.io - Azure AD Integration test user](#create-logzio-azure-ad-integration-test-user)** - to have a counterpart of B.Simon in Logz.io - Azure AD Integration that is linked to the Azure AD representation of user.
+### Configure and test Microsoft Entra SSO for Logz.io - Microsoft Entra Integration
+
+Configure and test Microsoft Entra SSO with Logz.io - Microsoft Entra Integration using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Logz.io - Microsoft Entra Integration.
+
+To configure and test Microsoft Entra SSO with Logz.io - Microsoft Entra Integration, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Logz.io - Microsoft Entra Integration SSO](#configure-logzio-azure-ad-integration-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Logz.io - Microsoft Entra Integration test user](#create-logzio-azure-ad-integration-test-user)** - to have a counterpart of B.Simon in Logz.io - Microsoft Entra Integration that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+### Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Logz.io - Azure AD Integration** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Logz.io - Microsoft Entra Integration** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -182,13 +197,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://logzio.auth0.com/login/callback?connection=CONNECTION-NAME`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Logz.io - Azure AD Integration Client support team](mailto:help@logz.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Logz.io - Microsoft Entra Integration Client support team](mailto:help@logz.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-1. Logz.io - Azure AD Integration application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. Logz.io - Microsoft Entra Integration application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Logz.io - Azure AD Integration application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Logz.io - Microsoft Entra Integration application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| ---------------| --------- |
@@ -200,50 +215,60 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Logz.io - Azure AD Integration** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Logz.io - Microsoft Entra Integration** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-#### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+#### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-#### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Logz.io - Azure AD Integration.
+#### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Logz.io - Azure AD Integration**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Logz.io - Microsoft Entra Integration.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Logz.io - Microsoft Entra Integration**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Logz.io Azure AD Integration SSO
+<a name='configure-logzio-azure-ad-integration-sso'></a>
 
-To configure single sign-on on **Logz.io - Azure AD Integration** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Logz.io - Azure AD Integration support team](mailto:help@logz.io). They set this setting to have the SAML SSO connection set properly on both sides.
+### Configure Logz.io Microsoft Entra Integration SSO
 
-#### Create Logz.io Azure AD Integration test user
+To configure single sign-on on **Logz.io - Microsoft Entra Integration** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Logz.io - Microsoft Entra Integration support team](mailto:help@logz.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
-In this section, you create a user called Britta Simon in Logz.io - Azure AD Integration. Work with [Logz.io - Azure AD Integration support team](mailto:help@logz.io) to add the users in the Logz.io - Azure AD Integration platform. Users must be created and activated before you use single sign-on.
+<a name='create-logzio-azure-ad-integration-test-user'></a>
+
+#### Create Logz.io Microsoft Entra Integration test user
+
+In this section, you create a user called Britta Simon in Logz.io - Microsoft Entra Integration. Work with [Logz.io - Microsoft Entra Integration support team](mailto:help@logz.io) to add the users in the Logz.io - Microsoft Entra Integration platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Logz.io Azure AD Integration for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Logz.io Microsoft Entra Integration for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Logz.io Azure AD Integration tile in the My Apps, you should be automatically signed in to the Logz.io Azure AD Integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the Logz.io Microsoft Entra Integration tile in the My Apps, you should be automatically signed in to the Logz.io Microsoft Entra Integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### Next steps
 
-Once you configure Logz.io Azure AD Integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Logz.io Microsoft Entra Integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

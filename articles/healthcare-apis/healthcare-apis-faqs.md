@@ -2,12 +2,12 @@
 title: FAQs about Azure Health Data Services
 description: This document provides answers to the frequently asked questions about Azure Health Data Services.
 services: healthcare-apis
-author: ginalee-dotcom
+author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/22/2022
-ms.author: ginle
+ms.date: 12/15/2022
+ms.author: jasteppe
 ---
 
 # Frequently asked questions about Azure Health Data Services
@@ -34,11 +34,11 @@ Azure Health Data Services enables you to:
 
 ### Can I migrate my existing production workload from Azure API for FHIR to Azure Health Data Services?
 
-No, unfortunately we don't offer migration capabilities at this time.
+Yes. Azure API for FHIR is retiring on September 30, 2023. See [migration strategies](./fhir/migration-strategies.md)
 
 ### What is the pricing of Azure Health Data Services?
 
-At this time, Azure Health Data Services is available for you to use at no charge.
+For pricing information, see [Azure Health Data Services pricing](https://azure.microsoft.com/pricing/details/health-data-services/).
 
 ### What regions are Azure Health Data Services available?
 
@@ -48,16 +48,12 @@ Refer to the [Products by region](https://azure.microsoft.com/global-infrastruct
 
 For more information, see [Azure Health Data Services service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-health-data-services) for the most current information.
 
-### What is the backup and recovery policy for Azure Health Data Services?
-
-Data for the managed service is automatically backed up every 12 hours, and the backups are kept for seven days. Data can be restored by the support team. Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
-
 ## More frequently asked questions
 
 [FAQs about Azure Health Data Services FHIR service](./fhir/fhir-faq.md)
 
 [FAQs about Azure Health Data Services DICOM service](./dicom/dicom-services-faqs.yml)
 
-[FAQs about Azure Health Data Services MedTech service](./iot/iot-connector-faqs.md)
+[FAQs about Azure Health Data Services MedTech service](./iot/frequently-asked-questions.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

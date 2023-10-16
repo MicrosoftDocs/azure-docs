@@ -4,16 +4,15 @@ description: You can use the Azure Monitor HTTP Data Collector API to add POST J
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2021
-
+ms.date: 08/08/2023
 ---
 
-# Send log data to Azure Monitor by using the HTTP Data Collector API (preview)
+# Send log data to Azure Monitor by using the HTTP Data Collector API (deprecated)
 
 This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data that's collected by your script or application, include it in a request, and have that request authorized by Azure Monitor. We provide examples for Azure PowerShell, C#, and Python.
 
 > [!NOTE]
-> The Azure Monitor HTTP Data Collector API is in public preview.
+> The Azure Monitor HTTP Data Collector API has been deprecated and will no longer be functional as of 9/14/2026. It's been replaced by the [Logs ingestion API](logs-ingestion-api-overview.md).
 
 ## Concepts
 You can use the HTTP Data Collector API to send log data to a Log Analytics workspace in Azure Monitor from any client that can call a REST API.  The client might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternative management system that uses Azure Monitor to consolidate and analyze log data.
@@ -46,9 +45,9 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 |:--- |:--- |
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that's being submitted. It can contain only letters, numbers, and the underscore (_) character, and it can't exceed 100 characters. |
-| x-ms-date |The date that the request was processed, in RFC 7234 format. |
-| x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](./design-logs-deployment.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
-| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| x-ms-date |The date that the request was processed, in RFC [1123](/dotnet/api/system.globalization.datetimeformatinfo.rfc1123pattern) format. |
+| x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](manage-access.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. The Time Generated value cannot be older than 2 days before received time or more than a day in the future. In such case, the time that the message is ingested will be used.|
 | | |
 
 ## Authorization
@@ -56,7 +55,8 @@ Any request to the Azure Monitor HTTP Data Collector API must include an authori
 
 Here's the format for the authorization header:
 
-```
+
+```sql
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
@@ -64,7 +64,8 @@ Authorization: SharedKey <WorkspaceID>:<Signature>
 
 Use this format to encode the **SharedKey** signature string:
 
-```
+
+```ruby
 StringToSign = VERB + "\n" +
                   Content-Length + "\n" +
                   Content-Type + "\n" +
@@ -74,13 +75,15 @@ StringToSign = VERB + "\n" +
 
 Here's an example of a signature string:
 
-```
+
+```ruby
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
 When you have the signature string, encode it by using the HMAC-SHA256 algorithm on the UTF-8-encoded string, and then encode the result as Base64. Use this format:
 
-```
+
+```sql
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
@@ -173,7 +176,7 @@ The data posted to the Azure Monitor Data collection API is subject to certain c
 * Maximum of 32 KB for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum of 50 fields for a given type. This is a practical limit from a usability and search experience perspective.  
 * Tables in Log Analytics workspaces support only up to 500 columns (referred to as fields in this article). 
-* Maximum of 50 characters for column names.
+* Maximum of 45 characters for column names.
 
 ## Return codes
 The HTTP status code 200 means that the request has been received for processing. This indicates that the operation finished successfully.
@@ -203,18 +206,19 @@ The complete set of status codes that the service might return is listed in the 
 To query data submitted by the Azure Monitor HTTP Data Collector API, search for records whose **Type** is equal to the **LogType** value that you specified and appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
 
 ## Sample requests
-In the next sections, you'll find samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
+In this section are samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
 
 For each sample, set the variables for the authorization header by doing the following:
 
 1. In the Azure portal, locate your Log Analytics workspace.
-2. Select **Agents management**.
+2. Select **Agents**.
 2. To the right of **Workspace ID**, select the **Copy** icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the **Copy** icon, and then paste the ID as the value of the **Shared Key** variable.
 
 Alternatively, you can change the variables for the log type and JSON data.
 
-### PowerShell sample
+### [PowerShell](#tab/powershell)
+
 ```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
@@ -296,7 +300,7 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### C# sample
+### [C#](#tab/c-sharp)
 ```csharp
 using System;
 using System.Net;
@@ -364,6 +368,7 @@ namespace OIAPIExample
 				client.DefaultRequestHeaders.Add("x-ms-date", date);
 				client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
 
+				// If charset=utf-8 is part of the content-type header, the API call may return forbidden.
 				System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
 				httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 				Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
@@ -382,7 +387,7 @@ namespace OIAPIExample
 
 ```
 
-### Python sample
+### [Python](#tab/python)
 
 >[!NOTE]
 > If using Python 2, you may need to change the line:
@@ -473,7 +478,7 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 
-### Java sample
+### [Java](#tab/java)
 
 ```java
 
@@ -566,6 +571,8 @@ public class ApiExample {
 ```
 
 
+---
+
 ## Alternatives and considerations
 
 Although the Data Collector API should cover most of your needs as you collect free-form data into Azure Logs, you might require an alternative approach to overcome some of the limitations of the API. Your options, including major considerations, are listed in the following table:
@@ -577,7 +584,9 @@ Although the Data Collector API should cover most of your needs as you collect f
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available to the public, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
 
 
+
 ## Next steps
 - Use the [Log Search API](./log-query-overview.md) to retrieve data from the Log Analytics workspace.
 
 - Learn more about how to [create a data pipeline with the Data Collector API](create-pipeline-datacollector-api.md) by using a Logic Apps workflow to Azure Monitor.
+

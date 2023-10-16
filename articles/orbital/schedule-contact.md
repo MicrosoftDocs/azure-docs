@@ -1,33 +1,34 @@
 ---
-title: 'How to schedule a contact on Azure Orbital Earth Observation service' 
-description: 'How to schedule a contact'
-author: wamota
+title: How to schedule a contact on Azure Orbital Earth Observation service
+description: Learn how to schedule a contact.
+author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
-ms.custom: public-preview
-ms.date: 11/16/2021
-ms.author: wamota
+ms.custom: ga
+ms.date: 12/06/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
 # Schedule a contact
 
-Schedule a contact with the selected satellite for data retrieval/delivery on Azure Orbital. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the contact profile.
+Schedule a contact with your satellite for data retrieval and delivery on Azure Orbital Ground Station. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the designated contact profile.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
+- Contributor permissions at the subscription level.
+- A registered and authorized spacecraft. Learn more on how to [register a spacecraft](register-spacecraft.md).
 - A contact profile. Learn more on how to [configure a contact profile](contact-profile.md).
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
+Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 ## Select an available contact
 
-1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
-2. In the **Spacecrafts** page, select the spacecraft for the contact.
+1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, select the spacecraft for the contact.
 3. Select **Schedule contact** on the top bar of the spacecraft’s overview.
  
    :::image type="content" source="media/orbital-eos-schedule.png" alt-text="Schedule a contact at spacecraft resource page" lightbox="media/orbital-eos-schedule.png":::
@@ -37,7 +38,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | **Field** | **Value** |
    | --- | --- |
    | Contact profile | Specify the contact profile to be used for the contact |
-   | Ground station | Specify the ground station(s) |
+   | Ground station | Specify the ground station(s) to be used for the contact |
    | Start time | Identify a start time for the contact availability window |
    | End time | Identify an end time for the contact availability window |
 
@@ -48,11 +49,11 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-select-schedule.png" alt-text="Select an available contact schedule page" lightbox="media/orbital-eos-select-schedule.png":::
 
-7. View scheduled contacts by selecting on the spacecraft page, and navigating to **Contacts**.
+7. View scheduled contacts by selecting the spacecraft page, and navigating to **Contacts**.
 
    :::image type="content" source="media/orbital-eos-view-scheduled-contacts.png" alt-text="View scheduled contacts page" lightbox="media/orbital-eos-view-scheduled-contacts.png":::
 
 ## Next steps
 
-- [Quickstart: Register Spacecraft](register-spacecraft.md)
-- [Quickstart: Configure a contact profile](contact-profile.md)
+- [Register Spacecraft](register-spacecraft.md)
+- [Configure a contact profile](contact-profile.md)

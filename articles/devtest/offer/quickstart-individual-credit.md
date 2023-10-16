@@ -1,8 +1,8 @@
 ---
 title: Start using individual Azure Dev/Test credit
 description: As a Visual Studio subscriber, learn how to access an Azure Credit subscription.
-author: jamestramel
-ms.author: jametra
+author: jenp
+ms.author: jenp
 ms.date: 11/24/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
@@ -16,7 +16,7 @@ When accessing your Azure Credit Subscription, you have two ways to sign in and 
 You have the opportunity to use a personal or corporate email address when signing in.  
 
 > [!NOTE]
-> The email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.  
+> The email address you use for sign in dictates what Microsoft Entra tenant your subscription is associated with.  
 
 ## Choose the email address  
 
@@ -54,24 +54,25 @@ Remember, the account you sign in with will dictate what tenant your directory w
 
 For more details go to my.visualstudio.com, or follow this link: [Use Microsoft Azure in Visual Studio subscriptions](/visualstudio/subscriptions/vs-azure#:~:text=Eligibility%20%20%20%20Subscription%20Level%20%2F%20Program,%20%20Yes%20%2013%20more%20rows%20)  
 
-### Sign in through Azure - [portal.azure.com](https://portal.azure.com)
+### Sign in via the [Azure portal](https://portal.azure.com)
 
-1. Choose or enter the email address to authenticate.  
+1. Choose or enter the email address to authenticate.
 
-   ![A screenshot of the Microsoft Azure pick an account screen.](media/quickstart-individual-credit/pick-an-account.png "Select an account to log into the Azure Portal.")  
-2. Once you’re logged in, go to Subscriptions under Azure Services.  
+   ![A screenshot of the Microsoft Azure pick an account screen.](media/quickstart-individual-credit/pick-an-account.png "Select an account to sign in to the Azure portal.")
 
-   ![A screenshot of the available Azure Portal Services](media/quickstart-individual-credit/azure-services.png "Select Subscriptions under Azure Services.")  
-3. Select 'add'.  
+2. Once you’re logged in, go to Subscriptions under Azure Services.
+
+   ![A screenshot of services available in the Azure portal](media/quickstart-individual-credit/azure-services.png "Select Subscriptions under Azure Services.")  
+3. Select **+ Add**.
 
    ![A screenshot of a pop up window for adding a subscription](media/quickstart-individual-credit/click-add.png "Click the add button.")  
-4. This action takes you to a page where you can find the eligible offers  
-5. Select the correct subscription offer to associate with your account  
+4. This action takes you to a page where you can find the eligible offers.
+5. Select the correct subscription offer to associate with your account.
 
 > [!NOTE]
-> This method uses the login credentials you used when signing in through your Azure Portal. This way of signing in has a higher probability of associating your subscription with your organization’s directory through your corporate Microsoft Account.
+> This method uses the login credentials you used when signing in to the Azure portal. This way of signing in has a higher probability of associating your subscription with your organization’s directory through your corporate Microsoft Account.
 
 <a name="maintain-a-subscription-to-use-monthly-credits"></a>
 ## Troubleshoot removed/expired subscriptions
 
-If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To learn how to continue using Azure with a monthly credit, read "[Renew an expired subscription, purchase a new on, or transfer your Azure resources](troubleshoot-expired-removed-subscription.md)".
+If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To learn how to continue using Azure with a monthly credit, read "[Renew an expired subscription, purchase a new one, or transfer your Azure resources](troubleshoot-expired-removed-subscription.md)".

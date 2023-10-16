@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/08/2021
+ms.date: 08/10/2023
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -33,7 +33,7 @@ In this tutorial, you perform the following steps:
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * **Azure Storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure Storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
-* **Azure SQL Database**: Use a SQL Database as the _sink_ data store. If you don't have a SQL Database, see the instructions in [Create a SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**: Use a SQL Database as the _sink_ data store. If you don't have a SQL Database, see the instructions in [Create a SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
 ### Create a blob and a SQL table
 
@@ -69,7 +69,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 2. Allow Azure services to access SQL Server. Verify that the setting **Allow Azure services and resources to access this server** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** option to **ON**.
 
    > [!NOTE]
-   > The option to **Allow Azure services and resources to access this server** enables network access to your SQL Server from any Azure resource, not just those in your subscription. For more information, see [Azure SQL Server Firewall rules](../azure-sql/database/firewall-configure.md). Instead, you can use [Private endpoints](../private-link/private-endpoint-overview.md) to connect to Azure PaaS services without using public IPs.
+   > The option to **Allow Azure services and resources to access this server** enables network access to your SQL Server from any Azure resource, not just those in your subscription. For more information, see [Azure SQL Server Firewall rules](/azure/azure-sql/database/firewall-configure). Instead, you can use [Private endpoints](../private-link/private-endpoint-overview.md) to connect to Azure PaaS services without using public IPs.
 
 ## Create a data factory
 

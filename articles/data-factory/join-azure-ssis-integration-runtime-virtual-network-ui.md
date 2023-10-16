@@ -3,16 +3,16 @@ title: Join Azure-SSIS integration runtime to a virtual network via Azure portal
 description: Learn how to join Azure-SSIS integration runtime to a virtual network via Azure portal. 
 ms.service: data-factory
 ms.subservice: integration-services
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
-ms.custom: devx-track-azurepowershell
+ms.date: 07/20/2023
+author: chugugrace
+ms.author: chugu 
 ---
 
 # Join Azure-SSIS integration runtime to a virtual network via Azure portal
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to join your existing Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to a virtual network via portal. 
 
@@ -24,7 +24,7 @@ Use Azure portal to configure an Azure Resource Manager virtual network before y
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **More services**. Filter for and select **Virtual networks**. 
 
@@ -44,7 +44,7 @@ Use Azure portal to configure a classic virtual network before you try to join y
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **More services**. Filter for and select **Virtual networks (classic)**. 
 
@@ -66,21 +66,21 @@ Use Azure portal to configure a classic virtual network before you try to join y
 
       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png" alt-text="&quot;Access control&quot; and &quot;Add&quot; buttons":::
 
-   1. Select **Add role assignment**.
+   1. Select **Add**, and then **Add role assignment** from the dropdown that appears.
 
-   1. On the **Add role assignment** page, for **Role**, select **Classic Virtual Machine Contributor**. In the **Select** box, paste **ddbf3205-c6bd-46ae-8127-60eb93363864**, and then select **MicrosoftAzureBatch** from the list of search results. 
+   1. On the **Add role assignment** page, enter **Microsoft Azure Batch** in the search box, select the role, and select **Next**.
 
-      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png" alt-text="Search results on the &quot;Add role assignment&quot; page":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-virtual-machine-contributor-role.png" alt-text="Sreenshot showing search results for the &quot;Virtual Machine Contributor&quot; role.":::
 
-   1. Select **Save** to save the settings and close the page. 
+   1. On the **Members** page, under **Members** select **+ Select members**.  Then on the **Select Members** pane, search for **Microsoft Azure Batch**, and select it from the list to add it, and click **Select**. 
 
-      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png" alt-text="Save access settings":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-microsoft-azure-batch-user-to-role-assignment.png" alt-text="Screenshot showing the Microsoft Azure Batch service principal.":::
 
-   1. Confirm that you see **MicrosoftAzureBatch** in the list of contributors. 
+   1. On the **Role Assignments** page, Search for **Microsoft Azure Batch** if necessary and Confirm that you see it in the list in the **Virtual Machine Contributors** role. 
 
       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png" alt-text="Confirm Azure Batch access":::
 
-1. Make sure that *Microsoft.Batch* is a registered resource provider in Azure subscription that has the virtual network for your Azure-SSIS IR to join. For detailed instructions, see the [Register Azure Batch as a resource provider](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch) section.
+1. Make sure that *Microsoft.Batch* is a registered resource provider in the Azure subscription that has the virtual network for your Azure-SSIS IR to join. For detailed instructions, see the [Register Azure Batch as a resource provider](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch) section.
 
 ## Join Azure-SSIS IR to the virtual network
 
@@ -88,27 +88,23 @@ After you've configured an Azure Resource Manager/classic virtual network, you c
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. In [Azure portal](https://portal.azure.com), on the left-hand-side menu, select **Data factories**. If you don't see **Data factories** on the menu, select **More services**, and then in the **INTELLIGENCE + ANALYTICS** section, select **Data factories**. 
+1. In the [Azure portal](https://portal.azure.com), under the **Azure Services** section, select **More Services** to see a list of all Azure services. In the **Filter services** search box, type **Data Factories**, and then choose **Data Factories** in the list of services that appear. 
+
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/portal-find-data-factories.png" alt-text="Screenshot of the All Services page on the Azure portal filtered for Data Factories.":::
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png" alt-text="List of data factories":::
 
-1. Select your ADF with Azure-SSIS IR in the list. You see the home page for your ADF. Select the **Author & Monitor** tile. You see ADF UI on a separate tab. 
+1. Select your data factory with the Azure-SSIS IR in the list. You see the home page for your data factory. Select the **Open Azure Data Factory Studio** tile. Azure Data Factory Studio will open on a separate tab. 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png" alt-text="Data factory home page":::
 
-1. In ADF UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab. 
-
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="&quot;Integration runtimes&quot; tab":::
-
-1. If your Azure-SSIS IR is running, in the **Integration Runtimes** list, in the **Actions** column, select the **Stop** button for your Azure-SSIS IR. You can't edit your Azure-SSIS IR until you stop it. 
+1. In Azure Data Factory Studio, select the **Manage** tab on the far left, and then switch to the **Integration Runtimes** tab.  If your Azure-SSIS IR is running, hover over it in the list to find and select the **Stop** button, as shown below. You can't edit your Azure-SSIS IR until you stop it. 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png" alt-text="Stop the IR":::
 
-1. In the **Integration Runtimes** list, in the **Actions** column, select the **Edit** button for your Azure-SSIS IR. 
+1. After your Azure-SSIS IR is stopped, select it in the **Integration Runtimes** list to edit it. 
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png" alt-text="Edit the integration runtime":::
-
-1. On the **Integration runtime setup** pane, advance through the **General settings** and **Deployment settings** pages by selecting the **Next** button.
+1. On the **Edit integration runtime** pane, advance through the **General settings** and **Deployment settings** pages by selecting the **Continue** button.
 
 1. On the **Advanced settings** page, complete the following steps.
 

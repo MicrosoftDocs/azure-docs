@@ -1,18 +1,13 @@
 ---
 title: "Data exchanged between Azure Arc-enabled Kubernetes cluster and Azure"
-services: azure-arc
-ms.service: azure-arc
-ms.date: 11/23/2021
+ms.date: 08/08/2023
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
-description: "This article provides information on data exchanged between Azure Arc-enabled Kubernetes cluster and Azure"
-keywords: "Kubernetes, Arc, Azure, containers"
+description: "The scenarios enabled by Azure Arc-enabled Kubernetes involve exchange of desired state configurations, metadata, and other scenario specific operational data."
 ---
 
 # Data exchanged between Azure Arc-enabled Kubernetes cluster and Azure
 
-The scenarios enabled by Azure Arc-enabled Kubernetes involve exchange of desired state configurations, metadata, and other scenario specific operational data between the Azure Arc-enabled Kubernetes cluster environment and Azure service. For all types of data, the Azure Arc agents initiate outbound communication to Azure services and thus require only egress access to endpoints listed under the network prerequisites. Enabling inbound ports on firewall is not required for Azure Arc agents.
+Azure Arc-enabled Kubernetes scenarios involve exchange of desired state configurations, metadata, and other scenario specific operational data between the Azure Arc-enabled Kubernetes cluster environment and Azure service. For all types of data, the Azure Arc agents initiate outbound communication to Azure services and thus require only egress access to endpoints listed under the [network prerequisites](network-requirements.md). Enabling inbound ports on firewall is not required for Azure Arc agents.
 
 The following table presents a per-scenario breakdown of the data exchanged between these environments.
 
@@ -43,6 +38,6 @@ The following table presents a per-scenario breakdown of the data exchanged betw
 ## Next steps
 
 * Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* Learn more about the creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc-enabled Kubernetes](./conceptual-configurations.md).
+* Learn about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc-enabled Kubernetes](./conceptual-configurations.md).
 
 

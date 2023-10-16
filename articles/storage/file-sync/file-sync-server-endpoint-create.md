@@ -1,12 +1,11 @@
 ---
 title: Create an Azure File Sync server endpoint
 description: Understand the options during server endpoint creation and how to best apply them to your situation.
-author: fauhse
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: fauhse
-ms.subservice: files
+ms.author: kendownie
 ---
 
 # Create an Azure File Sync server endpoint
@@ -91,7 +90,14 @@ As part of this section, a choice can be made for how content from the Azure fil
     :::column-end:::
 :::row-end:::
 
-Once you selected an initial download option, you cannot change it after you confirm to create the server endpoint. How files appear on the server after initial download finishes, depends on your use of the cloud tiering feature and whether or not you opted to [proactively recall changes in the cloud](file-sync-cloud-tiering-overview.md#proactive-recalling). The latter is a feature useful for sync groups with multiple server endpoints in different geographic locations.
+Once you select an initial download option, you cannot change it after you confirm to create the server endpoint. 
+
+> [!NOTE]
+> When adding a server endpoint and files exist in the Azure file share, if you choose to download the namespace first, files will show up as tiered until they're downloaded locally. Files are downloaded using a single thread by default to limit network bandwidth usage. To improve the file download performance, use the [Invoke-StorageSyncFileRecall](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet with a thread count greater than 1.
+
+### File download behavior once initial download completes
+
+How files appear on the server after initial download finishes, depends on your use of the cloud tiering feature and whether or not you opted to [proactively recall changes in the cloud](file-sync-cloud-tiering-overview.md#proactive-recalling). The latter is a feature useful for sync groups with multiple server endpoints in different geographic locations.
 
 * **Cloud tiering is enabled** </br> New and changed files from other server endpoints will appear as tiered files on this server endpoint. These changes will only come down as full files if you opted for [proactive recall](file-sync-cloud-tiering-overview.md#proactive-recalling) of changes in the Azure file share by other server endpoints.
 *  **Cloud tiering is disabled** </br> New and changed files from other server endpoints will appear as full files on this server endpoint. They will not appear as tiered files first and then recalled. Tiered files with cloud tiering off are a fast disaster recovery feature and appear only during initial provisioning.
@@ -104,4 +110,4 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 * [Migration overview](../files/storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](../files/storage-how-to-create-file-share.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

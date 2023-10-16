@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -15,7 +15,9 @@ ms.author: banders
 As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
 > [!NOTE]
-> This API only works with the [legacy APIs for subscription creation](programmatically-create-subscription-preview.md). Unless you have a specific need to use the legacy APIs, you should use the information for the [latest GA version](programmatically-create-subscription-enterprise-agreement.md) about the latest API version [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
+> - This API only works with the [legacy APIs for subscription creation](programmatically-create-subscription-preview.md). 
+> - Unless you have a specific need to use the legacy APIs, you should use the information for the [latest GA version](programmatically-create-subscription-enterprise-agreement.md) about the latest API version. **See [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) to grant permission to create EA subscriptions with the latest API**. 
+> - If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +66,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [PowerShell](#tab/azure-powershell)
 
-    Use the [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, select and hold (or right-click) the shell windows, and the select **Paste**.
 
     ```azurepowershell-interactive
     Get-AzEnrollmentAccount
@@ -82,7 +84,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [Azure CLI](#tab/azure-cli)
 
-    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, select and hold (or right-click) the shell windows, and the select **Paste**.
 
     ```azurecli-interactive
     az billing enrollment-account list
@@ -113,7 +115,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
 1. <a id="userObjectId"></a>Get object ID of the user or group you want to give the Azure RBAC Owner role to
 
-    1. In the Azure portal, search on **Azure Active Directory**.
+    1. In the Azure portal, search on **Microsoft Entra ID**.
     1. If you want to grant a user access, select **Users** in the menu on the left. To give access to a group, select **Groups**.
     1. Select the User or Group you want to give the Azure RBAC Owner role to.
     1. If you selected a User, you'll find the object ID in the Profile page. If you selected a Group, the object ID will be in the Overview page. Copy the **ObjectID** by selecting the icon to the right of the text box. Paste it somewhere so that you can use it in the next step as `userObjectId`.
@@ -180,7 +182,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
 To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
 
-1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`. This access is available in the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, the [Monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or a [custom role](../../role-based-access-control/custom-roles.md).
+1. As a tenant admin of the Microsoft Entra tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`. This access is available in the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, the [Monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or a [custom role](../../role-based-access-control/custom-roles.md).
 1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see subscription creation activities. Example:
 
     ```

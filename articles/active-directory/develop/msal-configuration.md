@@ -1,9 +1,8 @@
 ---
-title: Android MSAL configuration file | Azure
-titleSuffix: Microsoft identity platform
-description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
+title: Android MSAL configuration file
+description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Microsoft Entra ID.
 services: active-directory
-author: shoatman
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
-ms.author: shoatman
+ms.author: cwerner
 ms.custom: aaddev
 ms.reviewer: shoatman
 ---
@@ -85,14 +84,16 @@ The list of authorities that are known and trusted by you. In addition to the au
 }
 ```
 
-#### Map AAD authority & audience to Microsoft identity platform endpoints
+<a name='map-aad-authority--audience-to-microsoft-identity-platform-endpoints'></a>
+
+#### Map Microsoft Entra authority & audience to Microsoft identity platform endpoints
 
 | Type | Audience | Tenant ID | Authority_Url | Resulting Endpoint | Notes |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
-| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
-| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
-| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Only Microsoft accounts can use this endpoint. |
+| Microsoft Entra ID | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` is a tenant alias for where the account is. Such as a specific Microsoft Entra tenant or the Microsoft account system. |
+| Microsoft Entra ID | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
+| Microsoft Entra ID | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Only Microsoft Entra accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
+| Microsoft Entra ID | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Only Microsoft accounts can use this endpoint. |
 | B2C | | | See Resulting Endpoint | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
 
 > [!NOTE]
@@ -107,7 +108,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 |-----------|-------------|-----------|--------|
 | `type` | String | Yes | Mirrors the audience or account type your app targets. Possible values: `AAD`, `B2C` |
 | `audience` | Object | No | Only applies when type=`AAD`. Specifies the identity your app targets. Use the value from your app registration |
-| `authority_url` | String | Yes | Required only when type=`B2C`. Specifies the authority URL or policy your app should use  |
+| `authority_url` | String | Yes | Required only when type=`B2C`. Optional for type=`AAD`. Specifies the authority URL or policy your app should use  |
 | `default` | boolean | Yes | A single `"default":true` is required when one or more authorities is specified. |
 
 #### Audience Properties
@@ -115,7 +116,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 | Property | Data Type  | Required | Notes |
 |-----------|-------------|------------|-------|
 | `type` | String | Yes | Specifies the audience your app wants to target. Possible values: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46` |
 
 ### authorization_user_agent
 
@@ -134,7 +135,7 @@ For clients that support multiple national clouds, specify `true`. The Microsoft
 
 A boolean that indicates whether you're using a Microsoft Identity broker compatible in-broker redirect URI. Set to `false` if you don't want to use the broker within your app.
 
-If you're using the AAD Authority with Audience set to `"MicrosoftPersonalAccount"`, the broker won't be used.
+If you're using the Microsoft Entra Authority with Audience set to `"MicrosoftPersonalAccount"`, the broker won't be used.
 
 ### http
 

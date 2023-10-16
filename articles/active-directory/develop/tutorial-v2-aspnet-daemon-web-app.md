@@ -1,9 +1,8 @@
 ---
-title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data | Azure"
-titleSuffix: Microsoft identity platform
-description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
+title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data"
+description: In this tutorial, learn how to call an ASP.NET web API protected by Microsoft Entra ID from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: jmprieur
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, has-adal-ref
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
@@ -28,23 +28,23 @@ In this tutorial:
 > * Get an access token to call the Microsoft Graph API
 > * Call the Microsoft Graph API.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/).
-- An Azure AD tenant. For more information, see [How to get an Azure AD tenant](quickstart-create-new-tenant.md).
-- One or more user accounts in your Azure AD tenant. This sample won't work with a Microsoft account. If you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory, do that now.
+- A Microsoft Entra tenant. For more information, see [How to get a Microsoft Entra tenant](quickstart-create-new-tenant.md).
+- One or more user accounts in your tenant. This sample won't work with a Microsoft account. If you signed in with a Microsoft account and have never created a user account in your directory, do that now.
 
 ## Scenario
 
 The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.
 
-The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
+The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Microsoft Entra tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
 
-Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a Global Administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
+Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a Global Administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](./permissions-consent-overview.md#using-the-admin-consent-endpoint) endpoint.
 
-![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Azure A D, AccountController getting admin consent to connect to Azure A D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Microsoft Entra ID, AccountController getting admin consent to connect to Microsoft Entra ID, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform](v2-oauth2-client-creds-grant-flow.md).
 
@@ -60,11 +60,11 @@ Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-ident
 
 ## Register your application
 
-This sample has one project. To register the application with your Azure AD tenant, you can either:
+This sample has one project. To register the application with your Microsoft Entra tenant, you can either:
 
-- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-client-app-dotnet-web-daemon-v2) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
+- Follow the steps in [Choose the tenant](#choose-the-tenant) and [Configure the sample to use your tenant](#configure-the-sample-to-use-your-tenant).
 - Use PowerShell scripts that:
-  - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  - *Automatically* create the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
 
 If you want to use the automation:
@@ -76,7 +76,7 @@ If you want to use the automation:
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
-1. Run the script to create your Azure AD application and configure the code of the sample application accordingly:
+1. Run the script to create your Microsoft Entra application and configure the code of the sample application accordingly:
 
    ```PowerShell
    .\AppCreationScripts\Configure.ps1
@@ -88,16 +88,14 @@ If you want to use the automation:
 
 If you don't want to use the automation, use the steps in the following sections.
 
-### Choose the Azure AD tenant
+### Choose the tenant
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-
-### Register the client app (dotnet-web-daemon-v2)
-
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application, for example `dotnet-web-daemon-v2`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory**.
 1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter `https://localhost:44316/` and `https://localhost:44316/Account/GrantPermissions` as Redirect URIs.
@@ -119,7 +117,7 @@ If you don't want to use the automation, use the steps in the following sections
 1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
 1. Select **Add permissions**.
 
-## Configure the sample to use your Azure AD tenant
+## Configure the sample to use your tenant
 
 In the following steps, **ClientID** is the same as "application ID" or **AppId**.
 
@@ -130,18 +128,18 @@ Open the solution in Visual Studio to configure the projects.
 If you used the setup scripts, the following changes will have been applied for you.
 
 1. Open the **UserSync\Web.Config** file.
-1. Find the app key **ida:ClientId**. Replace the existing value with the application ID of the **dotnet-web-daemon-v2** application copied from the Azure portal.
-1. Find the app key **ida:ClientSecret**. Replace the existing value with the key that you saved during the creation of the **dotnet-web-daemon-v2** app in the Azure portal.
+1. Find the app key **ida:ClientId**. Replace the existing value with the application ID of the **dotnet-web-daemon-v2** application that was previously recorded.
+1. Find the app key **ida:ClientSecret**. Replace the existing value with the key that you saved during the creation of the **dotnet-web-daemon-v2** app.
 
 ## Run the sample
 
-Clean the solution, rebuild the solution, run the UserSync application, and then sign in as an administrator in your Azure AD tenant. If you don't have an Azure AD tenant for testing, you can [follow these instructions](quickstart-create-new-tenant.md) to get one.
+Clean the solution, rebuild the solution, run the UserSync application, and then sign in as an administrator in your Microsoft Entra tenant. If you don't have a Microsoft Entra tenant for testing, you can [follow these instructions](quickstart-create-new-tenant.md) to get one.
 
 When you sign in, the app first asks you for permission to sign you in and read your user profile. This consent allows the app to ensure that you're a business user.
 
 ![User consent](./media/tutorial-v2-aspnet-daemon-webapp/firstconsent.png)
 
-The app then tries to sync a list of users from your Azure AD tenant, via Microsoft Graph. If it can't, it asks you (the tenant administrator) to connect your tenant to the app.
+The app then tries to sync a list of users from your Microsoft Entra tenant, via Microsoft Graph. If it can't, it asks you (the tenant administrator) to connect your tenant to the app.
 
 The app then asks for permission to read the list of users in your tenant.
 
@@ -219,11 +217,11 @@ This project has web app and web API projects. To deploy them to Azure websites,
 
 Visual Studio will publish the project and automatically open a browser to the project's URL. If you see the default webpage of the project, the publication was successful.
 
-### Update the Azure AD tenant application registration for dotnet-web-daemon-v2
+<a name='update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2'></a>
 
-1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
-1. Select the **dotnet-web-daemon-v2** application.
+### Update the Microsoft Entra tenant application registration for dotnet-web-daemon-v2
+
+1. Go back to the Microsoft Entra admin center, and then select the **dotnet-web-daemon-v2** application in **App registrations**.
 1. On the **Authentication** page for your application, update the **Front-channel logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.
@@ -236,7 +234,7 @@ When no longer needed, delete the app object that you created in the [Register y
 
 Use [Microsoft Q&A](/answers/products/) to get support from the community.
 Ask your questions on [Microsoft Q&A](/answers/products/) first, and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with "azure-ad-adal-deprecation," "azure-ad-msal," and "dotnet-standard."
+Make sure that your questions or comments are tagged with `azure-ad-adal-deprecation`, `azure-ad-msal`, and `dotnet-standard`."
 
 If you find a bug in the sample, please raise the issue on [GitHub Issues](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 

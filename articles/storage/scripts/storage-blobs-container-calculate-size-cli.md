@@ -1,14 +1,13 @@
 ---
-title: Azure CLI Script Sample - Calculate blob container size | Microsoft Docs
+title: Azure CLI Script Sample - Calculate blob container size
 description: Calculate the size of a container in Azure Blob storage by totaling the size of the blobs in the container.
 services: storage
-author: tamram
-ms.service: storage
-ms.subservice: blobs
+author: stevenmatthew
+ms.service: azure-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/01/2022
-ms.author: tamram 
+ms.author: shaas 
 ms.custom: devx-track-azurecli
 ---
 
@@ -23,7 +22,7 @@ This script calculates the size of a container in Azure Blob storage by totaling
 >
 > The maximum number of blobs returned with a single listing call is 5000. If you need to return more than 5000 blobs, use a continuation token to request additional sets of results.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -49,7 +48,7 @@ This script uses the following commands to calculate the size of the Blob storag
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az storage blob upload](/cli/azure/storage/account) | Uploads local files to an Azure Blob storage container. |
-| [az storage blob list](/cli/azure/storage/account/keys) | Lists the blobs in an Azure Blob storage container. |
+| [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) | Lists the blobs in an Azure Blob storage container. |
 
 ## Next steps
 

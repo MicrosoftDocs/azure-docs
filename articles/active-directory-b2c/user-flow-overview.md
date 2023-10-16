@@ -3,15 +3,15 @@ title: User flows and custom policies in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.custom: project-no-code
-ms.author: kengaderdus
+ms.date: 10/24/2022
+ms.custom: project-no-code, engagement-fy23
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -23,11 +23,11 @@ In Azure AD B2C, there are two ways to provide identity user experiences:
 
 * **User flows** are predefined, built-in, configurable policies that we provide so you can create sign-up, sign-in, and policy editing experiences in minutes.
 
-* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios.
+* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios that are not supported by user flows. Azure AD B2C uses custom policies to provide extensibility.
 
 The following screenshot shows the user flow settings UI, versus custom policy configuration files.
 
-![Screenshot shows the user flow settings UI, versus custom policy configuration files.](media/user-flow-overview/user-flow-vs-custom-policy.png)
+:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot of the user flow settings UI, versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
 
 This article gives a brief overview of user flows and custom policies, and helps you decide which method will work best for your business needs.
 
@@ -39,7 +39,7 @@ You can configure user flow settings like these to control identity experience b
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
 * Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
-* Azure AD Multi-Factor Authentication (MFA)
+* Microsoft Entra multifactor authentication
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow
 * Session management
@@ -56,7 +56,7 @@ A custom policy is fully configurable and policy-driven. It orchestrates trust b
 The custom policy gives you the ability to construct user journeys with any combination of steps. For example:
 
 * Federate with other identity providers
-* First- and third-party multifactor authentication (MFA) challenges
+* First- and third-party multifactor authentication challenges
 * Collect any user input
 * Integrate with external systems using REST API communication
 
@@ -64,7 +64,7 @@ Each user journey is defined by a policy. You can build as many or as few polici
 
 ![Diagram showing an example of a complex user journey enabled by IEF](media/user-flow-overview/custom-policy-diagram.png)
 
-A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
+A custom policy is defined by multiple XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
 
 The powerful flexibility of custom policies is most appropriate for when you need to build complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 
@@ -81,8 +81,8 @@ The following table gives a detailed comparison of the scenarios you can enable 
 | UI customization | [Full UI customization](customize-ui-with-html.md) including HTML, CSS and, [JavaScript](javascript-and-page-layout.md).<br><br>[Multilanguage support](language-customization.md) with Custom strings. | Same as User flows |
 | Attribute customization | Standard and custom attributes. | Same as User flows |
 | Token and session management | [Customize tokens](configure-tokens.md) and [sessions behavior](session-behavior.md). | Same as User flows |
-| Identity Providers | [Predefined local](identity-provider-local.md) or [social provider](add-identity-provider.md), such as federation with Azure Active Directory tenants. | Standards-based OIDC, OAUTH, and SAML.  Authentication is also possible by using integration with REST APIs. |
-| Identity Tasks | [Sign-up or sign-in](add-sign-up-and-sign-in-policy.md) with local or many social accounts.<br><br>[Self-service password reset](add-password-reset-policy.md).<br><br>[Profile edit](add-profile-editing-policy.md).<br><br>Multi-Factor Authentication.<br><br>Access token flows. | Complete the same tasks as user flows using custom identity providers or use custom scopes.<br><br>Provision a user account in another system at the time of registration.<br><br>Send a welcome email using your own email service provider.<br><br>Use a user store outside Azure AD B2C.<br><br>Validate user provided information with a trusted system by using an API. |
+| Identity Providers | [Predefined local](identity-provider-local.md) or [social provider](add-identity-provider.md), such as federation with Microsoft Entra tenants. | Standards-based OIDC, OAUTH, and SAML.  Authentication is also possible by using integration with REST APIs. |
+| Identity Tasks | [Sign-up or sign-in](add-sign-up-and-sign-in-policy.md) with local or many social accounts.<br><br>[Self-service password reset](add-password-reset-policy.md).<br><br>[Profile edit](add-profile-editing-policy.md).<br><br>Multifactor authentication.<br><br>Access token flows. | Complete the same tasks as user flows using custom identity providers or use custom scopes.<br><br>Provision a user account in another system at the time of registration.<br><br>Send a welcome email using your own email service provider.<br><br>Use a user store outside Azure AD B2C.<br><br>Validate user provided information with a trusted system by using an API. |
 
 ## Application integration
 

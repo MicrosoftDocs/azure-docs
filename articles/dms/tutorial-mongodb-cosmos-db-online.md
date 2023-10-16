@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB API for MongoDB"
+title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB for MongoDB"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB API for MongoDB online by using Azure Database Migration Service.
-services: dms
-author: pochiraju
-ms.author: rajpo
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-nov-2020"
-ms.topic: tutorial
+description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB for MongoDB online by using Azure Database Migration Service.
+author: croblesm
+ms.author: roblescarlos
+ms.reviewer: randolphwest
 ms.date: 09/21/2021
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-nov-2020
+  - ignite-2022
+  - sql-migration-content
 ---
 
-# Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
-[!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
+# Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB online using DMS
+[!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb.md)]
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Please read this entire guide before carrying out your migration steps.
 >
 
@@ -27,7 +27,7 @@ This MongoDB migration guide is part of series on MongoDB migration. The critica
 
 ## Overview of online data migration from MongoDB to Azure Cosmos DB using DMS
 
-You can use Azure Database Migration Service to perform an online (minimal downtime) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
+You can use Azure Database Migration Service to perform an online (minimal downtime) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB for MongoDB.
 
 This tutorial demonstrates the steps associated with using Azure Database Migration Service to migrate MongoDB data to Azure Cosmos DB:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ This tutorial demonstrates the steps associated with using Azure Database Migrat
 > * Verify data in Azure Cosmos DB. 
 > * Complete the migration when you are ready. 
 
-In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB with minimal downtime by using Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
+In this tutorial, you migrate a dataset in MongoDB hosted in an Azure virtual machine to Azure Cosmos DB for MongoDB with minimal downtime via Azure Database Migration Service. If you don't have a MongoDB source set up already, see [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 > [!NOTE]
 > Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
@@ -52,24 +52,24 @@ In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Ma
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an online migration from MongoDB to Azure Cosmos DB's API for MongoDB. For an offline migration, see [Migrate MongoDB to Azure Cosmos DB's API for MongoDB offline using DMS](tutorial-mongodb-cosmos-db.md).
+This article describes an online migration from MongoDB to Azure Cosmos DB for MongoDB. For an offline migration, see [Migrate MongoDB to Azure Cosmos DB for MongoDB offline using DMS](tutorial-mongodb-cosmos-db.md).
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
-* [Create an Azure Cosmos DB's API for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB) and ensure [SSR (server side retry)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md) is enabled.
+* [Create an Azure Cosmos DB for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB) and ensure [SSR (server side retry)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md) is enabled.
 
   > [!NOTE]
-  > DMS is currently not supported if you are migrating to API for MongoDB account that is provisioned with serverless mode.
+  > DMS is currently not supported if you're migrating to an Azure Cosmos DB for MongoDB account provisioned with serverless mode.
 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >
@@ -138,7 +138,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 3. Select + **New Migration Project**.
 
-4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **MongoDB**, in the **Target server type** text box, select **CosmosDB (MongoDB API)**, and then for **Choose type of activity**, select **Online data migration [preview]**.
+4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **MongoDB**, in the **Target server type** text box, select **Azure Cosmos DB for MongoDB**, and then for **Choose type of activity**, select **Online data migration [preview]**.
 
     ![Create Database Migration Service project](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
@@ -169,7 +169,7 @@ After the service is created, locate it within the Azure portal, open it, and th
      * For JSON dumps, the files in the blob container must be placed into folders named after the containing databases. Within each database folder, data files must be placed in a subfolder called "data" and named using the format *collection*.json. Metadata files (if any) must be placed in a subfolder called "metadata" and named using the same format, *collection*.json. The metadata files must be in the same format as produced by the MongoDB bsondump tool.
 
     > [!IMPORTANT]
-    > It is discouraged to use a self-signed certificate on the mongo server. However, if one is used, please connect to the server using **connection string mode** and ensure that your connection string has “”
+    > It is discouraged to use a self-signed certificate on the MongoDB server. However, if one is used, please connect to the server using **connection string mode** and ensure that your connection string has “”
     >
     >```
     >&sslVerifyCertificate=false
@@ -186,7 +186,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify target details
 
-1. On the **Migration target details** screen, specify the connection details for the target Azure Cosmos DB account, which is the pre-provisioned Azure Cosmos DB's API for MongoDB account to which you're migrating your MongoDB data.
+1. On the **Migration target details** screen, specify the connection details for the target Azure Cosmos DB account, which is the pre-provisioned Azure Cosmos DB for the MongoDB account to which you're migrating your MongoDB data.
 
     ![Specify target details](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-target1.png)
 
@@ -200,7 +200,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
    If the string **Create** appears next to the database name, it indicates that Azure Database Migration Service didn't find the target database, and the service will create the database for you.
 
-   At this point in the migration, if you want share throughput on the database, specify a throughput RU. In Cosmos DB, you can provision throughput either at the database-level or individually for each collection. Throughput is measured in [Request Units](../cosmos-db/request-units.md) (RUs). Learn more about [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   At this point in the migration, if you want share throughput on the database, specify a throughput RU. In Azure Cosmos DB, you can provision throughput either at the database-level or individually for each collection. Throughput is measured in [Request Units](../cosmos-db/request-units.md) (RUs). Learn more about [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
    ![Map to target databases](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
@@ -242,16 +242,16 @@ After the service is created, locate it within the Azure portal, open it, and th
 
    ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-replaying.png)
 
-## Verify data in Cosmos DB
+## Verify data in Azure Cosmos DB
 
 1. Make changes to your source MongoDB database.
-2. Connect to COSMOS DB to verify if the data is replicated from the source MongoDB server.
+2. Connect to Azure Cosmos DB to verify if the data is replicated from the source MongoDB server.
 
     ![Screenshot that shows where you can verify that the data was replicated.](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
 ## Complete the migration
 
-* After all documents from the source are available on the COSMOS DB target, select **Finish** from the migration activity’s context menu to complete the migration.
+* After all documents from the source are available on the Azure Cosmos DB target, select **Finish** from the migration activity’s context menu to complete the migration.
 
     This action will finish replaying all the pending changes and complete the migration.
 
@@ -259,15 +259,15 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Post-migration optimization
 
-After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](../cosmos-db/mongodb-post-migration.md) article.
+After you migrate the data stored in MongoDB database to Azure Cosmos DB for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](../cosmos-db/mongodb-post-migration.md) article.
 
 ## Additional resources
 
-* [Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
+* [Azure Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../cosmos-db/convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../cosmos-db/convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)
 
 ## Next steps
 
-* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](/data-migration/).

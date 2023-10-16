@@ -1,12 +1,14 @@
 ---
-title: Automatic device management at scale with Azure IoT Hub (CLI) | Microsoft Docs
+title: Automatic device management at scale (CLI)
+titleSuffix: Azure IoT Hub
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices or modules
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/08/2021
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 07/08/2021
+ms.custom: devx-track-azurecli
 ---
 
 # Automatic IoT device and module management using the Azure CLI
@@ -25,7 +27,7 @@ Automatic device management works by updating a set of device twins or module tw
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on twin reported properties. System metrics are the default metrics that measure twin update status, such as the number of twins that are targeted and the number of twins that have been successfully updated.
 
-Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs.
+Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs. A maximum of 100 automatic configurations is supported on standard tier IoT hubs; ten on free tier IoT hubs. Throttling limits also apply. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## CLI prerequisites
 
@@ -112,9 +114,9 @@ Metric queries for modules are also similar to queries for devices, but you sele
 
 ## Create a configuration
 
-You configure target devices by creating a configuration that consists of the target content and metrics. 
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 
-Use the following command to create a configuration:
+You configure target devices by creating a configuration that consists of the target content and metrics. Use the following command to create a configuration:
 
 ```azurecli
    az iot hub configuration create --config-id [configuration id] \
@@ -221,16 +223,6 @@ az iot hub configuration delete --config-id [configuration id] \
 
 ## Next steps
 
-In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to configure and monitor IoT devices at scale. 
 
-* [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
-* [Monitor your IoT hub](monitor-iot-hub.md)
-
-To further explore the capabilities of IoT Hub, see:
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
-
-To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
-
-* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)
+To learn how to manage IoT Hub device identities in bulk, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)

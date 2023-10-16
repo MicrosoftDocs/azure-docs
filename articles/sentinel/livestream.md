@@ -4,18 +4,11 @@ description: This article describes how to use hunting Livestream in Microsoft S
 author: yelevin
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 09/29/2022
 ms.author: yelevin
 ---
 
 # Use hunting livestream in Microsoft Sentinel to detect threats
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> - The cross-resource query experience (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
 
@@ -57,7 +50,7 @@ You can create a livestream session from an existing hunting query, or create yo
     - If you started livestream from scratch, create your query.
 
     > [!NOTE]
-    > Livestream supports **cross-resource queries** (in preview) of data in Azure Data Explorer. [**Learn more about cross-resource queries**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
+    > Livestream supports **cross-resource queries** of data in Azure Data Explorer. [**Learn more about cross-resource queries**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 1. Select **Play** from the command bar.
     

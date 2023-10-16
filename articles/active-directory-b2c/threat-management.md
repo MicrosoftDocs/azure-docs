@@ -3,14 +3,14 @@ title: Mitigate credential attacks - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about detection and mitigation techniques for credential attacks (password attacks) in Azure Active Directory B2C, including smart account lockout features.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/20/2021
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -33,7 +33,7 @@ The first 10 lockout periods are one minute long. The next 10 lockout periods ar
 
 To manage smart lockout settings, including the lockout threshold:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
@@ -43,7 +43,7 @@ To manage smart lockout settings, including the lockout threshold:
    - **Lockout threshold**: The number of failed sign-in tries that are allowed before the account is first locked out. If the first sign-in after a lockout also fails, the account locks again.
    - **Lockout duration in seconds**: The minimum duration of each lockout in seconds. If an account locks repeatedly, this duration increases.
 
-       ![Azure portal Password protection page in Azure AD settings](./media/threat-management/portal-02-password-protection.png)
+       ![Azure portal Password protection page in Microsoft Entra settings](./media/threat-management/portal-02-password-protection.png)
     <br />*Setting the lockout threshold to 5 in **Password protection** settings*.
 
 1. Select **Save**.
@@ -55,18 +55,17 @@ The smart lockout feature uses many factors to determine when an account should 
 - Passwords such as 12456! and 1234567! (or newAccount1234 and newaccount1234) are so similar that the algorithm interprets them as human error and counts them as a single try.
 - Larger variations in pattern, such as 12456! and ABCD2!, are counted as separate tries.
 
-When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
+When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as `https://password-gen.com/`.
 
 When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
 > [!NOTE]
-> When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
+> When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Microsoft Entra authentication service. In that scenario, because each Microsoft Entra datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
 ## Viewing locked-out accounts
 
 To obtain information about locked-out accounts, you can check the Active Directory [sign-in activity report](../active-directory/reports-monitoring/concept-sign-ins.md). Under **Status**, select **Failure**. Failed sign-in attempts with a **Sign-in error code** of `50053` indicate a locked account:
 
-![Section of Azure AD sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
+![Section of Microsoft Entra sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
 
-To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).
-
+To learn about viewing the sign-in activity report in Microsoft Entra ID, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).

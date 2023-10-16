@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Connect hybrid machines to Azure from Automation Update Management
 
-You can enable Azure Arc-enabled servers for one or more of your Windows or Linux virtual machines or physical servers hosted on-premises or other cloud environment that are managed with Azure Automation Update Management. This onboarding process automates the download and installation of the [Connected Machine agent](agent-overview.md). To connect the machines to Azure Arc-enabled servers, an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) is used instead of your privileged identity to [interactively connect](onboard-portal.md) the machine. This service principal is created automatically as part of the onboarding process for these machines.
+You can enable Azure Arc-enabled servers for one or more of your Windows or Linux virtual machines or physical servers hosted on-premises or other cloud environment that are managed with Azure Automation Update Management. This onboarding process automates the download and installation of the [Connected Machine agent](agent-overview.md). To connect the machines to Azure Arc-enabled servers, a Microsoft Entra [service principal](../../active-directory/develop/app-objects-and-service-principals.md) is used instead of your privileged identity to [interactively connect](onboard-portal.md) the machine. This service principal is created automatically as part of the onboarding process for these machines.
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
@@ -15,7 +15,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## How it works
 
-When the onboarding process is launched, an Active Directory [service principal](../../active-directory/fundamentals/service-accounts-principal.md) is created in the tenant. 
+When the onboarding process is launched, an Active Directory [service principal](../../active-directory/fundamentals/service-accounts-principal.md) is created in the tenant.
 
 To install and configure the Connected Machine agent on the target machine, a master runbook named **Add-AzureConnectedMachines** runs in the Azure sandbox. Based on the operating system detected on the machine, the master runbook calls a child runbook named **Add-AzureConnectedMachineWindows** or **Add-AzureConnectedMachineLinux** that runs under the system [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) role directly on the machine. Runbook job output is written to the job history, and you can view their [status summary](../../automation/automation-runbook-execution.md#job-statuses) or drill into details of a specific runbook job in the [Azure portal](../../automation/manage-runbooks.md#view-statuses-in-the-azure-portal) or using [Azure PowerShell](../../automation/manage-runbooks.md#retrieve-job-statuses-using-powershell). Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](../../automation/manage-runbooks.md#retrieve-details-from-activity-log).
 
@@ -23,9 +23,9 @@ The final step establishes the connection to Azure Arc using the `azcmagent` com
 
 ## Prerequisites
 
-This method requires that you are a member of the [Automation Job Operator](../../automation/automation-role-based-access-control.md#automation-job-operator) role or higher so you can create runbook jobs in the Automation account. 
+This method requires that you are a member of the [Automation Job Operator](../../automation/automation-role-based-access-control.md#automation-job-operator) role or higher so you can create runbook jobs in the Automation account.
 
-If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group, this policy must be disabled. Otherwise, the runbook jobs that onboard the machine(s) to Arc-enabled servers will fail. 
+If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group, this policy must be disabled. Otherwise, the runbook jobs that onboard the machine(s) to Arc-enabled servers will fail.
 
 ## Add machines from the Azure portal
 
@@ -48,7 +48,7 @@ Perform the following steps to configure the hybrid machine with Arc-enabled ser
 
    After specifying the Automation account, the list below returns non-Azure machines managed by Update Management for that Automation account. Both Windows and Linux machines are listed and for each one, select **add**.
 
-   You can review your selection by selecting **Review selection** and if you want to remove a machine select **remove** from under the **Action** column. 
+   You can review your selection by selecting **Review selection** and if you want to remove a machine select **remove** from under the **Action** column.
 
    Once you confirm your selection, select **Next: Tags**.
 
@@ -68,4 +68,4 @@ After the agent is installed and configured to connect to Azure Arc-enabled serv
 
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

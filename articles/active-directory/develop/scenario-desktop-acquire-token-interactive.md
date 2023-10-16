@@ -1,9 +1,8 @@
 ---
-title: Acquire a token to call a web API interactively (desktop app) | Azure
-titleSuffix: Microsoft identity platform
-description: Learn how to build a desktop app that calls web APIs to acquire a token for the app interactively
+title: Acquire a token to call a web API interactively (desktop app)
+description: Learn how to build a desktop app that calls web APIs to acquire a token for the app interactively.
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
-ms.author: sahmalik
-ms.custom: aaddev, devx-track-python, has-adal-ref
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
+ms.author: dmwendia
+ms.custom: aaddev, has-adal-ref
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
 # Desktop app that calls web APIs: Acquire a token interactively
@@ -22,7 +21,7 @@ The following example shows minimal code to get a token interactively for readin
 
 # [.NET](#tab/dotnet)
 
-### In MSAL.NET
+### Code in MSAL.NET
 
 ```csharp
 string[] scopes = new string[] {"user.read"};
@@ -43,15 +42,21 @@ catch(MsalUiRequiredException)
 
 ### Mandatory parameters
 
-`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](/graph/api/user-list-contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
+`AcquireTokenInteractive` has only one mandatory parameter, `scopes`. It contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](/graph/api/user-list-contacts), you must use both `User.Read` and `Contacts.Read` as the scope. For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
-On Android, you also need to specify the parent activity by using `.WithParentActivityOrWindow`, as shown, so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception is thrown when calling `.ExecuteAsync()`.
+On both desktop and mobile applications, it's important to specify the parent by using `.WithParentActivityOrWindow`. In many cases, it's a requirement and MSAL will throw exceptions.
 
-### Specific optional parameters in MSAL.NET
+For desktop applications, see [Parent window handles](/azure/active-directory/develop/scenario-desktop-acquire-token-wam#parent-window-handles).
+
+For mobile applications, provide `Activity` (Android) or `UIViewController` (iOS).
+
+### Optional parameters in MSAL.NET
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appears on the screen. This would be applicable for applications which are command line based, used to pass calls to any other backend service and do not need any windows for user interaction.
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify (for platforms that support it) the parent UI. When you use `.WithParentActivityOrWindow` in a desktop application, it has a different type that depends on the platform.
+
+Alternatively, you can omit the optional parent window parameter to create a window, if you don't want to control where the sign-in dialog appears on the screen. This option is applicable for applications that are based on a command line, are used to pass calls to any other back-end service, and don't need any windows for user interaction.
 
 ```csharp
 // net45
@@ -61,14 +66,14 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on .NET Standard platforms at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 Remarks:
 
-- On .NET Standard, the expected `object` is `Activity` on Android, `UIViewController` on iOS, `NSWindow` on Mac, and `IWin32Window` or `IntPr` on Windows.
-- On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and deadlock scenarios with the UI. One way of calling Microsoft Authentication Libraries (MSALs) from the UI thread if you aren't on the UI thread already is to use the `Dispatcher` on WPF.
+- On .NET Standard, the expected `object` value is `Activity` on Android, `UIViewController` on iOS, `NSWindow` on Mac, and `IWin32Window` or `IntPr` on Windows.
+- On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and cause deadlock scenarios with the UI. One way of calling the Microsoft Authentication Library (MSAL) from the UI thread if you aren't on the UI thread already is to use `Dispatcher` on Windows Presentation Foundation (WPF).
 - If you're using WPF, to get a window from a WPF control, you can use the `WindowInteropHelper.Handle` class. Then the call is from a WPF control (`this`):
 
   ```csharp
@@ -79,16 +84,22 @@ Remarks:
 
 #### WithPrompt
 
-`WithPrompt()` is used to control the interactivity with the user by specifying a prompt. The exact behavior can be controlled by using the [Microsoft.Identity.Client.Prompt](/dotnet/api/microsoft.identity.client.prompt) structure.
+You use `WithPrompt()` to control the interactivity with the user by specifying a prompt. You can control the exact behavior by using the [Microsoft.Identity.Client.Prompt](/dotnet/api/microsoft.identity.client.prompt) structure.
 
-The struct defines the following constants:
+The structure defines the following constants:
 
-- `SelectAccount` forces the STS to present the account selection dialog box that contains accounts for which the user has a session. This option is useful when application developers want to let users choose among different identities. This option drives MSAL to send `prompt=select_account` to the identity provider. This option is the default. It does a good job of providing the best possible experience based on the available information, such as account and presence of a session for the user. Don't change it unless you have good reason to do it.
-- `Consent` enables the application developer to force the user to be prompted for consent, even if consent was granted before. In this case, MSAL sends `prompt=consent` to the identity provider. This option can be used in some security-focused applications where the organization governance demands that the user is presented with the consent dialog box each time the application is used.
-- `ForceLogin` enables the application developer to have the user prompted for credentials by the service, even if this user prompt might not be needed. This option can be useful to let the user sign in again if acquiring a token fails. In this case, MSAL sends `prompt=login` to the identity provider. Sometimes it's used in security-focused applications where the organization governance demands that the user re-signs in each time they access specific parts of an application.
-- `Create` triggers a sign-up experience, which is used for External Identities, by sending `prompt=create` to the identity provider. This prompt should not be sent for Azure AD B2C apps. For more information, see [Add a self-service sign-up user flow to an app](../external-identities/self-service-sign-up-user-flow.md).
-- `Never` (for .NET 4.5 and WinRT only) won't prompt the user, but instead tries to use the cookie stored in the hidden embedded web view. For more information, see web views in MSAL.NET. Using this option might fail. In that case, `AcquireTokenInteractive` throws an exception to notify that a UI interaction is needed. You'll need to use another `Prompt` parameter.
-- `NoPrompt` won't send any prompt to the identity provider which therefore will decide to present the best sign-in experience to the user (single-sign-on, or select account). This option is also mandatory for Azure Active Directory (Azure AD) B2C edit profile policies. For more information, see [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities).
+- `SelectAccount` forces the security token service (STS) to present the account selection dialog that contains accounts for which the user has a session. This option is the default. It's useful when you want to let users choose among different identities.
+
+  This option drives MSAL to send `prompt=select_account` to the identity provider. It provides the best possible experience based on available information, such as the account and the presence of a session for the user. Don't change it unless you have a good reason.
+- `Consent` enables you to force the user to be prompted for consent, even if the application granted consent before. In this case, MSAL sends `prompt=consent` to the identity provider. You can use this option in some security-focused applications where the organization's governance demands that the consent dialog box appears each time the user opens the application.
+- `ForceLogin` enables you to have the application prompt the user for credentials, even if this user prompt might not be needed. This option can be useful to let the user sign in again if token acquisition fails. In this case, MSAL sends `prompt=login` to the identity provider. Organizations sometimes use this option in security-focused applications where governance demands that users sign in each time they access specific parts of an application.
+- `Create` triggers a sign-up experience for external identities by sending `prompt=create` to the identity provider. Azure Active Directory B2C (Azure AD B2C) apps shouldn't send this prompt. For more information, see [Add a self-service sign-up user flow to an app](../external-identities/self-service-sign-up-user-flow.md).
+- `Never` (for .NET 4.5 and Windows Runtime only) doesn't prompt the user. Instead, it tries to use the cookie stored in the hidden embedded web view.
+
+  Use of this option might fail. In that case, `AcquireTokenInteractive` throws an exception to notify you that you need a UI interaction. Then, use another `Prompt` parameter.
+- `NoPrompt` doesn't send any prompt to the identity provider. The identity provider decides which sign-in experience is best for the user (single sign-on or select account).
+
+  This option is mandatory for editing profile policies in Azure AD B2C. For more information, see [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities).
 
 #### WithUseEmbeddedWebView
 
@@ -102,7 +113,7 @@ var result = await app.AcquireTokenInteractive(scopes)
 
 #### WithExtraScopeToConsent
 
-This modifier is used in an advanced scenario where you want the user to pre-consent to several resources upfront, and you don't want to use incremental consent, which is normally used with MSAL.NET/the Microsoft identity platform. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+This modifier is for advanced scenarios where you want the user to consent to several resources up front and you don't want to use incremental consent. Developers normally use incremental consent with MSAL.NET and the Microsoft identity platform. For more information, see [Have the user consent up front for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -113,53 +124,51 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 #### WithCustomWebUi
 
 A web UI is a mechanism to invoke a browser. This mechanism can be a dedicated UI WebBrowser control or a way to delegate opening the browser.
-MSAL provides web UI implementations for most platforms, but there are cases where you might want to host the browser yourself:
+MSAL provides web UI implementations for most platforms, but you might want to host the browser yourself in these cases:
 
-- Platforms that aren't explicitly covered by MSAL, for example, Blazor, Unity, and Mono on desktops.
+- You have platforms that MSAL doesn't explicitly cover, like Blazor, Unity, and Mono on desktops.
 - You want to UI test your application and use an automated browser that can be used with Selenium.
 - The browser and the app that run MSAL are in separate processes.
 
-##### At a glance
-
-To achieve this, you give to MSAL `start Url`, which needs to be displayed in a browser of choice so that the end user can enter items such as their username.
-After authentication finishes, your app needs to pass back to MSAL `end Url`, which contains a code provided by Azure AD.
-The host of `end Url` is always `redirectUri`. To intercept `end Url`, do one of the following things:
+To achieve this, you give to MSAL `start Url`, which needs to be displayed in a browser so that users can enter items such as their username. After authentication finishes, your app needs to pass back to MSAL `end Url`, which contains a code that Microsoft Entra ID provides. The host of `end Url` is always `redirectUri`. To intercept `end Url`, do one of the following things:
 
 - Monitor browser redirects until `redirect Url` is hit.
-- Have the browser redirect to a URL, which you monitor.
+- Have the browser redirect to a URL that you monitor.
 
-##### WithCustomWebUi is an extensibility point
+`WithCustomWebUi` is an extensibility point that you can use to provide your own UI in public client applications. You can also let users go through the `/Authorize` endpoint of the identity provider and let them sign in and consent. MSAL.NET can then redeem the authentication code and get a token.
 
-`WithCustomWebUi` is an extensibility point that you can use to provide your own UI in public client applications. You can also let the user go through the /Authorize endpoint of the identity provider and let them sign in and consent. MSAL.NET can then redeem the authentication code and get a token. For example, it's used in Visual Studio to have electrons applications (for instance, Visual Studio Feedback) provide the web interaction, but leave it to MSAL.NET to do most of the work. You can also use it if you want to provide UI automation. In public client applications, MSAL.NET uses the Proof Key for Code Exchange (PKCE) standard to ensure that security is respected. Only MSAL.NET can redeem the code. For more information, see [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636).
+For example, you can use `WithCustomWebUi` in Visual Studio to have Electron applications (for instance, Visual Studio Feedback) provide the web interaction, but leave it to MSAL.NET to do most of the work. You can also use `WithCustomWebUi` if you want to provide UI automation.
 
-  ```csharp
-  using Microsoft.Identity.Client.Extensions;
-  ```
+In public client applications, MSAL.NET uses the Proof Key for Code Exchange (PKCE) standard to ensure that security is respected. Only MSAL.NET can redeem the code. For more information, see [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636).
 
-##### Use WithCustomWebUi
+```csharp
+using Microsoft.Identity.Client.Extensions;
+```
 
-To use `.WithCustomWebUI`, follow these steps.
+##### Use WithCustomWebUI
 
-  1. Implement the `ICustomWebUi` interface. For more information, see [this website](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). Implement one `AcquireAuthorizationCodeAsync`method and accept the authorization code URL computed by MSAL.NET. Then let the user go through the interaction with the identity provider and return back the URL by which the identity provider would have called your implementation back along with the authorization code. If you have issues, your implementation should throw a `MsalExtensionException` exception to nicely cooperate with MSAL.
-  2. In your `AcquireTokenInteractive` call, use the `.WithCustomUI()` modifier passing the instance of your custom web UI.
+To use `WithCustomWebUI`, follow these steps:
 
-     ```csharp
-     result = await app.AcquireTokenInteractive(scopes)
-                       .WithCustomWebUi(yourCustomWebUI)
-                       .ExecuteAsync();
-     ```
+1. Implement the `ICustomWebUi` interface. For more information, see [this GitHub page](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70).
+1. Implement one `AcquireAuthorizationCodeAsync`method and accept the authorization code URL that MSAL.NET computes.
+1. Let the user go through the interaction with the identity provider and return the URL that the identity provider used to call back your implementation, along with the authorization code. If you have problems, your implementation should throw an `MsalExtensionException` exception to cooperate with MSAL.
+1. In your `AcquireTokenInteractive` call, use the `.WithCustomUI()` modifier by passing the instance of your custom web UI:
 
-##### Examples of implementation of ICustomWebUi in test automation: SeleniumWebUI
+    ```csharp
+    result = await app.AcquireTokenInteractive(scopes)
+                      .WithCustomWebUi(yourCustomWebUI)
+                      .ExecuteAsync();
+    ```
 
-The MSAL.NET team has rewritten the UI tests to use this extensibility mechanism. If you're interested, look at the [SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160) class in the MSAL.NET source code.
+The MSAL.NET team has rewritten the UI tests to use this extensibility mechanism. If you're interested, view the [SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160) class in the MSAL.NET source code.
 
 ##### Provide a great experience with SystemWebViewOptions
 
 From MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions), you can specify:
 
-- The URI to go to (`BrowserRedirectError`) or the HTML fragment to display (`HtmlMessageError`) in case of sign-in or consent errors in the system web browser.
-- The URI to go to (`BrowserRedirectSuccess`) or the HTML fragment to display (`HtmlMessageSuccess`) in case of successful sign-in or consent.
-- The action to run to start the system browser. You can provide your own implementation by setting the `OpenBrowserAsync` delegate. The class also provides a default implementation for two browsers: `OpenWithEdgeBrowserAsync` and `OpenWithChromeEdgeBrowserAsync` for Microsoft Edge and [Microsoft Edge on Chromium](https://www.windowscentral.com/faq-edge-chromium), respectively.
+- The URI to go to (`BrowserRedirectError`) or the HTML fragment to display (`HtmlMessageError`) if sign-in or consent errors appear in the system web browser.
+- The URI to go to (`BrowserRedirectSuccess`) or the HTML fragment to display (`HtmlMessageSuccess`) if sign-in or consent is successful.
+- The action to run to start the system browser. You can provide your own implementation by setting the `OpenBrowserAsync` delegate. The class also provides a default implementation for two browsers: `OpenWithEdgeBrowserAsync` for Microsoft Edge and `OpenWithChromeEdgeBrowserAsync` for [Microsoft Edge on Chromium](https://www.windowscentral.com/faq-edge-chromium).
 
 To use this structure, write something like the following example:
 
@@ -181,14 +190,14 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### Other optional parameters
 
-To learn more about all the other optional parameters for `AcquireTokenInteractive`, see [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
+To learn about the other optional parameters for `AcquireTokenInteractive`, see [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 # [Java](#tab/java)
 
 ```java
 private static IAuthenticationResult acquireTokenInteractive() throws Exception {
 
-    // Load token cache from file and initialize token cache aspect. The token cache will have
+    // Load the token cache from the file and initialize the token cache aspect. The token cache will have
     // dummy data, so the acquireTokenSilently call will fail.
     TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
 
@@ -198,8 +207,8 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
             .build();
 
     Set<IAccount> accountsInCache = pca.getAccounts().join();
-    // Take first account in the cache. In a production application, you would filter
-    // accountsInCache to get the right account for the user authenticating.
+    // Take the first account in the cache. In a production application, you would filter
+    // accountsInCache to get the right account for the user who is authenticating.
     IAccount account = accountsInCache.iterator().next();
 
     IAuthenticationResult result;
@@ -209,8 +218,8 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
                         .builder(SCOPE, account)
                         .build();
 
-        // try to acquire token silently. This call will fail since the token cache
-        // does not have any data for the user you are trying to acquire a token for
+        // try to acquire the token silently. This call will fail because the token cache
+        // does not have any data for the user you're trying to acquire a token for
         result = pca.acquireTokenSilently(silentParameters).join();
     } catch (Exception ex) {
         if (ex.getCause() instanceof MsalException) {
@@ -220,8 +229,8 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
                     .scopes(SCOPE)
                     .build();
 
-            // Try to acquire a token interactively with system browser. If successful, you should see
-            // the token and account information printed out to console
+            // Try to acquire a token interactively with the system browser. If successful, you should see
+            // the token and account information printed out to the console
             result = pca.acquireToken(parameters).join();
         } else {
             // Handle other exceptions accordingly
@@ -234,9 +243,7 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 
 # [macOS](#tab/macOS)
 
-### In MSAL for iOS and macOS
-
-Objective-C:
+### Code in MSAL for iOS and macOS
 
 ```objc
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
@@ -252,8 +259,6 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
 }];
 ```
 
-Swift:
-
 ```swift
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
@@ -263,14 +268,17 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
         return
     }
 
-    // Get access token from result
+    // Get the access token from the result
     let accessToken = authResult.accessToken
 })
 ```
 
 # [Node.js](#tab/nodejs)
 
-In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, the application passes the authorization code received to the `acquireTokenByCode()` method which exchanges it for an access token.
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps:
+
+1. The application obtains a URL that can be used to generate an authorization code. Users can open the URL in a browser and enter their credentials. They're then redirected back to `redirectUri` (registered during the app registration) with an authorization code.
+1. The application passes the received authorization code to the `acquireTokenByCode()` method, which exchanges it for an access token.
 
 ```javascript
 const msal = require("@azure/msal-node");
@@ -289,22 +297,22 @@ const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
 const authCodeUrlParameters = {
     scopes: ["User.Read"],
     redirectUri: "your_redirect_uri",
-    codeChallenge: challenge, // PKCE Code Challenge
-    codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+    codeChallenge: challenge, // PKCE code challenge
+    codeChallengeMethod: "S256" // PKCE code challenge method 
 };
 
-// get url to sign user in and consent to scopes needed for application
+// Get the URL to sign in the user and consent to scopes needed for the application
 pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
     console.log(response);
 
     const tokenRequest = {
         code: response["authorization_code"],
-        codeVerifier: verifier // PKCE Code Verifier 
+        codeVerifier: verifier // PKCE code verifier 
         redirectUri: "your_redirect_uri",
         scopes: ["User.Read"],
     };
 
-    // acquire a token by exchanging the code
+    // Acquire a token by exchanging the code
     pca.acquireTokenByCode(tokenRequest).then((response) => {
         console.log("\nResponse: \n:", response);
     }).catch((error) => {
@@ -315,12 +323,12 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
 
 # [Python](#tab/python)
 
-MSAL Python 1.7+ provides an interactive acquire token method.
+MSAL Python 1.7+ provides an interactive method for acquiring a token:
 
 ```python
 result = None
 
-# Firstly, check the cache to see if this end user has signed in before
+# Check the cache to see if this user has signed in before
 accounts = app.get_accounts(username=config["username"])
 if accounts:
     result = app.acquire_token_silent(config["scope"], account=accounts[0])

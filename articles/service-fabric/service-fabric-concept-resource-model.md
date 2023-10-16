@@ -1,9 +1,13 @@
 ---
 title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
-ms.topic: conceptual 
-ms.date: 10/21/2019 
-ms.custom: devx-track-azurepowershell
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-arm-template
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric application resource model
@@ -49,7 +53,6 @@ After the storage account is created, you create a blob container where the appl
 
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
-* Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
 * Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 * Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
@@ -178,6 +181,11 @@ To delete an application that was deployed by using the application resource mod
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+## Common questions and answers
+
+Error:  "Application name must be a prefix of service name"
+    Answer:  Make sure the service name is formatted as follows: ProfileVetSF~CallTicketDataWebApi.
 
 ## Next steps
 

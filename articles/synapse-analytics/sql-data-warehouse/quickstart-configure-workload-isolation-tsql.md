@@ -1,22 +1,23 @@
 ---
-title: 'Quickstart: Configure workload isolation - T-SQL'
+title: "Quickstart: Configure workload isolation - T-SQL"
 description: Use T-SQL to configure workload isolation.
-author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 04/27/2020
-ms.author: rortloff
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sngun
-ms.custom: azure-synapse, mode-other
+ms.date: 04/27/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: quickstart
+ms.custom:
+  - azure-synapse
+  - mode-other
 ---
 
 # Quickstart: Configure workload isolation in a dedicated SQL pool using T-SQL
 
 In this quickstart, you'll quickly create a workload group and classifier for reserving resources for data loading. The workload group will allocate 20% of the system resources to the data loads.  The workload classifier will assign requests to the data loads workload group.  With 20% isolation for data loads, they are guaranteed resources to hit SLAs.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 > [!NOTE]
 > Creating a Synapse SQL instance in Azure Synapse Analytics may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).

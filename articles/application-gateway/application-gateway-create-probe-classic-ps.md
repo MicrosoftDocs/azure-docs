@@ -4,6 +4,7 @@ description: Learn how to create a custom probe for Application Gateway by using
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: greglin
@@ -33,7 +34,7 @@ To create an application gateway:
 
 ### Create an application gateway resource with a custom probe
 
-To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway doesn't start at this point. Billing begins in a later step, when the gateway is successfully started.
 
 The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
@@ -126,7 +127,7 @@ Copy the following text to Notepad.
 
 Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
 
-The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
+The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to backend port 80 between two IP addresses by using a custom probe.
 
 > [!IMPORTANT]
 > The protocol item Http or Https is case-sensitive.
@@ -142,9 +143,9 @@ The configuration parameters are:
 | **Host** and **Path** | Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http:\//contoso.com/, then the custom probe can be configured for "http:\//contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.|
 | **Interval** | Configures the probe interval checks in seconds.|
 | **Timeout** | Defines the probe time-out for an HTTP response check.|
-| **UnhealthyThreshold** | The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.|
+| **UnhealthyThreshold** | The number of failed HTTP responses needed to flag the backend instance as *unhealthy*.|
 
-The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which back-end pool uses custom probe settings.
+The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which backend pool uses custom probe settings.
 
 ## Add a custom probe to an existing application gateway
 

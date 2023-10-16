@@ -1,18 +1,17 @@
 ---
-title: Acquire a token to call a web API using username and password (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API using username and password (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using username and password.
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
-ms.author: sahmalik
-ms.custom: aaddev, devx-track-python
+ms.date: 07/10/2022
+ms.author: dmwendia
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -34,7 +33,7 @@ Using a username and password is useful in some cases, such as DevOps scenarios.
 
 The following constraints also apply:
 
-- The username and password flow isn't compatible with conditional access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
+- The username and password flow isn't compatible with Conditional Access and multi-factor authentication. As a consequence, if your app runs in a Microsoft Entra tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - It works only for work and school accounts (not MSA).
 - The flow is available on .NET desktop and .NET Core, but not on UWP.
 
@@ -255,51 +254,69 @@ For more information on all the modifiers that can be applied to `AcquireTokenBy
 
 # [Java](#tab/java)
 
-The following extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
+The following extract is from the [MSAL Java code samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/msal4j-sdk/src/samples/public-client/UsernamePasswordFlow.java).
 
 ```java
-private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
+ PublicClientApplication pca = PublicClientApplication.builder(clientId)
+                .authority(authority)
+                .build();
 
-    // Load token cache from file and initialize token cache aspect. The token cache will have
-    // dummy data, so the acquireTokenSilently call will fail.
-    TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
+        //Get list of accounts from the application's token cache, and search them for the configured username
+        //getAccounts() will be empty on this first call, as accounts are added to the cache when acquiring a token
+        Set<IAccount> accountsInCache = pca.getAccounts().join();
+        IAccount account = getAccountByUsername(accountsInCache, username);
 
-    PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
-            .authority(AUTHORITY)
-            .setTokenCacheAccessAspect(tokenCacheAspect)
-            .build();
+        //Attempt to acquire token when user's account is not in the application's token cache
+        IAuthenticationResult result = acquireTokenUsernamePassword(pca, scope, account, username, password);
+        System.out.println("Account username: " + result.account().username());
+        System.out.println("Access token:     " + result.accessToken());
+        System.out.println("Id token:         " + result.idToken());
+        System.out.println();
 
-    Set<IAccount> accountsInCache = pca.getAccounts().join();
-    // Take first account in the cache. In a production application, you would filter
-    // accountsInCache to get the right account for the user authenticating.
-    IAccount account = accountsInCache.iterator().next();
+        accountsInCache = pca.getAccounts().join();
+        account = getAccountByUsername(accountsInCache, username);
 
-    IAuthenticationResult result;
-    try {
-        SilentParameters silentParameters =
-                SilentParameters
-                        .builder(SCOPE, account)
-                        .build();
-        // try to acquire token silently. This call will fail since the token cache
-        // does not have any data for the user you are trying to acquire a token for
-        result = pca.acquireTokenSilently(silentParameters).join();
-    } catch (Exception ex) {
-        if (ex.getCause() instanceof MsalException) {
-
-            UserNamePasswordParameters parameters =
-                    UserNamePasswordParameters
-                            .builder(SCOPE, USER_NAME, USER_PASSWORD.toCharArray())
-                            .build();
-            // Try to acquire a token via username/password. If successful, you should see
-            // the token and account information printed out to console
-            result = pca.acquireToken(parameters).join();
-        } else {
-            // Handle other exceptions accordingly
-            throw ex;
-        }
+        //Attempt to acquire token again, now that the user's account and a token are in the application's token cache
+        result = acquireTokenUsernamePassword(pca, scope, account, username, password);
+        System.out.println("Account username: " + result.account().username());
+        System.out.println("Access token:     " + result.accessToken());
+        System.out.println("Id token:         " + result.idToken());
     }
-    return result;
-}
+
+    private static IAuthenticationResult acquireTokenUsernamePassword(PublicClientApplication pca,
+                                                                      Set<String> scope,
+                                                                      IAccount account,
+                                                                      String username,
+                                                                      String password) throws Exception {
+        IAuthenticationResult result;
+        try {
+            SilentParameters silentParameters =
+                    SilentParameters
+                            .builder(scope)
+                            .account(account)
+                            .build();
+            // Try to acquire token silently. This will fail on the first acquireTokenUsernamePassword() call
+            // because the token cache does not have any data for the user you are trying to acquire a token for
+            result = pca.acquireTokenSilently(silentParameters).join();
+            System.out.println("==acquireTokenSilently call succeeded");
+        } catch (Exception ex) {
+            if (ex.getCause() instanceof MsalException) {
+                System.out.println("==acquireTokenSilently call failed: " + ex.getCause());
+                UserNamePasswordParameters parameters =
+                        UserNamePasswordParameters
+                                .builder(scope, username, password.toCharArray())
+                                .build();
+                // Try to acquire a token via username/password. If successful, you should see
+                // the token and account information printed out to console
+                result = pca.acquireToken(parameters).join();
+                System.out.println("==username/password flow succeeded");
+            } else {
+                // Handle other exceptions accordingly
+                throw ex;
+            }
+        }
+        return result;
+    }
 ```
 
 # [macOS](#tab/macOS)

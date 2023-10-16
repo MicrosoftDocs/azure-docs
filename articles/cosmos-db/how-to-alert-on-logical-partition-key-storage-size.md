@@ -4,12 +4,13 @@ description: Learn how to set up alerts for Azure Cosmos DB using Log Analytics
 author: deborahc
 ms.author: dech 
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 02/08/2022
 ---
 
 # Create alerts to monitor if storage for a logical partition key is approaching 20 GB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB enforces a maximum logical partition key size of 20 GB. For example, if you have a container/collection partitioned by **UserId**, the data within the "Alice" logical partition can store up to 20 GB of data. 
 
@@ -21,7 +22,7 @@ In this article, we’ll create an alert that will trigger if the storage for a 
 
 We’ll be using data from the **PartitionKeyStatistics** log category in Diagnostic Logs to create our alert. Diagnostic Logs is an opt-in feature, so you’ll need to enable it before proceeding. In our example, we’ll use the recommended Resource Specific Logs option. 
 
-Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](cosmosdb-monitor-resource-logs.md) to ensure:
+Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](monitor-resource-logs.md) to ensure:
 - Diagnostic Logs is enabled on the Azure Cosmos DB account(s) you want to monitor
 - You have configured collection of the **PartitionKeyStatistics** log category
 - The Diagnostic logs are being sent to a Log Analytics workspace
@@ -43,9 +44,9 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
 
    * Select **Azure Cosmos DB accounts** for the **resource type**.
 
-   * The **location** of your Azure Cosmos account.
+   * The **location** of your Azure Cosmos DB account.
 
-   * After filling in the details, a list of Azure Cosmos accounts in the selected scope is displayed. Choose the one for which you want to configure alerts and select **Done**.
+   * After filling in the details, a list of Azure Cosmos DB accounts in the selected scope is displayed. Choose the one for which you want to configure alerts and select **Done**.
 
 1. Fill out the **Condition** section: 
 
@@ -87,7 +88,7 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
         * For all other dimensions:
             * If you want to monitor only a specific Azure Cosmos DB account, database, collection, or partition key, select the specific value or **Add custom value** if the value doesn’t currently appear in the dropdown.  
 
-            * Otherwise, select **Select all current and future values**. For example, if your Cosmos account currently has two databases and five collections, selecting all current and feature values for the Database and CollectionName dimension will ensure that the alert will apply to all existing databases and collections, as well as any you may create in the future. 
+            * Otherwise, select **Select all current and future values**. For example, if your Azure Cosmos DB account currently has two databases and five collections, selecting all current and feature values for the Database and CollectionName dimension will ensure that the alert will apply to all existing databases and collections, as well as any you may create in the future. 
 
    * In the Alert logic section:
 
@@ -156,7 +157,6 @@ To learn about best practices for managing workloads that have partition keys re
 
 ## Next steps
 * How to [create alerts for Azure Cosmos DB using Azure Monitor](create-alerts.md).
-* How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos container.
+* How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos DB container.
 * How to [monitor throughput or request unit usage](monitor-request-unit-usage.md) of an operation in Azure Cosmos DB.
-* How to [interpret and debut 429 exceptions](sql/troubleshoot-request-rate-too-large.md) in Azure Cosmos container.
-
+* How to [interpret and debut 429 exceptions](sql/troubleshoot-request-rate-too-large.md) in Azure Cosmos DB container.

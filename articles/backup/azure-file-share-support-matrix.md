@@ -2,11 +2,11 @@
 title: Support Matrix for Azure file share backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
-ms.date: 5/07/2020
+ms.date: 10/14/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure file share backup
@@ -18,7 +18,7 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure fi
 
 ## Supported regions
 
-Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, France South and US Gov Iowa.
+Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China North, France South, and US Gov Iowa.
 
 ## Supported storage accounts
 
@@ -58,9 +58,10 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
-| Maximum number of restores per day                           | 10      |
-| Maximum  number of files per restore                         | 99      |
+| Maximum number of restore per day                           | 10      |
+| Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
+| Maximum duration of a restore job                           | 15 days
 
 ## Retention limits
 
@@ -68,7 +69,8 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 | ------------------------------------------------------------ | -------- |
 | Maximum total recovery points per  file share at any point in time | 200      |
 | Maximum retention of recovery  point created by on-demand backup | 10 years |
-| Maximum retention of daily recovery points (snapshots) per file share| 200 days |
+| Maximum retention of daily recovery points (snapshots) per file share, if daily frequency | 200 days |
+| Maximum retention of daily recovery points (snapshots) per file share, if hourly frequency | Floor (200/number of snapshots according to the schedule)-1 |
 | Maximum retention of weekly recovery points (snapshots) per file share | 200 weeks |
 | Maximum retention of monthly recovery points (snapshots) per file share | 120 months |
 | Maximum retention of  yearly recovery points (snapshots) per file share | 10 years |
@@ -85,3 +87,4 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 * Learn how to [Back up Azure file shares](backup-afs.md)
 * Learn how to [Restore Azure file shares](restore-afs.md)
 * Learn how to [Manage Azure file share backups](manage-afs-backup.md)
+

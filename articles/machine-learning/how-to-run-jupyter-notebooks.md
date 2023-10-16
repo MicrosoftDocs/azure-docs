@@ -3,21 +3,26 @@ title: Run Jupyter notebooks in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how run a Jupyter notebook without leaving your workspace in Azure Machine Learning studio.
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: ignite-2022, devx-track-python
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 09/26/2023
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
-# Run Jupyter Notebooks in your workspace
+# Run Jupyter notebooks in your workspace
 
-Learn how to run your Jupyter notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
+This article shows how to run your Jupyter notebooks inside your workspace of Azure Machine Learning studio.  There are other ways to run the notebook as well: [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io), and [Visual Studio Code](./how-to-launch-vs-code-remote.md). VS Code Desktop can be configured to access your compute instance. Or use VS Code for the Web, directly from the browser, and without any required installations or dependencies.
 
-For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
+We recommend you try VS Code for the Web to take advantage of the easy integration and rich development environment it provides.  VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code Desktop and VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
+
+No matter which solution you use to run the notebook, you'll have access to all the files from your workspace. For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
+
+This rest of this article shows the experience for running the notebook directly in studio.
 
 > [!IMPORTANT]
 > Features marked as (preview) are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -26,18 +31,26 @@ For information on how to create and manage files, including notebooks, see [Cre
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 * Your user identity must have access to your workspace's default storage account. Whether you can read, edit, or create notebooks depends on your [access level](how-to-assign-roles.md) to your workspace. For example, a Contributor can edit the notebook, while a Reader could only view it.
+
+## Access notebooks from your workspace
+
+Use the **Notebooks** section of your workspace to edit and run Jupyter notebooks.
+
+1. Sign into [Azure Machine Learning studio](https://ml.azure.com)
+1. Select your workspace, if it isn't already open
+1. On the left, select **Notebooks**
 
 ## Edit a notebook
 
-To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit.  If you don't have any notebooks in this section, see [Create and manage files in your workspace](how-to-manage-files.md).
+To edit a notebook, open any notebook located in the **User files** section of your workspace. Select the cell you wish to edit.  If you don't have any notebooks in this section, see [Create and manage files in your workspace](how-to-manage-files.md).
 
 You can edit the notebook without connecting to a compute instance.  When you want to run the cells in the notebook, select or create a compute instance.  If you select a stopped compute instance, it will automatically start when you run the first cell.
 
 When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python notebook.
 
-You can also launch Jupyter or JupyterLab from the notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
+You can also launch Jupyter or JupyterLab from the notebook toolbar.  Azure Machine Learning doesn't provide updates and fix bugs from Jupyter or JupyterLab as they're Open Source products outside of the boundary of Microsoft Support.
 
 ## Focus mode
 
@@ -54,7 +67,7 @@ Use focus mode to expand your current view so you can focus on your
 * Learn more about the code you're using
 * Keep track of the parameters you're typing
 * Add calls to properties and methods 
-
+<!--
 ### Insert code snippets (preview)
 
 Use **Ctrl+Space** to trigger IntelliSense code snippets.  Scroll through the suggestions or start typing to find the code you want to insert.  Once you insert code, tab through the arguments to customize the code for your own use.
@@ -70,12 +83,12 @@ You can browse and search the list of snippets by using the notebook toolbar to 
 From the snippets panel, you can also submit a request to add new snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
-
+-->
 ## Share a notebook
 
 Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
-Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure ML studio. By default, your notebooks are in a folder with your username, and others can access them there.
+Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure Machine Learning studio. By default, your notebooks are in a folder with your username, and others can access them there.
 
 You can also copy the URL from your browser when you open a notebook, then send to others.  As long as they have appropriate access to your workspace, they can open the notebook.
 
@@ -159,15 +172,9 @@ To run a notebook or a Python script, you first connect to a running [compute in
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Start compute instance":::
     
-Once you are connected to a compute instance, use the toolbar to run all cells in the notebook, or Control + Enter to run a single selected cell. 
+Once you're connected to a compute instance, use the toolbar to run all cells in the notebook, or Control + Enter to run a single selected cell. 
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
-
-### View logs and output
-
-Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
-
-:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Jupyter notebook widget ":::
 
 ## Explore variables in the notebook
 
@@ -181,7 +188,7 @@ Select the tool to show the variable explorer window.
 
 ## Navigate with a TOC
 
-On the notebook toolbar, use the  **Table of contents** tool to display or hide the table of contents.  Start a markdown cell with a heading to add it to the table of contents. Click on an entry in the table to scroll to that cell in the notebook.  
+On the notebook toolbar, use the  **Table of contents** tool to display or hide the table of contents.  Start a markdown cell with a heading to add it to the table of contents. Select an entry in the table to scroll to that cell in the notebook.  
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Screenshot: Table of contents in the notebook":::
 
@@ -189,7 +196,7 @@ On the notebook toolbar, use the  **Table of contents** tool to display or hide 
 
 The notebook toolbar allows you to change the environment on which your notebook runs.  
 
-These actions will not change the notebook state or the values of any variables in the notebook:
+These actions won't change the notebook state or the values of any variables in the notebook:
 
 |Action  |Result  |
 |---------|---------| --------|
@@ -214,7 +221,7 @@ Use the kernel dropdown on the right to change to any of the installed kernels.
 
 ## Manage packages
 
-Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently-running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently-running kernel).
+Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently running kernel).
 
 ### Status indicators
 
@@ -240,11 +247,11 @@ An indicator next to the **Kernel** dropdown shows its status.
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
 ## Useful keyboard shortcuts
-Similar to Jupyter Notebooks, Azure Machine Learning Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
+Similar to Jupyter Notebooks, Azure Machine Learning studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning studio notebooks support the following two modes for a given code cell: command mode and edit mode.
 
 ### Command mode shortcuts
 
-A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.  The left border of the active cell is blue and solid, and its **Run** button is blue.
+A cell is in command mode when there's no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.  The left border of the active cell is blue and solid, and its **Run** button is blue.
 
    :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Notebook cell in command mode ":::
 
@@ -286,7 +293,7 @@ A cell is in command mode when there is no text cursor prompting you to type. Wh
 
 ### Edit mode shortcuts
 
-Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to select on a cell's editor area. The left border of the active cell is green and hatched, and its **Run** button is green. You also see the cursor prompt in the cell in Edit mode.
+Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or select a cell's editor area. The left border of the active cell is green and hatched, and its **Run** button is green. You also see the cursor prompt in the cell in Edit mode.
 
    :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Notebook cell in edit mode":::
 
@@ -326,25 +333,21 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * **Connecting to a notebook**: If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your [network allows websocket connections](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) to *.instances.azureml.net and *.instances.azureml.ms. 
 
-* **Private endpoint**: When a compute instance is deployed in a workspace with a private endpoint, it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md). If you are using custom DNS or hosts file, add an entry for < instance-name >.< region >.instances.azureml.ms with the private IP address of your workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
+* **Private endpoint**: When a compute instance is deployed in a workspace with a private endpoint, it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md). If you're using custom DNS or hosts file, add an entry for < instance-name >.< region >.instances.azureml.ms with the private IP address of your workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
 
-* **Kernel crash**: If your kernel crashed and was restarted, you can run the following command to look at jupyter log and find out more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
+* **Kernel crash**: If your kernel crashed and was restarted, you can run the following command to look at Jupyter log and find out more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
 
 * **Kernel not found** or **Kernel operations were disabled**: When using the default Python 3.8 kernel on a compute instance, you may get an error such as "Kernel not found" or "Kernel operations were disabled". To fix, use one of the following methods:
     * Create a new compute instance. This will use a new image where this problem has been resolved.
     * Use the Py 3.6 kernel on the existing compute instance.
     * From a terminal in the default py38 environment, run  ```pip install ipykernel==6.6.0``` OR ```pip install ipykernel==6.0.3```
 
-* **Expired token**: If you run into an expired token issue, sign out of your Azure ML studio, sign back in, and then restart the notebook kernel.
+* **Expired token**: If you run into an expired token issue, sign out of your Azure Machine Learning studio, sign back in, and then restart the notebook kernel.
 
-* **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
-
-    * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
-    * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
-
+* **File upload limit**: When uploading a file through the notebook's file explorer, you're limited files that are smaller than 5 TB. If you need to upload a file larger than this, we recommend that you use the SDK to upload the data to a datastore. For more information, see [Create data assets](how-to-create-data-assets.md?tabs=Python-SDK).
 
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
 * [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
-* [Working in secure environments](./how-to-secure-training-vnet.md#compute-cluster)
+* [Working in secure environments](./how-to-secure-training-vnet.md)

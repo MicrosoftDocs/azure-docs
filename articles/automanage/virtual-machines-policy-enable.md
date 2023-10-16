@@ -26,7 +26,11 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 > The following Azure RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
 ## Direct link to Policy
-The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c550). If you click on this link, skip directly to step 8 in [Locate and assign the policy](#locate-and-assign-the-policy) below.
+There are two Automanage built-in policies: 
+1. Built-in Automanage profiles (dev/test and production): The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c550).
+1. Custom configuration profiles: The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage with Custom Configuration Profile](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb025cfb4-3702-47c2-9110-87fe0cfcc99b0).
+
+If you click on this link, skip directly to step 8 in [Locate and assign the policy](#locate-and-assign-the-policy) below.
 
 ## Sign in to Azure
 
@@ -40,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 1. Click the **Categories** dropdown to see the available options
 1. Select the **Automanage** option
 1. Now the list will update to show a built-in policy with a name that starts with *Configure virtual machines to be onboarded to Azure Automanage*
-1. Click on the *Configure virtual machines to be onboarded to Azure Automanage* built-in policy name
+1. Click on the *Configure virtual machines to be onboarded to Azure Automanage* built-in policy name. Choose the *Configure virtual machines to be onboarded to Azure Automanage with Custom Configuration Profile* policy if you would like to use an Automanage custom profile. 
 1. After clicking on the policy, you can now see the **Definition** tab
 
     > [!NOTE]
@@ -53,6 +57,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     > The Scope lets you define which VMs this policy applies to. You can set application at the subscription level or resource group level. If you set a resource group, all VMs that are currently in that resource group or any future VMs we add to it will have Automanage automatically enabled.
 
 1. Click on the **Parameters** tab and set the **Configuration Profile** and the desired **Effect**
+    > [!NOTE]
+    > If you would like the policy to only apply to resources with a certain tag (key/value pair) you can add this into the "Inclusion Tag Name" and "Inclusion Tag Values". You need to uncheck the "Only show parameters that need input or review" to see this option. 
 1. Under the **Review + create** tab, review the settings
 1. Apply the Assignment by clicking **Create**
 1. View your assignments in the **Assignments** tab next to **Definition**

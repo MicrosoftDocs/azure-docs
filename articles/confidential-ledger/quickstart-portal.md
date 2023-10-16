@@ -3,10 +3,10 @@ title: Quickstart – Microsoft Azure confidential ledger with the Azure portal
 description: Learn to use the Microsoft Azure confidential ledger through the Azure portal
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/18/2021
+ms.date: 11/14/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurepowershell, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a confidential ledger using the Azure portal
@@ -19,30 +19,26 @@ In this quickstart, you create a confidential ledger with the [Azure portal](htt
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a confidential ledger
 
 1. From the Azure portal menu, or from the Home page, select **Create a resource**.
 
-1. In the Search box, enter "confidential ledger".
-
-1. From the results list, choose **confidential ledger**.
-
-1. On the confidential ledger section, choose **Create**.
+1. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
 
 1. On the Create confidential ledger section, provide the following information:
-    - **Name**: Provide your confidential ledger a unique name.
-    - **Subscription**: Choose a subscription.
+    - **Name**: Provide a unique name.
+    - **Subscription**: Choose the desired subscription.
     - **Resource Group**: Select **Create new*** and enter a resource group name.
     - **Location**: In the pull-down menu, choose a location.
     - Leave the other options to their defaults.
    
 1. Select the **Security** tab.
 
-1. You must now add an Azure AD-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add an Azure AD-based user. Select **+ Add AAD-Based User**.
+1. You must now add a Microsoft Entra ID-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add a Microsoft Entra ID-based user. Select **+ Add Microsoft Entra ID-Based User**.
 
-1. You must add an Azure AD-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane.
+1. You must add a Microsoft Entra ID-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane. Your user profile may already be in the Microsoft Entra ID-based user section, in which case you cannot add yourself again.
 
 1. In the **Ledger Role** drop-down field, select **Administrator**.
 

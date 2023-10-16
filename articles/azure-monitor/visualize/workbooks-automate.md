@@ -1,37 +1,39 @@
 ---
-title: Azure Monitor Workbooks and Azure Resource Manager Templates 
-description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks deployed via Azure Resource Manager Templates
+title: Azure Monitor workbooks and Azure Resource Manager templates 
+description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor workbooks deployed via Azure Resource Manager templates.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 06/21/2023
 ---
 
 # Programmatically manage workbooks
 
-Resource owners have the option to create and manage their workbooks programmatically via Resource Manager templates.
+Resource owners can create and manage their workbooks programmatically via Azure Resource Manager templates (ARM templates).
 
-This can be useful in scenarios like:
-* Deploying org- or domain-specific analytics reports along with resources deployments. For instance, you may deploy org-specific performance and failure workbooks for your new apps or virtual machines.
-* Deploying standard reports or dashboards using workbooks for existing resources.
+This capability can be useful in scenarios like:
+* Deploying org- or domain-specific analytics reports along with resources deployments. For instance, you can deploy org-specific performance and failure workbooks for your new apps or virtual machines.
+* Deploying standard reports or dashboards by using workbooks for existing resources.
 
-The workbook will be created in the desired sub/resource-group and with the content specified in the Resource Manager templates.
+The workbook will be created in the desired sub/resource-group and with the content specified in the ARM templates.
 
-There are two types of workbook resources that can be managed programmatically:
-* [Workbook templates](#azure-resource-manager-template-for-deploying-a-workbook-template)
-* [Workbook instances](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+Two types of workbook resources can be managed programmatically:
+* [Workbook templates](#arm-template-for-deploying-a-workbook-template)
+* [Workbook instances](#arm-template-for-deploying-a-workbook-instance)
 
-## Azure Resource Manager template for deploying a workbook template
+## ARM template for deploying a workbook template
 
 1. Open a workbook you want to deploy programmatically.
-2. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
-3. Open the _Advanced Editor_ using the _</>_ button on the toolbar.
-4. Ensure you are on the _Gallery Template_ tab.
+1. Switch the workbook to edit mode by selecting **Edit**.
+1. Open the **Advanced Editor** by using the **</>** button on the toolbar.
+1. Ensure you're on the **Gallery Template** tab.
 
-    ![Gallery template tab](./media/workbooks-automate/gallery-template.png)
+    ![Screenshot that shows the Gallery Template tab.](./media/workbooks-automate/gallery-template.png)
+
 1. Copy the JSON in the gallery template to the clipboard.
-2. Below is a sample Azure Resource Manager template that deploys a workbook template to Azure Monitor workbook gallery. Paste the JSON you copied in place of `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. A reference Azure Resource Manager template that creates a workbook template can be found [here](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+1. The following sample ARM template deploys a workbook template to the Azure Monitor workbook gallery. Paste the JSON you copied in place of `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. For a reference ARM template that creates a workbook template, see [this GitHub repository](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
     {
@@ -69,28 +71,28 @@ There are two types of workbook resources that can be managed programmatically:
         ]
     }
     ```
-1. In the `galleries` object fill in the `name` and `category` keys with your values. Learn more about [parameters](#parameters) in the next section.
-2. Deploy this Azure Resource Manager template using either the [Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), [command line interface](../../azure-resource-manager/templates/deploy-cli.md), [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), etc.
-3. Open the Azure portal and navigate to the workbook gallery chosen in the Azure Resource Manager template. In the example template, navigate to the Azure Monitor workbook gallery:
-    1. Open the Azure portal and navigate to Azure Monitor
-    2. Open `Workbooks` from the table of contents
-    3. Find your template in the gallery under category `Deployed Templates` (will be one of the purple items).
+1. In the `galleries` object, fill in the `name` and `category` keys with your values. Learn more about [parameters](#parameters) in the next section.
+1. Deploy this ARM template by using either the [Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), the [command-line interface](../../azure-resource-manager/templates/deploy-cli.md), or [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
+1. Open the Azure portal and go to the workbook gallery chosen in the ARM template. In the example template, go to the Azure Monitor workbook gallery:
+    1. Open the Azure portal and go to Azure Monitor.
+    1. Open `Workbooks` from the table of contents.
+    1. Find your template in the gallery under the category `Deployed Templates`. (It will be one of the purple items.)
 
 ### Parameters
 
 |Parameters                |Explanation                                                                                             |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------|
 | `name`                   | The name of the workbook template resource in Azure Resource Manager.                                  |
-|`type`                    | Always microsoft.insights/workbooktemplates                                                            |
-| `location`               | The Azure location that the workbook will be created in.                                               |
-| `apiVersion`             | 2019-10-17 preview                                                                                     |
-| `type`                   | Always microsoft.insights/workbooktemplates                                                            |
-| `galleries`              | The set of galleries to show this workbook template in.                                                |
+|`type`                    | Always microsoft.insights/workbooktemplates.                                                            |
+| `location`               | The Azure location where the workbook will be created.                                               |
+| `apiVersion`             | 2019-10-17 preview.                                                                                     |
+| `type`                   | Always microsoft.insights/workbooktemplates.                                                            |
+| `galleries`              | The set of galleries in which to show this workbook template.                                                |
 | `gallery.name`           | The friendly name of the workbook template in the gallery.                                             |
-| `gallery.category`       | The group in the gallery to place the template in.                                                     |
+| `gallery.category`       | The group in the gallery in which to place the template.                                                     |
 | `gallery.order`          | A number that decides the order to show the template within a category in the gallery. Lower order implies higher priority. |
-| `gallery.resourceType`   | The resource type corresponding to the gallery. This is usually the resource type string corresponding to the resource (for example, microsoft.operationalinsights/workspaces ). |
-|`gallery.type`            | Referred to as workbook type, this is a unique key that differentiates the gallery within a resource type. Application Insights, for example, have types `workbook` and `tsg` corresponding to different workbook galleries. |
+| `gallery.resourceType`   | The resource type corresponding to the gallery. This type is usually the resource type string corresponding to the resource (for example, microsoft.operationalinsights/workspaces). |
+|`gallery.type`            | Referred to as workbook type. This unique key differentiates the gallery within a resource type. Application Insights, for example, has the types `workbook` and `tsg` that correspond to different workbook galleries. |
 
 ### Galleries
 
@@ -98,28 +100,29 @@ There are two types of workbook resources that can be managed programmatically:
 |:-----------------------------------------------|:----------------------------------------------------|:--------------|
 | Workbooks in Azure Monitor                     | `Azure Monitor`                                     | `workbook`    |
 | VM Insights in Azure Monitor                   | `Azure Monitor`                                     | `vm-insights` |
-| Workbooks in Log analytics workspace           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Workbooks in Log Analytics workspace           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
 | Workbooks in Application Insights              | `microsoft.insights/components`                     | `workbook`    |
 | Troubleshooting guides in Application Insights | `microsoft.insights/components`                     | `tsg`         |
 | Usage in Application Insights                  | `microsoft.insights/components`                     | `usage`       |
 | Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
-| Workbooks in Resource groups                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
-| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
-| VM Insights in Virtual machines                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| Workbooks in resource groups                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Workbooks in Microsoft Entra ID            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| VM Insights in virtual machines                | `microsoft.compute/virtualmachines`                 | `insights`    |
 | VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
-## Azure Resource Manager template for deploying a workbook instance
+## ARM template for deploying a workbook instance
 
 1. Open a workbook that you want to deploy programmatically.
-2. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
-3. Open the _Advanced Editor_ using the _</>_ button on the toolbar.
-4. In the editor, switch _Template Type_ to _Resource Manager template_.
-5. The Resource Manager template for creating shows up in the editor. Copy the content and use as-is or merge it with a larger template that also deploys the target resource.
+1. Switch the workbook to edit mode by selecting **Edit**.
+1. Open the **Advanced Editor** by selecting **</>**.
+1. In the editor, switch **Template Type** to **ARM template**.
+1. The ARM template for creating shows up in the editor. Copy the content and use as-is or merge it with a larger template that also deploys the target resource.
 
-    ![Image showing how to get the Resource Manager template from within the workbook UI](./media/workbooks-automate/programmatic-template.png)
+    ![Screenshot that shows how to get the ARM template from within the workbook UI.](./media/workbooks-automate/programmatic-template.png)
 
-## Sample Azure Resource Manager template
-This template shows how to deploy a simple workbook that displays a 'Hello World!'
+## Sample ARM template
+This template shows how to deploy a workbook that displays `Hello World!`.
+
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -136,7 +139,7 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
             "type":"string",
             "defaultValue": "tsg",
             "metadata": {
-                "description": "The gallery that the workbook will been shown under. Supported values include workbook, `tsg`, Azure Monitor, etc." 
+                "description": "The gallery that the workbook will be shown under. Supported values include workbook, `tsg`, Azure Monitor, etc." 
             }
         },
         "workbookSourceId":  {             
@@ -182,30 +185,30 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
 
 ### Template parameters
 
-| Parameter | Explanation |
+| Parameter | Description |
 | :------------- |:-------------|
-| `workbookDisplayName` | The friendly name for the workbook that is used in the Gallery or Saved List. Needs to be unique in the scope of the resource group and source |
-| `workbookType` | The gallery that the workbook will be shown under. Supported values include workbook, `tsg`, Azure Monitor, etc. |
-| `workbookSourceId` | The ID of the resource instance to which the workbook will be associated. The new workbook will show up related to this resource instance - for example in the resource's table of content under _Workbook_. If you want your workbook to show up in the workbook gallery in Azure Monitor, use the string _Azure Monitor_ instead of a resource ID. |
-| `workbookId` | The unique guid for this workbook instance. Use _[newGuid()]_ to automatically create a new guid. |
-| `kind` | Used to specify if the created workbook is shared. All new workbooks will use the value _shared_. |
-| `location` | The Azure location where the workbook will be created. Use _[resourceGroup().location]_ to create it in the same location as the resource group |
-| `serializedData` | Contains the content or payload to be used in the workbook. Use the Resource Manager template from the workbooks UI to get the value |
+| `workbookDisplayName` | The friendly name for the workbook that's used in the **Gallery** or **Saved List**. Needs to be unique in the scope of the resource group and source. |
+| `workbookType` | The gallery where the workbook appears. Supported values include workbook, `tsg`, and Azure Monitor. |
+| `workbookSourceId` | The ID of the resource instance to which the workbook will be associated. The new workbook will show up related to this resource instance, for example, in the resource's table of contents under **Workbook**. If you want your workbook to show up in the **Workbooks** gallery in Azure Monitor, use the string **Azure Monitor** instead of a resource ID. |
+| `workbookId` | The unique guid for this workbook instance. Use `[newGuid()]` to automatically create a new guid. |
+| `kind` | Used to specify if the created workbook is shared. All new workbooks will use the value **shared**. |
+| `location` | The Azure location where the workbook will be created. Use `[resourceGroup().location]` to create it in the same location as the resource group. |
+| `serializedData` | Contains the content or payload to be used in the workbook. Use the ARM template from the workbooks UI to get the value. |
 
 ### Workbook types
-Workbook types specify which workbook gallery type the new workbook instance will show up under. Options include:
+Workbook types specify the workbook gallery type where the new workbook instance appears. Options include:
 
 | Type | Gallery location |
 | :------------- |:-------------|
-| `workbook` | The default used in most reports, including the Workbooks gallery of Application Insights, Azure Monitor, etc.  |
-| `tsg` | The Troubleshooting Guides gallery in Application Insights |
-| `usage` | The _More_ gallery under _Usage_ in Application Insights |
+| `workbook` | The default used in most reports, including the **Workbooks** gallery of Application Insights and Azure Monitor.  |
+| `tsg` | The **Troubleshooting Guides** gallery in Application Insights. |
+| `usage` | The **More** gallery under **Usage** in Application Insights. |
 
-### Working with JSON formatted Workbook data in the serializedData Template parameter
+### Work with JSON-formatted workbook data in the serializedData template parameter
 
-When exporting an Azure Resource Manager template for an Azure Workbook, there are often fixed resource links embedded within the exported `serializedData` template parameter. These include potentially sensitive values such as Subscription ID and Resource Group name, and other types of resource IDs.
+When you export an ARM template for an Azure workbook, there are often fixed resource links embedded within the exported `serializedData` template parameter. These links include potentially sensitive values such as subscription ID and resource group name, and other types of resource IDs.
 
-The example below demonstrates the customization of an exported Workbook Azure Resource Manager Template, without resorting to string manipulation. The pattern shown in this example is intended to work with the unaltered data as exported from the Azure portal. It is also a best practice to mask out any embedded sensitive values when managing workbooks programmatically, therefore the Subscription ID and Resource Group have been masked here. No other modifications were made to the raw incoming `serializedData` value.
+The following example demonstrates the customization of an exported workbook ARM template, without resorting to string manipulation. The pattern shown in this example is intended to work with the unaltered data as exported from the Azure portal. It's also a best practice to mask out any embedded sensitive values when you manage workbooks programmatically. For this reason, the subscription ID and resource group have been masked here. No other modifications were made to the raw incoming `serializedData` value.
 
 ```json
 {
@@ -286,19 +289,20 @@ The example below demonstrates the customization of an exported Workbook Azure R
 }
 ```
 
-In this example, the following steps facilitated the customization of an exported Azure Resource Manager template:
-1. Export the Workbook as an Azure Resource Manager template as explained in the above section
-2. In the template's `variables` section:
-    1. Parse the `serializedData` value into a JSON object variable, which creates a JSON structure including an array of items that represent the content of the Workbook.
-    2. Create new JSON objects that represent only the items/properties to be modified.
-    3. Project a new set of JSON content items (`updatedItems`), using the `union()` function to apply the modifications to the original JSON items.
-    4. Create a new workbook object, `updatedWorkbookData`, that contains `updatedItems` and the `version`/`isLocked` data from the original parsed data, as well as a corrected set of `fallbackResourceIds`.
-    5. Serialize the new JSON content back into a new string variable, `reserializedData`.
-3. Use the new `reserializedData` variable in place of the original `serializedData` property.
-4. Deploy the new Workbook resource using the updated Azure Resource Manager  template.
+In this example, the following steps facilitate the customization of an exported ARM template:
+
+1. Export the workbook as an ARM template as explained in the preceding section.
+1. In the template's `variables` section:
+    1. Parse the `serializedData` value into a JSON object variable, which creates a JSON structure including an array of items that represent the content of the workbook.
+    1. Create new JSON objects that represent only the items/properties to be modified.
+    1. Project a new set of JSON content items (`updatedItems`) by using the `union()` function to apply the modifications to the original JSON items.
+    1. Create a new workbook object, `updatedWorkbookData`, that contains `updatedItems` and the `version`/`isLocked` data from the original parsed data and a corrected set of `fallbackResourceIds`.
+    1. Serialize the new JSON content back into a new string variable, `reserializedData`.
+1. Use the new `reserializedData` variable in place of the original `serializedData` property.
+1. Deploy the new workbook resource by using the updated ARM template.
 
 ### Limitations
-For a technical reason, this mechanism cannot be used to create workbook instances in the _Workbooks_ gallery of Application Insights. We are working on addressing this limitation. In the meanwhile, we recommend that you use the Troubleshooting Guide gallery (workbookType: `tsg`) to deploy Application Insights related workbooks.
+Currently, this mechanism can't be used to create workbook instances in the **Workbooks** gallery of Application Insights. We're working on addressing this limitation. In the meantime, we recommend that you use the **Troubleshooting Guides** gallery (workbookType: `tsg`) to deploy Application Insights-related workbooks.
 
 ## Next steps
 

@@ -2,12 +2,11 @@
 title: Ultra disks for VMs - Azure managed disks 
 description: Learn about ultra disks for Azure VMs
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 08/07/2023
 ms.author: rogarana
-ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, ignite-2022, devx-track-arm-template
 ---
 
 # Using Azure ultra disks
@@ -64,7 +63,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ### VMs with no redundancy options
 
-Ultra disks deployed in select regions must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in these region. To determine which disk sizes support ultra disks, you can use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
+Ultra disks deployed in select regions must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in these regions. To determine which disk sizes support ultra disks, you can use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
 
 ```azurecli
 subscription="<yourSubID>"
@@ -463,12 +462,7 @@ Ultra disks offer a unique capability that allows you to adjust their performanc
 Ultra disks offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
 
 ```azurecli-interactive
-az disk update `
---subscription $subscription `
---resource-group $rgname `
---name $diskName `
---set diskIopsReadWrite=80000 `
---set diskMbpsReadWrite=800
+az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -486,4 +480,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ## Next steps
 
 - [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
-- [Migrate log disk to an ultra disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).
+- [Migrate log disk to an ultra disk](/azure/azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk).
+- For additional questions on Ultra Disks, see the [Ultra Disks](faq-for-disks.yml#ultra-disks) section of the FAQ.

@@ -2,9 +2,10 @@
 title: Data types in templates
 description: Describes the data types that are available in Azure Resource Manager templates.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.author: tomfitz
 author: tfitzmac
-ms.date: 06/24/2021
+ms.date: 09/16/2022
 ---
 
 # Data types in ARM templates
@@ -20,7 +21,7 @@ Within an ARM template, you can use these data types:
 * int
 * object
 * secureObject
-* secureString
+* securestring
 * string
 
 ## Arrays
@@ -121,6 +122,36 @@ Objects start with a left brace (`{`) and end with a right brace (`}`). Each pro
 }
 ```
 
+You can get a property from an object with dot notation.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "exampleObject": {
+            "type": "object",
+            "defaultValue": {
+                "name": "test name",
+                "id": "123-abc",
+                "isCurrent": true,
+                "tier": 1
+            }
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "nameFromObject": {
+            "type": "string",
+            "value": "[parameters('exampleObject').name]"
+        }
+    }
+}
+```
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
+
 ## Strings
 
 Strings are marked with double quotes.
@@ -143,13 +174,15 @@ The following example shows two secure parameters.
 ```json
 "parameters": {
   "password": {
-    "type": "secureString"
+    "type": "securestring"
   },
   "configValues": {
     "type": "secureObject"
   }
 }
 ```
+> [!NOTE]
+> Don't use secure strings or objects as output values. If you include a secure value as an output value, the value isn't displayed in the deployment history and can't be retrieved from another template. Instead, save the secure value in a key vault, and [pass as a parameter from the key vault](key-vault-parameter.md).
 
 ## Next steps
 

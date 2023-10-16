@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection Glossary
-description: Azure Active Directory Identity Protection Glossary
+title: Microsoft Entra ID Protection Glossary
+description: Microsoft Entra ID Protection Glossary
 
 services: active-directory
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.date: 10/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: sahandle
+manager: amycolannino
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Identity Protection Glossary
+# Microsoft Entra ID Protection Glossary
 
 ### At risk (User)
 A user with one or more active risk detections. 
@@ -23,17 +23,19 @@ A user with one or more active risk detections.
 ### Atypical sign-in location
 A sign-in from a geographic location that is not typical for the specific user, similar users, or the tenant.
 
-### Azure AD Identity Protection
-A security module of Azure Active Directory that provides a consolidated view into risk detections and potential vulnerabilities affecting an organization’s identities.
+<a name='azure-ad-identity-protection'></a>
+
+### Microsoft Entra ID Protection
+A security module of Microsoft Entra ID that provides a consolidated view into risk detections and potential vulnerabilities affecting an organization’s identities.
 
 ### Conditional Access
-A policy for securing access to resources. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
+A policy for securing access to resources. Conditional Access rules are stored in the Microsoft Entra ID and are evaluated by Microsoft Entra ID before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
 
 ### Credentials
 Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
 
 ### Event
-A record of an activity in Azure Active Directory.
+A record of an activity in Microsoft Entra ID.
 
 ### False-positive (risk detection)
 A risk detection status set manually by an Identity Protection user, indicating that the risk detection was investigated and was incorrectly flagged as a risk detection.
@@ -42,7 +44,7 @@ A risk detection status set manually by an Identity Protection user, indicating 
 A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
 
 ### Identity risk detection
-Azure AD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
+Microsoft Entra event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
 
 ### Ignored (risk detection)
 A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.
@@ -59,7 +61,7 @@ A risk detection triggered when current user credentials (user name and password
 ### Mitigation
 An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk detections associated with the identity or device.
 
-### Multi-factor authentication
+### Multifactor authentication
 An authentication method that requires two or more authentication methods, which may include something the user has, such a certificate; something the user knows, such as user names, passwords, or pass phrases; physical attributes, such as a thumbprint; and personal attributes, such as a personal signature.
 
 ### Offline detection
@@ -75,7 +77,7 @@ The part of a security policy that describes the circumstances that would trigge
 An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk detections.
 
 ### Privileged (user)
-A user that at the time of a risk detection, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
+A user that at the time of a risk detection, had permanent or temporary admin permissions to one or more resources in Microsoft Entra ID, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
 
 ### Real-time
 See Real-time detection.
@@ -117,10 +119,10 @@ Take remediation action such as a password change or machine reimaging to restor
 A collection of policy rules and condition. A policy can be applied to entities such as users, groups, apps, devices, device platforms, device states, IP ranges, and Auth2.0 client types. When a policy is enabled, it is evaluated whenever an entity included in the policy is issued a token for a resource.
 
 ### Sign in (v)
-To authenticate to an identity in Azure Active Directory.
+To authenticate to an identity in Microsoft Entra ID.
 
 ### Sign-in (n)
-The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
+The process or action of authenticating an identity in Microsoft Entra ID, and the event that captures this operation.
 
 ### Sign in from anonymous IP address
 A risk detection triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
@@ -153,8 +155,8 @@ A Conditional Access policy that considers the sign-in and applies mitigations b
 Users that have risk detections, which are either active or remediated
 
 ### Vulnerability
-A configuration or condition in Azure Active Directory, which makes the directory susceptible to exploits or threats.
+A configuration or condition in Microsoft Entra ID, which makes the directory susceptible to exploits or threats.
 
 ## See also
 
-- [Azure Active Directory Identity Protection](./overview-identity-protection.md)
+- [Microsoft Entra ID Protection](./overview-identity-protection.md)

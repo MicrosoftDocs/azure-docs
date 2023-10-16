@@ -25,7 +25,7 @@ Moving to a cloud-based service doesn’t mean the entire internet has access to
 
 ## Authentication
 
-Azure Database for MySQL supports the basic authentication mechanisms for MySQL user connectivity, but also supports [integration with Azure Active Directory](../../concepts-azure-ad-authentication.md). This security integration works by issuing tokens that act like passwords during the MySQL login process. [Configuring Active Directory integration](../../howto-configure-sign-in-azure-ad-authentication.md) is incredibly simple to do and supports not only users, but AAD groups as well.
+Azure Database for MySQL supports the basic authentication mechanisms for MySQL user connectivity, but also supports [integration with Microsoft Entra ID](../../concepts-azure-ad-authentication.md). This security integration works by issuing tokens that act like passwords during the MySQL login process. [Configuring Active Directory integration](../../howto-configure-sign-in-azure-ad-authentication.md) is incredibly simple to do and supports not only users, but Microsoft Entra groups as well.
 
 This tight integration allows administrators and applications to take advantage of the enhanced security features of [Azure Identity Protection](../../../active-directory/identity-protection/overview-identity-protection.md) to surface any identity issues.
 
@@ -38,7 +38,7 @@ if a user or application credentials are compromised, logs are not likely to ref
 
 ## Audit logging
 
-MySQL has a robust built-in audit log feature. By default, this [audit log feature is disabled](../../concepts-audit-logs.md) in Azure Database for MySQL. Server level logging can be enabled by changing the `audit\_log\_enabled` server parameter. Once enabled, logs can be accessed through [Azure Monitor](../../../azure-monitor/overview.md) and [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) by turning on [diagnostic logging.](../../howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)
+MySQL has a robust built-in audit log feature. By default, this [audit log feature is disabled](../../concepts-audit-logs.md) in Azure Database for MySQL. Server level logging can be enabled by changing the `audit\_log\_enabled` server parameter. Once enabled, logs can be accessed through [Azure Monitor](../../../azure-monitor/overview.md) and [Log Analytics](../../../azure-monitor/logs/log-analytics-workspace-overview.md) by turning on [diagnostic logging.](../../howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)
 
 To query for user connection-related events, run the following KQL query:
 
@@ -80,7 +80,7 @@ Review a set of potential [security baseline](/azure/mysql/security-baseline) ta
 
 ## Security checklist
 
-  - Use Azure AD authentication where possible.
+  - Use Microsoft Entra authentication where possible.
 
   - Enable Advanced Thread Protection.
 

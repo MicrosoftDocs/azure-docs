@@ -1,47 +1,72 @@
 - name: Azure Lab Services docs
   href: index.yml
 - name: Overview
+  expanded: true
   items:
-  - name: About Lab Services
+  - name: What is Azure Lab Services?
     href: lab-services-overview.md
-  - name: What's New in Lab Services?
+  - name: What's new in Azure Lab Services?
     href: lab-services-whats-new.md
 - name: Quickstarts
+  expanded: true
   items:
-    - name: Create a lab plan (admin)
-      items:
-      - name: Azure portal
-        href: quick-create-lab-plan-portal.md
-      - name: PowerShell
-        href: quick-create-lab-plan-powershell.md
-    - name: Create a lab (educator)
-      items:
-      - name: Azure Lab Services website
-        href: quick-create-lab-portal.md
-      - name: PowerShell
-        href: quick-create-lab-powershell.md
+    - name: Set up resources to create labs
+      displayName: get started, lab plan, lab, quickstart, getting started, lab creator, admin
+      href: quick-create-resources.md
+    - name: Create and connect to a lab
+      displayName: get started, lab plan, lab, quickstart, lab VM, virtual machine, getting started, admin, lab creator, create lab
+      href: quick-create-connect-lab.md
 - name: Tutorials
   items:
-  - name: Set up a lab plan (admin)
-    href: tutorial-setup-lab-plan.md
-  - name: Set up a lab (educator)
-    href: tutorial-setup-lab.md 
-  - name: Access a lab (student)
-    href: tutorial-connect-lab-virtual-machine.md
+  - name: Use labs for classroom training
+    items:
+    - name: 1. Create and configure a lab
+      displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
+      href: tutorial-setup-lab.md
+    - name: 2. Register & access a lab
+      href: tutorial-connect-lab-virtual-machine.md
+  - name: Use labs from Teams & Canvas
+    items:
+      - name: 1. Create a lab in Teams & Canvas
+        href: tutorial-setup-lab-teams-canvas.md
+      - name: 2. Access a lab from Teams & Canvas
+        href: tutorial-access-lab-virtual-machine-teams-canvas.md
+  - name: Set up lab to lab communication
+    href: tutorial-create-lab-with-advanced-networking.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
-  - name: Set up a lab account (deprecated)
+  - name: Set up a lab account
     href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
-  - name: Labs concepts
-    href: classroom-labs-concepts.md    
+  - name: Key concepts for Azure Lab Services
+    href: classroom-labs-concepts.md
+    displayName: definitions, concepts, lab, template, lab plan, what is, schedule, quota, compute gallery, virtual machine, VM
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Azure role-based access control
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab plan
+    href: concept-lab-services-role-based-access-control.md
+  - name: Migrate lab account role assignments
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
+    href: concept-migrate-from-lab-accounts-roles.md
+  - name: Supported networking topologies
+    displayName: advanced, networking, vnet, subnet, hybrid, connectivity, VPN, ExpressRoute, peering, NAT, gateway, firewall, proxy, load balancer, Azure Bastion, Azure Firewall, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer, Azure Bastion, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer
+    href: concept-lab-services-supported-networking-scenarios.md
+  - name: Migrate from physical labs
+    href: concept-migrating-physical-labs.md
+  - name: Nested virtualization
+    href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
-    href: cost-management-guide.md        
+    href: cost-management-guide.md
+  - name: Azure Policies for Lab Services
+    href: azure-polices-for-lab-services.md
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Lab Services
+      href: reliability-in-azure-lab-services.md      
 - name: Scenarios
   items:  
   - name: Use Lab Services for conducting classes
@@ -91,7 +116,7 @@
     - name: SolidWorks computer-aided design (CAD)
       displayName: SolidWorks CAD
       href: class-type-solidworks.md
-    - name: Sql database management and development
+    - name: SQL database management and development
       href: class-type-sql-server.md
 - name: How-tos
   items:
@@ -101,16 +126,31 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
+  - name: Transition to August 2022 Update
+    href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
     - name: Create and manage lab plans
-      href: how-to-manage-lab-plans.md
+      items:
+      - name: Create & manage lab plans (Azure portal)
+        href: how-to-manage-lab-plans.md
+      - name: Create a lab plan (PowerShell)
+        href: how-to-create-lab-plan-powershell.md
+      - name: Create a lab plan (Bicep/ARM template)
+        href: how-to-create-lab-plan-bicep.md
+      - name: Create a lab plan (Python)
+        href: how-to-create-lab-plan-python.md
     - name: Add a lab creator
       href: add-lab-creator.md
+    - name: Connect a lab plan to a virtual network
+      displayName: VNET, injection, advanced, networking, hybrid, on-premise
+      href: how-to-connect-vnet-injection.md
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md?tabs=Labplans
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md
     - name: Configure auto-shutdown settings
       href: how-to-configure-auto-shutdown-lab-plans.md
-    - name: Connect to a virtual network
-      href: how-to-connect-vnet-injection.md
     - name: Create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
     - name: Specify Marketplace images for labs 
@@ -135,15 +175,33 @@
             href: how-to-bring-custom-linux-image-vhd.md
     - name: Specify support information
       href: lab-account-owner-support-information.md
-    - name: Manage labs
+    - name: Manage labs in the Azure portal
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
+    - name: Configure regions for labs
+      href: create-and-configure-labs-admin.md     
+    - name: Restrict VM sizes allowed for labs
+      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
-    items:        
-    - name: Create and manage labs
+    items:
+    - name: Create labs (ARM/PowerShell/Bicep/Python)
+      items:
+      - name: Create a lab (PowerShell)
+        href: how-to-create-lab-powershell.md
+      - name: Create a lab (Bicep/ARM template)
+        href: how-to-create-lab-bicep.md
+      - name: Create a lab (Python)
+        href: how-to-create-lab-python.md
+    - name: Manage labs
       href: how-to-manage-labs.md
-    - name: Use a shared image gallery
+    - name: Add and manage lab users
+      href: how-to-manage-lab-users.md
+    - name: Create and manage schedules
+      href: how-to-create-schedules.md
+    - name: Manage virtual machine pool
+      href: how-to-manage-vm-pool.md
+    - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux
       href: how-to-enable-remote-desktop-linux.md
@@ -153,39 +211,25 @@
       href: how-to-create-manage-template.md
     - name: Use lab dashboard
       href: use-dashboard.md
-    - name: Add and manage lab users
-      href: how-to-configure-student-usage.md      
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: Enable nested virtualization on a template VM
-      items:
-      - name: Enable nested virtualization on a template VM overview
-        href: how-to-enable-nested-virtualization-template-vm.md
-      - name: Enable nested virtualization on a template VM using the UI
-        href: how-to-enable-nested-virtualization-template-vm-ui.md 
-      - name: Enable nested virtualization on a template VM using a script
-        href: how-to-enable-nested-virtualization-template-vm-using-script.md
+      href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
-    - name: Create and manage schedules
-      href: how-to-create-schedules.md
-    - name: Manage virtual machine pool
-      href: how-to-manage-vm-pool.md
     - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md
     - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
-      href: how-to-enable-shutdown-disconnect.md       
-    - name: View support information
-      href: lab-creator-support-information.md
-  - name: Connect to VMs in labs (student)
-    items:        
-    - name: Access labs
-      href: how-to-use-lab.md
-    - name: Connect to VM
+      href: how-to-enable-shutdown-disconnect.md      
+  - name: Connect to lab VMs (student)
+    items:
+    - name: Access a lab VM
+      href: how-to-access-lab-virtual-machine.md
+    - name: Connect to a lab VM
       href: connect-virtual-machine.md
     - name: Connect to a VM from Windows using RDP
       href: connect-virtual-machine-windows-rdp.md              
@@ -195,41 +239,25 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: Set or reset passwords for VMs 
+    - name: Redeploy or reimage a lab VM
+      href: how-to-reset-and-redeploy-vm.md  
+    - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
-    - name: View support information (student)
-      href: lab-user-support-information.md
-  - name: Use labs within Canvas
+  - name: Use labs within Teams & Canvas
     items:
-      - name: Create a lab from Canvas
-        href: how-to-get-started-create-lab-within-canvas.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-canvas.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-canvas.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-canvas.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-canvas.md
-      - name: Access a VM (student view)
-        href: how-to-access-vm-for-students-within-canvas.md     
-  - name: Use labs within Teams
+      - name: Configure Canvas to use the service
+        href: how-to-configure-canvas-for-lab-plans.md
+      - name: Configure Teams to use the service
+        href: how-to-configure-teams-for-lab-plans.md
+  - name: Earlier releases
     items:
-      - name: Create a lab from Teams
-        href: how-to-get-started-create-lab-within-teams.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-teams.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-teams.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-teams.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-teams.md
-      - name: Access a VM (student view)
-        href: how-to-access-vm-for-students-within-teams.md
-  - name: Earlier releases (deprecated)
-    items:
-    - name: Create & configure lab accounts (deprecated)
+    - name: Labs architecture fundamentals
+      href: classroom-labs-fundamentals-1.md
+    - name: Administrator guide
+      href: administrator-guide-1.md
+    - name: Lab account creation guide
+      href: account-setup-guide.md
+    - name: Create & configure lab accounts
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
@@ -239,10 +267,12 @@
         href: how-to-configure-lab-accounts.md
       - name: Allow lab creator to pick lab location
         href: allow-lab-creator-pick-lab-location.md
-      - name: Create a lab with a shared resource (deprecated)
+      - name: Create a lab with a shared resource
         href: how-to-create-a-lab-with-shared-resource-1.md
       - name: Connect to a peer virtual network 
         href: how-to-connect-peer-virtual-network.md
+      - name: Configure firewall settings
+        href: how-to-configure-firewall-settings-1.md
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery-1.md
       - name: Specify Marketplace images for labs 
@@ -251,31 +281,42 @@
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
         href: manage-labs-1.md
-    - name: Administrator guide
-      href: administrator-guide-1.md
-    - name: Lab account creation guide
-      href: account-setup-guide.md
-    - name: Az.LabServices PowerShell module (deprecated)
+    - name: Set up GPU VMs when using lab accounts
+      href: how-to-setup-lab-gpu-1.md
+    - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
+- name: Troubleshoot & debug
+  items:
+    - name: Troubleshoot lab creation
+      href: troubleshoot-lab-creation.md
+    - name: Troubleshoot lab VM Access
+      href: troubleshoot-access-lab-vm.md
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/labservices
   - name: REST API
     href: /rest/api/labservices/
-  - name: Az.LabServices PowerShell module (preview)
+  - name: Az.LabServices PowerShell module
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+  - name: Microsoft Azure SDK for Python
+    href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
   - name: Azure Lab Services Blog
     href: https://aka.ms/azlabs-blog
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=lab-services
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
   - name: Q & A
     href: https://aka.ms/azlabs/questions
   - name: Tech community forum
     href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
-  - name: Frequently asked questions
-    href: classroom-labs-faq.yml

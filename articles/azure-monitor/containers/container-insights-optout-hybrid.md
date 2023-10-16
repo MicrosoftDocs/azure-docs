@@ -1,15 +1,14 @@
 ---
-title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
+title: Disable Container insights on your hybrid Kubernetes cluster
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 06/16/2020 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 08/21/2023
+ms.reviewer: aul
 ---
 
-# How to stop monitoring your hybrid cluster
+# Disable Container insights on your hybrid Kubernetes cluster
 
-After you enable monitoring of your Kubernetes cluster, you can stop monitoring the cluster with Container insights if you decide you no longer want to monitor it. This article shows how to accomplish this for the following environments:
+This article shows how to disable Container insights for the following Kubernetes environments:
 
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
@@ -28,7 +27,7 @@ The following steps apply to the following environments:
     helm list
     ```
 
-    The output will resemble the following:
+    The output resembles the following:
 
     ```
     NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
@@ -45,7 +44,7 @@ The following steps apply to the following environments:
 
     `helm delete azmon-containers-release-1`
 
-    This will remove the release from the cluster. You can verify by running the `helm list` command:
+    This removes the release from the cluster. You can verify by running the `helm list` command:
 
     ```
     NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
@@ -82,7 +81,7 @@ The configuration change can take a few minutes to complete. Because Helm tracks
     ```
 
 #### Using service principal
-The script *disable-monitoring.ps1* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you will have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
+The script *disable-monitoring.ps1* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
 
 ```powershell
 $subscriptionId = "<subscription Id of the Azure Arc-connected cluster resource>"
@@ -111,13 +110,13 @@ For example:
 2. Configure the `azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
 
     ```bash
-    export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+    export AZUREARCCLUSTERRESOURCEID="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
 3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`.
 
     ```bash
-    export kubeContext="<kubeContext name of your k8s cluster>"
+    export KUBECONTEXT="<kubeContext name of your k8s cluster>"
     ```
 
 4. To stop monitoring your cluster, there are different commands provided based on your deployment scenario.
@@ -125,31 +124,31 @@ For example:
     Run the following command to stop monitoring the cluster using the current context.
 
     ```bash
-    bash disable-monitoring.sh --resource-id $azureArcClusterResourceId
+    bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID
     ```
 
     Run the following command to stop monitoring the cluster by specifying a context
 
     ```bash
-    bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
+    bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID --kube-context $KUBECONTEXT
     ```
 
 #### Using service principal
-The bash script *disable-monitoring.sh* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you will have to pass --client-id, --client-secret and  --tenant-id values of service principal you have intended to use to *enable-monitoring.sh* bash script.
+The bash script *disable-monitoring.sh* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you have to pass --client-id, --client-secret and  --tenant-id values of service principal you have intended to use to *enable-monitoring.sh* bash script.
 
 ```bash
-subscriptionId="<subscription Id of the Azure Arc-connected cluster resource>"
-servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
-servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+SUBSCRIPTIONID="<subscription Id of the Azure Arc-connected cluster resource>"
+SERVICEPRINCIPAL=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTIONID}")
+SERVICEPRINCIPALCLIENTID=$(echo $SERVICEPRINCIPAL | jq -r '.appId')
 
-servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
-tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+SERVICEPRINCIPALCLIENTSECRET=$(echo $SERVICEPRINCIPAL | jq -r '.password')
+TENANTID=$(echo $SERVICEPRINCIPAL | jq -r '.tenant')
 ```
 
 For example:
 
 ```bash
-bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
+bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID --kube-context $KUBECONTEXT --client-id $SERVICEPRINCIPALCLIENTID --client-secret $SERVICEPRINCIPALCLIENTSECRET  --tenant-id $TENANTID
 ```
 
 ## Next steps

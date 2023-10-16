@@ -2,12 +2,14 @@
 title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.service: azure-vmware
+ms.date: 11/02/2022
+ms.custom: engagement-fy23
 ---
 
 # Save costs with Azure VMware Solution
 
-When you commit to a reserved instance of [Azure VMware Solution](introduction.md), you save money. The reservation discount automatically applies to the running Azure VMware Solution hosts that match the reservation scope and attributes. In addition, a reserved instance purchase covers only the compute part of your usage and includes software licensing costs. 
+When you commit to a reserved instance of [Azure VMware Solution](introduction.md), you save money. The reservation discount automatically applies to the running Azure VMware Solution hosts that match the reservation scope and attributes. In addition, a reserved instance purchase covers only the compute part of your usage and includes software licensing costs.
 
 ## Purchase restriction considerations
 
@@ -33,7 +35,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 -   For EA subscriptions, you must enable the **Add Reserved Instances** option in the [EA portal](https://ea.azure.com/). If disabled, you must be an EA Admin for the subscription to enable it.
 
--   For subscription under a Cloud Solution Provider (CSP) Azure Plan, the partner must purchase the customer's reserved instances in the Azure portal. 
+-   For subscription under a Cloud Solution Provider (CSP) Azure Plan, the partner must purchase the customer's reserved instances in the Azure portal.
 
 ### Buy reserved instances for an EA subscription
 
@@ -41,7 +43,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 2. Select **All services** > **Reservations**.
 
-3. Select **Purchase Now** and then select **Azure VMware Solution**.
+3. Select **Purchase Now**, then select **Azure VMware Solution**.
 
 4. Enter the required fields. The selected attributes that match running Azure VMware Solution hosts qualify for the reservation discount.  Attributes include the SKU, regions (where applicable), and scope. Reservation scope selects where the reservation savings apply.
 
@@ -109,7 +111,6 @@ You can make these changes to a reservation after purchase:
 You can also split a reservation into smaller chunks or merge reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
 
 For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](/partner-center/azure-reservations).
-
 
 
 >[!NOTE]

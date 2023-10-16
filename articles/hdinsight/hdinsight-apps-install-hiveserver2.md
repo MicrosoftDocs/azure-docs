@@ -4,10 +4,9 @@ description: Horizontally scale HiveServer2 on Azure HDInsight clusters using ed
 services: hdinsight
 ms.service: hdinsight
 ms.topic: conceptual
-ms.reviewer: hrasheed-msft
 ms.author: kecheung
 author: kcheeeung
-ms.date: 08/12/2020
+ms.date: 10/16/2023
 ---
 
 # Scale HiveServer2 on Azure HDInsight Clusters for High Availability
@@ -19,12 +18,12 @@ Learn how to deploy an additional HiveServer2 into your cluster to increase avai
 
 ## Prerequisites
 
-To use this guide, you'll need to understand the following article:
+To use this guide, you need to understand the following article:
 - [Use empty edge nodes on Apache Hadoop clusters in HDInsight](hdinsight-apps-use-edge-node.md)
 
 ## Install HiveServer2
 
-In this section, you'll install an additional HiveServer2 onto your target hosts.
+In this section, you install an additional HiveServer2 onto your target hosts.
 
 1. Open Ambari in your browser and click on your target host.
 
@@ -34,7 +33,7 @@ In this section, you'll install an additional HiveServer2 onto your target hosts
 
 :::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Add HiveServer2 panel of host.":::
 
-3. Confirm and the process will run. Repeat 1-3 for all desired hosts.
+3. Confirm and the process runs. Repeat 1-3 for all desired hosts.
 
 4. When you have finished installing, restart all services with stale configs and start HiveServer2.
 
@@ -46,5 +45,5 @@ In this article, you've learned how to install HiveServer2 onto your cluster. To
 
 * [Install edge node](hdinsight-apps-use-edge-node.md): Learn how to install an edge node onto your HDInsight cluster.
 * [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
-* [Azure SQL DTU Connection Limits](../azure-sql/database/resource-limits-dtu-single-databases.md): Learn about Azure SQL database limits using DTU.
-* [Azure SQL vCore Connection Limits](../azure-sql/database/resource-limits-vcore-elastic-pools.md): Learn about Azure SQL database limits using vCores.
+* [Azure SQL DTU Connection Limits](/azure/azure-sql/database/resource-limits-dtu-single-databases): Learn about Azure SQL database limits using DTU.
+* [Azure SQL vCore Connection Limits](/azure/azure-sql/database/resource-limits-vcore-elastic-pools): Learn about Azure SQL database limits using vCores.

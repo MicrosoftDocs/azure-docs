@@ -1,26 +1,29 @@
 ---
 title: Automatic VM Guest Patching for Azure VMs
 description: Learn how to automatically patch virtual machines in Azure.
-author: mimckitt
+author: maulikshah23
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
-ms.author: mimckitt
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.author: maulikshah
+ms.reviewer: mimckitt
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 # Automatic VM guest patching for Azure VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
+Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
-- Patches are applied during off-peak hours in the VM's time zone.
+- Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
+- Patches are applied during all hours for VMSS Flex.
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
+- Application health can be monitored through the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
 - Works for all VM sizes.
 
 ## How does automatic VM guest patching work?
@@ -31,27 +34,31 @@ The VM is assessed periodically every few days and multiple times within any 30-
 
 Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
 
-Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
+Definition updates and other patches not classified as *Critical* or *Security* won't be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
+
+For IaaS VMs, customers can choose to configure VMs to enable automatic VM guest patching. This will limit the blast radius of VMs getting the updated patch and do an orchestrated update of the VMs. The service also provides [health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to detect issues any issues with the update. 
 
 ### Availability-first Updates
 
-The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure.
+The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure. 
 
 For a group of virtual machines undergoing an update, the Azure platform will orchestrate updates:
 
 **Across regions:**
 - A monthly update is orchestrated across Azure globally in a phased manner to prevent global deployment failures.
 - A phase can have one or more regions, and an update moves to the next phases only if eligible VMs in a phase update successfully.
-- Geo-paired regions are not updated concurrently and can't be in the same regional phase.
+- Geo-paired regions aren't updated concurrently and can't be in the same regional phase.
 - The success of an update is measured by tracking the VM’s health post update. VM Health is tracked through platform health indicators for the VM.
 
 **Within a region:**
-- VMs in different Availability Zones are not updated concurrently with the same update.
-- VMs that are not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
+- VMs in different Availability Zones aren't updated concurrently with the same update.
+- VMs that aren't part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
 
 **Within an availability set:**
-- All VMs in a common availability set are not updated concurrently.
--	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains are not updated concurrently.
+- All VMs in a common availability set aren't updated concurrently.
+-	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
+
+Narrowing the scope of VMs that are patched across regions, within a region, or an availability set, limit the blast radius of the patch. With health monitoring, any potential issues are flagged without impacting the entire fleet.
 
 The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch between monthly patching cycles.
 
@@ -69,28 +76,63 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 ## Supported OS images
 
 > [!IMPORTANT]
-> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported. More images are added periodically.
+> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations aren't supported. More images are added periodically. Don't see your SKU in the list? Request support by filing out [Image Support Request](https://forms.microsoft.com/r/6vfSgT0mFx).
 
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
+| Canonical  | UbuntuServer | 16.04-LTS |
+| Canonical  | UbuntuServer | 16.04.0-LTS |
 | Canonical  | UbuntuServer | 18.04-LTS |
+| Canonical  | UbuntuServer | 18.04-LTS-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
+| Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
+| Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts-gen2 |
+| Canonical  | 0001-com-ubuntu-server-jammy | 22_04-lts |
+| Canonical  | 0001-com-ubuntu-server-jammy | 22_04-lts-gen2 |
+| microsoftcblmariner  | cbl-mariner | cbl-mariner-1 |
+| microsoftcblmariner  | cbl-mariner | 1-gen2 |
+| microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
+| microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
-| Redhat  | RHEL-RAW | 8-raw |
-| OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
-| OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8-lvm |
+| Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8_7, 8-lvm, 8-lvm-gen2 |
+| Redhat  | RHEL | 9_0, 9_1, 9-lvm, 9-lvm-gen2 |
+| Redhat  | RHEL-RAW | 8-raw, 8-raw-gen2 |
+| OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7_9-gen2 |
+| OpenLogic  | centos-lvm | 7-lvm |
+| OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8_4, 8_5 |
+| OpenLogic  | centos-lvm | 8-lvm |
 | SUSE  | sles-12-sp5 | gen1, gen2 |
 | SUSE  | sles-15-sp2 | gen1, gen2 |
 | MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter-gensecond |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-gensecond  |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-smalldisk  |
+| MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-with-containers  |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-gensecond  |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-smalldisk  |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-smalldisk-g2  |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-with-containers  |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk-g2 |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core-g2 |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-smalldisk |
+
 
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
@@ -98,6 +140,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
+- During the installation process, this mode will [assess the VM](/rest/api/compute/virtual-machines/assess-patches) for available patches and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview).
 - This mode is required for availability-first patching.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
@@ -127,6 +170,7 @@ VMs on Azure now support the following patch orchestration modes:
 
 > [!NOTE]
 >For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes is not supported.
+>Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This will allow the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This will be reported as a ‘Platform’-initated assessment.
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -135,10 +179,11 @@ VMs on Azure now support the following patch orchestration modes:
 - For Windows VMs, the Windows Update service must be running on the virtual machine.
 - The virtual machine must be able to access the configured update endpoints. If your virtual machine is configured to use private repositories for Linux or Windows Server Update Services (WSUS) for Windows VMs, the relevant update endpoints must be accessible.
 - Use Compute API version 2021-03-01 or higher to access all functionality including on-demand assessment and on-demand patching.
-- Custom images are not currently supported.
+- Custom images aren't currently supported.
 
 ## Enable automatic VM guest patching
-Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image. To enable automatic VM guest patching on a Windows VM, ensure that the property *osProfile.windowsConfiguration.enableAutomaticUpdates* is set to *true* in the VM template definition. This property can only be set when creating the VM. This additional property is not applicable for Linux VMs.
+Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image.  
+
 
 ### REST API for Linux VMs
 The following example describes how to enable automatic VM guest patching:
@@ -187,11 +232,19 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 }
 ```
 
-### Azure PowerShell for Windows VMs
-Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating or updating a VM.
+### Azure PowerShell when creating a Windows VM
+Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating a VM.
 
 ```azurepowershell-interactive
 Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+```
+### Azure PowerShell when updating a Windows VM
+Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet to enable automatic VM guest patching on an existing VM.
+
+```azurepowershell-interactive
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
+Update-AzVM -VM $VirtualMachine
 ```
 
 ### Azure CLI for Windows VMs
@@ -226,12 +279,12 @@ Automatic updates are disabled in most scenarios, and patch installation is done
 - For Ubuntu VMs, the default automatic updates are disabled automatically when Automatic VM Guest Patching completes enablement.
 - For RHEL, automatic updates need to be manually disabled. Execute:
 
-```
-systemctl stop packagekit
+```bash
+sudo systemctl stop packagekit
 ```
 
-```
-systemctl mask packagekit
+```bash
+sudo systemctl mask packagekit
 ```
 
 To verify whether automatic VM guest patching has completed and the patching extension is installed on the VM, you can review the VM's instance view. If the enablement process is complete, the extension will be installed and the assessment results for the VM will be available under `patchStatus`. The VM's instance view can be accessed through multiple ways as described below.
@@ -375,6 +428,9 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
+## Image End-of-Life (EOL)
+
+Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure does not recommend using images after their EOL date, since it will expose the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) will communicate necessary steps for customers and impacted partners. AzGPS will remove the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs are not eligible for support.
 
 ## Next steps
 > [!div class="nextstepaction"]

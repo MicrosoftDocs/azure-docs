@@ -1,6 +1,6 @@
 ---
 title: Modify content to use the Microsoft Sentinel Advanced Security Information Model (ASIM) | Microsoft Docs
-description: This article explains how to convert Microsoft Sentinel content to use the the Advanced Security Information Model (ASIM).
+description: This article explains how to convert Microsoft Sentinel content to use the Advanced Security Information Model (ASIM).
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,8 +8,6 @@ ms.author: ofshezaf
 ---
 
 # Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
@@ -64,7 +62,7 @@ _Im_Dns(responsecodename='NXDOMAIN')
 | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
 | where count_ > threshold
 | join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
-| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
+| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
 To use workspace-deployed ASIM parsers, replace the first line with the following code:
@@ -72,11 +70,12 @@ To use workspace-deployed ASIM parsers, replace the first line with the followin
 ```kusto
 imDns(responsecodename='NXDOMAIN')
 ```
+
 ### Differences between built-in and workspace-deployed parsers
 
 The two options in the example [above](#sample-normalization-for-analytics-rules) are functionally identical. The normalized, source-agnostic version has the following differences:
 
-- The `_In_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
+- The `_Im_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
 
 - The normalized parsers fetch only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
 

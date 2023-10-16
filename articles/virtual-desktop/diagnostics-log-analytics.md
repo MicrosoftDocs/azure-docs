@@ -27,29 +27,31 @@ Azure Virtual Desktop uses [Azure Monitor](../azure-monitor/overview.md) for mon
     - Are users encountering any issues with specific activities? This feature can generate a table that tracks activity data for you as long as the information is joined with the activities.
 - Checkpoints:
     - Specific steps in the lifetime of an activity that were reached. For example, during a session, a user was load balanced to a particular host, then the user was signed on during a connection, and so on.
+- Agent Health Status:
+    - Monitor the health and status of the Azure Virtual Desktop agent installed on each session host. For example, verify that the agents are up to date, or whether the agent is in a healthy state and ready to accept new user sessions. 
+- Connection Network Data:
+    - Track the average network data for user sessions to monitor for details including the estimated round trip time and available bandwidth throughout their connection.
 
 Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
 Azure Monitor lets you analyze Azure Virtual Desktop data and review virtual machine (VM) performance counters, all within the same tool. This article will tell you more about how to enable diagnostics for your Azure Virtual Desktop environment.
 
 >[!NOTE]
->To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to [review the performance counter thresholds](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) for a better understanding of your user experience on the session host.
+>To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Virtual Desktop Insights glossary](./insights-glossary.md) for a better understanding of your user experience on the session host.
 
-## Before you get started
+## Prerequisites
 
-Before you can use Log Analytics, you'll need to create a workspace. To do that, follow the instructions in one of the following two articles:
+Before you can use Azure Virtual Desktop with Log Analytics, you need:
 
-- If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
-- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
+- A Log Analytics workspace. For more information, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md) or [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md). After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+   - The workspace ID
+   - The primary key of your workspace
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+   You'll need this information later in the setup process.
 
-- The workspace ID
-- The primary key of your workspace
+- Access to specific URLs from your session hosts for diagnostics to work. For more information, see [Required URLs for Azure Virtual Desktop](safe-url-list.md) where you'll see entries for **Diagnostic output**.
 
-You'll need this information later in the setup process.
-
-Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Azure Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
+- Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Azure Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## Push diagnostics data to your workspace
 
@@ -59,7 +61,7 @@ To set up Log Analytics for a new object:
 
 1. Sign in to the Azure portal and go to **Azure Virtual Desktop**.
 
-2. Navigate to the object (such as a host pool, app group, or workspace) that you want to capture logs and events for.
+2. Navigate to the object (such as a host pool, application group, or workspace) that you want to capture logs and events for.
 
 3. Select **Diagnostic settings** in the menu on the left side of the screen.
 
@@ -67,7 +69,7 @@ To set up Log Analytics for a new object:
 
     The options shown in the Diagnostic Settings page will vary depending on what kind of object you're editing.
 
-    For example, when you're enabling diagnostics for an app group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
+    For example, when you're enabling diagnostics for an application group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >Remember to enable diagnostics for each Azure Resource Manager object that you want to monitor. Data will be available for activities after diagnostics has been enabled. It might take a few hours after first set-up.
@@ -97,7 +99,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 ### Access Log Analytics on Azure Monitor
 
-1. Sign into the Azure portal
+1. Sign in to the Azure portal.
 
 2. Search for and select **Monitor**.
 
@@ -108,7 +110,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
 >[!NOTE]
->For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](/azure/azure-monitor/reference/). All tables related to Azure Virtual Desktop are labeled "WVD."
+>For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/tables-category#azure-virtual-desktop). All tables related to Azure Virtual Desktop are prefixed with "WVD."
 
 ## Cadence for sending diagnostic events
 
@@ -186,10 +188,11 @@ WVDErrors
 
 
 >[!NOTE]
->- When a user opens Full Desktop, their app usage in the session isn't tracked as checkpoints in the WVDCheckpoints table.
->- The ResourcesAlias column in the WVDConnections table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in WVDCheckpoints.
->- The WVDErrors table shows you management errors, host registration issues, and other issues that happen while the user subscribes to a list of apps or desktops.
->- WVDErrors helps you to identify issues that can be resolved by admin tasks. The value on ServiceError always says “false” for those types of issues. If ServiceError = “true”, you'll need to escalate the issue to Microsoft. Ensure you provide the CorrelationID for the errors you escalate.
+>- When a user launches a full desktop session, their app usage in the session isn't tracked as checkpoints in the `WVDCheckpoints` table.
+>- The `ResourcesAlias` column in the `WVDConnections` table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in `WVDCheckpoints`.
+>- The `WVDErrors` table shows you management errors, host registration issues, and other issues that happen while the user subscribes to a list of apps or desktops.
+>- The `WVDErrors` table also helps you to identify issues that can be resolved by admin tasks. The value on `ServiceError` should always equal `false` for these types of issues. If `ServiceError` equals `true`, you'll need to escalate the issue to Microsoft. Ensure you provide the *CorrelationID* for errors you escalate.
+>- When debugging connectivity issues, in some cases client information might be missing even if the connection events completes. This applies to the `WVDConnections` and `WVDCheckpoints` tables.
 
 ## Next steps
 

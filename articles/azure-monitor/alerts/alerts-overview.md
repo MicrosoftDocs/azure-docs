@@ -1,184 +1,127 @@
 ---
-title: Overview of alerting and notification monitoring in Azure
-description: Overview of alerting in Azure Monitor
-ms.topic: conceptual
-ms.date: 02/14/2021
-
+title: Overview of Azure Monitor alerts
+description: Learn about Azure Monitor alerts, alert rules, action processing rules, and action groups, and how they work together to monitor your system.
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.topic: overview 
+ms.date: 09/12/2023
+ms.custom: template-overview 
+ms.reviewer: harelbr
 ---
 
-# Overview of alerts in Microsoft Azure 
+# What are Azure Monitor alerts?
 
-This article describes what alerts are, their benefits, and how to get started using them.  
+Alerts help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates there might be a problem with your infrastructure or application.
 
-## What are alerts in Microsoft Azure?
+You can alert on any metric or log data source in the Azure Monitor data platform.
 
-Alerts proactively notify you when issues are found with your infrastructure or application using your monitoring data in Azure Monitor. They allow you to identify and address issues before the users of your system notice them. 
+This diagram shows you how alerts work.
 
-## Overview
+:::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Diagram that explains Azure Monitor alerts." lightbox="media/alerts-overview/alerts.png":::
 
-The diagram below represents the flow of alerts. 
+An **alert rule** monitors your data and captures a signal that indicates something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition.
 
-![Diagram of alert flow](media/alerts-overview/Azure-Monitor-Alerts.svg)
+An alert rule combines:
+ - The resources to be monitored.
+ - The signal or data from the resource.
+ - Conditions.
 
-Alert rules are separated from alerts and the actions taken when an alert fires. The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. 
+An **alert** is triggered if the conditions of the alert rule are met. The alert initiates the associated action group and updates the state of the alert. If you're monitoring more than one resource, the alert rule condition is evaluated separately for each of the resources, and alerts are fired for each resource separately. 
 
-The following are key attributes of an alert rule:
+Alerts are stored for 30 days and are deleted after the 30-day retention period. You can see all alert instances for all of your Azure resources on the [Alerts page](alerts-manage-alert-instances.md) in the Azure portal.
 
-**Target Resource** - Defines the scope and signals available for alerting. A target can be any Azure resource. Example targets:
+Alerts consist of:
+ - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
+     - Notification methods, such as email, SMS, and push notifications.
+     - Automation runbooks.
+     - Azure functions.
+     - ITSM incidents.
+     - Logic apps.
+     - Secure webhooks.
+     - Webhooks.
+     - Event hubs.
+- **Alert conditions**: These conditions are set by the system. When an alert fires, the alert condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the alert condition is set to **resolved**.
+- **User response**: The response is set by the user and doesn't change until the user changes it.
+- **Alert processing rules**: You can use alert processing rules to make modifications to triggered alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
+## Types of alerts
 
-- Virtual machines.
-- Storage accounts.
-- Log Analytics workspace.
-- Application Insights. 
+This table provides a brief description of each alert type. For more information about each alert type and how to choose which alert type best suits your needs, see [Types of Azure Monitor alerts](alerts-types.md).
 
-For certain resources (like virtual machines), you can specify multiple resources as the target of the alert rule.
+|Alert type|Description|
+|:---------|:---------|
+|[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics, or Application Insights metrics. Metric alerts can also apply multiple conditions and dynamic thresholds.|
+|[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
+|[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. Resource Health alerts and Service Health alerts are activity log alerts that report on your service and resource health.|
+|[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
+|[Prometheus alerts](alerts-types.md#prometheus-alerts)|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language.|
 
-**Signal** - Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.
+## Alerts and state
 
-**Criteria** - A combination of signal and logic applied on a target resource. Examples: 
+Alerts can be stateful or stateless.
+- Stateless alerts fire each time the condition is met, even if fired previously.
+- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
 
-- Percentage CPU > 70%
-- Server Response Time > 4 ms 
-- Result count of a log query > 100
+Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
-**Alert Name** - A specific name for the alert rule configured by the user.
+### Stateless alerts
+Stateless alerts fire each time the condition is met. The alert condition for all stateless alerts is always `fired`. 
 
-**Alert Description** - A description for the alert rule configured by the user.
+- All activity log alerts are stateless.
+- The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:
+    - **Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent sometime between one and six minutes.
+    - **Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent sometime between 15 to 30 minutes.
 
-**Severity** - The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+### Stateful alerts
+Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. 
+The alert condition for stateful alerts is `fired`, until it is considered resolved. When an alert is considered resolved, the alert rule sends out a resolved notification by using webhooks or email, and the alert condition is set to `resolved`.
 
-- Sev 0 = Critical
-- Sev 1 = Error
-- Sev 2 = Warning
-- Sev 3 = Informational
-- Sev 4 = Verbose 
+For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
-**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../alerts/action-groups.md).
+This table describes when a stateful alert is considered resolved:
 
-## What you can alert on
-
-You can alert on metrics and logs, as described in [monitoring data sources](./../agents/data-sources.md). Signals include but aren't limited to:
-
-- Metric values
-- Log search queries
-- Activity log events
-- Health of the underlying Azure platform
-- Tests for website availability
-## Alerts experience
-### Alerts page
-The Alerts page provides a summary of the alerts created in the last 24 hours.
-### Alert Recommendations (preview)
-> [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
-
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
-
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
-### Alerts summary pane
-If you have alerts configured for this resource, the alerts summary pane summarizes the alerts fired in the last 24 hours. You can filter the list by the subscription or any of the filter parameters at the top of the page. The page displays the total alerts for each severity. Select a severity to filter the alerts by that severity. 
-> [!NOTE]
-   >  You can only access alerts generated in the last 30 days.
-
-You can also [programmatically enumerate the alert instances generated on your subscriptions by using REST APIs](#manage-your-alert-instances-programmatically).
-
-:::image type="content" source="media/alerts-overview/alerts-page.png" alt-text="Screenshot of alerts page.":::
-
-You can narrow down the list by selecting values from any of these filters at the top of the page:
-
-| Column | Description |
-|:---|:---|
-| Subscription | Select the Azure subscriptions for which you want to view the alerts. You can optionally choose to select all your subscriptions. Only alerts that you have access to in the selected subscriptions  are included in the view. |
-| Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
-| Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. |
-| Resource | Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. |
-| Severity | Select an alert severity, or select **All** to include alerts of all severities. |
-| Alert condition | Select an alert condition, or select **All** to include alerts of all conditions. |
-| User response | Select a user response, or select **All** to include alerts of all user responses. |
-| Monitor service | Select a service, or select **All** to include all services. Only alerts created by rules that use service as a target are included. |
-| Time range | Only alerts fired within the selected time range are included in the view. Supported values are the past hour, the past 24 hours, the past seven days, and the past 30 days. |
-
-Select **Columns** at the top of the page to select which columns to show.
-### Alert details pane
-
-When you select an alert, this alert details pane provides details of the alert and enables you to change how you want to respond to the alert.
-
-:::image type="content" source="media/alerts-overview/alert-detail-pane.png" alt-text="Screenshot of alert details pane.":::
-
-The Alert details pane includes:
-
-
-|Section  |Description  |
+|Alert type |The alert is resolved when |
 |---------|---------|
-|Summary     | Displays the properties and other significant information about the alert.        |
-|History     |  Lists all actions on the alert and any changes made to the alert.       |
-## Manage alerts
+|Metric alerts|The alert condition isn't met for three consecutive checks.|
+|Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
-You can set the user response of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All user response changes are stored in the history of the alert.
+## Recommended alert rules
 
-The following user responses are supported.
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
 
-| User Response | Description |
-|:---|:---|
-| New | The issue has been detected and hasn't yet been reviewed. |
-| Acknowledged | An administrator has reviewed the alert and started working on it. |
-| Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another user response. |
+The system compiles a list of recommended alert rules based on:
 
-The *user response* is different and independent of the *alert condition*. The response is set by the user, while the alert condition is set by the system. When an alert fires, the alert's alert condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the alert condition is set to *'resolved'*. 
-## Manage alert rules
+- The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
+- Data that tells us what customers commonly alert on for this resource.
 
-To show the **Rules** page, select **Manage alert rules**. The Rules page is a single place for managing all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. You can also edit, enable, or disable alert rules from this page.  
+> [!NOTE]
+> Recommended alert rules is enabled for:
+> - Virtual machines
+> - AKS resources
+> - Log Analytics workspaces
 
- :::image type="content" source="media/alerts-overview/alerts-rules.png" alt-text="Screenshot of alert rules page.":::
-## Create an alert rule
-You can author alert rules in a consistent manner, whatever of the monitoring service or signal type.
+## Azure role-based access control for alerts
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+You can only access, create, or manage alerts for resources for which you have permissions.
 
- 
-Here's how to create a new alert rule:
-1. Pick the _target_ for the alert.
-1. Select the _signal_ from the available signals for the target.
-1. Specify the _logic_ to be applied to data from the signal.
+To create an alert rule, you must have:
+ - Read permission on the target resource of the alert rule.
+ - Write permission on the resource group in which the alert rule is created. If you're creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides.
+ - Read permission on any action group associated with the alert rule, if applicable.
 
-This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you're guided through defining the logic of the alert rule automatically.  
+These built-in Azure roles, supported at all Azure Resource Manager scopes, have permissions to and can access alerts information and create alert rules:
+ - **Monitoring contributor**: A contributor can create alerts and use resources within their scope.
+ - **Monitoring reader**: A reader can view alerts and read resources within their scope.
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../alerts/alerts-metric.md).
+If the target action group or rule location is in a different scope than the two built-in roles, create a user with the appropriate permissions.
 
-Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../overview.md). 
-
-## Azure role-based access control (Azure RBAC) for your alert instances
-
-The consumption and management of alert instances requires the user to have the Azure built-in roles of either [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) or [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from the subscription level to granular assignments at a resource level. For example, if a user only has monitoring contributor access for virtual machine `ContosoVM1`, that user can consume and manage only alerts generated on `ContosoVM1`.
-
-## Manage your alert instances programmatically
-
-You might want to query programmatically for alerts generated against your subscription. Queries might be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
-
-We recommended that you use [Azure Resource Graph](../../governance/resource-graph/overview.md) with the `AlertsManagementResources` schema for querying fired alerts. Resource Graph is recommended when you have to manage alerts generated across multiple subscriptions.
-
-The following sample request to the Resource Graph REST API returns alerts within one subscription in the last day:
-
-```json
-{
-  "subscriptions": [
-    <subscriptionId>
-  ],
-  "query": "alertsmanagementresources | where properties.essentials.lastModifiedDateTime > ago(1d) | project alertInstanceId = id, parentRuleId = tolower(tostring(properties['essentials']['alertRule'])), sourceId = properties['essentials']['sourceCreatedId'], alertName = name, severity = properties.essentials.severity, status = properties.essentials.monitorCondition, state = properties.essentials.alertState, affectedResource = properties.essentials.targetResourceName, monitorService = properties.essentials.monitorService, signalType = properties.essentials.signalType, firedTime = properties['essentials']['startDateTime'], lastModifiedDate = properties.essentials.lastModifiedDateTime, lastModifiedBy = properties.essentials.lastModifiedUserName"
-}
-```
-
-You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0A%7C%20where%20properties.essentials.lastModifiedDateTime%20%3E%20ago(1d)%0A%7C%20project%20alertInstanceId%20%3D%20id%2C%20parentRuleId%20%3D%20tolower(tostring(properties%5B'essentials'%5D%5B'alertRule'%5D))%2C%20sourceId%20%3D%20properties%5B'essentials'%5D%5B'sourceCreatedId'%5D%2C%20alertName%20%3D%20name%2C%20severity%20%3D%20properties.essentials.severity%2C%20status%20%3D%20properties.essentials.monitorCondition%2C%20state%20%3D%20properties.essentials.alertState%2C%20affectedResource%20%3D%20properties.essentials.targetResourceName%2C%20monitorService%20%3D%20properties.essentials.monitorService%2C%20signalType%20%3D%20properties.essentials.signalType%2C%20firedTime%20%3D%20properties%5B'essentials'%5D%5B'startDateTime'%5D%2C%20lastModifiedDate%20%3D%20properties.essentials.lastModifiedDateTime%2C%20lastModifiedBy%20%3D%20properties.essentials.lastModifiedUserName)
-
-You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) in lower scale querying scenarios or to update fired alerts.
-
-## Smart groups
-
-Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in troubleshooting. [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) and [how to manage your smart groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
+## Pricing
+For information about pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Next steps
 
-- [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [See your alert instances](./alerts-page.md)
+- [Create a new alert rule](alerts-log.md)
 - [Learn about action groups](../alerts/action-groups.md)
-- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
-- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
-- [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
+- [Learn about alert processing rules](alerts-action-rules.md)
+- [Manage your alerts programmatically](alerts-manage-alert-instances.md#manage-your-alerts-programmatically)
+

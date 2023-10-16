@@ -1,18 +1,19 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure DDoS Protection Standard frequently asked questions
-  description: Frequently asked questions about the Azure DDoS Protection Standard, which helps provide defense against DDoS attacks.
+  title: Azure DDoS Protection frequently asked questions
+  description: Frequently asked questions about the Azure DDoS Protection, which helps provide defense against DDoS attacks.
   services: virtual-network
   documentationcenter: na
-  author: aletheatoh
-  ms.service: virtual-network
+  author: AbdullahBell
+  ms.service: ddos-protection
   ms.topic: faq
   ms.tgt_pltfrm: na
+  ms.custom: ignite-2022
   ms.workload: infrastructure-services
-  ms.date: 10/28/2020
-  ms.author: yitoh
-title: Azure DDoS Protection Standard frequently asked questions
-summary: This article answers common questions about Azure DDoS Protection Standard. 
+  ms.date: 06/12/2023
+  ms.author: abell
+title: Azure DDoS Protection frequently asked questions
+summary: This article answers common questions about Azure DDoS Protection.
 
 sections:
   - name: Ignored
@@ -23,21 +24,21 @@ sections:
           Distributed denial of service, or DDoS, is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is resources being depleted, affecting the application’s availability and ability to service its customers. Over the past few years, the industry has seen a sharp increase in attacks, with attacks becoming more sophisticated and larger in magnitude. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 
       - question: |
-          What is Azure DDoS Protection Standard service?
+          What is Azure DDoS Protection service?
         answer: |
-          Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. See [Azure DDoS Protection Standard overview](ddos-protection-overview.md) for more details. 
-          
+          Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md). 
+
       - question: |
           How does pricing work?
         answer: |
-          DDoS protection plans have a fixed monthly charge of $2,944 per month which covers up to 100 public IP addresses. Protection for additional resources will cost an additional $30 per resource per month. 
-          
-          Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
-          
-          When Application Gateway with WAF is deployed in a DDoS protected VNet, there are no additional charges for WAF - you pay for the Application Gateway at the [lower non-WAF rate](https://azure.microsoft.com/pricing/details/application-gateway/). This applies to both Application Gateway v1 and v2 SKUs.
-          
-          See [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
-          
+          DDoS protection plans have a fixed monthly charge that covers up to 100 public IP addresses. Protection for additional resources is available.
+
+          Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there's no need to create more than one DDoS protection plan.
+
+          When Application Gateway with WAF is deployed in a DDoS protected VNet, there are no extra charges for WAF - you pay for the Application Gateway at the [lower non-WAF rate](https://azure.microsoft.com/pricing/details/application-gateway/). This policy applies to both Application Gateway v1 and v2 SKUs.
+
+          See [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for pricing and more details.
+
       - question: |
           Is the service zone resilient?
         answer: |
@@ -51,45 +52,45 @@ sections:
       - question: |
           What about protection at the service layer (layer 7)?
         answer: |
-          Customers can use Azure DDoS Protection service in combination with a Web Application Firewall (WAF) to for protection both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection Standard) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) as well as third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
-          
+          Customers can use Azure DDoS Protection service in combination with a Web Application Firewall (WAF) to for protection both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+
       - question: |
           Are services unsafe in Azure without the service?
         answer: |
-          Services running on Azure are inherently protected by the default infrastructure-level DDoS protection. However, the protection that safeguards the infrastructure has a much higher threshold than most applications have the capacity to handle, and does not provide telemetry or alerting, so while a traffic volume may be perceived as harmless by the platform, it can be devastating to the application receiving it. 
-          
-          By onboarding to the Azure DDoS Protection Standard Service, the application gets dedicated monitoring to detect attacks and application specific thresholds. A service will be protected with a profile that is tuned to its expected traffic volume, providing a much tighter defense against DDoS attacks.
-          
+          Services running on Azure are inherently protected by the default infrastructure-level DDoS protection. However, the protection that safeguards the infrastructure has a much higher threshold than most applications have the capacity to handle, and does not provide telemetry or alerting, so while a traffic volume may be perceived as harmless by the platform, it can be devastating to the application that receives it.
+
+          By onboarding to the Azure DDoS Protection Service, the application gets dedicated monitoring to detect attacks and application specific thresholds. A service will be protected with a profile that is tuned to its expected traffic volume, providing a much tighter defense against DDoS attacks.
+
       - question: |
           What are the supported protected resource types?
         answer: |
           Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs).
 
-          PaaS services (multitenant) are not supported at present. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
+          To learn about limitations, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
 
       - question: |
           Are Classic/RDFE protected resources supported?
         answer: |
-          Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
+          Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. For more information, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
 
       - question: |
           Can I protect my PaaS resources using DDoS Protection?
         answer: |
-          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hubs VIPs and App/Cloud Services applications. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
-          
+          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hubs VIPs and App/Cloud Services applications. For more information, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
+
       - question: |
-          Can I protect my on-premise resources using DDoS Protection?
+          Can I protect my on-premises resources using DDoS Protection?
         answer: |
           You need to have the public endpoints of your service associated to a VNet in Azure to be enabled for DDoS protection. Example designs include:
-          - Web sites (IaaS) in Azure and backend databases in on-prem datacenter. 
-          - Application Gateway in Azure (DDoS protection enabled on App Gateway/WAF) and websites in on-prem datacenters.
-          
-          See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
-          
+          - Web sites (IaaS) in Azure and backend databases in on-premises datacenter.
+          - Application Gateway in Azure (DDoS protection enabled on App Gateway/WAF) and websites in on-premises datacenters.
+
+          For more information, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
+
       - question: |
           Can I register a domain outside of Azure and associate that to a protected resource like VM or ELB?
         answer: |
-          For the Public IP scenarios, DDoS Protection service will support any application regardless of where the associated domain is registered or hosted as long as the associated Public IP is hosted on Azure. 
+          For the Public IP scenarios, DDoS Protection service will support any application regardless of where the associated domain is registered or hosted as long as the associated Public IP is hosted on Azure.
 
       - question: |
           Can I manually configure the DDoS policy applied to the VNets/Public IPs?
@@ -105,13 +106,18 @@ sections:
           How can I test DDoS Protection?
         answer: |
           See [testing through simulations](test-through-simulations.md).
-          
+
       - question: |
           How long does it take for the metrics to load on portal?
         answer: |
-          The metrics should be visible on portal within 5 minutes. If your resource is under attack, other metrics will start showing up on portal within 5-7 minutes. 
+          The metrics should be visible on portal within 5 minutes. If your resource is under attack, other metrics will start showing up on portal within 5-7 minutes.
 
       - question: |
           Does the service store customer data?
         answer: |
           No, Azure DDoS protection does not store customer data.
+
+      - question: |
+          Is a single VM deployment behind public IP supported?
+        answer: |
+          Scenarios in which a single VM is running behind a public IP is supported but not recommended. DDoS mitigation might not initiate instantaneously when DDoS attack is detected. As a result, a single VM deployment that can’t scale out will go down in such cases. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability).

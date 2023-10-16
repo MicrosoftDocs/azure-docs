@@ -1,11 +1,10 @@
 ---
 title: 'Storage: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/10/2019
+ms.date: 12/31/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight
@@ -74,7 +73,7 @@ For more information, see the following articles:
 
 ### Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Azure AD for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
+Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Microsoft Entra ID for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
 
 For more information, see the following articles:
 
@@ -104,6 +103,9 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 One of the following formats can be used to access data that is stored in ADLS Gen2:
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
 - `abfs://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
+
+>[!NOTE]
+> Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.
 
 For more information, see the following articles:
 

@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 06/30/2021
 ms.author: azfuncdf
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 
@@ -24,7 +25,10 @@ We currently offer two APIs for defining entities:
 This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 > [!NOTE]
-> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application. 
+> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+
+> [!NOTE]
+> Entities are not currently supported in Durable Functions for the dotnet-isolated worker.
  
 ## Defining entity classes
 
@@ -65,6 +69,8 @@ public class Counter
 ```
 
 The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
+
+The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It may reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function will not be recognized by the latest runtime.
 
 > [!NOTE]
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
@@ -267,7 +273,7 @@ We also enforce some additional rules:
 * Entity interface methods must not have more than one parameter.
 * Entity interface methods must return `void`, `Task`, or `Task<T>`.
 
-If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
+If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity`, `SignalEntityAsync`, or `CreateEntityProxy`. The exception message explains which rule was broken.
 
 > [!NOTE]
 > Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.

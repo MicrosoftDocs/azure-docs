@@ -1,25 +1,28 @@
 ---
 title: Manage read replicas - Azure CLI, REST API - Azure Database for MariaDB
 description: This article describes how to set up and manage read replicas in Azure Database for MariaDB using the Azure CLI and REST API.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 6/10/2020 
 ms.custom: devx-track-azurecli
+ms.date: 06/24/2022
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure CLI and REST API
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 In this article, you will learn how to create and manage read replicas in the Azure Database for MariaDB service using the Azure CLI and REST API.
 
 ## Azure CLI
+
 You can create and manage read replicas using the Azure CLI.
 
 ### Prerequisites
 
 - [Install Azure CLI 2.0](/cli/azure/install-azure-cli)
-- An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md) that will be used as the source server. 
+- An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md) that will be used as the source server.
 
 > [!IMPORTANT]
 > The read replica feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
@@ -43,7 +46,7 @@ The `az mariadb server replica create` command requires the following parameters
 | name | mydemoreplicaserver | The name of the new replica server that is created. |
 | source-server | mydemoserver | The name or ID of the existing source server to replicate from. |
 
-To create a cross region read replica, use the `--location` parameter. 
+To create a cross region read replica, use the `--location` parameter.
 
 The CLI example below creates the replica in West US.
 
@@ -52,14 +55,14 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 ```
 
 > [!NOTE]
-> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
 
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
 
 ### List replicas for a source server
 
-To view all replicas for a given source server, run the following command: 
+To view all replicas for a given source server, run the following command:
 
 ```azurecli-interactive
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
@@ -110,9 +113,11 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## REST API
+
 You can create and manage read replicas using the [Azure REST API](/rest/api/azure/).
 
 ### Create a read replica
+
 You can create a read replica by using the [create API](/rest/api/mariadb/servers/create):
 
 ```http
@@ -130,17 +135,17 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
 
 If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized source server and restarted the server, you receive an error. Complete those two steps before you create a replica.
 
 A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the source server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
-
 > [!IMPORTANT]
 > Before a source server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas
+
 You can view the list of replicas of a source server using the [replica list API](/rest/api/mariadb/replicas/listbyserver):
 
 ```http
@@ -148,6 +153,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 ### Stop replication to a replica server
+
 You can stop replication between a source server and a read replica by using the [update API](/rest/api/mariadb/servers/update).
 
 After you stop replication to a source server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
@@ -165,6 +171,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### Delete a source or replica server
+
 To delete a source or replica server, you use the [delete API](/rest/api/mariadb/servers/delete):
 
 When you delete a source server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
@@ -172,7 +179,6 @@ When you delete a source server, replication to all read replicas is stopped. Th
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}?api-version=2017-12-01
 ```
-
 
 ## Next steps
 

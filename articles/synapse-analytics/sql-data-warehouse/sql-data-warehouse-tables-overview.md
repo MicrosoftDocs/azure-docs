@@ -1,15 +1,13 @@
 ---
 title: Designing tables
-description: Introduction to designing tables using dedicated SQL pool. 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/02/2021
+description: Introduction to designing tables using dedicated SQL pool.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 07/05/2023
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom: azure-synapse
 ---
 
 # Design tables using dedicated SQL pool in Azure Synapse Analytics
@@ -103,6 +101,9 @@ The table category often determines which option to choose for distributing the 
 | Dimension      | Use replicated for smaller tables. If tables are too large to store on each Compute node, use hash-distributed. |
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
+> [!NOTE]
+> For recommendations on the best table distribution strategy to use based on your workloads, see the [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md).
+
 ## Table partitions
 
 A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data.
@@ -168,6 +169,9 @@ Dedicated SQL pool supports many, but not all, of the table features offered by 
 
 ## Table size queries
 
+> [!NOTE]
+> For accurate counts from queries in this section, ensure that [index maintenance](sql-data-warehouse-tables-index.md) occurs on a regular basis and after large data changes. 
+
 One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
@@ -232,6 +236,7 @@ INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
     ON nt.[object_id] = nps.[object_id]
     AND nt.[pdw_node_id] = nps.[pdw_node_id]
     AND nt.[distribution_id] = nps.[distribution_id]
+    AND i.[index_id] = nps.[index_id]
 LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
     ON t.[object_id] = cdp.[object_id]
 LEFT OUTER JOIN sys.columns c
@@ -369,4 +374,8 @@ ORDER BY    distribution_id
 
 ## Next steps
 
-After creating the tables for your dedicated SQL pool, the next step is to load data into the table.  For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md).
+After creating the tables for your dedicated SQL pool, the next step is to load data into the table. For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md) and review [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](design-elt-data-loading.md).
+
+- [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md)
+- [Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md)
+- [Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](cheat-sheet.md)

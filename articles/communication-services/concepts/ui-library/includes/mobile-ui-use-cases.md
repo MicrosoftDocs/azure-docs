@@ -1,103 +1,151 @@
 ---
-title: Mobile UI Library use cases scenarios
-titleSuffix: An Azure Communication Services - Mobile UI Library use cases scenarios
-description: In this document, introduce the Mobile UI Library capabilities and how is going to work in your applications
-author: jorgegarc
-
+author: garchiro7
 ms.author: jorgegarc
-ms.date: 09/14/2021
-ms.topic: include
 ms.service: azure-communication-services
+ms.topic: include
+ms.date: 09/14/2021
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
+Use the `CallComposite` and the `ChatComposite` in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call and chat experience in your application. Composites in Communication Services manage the entire lifecycle of the call and chat, from setup until the call and chat end.
 
-Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
-Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
+## Calling use cases
 
-## Calling
+You can use the call composite in Communication Services to create these use cases:
 
-| Area                                                                                            | Use Cases                                              |
+| Area                                                                                            | Use cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Call Types                                                                                      | Join Teams Meeting                                     |
-|                                                                                                 | Join Azure Communication Services call with Group ID   |
-| [Teams Interop](../../teams-interop.md) | Call Lobby                                             |
-|                                                                                                 | Transcription and recording alert banner               |
-| Participant Gallery                                                                             | Remote participants are displayed on grid              |
-|                                                                                                 | Video preview available throughout call for local user |
-|                                                                                                 | Default avatars available when video is off            |
-|                                                                                                 | Shared screen content displayed on participant gallery |
-|                                                                                     | Participant roster                                     |
-| Call configuration                                                                              | Microphone device management                           |
-|                                                                                                 | Camera device management                               |
-|                                                                                                 | Speaker device management(wired & bluetooth supported)                              |
-|                                                                                                 | Local preview available for user to check video        |
-| Call Controls                                                                                   | Mute/unmute call                                       |
-|                                                                                                 | Video on/off on call                                   |
-|                                                                                                 | End call                                               |
+| Call types                                                                                | Join a Microsoft Teams meeting                                     |
+|                                                                                                 | Join a call by using a group ID   |
+| [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
+|                                                                                                 | Display a transcription and recording alert banner               |
+| Participant gallery                                                                   | Show remote participants on a grid              |
+|                                                                                                 | Make video preview available throughout a call for a local user |
+|                                                                                                 | Make default avatars available when video is off            |
+|                                                                                                 | Show shared screen content in the participant gallery |
+|                                                                                                 | Enable participant avatar customization                |
+|                                                                                                 | Show a participant roster                                     |
+| Call configuration                                                                    | Manage the microphone device                           |
+|                                                                                                 | Manage the camera device                               |
+|                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
+|                                                                                                 | Make local preview available for a user to check video       |
+| Call controls                                                                            | Mute and unmute a call                                       |
+|                                                                                                 | Turn video on or off during a call                                   |
+|                                                                                                 | End a call                                               |
+|                                                                                                 | Hold and resume a call after audio interruption                 |
 
-## Supported Identities
+### Teams interoperability
 
-An Azure Communication Services identity is required to initialize the composites and authenticate to the service.
-For more information on authentication, see [Authentication](../../authentication.md) and [Access Tokens](../../../quickstarts/access-tokens.md)
+For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
 
-## Teams Interop
+:::image type="content" source="../../media/mobile-ui/teams-interop-diagram.png" border="false" alt-text="Diagram that shows the Teams interoperability pattern for call and chat.":::
 
-![Teams Interop pattern for calling and chat](../../media/mobile-ui/teams-interop-diagram.png)
+The following figure shows an example of the user experience before a caller is added to a Teams meeting:
 
-For [Teams Interop](../../teams-interop.md) scenarios, developers can use the Mobile UI Library Components to join Teams meetings through Azure Communication Services.
-To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
+:::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
 
-:::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience":::
+### View shared content
 
-## View shared content
+Through the UI Library for mobile native platforms, call participants can view shared content when other participants share their screens during a Teams call. A remote participant can use stretch and pinch gestures to zoom in or out on the shared content in the call.
 
-The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling; also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
+### Theming
 
-## Theming
-
-The UI Library Calling Composite for iOS and Android provides the capability for developers to update the theme of the all experience by passing a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
+You can use the UI Library call composite for iOS and Android to create a custom theme of a caller's experience. To create the platform experience, pass a set of theming colors as shown in the following table. For more information, see [How to create your theme](../../../how-tos/ui-library-sdk/theming.md).
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| :::image type="content" source="../../media/mobile-ui/android-color.png" alt-text="android theming"::: | :::image type="content" source="../../media/mobile-ui/ios-dark.png" alt-text="iOS theming":::  |
+| :::image type="content" source="../../media/mobile-ui/android-color.png" alt-text="Screenshot that shows Android theming for a caller experience."::: | :::image type="content" source="../../media/mobile-ui/ios-dark.png" alt-text="Screenshot that shows iOS theming for a caller experience.":::  |
 
-## Screen size
+### Screen size
 
-The calling composite offers to adapt to any screen size that would bring support from 5" screens to tablets, get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
+You can adapt the Azure Communication Services call composite to adapt to screen sizes from 5 inches to tablet size. Use split mode and tablet mode in the call composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
 
 |Split mode | Tablet mode|
 |---------|---------|
-| :::image type="content" source="../../media/mobile-ui/meet-splitscreen.png" alt-text="split screen"::: |  :::image type="content" source="../../media/mobile-ui/tablet-landscape.png" alt-text="tablet mode"::: |
+| :::image type="content" source="../../media/mobile-ui/meet-splitscreen.png" alt-text="Screenshot that demonstrates a split-screen view."::: |  :::image type="content" source="../../media/mobile-ui/tablet-landscape.png" alt-text="Screenshot that demonstrates tablet mode."::: |
 
-## Localization
+### Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages.
+Localization is key to making products for users around the world and who speak different languages. UI Library supports 12 languages: English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish, and Chinese. It also supports right-to-left languages. For more information, see [How to add localization to your app](../../../how-tos/ui-library-sdk/localization.md).
 
-Localization is a key to making products that can be used across the world. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities.
+### Accessibility
 
-## Recommended Architecture
+Accessibility is a key focus of the call libraries. You can use a screen reader to make important announcements about call status and to help ensure that visually impaired users can effectively participate when they use the application.
 
-Composites are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
-trusted service that you manage. See [Quickstart: Create Access Tokens](../../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../../tutorials/trusted-service-tutorial.md) for more information.
+### View data injection
 
-:::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" alt-text="Recommended architecture diagram":::
+Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, navigation's title and subtitle on Setup screen when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize pre-meeting view](../../../how-tos/ui-library-sdk/data-model.md).
 
-These client libraries also require the context for the call they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
+:::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
-| Contoso Responsibilities                                 | UI Library Responsibilities                                     |
+### Skip Setup Screen
+
+UI Library provides the capability to join a call skipping the setup screen of the call join experience. By default, user goes through a setup screen to join a call. Here, user sets the call configuration such as camera turn on or off, microphone turn on or off and audio device selection before joining a call. This screen requires user interaction to join a call, which might be unnecessary for some users. So we provide the capability to join a call by skipping the setup screen and providing the call configuration APIs. For more information, see [How to use Skip Setup Screen Feature](../../../how-tos/ui-library-sdk/skip-setup-screen.md)
+
+### Orientation
+
+UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature](../../../how-tos/ui-library-sdk/orientation.md)
+
+## Chat use cases
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
+
+| Area         | Use cases                                        |
+| ------------ | ------------------------------------------------ |
+| Chat types   | Join an Azure Communication Services chat thread |
+| Chat actions | Send a chat message                              |
+|              | Receive a chat message                           |
+| Chat events  | Show typing indicators                           |
+|              | Show a read receipt                              |
+|              | Show when a participant is added or removed      |
+|              | Show changes to the chat title                   |
+
+### Flexibility
+
+The `ChatComposite` was designed to fit into different layouts and views in your application. For example, you could choose to place Chat in a navigation view, modal view or some other view. The `ChatComposite` would adjust itself and ensure the user has a seamless experience. 
+
+| In Navigation View                            | In Modal View                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| Provide access token from Azure                          | Pass through given access token to initialize components        |
-| Provide refresh function                                 | Refresh access token using developer provided function          |
-| Retrieve/Pass join information for call or chat          | Pass through call and chat information to initialize components |
-| Retrieve/Pass user information for any custom data model | Pass through custom data model to components to render          |
+| :::image type="content" source="../../media/mobile-ui/chat-fullscreen.png" alt-text="an image that shows the chat experience on iOS in a navigation view."::: | :::image type="content" source="../../media/mobile-ui/chat-modal.png" alt-text="an image that shows the chat experience on iOS in a modal view.":::  |
+
+## Supported identities
+
+To initialize a composite, and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+
+## Recommended architecture
+
+Initialize a composite by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+
+:::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended architecture for UI Library.":::
+
+Call and chat client libraries must have the context for the call they join. Like user access tokens, disseminate the context to clients by using your own trusted service. The following table summarizes the initialization and resource management functions that are required to add context to a client library:
+
+| Contoso responsibilities                                 | UI Library responsibilities                                     |
+| -------------------------------------------------------- | --------------------------------------------------------------- |
+| Provide an access token from Azure                          | Pass through the provided access token to initialize components       |
+| Provide a refresh function                                 | Refresh the access token by using a developer-provided function          |
+| Retrieve and pass join information for the call or chat          | Pass through call and chat information to initialize components |
+| Retrieve and pass user information for any custom data model | Pass through a custom data model to components to render          |
 
 ## Platform support
 
 |Platform | Versions|
 |---------|---------|
-| iOS     | iOS 14+ |
-| Android | v21+    |
+| iOS     | iOS 14 and later |
+| Android | API 21 and later |
+
+## Troubleshooting guide
+
+When troubleshooting happens for voice or video calls, you may be asked to provide a **CallID**; this ID is used to identify Communication Services calls.
+
+This CallID can be retrieved via the action bar on the bottom of the call screen; you see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostics info"***; the user can share **the diagnostics info** that's required to track any issues by the support team.
+
+For programmatic access to **CallID**, see ["How to get debug information programmatically"](../../../how-tos/ui-library-sdk/troubleshooting.md).
+
+You can learn more about troubleshooting guidelines here: ["Troubleshooting in Azure Communication Services"](../../troubleshooting-info.md) page.
+
+| Calling screen | Diagnostic info menu | Share CallID |
+| ------------------| ------------------------| ----------- |
+| :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot of the call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot of the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot of showing share Call ID with Contoso.":::|
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

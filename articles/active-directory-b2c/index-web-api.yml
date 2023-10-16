@@ -1,0 +1,62 @@
+### YamlMime:Landing
+
+title: Web API apps documentation
+summary: >
+  Learn how to protect web APIs and how to call them in Azure AD B2C by using our how-to guides.
+
+metadata:
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Configure ready API quickly"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: ASP.NET web app calls web API
+            url: configure-authentication-sample-web-app-with-api.md        
+          - text: Node.js web API
+            url: configure-authentication-in-sample-node-web-app-with-api.md
+          - text: Single-page app (JavaScript)
+            url: configure-authentication-sample-spa-app.md
+          - text: Python
+            url: configure-authentication-sample-python-web-app.md
+
+  - title: "Build your own API"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Node.js web API
+            url: enable-authentication-web-api.md?tabs=nodejsgeneric
+          - text: Node.js web app and web API
+            url: enable-authentication-in-node-web-app-with-api.md
+          - text: ASP.NET Core API
+            url: enable-authentication-web-api.md?tabs=csharpclient  
+          - text: ASP.NET web app calls web API
+            url: enable-authentication-web-app-with-api.md                      
+          - text: Single-page app (JavaScript)
+            url: enable-authentication-spa-app.md
+          - text: Python
+            url: enable-authentication-python-web-app.md
+  
+  - title: "Configuration options"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Node.js
+            url: enable-authentication-in-node-web-app-with-api-options.md
+          - text: ASP.NET web app calls web API
+            url: enable-authentication-web-app-with-api-options.md             
+          - text: Single-page app (JavaScript)
+            url: enable-authentication-spa-app-options.md
+          - text: Python
+            url: enable-authentication-python-web-app-options.md   
+          - text: Secure Azure API Management API
+            url: secure-api-management.md    

@@ -7,8 +7,8 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: sngun
-ms.custom: ignite-fall-2021
+ms.reviewer: sngun, wiassaf
+ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -76,7 +76,7 @@ from openrowset(
            ) as rows
 ```
 
-Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+For more information, review [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake) and [Azure Synapse Analytics known issues](../known-issues.md).
 
 ## Partitioned views
 
@@ -93,7 +93,11 @@ FROM
     ) AS nyc
 ```
 
-The partitioned views will perform folder partition elimination if you query this view with the filters on the partitioning columns. This might improve performance of your queries.
+Partitioned views can improve the performance of your queries by performing partition elimination when you query them with filters on the partitioning columns. However, not all queries support partition elimination, so it's important to follow some best practices.
+
+To ensure partition elimination, avoid using subqueries in filters, since they can interfere with the ability to eliminate partitions. Instead, pass the result of the subquery as a variable to the filter.
+
+When using JOINs in SQL queries, declare the filter predicate as NVARCHAR to reduce the complexity of the query plan and increase the probability of correct partition elimination. Partition columns are typically inferred as NVARCHAR(1024), so using the same type for the predicate avoids the need for an implicit cast, which can increase query plan complexity.
 
 ### Delta Lake partitioned views
 
@@ -117,7 +121,7 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+For more information, review [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake) and [Azure Synapse Analytics known issues](../known-issues.md).
 
 ## JSON views
 
@@ -144,9 +148,9 @@ from openrowset(
 
 The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
 
-## CosmosDB view
+## <a id="cosmosdb-view"></a> Azure Cosmos DB views on containers
 
-The views can be created on top of the Azure CosmosDB containers if the CosmosDB analytical storage is enabled on the container. CosmosDB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+The views can be created on top of the Azure Cosmos DB containers if the Azure Cosmos DB analytical storage is enabled on the container. The Azure Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
@@ -162,7 +166,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Find more details about [querying CosmosDB containers using Synapse Link here](query-cosmos-db-analytical-store.md).
+For more information, see [Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link](query-cosmos-db-analytical-store.md).
 
 ## Use a view
 
@@ -186,6 +190,14 @@ ORDER BY
     [population] DESC;
 ```
 
+When you query the view, you may encounter errors or unexpected results. This probably means that the view references columns or objects that were modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes.
+
 ## Next steps
 
 For information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.
+
+- [What's new in Azure Synapse Analytics?](../whats-new.md). 
+- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
+- [Troubleshoot serverless SQL pool in Azure Synapse Analytics](resources-self-help-sql-on-demand.md)
+- [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)
+- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)

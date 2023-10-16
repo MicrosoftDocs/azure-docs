@@ -36,8 +36,8 @@ For general information about Microsoft Defender for Cloud, see [What is Microso
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Encrypt operating system disks. | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| [Yes](../security-center/asset-inventory.md) |
-| Encrypt data disks. | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| -  |
+| Encrypt operating system disks. | [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| [Yes](../security-center/asset-inventory.md) |
+| Encrypt data disks. | [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| -  |
 | Limit installed software. | Limit installed software to what is required to successfully apply your solution. This guideline helps reduce your solution's attack surface. | - |
 | Use antivirus or antimalware. | In Azure, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky. This software helps protect your VMs from malicious files, adware, and other threats. You can deploy Microsoft Antimalware based on your application workloads. Microsoft Antimalware is available for Windows machines only. Use either basic secure-by-default or advanced custom configuration. For more information, see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md). | - |
 | Securely store keys and secrets. | Simplify the management of your secrets and keys by providing your application owners with a secure, centrally managed option. This management reduces the risk of an accidental compromise or leak. Azure Key Vault can securely store your keys in hardware security modules (HSMs) that are certified to FIPS 140-2 Level 2. If you need to use FIPs 140.2 Level 3 to store your keys and secrets, you can use [Azure Dedicated HSM](../dedicated-hsm/overview.md). | - |
@@ -46,7 +46,7 @@ For general information about Microsoft Defender for Cloud, see [What is Microso
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Centralize VM authentication. | You can centralize the authentication of your Windows and Linux VMs by using [Azure Active Directory authentication](../active-directory/develop/authentication-vs-authorization.md). | - |
+| Centralize VM authentication. | You can centralize the authentication of your Windows and Linux VMs by using [Microsoft Entra authentication](../active-directory/develop/authentication-vs-authorization.md). | - |
 
 ## Monitoring
 

@@ -3,19 +3,22 @@ title: Set up sign-up and sign-in with OpenID Connect
 titleSuffix: Azure AD B2C
 description: Set up sign-up and sign-in with any OpenID Connect identity provider (IdP) in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2021
-ms.author: kengaderdus
+ms.date: 12/28/2022
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with generic OpenID Connect using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
 
 [OpenID Connect](openid-connect.md) is an authentication protocol built on top of OAuth 2.0 that can be used for secure user sign-in. Most identity providers that use this protocol are supported in Azure AD B2C. 
 
@@ -78,6 +81,7 @@ Define the OpenId Connect identity provider by adding it to the **ClaimsProvider
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid"/>
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
@@ -305,6 +309,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 1. From the sign-up or sign-in page, select **Contoso** to sign in with Google account.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
+## Known Issues
+* Azure AD B2C does not support JWE (JSON Web Encryption) for exchanging encrypted tokens with OpenID connect identity providers. 
 
 ## Next steps
 

@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a function app on Azure Arc'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app.
 ms.topic: quickstart
-ms.date: 05/10/2021
-ms.custom: mode-other, devx-track-azurecli 
+ms.date: 09/02/2022
+ms.custom: mode-other, devx-track-azurecli, build-2023
 ms.devlang: azurecli
 ---
 
@@ -16,29 +16,35 @@ In this quickstart, you create an Azure Functions project and deploy it to a fun
 >  
 > Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
 
+If you need to customize the container in which your function app runs, instead see [Create your first containerized functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
+
 ## Prerequisites
 
 On your local computer:
 
 # [C\#](#tab/csharp)
 
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
 # [JavaScript](#tab/nodejs)
 
-+ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245. 
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Node.js](https://nodejs.org/) version 18. Node.js version 14 is also supported.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245. 
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
+
+# [PowerShell](#tab/powershell)
+
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
++ PowerShell 7 requires version 1.2.5 of the connectedk8s Azure CLI extension, or a later version. It also requires version 0.1.3 of the appservice-kube Azure CLI extension, or a later version. Make sure you install the correct version of both of these extensions as you complete this quickstart article.
 
 ---
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
@@ -84,6 +90,13 @@ In Azure Functions, a function project is the unit of deployment and execution f
     ```console
     func init LocalFunctionProj --python
     ```
+    
+    # [PowerShell](#tab/powershell)
+
+
+    ```console
+    func init LocalFunctionProj --powershell
+    ```
 
     ---
 
@@ -108,7 +121,7 @@ In Azure Functions, a function project is the unit of deployment and execution f
 
 Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two more resources:
 
-- A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
+- A [Storage account](../storage/common/storage-account-create.md). While this article creates a storage account, in some cases a storage account may not be required. For more information, see [Azure Arc-enabled clusters](storage-considerations.md#azure-arc-enabled-clusters) in the storage considerations article.    
 - A function app, which provides the context for executing your function code. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 > [!NOTE]
@@ -123,7 +136,7 @@ az storage account create --name <STORAGE_NAME> --location westeurope --resource
 ```
 
 > [!NOTE]  
-> A storage account is currently required by Azure Functions tooling. 
+> In some cases, a storage account may not be required. For more information, see [Azure Arc-enabled clusters](storage-considerations.md#azure-arc-enabled-clusters) in the storage considerations article. 
 
 In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
 
@@ -133,25 +146,32 @@ Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) co
 
 # [C\#](#tab/csharp)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime dotnet 
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime dotnet 
 ```
 
 # [JavaScript](#tab/nodejs)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime node --runtime-version 12
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime node --runtime-version 18
 ```
 
 # [Python](#tab/python)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime python --runtime-version 3.8
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime python --runtime-version 3.8
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az functionapp create --resource-group myResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime powershell --runtime-version 7.0
+```
+
 ---
 
 In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. 
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-Because it can take some time for a full deployment to complete on an Azure Arc-enabled Kubernetes cluster, you may want to re-run the following command to verify your published functions:
+Because it can take some time for a full deployment to complete on an Azure Arc-enabled Kubernetes cluster, you may want to rerun the following command to verify your published functions:
 
 ```command
 func azure functionapp list-functions
@@ -177,5 +197,10 @@ Now that you have your function app running in a container an Azure Arc-enabled 
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+# [PowerShell](#tab/powershell)
+
+> [!div class="nextstepaction"]
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-powershell)
 
 ---

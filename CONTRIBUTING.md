@@ -2,7 +2,7 @@
 
 Thank you for taking the time to contribute to the Microsoft Azure documentation.
 
-This guide covers some general topics related to contribution and refers to the [contributor guide](https://docs.microsoft.com/contribute) for more detailed explanations when required.
+This guide covers some general topics related to contribution and refers to our [contributor guide](https://learn.microsoft.com/contribute) for more detailed explanations when required.
 
 ## Code of Conduct
 
@@ -22,9 +22,8 @@ Please use the Feedback tool at the bottom of any article to submit bugs and sug
 
 ### Editing in GitHub
 
-Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributor guide.
+Follow the guidance for [Quick edits to existing documents](https://learn.microsoft.com/contribute/content/#quick-edits-to-documentation) in our contributor guide.
 
 ### Pull requests
 
-Review the guidance for [pull requests](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) and the contribution workflow in our contributor guide.
-
+Review the guidance for [pull requests](https://learn.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) and the contribution workflow in our contributor guide.

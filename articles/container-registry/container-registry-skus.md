@@ -2,7 +2,9 @@
 title: Registry service tiers and features
 description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 08/12/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Azure Container Registry service tiers
@@ -11,11 +13,18 @@ Azure Container Registry is available in multiple service tiers (also known as S
 
 | Tier | Description |
 | --- | ----------- |
-| **Basic** | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (such as Azure Active Directory [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
+| **Basic** | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (such as Microsoft Entra [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
 | **Standard** | Standard registries offer the same capabilities as Basic, with increased included storage and image throughput. Standard registries should satisfy the needs of most production scenarios. |
 | **Premium** | Premium registries provide the highest amount of included storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput, Premium adds features such as [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, [content trust](container-registry-content-trust.md) for image tag signing, [private link with private endpoints](container-registry-private-link.md) to restrict access to the registry. |
 
 The Basic, Standard, and Premium tiers all provide the same programmatic capabilities. They also all benefit from [image storage][container-registry-storage] managed entirely by Azure. Choosing a higher-level tier provides more performance and scale. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
+
+For example :
+
+- If you purchase a Basic tier registry, it includes a storage of 10 GB. The price you pay here is $0.167 per day. Prices are calculated based on US dollars.
+- If you have a Basic tier registry and use 25 GB storage, you are paying $0.003/day*15 = $0.045 per day for the additional 15 GB.
+- So, the pricing for the Basic ACR with 25 GB storage is $0.167+$0.045= 0.212 USD per day with other related charges like networking, builds, etc, according to the [Pricing - Container Registry.](https://azure.microsoft.com/pricing/details/container-registry/)
+
 
 ## Service tier features and limits
 
@@ -60,7 +69,7 @@ Throttling could occur temporarily when you generate a burst of image pull or pu
 
 ## Show registry usage
 
-Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
+Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command in the Azure CLI, [Get-AzContainerRegistryUsage](/powershell/module/az.containerregistry/get-azcontainerregistryusage) in Azure PowerShell, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
 
 Usage information helps you make decisions about [changing the service tier](#changing-tiers) when your registry nears a limit. This information also helps you [manage consumption](container-registry-best-practices.md#manage-registry-size). 
 
@@ -89,7 +98,15 @@ There is no registry downtime or impact on registry operations when you move bet
 To move between service tiers in the Azure CLI, use the [az acr update][az-acr-update] command. For example, to switch to Premium:
 
 ```azurecli
-az acr update --name myregistry --sku Premium
+az acr update --name myContainerRegistry --sku Premium
+```
+
+### Azure PowerShell
+
+To move between service tiers in Azure PowerShell, use the [Update-AzContainerRegistry][update-azcontainerregistry] cmdlet. For example, to switch to Premium:
+
+```azurepowershell
+Update-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myContainerRegistry -Sku Premium
 ```
 
 ### Azure portal
@@ -124,6 +141,7 @@ Submit and vote on new feature suggestions in [ACR UserVoice][container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update
+[update-azcontainerregistry]: /powershell/module/az.containerregistry/update-azcontainerregistry
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-delete]: container-registry-delete.md

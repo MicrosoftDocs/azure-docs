@@ -1,12 +1,12 @@
 ---
-title: azcopy make | Microsoft Docs
+title: azcopy make
 description: This article provides reference information for the azcopy make command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 05/26/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -36,18 +36,16 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 
 ## Options
 
-|Option|Description|
-|--|--|
-|-h, --help|Show help content for the make command. |
-|--quota-gb uint32|Specifies the maximum size of the share in gigabytes (GB), zero means you accept the file service's default quota.|
+`-h`, `--help`    help for make
+`--quota-gb`    (uint32)    Specifies the maximum size of the share in gigabytes (GiB), 0 means you accept the file service's default quota.
 
 ## Options inherited from parent commands
 
-|Option|Description|
-|---|---|
-|--cap-mbps float|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
-|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
-|--trusted-microsoft-suffixes string   |Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
+`--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+
+`--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

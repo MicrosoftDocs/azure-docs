@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2021
+ms.date: 07/28/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -15,9 +15,12 @@ ms.custom: contperf-fy21q1
 
 This article explains the common tasks that an administrator accomplishes in the Azure EA portal (https://ea.azure.com). The Azure EA portal is an online management portal that helps customers manage the cost of their Azure EA services. For introductory information about the Azure EA portal, see the [Get started with the Azure EA portal](ea-portal-get-started.md) article.
 
+> [!IMPORTANT]
+> The Azure EA portal is getting deprecated. Direct and indirect EA Azure customers now use Cost Management + Billing features in the Azure portal to manage their enrollment and billing *instead of using the EA portal*. For more information about enrollment management in the Azure portal, see  [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+
 ## Activate your enrollment
 
-To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
+To activate your enrollment, the initial enterprise administrator signs in to the [Azure Enterprise portal](https://ea.azure.com) using their work, school, or Microsoft account.
 
 If you've been set up as the enterprise administrator, you don't need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
 
@@ -43,7 +46,7 @@ Make sure that you have the user's email address and preferred authentication me
 
 #### If you're not an enterprise administrator
 
-If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email.
+If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email. After the account is registered, it's activated in about 5 to 10 minutes.
 
 #### If your enterprise administrator can't help you
 
@@ -52,7 +55,11 @@ If your enterprise administrator can't assist you, create an [Azure support requ
 - Enrollment number
 - Email address to add, and authentication type (work, school, or Microsoft account)
 - Email approval from an existing enterprise administrator
-  - If the existing enterprise administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
+
+>[!NOTE]
+>  - We recommend that you have at least one active Enterprise Administrator at all times. If no active Enterprise Administrator is available, contact your partner to change the contact information on the Volume License agreement. Your partner can make changes to the customer contact information by using the Contact Information Change Request (CICR) process available in the eAgreements (VLCM) tool.
+>  - Any new EA administrator account created using the CICR process is assigned read-only permissions to the enrollment in the EA portal and Azure portal. To elevate access, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 
 ## Create an Azure Enterprise department
 
@@ -83,9 +90,9 @@ After a department is created, the enterprise administrator can add department a
 - Add accounts
 - Remove accounts
 - Download usage details
-- View the monthly usage and charges <sup>1</sup>
+- View the monthly usage and charges ¹
 
-> <sup>1</sup> An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
+> ¹ An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
 
 ### To add a department administrator
 
@@ -131,21 +138,22 @@ To add another account, select **Add Another Account**, or select **Add** at the
 To confirm account ownership:
 
 1. Sign in to the Azure Enterprise portal.
-1. View the status.
-
-   The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
+1. View the status.  
+  The status changes from **Pending** to **Active**. When Active, dates shown under the **Start/End Date** column are the start and end dates of the agreement.
 1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
-## Add an account from another Azure AD tenant
+<a name='add-an-account-from-another-azure-ad-tenant'></a>
 
-By default, an enrollment is associated with a specific Azure AD tenant. Only accounts from that tenant are allowed to be used to establish an Azure enrollment account. However, you change the behavior to allow an account to get linked from any Azure AD tenant.
+## Add an account from another Microsoft Entra tenant
+
+By default, an enrollment is associated with a specific Microsoft Entra tenant. Only accounts from that tenant are allowed to be used to establish an Azure enrollment account. However, you change the behavior to allow an account to get linked from any Microsoft Entra tenant.
 
 To add an account from any tenant:
 
 1.	In the Azure Enterprise portal, select **Manage** in the left navigation area.
 1. Select the appropriate enrollment. Note the current setting for **Auth level**, if you want to restore the setting later.
 1.	If not already configured, change the Auth level to **Work and School Account Cross Tenant**.
-1. Add the account using the Azure AD sign in information, as described in the previous section.
+1. Add the account using the Microsoft Entra sign-in information, as described in the previous section.
 1.	Return the **Auth level** to its previous setting, or set it as **Work and School Account**.
 1.	Sign in to the EA portal to verify that you can view the appropriate subscription offers so that you can then add subscriptions in the Azure portal.
 
@@ -164,8 +172,8 @@ Before performing the ownership transfer, understand these Azure role-based acce
 - When performing subscription or account ownership transfers between two organizational IDs within the same tenant, Azure RBAC policies, existing service administrator, and co-administrator roles are preserved.
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- To avoid loss of Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, Azure roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.  
-    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing unselected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+- To avoid loss of Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Microsoft Entra tenant** checkbox remains **unchecked**. This will retain the services, Azure roles, and policies on the current Microsoft Entra tenant and only transfer the billing ownership for the account.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing unselected checkbox for moving subscriptions to Microsoft Entra tenant" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
 Before changing an account owner:
@@ -181,8 +189,8 @@ To transfer account ownership for all subscriptions:
 1. Select the change account owner icon on the right. The icon resembles a person.  
     ![Image showing the Change Account Owner symbol](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 1. Choose the destination account to transfer to and then select **Next**.
-1. If you want to transfer the account ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
-    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+1. If you want to transfer the account ownership across Microsoft Entra tenants, select the **Move the subscriptions to the recipient's Microsoft Entra tenant** checkbox.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Microsoft Entra tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirm the transfer and select **Submit**.
 
 To transfer account ownership for a single subscription:
@@ -193,8 +201,8 @@ To transfer account ownership for a single subscription:
 1. Select the transfer subscriptions icon on the right. The icon resembles a page.  
     ![Image showing the Transfer Subscriptions symbol](./media/ea-portal-administration/ea-transfer-subscriptions.png)
 1. Choose the destination account to transfer the subscription and then select **Next**.
-1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
-    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+1. If you want to transfer the subscription ownership across Microsoft Entra tenants, select the **Move the subscriptions to the recipient's Microsoft Entra tenant** checkbox.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Microsoft Entra tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirm the transfer and then select **Submit**.
 
 
@@ -421,7 +429,7 @@ If you need assistance, create a [support request](https://portal.azure.com/#b
 
 ## Conversion to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Azure Active Directory) authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Microsoft Entra ID) authentication type.
 
 To begin:
 
@@ -453,7 +461,7 @@ To begin:
 - **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
 - **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
 - **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
-- **Work or school account**: For organizations that have set up Azure Active Directory with federation to the cloud and all accounts are on a single tenant.
+- **Work or school account**: For organizations that have set up Microsoft Entra ID with federation to the cloud and all accounts are on a single tenant.
 
 ### Enrollment statuses
 

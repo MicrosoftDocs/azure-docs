@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Accessing user information in Azure Static Web Apps
@@ -26,7 +26,7 @@ Client principal data object exposes user-identifiable information to your app. 
 | `userId`           | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul> |
 | `userDetails`      | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md).                                                                                                                                                                    |
 | `userRoles`        | An array of the [user's assigned roles](authentication-authorization.md).                                                                                                                                                                                                                                                                                          |
-| `claims`        | An array of claims returned by your [custom authentication provider](authentication-custom.md).                                                                                                                                                                                                                                                                        |
+| `claims`        | An array of claims returned by your [custom authentication provider](authentication-custom.md). Only accessible in the direct-access endpoint.                                                                                                                                                                                                                                                                       |
 
 The following example is a sample client principal object:
 
@@ -59,12 +59,14 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
-console.log(getUserInfo());
+(async () => {
+console.log(await getUserInfo());
+})();
 ```
 
 ## API functions
 
-The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](configuration.md#routes) file.
+The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application, with the exception of the `claims` array. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](configuration.md#routes) file.
 
 # [JavaScript](#tab/javascript)
 
@@ -154,6 +156,9 @@ public static class StaticWebAppsAuth
 ---
 
 When a user is logged in, the `x-ms-client-principal` header is added to the requests for user information via the Static Web Apps edge nodes.
+
+> [!NOTE]
+> The `x-ms-client-principal` header accessible in the API function does not contain the `claims` array.
 
 <sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 

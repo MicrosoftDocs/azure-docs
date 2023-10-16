@@ -1,82 +1,69 @@
 ---
-title: Subscription Eligibility and Number Capabilities in Azure Communication Services
+title: Country/regional availability of telephone numbers and subscription eligibility
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
-author: sadas
+description: Learn about Country/Regional Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
+author: krkutser
 manager: rcole
 services: azure-communication-services
 
-ms.author: sadas
+ms.author: krkutser
 ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
-# Subscription eligibility and number capabilities
+# Country/regional availability of telephone numbers and subscription eligibility
 
-Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them.
+Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them. The capabilities and numbers that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements.
 
-## Subscription eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
+**Use the drop-down to select the country/region where you're getting numbers. You'll find information about availability, restrictions and other related info on the country specific page**
+> [!div class="op_single_selector"]
+>
+> - [Australia](../numbers/phone-number-management-for-australia.md)
+> - [Austria](../numbers/phone-number-management-for-austria.md)
+> - [Belgium](../numbers/phone-number-management-for-belgium.md)
+> - [Canada](../numbers/phone-number-management-for-canada.md)
+> - [China](../numbers/phone-number-management-for-china.md)
+> - [Denmark](../numbers/phone-number-management-for-denmark.md)
+> - [Estonia](../numbers/phone-number-management-for-estonia.md)
+> - [Finland](../numbers/phone-number-management-for-finland.md)
+> - [France](../numbers/phone-number-management-for-france.md)
+> - [Germany](../numbers/phone-number-management-for-germany.md)
+> - [Hong Kong SAR](../numbers/phone-number-management-for-hong-kong.md)
+> - [Indonesia](../numbers/phone-number-management-for-indonesia.md)
+> - [Ireland](../numbers/phone-number-management-for-ireland.md)
+> - [Israel](../numbers/phone-number-management-for-israel.md)
+> - [Italy](../numbers/phone-number-management-for-italy.md)
+> - [Japan](../numbers/phone-number-management-for-japan.md)
+> - [Latvia](../numbers/phone-number-management-for-latvia.md)
+> - [Lithuania](../numbers/phone-number-management-for-lithuania.md)
+> - [Luxembourg](../numbers/phone-number-management-for-luxembourg.md)
+> - [Malaysia](../numbers/phone-number-management-for-malaysia.md)
+> - [Netherlands](../numbers/phone-number-management-for-netherlands.md)
+> - [New Zealand](../numbers/phone-number-management-for-new-zealand.md)
+> - [Norway](../numbers/phone-number-management-for-norway.md)
+> - [Philippines](../numbers/phone-number-management-for-philippines.md)
+> - [Poland](../numbers/phone-number-management-for-poland.md)
+> - [Portugal](../numbers/phone-number-management-for-portugal.md)
+> - [Saudi Arabia](../numbers/phone-number-management-for-saudi-arabia.md)
+> - [Singapore](../numbers/phone-number-management-for-singapore.md)
+> - [Slovakia](../numbers/phone-number-management-for-slovakia.md)
+> - [South Korea](../numbers/phone-number-management-for-south-korea.md)
+> - [Spain](../numbers/phone-number-management-for-spain.md)
+> - [Sweden](../numbers/phone-number-management-for-sweden.md)
+> - [Switzerland](../numbers/phone-number-management-for-switzerland.md)
+> - [Taiwan](../numbers/phone-number-management-for-taiwan.md)
+> - [Thailand](../numbers/phone-number-management-for-thailand.md)
+> - [United Arab Emirates](../numbers/phone-number-management-for-united-arab-emirates.md)
+> - [United Kingdom](../numbers/phone-number-management-for-united-kingdom.md)
+> - [United States](../numbers/phone-number-management-for-united-states.md)
 
-Additional details on eligible subscription types are as follows:
-
-| Number Type                      | Eligible Azure Agreement Type                                                                            |
-| :------------------------------- | :------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement |
-| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                      |
-
-## Number capabilities
-
-The capabilities that are available to you depend on the country that you're operating within (your Azure billing address location), your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements.
-
-The tables below summarize current availability:
-
-## Customers with US Azure billing addresses
-
-| Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
-| :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local       | Not Available        | Not Available        | General Availability | General Availability\* |
-| USA               | Short-Codes | Public Preview       | Public Preview\*     | Not Available        | Not Available          |
-
-\* Available through Azure Bot Framework and Dynamics only
-
-## Customers with UK Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| UK                | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
-| UK                | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
-
-\* Available through Azure Bot Framework and Dynamics only
-
-## Customers with Ireland Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | General Availability | General Availability\* |
-
-\* Available through Azure Bot Framework and Dynamics only
-
-## Customers with Denmark Azure Billing Addresses
-
-| Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
-| :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
-| Denmark | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
-| Denmark | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
-
-\* Available through Azure Bot Framework and Dynamics only
 
 ## Next steps
 
-For additional information about Azure Communication Services' telephony options please see the following pages:
+For more information about Azure Communication Services' telephony options, see the following pages
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
