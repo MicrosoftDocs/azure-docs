@@ -19,6 +19,7 @@ Azure Monitor Agent uses data collection endpoints to collect:
 - IIS logs
 - Firewall logs
 - Custom logs
+- Custom JSON logs
 
 This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
