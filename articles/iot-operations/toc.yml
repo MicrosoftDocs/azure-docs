@@ -130,8 +130,10 @@ items:
         href: administer/overview-manage-solution.md
       - name: Manage Azure MQ
         items:
-        - name: Configure TLS
-          href: administer/howto-configure-tls.md
+        - name: Configure TLS - auto certificate
+          href: administer/howto-configure-tls-auto.md
+        - name: Configure TLS - auto certificate
+          href: administer/howto-configure-tls-manual.md
         - name: Configure authentication
           href: administer/howto-configure-authentication.md
         - name: Configure authorization
