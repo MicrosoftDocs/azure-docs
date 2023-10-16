@@ -32,6 +32,8 @@
       href: quick-backup-hana-cli.md
     - name: Restore
       href: quick-restore-hana-cli.md
+  - name: Restore the entire SAP HANA system to snapshot restore point
+    href: quick-sap-hana-database-instance-restore.md    
   - name: Enable enhanced soft delete
     href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials

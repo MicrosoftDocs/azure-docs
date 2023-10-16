@@ -33,4 +33,4 @@ For more information about the supported configurations and scenarios, see [SAP 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Troubleshoot backup of SAP HANA databases on Azure](sap-hana-database-instance-troubleshoot.md)
+> [Troubleshoot backup of SAP HANA databases instance snapshot on Azure](sap-hana-database-instance-troubleshoot.md)
