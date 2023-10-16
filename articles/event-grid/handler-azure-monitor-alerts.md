@@ -2,7 +2,7 @@
 title: How to send events to Azure monitor alerts
 description: This article describes how to deliver Azure Key Vault events as Azure Monitor alerts. 
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 10/16/2023
 author: robece
 ms.author: robece
 ---
@@ -40,10 +40,11 @@ Creating alerts from Event Grid events provides you the following benefits.
 
 Azure Key Vault can emit events to a system topic when a certificate, key, or secret is about to expire (30 days heads up), and other events when they do expire. For more information, see ([Azure Key Vault event schema](event-schema-key-vault.md)). You can set up alerts on these events so you can fix expiration issues before your services are affected. 
 
-### Prerequisites:
+### Prerequisites
+
 Create a Key Vault resource by following instructions from [Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
-### Create and configure the event subscription:
+### Create and configure the event subscription
 
 :::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::
 
@@ -66,7 +67,7 @@ When creating an event subscription, follow these steps:
 
 ## Next steps
 
-See the following articles: 
+See the following articles:
 
 - [Pull delivery overview](pull-delivery-overview.md)
 - [Push delivery overview](push-delivery-overview.md)

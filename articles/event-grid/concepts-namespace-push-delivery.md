@@ -1,11 +1,11 @@
 ---
-title: Azure Event Grid concepts (push delivery)
+title: Azure Event Grid concepts (push delivery) for namespaces
 description: Describes Azure Event Grid and its concepts in the push delivery model. Defines several key components of Event Grid.
 ms.topic: conceptual
 ms.date: 10/12/2023
 ---
 
-# Azure Event Grid namespace push delivery (Preview) - Concepts
+# Azure Event Grid push delivery for namespaces (Preview) - Concepts
 
 This article describes the main concepts related to the new resource model that uses namespaces.
 

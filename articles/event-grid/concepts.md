@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid concepts (push delivery)
+title: Azure Event Grid concepts (push delivery) in Event Grid basic
 description: Describes Azure Event Grid concepts that pertain to push delivery. Defines several key components of Event Grid.
 ms.topic: conceptual
 ms.date: 05/24/2023
@@ -51,13 +51,13 @@ A topic holds events that have been published to Event Grid. You typically use a
 
 ## Custom topics
 
-Custom topics are also topics that are used with your applications. They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published. 
+Custom topics are also topics that are used with your applications. They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published.
 
-Custom topics support [push delivery](push-delivery-overview.md#push-delivery-1). Consult [when to use pull or push delivery](push-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You may also want to refer to article [Custom topics](custom-topics.md).
+Custom topics support [push delivery](push-delivery-overview.md). Consult [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You may also want to refer to article [Custom topics](custom-topics.md).
 
 ## System topics
 
-System topics are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md). 
+System topics are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md).
 
 ## Partner topics
 
@@ -86,7 +86,7 @@ For an example of setting an expiration, see [Subscribe with advanced filters](h
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](push-delivery-overview.md#push-delivery-1). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](push-delivery-overview.md). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about delivering events to any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
 

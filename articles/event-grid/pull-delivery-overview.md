@@ -45,7 +45,7 @@ Event Grid conforms to CNCF’s open standard [CloudEvents 1.0](https://github.c
 An **event** is the smallest amount of information that fully describes something that happened in a system. We often refer to an event as shown above as a discrete event because it represents a distinct, self-standing fact about a system that provides an insight that can be actionable. Examples include: *com.yourcompany.Orders.OrderCreated*, *org.yourorg.GeneralLedger.AccountChanged*, *io.solutionname.Auth.MaximumNumberOfUserLoginAttemptsReached*.
 
 >[!Note]
-> We interchangeably use the terms **discrete events**, **cloudevents**, or just **events** to refer to those messages that inform about a change of a system state. 
+> We interchangeably use the terms **discrete events**, **cloudevents**, or just **events** to refer to those messages that inform about a change of a system state.
 
 For more information on events, see Event Grid [Terminology](concepts.md#events).
 
@@ -59,31 +59,8 @@ Events published to Event Grid land on a **topic**, which is a resource that log
 
 :::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" border="false":::
 
-## Push and pull delivery
-
-Using HTTP, Event Grid supports push and pull event delivery. With **push delivery**, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With **pull delivery**, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
-
-:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery-mechanism.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery-mechanism.png" border="false":::
-
-### When to use push delivery vs. pull delivery 
-
-The following are general guidelines to help you decide when to use pull or push delivery.
-
-#### Pull delivery
-
-- Your applications or services publish events. Event Grid doesn't yet support pull delivery when the source of the events is an [Azure service](event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](partner-events-overview.md) (SaaS) system.
-- You need full control as to when to receive events. For example, your application may not up all the time, not stable enough, or you process data at certain times.
-- You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows the consumer app to release an already read event back to the broker so that it can be delivered later.
-- You want to use [private links](../private-link/private-endpoint-overview.md) when receiving events. This is possible with pull delivery.
-- You don't have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
-
-#### Push delivery
-
-- You need to receive events from Azure services, partner (SaaS) event sources or from your applications. Push delivery supports these types of event sources. 
-- You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send events to you at the time state changes happen.
-- You have an application that can't make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
-
 ## Pull delivery
+
 Pull delivery is available through [namespace topics](concepts.md#topics), which are topics that you create inside a [namespace](concepts-pull-delivery.md#namespaces). Your application publishes CloudEvents to a single namespace HTTP endpoint specifying the target topic.
 
 >[!Note]
@@ -105,6 +82,8 @@ In some other occasions, your consumer application may want to release or reject
 
 - Your consumer application **releases** a received event to signal Event Grid that it isn't ready to process the event and to make it available for redelivery.
 - You may want to **reject** an event if there's a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it can't be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they're dropped.
+
+[!INCLUDE [pull-preview-note](./includes/differences-between-consumption-modes.md)]
 
 ## Next steps
 
