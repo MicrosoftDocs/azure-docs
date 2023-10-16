@@ -49,7 +49,7 @@ Follow the [tutorial to create your local project](../azure-functions/create-fir
 
 The steps help you create a Python function project with HTTP trigger.
 
-## Add storage blob input binding
+## Add a Blob Storage input binding
 
 Binding attributes are defined in the *function.json* file for a given function. To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your function folder and choose  **Add binding...** . Follow the prompts to define the following binding properties for the new binding:
 
@@ -81,17 +81,17 @@ def main(req: func.HttpRequest, inputBlob: bytes) -> func.HttpResponse:
 
 Follow the [tutorial](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#run-the-function-locally) to run the function locally and verify the blob input.
 
-1. Choose the same Storage Account as you choose when creating the Azure Function resource if you're prompted to connect to Storage. It is for Azure Function runtime's internal use, and isn't necessarily the same with the one you use for input.
+1. Select the storage account you used when creating the Azure Function resource if you're prompted to connect to Storage. It is for Azure Function runtime's internal use, and isn't necessarily the same with the one you use for input.
 2. To start the function locally, press `<kbd>`F5 `</kbd>` or the **Run and Debug** icon in the left-hand side Activity bar.
 3. To verify the function can read the blob, right click `Exucute Function Now...` on the function in Visual Studio Code **WORKSPACE** view, check the function response, and the response message should contain the content in your blob file.
 
-## Create connection using Service Connector
+## Create a connection using Service Connector
 
 You just ran the project and verified the function locally, and your local project connects to your storage blob using connection string.
 
-Now you'll learn how to configure the connection between the Azure Function and Azure Storage Blob in cloud, so that your function can read the storage blob after being deployed to cloud. And in the cloud environment, we demonstrate how to use system-assigned managed identity to authenticate.
+Now you'll learn how to configure the connection between the Azure Function and Azure Blob Storage, so that your function can read the blob after being deployed to the cloud. In the cloud environment, we demonstrate how to authenticate using a system-assigned managed identity.
 
-1. Open `function.json` file in your local project, change the value of the `connection` property in `bindings` to be `MyBlobInputConnection`.
+1. Open the `function.json` file in your local project, change the value of the `connection` property in `bindings` to be `MyBlobInputConnection`.
 2. Run the following Azure CLI command to create a connection between your Azure Function and your Azure Storage.
 
 ```azurecli
@@ -101,9 +101,9 @@ az functionapp connection create storage-blob --source-id "<your-function-resour
 * `--source-id` format: `/subscriptions/{subscription}/resourceG roups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
 * `--target-id` format: `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/blobServices/default`
 
-The steps help create a Service Connector resource, which corresponds to a connection between Azure Function and Azure Storage Blob using system-assigned managed identity.
+You have created a connection between Azure Function and Azure Blob Storage using Service Connector, with a system-assigned managed identity.
 
-Service Connector resource also helps configure a `MyBlobInputConnection__serviceUri` variable in the function's App Settings. And the function binding runtime uses it to connect to the storage, so that the function can read data from the storage blob. You can learn more about [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
+Service Connector configured a `MyBlobInputConnection__serviceUri` variable in the function's app settings used by the function binding runtime to connect to the storage, so that the function can read data from the blob storage. You can learn more about [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
 
 ## Deploy your function to Azure
 
@@ -122,7 +122,7 @@ If it happens when you deploy your function to cloud (in this case, Function dep
 
 ## Next steps
 
-Read the articles to learn more about Service Connector concepts and how it helps Azure Functions connect to services.
+Read the articles below to learn more about Service Connector concepts and how it helps Azure Functions connect to services.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

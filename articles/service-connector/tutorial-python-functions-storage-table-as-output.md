@@ -61,7 +61,7 @@ Binding attributes are defined in the *function.json* file for a given function.
 | **Table name in storage account where data will be written** | `testTable`                     | The table name your function writes as output. Create a table named `testTable` in your storage account if it doesn't exist.                        |
 | **Select setting from "local.setting.json"**                 | `Create new local app settings` | Select the Storage Account your function writes as output. Visual Studio Code retrieves its connection string for local project connection. |
 
-To check the binding was added successfully,
+To check the binding was added successfully:
 
 1. Open the `TableStorageOutputFunc/function.json` file, check that a new binding with `type: table` and `direction: out` was added into this file.
 2. Open the `local.settings.json` file, check that a new key-value pair `<your-storage-account-name>_STORAGE: <your-storage-account-connection-string>` that contains your storage account connection string was added into this file.
@@ -118,7 +118,7 @@ Now you can deploy your function to Azure and verify the storage table output bi
 1. Follow the [tutorial ](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#deploy-the-project-to-azure)to deploy your function to Azure.
 2. To verify the function can write to the table, right click `Exucute Function Now...` on the function in Visual Studio Code **RESOURCES** view, check the function response, and the response message should contain the `rowKey` the function just wrote to your table.
 
-## TroubleShoot
+## Troubleshoot
 
 If there are any errors related with storage host, such as `No such host is known (<acount-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
 
@@ -128,7 +128,7 @@ If it happens when you deploy your function to cloud (in this case, Function dep
 
 ## Next steps
 
-Read the articles to learn more about Service Connector concepts and how it helps Azure Functions connect to services.
+Read the articles below to learn more about Service Connector concepts and how it helps Azure Functions connect to services.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

@@ -89,7 +89,7 @@ If it happens when you deploy your function to cloud (in this case, Function dep
 
 ## Next steps
 
-Read the articles to learn more about Service Connector concepts and how it helps Azure Functions connect to services.
+Read the articles below to learn more about Service Connector concepts and how it helps Azure Functions connect to services.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

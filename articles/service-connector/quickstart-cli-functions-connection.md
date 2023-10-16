@@ -61,7 +61,7 @@ az functionapp connection create storage-blob --secret
 > [!IMPORTANT]
 > Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
 
-Use the Azure CLI [az functionapp connection](/cli/azure/functionapp/connection) command to create a service connection to a Blob Storage with a System-assigned Managed Identity, providing the following information:
+Use the Azure CLI [az functionapp connection](/cli/azure/functionapp/connection) command to create a service connection to a Blob Storage with a system-assigned managed identity, providing the following information:
 
 - **Source compute service resource group name:** the resource group name of the Function App.
 - **Function App name:** the name of your FunctioApp that connects to the target service.
@@ -90,7 +90,7 @@ az functionapp connection list -g "<your-function-app-resource-group>" -n "<your
 
 ## Next steps
 
-Follow the tutorials to start building your own function application with Service Connector.
+Follow the tutorials below to start building your own function application with Service Connector.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python function with Azure Queue Storage as trigger](./tutorial-python-functions-storage-queue-as-trigger.md)

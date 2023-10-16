@@ -62,9 +62,9 @@ items:
       - name: Python function with Azure Queue Storage as trigger
         href: tutorial-python-functions-storage-queue-as-trigger.md
       - name: Python function with Azure Blob Storage as input
-        href: tutorial-python-funtions-storage-blob-as-input.md
+        href: tutorial-python-functions-storage-blob-as-input.md
       - name: Python function with Azure Table Storage as output
-        href: tutorial-python-funtions-storage-table-as-output.md
+        href: tutorial-python-functions-storage-table-as-output.md
     - name: Azure Container Apps
       expanded: true
       items:
@@ -105,7 +105,7 @@ items:
       href: tutorial-passwordless.md
     - name: Get connection configurations
       href: how-to-get-configurations.md
-    - name: How to use Service Connector in Azure Functions
+    - name: Use Service Connector in Azure Functions
       href: how-to-use-service-connector-in-function.md
     - name: Provide correct parameters
       href: how-to-provide-correct-parameters.md
