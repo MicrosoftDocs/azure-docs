@@ -175,7 +175,7 @@ Parquet `DataWriteableWriter` relies on `NanoTimeUtils` to convert a timestamp o
     1. No cluster tasks are required.
 1. If the results cache can't be used, run the cluster tasks as normal
     1. Check if the query results that have been computed are eligible to add to the results cache.
-    1. If results can be cached, the temporary results generated for the query are saved to the results cache. You may need to perform steps here to ensure that the query clean-up does not delete the query results directory.
+    1. If results can be cached, the temporary results generated for the query are saved to the results cache. You might need to perform steps here to ensure that the query clean-up does not delete the query results directory.
 
 ## SQL features
 
