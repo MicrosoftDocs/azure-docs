@@ -4,13 +4,13 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 10/16/2023
 ms.author: kendownie
 ms.custom: references_regions, devx-track-linux
 ---
 
 # NFS file shares in Azure Files
-Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol, allowing you to pick the protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol, allowing you to pick the protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same FileStorage storage account. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
@@ -59,7 +59,7 @@ For more details on the available networking options, see [Azure Files networkin
 
 The following table shows the current level of support for Azure Storage features in accounts that have the NFS 4.1 feature enabled. 
 
-The status of items that appear in this table may change over time as support continues to expand.
+The status of items that appear in this table might change over time as support continues to expand.
 
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
@@ -83,7 +83,7 @@ The status of items that appear in this table may change over time as support co
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
-| [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
+| [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ (preview) |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
