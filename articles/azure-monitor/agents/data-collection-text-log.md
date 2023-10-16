@@ -16,11 +16,10 @@ Many applications log information to text files instead of standard logging serv
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint). 
+- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint). 
 
-    If your virtual machine and Log Analytics workspace are in the same region, you need one data collection endpoint in the same region.
-
-    If your virtual machine and Log Analytics workspace are in different regions, you need a data collection endpoint in each region.
+    - If your virtual machine and Log Analytics workspace are in the same region, you need one data collection endpoint in the same region.
+    - If your virtual machine and Log Analytics workspace are in different regions, you need a data collection endpoint in each region.
 
     For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
@@ -106,7 +105,7 @@ To create the data collection rule in the Azure portal:
 
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
-    - **Data collection endpoint** specifies the data collection endpoint used to collect data. The data collection endpoint must be in the same region as the Log Analytics workspace.    
+    - **Data Collection Endpoint** specifies the data collection endpoint used to collect data. The data collection endpoint must be in the same region as the Log Analytics workspace.    
 
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
