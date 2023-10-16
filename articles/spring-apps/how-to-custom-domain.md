@@ -223,6 +223,10 @@ az spring certificate list \
 
 ---
 
+
+> [!IMPORTANT]
+> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in the [Add SSL Binding](#add-ssl-binding) section.
+
 ### Certificate auto sync
 
 Certificate stored in key vault may get renewed before it expires. DevOps team in your organization may also replace it with a new one regularly, since your organization may have some security policies in certificate management. Once you enable auto sync for a certificate, Azure Spring Apps will start to poll your key vault for a new version regularly (usually every 24 hours). If a new version is found, Azure Spring Apps will import it, and then reload it for various components using the certificate, such as App custom domain, Application Configuration Service, without causing any downtime.
@@ -245,10 +249,6 @@ You may also enable or disable this feature for a certificate that has already b
 ![image-20230918143313014](../MSFT/Azure-Spring-Cloud-Wiki/.attachments/image-20230918143313014.png)
 
 az spring certificate update --name MyCertName **--enable-auto-sync true** --service MyCluster --resource-group MyResourceGroup
-
-
-> [!IMPORTANT]
-> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in the [Add SSL Binding](#add-ssl-binding) section.
 
 ## Add Custom Domain
 
