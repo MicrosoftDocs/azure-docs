@@ -78,10 +78,10 @@ To use the Standard storage with cool access feature, you need to configure the 
 
 Before creating or enabling a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. The capacity pool must use the auto [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types). You can do so in one of the following ways: 
 
-* [Create a new Standard service-level capacity pool with cool access.](#enable-cool-access-new-volume) 
+* [Create a new Standard service-level capacity pool with cool access.](#enable-cool-access-new-pool) 
 * [Modify an existing Standard service-level capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
 
-#### <a name="enable-cool-access-new-volume"></a> Enable cool access on a new volume  
+#### <a name="enable-cool-access-new-pool"></a> Enable cool access on a new capacity pool  
 1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md) with the **Standard** service level and the **auto** QoS type.  
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
     When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type is not supported for Standard service with cool access. 
