@@ -28,7 +28,7 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 >
 > [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) was launched in October 2022 to provide you with more flexibility and accommodate changes such as virtual machine series and regions. With savings plan providing flexibility automatically, we adjusted our reservations exchange policy. You can continue to use [instance size flexibility for VM sizes](../../virtual-machines/reserved-vm-instance-size-flexibility.md), but after the grace period we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. ​
 >
-> You may [trade-in](reservation-trade-in.md) your Azure compute reservations for a savings plan or may continue to use and purchase reservations for those predictable, stable workloads where the specific configuration need is known. For more information, see [Self-service exchanges and refunds for Azure Reservations](/reservations/exchange-and-refund-azure-reservations.md).​
+> You may [trade-in](reservation-trade-in.md) your Azure compute reservations for a savings plan or may continue to use and purchase reservations for those predictable, stable workloads where the specific configuration need is known. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).​
 
 Although compute reservation exchanges become unavailable at the end of the grace period, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.​
 
