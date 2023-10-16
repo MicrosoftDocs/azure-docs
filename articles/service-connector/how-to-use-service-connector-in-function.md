@@ -56,23 +56,23 @@ Service Connector reduces the amount of efforts needed to connect Azure Function
 
 * Secret/connection string
 
-| Scenario       | Works                  | Description                                                                                                                                | Without Service Connector | With Service Connector |
-| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | ---------------------- |
-| Local Porject  | Add binding            | Add a binding in function according to target service type and binding type (in/out/trigger).                                            | User                      | User                   |
-|                | Consume binding        | Set connection string for authentication in `local.settings.json`, and change function codes to consume the variable defined in binding. | User                      | User                   |
-| Cloud Resource | Configure App Settings | Configure connection string as an App Setting in function resource's configurations.                                                      | User                      | Service Connector      |
-|                | Configure Network      | Make sure the target service's network configuration allow access from function resource.                                                  | User                      | Service Connector      |
+| Scenario       | Operation              | Description                                                                                                                                         | Without Service Connector | With Service Connector |
+| -------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
+| Local project  | Add binding            | Add a binding in a function according to the target service type and binding type (in/out/trigger).                                               | User                      | User                   |
+|                | Consume binding        | Set a connection string for authentication in `local.settings.json`, and change the function code to consume the variable defined in the binding. | User                      | User                   |
+| Cloud resource | Configure app settings | Configure connection string as an app setting in function resource's configurations.                                                               | User                      | Service Connector      |
+|                | Configure network      | Make sure the target service's network configuration allow access from function resource.                                                           | User                      | Service Connector      |
 
 * Identity based authentication
 
-| Scenario       | Works                  | Description                                                                                                                                | Without Service Connector | With Service Connector |
-| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | ---------------------- |
-| Local Project  | Add binding            | Add a binding in function according to target service type and binding type (in/out/trigger).                                            | User                      | User                   |
-|                | Consume binding        | Set connection string for authentication in `local.settings.json`, and change function codes to consume the variable defined in binding. | User                      | User                   |
-| Cloud Resource | Configure App Settings | Configure identity related App Settings (like service endpoint) in function resource's configurations.                                    | User                      | Service Connector      |
-|                | Configure Network      | Make sure the target service's network configuration allow access from function resource.                                                  | User                      | Service Connector      |
-|                | Configure Identity     | Make sure system identity is enabled when using system identity to authenticate.                                                           | User                      | Service Connector      |
-|                | Permission Assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                                          | User                      | Service Connector      |
+| Scenario       | Operation              | Description                                                                                                                                           | Without Service Connector | With Service Connector |
+| -------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
+| Local project  | Add binding            | Add a binding in a function according to the target service type and binding type (in/out/trigger).                                                | User                      | User                   |
+|                | Consume binding        | Set a connection string for authentication in `local.settings.json`, and change the function code to consume the variable defined in the binding. | User                      | User                   |
+| Cloud resource | Configure app settings | Configure the the Azure Function's identity settings, such as service endpoints.                                                                      | User                      | Service Connector      |
+|                | Configure network      | Make sure the target service's network configuration allows access from the function resource.                                                        | User                      | Service Connector      |
+|                | Configure identity     | Make sure system identity is enabled when using system identity to authenticate.                                                                      | User                      | Service Connector      |
+|                | Permission assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                                                     | User                      | Service Connector      |
 
 When using Service Connector with function bindings, pay special attention to the function's key name configured by Service Connector. Make sure it's the same key name as the one defined in `connection` property in the binding file. If it's different, change the name in the binding file or use Service Connector's `customize keys` feature to customize [Service Connector&#39;s default configuration names](./how-to-integrate-storage-blob.md).
 
@@ -80,23 +80,23 @@ When using Service Connector with function bindings, pay special attention to th
 
 * Secret/connection string
 
-| Scenario       | Works                  | Description                                                                                                                | Without Service Connector | With Service Connector |
-| -------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
-| Local Project | Add dependency         | Add dependency package according to the target service and your runtime.                                                  | User                      | User                   |
-|                | Initiate SDK Client    | Set connection string for authentication in `local.settings.json`. Initiate the target service SDK by connection string. | User                      | User                   |
-| Cloud Resource | Configure App Settings | Configure connection string as an App Setting in function resource's configurations.                                      | User                      | Service Connector      |
-|                | Configure Network      | Make sure the target service's network configuration allow access from function resource.                                  | User                      | Service Connector      |
+| Scenario       | Operation              | Description                                                                                                                     | Without Service Connector | With Service Connector |
+| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
+| Local project  | Add dependency         | Add dependency package according to the target service and your runtime.                                                       | User                      | User                   |
+|                | Initiate SDK client    | Set connection string for authentication in `local.settings.json`. Initiate the target service SDK using a connection string. | User                      | User                   |
+| Cloud resource | Configure app settings | Configure a connection string as an app setting in the function's configuration.                                                | User                      | Service Connector      |
+|                | Configure network      | Make sure the target service's network configuration allow access from function resource.                                       | User                      | Service Connector      |
 
 * Identity based authentication
 
-| Scenario        | Works                  | Description                                                                                                                | Without Service Connector | With Service Connector |
-| --------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
-| Local Project  | Add dependency         | Add dependency package according to the target service and your runtime.                                                  | User                      | User                   |
-|                 | Initiate SDK Client    | Set connection string for authentication in `local.settings.json`. Initiate the target service SDK by connection string. | User                      | User                   |
-| Cloud Resource | Configure App Settings | Configure connection string as an App Setting in function resource's configurations.                                      | User                      | Service Connector      |
-|                 | Configure Network      | Make sure the target service's network configuration allow access from function resource.                                  | User                      | Service Connector      |
-|                 | Configure Identity     | Make sure system identity is enabled when using system identity to authenticate.                                           | User                      | Service Connector      |
-|                 | Permission Assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                          | User                      | Service Connector      |
+| Scenario       | Operation              | Description                                                                                                                     | Without Service Connector | With Service Connector |
+| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
+| Local project  | Add dependency         | Add dependency package according to the target service and your runtime.                                                       | User                      | User                   |
+|                | Initiate SDK client    | Set connection string for authentication in `local.settings.json`. Initiate the target service SDK using a connection string. | User                      | User                   |
+| Cloud resource | Configure app settings | Configure a connection string as an app setting in the function's configuration.                                                | User                      | Service Connector      |
+|                | Configure network      | Make sure the target service's network configuration allows access from the function resource.                                  | User                      | Service Connector      |
+|                | Configure identity     | Make sure system identity is enabled when using system identity to authenticate.                                                | User                      | Service Connector      |
+|                | Permission assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                               | User                      | Service Connector      |
 
 ## Next steps
 
