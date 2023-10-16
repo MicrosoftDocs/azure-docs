@@ -9,7 +9,7 @@ metadata:
   ms.date: 09/15/2023
 title: Azure Operator Insights frequently asked questions
 summary: |
-    If you can't find answers to your questions and still need help, contact Support.  
+    If you can't find answers to your questions and still need help, contact Microsoft Support.  
 sections:
   - name: Data and Privacy
     questions:
@@ -40,5 +40,6 @@ sections:
           - Australia East 
           - North Europe 
           - Canada Central 
-          - West Central US 
+          - West Central US
+
           We will be enabling additional regions. If your region is not in the list, please contact your local Microsoft Support.

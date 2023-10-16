@@ -20,7 +20,7 @@ In this article, you'll learn how to create an Azure Operator Insights Data Prod
 
 - An Azure subscription for which the user account must be assigned the Contributor role. If needed, create a [free subscription](https://azure.microsoft.com/free/) before you begin.
 - Access granted to Azure Operator Insights for the subscription. Apply for access by [completing this form](https://aka.ms/AAn1mi6).
-- An active Azure Purview account. Make note of the Purview collection ID when you [create a Purview account](../purview/create-microsoft-purview-portal.md). To determine the Purview collection ID, select your collection and the collection ID is the five digits following `?collection=` in the URL.
+- An active Azure Purview account. Make note of the Purview collection ID when you [create a Purview account](../../purview/create-microsoft-purview-portal.md). To determine the Purview collection ID, select your collection and the collection ID is the five digits following `?collection=` in the URL.
 
 For CMK-based data encryption or Purview, you must set up Azure Key Vault and UAMI as prerequisites.
 
