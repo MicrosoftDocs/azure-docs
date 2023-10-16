@@ -52,13 +52,13 @@ Read the following SAP Notes and papers first:
 - [SAP HANA system replication in Pacemaker cluster](https://access.redhat.com/articles/3004101)
 - General Red Hat Enterprise Linux (RHEL) documentation:
   - [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  - [High Availability Add-On Administration.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  - [High Availability Add-On Reference.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  - [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  - [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   - [Configure SAP HANA System Replication in Scale-Up in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 - Azure-specific RHEL documentation:
   - [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   - [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
-  - [Configure SAP HANA scale-up system replication up Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
+  - [Configure SAP HANA scale-up system replication in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 - [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 
@@ -66,9 +66,9 @@ Read the following SAP Notes and papers first:
 
 Traditionally in a scale-up environment, all file systems for SAP HANA are mounted from local storage. Setting up high availability (HA) of SAP HANA System Replication on Red Hat Enterprise Linux is published in [Set up SAP HANA System Replication on RHEL](./sap-hana-high-availability-rhel.md).
 
-To achieve SAP HANA HA of a scale-up system on [Azure NetApp Files](../../azure-netapp-files/index.yml) NFS shares, we need some more resource configuration in the cluster, in order for HANA resources to recover, when one node loses access to the NFS shares on Azure NetApp Files. The cluster manages the NFS mounts, allowing it to monitor the health of the resources. The dependencies between the file system mounts and the SAP HANA resources are enforced.  
+To achieve SAP HANA HA of a scale-up system on [Azure NetApp Files](../../azure-netapp-files/index.yml) NFS shares, we need some more resource configuration in the cluster, in order for HANA resources to recover, when one node loses access to the NFS shares on Azure NetApp Files. The cluster manages the NFS mounts, allowing it to monitor the health of the resources. The dependencies between the file system mounts and the SAP HANA resources are enforced.
 
-![Diagram that shows SAP HANA HA Scale-up on Azure NetApp Files](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png).
+![Diagram that shows SAP HANA HA scale-up on Azure NetApp Files](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png).
 
 SAP HANA file systems are mounted on NFS shares by using Azure NetApp Files on each node. File systems `/hana/data`, `/hana/log`, and `/hana/shared` are unique to each node.
 
@@ -87,7 +87,7 @@ Mounted on node2 (**hanadb2**):
 > [!NOTE]
 > File systems `/hana/shared`, `/hana/data`, and `/hana/log` aren't shared between the two nodes. Each cluster node has its own separate file systems.
 
-The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The presented configuration shows a load balancer with:
+The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The configuration shown here has a load balancer with:
 
 - Front-end IP address: 10.32.0.10 for hn1-db
 - Probe Port: 62503
@@ -102,7 +102,7 @@ For information about the availability of Azure NetApp Files by Azure region, se
 
 ### Important considerations
 
-As you're creating your Azure NetApp Files volumes for SAP HANA scale-up systems, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
+As you're creating your Azure NetApp Files volumes for SAP HANA scale-up systems, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).
 
 ### Sizing of HANA database on Azure NetApp Files
 
@@ -123,7 +123,7 @@ The following instructions assume that you already deployed your [Azure virtual 
 
 1. Set up an Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-   The HANA architecture presented in this article uses a single Azure NetApp Files capacity pool at the *Ultra* service level. For HANA workloads on Azure, we recommend using an Azure NetApp Files *Ultra* or *Premium* [service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md).
+   The HANA architecture shown in this article uses a single Azure NetApp Files capacity pool at the *Ultra* service level. For HANA workloads on Azure, we recommend using an Azure NetApp Files *Ultra* or *Premium* [service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
 1. Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -131,7 +131,7 @@ The following instructions assume that you already deployed your [Azure virtual 
 
    As you're deploying the volumes, be sure to select the NFSv4.1 version. Deploy the volumes in the designated Azure NetApp Files subnet. The IP addresses of the Azure NetApp volumes are assigned automatically.
 
-   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, `hanadb1-data-mnt00001`, `hanadb1-log-mnt00001`, and so on are the volume names and `nfs://10.32.2.4/hanadb1-data-mnt00001`, `nfs://10.32.2.4/hanadb1-log-mnt00001`, and so on are the file paths for the Azure NetApp Files volumes.
+   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, `hanadb1-data-mnt00001` and `hanadb1-log-mnt00001` are the volume names and `nfs://10.32.2.4/hanadb1-data-mnt00001` and `nfs://10.32.2.4/hanadb1-log-mnt00001` are the file paths for the Azure NetApp Files volumes.
 
    On **hanadb1**:
 
@@ -153,13 +153,13 @@ The following instructions assume that you already deployed your [Azure virtual 
 
 This document assumes that you already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and a subnet.
 
-Deploy VMs for SAP HANA. Choose a suitable RHEL image that is supported for HANA system. You can deploy VM in any one of the availability options: scale set, availability zone, or availability set.
+Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for a HANA system. You can deploy a VM in any one of the availability options: scale set, availability zone, or availability set.
 
 > [!IMPORTANT]
 >
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-During VM configuration, we won't be adding any disk as all our mount points are on NFS shares from Azure NetApp Files. Also, you have an option to create or select an existing load balancer in the networking section. If you're creating a new load balancer, follow these steps:
+During VM configuration, we won't add any disk because all our mount points are on NFS shares from Azure NetApp Files. Also, you can create or select an existing load balancer in the networking section. If you're creating a new load balancer, follow these steps:
 
 1. To set up a Standard load balancer, follow these configuration steps:
    1. First, create a front-end IP pool:
@@ -184,8 +184,8 @@ During VM configuration, we won't be adding any disk as all our mount points are
    1. Next, create load-balancing rules:
       1. Open the load balancer, select **load balancing rules**, and select **Add**.
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
-         1. Increase **idle timeout** to **30 minutes**.
+      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
+         1. Increase the idle timeout to **30 minutes**.
       1. Select **HA Ports**.
       1. Make sure to enable **Floating IP**.
       1. Select **OK**.
@@ -196,7 +196,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the back-end pool of internal (no public IP address) Standard Azure load balancer, there's no outbound internet connectivity, unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+> When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity, unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Standard Azure Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
 > Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md). See also SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
@@ -211,13 +211,13 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     sudo mkdir -p /hana/shared
     ```
 
-1. **[A]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **defaultv4iddomain.com** and the mapping is set to **nobody**.
+1. **[A]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **defaultv4iddomain.com**, and the mapping is set to **nobody**.
 
     ```bash
     sudo cat /etc/idmapd.conf
     ```
 
-    Example output
+    Example output:
 
     ```output
     [General]
@@ -228,7 +228,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     ```
 
     > [!IMPORTANT]
-    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **defaultv4iddomain.com**. If there's a mismatch between the domain configuration on the NFS client (that is, the VM) and the NFS server (that is, the Azure NetApp Files configuration), then the permissions for files on Azure NetApp Files volumes that are mounted on the VMs will be displayed as `nobody`.
+    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **defaultv4iddomain.com**. If there's a mismatch between the domain configuration on the NFS client (that is, the VM) and the NFS server (that is, the Azure NetApp Files configuration), then the permissions for files on Azure NetApp Files volumes that are mounted on the VMs display as `nobody`.
 
 1. **[1]** Mount the node-specific volumes on node1 (**hanadb1**).
 
@@ -252,8 +252,8 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     sudo nfsstat -m
     ```
 
-    Verify that flag vers is set to 4.1
-    Example from hanadb1
+    Verify that the flag `vers` is set to **4.1**.
+    Example from hanadb1:
 
     ```output
     /hana/log from 10.32.2.4:/hanadb1-log-mnt00001
@@ -264,7 +264,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.32.0.4,local_lock=none,addr=10.32.2.4
     ```
 
-1. **[A]** Verify **nfs4_disable_idmapping**. It should be set to **Y**. To create the directory structure where **nfs4_disable_idmapping** is located, run the mount command. You won't be able to manually create the directory under `/sys/modules` because access is reserved for the kernel and drivers.
+1. **[A]** Verify **nfs4_disable_idmapping**. It should be set to **Y**. To create the directory structure where **nfs4_disable_idmapping** is located, run the mount command. You can't manually create the directory under `/sys/modules` because access is reserved for the kernel and drivers.
 
     Check `nfs4_disable_idmapping`.
 
@@ -303,7 +303,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.32.0.5   hanadb2
    ```
 
-1. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP Note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
+1. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP Note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file `/etc/sysctl.d/91-NetApp-HANA.conf` for the NetApp configuration settings.  
 
     ```bash
     sudo vi /etc/sysctl.d/91-NetApp-HANA.conf
@@ -324,7 +324,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     net.ipv4.tcp_sack = 1
     ```
 
-1. **[A]** Create the configuration file */etc/sysctl.d/ms-az.conf* with more optimization settings.  
+1. **[A]** Create the configuration file `/etc/sysctl.d/ms-az.conf` with more optimization settings.  
 
     ```bash
     sudo vi /etc/sysctl.d/ms-az.conf
@@ -341,7 +341,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     ```
 
     > [!TIP]
-    > Avoid setting `net.ipv4.ip_local_port_range` and `net.ipv4.ip_local_reserved_ports` explicitly in the `sysctl` configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+    > Avoid setting `net.ipv4.ip_local_port_range` and `net.ipv4.ip_local_reserved_ports` explicitly in the `sysctl` configuration files to allow the SAP Host Agent to manage the port ranges. For more information, see SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 1. **[A]** Adjust the `sunrpc` settings, as recommended in SAP Note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).
 
@@ -367,11 +367,11 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 1. **[A]** Install the SAP HANA.
 
-   Started with HANA 2.0 SPS 01, MDC is the default option. When you install the HANA system, SYSTEMDB and a tenant with the same SID are created together. In some cases, you don't want the default tenant. If you don't want to create an initial tenant along with the installation, you can follow SAP Note [2629711](https://launchpad.support.sap.com/#/notes/2629711).
+   Starting with HANA 2.0 SPS 01, MDC is the default option. When you install the HANA system, SYSTEMDB and a tenant with the same SID are created together. In some cases, you don't want the default tenant. If you don't want to create an initial tenant along with the installation, you can follow SAP Note [2629711](https://launchpad.support.sap.com/#/notes/2629711).
 
    Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:  
    1. Choose installation: Enter **1** (for install).
-   1. Select additional components for installation: Enter **1**.
+   1. Select more components for installation: Enter **1**.
    1. Enter **Installation Path** [/hana/shared]: Select Enter to accept the default.
    1. Enter **Local Host Name** [..]: Select Enter to accept the default.
    **Do you want to add additional hosts to the system? (y/n)** [n]: **n**.
@@ -406,7 +406,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 1. **[A]** Configure a firewall.
 
-   Create the firewall rule for the Azure load balancer probe port.
+   Create the firewall rule for the Azure Load Balancer probe port.
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=62503/tcp
@@ -427,7 +427,7 @@ Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux](./high-availa
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is an important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It's highly recommended to configure the SAPHanaSR Python hook. Follow the steps mentioned in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr).
+This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr).
 
 ### Configure file system resources
 
@@ -461,24 +461,24 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
 
     Not only can this behavior take a long time when an SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource can't stop successfully if the NFS server holding the HANA executables is inaccessible.
 
-   The suggested timeouts values allow the cluster resources to withstand protocol-specific pause, related to NFSv4.1 lease renewals. For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf). The timeouts in the preceding configuration might need to be adapted to the specific SAP setup.
+   The suggested timeout values allow the cluster resources to withstand protocol-specific pause, related to NFSv4.1 lease renewals. For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf). The timeouts in the preceding configuration might need to be adapted to the specific SAP setup.
 
-   For workloads that require higher throughput consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
+   For workloads that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.
 
 1. **[1]** Configure location constraints.
 
-   Configure location constraints to ensure that the resources that manage hanadb1 unique mounts can never run on hanadb2, and vice-versa.
+   Configure location constraints to ensure that the resources that manage hanadb1 unique mounts can never run on hanadb2, and vice versa.
 
     ```bash
     sudo pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb2
     sudo pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1
     ```
 
-    The `resource-discovery=never` option is set because the unique mounts for each node share the same mount point. For example, `hana_data1` uses mount point `/hana/data`, and `hana_data2` also uses mount point `/hana/data`. This can cause a false positive for a probe operation, when resource state is checked at cluster startup, and this can in turn cause unnecessary recovery behavior. This can be avoided by setting `resource-discovery=never`
+    The `resource-discovery=never` option is set because the unique mounts for each node share the same mount point. For example, `hana_data1` uses mount point `/hana/data`, and `hana_data2` also uses mount point `/hana/data`. Sharing the same mount point can cause a false positive for a probe operation, when resource state is checked at cluster startup, and it can in turn cause unnecessary recovery behavior. To avoid this scenario, set `resource-discovery=never`.
 
 1. **[1]** Configure attribute resources.
 
-   Configure attribute resources.These attributes will be set to true if all of a node's NFS mounts (`/hana/data`, `/hana/log`, and `/hana/data`) are mounted and will be set to false otherwise.
+   Configure attribute resources. These attributes are set to true if all of a node's NFS mounts (`/hana/data`, `/hana/log`, and `/hana/data`) are mounted. Otherwise, they're set to false.
 
    ```bash
    sudo pcs resource create hana_nfs1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs1_active
@@ -487,7 +487,7 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
 
 1. **[1]** Configure location constraints.
 
-   Configure location constraints to ensure that hanadb1's attribute resource never runs on hanadb2, and vice-versa.
+   Configure location constraints to ensure that hanadb1's attribute resource never runs on hanadb2, and vice versa.
 
    ```bash
    sudo pcs constraint location hana_nfs1_active avoids hanadb2
@@ -504,11 +504,11 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
     ```
 
    > [!TIP]
-   > If your configuration includes file systems, outside of group `hanadb1_nfs` or `hanadb2_nfs`, then include the `sequential=false` option, so that there are no ordering dependencies among the file systems. All file systems must start before `hana_nfs1_active`, but they don't need to start in any order relative to each other. For more information, see [How do I configure SAP HANA System Replication in Scale-Up in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
+   > If your configuration includes file systems, outside of group `hanadb1_nfs` or `hanadb2_nfs`, include the `sequential=false` option so that there are no ordering dependencies among the file systems. All file systems must start before `hana_nfs1_active`, but they don't need to start in any order relative to each other. For more information, see [How do I configure SAP HANA System Replication in Scale-Up in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 
 ### Configure SAP HANA cluster resources
 
-1. Follow the steps in [Create SAP HANA cluster resources](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) to create the SAP HANA resources in the cluster. After SAP HANA resources are created, we need to create a location rule constraint between SAP HANA resources and file systems (NFS Mounts).
+1. Follow the steps in [Create SAP HANA cluster resources](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) to create the SAP HANA resources in the cluster. After SAP HANA resources are created, you need to create a location rule constraint between SAP HANA resources and file systems (NFS mounts).
 
 1. **[1]** Configure constraints between the SAP HANA resources and the NFS mounts.
 
@@ -581,9 +581,11 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
 
 ## Configure HANA active/read enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+Starting with SAP HANA 2.0 SPS 01, SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database.
 
-The additional configuration, required to manage HANA Active/Read enabled system replication in a Red Hat HA cluster with second virtual IP is described in [Configure HANA Active/Read Enabled System Replication in Pacemaker cluster](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+
+The extra configuration, which is required to manage HANA Active/Read-enabled System Replication in a Red Hat HA cluster with a second virtual IP, is described in [Configure HANA Active/Read-Enabled System Replication in Pacemaker cluster](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
 
 Before you proceed further, make sure you've fully configured Red Hat High Availability Cluster managing SAP HANA database as described in the preceding sections of the documentation.
 
@@ -601,8 +603,7 @@ This section describes how you can test your setup.
 
    The SAP HANA resource agents depend on binaries stored on `/hana/shared` to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented scenario.  
    
-   It's difficult to simulate a failure, where one of the servers loses access to the NFS share. A test that can be performed is to remount the file system as read-only.
-   This approach validates that the cluster will be able to fail over, if access to `/hana/shared` is lost on the active node.
+   It's difficult to simulate a failure where one of the servers loses access to the NFS share. As a test, you can remount the file system as read-only. This approach validates that the cluster can fail over, if access to `/hana/shared` is lost on the active node.
 
    **Expected result:** On making `/hana/shared` as a read-only file system, the `OCF_CHECK_LEVEL` attribute of the resource `hana_shared1`, which performs read/write operations on file systems, fails. It isn't able to write anything on the file system and performs HANA resource failover. The same result is expected when your HANA node loses access to the NFS shares.
 
@@ -612,7 +613,7 @@ This section describes how you can test your setup.
     sudo pcs status
     ```
 
-    Example output
+    Example output:
 
     ```output
     Full list of resources:
@@ -655,7 +656,7 @@ This section describes how you can test your setup.
     sudo pcs status
     ```
 
-    Example output
+    Example output:
 
     ```output
     Full list of resources:
