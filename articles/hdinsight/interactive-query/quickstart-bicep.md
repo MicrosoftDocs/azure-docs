@@ -56,7 +56,7 @@ Two Azure resources are defined in the Bicep file:
 
     * Replace **\<cluster-name\>** with the name of the HDInsight cluster to create.
     * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
-    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
+    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username can not be admin username.
 
     You are prompted to enter the following password:
 
