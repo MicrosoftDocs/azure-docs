@@ -156,8 +156,8 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 1. Download the Azure Resource Manager template and parameter files using the following commands. See below for the template and parameter files for each cluster configuration.
 
     ```bash
-    curl -L \<template file\> -o existingClusterOnboarding.json
-    curl -L \<parameter file\> -o existingClusterParam.json
+    curl -L <template file> -o existingClusterOnboarding.json
+    curl -L <parameter file> -o existingClusterParam.json
     ```
 
     **AKS cluster**
@@ -214,26 +214,26 @@ The following table describes the supported data collection settings and the nam
 | Portal: Collected Data<br>CLI: streams<br>ARM: streams | An array of container insights table streams. See the supported streams above to table mapping. |
 
 ### Applicable tables
-The settings for **collection frequency** and **namespace filtering** do not apply to all Container insights data. The following table lists the tables in the Log Analytics workspace used by Container insights and the settings that apply to each. 
+The settings for **collection frequency** and **namespace filtering** don't apply to all Container insights data. The following table lists the tables in the Log Analytics workspace used by Container insights and the settings that apply to each. 
 
 
 | Table name | Interval? | Namespaces? | Remarks |
 |:---|:---:|:---:|:---|
 | ContainerInventory | Yes | Yes | |
-| ContainerNodeInventory | Yes | No | Data collection setting for namespaces is not applicable since Kubernetes Node is not a namespace scoped resource |
-| KubeNodeInventory | Yes | No | Data collection setting for namespaces is not applicable Kubernetes Node is not a namespace scoped resource |
+| ContainerNodeInventory | Yes | No | Data collection setting for namespaces isn't applicable since Kubernetes Node isn't a namespace scoped resource |
+| KubeNodeInventory | Yes | No | Data collection setting for namespaces isn't applicable Kubernetes Node isn't a namespace scoped resource |
 | KubePodInventory | Yes | Yes ||
 | KubePVInventory | Yes | Yes | |
 | KubeServices | Yes | Yes | |
-| KubeEvents | No | Yes | Data collection setting for interval is not applicable for the Kubernetes Events |
-| Perf | Yes | Yes | Data collection setting for namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
+| KubeEvents | No | Yes | Data collection setting for interval isn't applicable for the Kubernetes Events |
+| Perf | Yes | Yes | Data collection setting for namespaces isn't applicable for the Kubernetes Node related metrics since the Kubernetes Node isn't a namespace scoped object. |
 | InsightsMetrics| Yes | Yes | Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
 ### Applicable metrics
 
 | Metric namespace | Interval? | Namespaces? | Remarks |
 |:---|:---:|:---:|:---|
-| Insights.container/nodes| Yes | No | Node is not a namespace scoped resource |
+| Insights.container/nodes| Yes | No | Node isn't a namespace scoped resource |
 |Insights.container/pods | Yes | Yes| |
 | Insights.container/containers | Yes | Yes | |
 | Insights.container/persistentvolumes | Yes | Yes | |

@@ -1,5 +1,5 @@
 ---
-title: Configure agent authentication for the Container Insights agent | Microsoft Docs
+title: Configure agent authentication for the Container Insights agent
 description: This article describes how to configure authentication for the containerized agent used by Container insights.
 ms.topic: conceptual
 ms.date: 07/31/2023
@@ -8,10 +8,10 @@ ms.reviewer: aul
 
 # Authentication for Container Insights 
 
-Container Insights now defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a Monitoring Metrics Publisher role to the cluster.
+Container Insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a Monitoring Metrics Publisher role to the cluster.
 
 > [!Note] 
-> [ContainerLogV2](container-insights-logging-v2.md) will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+> [ContainerLogV2](container-insights-logging-v2.md) is the default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 ## How to enable
 
@@ -184,6 +184,67 @@ az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring
 >  o	Once the policy is assigned to the subscription, whenever you create a new cluster, the policy will run and check if Container Insights is enabled. If not, it will deploy the resource. If you want to apply the policy to existing AKS cluster, create a 'Remediation task' for that resource after going to the 'Policy Assignment'.
 
 ---
+
+## Migrate to managed identity authentication
+
+This section explains two methods for migrating to managed identity authentication.
+
+### Existing clusters with a service principal
+
+AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Microsoft Azure operated by 21Vianet cloud, and Azure Government cloud are currently supported for this migration.
+
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
+
+1. Get the configured Log Analytics workspace resource ID:
+
+    ```cli
+    az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
+    ```
+
+1. Disable monitoring with the following command:
+
+      ```cli
+      az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
+      ```
+
+1. Upgrade cluster to system managed identity with the following command:
+
+      ```cli
+      az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity
+      ```
+
+1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
+
+      ```cli
+      az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      ```
+
+### Existing clusters with system or user-assigned identity
+
+AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure operated by 21Vianet cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
+
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
+
+1. Get the configured Log Analytics workspace resource ID:
+
+      ```cli
+      az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
+      ```
+
+1. Disable monitoring with the following command:
+
+      ```cli
+      az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name>
+      ```
+
+1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
+
+      ```cli
+      az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      ```
+
 
 ## Limitations 
 1.	Ingestion Transformations are not supported: See [Data collection transformation](../essentials/data-collection-transformations.md) to read more.    
