@@ -378,7 +378,7 @@ Microsoft Entra Connect Upgrade fails if SQL Always On Availability is configure
 - When Group Sync Filtering page encounters an LDAP error when resolving security groups, Microsoft Entra Connect now returns the exception with full fidelity.  The root cause for the referral exception is still unknown and will be addressed by a different bug.
 -  Fixed a bug where permissions for STK and NGC keys (ms-DS-KeyCredentialLink attribute on User/Device objects for WHfB) were not correctly set.     
 - Fixed a bug where 'Set-ADSyncRestrictedPermissions’ wasn't called correctly
--  Adding support for permission granting on Group Writeback in Azure ADConnect's installation wizard
+-  Adding support for permission granting on Group Writeback in the Microsoft Entra Connect installation wizard
 - When changing sign in method from Password Hash Sync to AD FS, Password Hash Sync wasn't disabled.
 - Added verification for IPv6 addresses in AD FS configuration
 - Updated the notification message to inform that an existing configuration exists.
@@ -982,7 +982,7 @@ Microsoft Entra Connect Sync
 * Fixed an issue that causes Password Synchronization process to fail to start with Event ID 6900 and error *“An item with the same key has already been added”*. This issue occurs if you update OU filtering configuration to include AD configuration partition. To fix this issue, Password Synchronization process now synchronizes password changes from AD domain partitions only. Non-domain partitions such as configuration partition are skipped.
 * During Express installation, Microsoft Entra Connect creates an on-premises AD DS account to be used by the AD connector to communicate with on-premises AD. Previously, the account is created with the PASSWD_NOTREQD flag set on the user-Account-Control attribute and a random password is set on the account. Now, Microsoft Entra Connect explicitly removes the PASSWD_NOTREQD flag after the password is set on the account.
 * Fixed an issue that causes DirSync upgrade to fail with error *“a deadlock occurred in sql server which trying to acquire an application lock”* when the mailNickname attribute is found in the on-premises AD schema, but is not bounded to the AD User object class.
-* Fixed an issue that causes Device writeback feature to automatically be disabled when an administrator is updating Microsoft Entra Connect sync configuration using Microsoft Entra Connect wizard. This issue is caused by the wizard performing a pre-requisite check for the existing Device writeback configuration in on-premises AD and the check fails. The fix is to skip the check if Device writeback is already enabled previously.
+* Fixed an issue that causes Device writeback feature to automatically be disabled when an administrator is updating Microsoft Entra Connect Sync configuration using Microsoft Entra Connect wizard. This issue is caused by the wizard performing a pre-requisite check for the existing Device writeback configuration in on-premises AD and the check fails. The fix is to skip the check if Device writeback is already enabled previously.
 * To configure OU filtering, you can either use the Microsoft Entra Connect wizard or the Synchronization Service Manager. Previously, if you use the Microsoft Entra Connect wizard to configure OU filtering, new OUs created afterwards are included for directory synchronization. If you don't want new OUs to be included, you must configure OU filtering using the Synchronization Service Manager. Now, you can achieve the same behavior using Microsoft Entra Connect wizard.
 * Fixed an issue that causes stored procedures required by Microsoft Entra Connect to be created under the schema of the installing admin, instead of under the dbo schema.
 * Fixed an issue that causes the TrackingId attribute returned by Microsoft Entra ID to be omitted in the Microsoft Entra Connect Server Event Logs. The issue occurs if Microsoft Entra Connect receives a redirection message from Microsoft Entra ID and Microsoft Entra Connect is unable to connect to the endpoint provided. The TrackingId is used by Support Engineers to correlate with service side logs during troubleshooting.
@@ -1094,7 +1094,7 @@ Password Reset
 
 Microsoft Entra Connect Sync
 * Get-ADSyncScheduler cmdlet now returns a new Boolean property named SyncCycleInProgress. If the returned value is true, it means that there is a scheduled synchronization cycle in progress.
-* Destination folder for storing Microsoft Entra Connect installation and setup logs has been moved from %localappdata%\AADConnect to %programdata%\AADConnect to improve accessibility to the log files.
+* Destination folder for storing Microsoft Entra Connect installation and setup logs has been moved from `%localappdata%\AADConnect` to `%programdata%\AADConnect` to improve accessibility to the log files.
 
 AD FS management
 * Added support for updating AD FS Farm TLS/SSL Certificate.
