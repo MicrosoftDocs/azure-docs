@@ -6,7 +6,7 @@ author: James-Green-Microsoft
 ms.author: jamesgreen
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 10/26/23
+ms.date: 10/26/2023
 ms.custom: template-how-to
 ---
 
