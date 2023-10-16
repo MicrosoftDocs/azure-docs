@@ -28,7 +28,7 @@ The following table provides Network Function (NF) and Network Service Design (N
 |---------|---------|---------|---------|
 |**Preview**     |     Default state upon NFDVersion or NSDVersion creation; indicates pending testing.    |    Same subscription as Publisher.     |    No     |
 |**Active**    |   Signifies readiness for customer usage.      |    Access based on RBS, any subscription in same tenant.     |      Yes   |
-|**Deprecated**     |  Implies regression found; prevents new deployments from this version.       |    Can't be deployed     |     Yes    |
+|**Deprecated**     |  Implies regression found; prevents new deployments from this version.       |    Can't be deployed.     |     Yes    |
 
 ## Network Function and Network Service Design definition state machine
 
