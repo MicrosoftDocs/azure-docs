@@ -20,9 +20,9 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Face client-side SDK for liveness detection
 
-TBD The Vision SDK supports face recognition and liveness detection which is available in Kotlin, Java, Swift and Obj-C for Android and iOS.
+The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
 
-TBD mention we have iBeta certification
+TBD We have iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
 
 ## September 2023
 
