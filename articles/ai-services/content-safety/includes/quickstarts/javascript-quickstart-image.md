@@ -11,7 +11,7 @@ ms.date: 10/10/2023
 ms.author: pafarley
 ---
 
-[Reference documentation](tbd) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) |[Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest/samples) |
+[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) |[Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest/samples) |
 
 
 ## Prerequisites
