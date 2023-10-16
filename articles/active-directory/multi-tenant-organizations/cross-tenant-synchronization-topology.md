@@ -24,7 +24,7 @@ Organizations often find themselves managing multiple tenants due to mergers and
 > - Mesh
 > - Just-in-time
 
-## Hub and Spoke
+## Hub and spoke
 The hub and spoke topology presents two common patterns:
 
 * **Option 1 (Application Hub):** In this option, you can integrate commonly used applications into a central hub tenant that users from across the organization can access. 
