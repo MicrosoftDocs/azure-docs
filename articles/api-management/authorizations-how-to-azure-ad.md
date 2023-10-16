@@ -16,7 +16,7 @@ This article guides you through the steps required to create an [authorization](
 You learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure AD application
+> * Create a Microsoft Entra application
 > * Create and configure an authorization in API Management
 > * Configure an access policy
 > * Create a Microsoft Graph API in API Management and configure a policy
@@ -24,20 +24,22 @@ You learn how to:
 
 ## Prerequisites
 
-- Access to an Azure Active Directory (Azure AD) tenant where you have permissions to create an app registration and to grant admin consent for the app's permissions. [Learn more](../active-directory/roles/delegate-app-roles.md#restrict-who-can-create-applications)
+- Access to a Microsoft Entra tenant where you have permissions to create an app registration and to grant admin consent for the app's permissions. [Learn more](../active-directory/roles/delegate-app-roles.md#restrict-who-can-create-applications)
 
     If you want to create your own developer tenant, you can sign up for the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
 - A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
 - Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md) for API Management in the API Management instance. 
 
-## Step 1: Create an Azure AD application
+<a name='step-1-create-an-azure-ad-application'></a>
 
-Create an Azure AD application for the API and give it the appropriate permissions for the requests that you want to call.
+## Step 1: Create a Microsoft Entra application
+
+Create a Microsoft Entra application for the API and give it the appropriate permissions for the requests that you want to call.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account with sufficient permissions in the tenant.
-1. Under **Azure Services**, search for **Azure Active Directory**.
+1. Under **Azure Services**, search for **Microsoft Entra ID**.
 1. On the left menu, select **App registrations**, and then select **+ New registration**. 
-    :::image type="content" source="media/authorizations-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating an Azure AD app registration in the portal.":::
+    :::image type="content" source="media/authorizations-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating a Microsoft Entra app registration in the portal.":::
     
 1. On the **Register an application** page, enter your application registration settings:
     1. In **Name**, enter a meaningful name that will be displayed to users of the app, such as *MicrosoftGraphAuth*.
@@ -70,22 +72,24 @@ Create an Azure AD application for the API and give it the appropriate permissio
     
     |Settings  |Value  |
     |---------|---------|
-    |**Provider name**     |  A name of your choice, such as *aad-01*       |
+    |**Provider name**     |  A name of your choice, such as *Microsoft Entra ID-01*       |
     |**Identity provider**     |   Select **Azure Active Directory v1**      |
     |**Grant type**     | Select **Authorization code**        |
     |**Client id**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
     |**Resource URL** | `https://graph.microsoft.com` |
-    |**Tenant ID** | Optional for Azure AD identity provider. Default is *Common* |
-    |**Scopes**     |    Optional for Azure AD identity provider. Automatically configured from AD app's API permissions.      |
-    |**Authorization name**    | A name of your choice, such as *aad-auth-01*        |
+    |**Tenant ID** | Optional for Microsoft Entra identity provider. Default is *Common* |
+    |**Scopes**     |    Optional for Microsoft Entra identity provider. Automatically configured from AD app's API permissions.      |
+    |**Authorization name**    | A name of your choice, such as *Microsoft Entra auth-01*        |
   
 1. After the authorization provider and authorization are created, select **Next**.
 
-## Step 3: Authorize with Azure AD and configure an access policy
+<a name='step-3-authorize-with-azure-ad-and-configure-an-access-policy'></a>
 
-1. On the **Login** tab, select **Login with Azure Active Directory**. Before the authorization will work, it needs to be authorized.
-    :::image type="content" source="media/authorizations-how-to-azure-ad/login-azure-ad.png" alt-text="Screenshot of login with Azure AD in the portal.":::
+## Step 3: Authorize with Microsoft Entra ID and configure an access policy
+
+1. On the **Login** tab, select **Login with Microsoft Entra ID**. Before the authorization will work, it needs to be authorized.
+    :::image type="content" source="media/authorizations-how-to-azure-ad/login-azure-ad.png" alt-text="Screenshot of login with Microsoft Entra ID in the portal.":::
 
 1. When prompted, sign in to your organizational account.
 1. On the confirmation page, select **Allow access**.
@@ -165,4 +169,4 @@ The preceding policy definition consists of two parts:
 ## Next steps
 
 * Learn more about [access restriction policies](api-management-access-restriction-policies.md)
-* Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Azure AD.
+* Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Microsoft Entra ID.

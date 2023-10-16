@@ -1,14 +1,24 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 03/16/2023
+ms.date: 10/2/2023
 ms.author: eur
 ---
 
 ### 2023-September release
+
 Add support for the latest model versions:
 - Speech language identification 1.12.0
+- Custom speech to text 4.3.0
+- Speech to text 4.3.0
+- Neural text to speech 2.17.0
+
+Upgrade custom speech to text and speech to text to the latest framework.
+
+Fix vulnerability issues.
+
+Add support for voice`ar-AE-FatimaNeural`.
 
 ### 2023-July release
 

@@ -41,7 +41,7 @@ ID tokens aren't issued by default for an application registered with the Micros
 
 Or:
 
-1. Select **Identity** > **App registrations** > *\<your application\>* > **Manifest**.
+1. Select **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Manifest**.
 1. Set `oauth2AllowIdTokenImplicitFlow` to `true` in the app registration's [application manifest](reference-app-manifest.md).
 
 If ID tokens are not enabled for your app and one is requested, the Microsoft identity platform returns an `unsupported_response` error similar to:

@@ -90,6 +90,8 @@ items:
       href: concept-availability.md
     - name: Region support
       href: concept-region-support.md
+    - name: Permission requirements
+      href: concept-permission.md
 - name: How-to guides
   expanded: true
   items: 

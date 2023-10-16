@@ -2,7 +2,7 @@
 title: Configure Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides configuration guidance for .NET, Java, Node.js, and Python applications.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/10/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -12,8 +12,6 @@ ms.reviewer: mmcc
 
 This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
-> [!TIP]
-> For Node.js, this config guidance applies to the 3.X BETA Package only. If you're using a previous version, see the [Node.js Application Insights SDK Docs](nodejs.md).
 
 ## Connection string
 
@@ -121,14 +119,18 @@ Use one of the following two ways to configure the connection string:
 - Use configuration object:
 
     ```typescript
-   const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
-    const options: AzureMonitorOpenTelemetryOptions = {
-        azureMonitorExporterOptions: {
-            connectionString: "<your connection string>"
-        }
-    };
-    useAzureMonitor(options);
+   // Import the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions class from the @azure/monitor-opentelemetry package.
+    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 
+    // Create a new AzureMonitorOpenTelemetryOptions object.
+    const options: AzureMonitorOpenTelemetryOptions = {
+      azureMonitorExporterOptions: {
+        connectionString: "<your connection string>"
+      }
+    };
+
+    // Enable Azure Monitor integration using the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions object.
+    useAzureMonitor(options);
     ```
 
 ### [Python](#tab/python)
@@ -144,8 +146,11 @@ Use one of the following two ways to configure the connection string:
 - Pass into `configure_azure_monitor`:
 
 ```python
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string of your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
@@ -159,7 +164,7 @@ You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-r
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md).
 
 ```csharp
 // Setting role name and role instance
@@ -191,7 +196,7 @@ app.Run();
 
 ### [.NET](#tab/net)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md).
 
 ```csharp
 // Setting role name and role instance
@@ -240,30 +245,37 @@ To set the cloud role instance, see [cloud role instance](java-standalone-config
 
 ### [Node.js](#tab/nodejs)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md).
 
 ```typescript
-...
+// Import the useAzureMonitor function, the AzureMonitorOpenTelemetryOptions class, the Resource class, and the SemanticResourceAttributes class from the @azure/monitor-opentelemetry, @opentelemetry/resources, and @opentelemetry/semantic-conventions packages, respectively.
 const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 const { Resource } = require("@opentelemetry/resources");
 const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
-// ----------------------------------------
-// Setting role name and role instance
-// ----------------------------------------
+
+// Create a new Resource object with the following custom resource attributes:
+//
+// * service_name: my-service
+// * service_namespace: my-namespace
+// * service_instance_id: my-instance
 const customResource = new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: "my-service",
-    [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
-    [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
+  [SemanticResourceAttributes.SERVICE_NAME]: "my-service",
+  [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
+  [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
 });
+
+// Create a new AzureMonitorOpenTelemetryOptions object and set the resource property to the customResource object.
 const options: AzureMonitorOpenTelemetryOptions = {
-    resource: customResource
+  resource: customResource
 };
+
+// Enable Azure Monitor integration using the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions object.
 useAzureMonitor(options);
 ```
 
 ### [Python](#tab/python)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md).
 
 Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVICE_NAME` environment variables. `OTEL_RESOURCE_ATTRIBUTES` takes series of comma-separated key-value pairs. For example, to set the Cloud Role Name to `my-namespace.my-helloworld-service` and set Cloud Role Instance to `my-instance`, you can set `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME` as such:
 ```
@@ -281,7 +293,7 @@ export OTEL_SERVICE_NAME="my-helloworld-service"
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a sampling ratio, which Application Insights converts to `ItemCount`. The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You might want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a sampling ratio, which Application Insights converts to `ItemCount`. The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE] 
 > Metrics and Logs are unaffected by sampling.
@@ -333,11 +345,15 @@ Starting from 3.4.0, rate-limited sampling is available and is now the default. 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
 ```typescript
+// Import the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions class from the @azure/monitor-opentelemetry package.
 const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 
+// Create a new AzureMonitorOpenTelemetryOptions object and set the samplingRatio property to 0.1.
 const options: AzureMonitorOpenTelemetryOptions = {
-    samplingRatio: 0.1
+  samplingRatio: 0.1
 };
+
+// Enable Azure Monitor integration using the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions object.
 useAzureMonitor(options);
 ```
 
@@ -358,9 +374,11 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 > [!TIP]
 > When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
 
-## Enable Entra ID (formerly Azure AD) authentication
+<a name='enable-entra-id-formerly-azure-ad-authentication'></a>
 
-You might want to enable Entra ID Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
+## Enable Microsoft Entra ID (formerly Azure AD) authentication
+
+You might want to enable Microsoft Entra authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -460,21 +478,34 @@ For more information about Java, see the [Java supplemental documentation](java-
 We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#credential-classes).
 
 ```typescript
+// Import the useAzureMonitor function, the AzureMonitorOpenTelemetryOptions class, and the ManagedIdentityCredential class from the @azure/monitor-opentelemetry and @azure/identity packages, respectively.
 const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 const { ManagedIdentityCredential } = require("@azure/identity");
 
+// Create a new ManagedIdentityCredential object.
+const credential = new ManagedIdentityCredential();
+
+// Create a new AzureMonitorOpenTelemetryOptions object and set the credential property to the credential object.
 const options: AzureMonitorOpenTelemetryOptions = {
-    credential: new ManagedIdentityCredential()
+    azureMonitorExporterOptions: {
+        credential: credential
+    }
 };
+
+// Enable Azure Monitor integration using the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions object.
 useAzureMonitor(options);
 ```
 
 #### [Python](#tab/python)
     
 ```python
+# Import the `ManagedIdentityCredential` class from the `azure.identity` package.
 from azure.identity import ManagedIdentityCredential
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
+# Configure OpenTelemetry to use Azure Monitor with a managed identity credential.
+# This will allow OpenTelemetry to authenticate to Azure Monitor without requiring you to provide a connection string.
 configure_azure_monitor(
     credential=ManagedIdentityCredential(),
 )
@@ -598,15 +629,23 @@ For example:
 
 
 ```typescript
+// Import the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions class from the @azure/monitor-opentelemetry package.
 const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 
+// Create a new AzureMonitorOpenTelemetryOptions object and set the azureMonitorExporterOptions property to an object with the following properties:
+//
+// * connectionString: The connection string for your Azure Monitor Application Insights resource.
+// * storageDirectory: The directory where the Azure Monitor OpenTelemetry exporter will store telemetry data when it is offline.
+// * disableOfflineStorage: A boolean value that specifies whether to disable offline storage.
 const options: AzureMonitorOpenTelemetryOptions = {
-    azureMonitorExporterOptions = {
-        connectionString: "<Your Connection String>",
-        storageDirectory: "C:\\SomeDirectory",
-        disableOfflineStorage: false
-    }
+  azureMonitorExporterOptions: {
+    connectionString: "<Your Connection String>",
+    storageDirectory: "C:\\SomeDirectory",
+    disableOfflineStorage: false
+  }
 };
+
+// Enable Azure Monitor integration using the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions object.
 useAzureMonitor(options);
 ```
 
@@ -623,6 +662,9 @@ To override the default directory, you should set `storage_directory` to the dir
 For example:
 ```python
 ...
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string and storage directory.
+# Replace `your-connection-string` with the connection string to your Azure Monitor Application Insights resource.
+# Replace `C:\\SomeDirectory` with the directory where you want to store the telemetry data before it is sent to Azure Monitor.
 configure_azure_monitor(
     connection_string="your-connection-string",
     storage_directory="C:\\SomeDirectory",
@@ -636,6 +678,8 @@ To disable this feature, you should set `disable_offline_storage` to `True`. Def
 For example:
 ```python
 ...
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string and disable offline storage.
+# Replace `your-connection-string` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="your-connection-string",
     disable_offline_storage=True,
@@ -725,18 +769,25 @@ For more information about Java, see the [Java supplemental documentation](java-
 2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```typescript
+    // Import the useAzureMonitor function, the AzureMonitorOpenTelemetryOptions class, the trace module, the ProxyTracerProvider class, the BatchSpanProcessor class, the NodeTracerProvider class, and the OTLPTraceExporter class from the @azure/monitor-opentelemetry, @opentelemetry/api, @opentelemetry/sdk-trace-base, @opentelemetry/sdk-trace-node, and @opentelemetry/exporter-trace-otlp-http packages, respectively.
     const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
     const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
     const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
     const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
 
+    // Enable Azure Monitor integration.
     useAzureMonitor();
+
+    // Create a new OTLPTraceExporter object.
     const otlpExporter = new OTLPTraceExporter();
+
+    // Get the NodeTracerProvider instance.
     const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
+
+    // Add a BatchSpanProcessor to the NodeTracerProvider instance.
     tracerProvider.addSpanProcessor(new BatchSpanProcessor(otlpExporter));
     ```
-
 
 #### [Python](#tab/python)
 
@@ -745,20 +796,32 @@ For more information about Java, see the [Java supplemental documentation](java-
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
     
     ```python
+    # Import the `configure_azure_monitor()`, `trace`, `OTLPSpanExporter`, and `BatchSpanProcessor` classes from the appropriate packages.    
     from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
     from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
+    # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+    # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
     )
+    
+    # Get the tracer for the current module.
     tracer = trace.get_tracer(__name__) 
     
+    # Create an OTLP span exporter that sends spans to the specified endpoint.
+    # Replace `http://localhost:4317` with the endpoint of your OTLP collector.
     otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317")
+    
+    # Create a batch span processor that uses the OTLP span exporter.
     span_processor = BatchSpanProcessor(otlp_exporter)
+    
+    # Add the batch span processor to the tracer provider.
     trace.get_tracer_provider().add_span_processor(span_processor)
     
+    # Start a new span with the name "test".
     with tracer.start_as_current_span("test"):
         print("Hello world!")
     ```
@@ -800,5 +863,7 @@ For more information about OpenTelemetry SDK configuration, see the [OpenTelemet
 For more information about OpenTelemetry SDK configuration, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/sdk-configuration) and [Azure monitor Distro Usage](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage).
 
 ---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]

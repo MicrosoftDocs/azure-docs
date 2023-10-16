@@ -58,7 +58,9 @@ Microsoft partners with various companies that deliver pre-built solutions for o
 
 <a name='secure-hybrid-access-through-azure-ad-partner-integrations'></a>
 
-### Secure hybrid access through Microsoft Entra partner integrations
+<a name='secure-hybrid-access-through-microsoft-entra-partner-integrations'></a>
+
+### Secure hybrid access through Microsoft Entra ID partner integrations
 
 
 The following partners offer solutions to support [Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies). Use the tables in the following sections to learn about the partners and Microsoft Entra integration documentation.

@@ -58,7 +58,7 @@ az webapp connection create storage-blob --secret
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
 
 Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a System-assigned Managed Identity, providing the following information:
 

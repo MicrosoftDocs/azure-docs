@@ -1,6 +1,6 @@
 ---
-title: What is Microsoft Entra Monitoring and health?
-description: Provides a general overview of Microsoft Entra Monitoring and health.
+title: What is Microsoft Entra monitoring and health?
+description: Provides a general overview of Microsoft Entra monitoring and health.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer: besiler
 
 ---
 
-# What is Microsoft Entra Monitoring and health?
+# What is Microsoft Entra monitoring and health?
 
-The features of Microsoft Entra Monitoring and health provide a comprehensive view of identity related activity in your environment. This data enables you to:
+The features of Microsoft Entra monitoring and health provide a comprehensive view of identity related activity in your environment. This data enables you to:
 
 - Determine how your users utilize your apps and services.
 - Detect potential risks affecting the health of your environment.
@@ -48,7 +48,7 @@ Audit logs provide you with records of system activities for compliance. This da
 
 ### Sign-in logs
 
-The sign-ins logs enable you to find answers to questions such as:
+The sign-in logs enable you to find answers to questions such as:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
@@ -83,11 +83,3 @@ Monitoring Microsoft Entra activity logs requires routing the log data to a moni
 
 
 For an overview of how to access, store, and analyze activity logs, see [How to access activity logs](howto-access-activity-logs.md).
-
-
-## Next steps
-
-- [Learn about the sign-ins logs](concept-all-sign-ins.md)
-- [Learn about the audit logs](concept-audit-logs.md)
-- [Use Microsoft Graph to access activity logs](quickstart-access-log-with-graph-api.md)
-- [Integrate activity logs with SIEM tools](howto-stream-logs-to-event-hub.md)

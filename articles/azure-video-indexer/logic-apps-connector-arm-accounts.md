@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Logic Apps connector with ARM-based AVI accounts
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 Azure AI Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
 
 > [!TIP]

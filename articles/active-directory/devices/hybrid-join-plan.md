@@ -64,11 +64,8 @@ For devices running the Windows desktop operating system, supported versions are
 
 ### Windows down-level devices
 
-- Windows 8.1
-- Windows 7 support ended on January 14, 2020. For more information, see [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020)
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 for support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008)
 
 As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 

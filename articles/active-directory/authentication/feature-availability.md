@@ -106,8 +106,8 @@ This following tables list Microsoft Entra feature availability in Azure Governm
 
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
-|Workday to Microsoft Entra User Provisioning | &#x2705; |
+|Workday to Microsoft Entra user provisioning | &#x2705; |
 |Workday Writeback | &#x2705; |
-|SuccessFactors to Microsoft Entra User Provisioning | &#x2705; | 
+|SuccessFactors to Microsoft Entra user provisioning | &#x2705; | 
 |SuccessFactors to Writeback | &#x2705; |
-|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br> AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment |
+|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br> `AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment` |

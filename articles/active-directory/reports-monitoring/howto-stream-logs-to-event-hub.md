@@ -44,7 +44,9 @@ To use this feature, you need the [Splunk Add-on for Microsoft Cloud Services](h
 
 <a name='integrate-azure-ad-logs-with-splunk'></a>
 
-### Integrate Microsoft Entra ID logs with Splunk
+<a name='integrate-microsoft-entra-id-logs-with-splunk'></a>
+
+### Integrate Microsoft Entra logs with Splunk
 
 1. Open your Splunk instance and select **Data Summary**.
 
@@ -66,7 +68,9 @@ To use this feature, you need a SumoLogic single sign-on enabled subscription.
 
 <a name='integrate-azure-ad-logs-with-sumologic-'></a>
 
-### Integrate Microsoft Entra ID logs with SumoLogic 
+<a name='integrate-microsoft-entra-id-logs-with-sumologic'></a>
+
+### Integrate Microsoft Entra logs with SumoLogic 
 
 1. Configure your SumoLogic instance to [collect logs for Microsoft Entra ID](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#collecting-logs-for-azure-active-directory).
 
@@ -82,12 +86,14 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 <a name='integrate-azure-ad-logs-with-arcsight'></a>
 
-## Integrate Microsoft Entra ID logs with ArcSight
+<a name='integrate-microsoft-entra-id-logs-with-arcsight'></a>
+
+## Integrate Microsoft Entra logs with ArcSight
 
 1. Complete the steps in the **Prerequisites** section of the ArcSight configuration guide. This section includes the following steps:
     * Set user permissions in Azure to ensure there's a user with the **owner** role to deploy and configure the connector.
     * Open ports on the server with Syslog NG Daemon SmartConnector so it's accessible from Azure. 
-    * The deployment runs a Windows PowerShell script, so you must enable PowerShell to run scripts on the machine where you want to deploy the connector.
+    * The deployment runs a PowerShell script, so you must enable PowerShell to run scripts on the machine where you want to deploy the connector.
 
 1. Follow the steps in the **Deploying the Connector** section of the ArcSight configuration guide to deploy the connector. This section walks you through how to download and extract the connector, configure application properties and run the deployment script from the extracted folder. 
 

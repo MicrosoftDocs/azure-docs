@@ -35,13 +35,14 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
    - **Service:** All services > Azure VMware Solution
    - **Resource:** General question 
    - **Summary:** Need capacity
-   - **Problem type:** Capacity Management Issues
-   - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
+   - **Problem type:** Deployment
+   - **Problem subtype:** AVS Quota request
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
  
    - Region Name
    - Number of hosts
+   - Host SKU type
    - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
 
    >[!NOTE]

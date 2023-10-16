@@ -16,7 +16,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # B2B direct connect overview
 
-Microsoft Entra B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Microsoft Entra organization for seamless collaboration. This feature currently works with Microsoft Teams shared channels. With B2B direct connect, users from both organizations can work together using their home credentials and a shared channel in Teams, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Microsoft Entra organizations. Or use it to share resources across multiple Microsoft Entra tenants within your own organization.
+B2B direct connect is a feature of Microsoft Entra External ID that lets you set up a mutual trust relationship with another Microsoft Entra organization for seamless collaboration. This feature currently works with Microsoft Teams shared channels. With B2B direct connect, users from both organizations can work together using their home credentials and a shared channel in Teams, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Microsoft Entra organizations. Or use it to share resources across multiple Microsoft Entra tenants within your own organization.
 
 ![Diagram illustrating B2B direct connect](media/b2b-direct-connect-overview/b2b-direct-connect-overview.png)
 
@@ -135,7 +135,9 @@ Reporting for monitoring and auditing B2B direct connect activity is available i
 
 <a name='azure-ad-monitoring-and-audit-logs'></a>
 
-### Microsoft Entra ID monitoring and audit logs
+<a name='microsoft-entra-id-monitoring-and-audit-logs'></a>
+
+### Microsoft Entra monitoring and audit logs
 
 Microsoft Entra ID includes information about cross-tenant access and B2B direct connect in the organization's Audit logs and Sign-in logs. These logs can be viewed in the Azure portal under **Monitoring**.
 

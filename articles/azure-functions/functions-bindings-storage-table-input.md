@@ -24,14 +24,14 @@ For information on setup and configuration details, see the [overview](./functio
 
 The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
-
-An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
    
+# [In-process model](#tab/in-process)
+
+An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see examples for the mode and version. 
@@ -571,7 +571,20 @@ With this simple binding, you can't programmatically handle a case in which no r
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#table-input).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. | 
+|**RowKey** | Optional. The row key of the table entity to read. | 
+| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
+|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
 
@@ -611,19 +624,6 @@ public static void Run(
 ```
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
-
-# [Isolated process](#tab/isolated-process)
-
-In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
-
-| Attribute property |Description|
-|---------|---------|
-| **TableName** | The name of the table.| 
-| **PartitionKey** |Optional. The partition key of the table entity to read. | 
-|**RowKey** | Optional. The row key of the table entity to read. | 
-| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
-|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ---
 
@@ -708,14 +708,14 @@ The following table explains the binding configuration properties that you set i
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
-
-An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see usage details for the mode and version. 

@@ -68,7 +68,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | **resourceGroupName** | Azure resource group name to which the Data Lake Store account belongs. | Required for sink |
 
 ### Service principal authentication (recommended)
-To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 * Application ID
 * Application key
 * Tenant ID
@@ -145,8 +145,8 @@ The following table shows the expiration times of different types of user accoun
 
 | User type | Expires after |
 |:--- |:--- |
-| User accounts *not* managed by Azure Active Directory (for example, @hotmail.com or @live.com) |12 hours |
-| Users accounts managed by Azure Active Directory |14 days after the last slice run <br/><br/>90 days, if a slice based on an OAuth-based linked service runs at least once every 14 days |
+| User accounts *not* managed by Microsoft Entra ID (for example, @hotmail.com or @live.com) |12 hours |
+| Users accounts managed by Microsoft Entra ID |14 days after the last slice run <br/><br/>90 days, if a slice based on an OAuth-based linked service runs at least once every 14 days |
 
 If you change your password before the token expiration time, the token expires immediately. You will see the message mentioned earlier in this section.
 

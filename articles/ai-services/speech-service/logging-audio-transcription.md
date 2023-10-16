@@ -5,8 +5,7 @@ description: Learn how to use audio and transcription logging for speech to text
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 03/28/2023

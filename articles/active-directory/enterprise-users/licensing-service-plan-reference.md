@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/21/2023
+ms.date: 10/06/2023
 ms.author: nicholak
 ms.reviewer: Nicholak-MS
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -32,7 +32,7 @@ When [managing licenses in the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
 >[!NOTE]
->This information last updated on September 21st, 2023.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
+>This information last updated on October 10th, 2023.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
 ><br/>
 
 | Product name | String ID | GUID | Service plans included | Service plans included (friendly names) |
@@ -280,6 +280,7 @@ When [managing licenses in the Azure portal](https://portal.azure.com/#blade/Mic
 | Microsoft Threat Experts - Experts on Demand | EXPERTS_ON_DEMAND | 9fa2f157-c8e4-4351-a3f2-ffa506da1406 | EXPERTS_ON_DEMAND (b83a66d4-f05f-414d-ac0f-ea1c5239c42b) | Microsoft Threat Experts - Experts on Demand (b83a66d4-f05f-414d-ac0f-ea1c5239c42b) |
 | Microsoft Workplace Analytics | WORKPLACE_ANALYTICS | 3d957427-ecdc-4df2-aacd-01cc9d519da8 |	WORKPLACE_ANALYTICS (f477b0f0-3bb1-4890-940c-40fcee6ce05f)<br/>WORKPLACE_ANALYTICS_INSIGHTS_BACKEND (ff7b261f-d98b-415b-827c-42a3fdf015af)<br/>WORKPLACE_ANALYTICS_INSIGHTS_USER (b622badb-1b45-48d5-920f-4b27a2c0996c) | Microsoft Workplace Analytics (f477b0f0-3bb1-4890-940c-40fcee6ce05f)<br/>Microsoft Workplace Analytics Insights Backend (ff7b261f-d98b-415b-827c-42a3fdf015af)<br/>Microsoft Workplace Analytics Insights User (b622badb-1b45-48d5-920f-4b27a2c0996c) |
 | Microsoft Viva Goals |	Microsoft_Viva_Goals |	ba929637-f158-4dee-927c-eb7cdefcd955 | EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Viva_Goals_Premium (b44c6eaf-5c9f-478c-8f16-8cea26353bfb) | Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Viva Goals (b44c6eaf-5c9f-478c-8f16-8cea26353bfb) |
+| Microsoft Viva Glint | Viva_Glint_Standalone | 3dc7332d-f0fa-40a3-81d3-dd6b84469b78 | Viva_Glint (6b270342-093e-4015-8c5c-224561532fbf) | Viva Glint (6b270342-093e-4015-8c5c-224561532fbf) |
 | Microsoft Viva Suite |	VIVA |	61902246-d7cb-453e-85cd-53ee28eec138 | GRAPH_CONNECTORS_SEARCH_INDEX_TOPICEXP (b74d57b2-58e9-484a-9731-aeccbba954f0)<br/>WORKPLACE_ANALYTICS_INSIGHTS_USER (b622badb-1b45-48d5-920f-4b27a2c0996c)<br/>WORKPLACE_ANALYTICS_INSIGHTS_BACKEND (ff7b261f-d98b-415b-827c-42a3fdf015af)<br/>CORTEX (c815c93d-0759-4bb8-b857-bc921a71be83)<br/>VIVAENGAGE_COMMUNITIES_AND_COMMUNICATIONS (43304c6a-1d4e-4e0b-9b06-5b2a2ff58a90)<br/>VIVAENGAGE_KNOWLEDGE (c244cc9e-622f-4576-92ea-82e233e44e36)<br/>Viva_Goals_Premium (b44c6eaf-5c9f-478c-8f16-8cea26353bfb)<br/>VIVA_LEARNING_PREMIUM (7162bd38-edae-4022-83a7-c5837f951759) | Graph Connectors Search with Index (Microsoft Viva Topics) (b74d57b2-58e9-484a-9731-aeccbba954f0)<br/>Microsoft Viva Insights (b622badb-1b45-48d5-920f-4b27a2c0996c)<br/>Microsoft Viva Insights Backend (ff7b261f-d98b-415b-827c-42a3fdf015af)<br/>Microsoft Viva Topics (c815c93d-0759-4bb8-b857-bc921a71be83)<br/>Viva Engage Communities and Communications (43304c6a-1d4e-4e0b-9b06-5b2a2ff58a90)<br/>Viva Engage Knowledge (c244cc9e-622f-4576-92ea-82e233e44e36)<br/>Viva Goals (b44c6eaf-5c9f-478c-8f16-8cea26353bfb)<br/>Viva Learning (7162bd38-edae-4022-83a7-c5837f951759) |
 | Minecraft Education Faculty |	MEE_FACULTY | 984df360-9a74-4647-8cf8-696749f6247a | MINECRAFT_EDUCATION_EDITION (4c246bbc-f513-4311-beff-eba54c353256)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | Minecraft Education (4c246bbc-f513-4311-beff-eba54c353256)<br/>Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318) |
 | Minecraft Education Student |	MEE_STUDENT | 533b8f26-f74b-4e9c-9c59-50fc4b393b63 | MINECRAFT_EDUCATION_EDITION (4c246bbc-f513-4311-beff-eba54c353256)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | Minecraft Education (4c246bbc-f513-4311-beff-eba54c353256)<br/>Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318) |

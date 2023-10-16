@@ -18,6 +18,8 @@ ms.custom: not-enterprise-apps
 
 [Silverfort](https://www.silverfort.com/) uses agent-less and proxy-less technology to connect your assets on-premises and in the cloud to Microsoft Entra ID. This solution enables organizations to apply identity protection, visibility, and user experience across environments in Microsoft Entra ID. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and helps to prevent threats.  
 
+<!-- docutune:ignore "Azure A ?D" -->
+
 In this tutorial, learn how to integrate your on-premises Silverfort implementation with Microsoft Entra ID.
 
 Learn more: [Microsoft Entra hybrid joined devices](../devices/concept-hybrid-join.md).
@@ -75,7 +77,7 @@ Set up Silverfort Azure AD Adapter in your Microsoft Entra tenant:
 4. Select **Save Changes**.
 5. On the **Permissions requested** dialog, select **Accept**.
 
-   ![image shows Microsoft Entra bridge connector](./media/silverfort-integration/bridge-connector.png)
+   ![image shows Azure A D bridge connector](./media/silverfort-integration/bridge-connector.png)
 
    ![image shows registration confirmation](./media/silverfort-integration/grant-permission.png)
 
@@ -85,7 +87,7 @@ Set up Silverfort Azure AD Adapter in your Microsoft Entra tenant:
 
 7. On the **Settings** page, select **Save Changes**.
 
-   ![image shows the Azure AD Adapter](./media/silverfort-integration/silverfort-adapter.png)
+   ![image shows the Azure A D Adapter](./media/silverfort-integration/silverfort-adapter.png)
 
 8. Sign in to your Microsoft Entra account. In the left pane, select **Enterprise applications**. The **Silverfort Azure AD Adapter** application appears as registered.
 
@@ -120,7 +122,7 @@ Set up Silverfort Azure AD Adapter in your Microsoft Entra tenant:
 
 17. For Action, select **Azure AD BRIDGE**.
 
-    ![image shows save Azure AD bridge](./media/silverfort-integration/save-bridge.png)
+    ![image shows save Azure A D bridge](./media/silverfort-integration/save-bridge.png)
 
 18. Select **Save**. You're prompted to turn on the policy. 
 

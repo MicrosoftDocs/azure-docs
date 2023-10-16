@@ -4,15 +4,15 @@ description: SAP HANA scale-out with HANA system replication (HSR) and Pacemaker
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/11/2023
+ms.date: 09/26/2023
 ms.author: radeltch
-
 ---
 
 # High availability of SAP HANA scale-out system on Red Hat Enterprise Linux 
@@ -46,9 +46,9 @@ ms.author: radeltch
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-This article describes how to deploy a highly available SAP HANA system in a scale-out configuration. Specifically, the configuration uses HANA system replication (HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) provides the shared file systems in the presented architecture, and these file systems are mounted over Network File System (NFS).  
+This article describes how to deploy a highly available SAP HANA system in a scale-out configuration. Specifically, the configuration uses HANA system replication (HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md).    
 
-In the example configurations and installation commands, the HANA instance is `03` and the HANA system ID is `HN1`. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux (RHEL) for SAP 7.6. 
+In the example configurations and installation commands, the HANA instance is `03` and the HANA system ID is `HN1`.  
 
 ## Prerequisites
 
@@ -85,6 +85,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
   * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
 * [Azure NetApp Files documentation][anf-azure-doc]. 
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
+* [Azure Files documentation](../../storage/files/storage-files-introduction.md)  
 
 ## Overview
 
@@ -92,7 +93,7 @@ To achieve HANA high availability for HANA scale-out installations, you can conf
 
 In the following diagram, there are three HANA nodes on each site, and a majority maker node to prevent a "split-brain" scenario. The instructions can be adapted to include more VMs as HANA DB nodes.  
 
-[Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) provides the HANA shared file system, `/hana/shared`. It's mounted via NFS v4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems, and aren't shared among the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
+The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and aren't shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode.  
 
 For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md). 
 
@@ -110,7 +111,7 @@ The preceding diagram shows three subnets represented within one Azure virtual n
 
 Because `/hana/data` and `/hana/log` are deployed on local disks, it isn't necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
 
-The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.   
+If you're using Azure NetApp Files, the NFS volumes for `/hana/shared`, are deployed in a separate subnet, [delegated to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.  
 
 ## Set up the infrastructure
 
@@ -226,7 +227,16 @@ When you're using the standard load balancer, you should be aware of the followi
    > [!IMPORTANT]
    > Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) and SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-### Deploy the Azure NetApp Files infrastructure 
+### Deploy NFS
+
+There are two options for deploying Azure native NFS for `/hana/shared`. You can deploy NFS volume on [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). Azure files support NFSv4.1 protocol, NFS on Azure NetApp files supports both NFSv4.1 and NFSv3.
+
+The next sections describe the steps to deploy NFS - you'll need to select only *one* of the options.
+
+> [!TIP]
+> You chose to deploy `/hana/shared` on [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md) or [NFS volume on Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).  
+
+#### Deploy the Azure NetApp Files infrastructure 
 
 Deploy the Azure NetApp Files volumes for the `/hana/shared` file system. You need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
@@ -234,6 +244,15 @@ In this example, you use the following Azure NetApp Files volumes:
 
 * volume **HN1**-shared-s1 (nfs://10.23.1.7/**HN1**-shared-s1)
 * volume **HN1**-shared-s2 (nfs://10.23.1.7/**HN1**-shared-s2)
+
+#### Deploy the NFS on Azure Files infrastructure
+
+Deploy Azure Files NFS shares for the `/hana/shared` file system. You'll need a separate `/hana/shared` Azure Files NFS share for each HANA system replication site. For more information, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+
+In this example, the following Azure Files NFS shares were used:
+
+* share **hn1**-shared-s1 (sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1)
+* share **hn1**-shared-s2 (sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2)
 
 ## Operating system configuration and preparation
 
@@ -276,24 +295,8 @@ Configure and prepare your operating system by doing the following:
      10.23.1.207 hana-s2-db3-hsr
     ```
 
-1. **[A]** Prepare the operating system for running SAP HANA. For more information, see SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the Azure NetApp Files configuration settings.  
 
-    <pre><code>
-    vi /etc/sysctl.d/91-NetApp-HANA.conf
-    # Add the following entries in the configuration file
-    net.core.rmem_max = 16777216
-    net.core.wmem_max = 16777216
-    net.ipv4.tcp_rmem = 4096 131072 16777216
-    net.ipv4.tcp_wmem = 4096 16384 16777216
-    net.core.netdev_max_backlog = 300000 
-    net.ipv4.tcp_slow_start_after_idle=0 
-    net.ipv4.tcp_no_metrics_save = 1
-    net.ipv4.tcp_moderate_rcvbuf = 1
-    net.ipv4.tcp_window_scaling = 1    
-    net.ipv4.tcp_sack = 1
-    </code></pre>
-
-1. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with additional optimization settings.  
+1. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with Microsoft for Azure configuration settings.  
 
     <pre><code>
     vi /etc/sysctl.d/ms-az.conf
@@ -308,13 +311,6 @@ Configure and prepare your operating system by doing the following:
     > [!TIP]
     > Avoid setting `net.ipv4.ip_local_port_range` and `net.ipv4.ip_local_reserved_ports` explicitly in the `sysctl` configuration files, to allow the SAP host agent to manage the port ranges. For more details, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-1. **[A]** Adjust the `sunrpc` settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).    
-
-    <pre><code>
-    vi /etc/modprobe.d/sunrpc.conf
-    # Insert the following line
-    options sunrpc tcp_max_slot_table_entries=128
-    </code></pre>
 
 1. **[A]** Install the NFS client package.  
 
@@ -333,11 +329,38 @@ Configure and prepare your operating system by doing the following:
 
 ## Prepare the file systems
 
-The following sections provide steps for the preparation of your file systems.
+The following sections provide steps for the preparation of your file systems. You chose to deploy /hana/shared' on [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md) or [NFS volume on Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
 
-### Mount the shared file systems
+### Mount the shared file systems (Azure NetApp Files NFS)
 
-In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFS v4.  
+In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.1. Follow the steps in this section, only if you're using NFS on Azure NetApp Files.  
+
+1. **[AH]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
+
+    ```bash
+    vi /etc/sysctl.d/91-NetApp-HANA.conf
+     
+    # Add the following entries in the configuration file
+    net.core.rmem_max = 16777216
+    net.core.wmem_max = 16777216
+    net.ipv4.tcp_rmem = 4096 131072 16777216
+    net.ipv4.tcp_wmem = 4096 16384 16777216
+    net.core.netdev_max_backlog = 300000
+    net.ipv4.tcp_slow_start_after_idle=0
+    net.ipv4.tcp_no_metrics_save = 1
+    net.ipv4.tcp_moderate_rcvbuf = 1
+    net.ipv4.tcp_window_scaling = 1
+    net.ipv4.tcp_sack = 1
+    ```
+
+2. **[AH]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).  
+
+    ```bash
+    vi /etc/modprobe.d/sunrpc.conf
+     
+    # Insert the following line
+    options sunrpc tcp_max_slot_table_entries=128
+    ```
 
 1. **[AH]** Create mount points for the HANA database volumes.
 
@@ -402,6 +425,48 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     # Example from SITE 2, hana-s2-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s2
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
+    ```
+
+### Mount the shared file systems (Azure Files NFS)
+
+In this example, the shared HANA file systems are deployed on NFS on Azure Files. Follow the steps in this section, only if you're using NFS on Azure Files.  
+
+1. **[AH]** Create mount points for the HANA database volumes.  
+
+    ```bash
+    mkdir -p /hana/shared
+    ```
+
+2. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
+
+    ```bash
+    sudo vi /etc/fstab
+    # Add the following entry
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1 /hana/shared  nfs nfsvers=4.1,sec=sys  0  0
+    # Mount all volumes
+    sudo mount -a 
+    ```
+
+3. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
+
+    ```bash
+    sudo vi /etc/fstab
+    # Add the following entries
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 /hana/shared  nfs nfsvers=4.1,sec=sys  0  0
+    # Mount the volume
+    sudo mount -a 
+    ```
+
+4. **[AH]** Verify that the corresponding `/hana/shared/` file systems are mounted on all HANA DB VMs with NFS protocol version **NFSv4.1**.  
+
+    ```bash
+    sudo nfsstat -m
+    # Example from SITE 1, hana-s1-db1
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1
+     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.0.35
+    # Example from SITE 2, hana-s2-db1
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2
+     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.0.35
     ```
 
 ### Prepare the data and log local file systems
@@ -776,7 +841,7 @@ The following steps get you set up for system replication:
 
 ## Create a Pacemaker cluster
 
-To create a basic Pacemaker cluster for this HANA server, follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md). Include all virtual machines, including the majority maker in the cluster.  
+To create a basic Pacemaker cluster, follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md). Include all virtual machines, including the majority maker in the cluster.  
 
 > [!IMPORTANT]
 > Don't set `quorum expected-votes` to 2. This isn't a two-node cluster. Make sure that the cluster property `concurrent-fencing` is enabled, so that node fencing is deserialized.   
@@ -798,28 +863,51 @@ For the next part of this process, you need to create file system resources. Her
     ```
 
 1. **[1]** Create the file system cluster resources for `/hana/shared` in the disabled state. You use `--disabled` because you have to define the location constraints before the mounts are enabled.  
+You chose to deploy /hana/shared' on [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md) or [NFS volume on Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).   
 
-    ```bash
-    # /hana/shared file system for site 1
-    pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
-    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
-    op start interval=0 timeout=120 op stop interval=0 timeout=120
+   - In this example, the '/hana/shared' file system is deployed on Azure NetApp Files and mounted over NFSv4.1. Follow the steps in this section, only if you're using NFS on Azure NetApp Files.
 
-    # /hana/shared file system for site 2	
-    pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
-    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
-    op start interval=0 timeout=120 op stop interval=0 timeout=120
+       ```bash
+       # /hana/shared file system for site 1
+       pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
+       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+       op start interval=0 timeout=120 op stop interval=0 timeout=120
 
-	# clone the /hana/shared file system resources for both site1 and site2
-    pcs resource clone fs_hana_shared_s1 meta clone-node-max=1 interleave=true
-    pcs resource clone fs_hana_shared_s2 meta clone-node-max=1 interleave=true
-    ```
+       # /hana/shared file system for site 2	
+       pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
+       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+       op start interval=0 timeout=120 op stop interval=0 timeout=120
+
+    	# clone the /hana/shared file system resources for both site1 and site2
+        pcs resource clone fs_hana_shared_s1 meta clone-node-max=1 interleave=true
+        pcs resource clone fs_hana_shared_s2 meta clone-node-max=1 interleave=true
+        ```
  
+   The suggested timeouts values allow the cluster resources to withstand protocol-specific pause, related to NFSv4.1 lease renewals on Azure NetApp Files. For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).
+
+   - In this example, the '/hana/shared' file system is deployed on NFS on Azure Files. Follow the steps in this section, only if you're using NFS on Azure Files.  
+
+        ```bash
+        # /hana/shared file system for site 1
+        pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1  directory=/hana/shared \
+        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+        op start interval=0 timeout=120 op stop interval=0 timeout=120
+    
+        # /hana/shared file system for site 2	
+        pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 directory=/hana/shared \
+        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+        op start interval=0 timeout=120 op stop interval=0 timeout=120
+
+    	# clone the /hana/shared file system resources for both site1 and site2
+        pcs resource clone fs_hana_shared_s1 meta clone-node-max=1 interleave=true
+        pcs resource clone fs_hana_shared_s2 meta clone-node-max=1 interleave=true
+        ```
+
    The `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system might remain mounted, despite being inaccessible.  
 
    The `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, then restart the failed resource, and then start all the resources that depend on the failed resource. Not only can this behavior take a long time when an SAP HANA resource depends on the failed resource, but it also can fail altogether. The SAP HANA resource can't stop successfully, if the NFS share holding the HANA binaries is inaccessible.
 
-   The suggested timeouts values allow the cluster resources to withstand protocol-specific pause, related to NFSv4.1 lease renewals. For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf). The timeouts in the above configuration may need to be adapted to the specific SAP setup.
+   The timeouts in the above configurations may need to be adapted to the specific SAP setup.  
   
 
 1. **[1]** Configure and verify the node attributes. All SAP HANA DB nodes on replication site 1 are assigned attribute `S1`, and all SAP HANA DB nodes on replication site 2 are assigned attribute `S2`.  
@@ -847,20 +935,32 @@ For the next part of this process, you need to create file system resources. Her
     pcs resource enable fs_hana_shared_s2
     ```
 
-   When you enable the file system resources, the cluster will mount the `/hana/shared` file systems.
+   When you enable the file system resources, the cluster will mount the `/hana/shared` file systems.  
  
 1. **[AH]** Verify that the Azure NetApp Files volumes are mounted under `/hana/shared`, on all HANA DB VMs on both sites.
 
-    ```bash
-    sudo nfsstat -m
-    # Verify that flag vers is set to 4.1 
-    # Example from SITE 1, hana-s1-db1
-    /hana/shared from 10.23.1.7:/HN1-shared-s1
-     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
-    # Example from SITE 2, hana-s2-db1
-    /hana/shared from 10.23.1.7:/HN1-shared-s2
-     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
-    ```
+   - Example, if using Azure NetApp Files:
+       ```bash
+       sudo nfsstat -m
+       # Verify that flag vers is set to 4.1 
+       # Example from SITE 1, hana-s1-db1
+       /hana/shared from 10.23.1.7:/HN1-shared-s1
+        Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
+       # Example from SITE 2, hana-s2-db1
+       /hana/shared from 10.23.1.7:/HN1-shared-s2
+        Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
+       ```
+   - Example, if using Azure Files NFS: 
+
+       ```bash
+       sudo nfsstat -m
+       # Example from SITE 1, hana-s1-db1
+       sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1
+        Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.0.35
+       # Example from SITE 2, hana-s2-db1
+       sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2
+        Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.0.35
+       ```
 
 1. **[1]** Configure and clone the attribute resources, and configure the constraints, as follows:  
 
@@ -964,7 +1064,7 @@ Now you're ready to create the cluster resources:
       pcs resource clone SAPHanaTopology_HN1_HDB03 meta clone-node-max=1 interleave=true
       ```
 
-      If you're building a RHEL **8.x** cluster, use the following commands:  
+      If you're building a RHEL >= **8.x** cluster, use the following commands:  
       ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopology \
        SID=HN1 InstanceNumber=03 meta clone-node-max=1 interleave=true \
@@ -989,7 +1089,7 @@ Now you're ready to create the cluster resources:
        meta master-max="1" clone-node-max=1 interleave=true
       ```
 
-      If you're building a RHEL **8.x** cluster, use the following commands:  
+      If you're building a RHEL >= **8.x** cluster, use the following commands:  
       ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -1010,7 +1110,8 @@ Now you're ready to create the cluster resources:
       sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
       ```
 
-   1. Create the cluster constraints.  
+   1. 
+   2. Create the cluster constraints.  
       If you're building a RHEL **7.x** cluster, use the following commands:  
       ```bash
       #Start HANA topology, before the HANA instance
@@ -1021,7 +1122,7 @@ Now you're ready to create the cluster resources:
       pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       ```
  
-      If you're building a RHEL **8.x** cluster, use the following commands:  
+      If you're building a RHEL >= **8.x** cluster, use the following commands:  
       ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then SAPHana_HN1_HDB03-clone
@@ -1226,9 +1327,9 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
 
 1. Verify the cluster configuration for a failure scenario, when a node loses access to the NFS share (`/hana/shared`).  
 
-   The SAP HANA resource agents depend on binaries, stored on `/hana/shared`, to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. One test that you can perform is to remount the `/hana/shared` file system as *Read only*. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site.  
+   The SAP HANA resource agents depend on binaries, stored on `/hana/shared`, to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. A test that can be performed, is to create a temporary firewall rule to block access to the `/hana/shared` NFS mounted file system on one of the primary site VMs. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site. 
 
-   **Expected result**: When you remount `/hana/shared` as *Read only*, the monitoring operation that performs a read/write operation on the file system will fail. This is because it isn't able to write to the file system, and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
+   **Expected result**: When you block the access to the `/hana/shared` NFS mounted file system on one of the primary site VMs, the monitoring operation that performs read/write operation on file system, will fail, as it is not able to access the file system and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.    
      
    You can check the state of the cluster resources by running `crm_mon` or `pcs status`. Resource state before starting the test:
       ```bash
@@ -1259,14 +1360,19 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
       #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
       ```
 
-   To simulate failure for `/hana/shared` on one of the primary replication site VMs, run the following command:
-      ```bash
-      # Execute as root 
-      mount -o ro /hana/shared
-      # Or if the preceding command returns an error
-      sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
-      ```
-  
+   To simulate failure for `/hana/shared`:
+
+   * If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
+   * If using NFS on Azure Files, first determine the IP address of the private end point for your storage account.
+
+   Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
+
+   In this example, the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
+
+     ```bash
+     iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP
+     ```
+
    The HANA VM that lost access to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
          
    If the cluster hasn't started on the VM that was restarted, start the cluster by running the following: 

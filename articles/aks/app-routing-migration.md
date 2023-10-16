@@ -4,7 +4,7 @@ description: Learn how to migrate from the HTTP application routing feature to t
 ms.topic: how-to
 ms.author: nickoman
 author: nickomang
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-linux
 ms.date: 08/18/2023
 ---
 

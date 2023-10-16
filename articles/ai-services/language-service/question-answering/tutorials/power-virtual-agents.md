@@ -1,8 +1,7 @@
 ---
 title: "Tutorial: Add your Question Answering project to Power Virtual Agents"
 description: In this tutorial, you will learn how to add your Question Answering project to Power Virtual Agents.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback

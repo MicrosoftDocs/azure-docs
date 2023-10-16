@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 09/15/2023
 author: mrbullwinkle
@@ -20,11 +19,11 @@ This article provides details on the inference REST API endpoints for Azure Open
 
 ## Authentication
 
-Azure OpenAI provides two methods for authentication. you can use  either API Keys or Azure Active Directory.
+Azure OpenAI provides two methods for authentication. you can use  either API Keys or Microsoft Entra ID.
 
 - **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides guidance for how to make calls with this type of authentication.
 
-- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](./how-to/managed-identity.md).
+- **Microsoft Entra authentication**: You can authenticate an API call using a Microsoft Entra token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Microsoft Entra ID](./how-to/managed-identity.md).
 
 ### REST API versioning
 

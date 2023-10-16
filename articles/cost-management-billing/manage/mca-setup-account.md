@@ -182,15 +182,15 @@ Gets the following role after transition:
 - Azure subscription creator on the invoice section created for their respective department
   - Can create Azure subscriptions for their invoice section
 
-An Azure Active Directory (AD) tenant is selected for the new billing account while accepting your Microsoft Customer Agreement. If a tenant doesn't exist for your organization, a new tenant is created. The tenant represents your organization within Azure Active Directory. Global tenant administrators in your organization use the tenant to manage access of applications and data in your organization.
+A Microsoft Entra tenant is selected for the new billing account while accepting your Microsoft Customer Agreement. If a tenant doesn't exist for your organization, a new tenant is created. The tenant represents your organization within Microsoft Entra ID. Global tenant administrators in your organization use the tenant to manage access of applications and data in your organization.
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they get access to the new billing account during the setup. If they're not part of the tenant, they can't access the new billing account unless you invite them.
 
-When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, about enabling guest access see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on.
+When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, about enabling guest access see [control guest access in Microsoft Entra ID](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on.
 
-As mentioned previously, to send invitations, you must first enable guest access on the tenant using Azure Active Directory.
+As mentioned previously, to send invitations, you must first enable guest access on the tenant using Microsoft Entra ID.
 
-:::image type="content" source="./media/microsoft-customer-agreement-setup-account/external-collaboration-settings.png" alt-text="Screenshot showing the External collaboration settings in Azure Active Directory." lightbox="./media/microsoft-customer-agreement-setup-account/external-collaboration-settings.png" :::
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/external-collaboration-settings.png" alt-text="Screenshot showing the External collaboration settings in Microsoft Entra ID." lightbox="./media/microsoft-customer-agreement-setup-account/external-collaboration-settings.png" :::
 
 Otherwise, you see an error message saying:
 

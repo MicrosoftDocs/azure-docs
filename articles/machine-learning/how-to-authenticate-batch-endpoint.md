@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authorization on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
+Batch endpoints support Microsoft Entra authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Microsoft Entra authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Batch endpoints support Azure Active Directory authentication, or `aad_token`. T
 
 ## How authorization works
 
-To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
+To invoke a batch endpoint, the user must present a valid Microsoft Entra token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
 
 > [!div class="checklist"]
 > * Read batch endpoints/deployments.
@@ -91,7 +91,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [REST](#tab/rest)
 
-When working with REST, we recommend invoking batch endpoints using a service principal. However, if you want to test a particular deployment using REST with your own credentials, you can do it by generating an Azure AD token for your account. Follow these steps:
+When working with REST, we recommend invoking batch endpoints using a service principal. However, if you want to test a particular deployment using REST with your own credentials, you can do it by generating a Microsoft Entra token for your account. Follow these steps:
 
 1. The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
 
@@ -130,11 +130,11 @@ When working with REST, we recommend invoking batch endpoints using a service pr
 
 ### Running jobs using a service principal
 
-In this case, we want to execute a batch endpoint using a service principal already created in Azure Active Directory. To complete the authentication, you will have to create a secret to perform the authentication. Follow these steps:
+In this case, we want to execute a batch endpoint using a service principal already created in Microsoft Entra ID. To complete the authentication, you will have to create a secret to perform the authentication. Follow these steps:
 
 # [Azure CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 32: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 32: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
@@ -149,7 +149,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Python](#tab/sdk)
 
-1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 1. To authenticate using a service principal, indicate the tenant ID, client ID and client secret of the service principal using environment variables as demonstrated:
 
     ```python
@@ -178,7 +178,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [REST](#tab/rest)
 
-1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 
 1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine Learning is `https://ml.azure.com`. The request would look as follows:
 

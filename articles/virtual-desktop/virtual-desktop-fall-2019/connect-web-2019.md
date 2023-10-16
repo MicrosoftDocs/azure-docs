@@ -40,7 +40,7 @@ In a browser, navigate to the Azure Virtual Desktop web client at <https://clien
 >If you're using Azure Virtual Desktop with Azure Resource Manager integration, connect to your resources at <https://client.wvd.microsoft.com/arm/webclient/index.html> instead.
 
 >[!NOTE]
->If you've already signed in with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
+>If you've already signed in with a different Microsoft Entra account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
 
 After signing in, you should now see a list of resources. You can launch resources by selecting them like you would a normal app in the **All Resources** tab.
 

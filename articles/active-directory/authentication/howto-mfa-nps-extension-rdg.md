@@ -37,7 +37,7 @@ Typically, organizations use NPS (RADIUS) to simplify and centralize the managem
 
 Organizations can also integrate NPS with Microsoft Entra multifactor authentication to enhance security and provide a high level of compliance. This helps ensure that users establish two-step verification to sign in to the Remote Desktop Gateway. For users to be granted access, they must provide their username/password combination along with information that the user has in their control. This information must be trusted and not easily duplicated, such as a cell phone number, landline number, application on a mobile device, and so on. RDG currently supports phone call and **Approve**/**Deny** push notifications from Microsoft authenticator app methods for 2FA. For more information about supported authentication methods see the section [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
-Prior to the availability of the NPS extension for Azure, customers who wished to implement two-step verification for integrated NPS and Microsoft Entra multifactor authentication environments had to configure and maintain a separate MFA Server in the on-premises environment as documented in [Remote Desktop Gateway and Azure multifactor authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
+Prior to the availability of the NPS extension for Azure, customers who wished to implement two-step verification for integrated NPS and Microsoft Entra multifactor authentication environments had to configure and maintain a separate MFA Server in the on-premises environment as documented in [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
 
 The availability of the NPS extension for Azure now gives organizations the choice to deploy either an on-premises based MFA solution or a cloud-based MFA solution to secure RADIUS client authentication.
 
@@ -65,7 +65,7 @@ This section details the prerequisites necessary before integrating Microsoft En
 * Microsoft Entra multifactor authentication License
 * Windows Server software
 * Network Policy and Access Services (NPS) role
-* Azure Active Directory synched with on-premises Active Directory
+* Microsoft Entra synched with on-premises Active Directory
 * Microsoft Entra GUID ID
 
 ### Remote Desktop Services (RDS) infrastructure
@@ -91,7 +91,9 @@ The NPS role service provides the RADIUS server and client functionality as well
 
 For information on installing the NPS role service Windows Server 2012 or older, see [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
-### Azure Active Directory synched with on-premises Active Directory
+<a name='azure-active-directory-synched-with-on-premises-active-directory'></a>
+
+### Microsoft Entra synched with on-premises Active Directory
 
 To use the NPS extension, on-premises users must be synced with Microsoft Entra ID and enabled for MFA. This section assumes that on-premises users are synched with Microsoft Entra ID using AD Connect. For information on Microsoft Entra Connect, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
 
@@ -154,7 +156,7 @@ Install the NPS extension on a server that has the Network Policy and Access Ser
 
 ### Configure certificates for use with the NPS extension using a PowerShell script
 
-Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
+Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a PowerShell script that configures a self-signed certificate for use with NPS.
 
 The script performs the following actions:
 
@@ -340,7 +342,7 @@ Once you have successfully authenticated using the secondary authentication meth
 
 ### View Event Viewer logs for successful logon events
 
-To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following Windows PowerShell command to query the Windows Terminal Services and Windows Security logs.
+To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following PowerShell command to query the Windows Terminal Services and Windows Security logs.
 
 To query successful sign-in events in the Gateway operational logs _(Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, use the following PowerShell commands:
 
@@ -401,6 +403,6 @@ The image below from Microsoft Message Analyzer shows network traffic filtered o
 
 [How to get Microsoft Entra multifactor authentication](concept-mfa-licensing.md)
 
-[Remote Desktop Gateway and Azure multifactor authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
+[Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
 [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md)

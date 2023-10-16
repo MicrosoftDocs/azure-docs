@@ -2,14 +2,14 @@
 title: Grant access to inbound provisioning API
 description: Learn how to grant access to the inbound provisioning API.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: jfields
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 

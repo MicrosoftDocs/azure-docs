@@ -52,7 +52,7 @@ The following sections give a description of each potential problem and the way 
 
 **Problem:** There aren't enough available licenses for one of the products that's specified in the group. You need to either purchase more licenses for the product or free up unused licenses from other users or groups.
 
-To see how many licenses are available, go to **Microsoft Entra ID** > **Licenses** > **All products**.
+To see how many licenses are available, go to **Identity** > **Billing** > **Licenses** > **All products**.
 
 To see which users and groups are consuming licenses, select a product. Under **Licensed users**, you see a list of all users who have had licenses assigned directly or via one or more groups. Under **Licensed groups**, you see all groups that have that products assigned.
 

@@ -48,7 +48,7 @@ You can connect to Microsoft Graph PowerShell and examine the current ImmutableI
 `Install-Module AzureAD` in an administrative session before you run the following commands:
 
 ```Powershell
-Import-module AzureAD
+Import-Module AzureAD
 Connect-MgGraph
 ```
 
@@ -120,7 +120,7 @@ After you prepare your list of source and destination targets, install a Microso
 
 1. Download and install Microsoft Entra Connect on a server. See, [Custom installation of Microsoft Entra Connect](../hybrid/connect/how-to-connect-install-custom.md).
 2. In the left panel, select **Identifying users**.
-3. On the **Uniquely identifying your users** page, under **Select how users should be identified with Azure AD**, select **Choose a specific attribute**. 
+3. On the **Uniquely identifying your users** page, under **Select how users should be identified with Microsoft Entra ID**, select **Choose a specific attribute**. 
 4. If you haven't modified the Okta default, select **mS-DS-ConsistencyGUID**.
 
    >[!WARNING]
@@ -189,9 +189,9 @@ In this example, Okta stamped the **mail** attribute to the user's account, alth
 
 <a name='install-azure-ad-cloud-sync-agents'></a>
 
-## Install Microsoft Entra cloud sync agents
+## Install Microsoft Entra Connect cloud sync agents
 
-After you prepare your list of source and destination targets, install and configure Microsoft Entra cloud sync agents. See, [Tutorial: Integrate a single forest with a single Microsoft Entra tenant](../hybrid/cloud-sync/tutorial-single-forest.md). 
+After you prepare your list of source and destination targets, install and configure Microsoft Entra Connect cloud sync agents. See, [Tutorial: Integrate a single forest with a single Microsoft Entra tenant](../hybrid/cloud-sync/tutorial-single-forest.md). 
 
    > [!NOTE]
    > If you use a Microsoft Entra Connect server, skip this section.
@@ -226,7 +226,7 @@ After you verify the Microsoft Entra Connect installation, disable Okta provisio
 After you disable Okta provisioning, the Microsoft Entra Connect server can synchronize objects. 
 
    >[!NOTE]
-   >If you use Microsoft Entra cloud sync agents, skip this section.
+   >If you use Microsoft Entra Connect cloud sync agents, skip this section.
 
 1. From the desktop, run the installation wizard from the desktop.
 2. Select **Configure**.
@@ -260,7 +260,7 @@ After you disable Okta provisioning, the Microsoft Entra Connect server can sync
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-After you disable Okta provisioning, the Microsoft Entra cloud sync agent can synchronize objects.
+After you disable Okta provisioning, the Microsoft Entra Connect cloud sync agent can synchronize objects.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect Sync**. 
@@ -274,5 +274,5 @@ After you disable Okta provisioning, the Microsoft Entra cloud sync agent can sy
 ## Next steps
 
 - [Tutorial: Migrate your applications from Okta to Microsoft Entra ID](migrate-applications-from-okta.md)
-- [Tutorial: Migrate Okta federation to Microsoft Entra managed authentication](migrate-okta-federation.md)
+- [Tutorial: Migrate Okta federation to Microsoft Entra ID managed authentication](migrate-okta-federation.md)
 - [Tutorial: Migrate Okta sign-on policies to Microsoft Entra Conditional Access](./migrate-okta-sign-on-policies-conditional-access.md)

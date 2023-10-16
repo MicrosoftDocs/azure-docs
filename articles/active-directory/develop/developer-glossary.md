@@ -52,7 +52,7 @@ For more information, see [Application and Service Principal Objects][AAD-App-SP
 
 In order to allow an application to integrate with and delegate Identity and Access Management functions to Microsoft Entra ID, it must be registered with a Microsoft Entra [tenant](#tenant). When you register your application with Microsoft Entra ID, you're providing an identity configuration for your application, allowing it to integrate with Microsoft Entra ID and use features like:
 
-- Robust management of single sign-on using Microsoft Entra Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
+- Robust management of single sign-on using Microsoft Entra identity management and [OpenID Connect][OpenIDConnect] protocol implementation
 - Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via OAuth 2.0 [authorization server](#authorization-server)
 - [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
 
@@ -238,7 +238,7 @@ An identity used by a software workload like an application, service, script, or
 
 ## Workload identity federation
 
-Allows you to securely access Microsoft Entra ID protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
+Allows you to securely access Microsoft Entra protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
 
 ## Next steps
 

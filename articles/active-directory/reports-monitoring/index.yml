@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra Monitoring and health documentation
+title: Microsoft Entra monitoring and health documentation
 summary: Learn how to access and use logs, reports, monitoring integrations, workbooks, and recommendations in Microsoft Entra ID.
 
 metadata:
-  title: Microsoft Entra Monitoring and health documentation
+  title: Microsoft Entra monitoring and health documentation
   description: Learn how to use the logs, reports, and monitoring tools in Microsoft Entra ID.
   services: active-directory
   ms.service: active-directory

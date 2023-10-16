@@ -86,5 +86,5 @@ Microsoft Entra join can be deployed by using any of the following methods:
 - [Plan your Microsoft Entra join implementation](device-join-plan.md)
 - [Co-management using Configuration Manager and Microsoft Intune](/mem/configmgr/comanage/overview)
 - [How to manage the local administrators group on Microsoft Entra joined devices](assign-local-admin.md)
-- [Manage device identities using the Azure portal](manage-device-identities.md)
+- [Manage device identities](manage-device-identities.md)
 - [Manage stale devices in Microsoft Entra ID](manage-stale-devices.md)

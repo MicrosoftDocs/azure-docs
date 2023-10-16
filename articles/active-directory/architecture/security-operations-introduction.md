@@ -101,7 +101,7 @@ The log files you use for investigation and monitoring are:
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-From the Azure portal, you can view the Microsoft Entra audit logs. Download logs as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra ID logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs. Download logs as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** - Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
@@ -109,7 +109,7 @@ From the Azure portal, you can view the Microsoft Entra audit logs. Download log
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** - Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Microsoft Entra ID logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra ID logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Microsoft Entra logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** - Enables you to discover and manage apps, govern across apps and resources, and check the compliance of your cloud apps.
 
@@ -159,7 +159,7 @@ As part of an Azure hybrid environment, the following items should be baselined 
 
 * **Password writeback Agent** - Password writeback is a feature enabled with [Microsoft Entra Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. For more information on this feature, see [How does self-service password reset writeback work in Microsoft Entra ID](../authentication/concept-sspr-writeback.md).
 
-* **Microsoft Entra application proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Azure ADF Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
+* **Microsoft Entra application proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Microsoft Entra Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
 
 ## Components of cloud-based authentication
 

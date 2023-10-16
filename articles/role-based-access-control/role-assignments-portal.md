@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
-If you need to assign administrator roles in Azure Active Directory, see [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md).
+If you need to assign administrator roles in Microsoft Entra ID, see [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md).
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 ## Step 4: Select who needs access
 
-1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
+1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Microsoft Entra users, groups, or service principals (applications).
 
    ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 

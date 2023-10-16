@@ -4,20 +4,14 @@ description: This article tells what Azure Update Manager in Azure is and the sy
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/21/2023
+ms.date: 09/25/2023
 ms.topic: overview
 ---
 
 # About Azure Update Manager
 
 > [!Important]
-> - Azure Update Manager is the v2 version of Automation Update Management and the future of update management in Azure.
-> - [Automation Update Management](../automation/update-management/overview.md) relies on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also called MMA agent), which is on a deprecation path and won't be supported after **August 31, 2024**.  
-> - Update Manager is a native service in Azure and doesn't rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or the [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
-> - Follow [guidance](guidance-migration-automation-update-management-azure-update-manager.md) to migrate machines and schedules from Automation Update Management to Azure Update Manager.
-> - If you are using Automation Update Management, we recommend that you continue to use the Log Analytics agent and *not* migrate to the Azure Monitor agent until machines and schedules are migrated to Azure Update Manager.
-> - The Log Analytics agent wouldn't be deprecated before moving all Automation Update Management customers to Update Manager.
-> - Update Manager doesn't store any customer data.
+> Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md) to move your machines and schedules from Automation Update Management to Azure Update Manager.
 
 Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on other cloud platforms from a single dashboard. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window.
 

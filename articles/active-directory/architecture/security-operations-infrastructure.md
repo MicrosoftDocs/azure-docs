@@ -44,7 +44,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-From the Azure portal, you can view the Microsoft Entra audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra ID logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
@@ -52,7 +52,7 @@ From the Azure portal, you can view the Microsoft Entra audit logs and download 
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** – Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Microsoft Entra ID logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
@@ -130,7 +130,7 @@ Organizations might need to monitor for and alert on the creation of new Microso
 
 Microsoft Entra ID and Microsoft Entra application proxy give remote users a single sign-on (SSO) experience. Users securely connect to on-premises apps without a virtual private network (VPN) or dual-homed servers and firewall rules. If your Microsoft Entra application proxy connector server is compromised, attackers could alter the SSO experience or change access to published applications.
 
-To configure monitoring for Application Proxy, see [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). The data file that logs information can be found in Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin. For a complete reference guide to audit activity, see [Microsoft Entra ID audit activity reference](../reports-monitoring/reference-audit-activities.md). Specific things to monitor:
+To configure monitoring for Application Proxy, see [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). The data file that logs information can be found in Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin. For a complete reference guide to audit activity, see [Microsoft Entra audit activity reference](../reports-monitoring/reference-audit-activities.md). Specific things to monitor:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
@@ -142,11 +142,11 @@ To configure monitoring for Application Proxy, see [Troubleshoot Application Pro
 
 For multifactor authentication (MFA) to be effective, you also need to block legacy authentication. You then need to monitor your environment and alert on any use of legacy authentication. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI can’t enforce MFA. This makes these protocols the preferred entry points for attackers. For more information on tools that you can use to block legacy authentication, see [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302).
 
-Legacy authentication is captured in the Microsoft Entra Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Microsoft Entra ID reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
+Legacy authentication is captured in the Microsoft Entra sign-in log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Microsoft Entra reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Legacy authentications|High | Microsoft Entra Sign-ins log| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp: SMTP<br>ClientApp : ActiveSync go to EXO<br>Other Clients = SharePoint and EWS| In federated domain environments, failed authentications aren't recorded and don't appear in the log. |
+| Legacy authentications|High | Microsoft Entra sign-in log| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp: SMTP<br>ClientApp : ActiveSync go to EXO<br>Other Clients = SharePoint and EWS| In federated domain environments, failed authentications aren't recorded and don't appear in the log. |
 
 <a name='azure-ad-connect'></a>
 
@@ -170,7 +170,7 @@ Synchronizing identity between your on-premises environment and your cloud envir
 
 Logging of Microsoft Entra Connect operations occurs in different ways:
 
-* The Microsoft Entra Connect wizard logs data to \ProgramData\AADConnect . Each time the wizard is invoked, a timestamped trace log file is created. The trace log can be imported into Sentinel or other 3<sup data-htmlnode="">rd</sup> party security information and event management (SIEM) tools for analysis.
+* The Microsoft Entra Connect wizard logs data to `\ProgramData\AADConnect`. Each time the wizard is invoked, a timestamped trace log file is created. The trace log can be imported into Sentinel or other 3<sup data-htmlnode="">rd</sup> party security information and event management (SIEM) tools for analysis.
 
 * Some operations initiate a PowerShell script to capture logging information. To collect this data, you must make sure script block logging in enabled.
 
@@ -230,7 +230,7 @@ Monitoring single sign-on and Kerberos activity can help you detect general cred
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Errors associated with SSO and Kerberos validation failures|Medium | Microsoft Entra Sign-ins log| | Single sign-on list of error codes at [Single sign-on](../hybrid/connect/tshoot-connect-sso.md). |
+| Errors associated with SSO and Kerberos validation failures|Medium | Microsoft Entra sign-in log| | Single sign-on list of error codes at [Single sign-on](../hybrid/connect/tshoot-connect-sso.md). |
 | Query for troubleshooting errors|Medium | PowerShell| See query following table. check in each forest with SSO enabled.| Check in each forest with SSO enabled. |
 | Kerberos-related events|High | Microsoft Defender for Identity monitoring| | Review guidance available at [Microsoft Defender for Identity Lateral Movement Paths (LMPs)](/defender-for-identity/use-case-lateral-movement-path) |
 
@@ -266,10 +266,11 @@ The DC agent Admin log is the primary source of information for how the software
 
 * Microsoft Entra audit log, Category Application Proxy
 
-Complete reference for Microsoft Entra ID audit activities is available at [Microsoft Entra ID audit activity reference](../reports-monitoring/reference-audit-activities.md).
+Complete reference for Microsoft Entra audit activities is available at [Microsoft Entra audit activity reference](../reports-monitoring/reference-audit-activities.md).
 
 ## Conditional Access
-In Microsoft Entra ID, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure your Conditional Access policies work as expected to ensure that your resources are protected. Monitoring and alerting on changes to the Conditional Access service ensures policies defined by your organization for access to data are enforced. Microsoft Entra ID logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
+
+In Microsoft Entra ID, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure your Conditional Access policies work as expected to ensure that your resources are protected. Monitoring and alerting on changes to the Conditional Access service ensures policies defined by your organization for access to data are enforced. Microsoft Entra logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
 
 **Workbook Links**
 

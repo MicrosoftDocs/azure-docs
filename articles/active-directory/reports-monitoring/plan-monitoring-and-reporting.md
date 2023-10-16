@@ -3,20 +3,19 @@
 title: Plan reports & monitoring deployment
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
-author: gargi-sinha
-manager: martinco
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/20/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: plenzke 
 # Customer intent: For a Microsoft Entra administrator to monitor logs and report on access 
-ms.collection: M365-identity-device-management
 ---
 
-# Microsoft Entra Monitoring & health deployment dependencies
+# Microsoft Entra monitoring and health deployment dependencies
 
 Your Microsoft Entra reporting and monitoring solution depends on legal, security, operational requirements, and your environment's processes. Use the following sections to learn about design options and deployment strategy.
 
@@ -47,7 +46,7 @@ You'll need a Microsoft Entra ID P1 or P2 license to access the Microsoft Entra 
 
 For detailed feature and licensing information, see the [Microsoft Entra pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-To deploy Microsoft Entra Monitoring & health you'll need a user who is a Global Administrator or Security Administrator for the Microsoft Entra tenant.
+To deploy Microsoft Entra monitoring and health, you'll need a user who is a Global Administrator or Security Administrator for the Microsoft Entra tenant.
 
 * [Azure Monitor data platform](../../azure-monitor/data-platform.md)
 * [Azure Monitor naming and terminology changes](../../azure-monitor/overview.md)
@@ -58,7 +57,7 @@ To deploy Microsoft Entra Monitoring & health you'll need a user who is a Global
 
 <a name='plan-and-deploy-an-azure-ad-reporting-and-monitoring-deployment-project'></a>
 
-## Plan and deploy a Microsoft Entra Monitoring & health deployment project
+## Plan and deploy a Microsoft Entra monitoring and health deployment project
 
 Reporting and monitoring are used to meet your business requirements, gain insights into usage patterns, and increase your organization's security posture. In this project, you'll define the audiences that will consume and monitor reports, and define your Microsoft Entra monitoring architecture.
 
@@ -106,7 +105,7 @@ To better prioritize the use cases and solutions, organize the options by "requi
 
 With Microsoft Entra monitoring, you can route Microsoft Entra activity logs and retain them for long-term reporting and analysis to gain environment insights, and integrate it with SIEM tools. Use the following decision flow chart to help select an architecture.
 
-   ![Decision matrix for business-need architecture.](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+   ![Decision matrix for business-need architecture.](media/plan-monitoring-and-reporting/deploy-reporting-flow-diagram.png)
 
 #### Archive logs in a storage account
 
