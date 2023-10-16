@@ -51,8 +51,8 @@ For more information see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.
 ![What is Microsoft Entra Connect](../media/whatis-hybrid-identity/arch.png)
 
 > [!IMPORTANT]
-> Microsoft Entra Connect Health for Sync requires Microsoft Entra Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
-> AADConnect V1 is retired on August 31, 2022. Microsoft Entra Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
+> Microsoft Entra Connect Health for Sync requires Microsoft Entra Connect Sync V2. If you are still using Microsoft Entra Connect V1 you must upgrade to the latest version. 
+> Microsoft Entra Connect V1 is retired on August 31, 2022. Microsoft Entra Connect Health for Sync will no longer work with Microsoft Entra Connect V1 in December 2022.
 
 
 
@@ -75,7 +75,7 @@ Integrating your on-premises directories with Microsoft Entra ID makes your user
 
 * Users can use a single identity to access on-premises applications and cloud services such as Microsoft 365.
 * Single tool to provide an easy deployment experience for synchronization and sign-in.
-* Provides the newest capabilities for your scenarios. Microsoft Entra Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md).
+* Provides the newest capabilities for your scenarios. Microsoft Entra Connect replaces older versions of identity integration tools such as DirSync and Microsoft Entra Sync. For more information, see [Hybrid Identity directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 <a name='why-use-azure-ad-connect-health'></a>
 
