@@ -170,4 +170,4 @@ For more information, see [Custom delivery properties on namespaces](namespace-d
 
 ## Next steps
 
-See the [Event handlers on Event Grid namespaces](namespace-event-handlers.md) article for a list of supported event handlers.
+- [Event Grid namespaces push delivery](namespace-push-delivery-overview.md).

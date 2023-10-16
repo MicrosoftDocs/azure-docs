@@ -1,12 +1,12 @@
 ---
 title: Azure Event Grid namespaces - Set custom headers on delivered events
-description: Describes how you can set custom headers (or delivery properties) on delivered events. 
+description: Describes how you can set custom headers (or delivery properties) on namespace delivered events. 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 10/10/2023
 ---
 
-# Delivery properties on namespace subscriptions
+# Delivery properties on namespace topic subscriptions
 
 Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes.
 

@@ -72,7 +72,7 @@ A topic holds events that have been published to Event Grid. You typically use a
 
 Namespace topics are topics that are created within an Event Grid [namespace](#namespaces). The event source supported by namespace topic is your own application. When designing your application, you have to decide how many topics to create. For relatively large solutions, create a namespace topic for each category of related events. For example, consider an application that manages user accounts and another application about customer orders. It's unlikely that all event subscribers want events from both applications. To segregate concerns, create two namespace topics: one for each application. Let event handlers subscribe to the topic according to their requirements. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
-Namespace topics support [pull delivery](pull-delivery-overview.md#pull-delivery-1). See [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if pull delivery is the right approach given your requirements.
+Namespace topics support [pull delivery](pull-delivery-overview.md). See [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if pull delivery is the right approach given your requirements.
 
 ## Event subscriptions
 

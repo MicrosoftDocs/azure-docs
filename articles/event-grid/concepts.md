@@ -22,9 +22,9 @@ Event Grid uses CNCF’s open standard [CloudEvents 1.0](https://github.com/clou
 
 The following table shows the current support for CloudEvents specification:
 
-| CloudEvents content mode   | Supported?             | 
+| CloudEvents content mode   | Supported?             |
 |--------------|-----------|
-| [Structured JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode) | Yes      |        
+| [Structured JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode) | Yes      |
 |[Binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode) | No|
 
 The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 64-KB increments. For the properties that are sent in an event, see [CloudEvents schema](cloud-event-schema.md).

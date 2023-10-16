@@ -15,13 +15,14 @@ This article describes the different ways to filter which events are sent to you
 * Advanced fields and operators
 
 ## Azure Resource Manager template
+
 The examples shown in this article are JSON snippets for defining filters in Azure Resource Manager (ARM) templates. For an example of a complete ARM template and deploying an ARM template, see [Quickstart: Route Blob storage events to web endpoint by using an ARM template](blob-event-quickstart-template.md). Here's some more sections around the `filter` section from the example in the quickstart. The ARM template defines the following resources.
 
 - Azure storage account
 - System topic for the storage account
-- Event subscription for the system topic. You'll see the `filter` subsection in the event subscription section. 
+- Event subscription for the system topic. You'll see the `filter` subsection in the event subscription section.
 
-In the following example, the event subscription filters for `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted` events. 
+In the following example, the event subscription filters for `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted` events.
 
 ```json
 {

@@ -84,7 +84,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 
 ## Create an event subscription
 
-Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md#pull-delivery-1). For more information on all configuration options,see the latest Event Grid control plane [REST API](/rest/api/eventgrid).
+Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md). For more information on all configuration options,see the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
 1. Declare a variable to hold the name for an event subscription to your namespace topic. Specify a name for the event subscription by replacing `<your-event-subscription-name>` with a value you like.
 
