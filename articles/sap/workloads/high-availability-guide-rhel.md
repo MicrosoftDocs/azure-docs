@@ -77,7 +77,7 @@ To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS i
 
 ![Diagram that shows an overview of SAP NetWeaver high availability.](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Azure Load Balancer Standard](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The configuration here shows a load balancer with:
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The configuration here shows a load balancer with:
 
 * Front-end IP address 10.0.0.7 for ASCS
 * Front-end IP address 10.0.0.8 for ERS
@@ -196,7 +196,7 @@ The following items are prefixed with:
    sudo chattr +i /usr/sap/NW1/ERS02
    ```
 
-1. **[A]** Install the GlusterFS client and other requirements.
+1. **[A]** Install the GlusterFS client and other required packages.
 
    ```bash
    sudo yum -y install glusterfs-fuse resource-agents resource-agents-sap
@@ -507,10 +507,11 @@ The following items are prefixed with:
    sudo pcs node unstandby nw1-cl-0
    sudo pcs property set maintenance-mode=false
    ```
+   
+   > [!NOTE]
+   > If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
 
-   If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
-
-   >  [!NOTE]
+   > [!NOTE]
    > The timeouts in the preceding configuration are only examples and might need to be adapted to the specific SAP setup.
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -858,7 +859,7 @@ Follow these steps to install an SAP application server.
 
    When cluster nodes can't communicate with each other, there's a risk of a split-brain scenario. In such situations, cluster nodes try to simultaneously fence each other, which results in a fence race. To avoid this situation, we recommend that you set a [priority-fencing-delay](https://access.redhat.com/solutions/5110521) property in a cluster configuration (applicable only for [pacemaker-2.0.4-6.el8](https://access.redhat.com/errata/RHEA-2020:4804) or higher).
 
-   By enabling the `priority-fencing-delay` property, the cluster introduces another delay in the fencing action, specifically on the node hosting ASCS resource, allowing the node to win the fence race.
+   By enabling the `priority-fencing-delay` property, the cluster introduces a delay in the fencing action, specifically on the node hosting ASCS resource, allowing the node to win the fence race.
 
    Run the following command to delete the firewall rule.
 
