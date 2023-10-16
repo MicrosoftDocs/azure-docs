@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Entra Connect cloud sync directory extensions and custom attribute mapping'
+title: 'Microsoft Entra Cloud Sync directory extensions and custom attribute mapping'
 description: This topic provides information on custom attribute mapping in cloud sync.
 services: active-directory
 author: billmath
@@ -14,11 +14,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-
-
-# Cloud Sync directory extensions and custom attribute mapping
+# Cloud sync directory extensions and custom attribute mapping
 
 ## Directory extensions
+
 You can use directory extensions to extend the schema in Microsoft Entra ID with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. 
 
 For additional information on directory extensions see [Using directory extension attributes in claims](../../develop/schema-extensions.md)
@@ -30,12 +29,12 @@ For additional information on directory extensions see [Using directory extensio
  
 <a name='syncing-directory-extensions-for-azure-active-directory-connect-cloud-sync-'></a>
 
-## Syncing directory extensions for Microsoft Entra Connect cloud sync 
+## Syncing directory extensions for Microsoft Entra Cloud Sync 
 
 You can use [directory extensions](/graph/api/resources/extensionproperty?view=graph-rest-1.0&preserve-view=true) to extend the synchronization schema directory definition in Microsoft Entra ID with your own attributes. 
 
 >[!Important]
-> Directory extension for Microsoft Entra Connect cloud sync is only supported for applications with the identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp” and the [Tenant Schema Extension App](../connect/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard) created by Microsoft Entra Connect 
+> Directory extension for Microsoft Entra Cloud Sync is only supported for applications with the identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp” and the [Tenant Schema Extension App](../connect/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard) created by Microsoft Entra Connect 
 
 ### Create application and service principal for directory extension 
 
@@ -124,7 +123,7 @@ You need to create an [application](/graph/api/resources/application?view=graph-
 |-----|-----|-----|
 |MS Graph|Create extensions using GRAPH|[Create extensionProperty](/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)|
 |PowerShell|Create extensions using PowerShell|[New-AzureADApplicationExtensionProperty](/powershell/module/azuread/new-azureadapplicationextensionproperty?view=azureadps-2.0&preserve-view=true)| 
-Using Cloud Sync and Microsoft Entra Connect|Create extensions using Microsoft Entra Connect|[Create an extension attribute using Microsoft Entra Connect](../../app-provisioning/user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-using-azure-ad-connect)|
+Using cloud sync and Microsoft Entra Connect|Create extensions using Microsoft Entra Connect|[Create an extension attribute using Microsoft Entra Connect](../../app-provisioning/user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-using-azure-ad-connect)|
 |Customizing attributes to sync|Information on customizing which attributes to synch|[Customize which attributes to synchronize with Microsoft Entra ID](../connect/how-to-connect-sync-feature-directory-extensions.md#customize-which-attributes-to-synchronize-with-azure-ad)
 
 ## Use attribute mapping to map Directory Extensions
@@ -141,4 +140,4 @@ For more information on extension attributes, see [Syncing extension attributes 
 
 - [Understand the Microsoft Entra schema and custom expressions](concept-attributes.md)
 - [Microsoft Entra Connect Sync: Directory extensions](../connect/how-to-connect-sync-feature-directory-extensions.md)
-- [Attribute mapping in Microsoft Entra Connect cloud sync](how-to-attribute-mapping.md)
+- [Attribute mapping in Microsoft Entra Cloud Sync](how-to-attribute-mapping.md)
