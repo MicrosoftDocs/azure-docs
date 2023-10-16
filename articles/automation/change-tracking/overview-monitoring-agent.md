@@ -17,6 +17,9 @@ ms.topic: conceptual
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
+> [!NOTE]
+> The [Current GA version](../../defender-for-cloud/file-integrity-monitoring-enable-log-analytics.md) of File Integrity Monitoring based on Log Analytics agent, will be deprecated in August 2024, and a **new version will be provided over MDE soon**.  The **[FIM Public Preview](../../defender-for-cloud/file-integrity-monitoring-enable-ama.md) based on Azure Monitor Agent (AMA), will be deprecated when the alternative is provided over MDE**. Hence, the FIM with AMA Public Preview version is not planned for GA. Read the announcement [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
+
 ## Key benefits
 
 - **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent (Preview)](../../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
