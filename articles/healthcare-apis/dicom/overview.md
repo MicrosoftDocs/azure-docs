@@ -10,7 +10,7 @@ ms.author: mmitrik
 
 # What is the DICOM service?
 
-The DICOM &reg;service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
+The DICOM&reg; service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
 
 The DICOM service offers many benefits, including:
 
