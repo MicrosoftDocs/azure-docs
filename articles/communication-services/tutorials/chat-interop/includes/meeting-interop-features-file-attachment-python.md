@@ -69,16 +69,14 @@ That's it all we need for handling file attachments. Next let's run the code.
 
 ## Run the code 
 
+
+<TODO>
+    
 Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
-```
 
-or
-
-```console
-npm start
+<TODO>
 ```
 
 ## File attachment demo
