@@ -43,7 +43,7 @@ ms.custom: template-how-to
 SIM policies can define the default QoS settings for services that use the policy.  
 
     > [!IMPORTANT]
-    >  With the exception of **Maximum Bit Rate**, QoS settings are overridden by [service](configure-service-azure-portal.md#configure-basic-settings-for-the-service) or [data flow policy](configure-service-azure-portal.md#configure-data-flow-policy-rules-and-data-flow-templates) QoS settings. In addition, Data flow policy rules override service policy rules.
+    >  With the exception of **Maximum Bit Rate**, QoS settings are overridden by [service](configure-service-azure-portal.md#configure-basic-settings-for-the-service) or [data flow policy](configure-service-azure-portal.md#configure-data-flow-policy-rules-and-data-flow-templates) QoS settings. In addition, data flow policy rules override service policy rules.
 
 1. Select **Add**.
 
