@@ -210,6 +210,8 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ### [Azure CLI](#tab/Azure-CLI)
 
+Use the following command to delete the entire resource group, including the newly created service:
+
 ```azurecli
 az group delete --name ${RESOURCE_GROUP}
 ```

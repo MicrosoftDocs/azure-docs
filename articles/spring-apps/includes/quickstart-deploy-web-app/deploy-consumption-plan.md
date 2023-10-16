@@ -70,6 +70,8 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
+Use the following steps to create an Azure Spring Apps instance and an Azure Database for PostgreSQL instance:
+
 ### 3.1. Sign in to the Azure portal
 
 Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -142,6 +144,8 @@ Use the following steps to connect your service instances:
 1. Select **Save** to save the connection properties.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+Use the following steps to create an Azure Spring Apps instance and an Azure Database for PostgreSQL instance:
 
 1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already signed in.
 
