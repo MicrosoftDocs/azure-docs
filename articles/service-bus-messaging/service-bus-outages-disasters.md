@@ -44,7 +44,7 @@ If the application doesn't require permanent sender-to-receiver communication, t
 ### Active replication
 Active replication uses entities in both namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
 
-A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [BrokeredMessage.MessageId][BrokeredMessage.MessageId] or [BrokeredMessage.Label][BrokeredMessage.Label] properties, or a custom property to tag the message. The receiver must maintain a list of messages that it has already received.
+A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [ServiceBusMessage.MessageId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.messageid) or [ServiceBusMessage.Subject](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.subject) properties, or a custom property to tag the message. The receiver must maintain a list of messages that it has already received.
 
 The [geo-replication with Service Bus standard tier][Geo-replication with Service Bus Standard Tier] sample demonstrates active replication of messaging entities.
 
@@ -63,7 +63,7 @@ When using passive replication, in the following scenarios, messages can be lost
 * **Message delay or loss**: Assume that the sender successfully sent a message m1 to the primary queue, and then the queue becomes unavailable before the receiver receives m1. The sender sends a subsequent message m2 to the secondary queue. If the primary queue is temporarily unavailable, the receiver receives m1 after the queue becomes available again. In case of a disaster, the receiver may never receive m1.
 * **Duplicate reception**: Assume that the sender sends a message m to the primary queue. Service Bus successfully processes m but fails to send a response. After the send operation times out, the sender sends an identical copy of m to the secondary queue. If the receiver is able to receive the first copy of m before the primary queue becomes unavailable, the receiver receives both copies of m at approximately the same time. If the receiver isn't able to receive the first copy of m before the primary queue becomes unavailable, the receiver initially receives only the second copy of m, but then receives a second copy of m when the primary queue becomes available.
 
-The [Geo-replication with Service Bus standard Tier][Geo-replication with Service Bus Standard Tier] sample demonstrates passive replication of messaging entities.
+The [Azure Messaging Replication Tasks with .NET Core][Azure Messaging Replication Tasks with .NET Core] sample demonstrates replication of messages between namespaces.
 
 ## Next steps
 To learn more about disaster recovery, see these articles:
@@ -72,12 +72,6 @@ To learn more about disaster recovery, see these articles:
 * [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
 * [Designing resilient applications for Azure][Azure resiliency technical guidance]
 
-[Service Bus Authentication]: service-bus-authentication-and-authorization.md
-[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-[BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-[Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
+[Azure Messaging Replication Tasks with .NET Core]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet
 [Azure SQL Database Business Continuity]:/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 [Azure resiliency technical guidance]: /azure/architecture/framework/resiliency/app-design
-
-[1]: ./media/service-bus-outages-disasters/az.png

@@ -49,8 +49,6 @@ items:
         href: tutorial.md
       - name: Deployment DevOps hands-on lab
         href: devops-tutorial.md
-      - name: Manual infrastructure deployment
-        href: manual-deployment.md
       - name: Sample deployment configurations
         href: new-vs-existing.md
     - name: SAP Bill of Materials
