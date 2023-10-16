@@ -6,7 +6,7 @@ metadata:
   ms.author: bettylew
   ms.service: operator-insights
   ms.topic: faq
-  ms.date: 09/15/2023
+  ms.date: 10/16/2023
 title: Azure Operator Insights frequently asked questions
 summary: |
     If you can't find answers to your questions and still need help, contact Microsoft Support.  
@@ -42,4 +42,4 @@ sections:
           - Canada Central 
           - West Central US
 
-          We will be enabling additional regions. If your region is not in the list, please contact your local Microsoft Support.
+          We will be enabling other regions. If your region is not in the list, contact your local Microsoft Support.
