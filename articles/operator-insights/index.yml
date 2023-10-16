@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Azure Operator Insights documentation
+summary: Learn how to use Azure Operator Insights to analyze network data from multiple sources.
+
+metadata:
+  title: Azure Operator Insights documentation
+  description: Learn about Azure Operator Insights for analyzing network data from multiple sources.
+  ms.service: operator-insights
+  ms.topic: landing-page
+  author: bettylew
+  ms.author: bettylew
+  ms.date: 10/16/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Operator Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Insights?
+            url: overview.md
+          - text: Azure Operator Insights FAQ 
+            url: operator-insights-faq.yml
+
+  # Card 
+  - title: Get started with Azure Operator Insights
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure Operator Insights Data Product
+            url: data-product-create.md
+

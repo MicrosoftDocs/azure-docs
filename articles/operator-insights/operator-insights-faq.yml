@@ -1,0 +1,44 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Operator Insights frequently asked questions
+  description: Get answers to frequently asked questions (FAQs) for Azure Operator Insights.
+  author: bettylew
+  ms.author: bettylew
+  ms.service: operator-insights
+  ms.topic: faq
+  ms.date: 09/15/2023
+title: Azure Operator Insights frequently asked questions
+summary: |
+    If you can't find answers to your questions and still need help, contact Support.  
+sections:
+  - name: Data and Privacy
+    questions:
+      - question: Where does Azure Operator Insights store customer data?
+        answer: |
+          Azure Operator Insights doesn't move or store customer data out of the region it's deployed in.
+
+          
+  - name: Getting access to Azure Operator Insights
+    questions:
+      - question: |
+          How do I get access to Azure Operator Insights? 
+        answer: |
+          Access is currently limited. For now, we're working with customers with an existing partnership with Microsoft and particular use cases. In addition to applying for initial access, 
+          all requests for Azure Operator Insights are required to go through a use case review. [Apply here](https://aka.ms/AAn1mi6) for initial access.         
+      - question: |
+          After I apply for access, how long will I have to wait to get approved?
+        answer: |
+          We don't currently provide a timeline for access approval.
+      - question: |
+          In which Azure regions can I deploy Azure Operator Insights Data Products?
+        answer: |
+          The following regions are currently available: 
+          - South Central US
+          - UK South
+          - West Europe
+          - East US 
+          - Australia East 
+          - North Europe 
+          - Canada Central 
+          - West Central US 
+          We will be enabling additional regions. If your region is not in the list, please contact your local Microsoft Support.

@@ -1,0 +1,21 @@
+- name: Azure Operator Insights documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Operator Service Insights
+    href: overview.md
+  - name: Azure Operator Insights FAQ
+    href: operator-insights-faq.yml
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Azure Operator Insights Data Product
+    href: data-product-create.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Managed identity
+    href: managed-identity.md
+  - name: Data quality and data monitoring
+    href: concept-data-quality-monitoring.md
