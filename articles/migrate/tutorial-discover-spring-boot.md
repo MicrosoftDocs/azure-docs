@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/28/2023
-ms.custom: mvc, subject-rbac-steps, engagement-fy23
+ms.custom: mvc, subject-rbac-steps, engagement-fy23, references_regions
 ---
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
@@ -76,7 +76,7 @@ After you have performed server discovery and software inventory using the Azure
     > [!Note]
     > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project.
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/choose-cluster-inline.png" alt-text="Screenshot displays Choose cluster option in the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/choose-cluster-expanded.png":::
+    :::image type="content" source="./media/tutorial-discover-spring-boot/choose-cluster-inline.png" alt-text="Screenshot displays Choose cluster option in the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/choose-cluster-expanded.png":::
 
 2.	In Step 3: Provide appliance details for Azure Migrate, the appliance name is prepopulated, but you can choose to provide your own friendly name to the appliance.
 
@@ -159,28 +159,28 @@ After successfully setting up the appliance using the installer script, you need
 1.	Go to the Azure Migrate project where you started onboarding the Kubernetes-based appliance.
 2.	On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/pending-action-inline.png" alt-text="Screenshot displays the Pending action option." lightbox="./media/tutorial-discover-spring-boot/pending-action-expanded.png":::
+    :::image type="content" source="./media/tutorial-discover-spring-boot/pending-action-inline.png" alt-text="Screenshot displays the Pending action option." lightbox="./media/tutorial-discover-spring-boot/pending-action-expanded.png":::
 
 3.	In **Overview** > **Manage** > **Appliances**, a filtered list of appliances appears with actions pending.
 4.	Find the Kubernetes-based appliance that you have set up and select **Credentials unavailable** status to configure the appliance.
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/appliances-inline.png" alt-text="Screenshot displays the details of the appliance." lightbox="./media/tutorial-discover-spring-boot/appliances-expanded.png":::
+    :::image type="content" source="./media/tutorial-discover-spring-boot/appliances-inline.png" alt-text="Screenshot displays the details of the appliance." lightbox="./media/tutorial-discover-spring-boot/appliances-expanded.png":::
 
 5.	In the **Manage credentials** page, add the credentials to initiate discovery of the Spring Boot applications running on your servers.
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/manage-appliances-inline.png" alt-text="Screenshot displays the Manage credentials option." lightbox="./media/tutorial-discover-spring-boot/manage-appliances-expanded.png":::
+    :::image type="content" source="./media/tutorial-discover-spring-boot/manage-appliances-inline.png" alt-text="Screenshot displays the Manage credentials option." lightbox="./media/tutorial-discover-spring-boot/manage-appliances-expanded.png":::
 
 6.	Select **Add credentials**, choose a credential type from Linux (non-domain) or Domain credentials, provide a friendly name, username, and password. Select **Save**.
 
-   > [!Note]
-   > - The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
-  > - After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
+    > [!Note]
+    > - The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
+    > - After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
 
 7.	After adding a credential, you need to refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can select the status to review the error encountered and take the recommended action.
 After the credentials have been successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
 
-> [!Note]
-> You can add/update credentials any time by navigating to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage** > **Appliances** page, selecting **Manage credentials** from the options available in the Kubernetes-based appliance.
+    > [!Note]
+    > You can add/update credentials any time by navigating to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage** > **Appliances** page, selecting **Manage credentials** from the options available in the Kubernetes-based appliance.
 
 ## Overview of Discovery results
 The **Discovered servers** screen provides the following information:
