@@ -14,6 +14,8 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 # How to use Azure Image Builder triggers to set up an automatic image build
 You can use triggers in Azure Image Builder (AIB) to set up automatic image builds when certain criteria are met in your build pipeline.
 
+> [!IMPORTANT]
+> Please be informed that there exists a restriction on the number of triggers allowable per region, specifically 100 per region per subscription.
 
 > [!NOTE]
 > Currently, we only support setting a trigger for a new source image, but we do expect to support different kinds of triggers in the future.
