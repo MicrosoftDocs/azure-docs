@@ -1,5 +1,5 @@
 ---
-title: Provide Correct Parameters to Service Connector
+title: Provide correct parameters to Service Connector
 description: Learn how to pass correct parameters to Service Connector. 
 author: houk-ms
 ms.service: service-connector
@@ -7,31 +7,31 @@ ms.topic: how-to
 ms.date: 09/11/2023
 ms.author: honc
 ---
-# Provide Correct Parameters to Service Connector
+# Provide correct parameters to Service Connector
 
-If you're using a non-UI tool to manage connections, it's crucial to understand how to pass correct parameters to Service Connector. In this guide, you gain insights into the fundamental properties and their proper value formats.
+If you're using a CLI tool to manage connections, it's crucial to understand how to pass correct parameters to Service Connector. In this guide, you gain insights into the fundamental properties and their proper value formats.
 
 ## Prerequisites
 
-- This guide assumes that you already know the [basics concepts of Service Connector](concept-service-connector-internals.md).
+- This guide assumes that you already know the [basic concepts of Service Connector](concept-service-connector-internals.md).
 
-## Source Service
+## Source service
 
-Source services are usually Azure compute services. Service Connector is an [Azure extension resource](../azure-resource-manager/management/extension-resource-types.md), so when you send requests using REST tools to create a connection, for example, the request URL should be like: `{source_resource_id}/providers/Microsoft.ServiceLinker/linkers/{linkerName}`. And the `{source_resource_id}` should be one of Service Connector supported source services, which are listed in the following table.
+Source services are usually Azure compute services. Service Connector is an [Azure extension resource](../azure-resource-manager/management/extension-resource-types.md). When sending requests using REST tools, to create a connection, for example, the request URL should use the format `{source_resource_id}/providers/Microsoft.ServiceLinker/linkers/{linkerName}`, and `{source_resource_id}` should match with one of the resource IDs listed in the table below.
 
-| Source Service Type    | Resource ID Format                                                                                                                                           |
+| Source service type    | Resource ID format                                                                                                                                           |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Azure App Service      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
-| Azure App Service Slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
+| Azure App Service slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
 | Azure Functions        | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure Spring Apps      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.AppPlatform/Spring/{spring}/apps/{app}/deployments/{deployment}` |
 | Azure Container Apps   | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
 
-## Target Service
+## Target service
 
-Target services are backing services or dependency services that your compute services connect to. When you pass target resource info to Service Connector, the resource IDs aren't always top-level resources, and they could be subresources also. Check the following table for the exact formats of all Service Connector supported target services.
+Target services are backing services or dependency services that your compute services connect to. When passing target resource info to Service Connector, the resource IDs aren't always top-level resources, and could also be subresources. Check the following table for the exact formats of all Service Connector supported target services.
 
-| Target Service Type                | Resource ID Format                                                                                                                                                            |
+| Target service type                | Resource ID format                                                                                                                                                            |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Azure App Configuration            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.AppConfiguration/configurationStores/{config_store}`                              |
 | Azure Cache for Redis              | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Cache/redis/{server}/databases/{database}`                                        |
@@ -54,9 +54,9 @@ Target services are backing services or dependency services that your compute se
 | Azure Storage (Table)              | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/tableServices/default`                          |
 | Azure Web PubSub                   | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.SignalRService/WebPubSub/{webpubsub}`                                             |
 
-## Authentication Type
+## Authentication type
 
-The authentication type refers to how to do authentication in your codes with help of the connection. All supported authentication types are:
+The authentication type refers to the authentication method used by the connection. The following authentication types are supported:
 
 * system managed identity
 * user managed identity
@@ -65,26 +65,26 @@ The authentication type refers to how to do authentication in your codes with he
 
 A different subset of the authentication types can be used when specifying a different target service and a different client type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
 
-## Client Type
+## Client type
 
-Client type refers to your compute service's runtime stack or development framework. One of the most common cases that a client type may affect is the connection string format of databases. The possible client types are:
+Client type refers to your compute service's runtime stack or development framework. The client type often affects the connection string format of a database. The possible client types are:
 
-* dapr
-* django
-* dotnet
-* go
-* java
-* kafka-springBoot
-* nodejs
-* none
-* php
-* python
-* ruby
-* springBoot
+* `dapr`
+* `django`
+* `dotnet`
+* `go`
+* `java`
+* `kafka-springBoot`
+* `nodejs`
+* `none`
+* `php`
+* `python`
+* `ruby`
+* `springBoot`
 
 A different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to integrate with target services](./how-to-integrate-postgres.md)
+> [How to integrate target services](./how-to-integrate-postgres.md)
