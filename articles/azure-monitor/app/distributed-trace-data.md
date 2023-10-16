@@ -2,7 +2,7 @@
 title: Distributed tracing and telemetry correlation in Azure Application Insights
 description: This article provides information about distributed tracing and telemetry correlation
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 10/14/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
@@ -31,7 +31,7 @@ The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and
 * [JavaScript](./javascript.md#enable-distributed-tracing)
 * [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
-With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in the [Dependency auto-collection documentation](asp-net-dependencies.md#dependency-auto-collection).
+With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency autocollectors. The full list of supported technologies is available in the [Dependency autocollection documentation](asp-net-dependencies.md#dependency-auto-collection).
 
  Any technology also can be tracked manually with a call to [TrackDependency](./api-custom-events-metrics.md) on the [TelemetryClient](./api-custom-events-metrics.md).
 
@@ -86,12 +86,12 @@ You can analyze the resulting telemetry by running a query:
 
 In the results, all telemetry items share the root `operation_Id`. When an Ajax call is made from the page, a new unique ID (`qJSXU`) is assigned to the dependency telemetry, and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`.
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
-|------------|---------------------------|--------------|--------------------|--------------|
-| pageView   | Stock page                | STYz         |                    | STYz         |
-| dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| itemType   | name                      | ID             | operation_ParentId   | operation_Id   |
+|------------|---------------------------|----------------|----------------------|----------------|
+| pageView   | Stock page                | `STYz`         |                      | `STYz`         |
+| dependency | GET /Home/Stock           | `qJSXU`        | `STYz`               | `STYz`         |
+| request    | GET Home/Stock            | `KqKwlrSt9PA=` | `qJSXU`              | `STYz`         |
+| dependency | GET /api/stock/value      | `bBrf2L7mm2g=` | `KqKwlrSt9PA=`       | `STYz`         |
 
 When the call `GET /api/stock/value` is made to an external service, you need to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service. An example is `stock-prices-api.com`. But if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
 
@@ -187,7 +187,7 @@ This feature is enabled by default for JavaScript and the headers are automatica
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 
-If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including sub-domains, the correlation headers are not included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request may fail, depending on whether the browser / version can validate the request based on which headers the server will accept.
+If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including subdomains, the correlation headers aren't included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request might fail, depending on whether the browser / version can validate the request based on which headers the server accepts.
 
 > [!IMPORTANT]
 > To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
@@ -305,7 +305,7 @@ Notice that there's a `spanId` present for the log message that's within the spa
 
 You can export the log data by using `AzureLogHandler`. For more information, see [Set up Azure Monitor for your Python application](/previous-versions/azure/azure-monitor/app/opencensus-python#logs).
 
-We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components, `module1` and `module2`. Module1 calls functions in Module2. To get logs from both `module1` and `module2` in a single trace, we can use the following approach:
+We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components, `module1` and `module2`. Module 1 calls functions in Module 2. To get logs from both `module1` and `module2` in a single trace, we can use the following approach:
 
 
 ```python
