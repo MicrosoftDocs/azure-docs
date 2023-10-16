@@ -15,7 +15,7 @@ ms.date: 10/13/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST APIs, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to:
+In Azure Cognitive Search, if you [added vector fields](vector-search-how-to-create-index.md) to a search index, this article explains how to:
 
 > [!div class="checklist"]
 > + [Query vector fields](#vector-query-request)
@@ -26,11 +26,11 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, a small subset won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ Use REST API version **2023-10-01-Preview** if you want pre-filters. Otherwise, you can use **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
++ Use REST API version **2023-10-01-Preview** if you want pre-filters and the latest behaviors. Otherwise, you can continue use **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
 ## Limitations
 
@@ -44,7 +44,7 @@ If you aren't sure whether your search index already has vector fields, look for
 
 + A non-empty `vectorSearch` property containing algorithms and other vector-related configurations embedded in the index schema.
 
-+ In the fields collection, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute and a `vectorSearchConfiguration` set to the name of the `vectorSearch` algorithm configuration used by the field.
++ In the fields collection, look for fields of type `Collection(Edm.Single)` with a `dimensions` attribute, and a `vectorSearch` section in the index.
 
 You can also send an empty query (`search=*`) against the index. If the vector field is "retrievable", the response includes a vector field consisting of an array of floating point values.
 
@@ -134,7 +134,7 @@ api-key: {{admin-api-key}}
 
 ### [**2023-07-01-Preview**](#tab/query-vector-query)
 
-REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) introduces vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version adds:
+REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) first introduced vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version added:
 
 + `vectors` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
 
@@ -261,9 +261,9 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
 A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can include filters on other fields in the same index.
 
-In **2023-07-01-Preview**, a filter in a pure vector query is effectively processed as a post-query operation. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
-
 In **2023-10-01-Preview**, a filter can be either pre-query or post-query. The default is pre-query. If you require the post-query action instead, set the `vectorFiltermode` parameter.
+
+In **2023-07-01-Preview**, a filter in a pure vector query is effectively processed as a post-query operation.
 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
@@ -308,11 +308,11 @@ api-key: {{admin-api-key}}
 
 ### [**2023-07-01-Preview**](#tab/filter-2023-07-01-Preview)
 
-REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) supports post-filtering over query results. 
+REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) supports post-filtering over query results.  
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-In this API version, there is no pre-filter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query.
+In this API version, there is no pre-filter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
