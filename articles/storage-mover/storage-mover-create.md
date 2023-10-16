@@ -114,11 +114,11 @@ New-AzStorageMover `
 ```bash
 
 ## Set variables
-`--name` `--storage-mover-name` `-n` = "The name of the Storage Mover resource
-`--resource-group` `-g` = "Your subscription ID"
-`--description` = "A description of the storage mover"
+`--name` `--storage-mover-name` `-n` = "The name of the Storage Mover resource"
+`--resource-group` `-g` = "Your subscription ID."
+`--description` = "A description of the storage mover."
 `--location` `-l` = The geo-location where the resource lives. When not specified, the location fo the resource group will be used."
-`--tags` = "Resource tags. Support shorthand-syntax, json-file and yaml-file. Try '??' to show more"
+`--tags` = "Resource tags. Support shorthand-syntax, json-file and yaml-file. Try '??' to show more."
 
 ## Creates a top-level Storage Mover resource.
 az storage-mover create --name
