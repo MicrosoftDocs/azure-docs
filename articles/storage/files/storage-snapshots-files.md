@@ -4,7 +4,7 @@ description: A share snapshot is a read-only version of an Azure file share that
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 10/16/2023
 ms.author: kendownie
 ---
 
