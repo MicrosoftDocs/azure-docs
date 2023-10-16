@@ -332,7 +332,7 @@ version = registered_model.version
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with-package=True`:
+    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
 
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -386,7 +386,7 @@ version = registered_model.version
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_sklearn_deployment":::
 
-    If your endpoint doesn't have egress connectivity, model packaging (preview) by including use the flag `--with-package`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
 
     ```azurecli
     az ml online-deployment create --with-package --name sklearn-deployment --endpoint $ENDPOINT_NAME -f endpoints/online/ncd/sklearn-deployment.yaml --all-traffic
@@ -544,14 +544,14 @@ The response will be similar to the following text:
 
 ## Customizing MLflow model deployments
 
-MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate it to customize how inference is executed.
+MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt to to customize how inference is executed.
 
 You will typically select this workflow when:
 
 > [!div class="checklist"]
 > - The model doesn't have a `PyFunc` flavor on it.
 > - You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load_model()`.
-> - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
+> - You need to do pre/post processing in your scoring routine when it is not done by the model itself.
 > - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
 
 > [!IMPORTANT]
