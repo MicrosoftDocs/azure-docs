@@ -77,9 +77,9 @@ The `EntityTrigger` Function, `Run` in this sample, does not need to reside with
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
 
 # [C# (Isolated)](#tab/isolated-process)
-There are two ways of defining an entity as a class in the C# isolated worker model. 
+There are two ways of defining an entity as a class in the C# isolated worker model. They produce entities with different state serialization structures. 
 
-The following is a class-based implementation. 
+With the following approach, the entire object is serialized when definining an entity.  
 ```csharp
 public class Counter
 {
@@ -108,7 +108,7 @@ public class Counter
         => dispatcher.DispatchAsync<Counter>();
 }
 ```
-A `TaskEntity<TState>`-based implementation, which makes it easy to use dependency injection. 
+A `TaskEntity<TState>`-based implementation, which makes it easy to use dependency injection. In this case, state is deserialized to the `State` property, and no other property is serialized/deserialized. 
 
 ```csharp
 public class Counter : TaskEntity<int>
@@ -255,9 +255,9 @@ public static async Task<HttpResponseData> GetCounter(
     [DurableClient] DurableTaskClient client, string entityKey)
 {
     var entityId = new EntityInstanceId("Counter", entityKey);
-    EntityMetadata entityMetadata = await client.Entities.GetEntityAsync(entityId, includeState = true);
-    var response = req.CreateResponse();
-    response.WriteString(entityMetadata.State.ReadAs<string>());
+    object? entity = await client.Entities.GetEntityAsync<int>(entityId);
+    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    await response.WriteAsJsonAsync(entity);
 
     return response;
 }
@@ -294,7 +294,7 @@ public static async Task<int> Run([OrchestrationTrigger] TaskOrchestrationContex
     var entityId = new EntityInstanceId("Counter", "myCounter");
 
     // One-way signal to the entity - does not await a response
-    context.Entities.SignalEntity(entityId, "Add", 1);
+    await context.Entities.SignalEntityAsync(entityId, "Add", 1);
 
     // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.Entities.CallEntityAsync<int>(entityId, "Get");

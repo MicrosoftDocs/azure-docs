@@ -378,9 +378,9 @@ public static async Task<HttpResponseData> Run(
     [DurableClient] DurableTaskClient client)
 {
     var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
-    EntityMetadata entityMetadata = await client.Entities.GetEntityAsync(entityId, includeState = true);
-    var response = req.CreateResponse(HttpStatusCode.OK);
-    response.WriteString(entityMetadata.State.ReadAs<string>());
+    object? entity = await client.Entities.GetEntityAsync<int>(entityId);
+    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    await response.WriteAsJsonAsync(entity);
 
     return response;
 }
@@ -448,7 +448,7 @@ public static async Task Run(
 [FunctionName("CounterOrchestration")]
 public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
-    var entityId = context.GetInput<EntityInstanceId>();
+    var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
 
     // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.Entities.CallEntityAsync<int>(entityId, "Get");
@@ -456,7 +456,7 @@ public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext con
     if (currentValue < 10)
     {
         // One-way signal to the entity which updates the value - does not await a response
-        context.Entities.SignalEntity(entityId, "Add", 1);
+        await context.Entities.SignalEntityAsync(entityId, "Add", 1);
     }
 }
 ```

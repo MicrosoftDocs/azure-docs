@@ -1388,9 +1388,10 @@ public static async Task Run(
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName("EventHubTriggerCSharp")]
+[Function("EventHubTriggerCSharp")]
 public static async Task Run(
-    [EventHubTrigger("device-sensor-events")] EventData eventData, [DurableClient] DurableTaskClient client)
+    [EventHubTrigger("device-sensor-events")] EventData eventData, 
+    [DurableClient] DurableTaskClient client)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
