@@ -30,20 +30,6 @@ Currently, the following aren't supported:
 - For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
 - Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
-## Migration guidance
-
-Follow these steps to migrate using scripts.
-
-1. Install the script to run to conduct migrations.
-1. Ensure that the new workspace resource ID is different to the one with which it's associated to in the Change Tracking and Inventory using the LA version.
-1. Migrate settings for the following data types:
-    - Windows Services
-    - Linux Files
-    - Windows Files
-    - Windows Registry
-    - Linux Daemons
-1. Generate and associates a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
-
 
 ## Onboarding to Change tracking and inventory using Azure Monitoring Agent
 
@@ -65,9 +51,12 @@ Follow these steps to migrate using scripts.
 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-at-scale-inline.png" alt-text="Screenshot of onboarding at scale to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-at-scale-expanded.png":::
 
-1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent
+1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
 1. On the **Assess virtual machines** tab, select the machines and then select **Next**.
-1. On **Assign workspace** tab, assign a new Log Analytics workspace ID. And select **Next**.
+1. On **Assign workspace** tab, assign a new Log Analytics workspace resource ID to which the settings of AMA based solution shoult be stored and select **Next**.
+   
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-inline.png" alt-text="Screenshot of assigning new Log Analytics resource ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-expanded.png":::
+   
 1. On **Review** tab, you can review the machines that are being onboarded and the new workspace.
 1. Select  **Migrate** to initiate the deployment.
 
@@ -78,8 +67,19 @@ After a successful migration, select **Switch to CT&I with AMA** to compare both
 > [!NOTE] 
 > You can migrate up to 150 VMs at scale. We recommend that after you onboard and assess your virtual machines on the new version, you may then uninstall the LA version and currently, we don’t support the migration of File Content.
 
-#### [Using Azure policy](#tab/ct-policy)
+#### [Using PowerShell script](#tab/ps-policy)
 
+Follow these steps to migrate using scripts.
+
+1. Install the script to run to conduct migrations.
+1. Ensure that the new workspace resource ID is different to the one with which it's associated to in the Change Tracking and Inventory using the LA version.
+1. Migrate settings for the following data types:
+    - Windows Services
+    - Linux Files
+    - Windows Files
+    - Windows Registry
+    - Linux Daemons
+1. Generate and associates a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
 Use the following script to onboard at scale:
 
 ```azurepowershell-interactive
@@ -416,9 +416,13 @@ Write-Output "Check your output folder! ($($pathtype):  $($OutputDCRTemplateFold
 `OutputDCRLocation`| Yes | Azure location of the output workspace ID. |
 `OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. | 
 
-## Disable Change tracking using Log Analytics
+## Disable Change tracking using Log Analytics Agent
 
-After you enable management of your virtual machines using Azure Automation Change Tracking and Inventory using Azure Monitoring Agent, you may decide to stop using it and remove the configuration from the account and linked Log Analytics workspace. [Learn more](remove-feature.md).
+After you enable management of your virtual machines using Change Tracking and Inventory using Azure Monitoring Agent, you may decide to stop using Change Tracking & Inventory with LA agent version and remove the configuration from the account.
+
+The disable method incorporates the following:
+- Removes change tracking with LA agent for selected few VMs within Log Analytics Workspace.
+- Removes change tracking with LA agent from the entire Log Analytics Workspace.
  
 ## Next steps
 -  To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
