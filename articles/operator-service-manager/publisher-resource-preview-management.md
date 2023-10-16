@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.service: azure-operator-service-manager
 ---
 
-# Publisher resource preview management
+# Publisher Tenants, subscriptions, regions and preview management
 
 This article introduces the Publisher Resource Preview Management feature.
 
@@ -19,6 +19,16 @@ The Azure Network Function Manager (NFM) Publisher API offers partners a seamles
 The Publisher API introduces features that enable Network Function (NF) Publishers and Service Designers to manage Network Function Definition (NFD) and Network Service Design (NSD) in various modes. These modes empower partners to exercise control over Network Function Definition (NFD) and Network Service Design (NSD) usage. Control over the NFDs and NSDs allows partners to target specific subscriptions, all subscriptions, or deprecate an NFDVersion or NSDVersion if there are regressions. This article delves into the specifics of these different modes.
 
 The Publisher Resource Preview Management feature in Azure Network Function Manager empowers partners to seamlessly manage Network Function Definitions and their versions. With the ability to control deployment states, access privileges, and version management, partners can ensure a smooth experience for their customers while maintaining the quality and stability of their offerings.
+
+## Tenants, subscriptions and regions
+
+Do my publisher and Site Network Service (SNS) resources need to be in the same tenant, subscription or region?
+
+- Publisher Network Service Design Version (**NSDV**) and Network Function Definition Version (**NFDV**) resources must be in the same Azure tenant as Site Network Services (**SNS**) resources.
+- Network Service Design Version (**NSDV**) and  Network Function Definition Version (**NFDV**) versionState are key for cross-subscription. 
+  - Preview = Site Network Service (**SNS**) is deployable in the same subscription as the  Network Function Definition Version/Network Function Definition Version (**NSDV/NFDV**).
+  - Active = Site Network Service (**SNS**) is deployable in any *subscription*.
+- Publisher resources can be in different Azure Core or Nexus Regions to Site Network Service (**SNS**) resources. 
 
 ## Network Function and Network Service Design definition version states
 
