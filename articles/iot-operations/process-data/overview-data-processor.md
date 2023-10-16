@@ -1,129 +1,78 @@
 ---
-title: Process messages at the edge or in the cloud
-description: Use the Azure IoT Operations Data Processor to aggregate, enrich, normalize, and filter the data from your devices before it's sent for storage or analysis.
+title: Process messages at the edge
+description: Use the Azure IoT Operations Data Processor to aggregate, enrich, normalize, and filter the data from your devices before you send it to the cloud.
 author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
+
+#CustomerIntent: As an OT user, I want process data at the edge so that I can send well-structured, complete, and relevant data to the cloud for storage and analysis.
 ---
 
-<!--
-Remove all the comments in this template before you sign off or merge to the main branch.
-
-This template provides the basic structure of a Feature availability article pattern. See the
-[instructions - Feature availability](../level4/article-feature-availability.md) in the pattern
-library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
--->
-
-<!-- 1. H1 ------------------------------------------------------------------------------
-
-Required: Use an H1 that includes the feature name and the product or service name.
-
--->
-
-# Use the Data Processor Preview in Azure IoT Operations – enabled by Azure Arc Preview
+# Process data at the edge
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+Industrial assets generate data in many different formats and use various communication protocols. This diversity of data sources, coupled with varying schemas and unit measures, makes it difficult to use and analyze raw industrial data effectively. Furthermore, for compliance, security, and performance reasons, you can’t upload all datasets to the cloud.
 
-<!-- 2. Overview ------------------------------------------------------------------------
+To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor Preview is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
 
-Required: Lead with an overview that briefly describes what the feature does. Provide
-links to more detailed information about the feature. Consider including a video or
-image that provides a high-level view of how the feature works.
+## What is Azure IoT Data Processor?
 
--->
+Data Processor is a component of Azure IoT Operations – enabled by Azure Arc Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
 
-[Overview]
-TODO: Add your overview
+:::image type="content" source="media/azure-iot-operations-architecture.png" alt-text="Diagram of the Azure IoT Operations architecture that highlights the Data Processor component." lightbox="media/azure-iot-operations-architecture.png":::
 
-A pipeline in data processor has an input source where data is read from, a destination where processed data is written to, and a variable number of intermediate stages to process the data.
+Data Processor ingests real-time streaming data from sources such as OPC UA servers, historians, and other industrial systems. It normalizes this data by converting various data formats into a standardized, structured format, which makes it easier to query and analyze. The data processor can also contextualize the data, enriching it with reference data or last known values (LKV) to provide a comprehensive view of your industrial operations.
+
+The output from the data processor is clean, enriched, and standardized data that's ready for downstream applications such as real-time analytics and insights tools. The data processor significantly reduces the time required to transform raw data into actionable insights.
+
+Key Data Processor features include:
+
+- Flexible data normalization to convert multiple data formats into a standardized structure.
+
+- Enrichment of data streams with reference or LKV data to enhance context and enable better insights.
+
+- Built-in Microsoft Fabric integration to simplify the analysis of clean data.
+
+- Ability to process data from various sources and publish the data to various destinations.
+
+- As a data agnostic data processing platform, Data Processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, Data Processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
+
+## What is a pipeline?
+
+A Data Processor pipeline has an input source where it reads data from, a destination where it writes processed data to, and a variable number of intermediate stages to process the data.
 
 :::image type="content" source="media/pipeline-stages.png" alt-text="Diagram that shows how a pipeline is made up from stages." border="false":::
 
-The various intermediate stages represent the different data processing capabilities. More capabilities will be added in the future.
+The intermediate stages represent the different available data processing capabilities:
 
 - You can add as many intermediate stages as you need to a pipeline.
-- You can order the intermediate stages of a pipeline as you need. You can reorder stages after they're set.
+- You can order the intermediate stages of a pipeline as you need. You can reorder stages after you create a pipeline.
 - Each stage adheres to a defined implementation interface and input/output schema contract​.
-- Each stage is completely independent of the other stages in the pipeline.
-- All stages operate within the scope of a [partition](concept-partitioning.md), data isn't shared between different partitions.
+- Each stage is independent of the other stages in the pipeline.
+- All stages operate within the scope of a [partition](concept-partitioning.md). Data isn't shared between different partitions.
 - Data flows from one stage to the next only.
 
-<!-- 3. Use cases -----------------------------------------------------------------------
+Data Processor pipelines can use the following stages:
 
-Optional: List a few key scenarios that you can use the feature in.
-
--->
-
-## Use cases
-TODO: Add use cases
-
-<!-- 4. Article body --------------------------------------------------------------------
-
-Required: In a series of H2 sections, provide basic information about how the feature
-works. Consider including:
-
-- A *Requirements* section. List the software, networking components, tools, and
-product or service versions that you need to run the feature.
-- A *Considerations* section. Explain which configuration settings to use to optimize
-feature performance.
-- Examples. Show practical ways to use the feature, or provide code for implementing
-the feature.
-
--->
-
-[Article body]
-TODO: Add your article body
-
-<!-- 5. Availability and pricing information --------------------------------------------
-
-Optional: Discuss the feature's availability and pricing.
-
-- If the feature isn't available in all regions, provide a link to a list of supported
-regions.
-- If customers are charged for using the feature, provide a link to pricing information.
-
-Don't hard-code specific regions or costs. Instead, provide links to sites that manage
-and maintain that information.
-
---->
-
-[Availability and pricing information]
-TODO: Add your availability and pricing information
-
-<!-- 6. Limitations ---------------------------------------------------------------------
-
-Optional: List the feature's constraints, limitations, and known issues in an H2
-section. If possible, also include the following information:
-
-- State that upcoming releases address the known issues.
-- Describe workarounds for limitations.
-- Discuss the environments that the feature works best in.
-
-Use an H2 header of *Limitations* or *Known issues.*
-
---->
-
-## Limitations
-TODO: Add your Limitations
-
-<!-- 7. Next steps ----------------------------------------------------------------------
-
-Optional: In an H2 section called *Next steps*, list resources such as the following
-types of material:
-
-- A quickstart, get-started guide, or tutorial that explains how to get started with the
-feature
-- An overview of the product or service that the feature's a part of
-- Reference information for the feature, product, or service
-
---->
+| Stage | Description |
+| ----- | ----------- |
+| [Source](howto-configure-datasource.md) | Retrieves data from an input source. For example, get data from a set of MQTT broker topics. |
+| [Destination](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to a destination of your choice. For example, write data to Microsoft Fabric OneLake. |
+| [Filter](howto-configure-filter-stage.md) | Filters data coming through the stage. For example, filter out any message with temperature outside of the `50F-150F` range. |
+| [Transform](howto-configure-transform-stage.md) | Normalizes the structure of the data. For example, change the structure from `{"Name": "Temp", "value": 50}` to `{"temp": 50}`. |
+| [LKV](howto-configure-lkv-stage.md) | Stores selected metric values into an LKV store. For example, store only temperature and humidity measurements into LKV, ignore the rest. A subsequent stage can enrich a message with the stored LKV data. |
+| [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations data set. |
+| [Aggregate](howto-configure-aggregate-stage.md) | Aggregates values passing through the stage. For example, when temperature values are sent every 100 milliseconds, emit an average temperature metric every 30 seconds. |
+| [Call out](howto-configure-grpc-callout-stage.md) | Makes a call to an external HTTP or gRPC service. For example, call an Azure Function to convert from a custom message format to JSON. |
 
 ## Next step
-TODO: Add your next steps
+
+To try out Data Processor pipelines, see the [Azure IoT Operations quickstarts](../get-started/quickstart-deploy.md).
+
+To learn more about Data Processor, see:
+
+- [Message structure overview](concept-message-structure.md)
+- [Serialization and deserialization formats overview](concept-supported-formats.md)
