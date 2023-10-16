@@ -85,6 +85,38 @@ For more information, enter the command `man fstab` from the Linux command line.
 
 If your mount failed, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
+### NFS file share snapshots (preview)
+
+Customers using NFS Azure file shares can now create, list, and delete snapshots of NFS Azure file shares. This allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
+
+> [!NOTE]
+> This preview only supports management APIs (`AzRmStorageShare`), not data plane APIs (`AzStorageShare`).
+
+#### Regional availability for NFS Azure file share snapshots
+
+[!INCLUDE [files-nfs-snapshot-regions](../../../includes/files-nfs-snapshot-regions.md)]
+
+#### Create a snapshot of an NFS file share
+
+You can create a snapshot of an NFS file share using Azure PowerShell or Azure CLI.
+
+# [Azure PowerShell](#tab/powershell)
+
+To create a snapshot of an existing file share, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+
+```azurepowershell
+New-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Snapshot
+```
+
+# [Azure CLI](#tab/cli)
+To create a snapshot of an existing file share, run the following Azure CLI command. Replace `<file-share-name>` and `<storage-account-name>` with your own values.
+
+```azurecli
+az storage share snapshot --name <file-share-name> --account-name <storage-account-name>
+```
+---
+
+
 ## Next steps
 
 - Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).

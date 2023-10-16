@@ -11,7 +11,7 @@ ms.author: kendownie
 # Overview of share snapshots for Azure Files
 Azure Files provides the capability to take snapshots of SMB file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your use case.
 
-Snapshots for NFS file shares is currently in public preview.
+Snapshots for NFS file shares are currently in [public preview](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview) with limited regional availability.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -66,11 +66,11 @@ Snapshots don't count towards the maximum share size limit, which is 100 TiB for
 
 ## Limits
 
-The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. You can retain snapshots for up to 10 years.
+The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you must delete older share snapshots in order to create new ones. You can retain snapshots for up to 10 years.
 
-There's no limit to the simultaneous calls for creating share snapshots. There's no limit to amount of space that share snapshots of a particular file share can consume. 
+There's no limit to the simultaneous calls for creating share snapshots. There's no limit to the amount of space that share snapshots of a particular file share can consume.
 
-Taking snapshots of NFS Azure file shares is currently in public preview with limited regional availability. The preview only supports management APIs (AzRmStorageShare), not data plane APIs (AzStorageShare), allowing you to create, list, and delete snapshots of NFS Azure file shares.
+Taking snapshots of NFS Azure file shares is currently in [public preview](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview) with limited regional availability. The preview only supports management APIs (`AzRmStorageShare`), not data plane APIs (`AzStorageShare`), allowing users to create, list, and delete snapshots of NFS Azure file shares.
 
 ## Copying data back to a share from share snapshot
 
