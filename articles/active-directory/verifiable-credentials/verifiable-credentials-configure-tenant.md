@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Manual Microsoft Entra Verified ID setup
-description: In this tutorial, you learn how to configure your tenant to support the Verified ID service. 
+description: In this tutorial, you learn how to manually configure your tenant to support the Verified ID service. 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
