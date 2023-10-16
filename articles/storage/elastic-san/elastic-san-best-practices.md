@@ -79,39 +79,16 @@ Update the below registry settings for iSCSI initiator on Windows.
 1.	Navigate to the following location:
     [\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0004 (Microsoft iSCSI Initiator)\Parameters]
 1.	Update the following settings. Right-click on each setting and select **Modify**. Change **Base** to **Decimal**, update the value and select **OK**.
-    ```
-    # Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB
-    MaxTransferLength=262144
-    
-    # Set maximum SCSI payload that the initiator negotiates with the target to 256 KB
-    MaxBurstLength=262144
-    
-    # Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256 KB
-    FirstBurstLength=262144
-    
-    # Set maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB
-    MaxRecvDataSegmentLength=262144
-    
-    # Disable R2T flow control
-    InitialR2T=0
-    
-    # Enable immediate data
-    ImmediateData=1
-    
-    # Set timeout value for WMI requests to 15 seconds
-    WMIRequestTimeout = 15 seconds
-    ```
-
 
 |Description  |Parameter and value  |
 |---------|---------|
-|Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB     |MaxTransferLength=262144         |
-|# Set maximum SCSI payload that the initiator negotiates with the target to 256 KB     |MaxBurstLength=262144         |
-|# Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256 KB     |FirstBurstLength=262144         |
-|# Set maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB     |MaxRecvDataSegmentLength=262144         |
-|# Disable R2T flow control     |InitialR2T=0         |
-|# Enable immediate data     |ImmediateData=1         |
-|# Set timeout value for WMI requests to 15 seconds     |WMIRequestTimeout = 15 seconds         |
+|Sets maximum data the initiator sends in an iSCSI PDU to the target to 256 KB     |MaxTransferLength=262144         |
+|Sets maximum SCSI payload that the initiator negotiates with the target to 256 KB     |MaxBurstLength=262144         |
+|Sets maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256 KB     |FirstBurstLength=262144         |
+|Sets maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB     |MaxRecvDataSegmentLength=262144         |
+|Disables R2T flow control     |InitialR2T=0         |
+|Enables immediate data     |ImmediateData=1         |
+|Sets timeout value for WMI requests to 15 seconds     |WMIRequestTimeout = 15 seconds         |
 
 
 In cluster configurations, make iSCSI initiator names unique across all nodes that are sharing volumes. In Windows, you can update them via iSCSI Initiator app.
@@ -157,6 +134,19 @@ node.conn[0].timeo.logout_timeout = 15
 node.conn[0].iscsi.HeaderDigest = CRC32C
 node.conn[0].iscsi.DataDigest = CRC32C
 ```
+
+
+|Description  |Value  |
+|---------|---------|
+|# Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB     |node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144         |
+|# Set maximum SCSI payload that the initiator negotiates with the target to 256 KB     |node.session.iscsi.MaxBurstLength = 262144         |
+|# Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256 KB     |node.session.iscsi.FirstBurstLength = 262144         |
+|# Set maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB     |node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144         |
+|# Disable R2T flow control     |node.session.iscsi.InitialR2T = No         |
+|# Enable immediate data     |node.session.iscsi.ImmediateData = Yes         |
+|# Set timeout value for WMI requests to 15 seconds     |node.conn[0].timeo.login_timeout = 15<br></br>node.conn[0].timeo.logout_timeout = 15         |
+|# Enable CRC digest checking for header and data     |node.conn[0].iscsi.HeaderDigest = CRC32C<br></br>node.conn[0].iscsi.DataDigest = CRC32C         |
+
 
 In cluster configurations, ensure iSCSI initiator names are unique across all nodes that are sharing volumes. In Linux, you can modify /etc/iscsi/initiatorname.iscsi to update the initiator name.
 :::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png" alt-text="Update iSCSI Initiator Name on Linux." lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png"::: 
