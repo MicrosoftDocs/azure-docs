@@ -63,7 +63,7 @@ When using passive replication, in the following scenarios, messages can be lost
 * **Message delay or loss**: Assume that the sender successfully sent a message m1 to the primary queue, and then the queue becomes unavailable before the receiver receives m1. The sender sends a subsequent message m2 to the secondary queue. If the primary queue is temporarily unavailable, the receiver receives m1 after the queue becomes available again. In case of a disaster, the receiver may never receive m1.
 * **Duplicate reception**: Assume that the sender sends a message m to the primary queue. Service Bus successfully processes m but fails to send a response. After the send operation times out, the sender sends an identical copy of m to the secondary queue. If the receiver is able to receive the first copy of m before the primary queue becomes unavailable, the receiver receives both copies of m at approximately the same time. If the receiver isn't able to receive the first copy of m before the primary queue becomes unavailable, the receiver initially receives only the second copy of m, but then receives a second copy of m when the primary queue becomes available.
 
-The [Geo-replication with Service Bus standard Tier][Geo-replication with Service Bus Standard Tier] sample demonstrates passive replication of messaging entities.
+The [Azure Messaging Replication Tasks with .NET Core][Azure Messaging Replication Tasks with .NET Core] sample demonstrates replication of messages between namespaces.
 
 ## Next steps
 To learn more about disaster recovery, see these articles:
@@ -72,6 +72,6 @@ To learn more about disaster recovery, see these articles:
 * [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
 * [Designing resilient applications for Azure][Azure resiliency technical guidance]
 
-[Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
+[Azure Messaging Replication Tasks with .NET Core]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet
 [Azure SQL Database Business Continuity]:/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 [Azure resiliency technical guidance]: /azure/architecture/framework/resiliency/app-design
