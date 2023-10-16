@@ -227,7 +227,7 @@ default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surg
 
 To stay within a supported Kubernetes version, you usually have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and CSI. It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
 
-AKS now automatically stops upgrade operations consisting of a minor version change if deprecated APIs are detected. This feature alerts you with an error message if it detects usage of APIs that are deprecated in the targeted version.
+AKS automatically stops upgrade operations consisting of a minor version change if deprecated APIs are detected. This feature alerts you with an error message if it detects usage of APIs that are deprecated in the targeted version.
 
 All of the following criteria must be met in order for the stop to occur:
 
@@ -267,7 +267,7 @@ You can also check past API usage by enabling [Container Insights][container-ins
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the Azure CLI version 2.53 or `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
+> This method requires you to use the Azure CLI version 2.53 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
 
 Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command, specifying `enable-force-upgrade`, and setting the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
