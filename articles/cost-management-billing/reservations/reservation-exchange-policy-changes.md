@@ -19,7 +19,7 @@ This grace period is designed to provide more time for you to determine your res
 Azure savings plan for compute was launched in October 2022 to provide you with more flexibility and accommodate changes such as virtual machine series and regions. With savings plan providing flexibility automatically, we adjusted our reservations exchange policy.
 
 >[!NOTE]
->Exchanges are changing only for the reservations explicitly mentioned previously. If you have any other type of reservation, then the policy change doesn't affect you. For example, if you have a reservation for Azure VMware Solution, then the policy change doesn't affect it. However, the grace period ends, if you exchange a reservation for a type affected by the policy change, the new reservation will be affected by the no-exchange policy.
+>Exchanges are changing only for the reservations explicitly mentioned previously. If you have any other type of reservation, then the policy change doesn't affect you. For example, if you have a reservation for Azure VMware Solution, then the policy change doesn't affect it. However, after the grace period ends if you exchange a reservation for a type affected by the policy change, and the new reservation will be affected by the no-exchange policy.
 
 You can continue to use instance size flexibility for VM sizes, but Microsoft is ending exchanges for regions and instance series for these Azure compute reservations.
 
