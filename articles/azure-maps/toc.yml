@@ -487,20 +487,6 @@ items:
             href: /rest/api/maps/v2/tileset
           - name: WFS
             href: /rest/api/maps/v2/wfs
-      - name: V20220901Preview
-        items:
-        - name: Dataset
-          href: /rest/api/maps/v20220901preview/dataset
-        - name: Map configuration
-          href: /rest/api/maps/v20220901preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/v20220901preview/routeset
-        - name: Style
-          href: /rest/api/maps/v20220901preview/style
-        - name: Tileset
-          href: /rest/api/maps/v20220901preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/v20220901preview/wayfinding
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript
