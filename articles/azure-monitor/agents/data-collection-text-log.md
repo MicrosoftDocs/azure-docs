@@ -76,7 +76,7 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 
 Press return to execute the code. You should see a 200 response, and details about the table you just created will show up. To validate that the table was created go to your workspace and select Tables on the left blade. You should see your table in the list.
 > [!Note]
-> The column names are case sensitive. For example `Rawdata` will not correctly collect the event data. It must be `RawData``.
+> The column names are case sensitive. For example `Rawdata` will not correctly collect the event data. It must be `RawData`.
 
 
 ## Create data collection rule to collect text logs
