@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Topologies for cross-tenant collaboration
 
-Organizations often find themselves managing multiple tenants due to various factors, such as mergers and acquisitions, business units, or critical resource management. Microsoft Entra offers a versatile and ready-to-use solution for provisioning accounts across tenants and facilitating seamless collaboration. Microsoft Entra accommodates all three models listed below and can adapt to your evolving organizational needs.
+Organizations often find themselves managing multiple tenants due to mergers and acquisitions, regulatory requirements, or administrative boundaries. Regardless of your scenario, Microsoft Entra offers a flexible and ready-to-use solution for provisioning accounts across tenants and facilitating seamless collaboration. Microsoft Entra accommodates all three models listed below and can adapt to your evolving organizational needs.
 
 > [!div class="checklist"]
 > - Hub and spoke
@@ -27,7 +27,7 @@ Organizations often find themselves managing multiple tenants due to various fac
 ## Hub and Spoke
 The hub and spoke topology presents two common patterns:
 
-* **Option 1 (Application Hub):** In this option, you can consolidate identities from different tenants within your organization into a central hub where critical applications are integrated.
+* **Option 1 (Application Hub):** In this option, you can integrate commonly used applications into a central hub tenant that users from across the organization can access. 
 
 * **Option 2 (User Hub):** Alternatively, option 2 centralizes all your users in a single tenant and provisions them into spoke tenants where resources are managed.
 
@@ -35,13 +35,13 @@ The hub and spoke topology presents two common patterns:
 Let's examine a few real-world scenarios and see how they align with each of these models.
 ### Mergers and acquisitions (Application Hub)
 
-During mergers and acquisitions, the ability to quickly enable collaboration is crucial, allowing businesses to function cohesively while complex IT decisions are being made. For instance, when a newly acquired company's employees need immediate access to essential resources like a central SharePoint site or integrated applications such as Salesforce, cross-tenant synchronization proves invaluable. This synchronization process allows users from the acquired company to be provisioned from day one, granting them access to SaaS apps, on-premises applications, and other cloud resources. Below is an illustration of recently acquired tenants on the left, with their users being provisioned into the parent company's tenant, granting access to the necessary resources.
+During mergers and acquisitions, the ability to quickly enable collaboration is crucial, allowing businesses to function cohesively while complex IT decisions are being made. For instance, when a newly acquired company's employees need immediate access to essential resources like a central SharePoint site or integrated applications such as Salesforce, cross-tenant synchronization proves invaluable. This synchronization process allows users from the acquired company to be provisioned into the application hub from day one, granting them access to SaaS apps, on-premises applications, and other cloud resources. Below is an illustration of recently acquired tenants on the left, with their users being provisioned into the parent company's tenant, granting access to the necessary resources.
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/Hub1.png" alt-text="Diagram that shows multiple source tenants synchronizing with a single target tenant.":::
 
 ## Separate collaboration and resource tenants (User Hub)
 
-As organizations scale their usage of Azure, they often create dedicated tenants for managing critical Azure resources. Meanwhile, they rely on a central hub tenant for user provisioning. This model empowers administrators in the hub tenant to establish central security and governance policies while granting development teams greater autonomy to deploy required Azure resources. Cross-tenant synchronization supports this topology by enabling administrators to provision a subset of users into the spoke tenants and manage their lifecycle.
+As organizations scale their usage of Azure, they often create dedicated tenants for managing critical Azure resources. Meanwhile, they rely on a central hub tenant for user provisioning. This model empowers administrators in the hub tenant to establish central security and governance policies while granting development teams greater autonomy to deploy required Azure resources. Cross-tenant synchronization supports this topology by enabling administrators to provision a subset of users into the spoke tenants and manage the lifecycle of those users.
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/Hub2.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
 
