@@ -100,7 +100,7 @@ Operator Nexus supports three minor versions of Kubernetes:
 
 * The latest GA minor version released in Operator Nexus (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version also supports a maximum of two latest stable patches while the previous patches are under `Extended availability policy` for the lifetime of the minor version.
+  * Each supported minor version also supports a maximum of two latest stable patches while the previous patches are under [extended availability policy](#extended-availability-policy) for the lifetime of the minor version.
 
 Operator Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
 
@@ -147,7 +147,7 @@ End of life (EOL) means no more patch or version bundles are produced. It's poss
 
 ## Extended availability policy
 
-During the extended availability period for unsupported Kubernetes versions (i.e., EOL Kubernetes versions), users do not receive security patches or bug fixes. For detailed information on support categories, please refer to the following table.
+During the extended availability period for unsupported Kubernetes versions (that is, EOL Kubernetes versions), users don't receive security patches or bug fixes. For detailed information on support categories, please refer to the following table.
 
 | Support category                         | N-2 to N                | Extended availability            |
 |------------------------------------------|-------------------------|----------------------------------|
@@ -195,7 +195,7 @@ Azure Kubernetes Service (AKS) provides a Long Term Support (LTS) version of Kub
 
 |   | Community Support  |Long Term Support   |
 |---|---|---|
-| **When to use** | When you can keep up with upstream Kubernetes releases | Scenarios where your applications are not compatible with the changes introduced in newer Kubernetes versions, and you cannot transition to a continuous release cycle due to technical constraints or other factors  |
+| **When to use** | When you can keep up with upstream Kubernetes releases | Scenarios where your applications aren't compatible with the changes introduced in newer Kubernetes versions, and you can't transition to a continuous release cycle due to technical constraints or other factors  |
 |  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
 
 The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
@@ -263,7 +263,7 @@ Yes, you can create a new 1.xx.x cluster during its extended availability window
 
 ### Can I upgrade a cluster to a newer version during its extended availability window?
 
-Yes, you can upgrade an N-3 cluster to N-2 during its extended availability window.
+Yes, you can upgrade an N-3 cluster to N-2 during its extended availability window. If your cluster is currently on N-4, you can make use of the extended availability to first upgrade from N-4 to N-3, and then proceed with the upgrade to a supported version (N-2).
 
 ### I'm on an extended availability window, can I still add new node pools? Or will I have to upgrade?
 
