@@ -73,10 +73,10 @@ Follow these steps to migrate using scripts.
 
 After a successful migration, select **Switch to CT&I with AMA** to compare both the LA and AMA experience.
 
-:::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot switching between log analytics and azure monitoring agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
+:::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
 
 > [!NOTE] 
-> You can migrate up to 150 VMs at scale. We recommend that after you onboard and assess your virtual machines on the new version, you may then uninstall the LA version and currently, we don’t support the migration of File Content.
+> You can migrate up to 150 VMs at scale. We recommend that after you onboard and assess your virtual machines on the new version, you then uninstall the LA version. Currently, we don’t support the migration of File Content.
 
 #### [Using Azure policy](#tab/ct-policy)
 
