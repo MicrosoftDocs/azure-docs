@@ -106,21 +106,30 @@ New-AzStorageMover `
 
 ### [CLI](#tab/CLI)
 
-Make sure that you have the most up to date version of Azure CLI. 
+>[!NOTE]
+> Make sure that you have the most up to date version of Azure CLI. 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-Creates a top-level Storage Mover resource using Azure CLI. 
-
 ```bash
+
+## Set variables
+`--name` `--storage-mover-name` `-n` = "The name of the Storage Mover resource
+`--resource-group` `-g` = "Your subscription ID"
+`--description` = "A description of the storage mover"
+`--location` `-l` = The geo-location where the resource lives. When not specified, the location fo the resource group will be used."
+`--tags` = "Resource tags. Support shorthand-syntax, json-file and yaml-file. Try '??' to show more"
+
+## Creates a top-level Storage Mover resource.
 az storage-mover create --name
                         --resource-group
                         [--description]
                         [--location]
                         [--tags]
+
 ```
 
-Note that `--resource-group`, `--description`, `--location`, and `--tags` are required parameters. 
+Note that only `--name` and `--resource-group` are required parameters. 
 
 ---
 
