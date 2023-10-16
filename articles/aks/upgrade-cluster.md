@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 09/14/2023
+ms.date: 10/16/2023
 
 ---
 
@@ -27,9 +27,9 @@ Skipping multiple versions can only be done when upgrading from an *unsupported 
 
 ## Before you begin
 
-* If you're using Azure CLI, this article requires that you're running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
-* Performing upgrade operations requires the `Microsoft.ContainerService/managedClusters/agentPools/write` RBAC role. For more on Azure RBAC roles, see the [Azure resource provider operations]
+* If you use the Azure CLI, you need Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you use Azure PowerShell, you need Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* Performing upgrade operations requires the `Microsoft.ContainerService/managedClusters/agentPools/write` RBAC role. For more information, see [Create custom roles][azure-rbac-provider-operations].
 
 > [!WARNING]
 > An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail. For more information, see [increase quotas](../azure-portal/supportability/regional-quota-requests.md).
@@ -340,6 +340,7 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[azure-rbac-provider-operations]: manage-azure-rbac.md#create-custom-roles-definitions
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
@@ -349,13 +350,7 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [set-azakscluster]: /powershell/module/az.aks/set-azakscluster
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [get-azakscluster]: /powershell/module/az.aks/get-azakscluster
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
-[upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md
 [release-tracker]: release-tracker.md
