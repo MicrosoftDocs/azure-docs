@@ -20,7 +20,7 @@ This article shows you how to use ConfigMaps for basic DNS customization options
 ## Before you begin
 
 * This article assumes that you have an existing Nexus Kubernetes cluster. 
-* When you create configurations like the examples below, your names in the *data* section must end in *.server* or *.override*. This naming convention is defined in the default NKS node-local-dns ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml` command.
+* When you create configurations like the examples below, your names in the *data* section must end in *.server* or *.override*. This naming convention is defined in the default node-local-dns ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml` command.
 
 <!-- ## Plugin support
 
