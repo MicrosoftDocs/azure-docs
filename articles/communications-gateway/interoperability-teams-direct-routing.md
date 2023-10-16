@@ -149,6 +149,12 @@ Azure Communications Gateway offers multiple media interworking options. For exa
 
 For full details of the media interworking features available in Azure Communications Gateway, raise a support request.
 
+### Microsoft Phone System media bypass support (preview)
+
+Azure Communications Gateway has Preview support for Direct Routing media bypass. Direct Routing media bypass allows media to flow directly between Azure Communications Gateway and Microsoft Teams clients in some scenarios instead of always sending it through the Microsoft Phone System. Media continues to flow through Azure, because both Azure Communications Gateway and Microsoft Phone System are located in Azure.
+
+If you believe that media bypass support (preview) would be useful for your deployment, discuss your requirements with a Microsoft representative.
+
 ## Topology hiding with domain delegation
 
 The domain for your Azure Communications Gateway deployment is visible to customer administrators in their Microsoft 365 admin center. By default, each Azure Communications Gateway deployment receives an automatically generated domain name similar to `a1b2c3d4efghij5678.commsgw.azure.example.com`.
