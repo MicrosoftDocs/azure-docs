@@ -37,10 +37,10 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
 |Setting  |Value  |
 |---------|---------|
-|**Subscription**     | Select the **Subscription**         |
-|**Resource Group**     |   Select **OperatorResourceGroup**      |
-|**Name**     |   Enter *ubuntu-vm-site*      |
-|**Region**     |    Select **UK South**     |
+|**Subscription**     | Select the **Subscription**.        |
+|**Resource Group**     |   Select **OperatorResourceGroup**.      |
+|**Name**     |   Enter *ubuntu-vm-site*.      |
+|**Region**     |    Select the location you used for your prerequisite resource.     |
 
    :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
 

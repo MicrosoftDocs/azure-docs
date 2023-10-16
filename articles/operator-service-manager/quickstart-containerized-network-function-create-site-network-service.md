@@ -23,6 +23,7 @@ ms.service: azure-operator-service-manager
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Select **Create a resource**.
 1. Search for **Site network service**, then select **Create**.
+
      :::image type="content" source="media/create-site-network-service-main.png" alt-text="Screenshot shows the Marketplace screen with site network service in the search bar. Options beneath the search bar include Site Network Service are shown.":::
 1. On the **Basics** tab, enter for select the information in the table and accept the default values for the remaining settings.
 

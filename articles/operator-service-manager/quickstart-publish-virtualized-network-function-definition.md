@@ -67,10 +67,10 @@ Here's sample input-vnf-nfd.json file:
 |**version**     |Version of the NF definition in A.B.C format.         |
 |**blob_artifact_store_name**     |Name of the storage account Artifact Store resource. Created if it doesn't exist.         |
 |**image_name_parameter**     | The parameter name in the VM ARM template that specifies the name of the image to use for the VM.        |
-|**arm_template**     | artifact_name: Name of the artifact
+|**arm_template**     | artifact_name: Name of the artifact.
 |    | *file_path*: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash.      |   
 |  | *version*: Version of the artifact. For ARM templates version must be in format A.B.C.
-**vhd** |*artifact_name*: Name of the artifact
+**vhd** |*artifact_name*: Name of the artifact.
 |  |*file_path*: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash.
 |  |*blob_sas_url*: Optional. SAS URL of the blob artifact you wish to copy to your Artifact Store. Delete if not required.
 |  |*version*: Version of the artifact. Version of the artifact. For VHDs version must be in format A-B-C. 
