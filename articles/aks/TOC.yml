@@ -287,8 +287,10 @@
             
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
-            - name: Connect to cluster nodes
+            - name: Connect securely to cluster nodes
               href: node-access.md
+            - name: Manage SSH key 
+              href: manage-ssh-node-access.md
         - name: Node pools
           items:
             - name: Create node pools
