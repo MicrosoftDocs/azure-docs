@@ -245,7 +245,9 @@ Follow the instructions in [Create a Kerberos Server object](#create-a-kerberos-
 
 ## Known behavior
 
-If your password has expired, signing in with FIDO is blocked. The expectation is that users reset their passwords before they can log in by using FIDO.
+- If your password has expired, signing in with FIDO is blocked. The expectation is that users reset their passwords before they can log in by using FIDO.
+- Creating a Kerberos server object is required even when users will not need to SSO to sign-in to on-premises resources. Users with hybrid joined workstations will be unable to sign-in to the Windows 10/11 workstation with WHfB and FIDO2 security keys if the Kerberos Server object has not been created.
+  If the Kerberos Server object is not created and the user attempts to sign-in to a hybrid joined workstation with FIDO2 security keys or WHfB, then an error message will be displayed to the user "Your credentials couldn't be verified. (code: 0xc000005f, 0x0)"
 
 ## Troubleshooting and feedback
 
