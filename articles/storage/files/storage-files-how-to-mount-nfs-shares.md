@@ -142,7 +142,7 @@ You can delete share snapshots using Azure PowerShell or Azure CLI.
 
 # [Azure PowerShell](#tab/powershell)
 
-To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct format, such as `2021-05-10T08:04:08Z`.
+To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
 
 ```azurepowershell
 Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -SnapshotTime "<snapshot-time>"
@@ -156,16 +156,16 @@ Remove-AzRmStorageShare "<resource-group-name>" -StorageAccountName "<storage-ac
 
 # [Azure CLI](#tab/cli)
 
-To delete a file share snapshot, run the following Azure CLI command. Replace `<file-share-name>` with the name of the file share. The `--snapshot` parameter must follow the correct format, such as `2021-05-10T08:04:08Z`.
+To delete a file share snapshot, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values. The `--snapshot` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
 
 ```azurecli
-az storage share delete --name <file-share-name> --snapshot <snapshot-time>
+az storage share delete --account-name <storage-account-name> --name <file-share-name> --snapshot <snapshot-time>
 ```
 
-To delete a file share and all its snapshots, run the following Azure CLI command. Replace `<file-share-name>` with the name of the file share to be deleted.
+To delete a file share and all its snapshots, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values.
 
 ```azurecli
-az storage share delete --name <file-share-name> --delete-snapshots include
+az storage share delete --account-name <storage-account-name> --name <file-share-name> --delete-snapshots include
 ```
 ---
 
