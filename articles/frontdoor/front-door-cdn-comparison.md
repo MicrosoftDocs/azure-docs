@@ -55,7 +55,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Customizable, rules based content delivery engine | Yes | Yes | Yes | Yes using Standard rules engine | No | Yes using Premium rules engine |
 | Mobile device rules | Yes | Yes | Yes | Yes using Standard rules engine | No | Yes using Premium rules engine |
 | **Security** | | | | | | |
-| Custom Web Application Firewall (WAF) rules | Yes | Yes | Yes | No | Not exposed. Can be enabled by raising a support ticket. | Not exposed. Can be enabled by raising a support ticket. |
+| Custom Web Application Firewall (WAF) rules | Yes | Yes | Yes | No | No | No |
 | Microsoft managed rule set | No | Yes | Yes - Only default rule set 1.1 or below | No | No | No |
 | Bot protection | No | Yes | Yes - Only bot manager rule set 1.0 | No | No | No |
 | Private link connection to origin | No | Yes | No | No | No | No |
