@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/23/2023
+ms.date: 10/16/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -89,7 +89,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.21**
 
-- Additional sanitization of script tags to avoid XSS attacks.
+- Additional sanitization of script tags to avoid XSS attacks. This will break any script tags in the `<body>`. Script tags should be added to the `<head>` tag. For more information, see [Enable JavaScript and page layout versions in Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-user-flow).
 
 **2.1.20**
 - Fixed Enter event trigger on MFA.
@@ -241,7 +241,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.10**
 
-- Added additional sanitization of script tags to avoid XSS attacks.
+- Added additional sanitization of script tags to avoid XSS attacks. This will break any script tags in the `<body>`. Script tags should be added to the `<head>` tag. For more information, see [Enable JavaScript and page layout versions in Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-user-flow).
 
 **2.1.9**
 
