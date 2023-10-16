@@ -4,7 +4,7 @@ description: Use Microsoft Power BI to visualize Interactive Query Hive data fro
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 10/16/2023
 ---
 
 # Visualize Interactive Query Apache Hive data with Microsoft Power BI using direct query in HDInsight
