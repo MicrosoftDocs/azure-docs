@@ -21,7 +21,7 @@ Here are more details on important attributes we recently added, to help you und
     - *Informational*: Informs when an authorized user or process triggers a control plane operation (e.g., VirtualMachineDeallocationInitiated, VirtualMachineRestarted). This category also captures cases of platform actions due to customer defined thresholds or conditions. (E.g., VirtualMachinePreempted)
 
 >[!Note]
-> A VMs availability impact start and end time is **only** applicable to degraded annotations, and does not apply to downtime annotations.
+> A VMs availability impact start and end time is **only** applicable to degraded annotations, and does not apply to downtime or informational annotations.
 
 The below table summarizes all the annotations that the platform emits today:
 
