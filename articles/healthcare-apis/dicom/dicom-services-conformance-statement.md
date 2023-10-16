@@ -6,7 +6,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/13/2022
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
@@ -15,7 +15,7 @@ ms.author: mmitrik
 > [!NOTE]
 > API version 2 is the latest API version and should be used in place of v1. See the [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md) for details.
 
-The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
+The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
     * [Store (STOW-RS)](#store-stow-rs)
@@ -260,7 +260,7 @@ The following `Accept` headers are supported for retrieving frames:
 
 #### Retrieve transfer syntax
 
-When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the following formats for transcoding to succeed, otherwise transcoding may fail:
+When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the following formats for transcoding to succeed, otherwise transcoding might fail:
 
 * 1.2.840.10008.1.2 (Little Endian Implicit)
 * 1.2.840.10008.1.2.1 (Little Endian Explicit)
@@ -311,7 +311,7 @@ The service only supports rendering of a single frame. If rendering is requested
 
 When specifying a particular frame to return, frame indexing starts at 1.
 
-The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) may be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
+The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) might be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
 ### Retrieve response status codes
 
@@ -454,7 +454,7 @@ The response is an array of DICOM datasets. Depending on the resource, by *defau
 
 If `includefield=all`, the following attributes are included along with default attributes. Along with the default attributes, this is the full list of attributes supported at each resource level.
 
-#### Additional Study tags
+#### Extra Study tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
@@ -470,7 +470,7 @@ If `includefield=all`, the following attributes are included along with default 
 | (0010, 2180) | `Occupation` |
 | (0010, 21B0) | `AdditionalPatientHistory` |
 
-#### Additional Series tags
+#### Other Series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
@@ -502,12 +502,12 @@ The query API returns one of the following status codes in the response:
 | `403 (Forbidden)`              | The user isn't authorized. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
-### Additional notes
+### Other notes
 
 * Querying using the `TimezoneOffsetFromUTC (00080201)` isn't supported.
-* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range will be resolved.
+* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range is resolved.
 * When target resource is Study/Series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest wins and you can search only on the latest data.
-* Paged results are optimized to return matched _newest_ instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
+* Paged results are optimized to return matched _newest_ instance first, this might result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case in-sensitive and accent in-sensitive for PN VR types.
 * Matching is case in-sensitive and accent sensitive for other string VR types.
 * Only the first value is indexed of a single valued data element that incorrectly has multiple values.
@@ -578,12 +578,12 @@ If not specified in the URI, the payload dataset must contain the Workitem in th
 
 The `Accept` and `Content-Type` headers are required in the request, and must both have the value `application/dicom+json`.
 
-There are several requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
+There are several requirements related to DICOM data attributes in the context of a specific transaction. Attributes might be
 required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
 found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
 > [!NOTE]
-> Although the reference table above says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
+> Although the reference table says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
 
 > [!NOTE]
 > All the conditional requirement codes including 1C and 2C are treated as optional.
@@ -593,7 +593,7 @@ found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 | Code                           | Description |
 | :----------------------------- | :---------- |
 | `201 (Created)`                | The target Workitem was successfully created. |
-| `400 (Bad Request)`            | There was a problem with the request. For example, the request payload didn't satisfy the requirements above. |
+| `400 (Bad Request)`            | There was a problem with the request. For example, the request payload didn't satisfy the requirements. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
 | `409 (Conflict)`               | The Workitem already exists. |
@@ -608,7 +608,7 @@ A failure response payload contains a message describing the failure.
 
 ### Request cancellation
 
-This transaction enables the user to request cancellation of a non-owned Workitem.
+This transaction enables the user to request cancellation of a nonowned Workitem.
 
 There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.1.1-1):
 
@@ -625,7 +625,7 @@ This transaction only succeeds against Workitems in the `SCHEDULED` state. Any u
 
 The `Content-Type` header is required, and must have the value `application/dicom+json`.
 
-The request payload may include Action Information as [defined in the DICOM Standard](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.2-1).
+The request payload might include Action Information as [defined in the DICOM Standard](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.2-1).
 
 #### Request cancellation response status codes
 
@@ -691,7 +691,7 @@ The `Content-Type` header is required, and must have the value `application/dico
 The request payload contains a dataset with the changes to be applied to the target Workitem. When a sequence is modified, the request must include all Items in the sequence, not just the Items to be modified.
 When multiple Attributes need to be updated as a group, do this as multiple Attributes in a single request, not as multiple requests.
 
-There are many requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
+There are many requirements related to DICOM data attributes in the context of a specific transaction. Attributes might be
 required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
 found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
@@ -719,7 +719,7 @@ The origin server shall support header fields as required in [Table 11.6.3-2](ht
 
 A success response shall have either no payload or a payload containing a Status Report document.
 
-A failure response payload may contain a Status Report describing any failures, warnings, or other useful information.
+A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
 ### Change Workitem state
 
@@ -755,7 +755,7 @@ The request payload shall contain the Change UPS State Data Elements. These data
 
 * Responses include the header fields specified in [section 11.7.3.2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7.3.2).
 * A success response shall have no payload.
-* A failure response payload may contain a Status Report describing any failures, warnings, or other useful information.
+* A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
 ### Search Workitems
 
@@ -804,12 +804,12 @@ We support these matching types:
 
 | Search Type | Supported Attribute | Example |
 | :---------- | :------------------ | :------ |
-| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This will be mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
 
 > [!NOTE]
-> While we don't support full sequence matching, we do support exact match on the attributes listed above that are contained in a sequence.
+> While we don't support full sequence matching, we do support exact match on the attributes listed that are contained in a sequence.
 
 ##### Attribute ID
 
@@ -847,18 +847,14 @@ The query API returns one of the following status codes in the response:
 | `403 (Forbidden)`           | The user isn't authorized. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
-#### Additional Notes
+#### Other Notes
 
-The query API won't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
+The query API doesn't `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range is resolved.
 
-* Paged results are optimized to return matched newest instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
+* Paged results are optimized to return matched newest instance first, this might result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case insensitive and accent insensitive for PN VR types.
 * Matching is case insensitive and accent sensitive for other string VR types.
-* If there's a scenario where canceling a Workitem and querying the same happens at the same time, then the query will most likely exclude the Workitem that's getting updated and the response code will be `206 (Partial Content)`.
+* If there's a scenario where canceling a Workitem and querying the same happens at the same time, then the query will likely exclude the Workitem that's getting updated and the response code is `206 (Partial Content)`.
 
-### Next Steps
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
 
-For more information about the DICOM service, see 
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
