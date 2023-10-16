@@ -48,9 +48,6 @@ The following examples show different ways to start batch deployment jobs using 
 
 In this case, we want to execute a batch endpoint using the identity of the user currently logged in. Follow these steps:
 
-> [!NOTE]
-> When working on Azure Machine Learning studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
-
 # [Azure CLI](#tab/cli)
 
 1. Use the Azure CLI to log in using either interactive or device code authentication:

@@ -23,7 +23,7 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
 
 * You have permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
 
-* You have a valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. For testing purposes, you can use your own credentials for the invocation as mentioned below. To learn more about how to authenticate with multiple type of credentials read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md).
+* You have a valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. For testing purposes, you can use your own credentials for the invocation as mentioned below.
 
     # [Azure CLI](#tab/cli)
     
@@ -70,6 +70,8 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ---
 
+    To learn more about how to authenticate with multiple type of credentials read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md).
+
 * The **compute cluster** where the endpoint is deployed has access to read the input data. 
 
     > [!TIP]
@@ -81,7 +83,12 @@ Batch endpoints provide a durable API that consumers can use to create batch job
 
 :::image type="content" source="./media/concept-endpoints/batch-endpoint-inputs-outputs.png" alt-text="Diagram showing how inputs and outputs are used in batch endpoints.":::
 
-Batch endpoints support two types of inputs: [data inputs](#data-inputs), which are pointers to an specific storage location or Azure Machine Learning asset; and [literal inputs](#literal-inputs), which are literal values (like numbers or strings) that you want to pass to the job. The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require 1 data input and produce 1 data output. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs (data and literal) and outputs.
+Batch endpoints support two types of inputs:
+
+* [Data inputs](#data-inputs), which are pointers to an specific storage location or Azure Machine Learning asset.
+* [Literal inputs](#literal-inputs), which are literal values (like numbers or strings) that you want to pass to the job. 
+
+The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require 1 data input and produce 1 data output. Literal inputs are not supported. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs (data and literal) and outputs.
 
 The following table summarizes it:
 
@@ -111,16 +118,14 @@ Batch endpoints support reading files located in the following storage options:
 
 ### Literal inputs
 
-Literal inputs refer to inputs that can be represented and resolved at invocation time, like strings, numbers, and boolean values. You typically use literal inputs to pass parameters to your endpoint as part of a pipeline component deployment.
-
-Batch endpoints support the following literal types:
+Literal inputs refer to inputs that can be represented and resolved at invocation time, like strings, numbers, and boolean values. You typically use literal inputs to pass parameters to your endpoint as part of a pipeline component deployment. Batch endpoints support the following literal types:
 
 - `string`
 - `boolean`
 - `float`
 - `integer`
 
-See [Create jobs with literal inputs](#create-jobs-with-literal-inputs) to learn how to indicate them.
+Literal inputs are only supported in Pipeline Component deployments. See [Create jobs with literal inputs](#create-jobs-with-literal-inputs) to learn how to indicate them.
 
 ### Data outputs
 
@@ -765,6 +770,8 @@ az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_
 
 # [Python](#tab/sdk)
 
+Use the parameter `deployment_name` to indicate the name of the deployment:
+
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint.name,
@@ -776,6 +783,8 @@ job = ml_client.batch_endpoints.invoke(
 ```
 
 # [REST](#tab/rest)
+
+Add the header `azureml-model-deployment` to your request, including the name of the deployment you want to invoke.
 
 __Request__
  
