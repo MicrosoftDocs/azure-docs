@@ -31,30 +31,30 @@ The following section describes the steps that should be taken to use DDoS Netwo
 2. Link your DDoS Protection plan to the virtual network that the Service Fabric managed cluster manages for you. To do this, you must grant SFMC permission to join your DDoS Protection plan with the virtual network. This permission is granted by assigning SFMC the “Network Contributor” Azure role as described in steps below:
 
    A.    Get the service `Id` from your subscription for Service Fabric Resource Provider application.
-         ```powershell
-         Login-AzAccount
-         Select-AzSubscription -SubscriptionId <SubId>
-         Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
-         ```
+
+   ```powershell
+   Login-AzAccount
+   Select-AzSubscription -SubscriptionId <SubId>
+   Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
+   ```
 
    > [!NOTE]
-         > Make sure you are in the correct subscription, the PrincipalId will change if the subscription is in a different tenant.
+   > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
-         ```powershell
-         ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
-         ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
-         ObjectType            : ServicePrincipal
-         DisplayName           : Azure Service Fabric Resource Provider
-         Id                    : 00000000-0000-0000-0000-000000000000
-         ```
+   ```powershell
+   ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
+   ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
+   ObjectType            : ServicePrincipal
+   DisplayName           : Azure Service Fabric Resource Provider
+   Id                    : 00000000-0000-0000-0000-000000000000
+   ```
 
    Note the **Id** of the previous output as **PrincipalId** for use in a later step
+   |Role definition name|Role definition ID|
+   |----|-------------------------------------|
+   |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
 
-         |Role definition name|Role definition ID|
-         |----|-------------------------------------|
-         |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
-
-         Note the `Role definition name` and `Role definition ID` property values for use in a later step
+   Note the `Role definition name` and `Role definition ID` property values for use in a later step
 
 
        
