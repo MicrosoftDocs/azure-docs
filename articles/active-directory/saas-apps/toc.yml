@@ -188,6 +188,8 @@
         href: aqua-platform-tutorial.md
       - name: Aravo
         href: aravo-tutorial.md
+      - name: ArborXR
+        href: arborxr-tutorial.md
       - name: ARC Facilities
         href: arc-facilities-tutorial.md
       - name: Arc Publishing - SSO
@@ -2873,6 +2875,8 @@
         href: webmethods-integration-cloud-tutorial.md
       - name: WebTMA
         href: webtma-tutorial.md
+      - name: WebXT Recognition
+        href: webxt-recognition-tutorial.md
       - name: Wedo
         href: wedo-tutorial.md
       - name: Weekdone

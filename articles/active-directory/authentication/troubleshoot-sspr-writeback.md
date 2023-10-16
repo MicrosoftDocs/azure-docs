@@ -35,7 +35,7 @@ If you have problems with password writeback for Microsoft Entra Connect, review
 
 The most common point of failure is that firewall or proxy ports, or idle timeouts are incorrectly configured.
 
-For Microsoft Entra Connect version *1.1.443.0* and above, *outbound HTTPS* access is required to the following addresses:
+For Azure AD Connect version *1.1.443.0* and above, *outbound HTTPS* access is required to the following addresses:
 
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
