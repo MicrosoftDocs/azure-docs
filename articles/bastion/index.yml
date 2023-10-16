@@ -46,7 +46,7 @@ landingContent:
             url: quickstart-host-portal.md
       - linkListType: tutorial
         links:
-          - text: Deploy Bastion manually
+          - text: Deploy Bastion manually - specify settings
             url: tutorial-create-host-portal.md
       - linkListType: how-to-guide
         links:
