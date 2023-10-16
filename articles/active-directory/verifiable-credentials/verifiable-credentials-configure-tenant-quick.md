@@ -68,7 +68,7 @@ As an admin, you can either remove the option in MyAccount and create your custo
 
 - A shared signing key is used across multiple tenants within a given region. It's no longer required to deploy Azure Key Vault. Since it's a shared key, the validityInterval of issued credentials is limited to six months.
 - The custom domain registered for your Microsoft Entra tenant is used for domain verification. It's no longer required to upload your DID configuration JSON to verify your domain.
-- The Decentralized identifier (DID) gets a name like `did:web:verifiedid.entra.microsoft.com:tenantid>:authority-id`
+- The Decentralized identifier (DID) gets a name like `did:web:verifiedid.entra.microsoft.com:tenantid:authority-id`
 
 ## Register an application in Microsoft Entra ID
 
