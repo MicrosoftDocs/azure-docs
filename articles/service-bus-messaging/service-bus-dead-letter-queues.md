@@ -73,9 +73,9 @@ Messages are sent to the dead-letter queue under the following conditions:
 
 ## Dead-lettering in send via scenarios
 
-- If the destination queue or topic is disabled, the message is sent to a transfer dead letter queue (TDLQ).
+- If the destination queue or topic is disabled, the message is sent to a transfer dead letter queue (TDLQ) of the source queue.
 - If the destination queue or topic is deleted, the 404 exception is raised.
-- If the destination queue or entity exceeds the entity size, the message doesn't go to either DLQ or TDLQ. 
+- If the destination queue or entity exceeds the entity size, the message is sent to a TDLQ of the source queue.
  
 
 ## Path to the dead-letter queue

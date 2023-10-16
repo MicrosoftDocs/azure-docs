@@ -2574,6 +2574,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/tier-comparison.md",
+            "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
