@@ -11,7 +11,7 @@ ms.author: banders
 ms.custom: references_regions
 ---
 
-# Save on select VMs in Poland Central for a limited time
+# Save on select Azure SQL Services in Poland Central for a limited time
 
 Save up to 66 percent compared to pay-as-you-go pricing when you purchase one or three-year reserved capacity for select [Azure SQL Database](/azure/azure-sql/database/reserved-capacity-overview), [SQL Managed Instances](/azure/azure-sql/database/reserved-capacity-overview), and [Azure Database for MySQL](../../mysql/single-server/concept-reserved-pricing.md) in Poland Central for a limited time. This offer is available between November 1, 2023 – March  31, 2024.
 
