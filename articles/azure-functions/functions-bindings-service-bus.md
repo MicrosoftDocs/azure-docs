@@ -144,6 +144,8 @@ The Service Bus extension supports parameter types according to the table below.
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
 This version of the extension supports parameter types according to the table below.
 
 The Service Bus extension supports parameter types according to the table below.
@@ -163,6 +165,8 @@ The Service Bus extension supports parameter types according to the table below.
 # [Functions 1.x](#tab/functionsv1/in-process)
 
 Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
@@ -204,6 +208,8 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 
 [Microsoft.ServiceBus.Messaging]: /dotnet/api/microsoft.servicebus.messaging
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 [upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
@@ -305,7 +311,7 @@ When you set the `isSessionsEnabled` property or attribute on [the trigger](func
 |---------|---------|---------|
 |**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
 |**maxAutoRenewDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically.|
-|**autoComplete**|`true`|Whether the trigger should automatically call complete after processing, or if the function code manually calls complete.<br><br>Setting to `false` is only supported in C#.<br><br>When set to `true`, the trigger completes the message, session, or batch automatically when the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|**autoComplete**|`true`|Whether the trigger should automatically call complete after processing, or if the function code manually calls complete.<br><br>Setting to `false` is only supported in C#.<br><br>When set to `true`, the trigger completes the message, session, or batch automatically when the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
 |**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
 |**maxConcurrentSessions**|`2000`|The maximum number of sessions that can be handled concurrently per scaled instance.|
 |**maxMessageCount**|`1000`| The maximum number of messages sent to the function when triggered. |
