@@ -42,7 +42,7 @@ These metrics are available for Azure Database for MySQL:
 |Active Connections|active_connection|Count|The number of active connections to the server. Active connections are the total number of [threads connected](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Threads_connected) to your server, which also includes threads from [azure_superuser](../single-server/how-to-create-users.md).|
 |Storage IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
 |Storage IO Count|storage_io_count|Count|The total count of I/O operations (both read and write) utilized by server per minute.|
-|Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric provides evaluation of the server's memory utilization, excluding re-usable memory.|
+|Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric provides evaluation of the server's memory utilization, excluding re-usable memory like buffer and cache.|
 |Total connections|total_connections|Count|The number of client connections to your Azure Database for MySQL - Flexible Server. Total Connections is sum of connections by clients using TCP/IP protocol over a selected period.|
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your MySQL server, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|
@@ -105,12 +105,12 @@ These metrics are available for Azure Database for MySQL:
 
 |Metric display name|Metric|Unit|Description|
 |---|---|---|---|
-|Storage Limit|storage_limit|Bytes|The maximum storage for this server.|
-|Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum.|
+|Storage Limit|storage_limit|Bytes|The maximum storage size configured for this server.|
+|Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum storage available.|
 |Storage Used|storage_used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
-|Data Storage Used|data_storage_used|Bytes|The amound of storage used for storing database files.|
-|ibdata1 Storage Used|ibdata1_storage_used|Bytes|The amount of storage used for storing ibdata1 file.|
-|Binlog Storage Used|binlog_storage_used|Bytes|The amount of storage used for storing binlog files.|
+|Data Storage Used|data_storage_used|Bytes|The amount of storage used for storing database files.|
+|ibdata1 Storage Used|ibdata1_storage_used|Bytes|The amount of storage used for storing system tablespace (ibdata1) file.|
+|Binlog Storage Used|binlog_storage_used|Bytes|The amount of storage used for storing binary log files.|
 |Other Storage Used|other_storage_used|Bytes| The amount of storage used for other components and metadata files.| 
 |Backup Storage Used|backup_storage_used|Bytes|The amount of backup storage used.|
 
