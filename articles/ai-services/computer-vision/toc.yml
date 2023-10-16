@@ -350,9 +350,9 @@ items:
       href: /javascript/api/overview/azure/cognitiveservices-face-readme
     - name: Python
       href: /python/api/overview/azure/cognitiveservices-vision-face-readme
-- name: Video Analysis
+- name: Spatial Analysis
   items:
-  - name: Video Analysis Overview
+  - name: Spatial Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:
@@ -374,7 +374,7 @@ items:
       href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Call the Video retrieval APIs
+    - name: Call the Video Retrieval APIs
       href: how-to/video-retrieval.md
     - name: Use the Spatial Analysis container
       items:

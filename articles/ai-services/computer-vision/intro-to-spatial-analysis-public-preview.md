@@ -13,8 +13,6 @@ ms.date: 12/27/2022
 ms.custom: contperf-fy22q2, ignite-2022
 ---
 
-tbd Video Retrieval is only available in the East US region.
-
 # What is Spatial Analysis?
 
 You can use Azure AI Vision Spatial Analysis to detect the presence and movements of people in video. Ingest video streams from cameras, extract insights, and generate events to be used by other systems. The service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces, you're able to learn how people use them and maximize the space's value to your organization. 
