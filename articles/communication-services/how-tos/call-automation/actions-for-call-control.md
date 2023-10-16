@@ -349,7 +349,7 @@ call_invite = CallInvite(
 -----
 No events are published for redirect. If the target is a Communication Services user or a phone number owned by your resource, it generates a new IncomingCall event with 'to' field set to the target you specified.
 
-## Transfer a 1:1 call
+## Transfer a participant in call
 
 When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call removes your application from the call and hence remove its ability to control the call using Call Automation. The call invite to the target will display the caller ID of the endpoint being transferred. Providing a custom caller ID is not supported. 
 
@@ -386,7 +386,140 @@ result = call_connection_client.transfer_call_to_participant(
 )
 ```
 -----
-The sequence diagram shows the expected flow when your application places an outbound 1:1 call and then transfers it to another endpoint.
+When your application answers a group call or places an outbound group call to an endpoint or added a participant to a 1:1 call, an endpoint can be transferred from the call to another destination endpoint, except call automation endpoint. Transferring a participant in a group call removes the endpoint being transferred from the call. The call invite to the target will display the caller ID of the endpoint being transferred. Providing a custom caller ID is not supported.
+
+# [csharp](#tab/csharp)
+
+```csharp
+// Transfer ACS User
+var transferDestination = new CommunicationUserIdentifier("<user_id>");
+var transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
+var transferOption = new TransferToParticipantOptions(transferDestination);
+transferOption.Transferee = transferee;
+
+// adding customeContext
+transferOption.CustomContext.Add(new VoipHeader("customVoipHeader1", "customVoipHeaderValue1"));
+transferOption.CustomContext.Add(new VoipHeader("customVoipHeader2", "customVoipHeaderValue2"));
+
+transferOption.OperationContext = "<Your_context>";
+TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
+
+// Transfer PSTN User
+var transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
+var transferee = new PhoneNumberIdentifier("<transferee_phoneNumber>"); 
+var transferOption = new TransferToParticipantOptions(transferDestination);
+transferOption.Transferee = transferee;
+
+// adding customeContext
+transferOption.CustomContext.Add(new SIPUUIHeader("uuivalue"));
+transferOption.CustomContext.Add(new SIPCustomHeader("header1", "headerValue"));
+
+transferOption.OperationContext = "<Your_context>";
+TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
+```
+
+# [Java](#tab/java)
+
+```java
+// Transfer ACS User
+CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
+CommunicationIdentifier transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
+TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination);
+options.setTransferee(transferee);
+options.setOperationContext("<Your_context>");
+
+// set customContext
+options.getCustomContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
+
+Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+
+// Transfer Pstn User
+CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<taget_phoneNumber>");
+CommunicationIdentifier transferee = new PhoneNumberIdentifier("<transferee_phoneNumber>"); 
+TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination);
+options.setTransferee(transferee);
+options.setOperationContext("<Your_context>");
+
+// set customContext
+options.getCustomContext().addOrUpdate(new SIPUUIHeader("UUIvalue"));
+options.getCustomContext().addOrUpdate(new SIPCustomHeader("sipHeaderName", "value"));
+
+Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+// Transfer Acs User
+const transferDestination = { communicationUserId: "<user_id>" };
+const transferee = { communicationUserId: "<transferee_user_id>" };
+const options = { transferee: transferee, operationContext: "<Your_context>" };
+
+// adding customeContext
+const customContext = new CustomContext({}, {}); 
+const voipHeader = new VoipHeader("customVoipHeader1", "customVoipHeaderValue1");
+customContext.add(voipHeader);
+options.customContext = customContext;
+
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+
+// Transfer pstn User
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
+const transferee = { phoneNumber: "<transferee_phoneNumber>" };
+const options = { transferee: transferee, operationContext: "<Your_context>" };
+
+// adding customeContext
+const customContext = new CustomContext({}, {}); 
+const sipUUIHeader = new SIPUserToUserHeader("uuivalue");
+customContext.add(sipUUIHeader);
+const sipCustomHeader = new SIPCustomHeader("headerName", "headerValue");
+customContext.add(sipCustomHeader);
+options.customContext = customContext;
+
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+```
+
+# [Python](#tab/python)
+
+```python
+# Transfer to ACS user
+transfer_destination = CommunicationUserIdentifier("<user_id>")
+transferee = CommnunicationUserIdentifer("transferee_user_id")
+call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+
+# create custom context
+custom_context = CustomContext(sip_headers={}, voip_headers={})
+custom_context.add(VoipHeader("customVoipHeader1", "customVoipHeaderValue1"))
+
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination,
+    transferee=transferee,
+    custom_context=custom_context,
+    opration_context="Your context"
+)
+
+# Transfer to Sip user
+transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
+transferee = PhoneNumberIdentifer("transferee_phoneNumber")
+
+# create custom context
+custom_context = CustomContext(sip_headers={}, voip_headers={})
+custom_context.add(SIPCustomHeader("headerName", "headerValue"))
+custom_context.add(SIPUserToUserHeader("uuivale"))
+
+call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination,
+    transferee=transferee,
+    custom_context=custom_context,
+    opration_context="Your context"
+)
+```
+-----
+The sequence diagram shows the expected flow when your application places an outbound call and then transfers it to another endpoint.
+
+
 
 ![Sequence diagram for placing a 1:1 call and then transferring it.](media/transfer-flow.png)
 
