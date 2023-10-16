@@ -5,7 +5,7 @@ description: Learn how to use Pig with Apache Hadoop on HDInsight.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/16/2023
 ---
 # Use Apache Pig with Apache Hadoop on HDInsight
 
