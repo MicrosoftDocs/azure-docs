@@ -5,12 +5,14 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 10/16/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Attestation monitoring data reference 
+
+See [Monitoring Azure Attestation](monitor-logs.md) for details on collecting and analyzing monitoring data for Key Vault.
 
 ## Resource logs 
 
@@ -24,5 +26,5 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, including info
 
 ## Diagnostics tables 
 
-AzureAttestation uses the [Azure Activity](/azure/azure-monitor/reference/tables/azureactivity) and [Azure Attestation Diagnostics](/azure/azure-monitor/reference/tables/azureattestationdiagnostics) tables to store resource log information.  
+Azure Attestation uses the [Azure Activity](/azure/azure-monitor/reference/tables/azureactivity) and [Azure Attestation Diagnostics](/azure/azure-monitor/reference/tables/azureattestationdiagnostics) tables to store resource log information.  
 
