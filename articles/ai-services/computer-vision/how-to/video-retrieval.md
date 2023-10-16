@@ -1,7 +1,7 @@
 ---
 title: Do video retrieval using vectorization - Image Analysis 4.0
 titleSuffix: Azure AI services
-description: Learn how to call the image retrieval API to vectorize video frames and search terms.
+description: Learn how to call the video retrieval APIs to vectorize video frames and search terms.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -358,4 +358,4 @@ Connection: close
 
 ## Next steps
 
-[Image retrieval concepts](../concept-image-retrieval.md)
+[Multi-modal embeddings concepts](../concept-image-retrieval.md)
