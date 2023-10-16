@@ -25,9 +25,9 @@ This article provides an overview of data collection endpoints and explains how 
 
 ## Components of a data collection endpoint
 
-A data collection endpoint includes components that send configuration files and receive collected data. 
+A data collection endpoint includes components required to ingest data into Azure Monitor and send configuration files to Azure Monitor Agent. 
 
-Based on your deployment, you may need to create one or more data collection endpoints because of regionality considerations.
+[How you set up endpoints for your deployment](#how-to-set-up-data-collection-endpoints-based-on-your-deployment) depends on whether your monitored resources and Log Analytics workspaces are in one or more regions.
 
 This table describes the components and related regionality considerations:
 
