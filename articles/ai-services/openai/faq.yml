@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 10/12/2023
+  ms.date: 10/16/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -127,6 +127,10 @@ sections:
           Where can I find out what region a model is available in?
         answer: |
           Consult the Azure OpenAI [model availability guide](./concepts/models.md#model-summary-table-and-region-availability) for region availability.
+      - question: |
+          How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio.  
+        answer: |
+          In order to successfully access fine-tuning you need Cognitive Services OpenAI Contributor assigned. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
       - question: |
           What is the difference between a base model and a fine-tuned model?
         answer:
