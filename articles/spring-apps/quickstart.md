@@ -22,22 +22,7 @@ This article explains how to deploy a small application to run on Azure Spring A
 
 The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
 
-::: zone pivot="sc-consumption-plan,sc-standard"
-
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart/quickstart-tool-introduction.md)]
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-This article provides the following options for deploying to Azure Spring Apps:
-
-- The Azure portal is the easiest and fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- The Azure CLI is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
-- IntelliJ is a powerful Java IDE to easily manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services and IntelliJ IDEA.
-- Visual Studio Code is a lightweight but powerful source code editor, which can easily manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services and Visual Studio Code.
-
-::: zone-end
 
 ## 1. Prerequisites
 
@@ -66,9 +51,15 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -181,7 +172,7 @@ After the deployment finishes, access the application with the output endpoint. 
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 After the deployment finishes, use the following steps to find the application URL from the deployment outputs:
 
@@ -190,6 +181,14 @@ After the deployment finishes, use the following steps to find the application U
 1. Access the application URL. When you open the app, you get the response `Hello World`.
 
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+Now you can access the deployed app to see whether it works. Use the following steps to validate:
+
+1. Access the application URL. When you open the app, you get the response `Hello World`.
+
+1. Check the console logs, which are useful for investigating any deployment issues.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

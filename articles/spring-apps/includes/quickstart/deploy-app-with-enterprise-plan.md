@@ -16,9 +16,13 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [spring-cloud-azure-tools releases](https://github.com/Azure/spring-cloud-azure-tools/releases) page on GitHub. No local preparation steps are needed.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -38,9 +42,19 @@ To prepare the Spring project, follow the steps in the [Before you begin](https:
 
 This section describes how to create an Azure Spring Apps service instance and prepare the Azure cloud environment.
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-enterprise-on-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+### 3.1. Sign in to the Azure portal
+
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+### 3.2. Create an Azure Spring Apps instance
+
+[!INCLUDE [provision-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -161,9 +175,15 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 ## 4. Deploy the app to Azure Spring Apps
 
-### [Azure portal](#tab/Azure-portal-ent)
+### [Azure portal](#tab/Azure-portal)
 
 [!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+[!INCLUDE [deploy-hello-app-on-azure-portal](hello-spring-apps-maven-plugin.md)]
+
+[!INCLUDE [deploy-hello-app-on-azure-portal](hello-spring-apps-maven-plugin-standard-output.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
