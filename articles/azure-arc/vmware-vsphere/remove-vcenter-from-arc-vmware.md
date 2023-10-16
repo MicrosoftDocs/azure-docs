@@ -95,7 +95,7 @@ You can remove your VMware vSphere resources from Azure Arc using either the deb
 
 Use the deboarding script to do a full cleanup of all the Arc-enabled VMware resources. The script removes all the Azure resources, including vCenter, custom location, virtual machines, virtual templates, hosts, clusters, resource pools, datastores, virtual networks, Azure Resource Manager (ARM) resource of Appliance, and the appliance VM running on vCenter.
 
-```Powershell-interactive
+```powershell
 [CmdletBinding()]
 Param(
   [string] $vCenterId,
@@ -392,7 +392,7 @@ If you aren't using the deboarding script, follow these steps to remove the VMwa
 
     This action will only remove these resource representations from Azure. The resources will continue to remain in your vCenter. 
 
-7. Perform the steps 4, 5, and 6 for **Resources pools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**
+7. Do the steps 4, 5, and 6 for **Resources pools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**
 
 8. Once the deletion is complete, select **Overview**.
 
