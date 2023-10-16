@@ -103,7 +103,7 @@ Currently, Content Safety has an **F0 and S0** pricing tier.
 
 ### Language support
 
-Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality may vary. In all cases, you should do your own testing to ensure that it works for your application.
+Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 

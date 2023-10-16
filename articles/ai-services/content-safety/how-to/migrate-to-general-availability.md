@@ -4,8 +4,7 @@ description: Learn how to upgrade your app from the public preview version of Az
 titleSuffix: Azure AI services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.topic: conceptual
 ms.date: 09/25/2023
 ms.author: pafarley

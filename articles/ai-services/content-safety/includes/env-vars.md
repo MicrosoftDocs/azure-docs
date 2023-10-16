@@ -34,7 +34,7 @@ setx CONTENT_SAFETY_KEY 'YOUR_CONTENT_SAFETY_KEY'
 setx CONTENT_SAFETY_ENDPOINT 'YOUR_CONTENT_SAFETY_ENDPOINT'
 ```
 
-After you add the environment variables, you may need to restart any running programs that will read the environment variables, including the console window.
+After you add the environment variables, you might need to restart any running programs that will read the environment variables, including the console window.
 
 #### [Linux](#tab/linux)
 

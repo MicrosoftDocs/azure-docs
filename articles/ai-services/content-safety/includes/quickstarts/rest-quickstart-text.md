@@ -59,9 +59,9 @@ The parameters in the request body are defined in this table:
 | Name        | Required     | Description  | Type    |
 | :---------- | ----------- | :------------ | ------- |
 | **text**    | Required | This is the raw text to be checked. Other non-ascii characters can be included. | String  |
-| **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We will use multiple categories to get scores in a single request. | String  |
+| **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
 | **blocklistNames**    | Optional | Text blocklist Name. Only support following characters:  `0-9 A-Z a-z - . _ ~`. You could attach multiple list names here. | Array   |
-| **haltOnBlocklistHit** | Optional | When set to `true`, further analyses of harmful content will not be performed in cases where blocklists are hit. When set to `false`, all analyses of harmful content will be performed, whether or not blocklists are hit. | Boolean|
+| **haltOnBlocklistHit** | Optional | When set to `true`, further analyses of harmful content won't be performed in cases where blocklists are hit. When set to `false`, all analyses of harmful content will be performed, whether or not blocklists are hit. | Boolean|
 | **outputType** | Optional | `"FourSeverityLevels"` or `"EightSeverityLevels"`. Output severities in four or eight levels, the value can be `0,2,4,6` or `0,1,2,3,4,5,6,7`. | String|
 
 See the following sample request body:

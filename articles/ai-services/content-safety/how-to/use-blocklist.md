@@ -18,9 +18,9 @@ keywords:
 # Use a blocklist
 
 > [!CAUTION]
-> The sample data in this guide may contain offensive content. User discretion is advised.
+> The sample data in this guide might contain offensive content. User discretion is advised.
 
-The default AI classifiers are sufficient for most content moderation needs. However, you may need to screen for items that are specific to your use case.
+The default AI classifiers are sufficient for most content moderation needs. However, you might need to screen for items that are specific to your use case.
 
 ## Prerequisites
 
