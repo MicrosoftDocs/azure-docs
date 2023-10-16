@@ -49,14 +49,13 @@ The following section describes the steps that should be taken to use DDoS Netwo
    Id                    : 00000000-0000-0000-0000-000000000000
    ```
 
-   Note the **Id** of the previous output as **PrincipalId** for use in a later step
-   
+   Note the **Id** of the previous output as **principalId** for use in a later step
+
    |Role definition name|Role definition ID|
    |----|-------------------------------------|
    |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
 
    Note the `Role definition name` and `Role definition ID` property values for use in a later step
-
 
        
    B.    The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection)             adds a role assignment to the DDoS Protection Plan with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-             based-access-control/built-in-roles.md#all). This role assignment is defined in the resources section of template with PrincipalId and a role definition ID                   determined from the first step. 
@@ -100,7 +99,7 @@ The following section describes the steps that should be taken to use DDoS Netwo
 
   	   #### ARM template:
          
-      ```json
+   ```JSON
          {
          "apiVersion": "2023-07-01-preview",
          "type": "Microsoft.ServiceFabric/managedclusters",
@@ -108,4 +107,4 @@ The following section describes the steps that should be taken to use DDoS Netwo
          "properties":  {
          "ddosProtectionPlanId": "[parameters('ddosProtectionPlanId')]"
          }
-      ```
+   ```
