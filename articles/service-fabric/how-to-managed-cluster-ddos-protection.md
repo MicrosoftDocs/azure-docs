@@ -61,7 +61,7 @@ The following section describes the steps that should be taken to use DDoS Netwo
    B.    The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection)             adds a role assignment to the DDoS Protection Plan with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-             based-access-control/built-in-roles.md#all). This role assignment is defined in the resources section of template with PrincipalId and a role definition ID                   determined from the first step. 
 
 
-            ```json
+      ```json
               "variables": { 
                 "sfApiVersion": "2023-07-01-preview", 
                 "ddosProtectionPlanName": "YourDDoSProtectionPlan", 
@@ -81,29 +81,30 @@ The following section describes the steps that should be taken to use DDoS Netwo
                   } 
                 } 
                 ]
-            ```
+   ```
+
 
       or you can also add role assignment via PowerShell using PrincipalId determined from the first step and role definition name as "Contributor" where applicable.
 
-            ```powershell
-            New-AzRoleAssignment -PrincipalId "sfrpPrincipalId" `
-            -RoleDefinitionId "4d97b98b-1d4f-4787-a291-c67834d212e7" `
-            -ResourceName <resourceName> `
-            -ResourceType <resourceType> `
-            -ResourceGroupName <resourceGroupName>
-            ```
+   ```powershell
+   New-AzRoleAssignment -PrincipalId "sfrpPrincipalId" `
+   -RoleDefinitionId "4d97b98b-1d4f-4787-a291-c67834d212e7" `
+   -ResourceName <resourceName> `
+   -ResourceType <resourceType> `
+   -ResourceGroupName <resourceGroupName>
+   ```
 
 3.	Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) that assigns roles and adds DDoS Protection configuration as part of the service fabric managed cluster creation. Update the template with `principalId`, `ddosProtectionPlanName` and `ddosProtectionPlanId` obtained above.
 4.	You can also modify your existing ARM template and add new property `ddosProtectionPlanId` under Microsoft.ServiceFabric/managedClusters resource that takes the resource ID of the DDoS Protection Network Protection Plan.
 
-  	   #### ARM Template:
+  	   #### ARM template:
          
-               ```json
-                  {
-                  "apiVersion": "2023-07-01-preview",
-                  "type": "Microsoft.ServiceFabric/managedclusters",
-                  },
-                  "properties":  {
-                  "ddosProtectionPlanId": "[parameters('ddosProtectionPlanId')]"
-                  }
-               ```
+      ```json
+         {
+         "apiVersion": "2023-07-01-preview",
+         "type": "Microsoft.ServiceFabric/managedclusters",
+         },
+         "properties":  {
+         "ddosProtectionPlanId": "[parameters('ddosProtectionPlanId')]"
+         }
+   ```
