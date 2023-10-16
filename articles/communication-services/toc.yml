@@ -184,6 +184,10 @@ items:
     items:
     - name: Access TURN relays
       href: quickstarts/relay-token.md
+  - name: Managed Identity
+    items:
+    - name: Enable Managed Identity on ACS resources
+      href: how-tos/managed-identity.md
 - name: Tutorials
   items:
   - name: SMS
