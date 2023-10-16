@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 ---
 # Configure and access Azure Database for MariaDB slow query logs by using Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 You can download the Azure Database for MariaDB slow query logs by using Azure CLI, the Azure command-line utility.
 
 ## Prerequisites

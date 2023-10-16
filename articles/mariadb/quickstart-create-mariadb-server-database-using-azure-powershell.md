@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 
 # Quickstart: Create an Azure Database for MariaDB server using PowerShell
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
 in scripts.

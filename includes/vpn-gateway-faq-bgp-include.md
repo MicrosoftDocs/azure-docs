@@ -117,7 +117,7 @@ Add a host route of the Azure BGP peer IP address on your VPN device. This route
 
 No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime quicker than you can by using standard BGP "keepalives." BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or Wide Area Network connections.
 
-For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause routes to be dampened by BGP. As an alternative, you can configure your on-premises device with timers lower than the default, 60-second "keepalive" interval, and the 180-second hold timer. This results in a quicker convergence time. However, timers below the default 60-second"keepalive" interval or below the default 180-second hold timer are not reliable. It's recommended to keep timers at or above the default values.
+For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause routes to be dampened by BGP. As an alternative, you can configure your on-premises device with timers lower than the default, 60-second "keepalive" interval, and the 180-second hold timer. This results in a quicker convergence time. However, timers below the default 60-second "keepalive" interval or below the default 180-second hold timer are not reliable. It's recommended to keep timers at or above the default values.
 
 ### Do Azure VPN gateways initiate BGP peering sessions or connections?
 

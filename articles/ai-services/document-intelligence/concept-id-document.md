@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Automate identity document (ID) processing of driver licenses, passports, and more with Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -128,11 +127,11 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. On the Document Intelligence Studio home page, select **Identity documents**
 
-1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample invoice or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot of analyze ID document menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)

@@ -2,7 +2,7 @@
 title: Deploy Application Insights Agent
 description: Learn how to use Application Insights Agent to monitor website performance. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 09/12/2023
 ms.reviewer: abinetabate
 ---
 
@@ -310,7 +310,7 @@ When you monitor a computer on your private intranet, you'll need to route HTTP 
 The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
 Review the preceding instructions when you write your installation scripts.
 
-The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](../faq.yml).
+The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [How do I achieve proxy passthrough?](#how-do-i-achieve-proxy-passthrough).
 
 
 ### Enable monitoring
@@ -1005,6 +1005,21 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
+### How do I achieve proxy passthrough?
+
+To achieve proxy passthrough, configure a machine-level proxy or an application-level proxy.
+See [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+
+Example Web.config:
+
+```xml
+<system.net>
+    <defaultProxy>
+    <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
@@ -1015,7 +1030,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 View your telemetry:
 - [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
-- [Search events and logs](./diagnostic-search.md) to diagnose problems.
+- [Search events and logs](./search-and-transaction-diagnostics.md?tabs=transaction-search) to diagnose problems.
 - [Use Log Analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Analyze Azure AD sign-in logs with the Microsoft Graph API 
-description: Learn how to access the sign-ins log and analyze a single sign-in attempt using the Microsoft Graph API.
+title: Analyze Microsoft Entra sign-in logs with the Microsoft Graph API 
+description: Learn how to access the sign-in log and analyze a single sign-in attempt using the Microsoft Graph API.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -13,16 +13,16 @@ ms.reviewer: besiler
 
 #Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.
 ---
-# Quickstart: Access Azure AD logs with the Microsoft Graph API 
+# Quickstart: Access Microsoft Entra logs with the Microsoft Graph API 
 
-With the information in the Azure Active Directory (Azure AD) sign-in logs, you can figure out what happened if a sign-in of a user failed. This quickstart shows you how to access the sign-ins log using the Microsoft Graph API.
+With the information in the Microsoft Entra sign-in logs, you can figure out what happened if a sign-in of a user failed. This quickstart shows you how to access the sign-in log using the Microsoft Graph API.
 
 
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- **Access to an Azure AD tenant**: If you don't have access to an Azure AD tenant, see [Create your Azure free account today](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- **Access to a Microsoft Entra tenant**: If you don't have access to a Microsoft Entra tenant, see [Create your Azure free account today](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - **A test account called Isabella Simonsen**: If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 - **Access to the Microsoft Graph API**: If you haven't configured access yet, see [How to configure the prerequisites for the reporting API](howto-configure-prerequisites-for-reporting-api.md).
 
@@ -31,11 +31,11 @@ To complete the scenario in this quickstart, you need:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
+The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-in log.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as Isabella Simonsen using an incorrect password.
 
-2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log.
+2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-in log.
 
 
 ## Find the failed sign-in
@@ -65,9 +65,9 @@ Review the outcome of your query.
 
 ## Clean up resources
 
-When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user).
+When no longer needed, delete the test user. If you don't know how to delete a Microsoft Entra user, see [Delete users from Microsoft Entra ID](../fundamentals/add-users.md#delete-a-user).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What are Azure Active Directory reports?](overview-reports.md)
+> [Integrate Microsoft Entra activity logs with Azure Monitor logs](./howto-integrate-activity-logs-with-azure-monitor-logs.md)

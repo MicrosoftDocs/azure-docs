@@ -119,7 +119,7 @@ It's also recommended to check that you enabled the ICF ports.
 4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**.   
    You'll see empty visualization as part of the workbook when it isn't configured.
 
-    1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
+    1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/2651881).
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
     3. Recommended scheduling **SDF/SMON** as a background job in your target SAP client each minute.
     4. If you notice empty visualization as part of the workbook tab "System Performance - CPU and Memory (/SDF/SMON)", please apply the below SAP note:     

@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 04/17/2023
+ms.date: 09/18/2023
 ms.author: danlep
 ms.custom:
 ---
@@ -19,7 +19,7 @@ Most new instances created in service tiers other than the Consumption tier are 
 
 ## What are the compute platforms for API Management?
 
-The following table summarizes the compute platforms currently used for instances in the different API Management service tiers. 
+The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
@@ -31,7 +31,7 @@ The following table summarizes the compute platforms currently used for instance
 <sup>2</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
-> Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
+> Currently, the `stv2` platform isn't available in the following Azure regions: China East, China East 2, China North, China North 2.
 > 
 > Also, as Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
 
@@ -63,6 +63,12 @@ The `stv2` platform infrastructure supports several resiliency and security feat
 > Support for API Management instances hosted on the `stv1` platform will be [retired by 31 August 2024](breaking-changes/stv1-platform-retirement-august-2024.md). To ensure proper operation of your API Management instance, you should migrate any instance hosted on the `stv1` platform to `stv2` before that date.
 
 Migration steps depend on features enabled in your API Management instance. If the instance isn't injected in a VNet, you can use a migration API. For instances that are VNet-injected, follow manual steps. For details, see the [migration guide](migrate-stv1-to-stv2.md).
+
+## What about the v2 pricing tiers?
+
+The v2 pricing tiers are a new set of tiers for API Management currently in preview. Hosted on a new, highly scalable and available Azure infrastructure that's different from the `stv1` and `stv2` compute platforms, the v2 tiers aren't affected by the retirement of the `stv1` platform.
+
+The v2 tiers are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. For more information, see [v2 tiers overview](v2-service-tiers-overview.md).
 
 ## Next steps
 

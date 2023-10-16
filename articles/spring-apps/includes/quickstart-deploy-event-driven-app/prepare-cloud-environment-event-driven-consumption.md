@@ -18,6 +18,10 @@ The main resources you need to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal)
 
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-consumption-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 ### 3.1. Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -85,6 +89,12 @@ Use the following steps to create the service instance:
 
    ```bash
    azd auth login
+   ```
+
+   The console outputs messages similar to the following example:
+
+   ```text
+   Logged in to Azure.
    ```
 
 1. Use the following command to provision the template's infrastructure to Azure:

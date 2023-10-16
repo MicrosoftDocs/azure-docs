@@ -10,7 +10,7 @@ ms.date: 09/28/2022
 
 [Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md) allows you to collect and analyze metrics at scale using a [Prometheus](https://aka.ms/azureprometheus-promio)-compatible monitoring solution. The most common way to analyze and present Prometheus data is with a Grafana dashboard. This article explains how to configure Prometheus as a data source for both [Azure Managed Grafana](../../managed-grafana/overview.md) and [self-hosted Grafana](https://grafana.com/) running in an Azure virtual machine using managed system identity authentication.
 
-For information on using Grafana with Active Directory, see [Configure self-managed Grafana to use Azure Monitor managed Prometheus with Azure Active Directory](./prometheus-self-managed-grafana-azure-active-directory.md). 
+For information on using Grafana with Active Directory, see [Configure self-managed Grafana to use Azure Monitor managed Prometheus with Microsoft Entra ID](./prometheus-self-managed-grafana-azure-active-directory.md). 
 
 ## Azure Managed Grafana 
 The following sections describe how to configure Azure Monitor managed service for Prometheus as a data source for Azure Managed Grafana.
@@ -137,7 +137,7 @@ Versions 9.x and greater of Grafana support Azure Authentication, but it's not e
 
 
 ## Next steps
-- [Configure self-managed Grafana to use Azure-managed Prometheus with Azure Active Directory](./prometheus-self-managed-grafana-azure-active-directory.md).
+- [Configure self-managed Grafana to use Azure-managed Prometheus with Microsoft Entra ID](./prometheus-self-managed-grafana-azure-active-directory.md).
 - [Collect Prometheus metrics for your AKS cluster](../essentials/prometheus-metrics-enable.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

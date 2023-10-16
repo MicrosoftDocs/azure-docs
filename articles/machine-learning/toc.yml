@@ -86,7 +86,7 @@
         # end v1
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Develop and operationalize features
+    - name: Managed feature store
       items:
         - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
@@ -96,6 +96,10 @@
           href: tutorial-experiment-train-models-using-features.md
         - name: Enable recurrent materialization and run batch inference
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+        - name: Enable online materialization and run online inference
+          href: tutorial-online-materialization-inference.md
+        - name: Network isolation with feature store
+          href: tutorial-network-isolation-for-feature-store.md
     # v1
     - name: Python get started (Day 1)
       items:
@@ -608,6 +612,8 @@
               href: ./prompt-flow/concept-tools.md
             - name: Variants
               href: ./prompt-flow/concept-variants.md
+            - name: Evaluation monitoring metrics
+              href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
         - name: Set up infrastructure
@@ -616,6 +622,10 @@
               href: ./prompt-flow/how-to-create-manage-runtime.md
             - name: Customize environment for runtime
               href: ./prompt-flow/how-to-customize-environment-runtime.md
+            - name: Migrate from managed online endpoint/deployment runtime
+              href: ./prompt-flow/migrate-managed-inference-runtime.md
+            - name: Network isolation in prompt flow
+              href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
           items:
             - name: Develop a standard flow
@@ -628,12 +638,30 @@
               href: ./prompt-flow/how-to-tune-prompts-using-variants.md
         - name: Evaluate flows
           items:
-            - name: Bulk test and evaluate a flow
+            - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
             - name: Develop a customized evaluation flow
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
-        - name: Deploy flows for real-time inference
+            - name: Evaluate your Semantic Kernel with Prompt flow
+              href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
+        - name: Deploy a flow to online endpoint for real-time inference with UI
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+        - name: "Code first: Dev to Prod"
+          items:
+            - name: Community Ecosystem
+              href: ./prompt-flow/community-ecosystem.md
+            - name: Integrate Prompt Flow with LLM-based application DevOps 
+              href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
+            - name: Deploy a flow to online endpoint for real-time inference with CLI 
+              href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: How to use streaming endpoints deployed from prompt flow
+              href: ./prompt-flow/how-to-enable-streaming-mode.md
+            - name: Set up end-to-end LLMOps with Prompt Flow and GitHub 
+              href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
+            - name: Custom tool package creation and usage
+              href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+        - name: Monitor generative AI applications in production
+          href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
         - name: Tools Reference
           items:
             - name: LLM tool
@@ -670,6 +698,10 @@
           href: how-to-create-vector-index.md
         - name: How to create an RAG pipeline
           href: how-to-use-pipelines-prompt-flow.md
+        - name: How to secure RAG workflows
+          href: how-to-secure-rag-workflows.md
+        - name: RAG cloud to local 
+          href: how-to-retrieval-augmented-generation-cloud-to-local.md
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview
@@ -771,7 +803,9 @@
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
-  - name: How to use pipeline components in pipeline
+  - name: How to manage inputs and ouputs in pipeline
+    href: how-to-manage-inputs-outputs-pipeline.md
+  - name: How to use pipeline components in pipeline 
     href: how-to-use-pipeline-component.md
   - name: Schedule a pipeline job
     href: how-to-schedule-pipeline-job.md
@@ -1036,15 +1070,17 @@
         href: how-to-setup-mlops-azureml.md
       - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
+      - name: Set up LLMOps with Prompt Flow and GitHub 
+        href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
 - name: Monitor your models
   items:
     - name: Model data collection
       href: concept-data-collection.md
-    - name: Model monitoring
-      href: concept-model-monitoring.md
     - name: Collect inferencing data from production
       displayName: model data collection, data drift, data quality, model quality
       href: how-to-collect-production-data.md
+    - name: Model monitoring
+      href: concept-model-monitoring.md
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md
@@ -1268,6 +1304,8 @@
           href: how-to-troubleshoot-kubernetes-compute.md
         - name: Reference for configuring Kubernetes cluster
           href: reference-kubernetes.md
+        - name: Monitor Kubernetes Online Endpoint inference server logs
+          href: how-to-monitor-kubernetes-online-enpoint-inference-server-log.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -1347,6 +1385,12 @@
             href: ./known-issues/workspace-move-compute-instance-same-name.md
           - name: Application Sharing Policy isn't supported 
             href: ./known-issues/application-sharing-policy-not-supported.md 
+        - name: Inferencing known issues
+          items:
+          - name: Existing Kubernetes compute cannot be updated
+            href: ./known-issues/inferencing-updating-kubernetes-compute-appears-to-succeed.md
+          - name: Invalid certificate error during deployment
+            href: ./known-issues/inferencing-invalid-certificate.md
 - name: Samples
   items:
     - name: Jupyter Notebooks

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Conditional Access policy changes
-description: Diagnose changes to Conditional Access policy with the Azure AD audit logs.
+description: Diagnose changes to Conditional Access policy with the Microsoft Entra audit logs.
 
 services: active-directory
 ms.service: active-directory
@@ -17,16 +17,16 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshooting Conditional Access policy changes
 
-The Azure Active Directory (Azure AD) audit log is a valuable source of information when troubleshooting why and how Conditional Access policy changes happened in your environment.
+The Microsoft Entra audit log is a valuable source of information when troubleshooting why and how Conditional Access policy changes happened in your environment.
 
-Audit log data is only kept for 30 days by default, which may not be long enough for every organization. Organizations can store data for longer periods by changing diagnostic settings in Azure AD to: 
+Audit log data is only kept for 30 days by default, which may not be long enough for every organization. Organizations can store data for longer periods by changing diagnostic settings in Microsoft Entra ID to: 
 
 - Send data to a Log Analytics workspace
 - Archive data to a storage account
 - Stream data to Event Hubs
 - Send data to a partner solution
  
-Find these options in the **Azure portal** > **Azure Active Directory**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one. 
+Find these options under **Identity** > **Monitoring & health** > **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one. 
 
 ## Use the audit log
 
@@ -47,7 +47,7 @@ Log Analytics allows organizations to query data using built in queries or custo
 
 :::image type="content" source="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png" alt-text="Log Analytics query for updates to Conditional Access policies showing new and old value location" lightbox="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png":::
 
-Once enabled find access to Log Analytics in the **Azure portal** > **Azure AD** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
+Once enabled find access to Log Analytics in the **Identity** > **Monitoring & health** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
 
 ```kusto
 AuditLogs 
@@ -193,6 +193,6 @@ For more information about programmatically updating your Conditional Access pol
 
 ## Next steps
 
-- [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
-- [Install and use the log analytics views for Azure Active Directory](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
+- [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring.md)
+- [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Conditional Access: Programmatic access](howto-conditional-access-apis.md)

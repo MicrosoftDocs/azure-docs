@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Connectivity architecture in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article explains the Azure Database for MariaDB connectivity architecture and how the traffic is directed to your Azure Database for MariaDB instance from clients both within and outside Azure.
 
 ## Connectivity architecture

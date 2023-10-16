@@ -78,7 +78,7 @@ Confidential VMs support the following VM sizes:
 ### OS support
 Confidential VMs support the following OS options:
 
-| Linux                                             | Windows                                | |
+| Linux                                             | Windows                                          | Windows                       |
 |---------------------------------------------------|--------------------------------------------------|-------------------------------|
 | **Ubuntu**                                        | **Windows 11**                                   | **Windows Server Datacenter** |
 | 20.04 <span class="pill purple">LTS</span>        | 22H2 Pro                                         | 2019                          |

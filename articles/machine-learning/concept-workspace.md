@@ -50,7 +50,7 @@ Besides grouping your machine learning results, workspaces also host resource co
 For machine learning team leads and administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for organizing workspaces:
 
 + **Use [user roles](how-to-assign-roles.md)** for permission management in the workspace between users. For example a data scientist, a machine learning engineer or an admin.
-+ **Assign access to user groups**: By using Azure Active Directory user groups, you don't have to add individual users to each workspace, and to other resources the same group of users requires access to.
++ **Assign access to user groups**: By using Microsoft Entra user groups, you don't have to add individual users to each workspace, and to other resources the same group of users requires access to.
 + **Create a workspace per project**: While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
 + **Share Azure resources**: Workspaces require you to create several [associated resources](#associated-resources). Share these resources between workspaces to save repetitive setup steps.
 + **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.

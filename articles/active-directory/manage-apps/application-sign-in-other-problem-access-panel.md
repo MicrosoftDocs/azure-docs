@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot problems signing in to an application from My Apps portal
-description: Troubleshoot problems signing in to an application from Azure AD My Apps
+description: Troubleshoot problems signing in to an application from Microsoft Entra My Apps
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -16,11 +16,11 @@ ms.custom: contperf-fy21q2, enterprise-apps
 
 # Troubleshoot application sign-in
 
-My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+My Apps is a web-based portal that enables a user with a work or school account in Microsoft Entra ID to view and start cloud-based applications that the Microsoft Entra administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
+To learn more about using Microsoft Entra ID as an identity provider for an app, see the [What is Application Management in Microsoft Entra ID](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
 
-These applications are configured on behalf of the user in the Azure portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
+These applications are configured on behalf of the user in the Microsoft Entra admin center. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
 
 The type of apps a user may be seeing fall in the following categories:
 
@@ -31,7 +31,7 @@ The type of apps a user may be seeing fall in the following categories:
 
 Here are some things to check if an app is appearing or not appearing:
 
-- Make sure the app is added to Azure AD and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
+- Make sure the app is added to Microsoft Entra ID and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
 - If an app was recently added, have the user sign out and back in again.
 - If the app requires a license, such as Office, then make sure the user is assigned the appropriate license.
 - The time it takes for licensing changes can vary depending on the size and complexity of the group.
@@ -53,7 +53,7 @@ Here are some things to check if an app is appearing or not appearing:
 
 Access to My Apps can be blocked due to a problem with the user’s account. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 
-- [Check if a user account exists in Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
+- [Check if a user account exists in Microsoft Entra ID](#check-if-a-user-account-exists-in-azure-active-directory)
 - [Check a user’s account status](#check-a-users-account-status)
 - [Reset a user’s password](#reset-a-users-password)
 - [Enable self-service password reset](#enable-self-service-password-reset)
@@ -66,7 +66,9 @@ Access to My Apps can be blocked due to a problem with the user’s account. Fol
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
-### Check if a user account exists in Azure Active Directory
+<a name='check-if-a-user-account-exists-in-azure-active-directory'></a>
+
+### Check if a user account exists in Microsoft Entra ID
 
 To check if a user’s account is present, follow these steps:
 
@@ -95,13 +97,13 @@ To reset a user’s password, follow these steps:
 1. Select the **Reset password** button at the top of the user pane.
 1. Select the **Reset password** button on the **Reset password** pane that appears.
 1. Copy the **temporary password** or **enter a new password** for the user.
-1. Communicate this new password to the user, they be required to change this password during their next sign-in to Azure Active Directory.
+1. Communicate this new password to the user, they be required to change this password during their next sign-in to Microsoft Entra ID.
 
 ### Enable self-service password reset
 
 To enable self-service password reset, follow these deployment steps:
 
-- [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
+- [Enable users to reset their Microsoft Entra passwords](../authentication/tutorial-enable-sspr.md)
 - [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
 ### Check a user’s multi-factor authentication status

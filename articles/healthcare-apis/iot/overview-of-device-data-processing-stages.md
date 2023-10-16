@@ -67,7 +67,7 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 > [!NOTE]
 > The **Resolution type** can also be adjusted post deployment of the MedTech service if a different **Resolution type** is later required.
 
-The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after approximately five minutes. When there's fewer than 300 normalized messages to be processed, there may be a delay of approximately five minutes before FHIR Observations are created or updated in the FHIR service.
+The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after approximately five minutes.
 
 > [!NOTE]
 > When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message batch (for example, within the five minute window or in groups of 300 normalized messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.

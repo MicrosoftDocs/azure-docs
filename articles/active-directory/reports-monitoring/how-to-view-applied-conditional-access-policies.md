@@ -1,6 +1,6 @@
 ---
-title: View applied Conditional Access policies in the Azure AD sign-in logs
-description: Learn how to view Conditional Access policies in Azure AD sign-in logs so that you can assess the effect of those policies.
+title: View applied Conditional Access policies in the Microsoft Entra sign-in logs
+description: Learn how to view Conditional Access policies in Microsoft Entra sign-in logs so that you can assess the effect of those policies.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,15 +14,15 @@ ms.reviewer: besiler
 
 ---
 
-# View applied Conditional Access policies in Azure AD sign-in logs
+# View applied Conditional Access policies in Microsoft Entra sign-in logs
 
 With Conditional Access policies, you can control how your users get access to the resources of your Azure tenant. As a tenant admin, you need to be able to determine what effect your Conditional Access policies have on sign-ins to your tenant, so that you can take action if necessary. 
 
-The sign-in logs in Azure Active Directory (Azure AD) give you the information that you need to assess the effect of your policies. This article explains how to view applied Conditional Access policies in those logs.
+The sign-in logs in Microsoft Entra ID give you the information that you need to assess the effect of your policies. This article explains how to view applied Conditional Access policies in those logs.
 
 ## What you should know
 
-As an Azure AD administrator, you can use the sign-in logs to:
+As a Microsoft Entra administrator, you can use the sign-in logs to:
 
 - Troubleshoot sign-in problems.
 - Check on feature performance.
@@ -83,7 +83,9 @@ For more information about this cmdlet, see [Get-MgAuditLogSignIn](/powershell/m
 
 The Azure AD Graph PowerShell module doesn't support viewing applied Conditional Access policies. Only the Microsoft Graph PowerShell module returns applied Conditional Access policies.  
 
-## View Conditional Access policies in Azure AD sign-in logs
+<a name='view-conditional-access-policies-in-azure-ad-sign-in-logs'></a>
+
+## View Conditional Access policies in Microsoft Entra sign-in logs
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 

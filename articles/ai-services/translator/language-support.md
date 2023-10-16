@@ -5,8 +5,7 @@ description: Azure AI Translator supports the following languages for text to te
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -47,6 +46,7 @@ ms.author: lajanuar
 | Chinese (Literary) | `lzh` |✔|✔||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
 | Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
+| chiShona|`sn`|✔|✔||||
 | Croatian | `hr` |✔|✔|✔|✔|✔|
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
@@ -67,11 +67,13 @@ ms.author: lajanuar
 | Greek  | `el` |✔|✔|✔|✔|✔|
 | Gujarati  | `gu` |✔|✔|✔|✔||
 | Haitian Creole | `ht` |✔|✔||✔|✔|
+| Hausa|`ha`|✔|✔||||
 | Hebrew  | `he` |✔|✔|✔|✔|✔|
 | Hindi | `hi` |✔|✔|✔|✔|✔|
 | Hmong Daw (Latin) | `mww` |✔|✔|||✔|
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
+| Igbo|`ig`|✔|✔||||
 | Indonesian | `id` |✔|✔|✔|✔|✔|
 | Inuinnaqtun  | `ikt` |✔|✔||||
 | Inuktitut  | `iu` |✔|✔|✔|✔||
@@ -82,8 +84,10 @@ ms.author: lajanuar
 | Kannada  | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
 | Khmer  | `km` |✔|✔||✔||
+| Kinyarwanda|`rw`|✔|✔||||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
 | Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Konkani|`gom`|✔|✔||||
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central)  | `ku` |✔|✔||✔||
 | Kurdish (Northern)  | `kmr` |✔|✔||||
@@ -91,7 +95,11 @@ ms.author: lajanuar
 | Lao  | `lo` |✔|✔||✔||
 | Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
+| Lingala|`ln`|✔|✔||||
+| Lower Sorbian|`dsb`|✔| ||||
+| Luganda|`lug`|✔|✔||||
 | Macedonian  | `mk` |✔|✔||✔||
+| Maithili|`mai`|✔|✔||||
 | Malagasy  | `mg` |✔|✔|✔|||
 | Malay (Latin) | `ms` |✔|✔|✔|✔|✔|
 | Malayalam  | `ml` |✔|✔|✔|||
@@ -103,6 +111,7 @@ ms.author: lajanuar
 | Myanmar  | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
+| Nyanja|`nya`|✔|✔||||
 | Odia  | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
@@ -112,10 +121,16 @@ ms.author: lajanuar
 | Punjabi | `pa` |✔|✔|✔|||
 | Queretaro Otomi  | `otq` |✔|✔||||
 | Romanian | `ro` |✔|✔|✔|✔|✔|
+| Rundi|`run`|✔|✔||||
 | Russian | `ru` |✔|✔|✔|✔|✔|
 | Samoan (Latin) | `sm` |✔|✔ |✔|||
 | Serbian (Cyrillic) | `sr-Cyrl` |✔|✔||✔||
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
+| Sesotho|`st`|✔|✔||||
+| Sesotho sa Leboa|`nso`|✔|✔||||
+| Setswana|`tn`|✔|✔||||
+| Sindhi|`sd`|✔|✔||||
+| Sinhala|`si`|✔|✔||||
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
 | Somali (Arabic) | `so` |✔|✔||✔||
@@ -139,6 +154,8 @@ ms.author: lajanuar
 | Uzbek (Latin) | `uz` |✔|✔||✔||
 | Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
+| Xhosa|`xh`|✔|✔||||
+| Yoruba|`yo`|✔|✔||||
 | Yucatec Maya | `yua` |✔|✔||✔||
 | Zulu | `zu` |✔|✔||||
 
@@ -262,7 +279,7 @@ ms.author: lajanuar
 
 ## Transliteration
 
-The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
+The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the `To/From`, `<-->` indicates that the language can be transliterated from or to either of the scripts listed. The `-->` indicates that the language can only be transliterated from one script to the other.
 
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity log integration options and considerations
-description: Introduction to the options and considerations for integrating Azure Active Directory activity logs with storage and analysis tools.
+title: Microsoft Entra activity log integration options and considerations
+description: Introduction to the options and considerations for integrating Microsoft Entra activity logs with storage and analysis tools.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -12,11 +12,11 @@ ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
-# Azure AD activity log integrations
+# Microsoft Entra activity log integrations
 
-Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term data retention and insights. You can archive logs for storage, route to Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
+Using **Diagnostic settings** in Microsoft Entra ID, you can route activity logs to several endpoints for long term data retention and insights. You can archive logs for storage, route to Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
 
-With these integrations, you can enable rich visualizations, monitoring, and alerting on the connected data. This article describes the recommended uses for each integration type or access method. Cost considerations for sending Azure AD activity logs to various endpoints are also covered.
+With these integrations, you can enable rich visualizations, monitoring, and alerting on the connected data. This article describes the recommended uses for each integration type or access method. Cost considerations for sending Microsoft Entra activity logs to various endpoints are also covered.
 
 ## Supported reports
 
@@ -30,7 +30,7 @@ The following logs can be integrated with one of many endpoints:
 
 ## Integration options
 
-To help choose the right method for integrating Azure AD activity logs for storage or analysis, think about the overall task you're trying to accomplish. We've grouped the options into three main categories:
+To help choose the right method for integrating Microsoft Entra activity logs for storage or analysis, think about the overall task you're trying to accomplish. We've grouped the options into three main categories:
 
 - Troubleshooting
 - Long-term storage
@@ -54,7 +54,7 @@ If your scenario requires that you retain data for more than 30 days *and* you p
 
 If you have a third party SIEM tool, we recommend setting up an Event Hubs namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
 
-If you don't plan on using a third-party SIEM tool, we recommend sending your Azure AD activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. In Addition to Azure Monitor logs, Microsoft Sentinel provides near real-time security detection and threat hunting. If you decide to integrate with SIEM tools later, you can stream your Azure AD activity logs along with your other Azure data through an event hub. 
+If you don't plan on using a third-party SIEM tool, we recommend sending your Microsoft Entra activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. In Addition to Azure Monitor logs, Microsoft Sentinel provides near real-time security detection and threat hunting. If you decide to integrate with SIEM tools later, you can stream your Microsoft Entra activity logs along with your other Azure data through an event hub. 
 
 ## Cost considerations
 
@@ -62,13 +62,13 @@ There's a cost for sending data to a Log Analytics workspace, archiving data in 
 
 Because the size and cost for sending logs to an endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to an endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs. You can also get an estimate of your costs by downloading a sample of your logs and multiplying accordingly to get an estimate for one day.
 
-Other considerations for sending Azure AD logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
+Other considerations for sending Microsoft Entra logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
 
 - [Azure Monitor logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
 - [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
 - [Optimize costs in Azure Monitor](../../azure-monitor/best-practices-cost.md)
 
-Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Azure AD. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).
+Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Microsoft Entra ID. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).
 
 ## Estimate your costs
 
@@ -85,7 +85,7 @@ The following factors could affect costs for your organization:
 
 To estimate the daily log size, gather a sample of your logs, adjust the sample to reflect your tenant size and settings, then apply that sample to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
 
-If you haven't downloaded logs from the Azure portal, review the [How to download logs in Azure AD](howto-download-logs.md) article. Depending on the size of your organization, you may need to choose a different sample size to start your estimation. The following sample sizes are a good place to start:
+If you haven't downloaded logs from the Microsoft Entra admin center before, review the [How to download logs in Microsoft Entra ID](howto-download-logs.md) article. Depending on the size of your organization, you may need to choose a different sample size to start your estimation. The following sample sizes are a good place to start:
 
 - 1000 records
 - For large tenants, 15 minutes of sign-ins

@@ -4,8 +4,8 @@ titleSuffix: Azure OpenAI
 description: Use this article to import and use your data in Azure OpenAI.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
@@ -16,7 +16,14 @@ zone_pivot_groups: openai-use-your-data
 
 # Quickstart: Chat with Azure OpenAI models using your own data
 
+::: zone pivot="programming-language-javascript"
+
+[Reference](/javascript/api/@azure/openai) | [Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
+
+::: zone-end
+
 In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
+
 
 ## Prerequisites
 
@@ -27,13 +34,19 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - An Azure OpenAI resource with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
 
-    - Your chat model must use version `0301`. You can view or change your model version in [Azure OpenAI Studio](./concepts/models.md#model-updates).
+    - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource. 
 
+::: zone pivot="programming-language-javascript"
+
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
+
+::: zone-end
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Prerequisites)
+
 
 [!INCLUDE [Connect your data to OpenAI](includes/connect-your-data-studio.md)]
 
@@ -46,6 +59,12 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [Csharp quickstart](includes/use-your-data-dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript quickstart](includes/use-your-data-javascript.md)]
 
 ::: zone-end
 

@@ -5,8 +5,7 @@ description: An overview of language detection in Azure AI services, which helps
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 07/27/2022
 ms.author: jboback

@@ -7,10 +7,11 @@ manager: sundraman
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/20/2023
+ms.date: 07/10/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: references_regions
 ---
 
 # SMS overview
@@ -37,13 +38,13 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 
 |Factors              | Toll-Free| Short Code | Alphanumeric Sender ID|
 |---------------------|----------|------------|-----------------------|
-|**Description**|Toll free numbers are telephone numbers with distinct three-digit codes that can be used for business to consumer communication without any charge to the consumer| Short codes are 5-6 digit numbers used for business to consumer messaging such as alerts, notifications, and marketing | Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications.    |
+|**Description**|Toll free numbers are telephone numbers with distinct three-digit codes that can be used for business to consumer communication without any charge to the consumer| Short codes are 5-6 digit numbers used for business to consumer messaging such as alerts, notifications, and marketing |  Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications.  There are two types of alphanumeric sender IDs: **Dynamic alphanumeric sender ID:** Supported in countries that do not require registration for use. Dynamic alphanumeric sender IDs can be instantly provisioned. **Pre-registered alphanumeric sender ID:** Supported in countries that require registration for use. Pre-registered alphanumeric sender IDs are typically provisioned in 4-5 weeks. |
 |**Format**|+1 (8XX) XYZ PQRS| 12345  | CONTOSO*       |
 |**SMS support**|Two-way SMS| Two-way SMS  | One-way outbound SMS  |
 |**Calling support**|Yes| No | No |
 |**Provisioning time**| 5-6 weeks| 6-8 weeks  | Instant               |
 |**Throughput**       | 200 messages/min (can be increased upon request)| 6000 messages/ min (can be increased upon request) | 600 messages/ min (can be increased upon request)|
-|**Supported Destinations**| United States, Canada, Puerto Rico| United States   |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia |
+|**Supported Destinations**| United States, Canada, Puerto Rico| United States   |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia, Norway, Finland, Slovakia, Slovenia, Czech Republic|
 |**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md) |
 
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.

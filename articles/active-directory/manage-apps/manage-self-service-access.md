@@ -21,7 +21,7 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to enable self-service application access using the Microsoft Entra admin center.
 
-Before your users can self-discover applications from the [My Apps portal](./myapps-overview.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
+Before your users can self-discover applications from the [My Apps portal](./myapps-overview.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Microsoft Entra Gallery, [Microsoft Entra application proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
 
 Using this feature, you can:
 
@@ -43,7 +43,7 @@ To enable self-service application access, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
-- An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users can't add self-service apps.
+- A Microsoft Entra ID P1 or P2 license is required for users to request to join a self-service app and for owners to approve or deny requests. Without a Microsoft Entra ID P1 or P2 license, users can't add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications
 
@@ -79,4 +79,4 @@ Once you complete self-service application configuration, users can navigate to 
 
 ## Next steps
 
-[Setting up Azure Active Directory for self-service group management](../enterprise-users/groups-self-service-management.md)
+[Setting up Microsoft Entra ID for self-service group management](../enterprise-users/groups-self-service-management.md)

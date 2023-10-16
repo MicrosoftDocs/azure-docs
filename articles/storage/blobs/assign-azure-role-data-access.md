@@ -1,10 +1,10 @@
 ---
 title: Assign an Azure role for access to blob data
 titleSuffix: Azure Storage
-description: Learn how to assign permissions for blob data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
+description: Learn how to assign permissions for blob data to a Microsoft Entra security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Microsoft Entra ID.
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 04/19/2022
 ms.author: akashdubey
@@ -15,11 +15,11 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Assign an Azure role for access to blob data
 
-Azure Active Directory (AAD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob data.
+Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. A Microsoft Entra security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To learn more about using Azure AD to authorize access to blob data, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
+To learn more about using Microsoft Entra ID to authorize access to blob data, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 > [!NOTE]
 > This article shows how to assign an Azure role for access to blob data in a storage account. To learn about assigning roles for management operations in Azure Storage, see [Use the Azure Storage resource provider to access management resources](../common/authorization-resource-provider.md).
@@ -30,7 +30,7 @@ You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manage
 
 # [Azure portal](#tab/portal)
 
-To access blob data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
+To access blob data in the Azure portal with Microsoft Entra credentials, a user must have the following role assignments:
 
 - A data access role, such as **Storage Blob Data Reader** or **Storage Blob Data Contributor**
 - The Azure Resource Manager **Reader** role, at a minimum
@@ -41,7 +41,7 @@ The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is a
 
 For example, if you assign the **Storage Blob Data Contributor** role to user Mary at the level of a container named **sample-container**, then Mary is granted read, write, and delete access to all of the blobs in that container. However, if Mary wants to view a blob in the Azure portal, then the **Storage Blob Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the blob in order to view it. The additional permissions are required to navigate through the portal and view the other resources that are visible there.
 
-A user must be assigned the **Reader** role to use the Azure portal with Azure AD credentials. However, if a user has been assigned a role with **Microsoft.Storage/storageAccounts/listKeys/action** permissions, then the user can use the portal with the storage account keys, via Shared Key authorization. To use the storage account keys, Shared Key access must be permitted for the storage account. For more information on permitting or disallowing Shared Key access, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
+A user must be assigned the **Reader** role to use the Azure portal with Microsoft Entra credentials. However, if a user has been assigned a role with **Microsoft.Storage/storageAccounts/listKeys/action** permissions, then the user can use the portal with the storage account keys, via Shared Key authorization. To use the storage account keys, Shared Key access must be permitted for the storage account. For more information on permitting or disallowing Shared Key access, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
 
 You can also assign an Azure Resource Manager role that provides additional permissions beyond than the **Reader** role. Assigning the least possible permissions is recommended as a security best practice. For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
@@ -54,7 +54,7 @@ To assign an Azure role to a security principal with PowerShell, call the [New-A
 
 The format of the command can differ based on the scope of the assignment, but the `-ObjectId` and `-RoleDefinitionName` are required parameters. Passing a value for the `-Scope` parameter, while not required, is highly recommended to retain the principle of least privilege. By limiting roles and scopes, you limit the resources which are at risk if the security principal is ever compromised.
 
-The `-ObjectId` parameter is the Azure Active Directory (AAD) object ID of the user, group or service principal to which the role will be assigned. To retrieve the identifier, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to filter Azure Active Directory users, as shown in the following example.
+The `-ObjectId` parameter is the Microsoft Entra object ID of the user, group or service principal to which the role will be assigned. To retrieve the identifier, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to filter Microsoft Entra users, as shown in the following example.
 
 ```azurepowershell
 Get-AzADUser -DisplayName '<Display Name>'
@@ -73,7 +73,7 @@ Type              :
 ab12cd34-ef56-ab12-cd34-ef56ab12cd34
 ```
 
-The `-RoleDefinitionName` parameter value is the name of the RBAC role that needs to be assigned to the principal. To access blob data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
+The `-RoleDefinitionName` parameter value is the name of the RBAC role that needs to be assigned to the principal. To access blob data in the Azure portal with Microsoft Entra credentials, a user must have the following role assignments:
 
 - A data access role, such as **Storage Blob Data Contributor** or **Storage Blob Data Reader**
 - The Azure Resource Manager **Reader** role
@@ -155,9 +155,9 @@ To learn how to use an Azure Resource Manager template to assign an Azure role, 
 
 Keep in mind the following points about Azure role assignments in Azure Storage:
 
-- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
+- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Microsoft Entra ID. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a container.
-- If you have set the appropriate allow permissions to access data via Azure AD and are unable to access the data, for example you are getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you have made in Azure AD to replicate, and be sure that you do not have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
+- If you have set the appropriate allow permissions to access data via Microsoft Entra ID and are unable to access the data, for example you are getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you have made in Microsoft Entra ID to replicate, and be sure that you do not have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
 
 > [!NOTE]
 > You can create custom Azure RBAC roles for granular access to blob data. For more information, see [Azure custom roles](../../role-based-access-control/custom-roles.md).

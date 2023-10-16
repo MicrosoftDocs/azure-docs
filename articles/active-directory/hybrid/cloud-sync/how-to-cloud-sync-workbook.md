@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD cloud sync insights workbook'
+title: 'Microsoft Entra Connect cloud sync insights workbook'
 description: This article describes the Azure Monitor workbook for cloud sync.
 services: active-directory
 author: billmath
@@ -15,10 +15,10 @@ ms.collection: M365-identity-device-management
 
 
 
-# Azure AD cloud sync insights workbook
-The Cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Azure portal. To learn more, see Azure Monitor Workbooks overview.
+# Microsoft Entra Connect cloud sync insights workbook
+The cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Microsoft Entra admin center. To learn more, see Azure Monitor Workbooks overview.
 
-This workbook is intended for Hybrid Identity Admins who use cloud sync to sync users from AD to Azure AD.  It allows admins to gain insights into sync status and details.
+This workbook is intended for Hybrid Identity Admins who use cloud sync to sync users from AD to Microsoft Entra ID.  It allows admins to gain insights into sync status and details.
 
 The workbook can be accessed by select **Insights** on the left hand side of the cloud sync page.
 
@@ -30,7 +30,7 @@ The workbook can be accessed by select **Insights** on the left hand side of the
 
 This workbook:
 
-- Provides a synchronization summary of users and groups synchronized from AD to Azure AD
+- Provides a synchronization summary of users and groups synchronized from AD to Microsoft Entra ID
 - Provides a detailed view of information captured by the cloud sync provisioning logs.
 - Allows you to customize the data to tailor it to your specific needs
 
@@ -90,6 +90,6 @@ To learn more about alerts, see [Azure Monitor Log Alerts](../../../azure-monito
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
 - [Known limitations](how-to-prerequisites.md#known-limitations)
 - [Error codes](reference-error-codes.md)

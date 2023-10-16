@@ -186,7 +186,7 @@ You can define multiple containers in a single container app to implement the [s
 
 Examples of sidecar containers include:
 
-- An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#temporary-storage) and forwards them to a logging service.
+- An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#replica-scoped-storage) and forwards them to a logging service.
 
 - A background process that refreshes a cache used by the primary app container in a shared volume.
 
@@ -286,7 +286,7 @@ For more information about configuring user-assigned identities, see [Add a user
 
 Azure Container Apps has the following limitations:
 
-- **Privileged containers**: Azure Container Apps can't run privileged containers. If your program attempts to run a process that requires root access, the application inside the container experiences a runtime error.
+- **Privileged containers**: Azure Container Apps doesn't allow privileged containers mode with host-level access.
 
 - **Operating system**: Linux-based (`linux/amd64`) container images are required.
 

@@ -4,6 +4,8 @@ description: Azure Arc-enabled VMware vSphere (preview) extends Azure governance
 ms.topic: overview
 ms.date: 08/21/2023
 ms.custom: references_regions
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 ---
 
 # What is Azure Arc-enabled VMware vSphere (preview)?
@@ -24,13 +26,13 @@ Arc-enabled VMware vSphere (preview) allows you to:
 
 ## Onboard resources to Azure management at scale
 
-Azure services such as Microsoft Defender for Cloud, Azure Monitor, Azure Update Management Center, and Azure Policy provide a rich set of capabilities to secure, monitor, patch, and govern off-Azure resources via Arc. 
+Azure services such as Microsoft Defender for Cloud, Azure Monitor, Azure Update Manager, and Azure Policy provide a rich set of capabilities to secure, monitor, patch, and govern off-Azure resources via Arc. 
 
 By using Arc-enabled VMware vSphere's capabilities to discover your VMware estate and install the Arc agent at scale, you can simplify onboarding your entire VMware vSphere estate to these services. 
 
 ## Set up self-service access for your teams to use vSphere resources using Azure Arc
 
-Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Azure AD-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
+Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Microsoft Entra ID-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
 
 1. Virtualized Infrastructure Administrators/Cloud Administrators can connect a vCenter instance to Azure. 
 

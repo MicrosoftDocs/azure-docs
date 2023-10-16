@@ -12,9 +12,9 @@ Syslog is an event logging protocol that's common to Linux. You can use the Sysl
 
 When the Azure Monitor agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent when Syslog collection is enabled in [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). Azure Monitor Agent then sends the messages to an Azure Monitor or Log Analytics workspace where a corresponding Syslog record is created in a [Syslog table](/azure/azure-monitor/reference/tables/syslog).
 
-![Diagram that shows Syslog collection.](media/data-sources-syslog/overview.png)
+:::image type="content" source="media/data-sources-syslog/overview.png" lightbox="media/data-sources-syslog/overview.png" alt-text="Diagram that shows Syslog collection.":::
 
-![Diagram that shows Syslog daemon and Azure Monitor Agent communication.](media/azure-monitor-agent/linux-agent-syslog-communication.png)
+:::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
 The following facilities are supported with the Syslog collector:
 * auth
@@ -56,14 +56,14 @@ Create a *data collection rule* in the same region as your Log Analytics workspa
 1. Under **Settings**, select **Data Collection Rules**.
 1. Select **Create**.
 
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot that shows the Data Collection Rules pane with the Create option selected.":::
+   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-data-collection-rule.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot that shows the Data Collection Rules pane with the Create option selected.":::
 
 #### Add resources
 
 1. Select **Add resources**.
 1. Use the filters to find the virtual machine you want to use to collect logs.
 
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot that shows the page to select the scope for the data collection rule. ":::
+   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot that shows the page to select the scope for the data collection rule. ":::
 1. Select the virtual machine.
 1. Select **Apply**.
 1. Select **Next: Collect and deliver**.
@@ -73,7 +73,7 @@ Create a *data collection rule* in the same region as your Log Analytics workspa
 1. Select **Add data source**.
 1. For **Data source type**, select **Linux syslog**.
 
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
+   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
 1. For **Minimum log level**, leave the default values **LOG_DEBUG**.
 1. Select **Next: Destination**.
 
@@ -81,7 +81,7 @@ Create a *data collection rule* in the same region as your Log Analytics workspa
 
 1. Select **Add destination**.
 
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot that shows the Destination tab with the Add destination option selected.":::
+   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-add-destination.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot that shows the Destination tab with the Add destination option selected.":::
 1. Enter the following values:
 
    |Field   |Value |
