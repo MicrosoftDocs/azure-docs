@@ -30,7 +30,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ Use REST API version **2023-10-01-Preview** if you want pre-filters and the latest behaviors. Otherwise, you can continue use **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
++ Use REST API version **2023-10-01-Preview** if you want pre-filters and the latest behaviors. Otherwise, you can continue to use **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
 ## Limitations
 
@@ -102,8 +102,8 @@ You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces breaking changes to the vector query definition in [Search Documents](/rest/api/searchservice/2023-10-01-preview/documents/search-post). This version adds:
 
 + `vectorQueries` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
-+ `kind` is a parameter of `vectorQueries` and it can only be set to `vector` in this preview.
-+ `exhaustive` can be set to true or false, and invokes exhaustive KNN at query time.
++ `kind` as a parameter of `vectorQueries`. It can only be set to `vector` in this preview.
++ `exhaustive` can be set to true or false, and invokes exhaustive KNN at query time, even if you indexed the field for HNSW.
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
@@ -261,9 +261,9 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
 A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can include filters on other fields in the same index.
 
-In **2023-10-01-Preview**, a filter can be either pre-query or post-query. The default is pre-query. If you require the post-query action instead, set the `vectorFiltermode` parameter.
+In **2023-10-01-Preview**, you can apply a filter before or after query execution. The default is pre-query. If you want post-query filtering instead, set the `vectorFiltermode` parameter.
 
-In **2023-07-01-Preview**, a filter in a pure vector query is effectively processed as a post-query operation.
+In **2023-07-01-Preview**, a filter in a pure vector query is processed as a post-query operation.
 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
@@ -344,7 +344,7 @@ api-key: {{admin-api-key}}
 You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". A single vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -432,7 +432,7 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 
 Ranking of results is computed by either:
 
-+ The similarity metric specified in the index `vectorConfiguration` for a vector-only query. Valid values are `cosine` , `euclidean`, and `dotProduct`.
++ The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine` , `euclidean`, and `dotProduct`.
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
