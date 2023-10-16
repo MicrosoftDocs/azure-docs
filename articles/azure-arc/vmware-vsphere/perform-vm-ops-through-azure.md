@@ -2,7 +2,7 @@
 title: Perform VM operations on VMware VMs through Azure
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 10/10/2023
+ms.date: 10/16/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ---
@@ -53,18 +53,6 @@ Before you can install an extension, you must enable guest management on the VMw
 3. Select **Enable guest management** and provide the administrator username and password to enable guest management.  Then select **Apply**.
 
    For Linux, use the root account, and for Windows, use an account that is a member of the Local Administrators group.
-
-## Install the LogAnalytics extension
-
-1. From your browser, go to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select the VMware VM that you want to install extension.
-
-1. Navigate to **Extensions** and select **Add**.
-
-1. Select the extension you want to install. Based on the extension, you'll need to provide configuration details, such as the workspace ID and primary key for Log Analytics extension. Then select **Review + create**.
-
-The deployment starts the installation of the extension on the selected VM.
 
 ## Delete a VM
 

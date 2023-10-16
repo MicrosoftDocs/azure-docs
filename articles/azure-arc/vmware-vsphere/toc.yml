@@ -39,8 +39,6 @@
     - name: Perform recovery operations
       displayName: disaster
       href: recover-from-resource-bridge-deletion.md
-    - name: Manage access to VMware resources through Azure Role-based Access Control
-      href: manage-access-to-vmware-resources.md  
 - name: Troubleshoot
   items:
   - name: Troubleshoot Arc agent install failures for Linux VMs
