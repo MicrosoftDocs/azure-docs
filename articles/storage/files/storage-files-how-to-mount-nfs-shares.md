@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 10/16/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
