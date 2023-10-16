@@ -73,7 +73,7 @@ where `<enforcement level>` value must be a value other than `Disabled`.
 If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
 ## Triggering MDE scan on all nodes
-Once you have enabled the MDE service on all nodes of your Undercloud cluster, you can trigger an MDE scan with the following command.
+Once you have set an enforcement level for your Cluster, you can trigger an MDE scan with the following command:
 
 ```bash
 az networkcloud cluster scan-runtime \
@@ -85,7 +85,7 @@ az networkcloud cluster scan-runtime \
 
 ## Retrieve MDE scan information from each node
 This section provides the steps to retrieve MDE scan information.
-First we need to retrieve the list of node names of your Undercloud cluster.
+First you need to retrieve the list of node names of your Undercloud cluster.
 The following command assigns the list of node names to an environment variable.
 
 ```bash
