@@ -29,7 +29,7 @@ Image Cleaner doesn't yet support Windows node pools or AKS virtual nodes.
 
 When you enable Image Cleaner, it deploys an `eraser-controller-manager` pod, which generates an `ImageList` CRD. The eraser pods running on each node clean up any unreferenced and vulnerable images according to the `ImageList`. A [trivy][trivy] scan helps determine vulnerability and flags images with a classification of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`. Image Cleaner automatically generates an updated `ImageList` based on a set time interval and can also be supplied manually. Once Image Cleaner generates an `ImageList`, it removes all images in the list from node VMs.
 
-:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
+:::image type="content" source="./media/image-cleaner/Image-cleaner-1015.png" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
 
 ## Configuration options
 
