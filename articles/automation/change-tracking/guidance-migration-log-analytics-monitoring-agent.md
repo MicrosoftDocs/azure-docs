@@ -9,11 +9,13 @@ ms.date: 09/14/2023
 ms.author: sudhirsneha
 ---
 
-# Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent
+# Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version
 
+
+Migration from Log Analytics to Azure Monitoring Agent version
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Azure Arc-enabled servers.
 
-This article provides guidance to move from Change Tracking and Inventory using Log Analytics version of the Azure Monitoring Agent version.
+This article provides guidance to move from Change Tracking and Inventory using Log Analytics version to the Azure Monitoring Agent version.
 
 ## Prerequisites
 
