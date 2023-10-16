@@ -210,8 +210,11 @@ az spring certificate add \
     --service <Azure-Spring-Apps-instance-name> \
     --name <cert-name> \
     --vault-uri <key-vault-uri> \
-    --vault-certificate-name <key-vault-cert-name>
+    --vault-certificate-name <key-vault-cert-name> \
+    --enable-auto-sync false
 ```
+
+If you wish to enable certificate auto sync, explicitly set `--enable-auto-sync true`. For more details of certificate auto sync, see [here](#certificate-auto-sync).
 
 Use the following command show a list of imported certificates:
 
@@ -235,14 +238,6 @@ Certificate stored in key vault may get renewed before it expires. DevOps team i
 > This feature works with private certificates and public certificates imported from key vault. It is unavailable to content certificate, which is uploaded by customer.
 
 You may choose to enable or disable certificate auto sync feature during importing a certificate from key vault to Azure Spring Apps.
-
-![image-20230918131452296](../MSFT/Azure-Spring-Cloud-Wiki/.attachments/image-20230918131452296.png)
-
-az spring certificate add --name MyCertName --vault-uri MyKeyVaultUri --vault-certificate-name MyKeyVaultCertName **--enable-auto-sync true** --service MyCluster --resource-group MyResourceGroup
-
-If you do not add this option or explicitly add `--enable-auto-sync false`, auto sync won't be enabled for this certificate.
-
-
 
 You may also enable or disable this feature for a certificate that has already been imported to Azure Spring Apps.
 
