@@ -350,13 +350,13 @@ ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
 
 ```
 
-    If you run into authentication issues, run `az logout` to sign out and clear the `token-cache`. Then run `az login` to reauthenticate.
+If you run into authentication issues, run `az logout` to sign out and clear the `token-cache`. Then run `az login` to reauthenticate.
 
-    Wait for the automation framework to run the Terraform operations `plan` and `apply`.
+Wait for the automation framework to run the Terraform operations `plan` and `apply`.
 
-    The deployment of the deployer might run for about 15 to 20 minutes.
+The deployment of the deployer might run for about 15 to 20 minutes.
 
-    You need to note some values for upcoming steps. Look for this text block in the output:
+You need to note some values for upcoming steps. Look for this text block in the output:
 
 ```text
 #########################################################################################
