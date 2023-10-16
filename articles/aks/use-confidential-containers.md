@@ -17,10 +17,9 @@ Together with other security measures or data protection controls, as part of yo
 This article helps you understand this new feature, and how to implement and configure the following:
 
 * Deploy or upgrade an AKS cluster using the Azure CLI
-* Create an Microsoft Entra ID workload identity and Kubernetes service account.
-* Configure the managed identity for token federation.
-* Grant access to the Azure Key Vault Managed HSM and secret
-* Configure an application to be deployed as a Confidential container.
+* Add a security policy to your pod YAML
+* Enable enforcement of the security policy
+* Deploy your application confidentially
 
 ## Supported scenarios
 
