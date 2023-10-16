@@ -85,7 +85,7 @@ Batch endpoints provide a durable API that consumers can use to create batch job
 
 Batch endpoints support two types of inputs:
 
-* [Data inputs](#data-inputs), which are pointers to an specific storage location or Azure Machine Learning asset.
+* [Data inputs](#data-inputs), which are pointers to a specific storage location or Azure Machine Learning asset.
 * [Literal inputs](#literal-inputs), which are literal values (like numbers or strings) that you want to pass to the job. 
 
 The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require 1 data input and produce 1 data output. Literal inputs are not supported. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs (data and literal) and outputs.
@@ -756,7 +756,7 @@ The following example shows how to change the location where an output named `sc
     Content-Type: application/json
     ```
 
-## Invoke an specific deployment
+## Invoke a specific deployment
 
 Batch endpoints can host multiple deployments under the same endpoint. The default endpoint is used unless the user indicates otherwise. You can change the deployment that is used as follows:
 
