@@ -237,7 +237,7 @@ Certificate stored in key vault may get renewed before it expires. DevOps team i
 > [!NOTE]
 > This feature works with private certificates and public certificates imported from key vault. It is unavailable to content certificate, which is uploaded by customer.
 
-You may choose to enable or disable certificate auto sync feature during importing a certificate from key vault to Azure Spring Apps.
+You may choose to enable or disable certificate auto sync feature during importing a certificate from key vault to Azure Spring Apps. For instructions, see [here](#import-certificate-to-azure-spring-apps).
 
 You may also enable or disable this feature for a certificate that has already been imported to Azure Spring Apps.
 
