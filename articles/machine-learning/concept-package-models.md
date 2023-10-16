@@ -87,10 +87,16 @@ ml_client.batch_deployment.create(
 From the model's details page in [the studio](https://ml.azure.com),
 
 1. Select the **Deploy**.
+
 1. Select **Online Endpoints**. 
+
 1. Enable the **Package model (preview)** option in the creation wizard to package the model before deployment.
 
 :::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option." lightbox="media/model-packaging/model-package-ux.png":::
+
+If you are using the advance wizard for deployment, you find the **Package model (preview)** option in the **Deployment** tab.
+
+:::image type="content" source="./media/model-packaging/model-package-ux-advance.png" alt-text="An screenshot of the advanced model deployment wizard to Online Endpoints highlighting the Package model option." lightbox="media/model-packaging/model-package-ux.png":::
 
 ---
 

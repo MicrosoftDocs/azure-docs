@@ -12,7 +12,7 @@ ms.date: 10/04/2023
 ms.topic: how-to
 ---
 
-# Package a model for online deployment (preview)
+# Create model packages (preview)
 
 Model package is a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Creating packages before deploying models provides robust and reliable deployment and a more efficient MLOps workflow. Packages can be moved across workspaces and even outside of Azure Machine Learning. 
 
@@ -117,11 +117,7 @@ Model packages require the model to be registered in either your workspace or in
 
 # [Azure CLI](#tab/cli)
 
-```azurecli
-MODEL_NAME='sklearn-regression'
-MODEL_PATH='model'
-az ml model create --name $MODEL_NAME --path $MODEL_PATH --type custom_model
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="register_model" :::
 
 # [Python](#tab/sdk)
 
@@ -146,7 +142,7 @@ Create a model in Azure Machine Learning as follows:
 
 ---
 
-## Package a custom model
+## Package a model
 
 You can create model packages explicitly to allow you to control how the packaging operation is done. Use this workflow when:
 
@@ -170,32 +166,25 @@ In this section, you create the base environment, package a custom model, and de
 
 #### Create the base environment
 
-In this section, you create a base environment for the model package, using a base image and the following conda files. The __sklearn-regression-env.yml__ file contains the content of the __conda.yml__ file.
+In this section, you create a base environment for the model package, using a base image and the following conda files.
 
 __conda.yaml__
 
-```yaml
-name: model-env
-channels:
-  - conda-forge
-dependencies:
-  - python=3.9
-  - numpy=1.23.5
-  - pip=23.0.1
-  - scikit-learn=1.2.2
-  - scipy=1.10.1
-```
-
-@santiagxf: add the code for the YAML here
-__sklearn-regression-env.yml__
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml" :::
 
 Create the environment as follows:
 
 # [Azure CLI](#tab/cli)
 
-```azurecli
-az ml environment create -f environment/sklearn-regression-env.yml
-```
+Create an environment definition:
+
+__sklearn-regression-env.yml__
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yaml" :::
+
+Then create it using:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="base_environment" :::
 
 # [Python](#tab/sdk)
 
@@ -229,18 +218,7 @@ base_environment = ml_client.environments.create_or_update(
 
 1. For **Customize**, paste the following conda YAML definition:
 
-    ```yml
-    name: model-env
-    channels:
-      - conda-forge
-    dependencies:
-      - python=3.9
-      - numpy=1.23.5
-      - pip=23.0.1
-      - scikit-learn=1.2.2
-      - scipy=1.10.1
-      - xgboost==1.3.3
-    ``` 
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml" :::
 
 1. Select **Finish**. Now, your environment is ready to be used.
 
@@ -288,18 +266,7 @@ To create a model package, create a package specification as follows:
 
 __package-moe.yml__
 
-```yml
-$schema: http://azureml/sdk-2-0/ModelVersionPackage.json
-base_environment_source:
-    type: environment_asset
-    resource_id: azureml:sklearn-regression-env@latest
-target_environment_name: sklearn-regression-online-pkg
-inferencing_server: 
-    type: azureml_online
-    code_configuration:
-      code: src
-      entry_script: score.py
-```
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-moe.yaml" :::
 
 # [Python](#tab/sdk)
 
@@ -331,9 +298,7 @@ Start the model package operation:
 
 # [Azure CLI](#tab/cli)
 
-```azurecli
-az ml model package -n $MODEL_NAME -l latest --file package-moe.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="build_package" :::
 
 # [Python](#tab/sdk)
 
@@ -357,9 +322,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     # [Azure CLI](#tab/cli)
 
-    ```azurecli
-    ENDPOINT_NAME = "sklearn-regression-online"
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="endpoint_name" :::
 
     # [Python](#tab/sdk)
     
@@ -375,9 +338,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     # [Azure CLI](#tab/cli)
 
-    ```azurecli
-    az ml online-endpoint create -n $ENDPOINT_NAME
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="create_endpoint" :::
 
     # [Python](#tab/sdk)
     
@@ -396,14 +357,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     __deployment.yml__
     
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-    name: with-package
-    endpoint_name: hello-packages
-    environment: azureml:sklearn-regression-online-pkg@latest
-    instance_type: Standard_DS3_v2
-    instance_count: 1
-    ```
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deployment.yml" :::
 
     # [Python](#tab/sdk)
     
@@ -429,9 +383,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
-    az ml online-deployment create -f model-deployment.yml
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="create_deployment" :::
 
     # [Python](#tab/sdk)
     
@@ -460,9 +412,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     # [Azure CLI](#tab/cli)
 
-    ```azurecli
-    az ml online-endpoint invoke -n $ENDPOINT_NAME -d with-package -f sample-request.json
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="test_deployment" :::
 
     # [Python](#tab/sdk)
     
@@ -553,15 +503,21 @@ The following code creates a package of the `t5-base` model from a registry:
     # [Python](#tab/sdk)
     
     ```python
+    registry_name = "azureml"
+
     workspace_client = MLClient.from_config(
         credential=DefaultAzureCredential(), 
     )
+
     registry_client = MLClient(
-        credential=DefaultAzureCredential(), 
-        registry_name="azureml"
+        credential=DefaultAzureCredential(),
+        subscription_id=ml_client.subscription_id,
+        resource_group_name=ml_client.resource_group_name,
+        workspace_reference=ml_client.workspace_name,
+        registry_name=registry_name,
     )
     ```
-    
+
     # [Studio](#tab/studio)
     
     Creating packages in the studio isn't supported currently. Use the Azure CLI or Python SDK v2 instead.
@@ -571,10 +527,7 @@ The following code creates a package of the `t5-base` model from a registry:
 
     # [Azure CLI](#tab/cli)
 
-    ```azurecli
-    MODEL_NAME="t5-base"
-    MODEL_VERSION=$(az ml model show --name $MODEL_NAME --label latest --registry-name azureml | jq .version -r)
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="get_model" :::
 
     # [Python](#tab/sdk)
     
@@ -588,61 +541,26 @@ The following code creates a package of the `t5-base` model from a registry:
     Creating packages in the studio isn't supported currently. Use the Azure CLI or Python SDK v2 instead.
 
     
-1. Create a reference to the target workspace for the model package. The model package uses the model in the registry but produces an environment (the packaged model) in the target workspace:
-
-    # [Azure CLI](#tab/cli)
-
-    The following code gets the subscription, resource group name, and workspace name from the default values in the console. Replace them with specific values if needed.
-
-    ```azurecli
-    SUBSCRIPTION_ID=$(az account show | jq .tenantId -r)
-    RESOURCE_GROUP_NAME=$(az configure --list-defaults | jq '.[] | select(.name == "group") | .value' -r)
-    WORKSPACE_NAME=$(az configure --list-defaults | jq '.[] | select(.name == "workspace") | .value' -r)
-    MODEL_PACKAGE_NAME="pkg-$MODEL_NAME-$MODEL_VERSION"
-    MODEL_PACKAGE_VERSION=$(date +%s)
-
-    TARGET_ENVIRONMENT="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE_NAME/environments/$MODEL_PACKAGE_NAME/versions/$MODEL_PACKAGE_VERSION"
-    ```
-
-    # [Python](#tab/sdk)
-
-    The following code gets the subscription, resource group name, and workspace name from the workspace `MLClient`. Replace them with specific values if needed.
-    
-    ```python
-    import time
-
-    model_package_name = f"pkg-{model.name}-{model.version}"
-    model_package_version = str(int(time.time()))
-
-    target_environment = f"/subscriptions/{ml_client.subscription_id}/resourceGroups/{ml_client.resource_group_name}/providers/Microsoft.MachineLearningServices/workspaces/{ml_client.workspace_name}/environments/{model_package_name}/versions/{model_package_version}"
-    ```
-    
-    # [Studio](#tab/studio)
-    
-    Creating packages in the studio isn't supported currently. Use the Azure CLI or Python SDK v2 instead.
-
-    
 1. Configure a package specification:
 
     # [Azure CLI](#tab/cli)
     
     __package.yml__
     
-    ```yml
-    $schema: http://azureml/sdk-2-0/ModelVersionPackage.json
-    target_environment_name: $TARGET_ENVIRONMENT
-    inferencing_server: 
-        type: azureml_online
-    ```
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/registry-model/package.yml" :::
     
     # [Python](#tab/sdk)
     
     ```python
+    import time
+    
+    model_package_name = f"pkg-{model.name}-{model.version}"
+    model_package_version = str(int(time.time()))
+
     package_config = ModelPackage(
-        target_environment_name=target_environment,
-        inferencing_server=AzureMLOnlineInferencingServer(
-            code_configuration=CodeConfiguration()
-        ),
+        target_environment_name=model_package_name,
+        target_environment_version=model_package_version,
+        inferencing_server=AzureMLOnlineInferencingServer(),
     )
     ```
     
@@ -651,30 +569,16 @@ The following code creates a package of the `t5-base` model from a registry:
     Creating packages in the studio isn't supported currently. Use the Azure CLI or Python SDK v2 instead.
 
     
-    ---
-
-    > [!NOTE]
-    > See how `target_environment_name` now contains the name of a resource.
-    
 2. Start the operation to create the model package:
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
-    az ml model package --name $MODEL_NAME \
-                        --version $MODEL_VERSION \
-                        --registry-name azureml \
-                        --file package.yml \
-                        --set target_environment_name=$TARGET_ENVIRONMENT
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="build_package" :::
 
-    > [!TIP]
-    > Notice use of the command `--set target_environment_name` to dynamically change the property value from the YAML definition.
-    
     # [Python](#tab/sdk)
     
     ```python
-    model_package = ml_client.models.begin_package(model_name, model.version, package_config)
+    model_package = registry_client.models.package(model.name, model.version, pakage_config)
     ```
     
     # [Studio](#tab/studio)
@@ -694,20 +598,7 @@ The following code shows how to configure `copy` in a model package:
 
 __package-external.yml__
 
-```yml
-$schema: http://azureml/sdk-2-0/ModelVersionPackage.json
-base_environment_source:
-    type: environment_asset
-    resource_id: azureml:sklearn-regression-env@latest
-target_environment_name: sklearn-regression-docker-pkg
-inferencing_server: 
-    type: azureml_online
-    code_configuration:
-        code: src
-        entry_script: score.py
-model_configuration:
-    mode: copy
-```
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" :::
 
 # [Python](#tab/sdk)
 
