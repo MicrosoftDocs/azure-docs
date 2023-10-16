@@ -18,6 +18,13 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ## October 2023
 
+### Content Safety is generally available (GA)
+
+The Azure AI Content Safety service is now generally available as a cloud service.
+- The service is available in many more Azure regions. See the [Overview](./overview.md) for a list.
+- The return formats of the Analyze APIs have changed. See the [Quickstarts](./quickstart-text.md) for the latest examples.
+- The names and return formats of several APIs have changed. See the [Migration guide](./how-to/migrate-to-general-availability.md) for a full list of breaking changes. Other guides and quickstarts now reflect the GA version.
+
 ### Content Safety Java and JavaScript SDKs
 
 The Azure AI Content Safety service is now available through Java and JavaScript SDKs. The SDKs are available on [Maven](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) and [npm](https://www.npmjs.com/package/@azure-rest/ai-content-safety). Follow a [quickstart](./quickstart-text.md) to get started.

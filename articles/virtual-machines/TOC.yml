@@ -701,7 +701,7 @@
         - name: Windows
           displayName: Image builder, images, building, update
           href: ./windows/image-builder-gallery-update-image-version.md
-      - name: How to use AIB triggers to set up an automatic image build (preview)
+      - name: How to use AIB triggers to set up an automatic image build
         displayName: Image builder, images, building, triggers
         href: image-builder-triggers-how-to.md
       - name: Store scripts

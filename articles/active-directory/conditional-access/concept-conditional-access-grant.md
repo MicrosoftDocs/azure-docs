@@ -145,6 +145,8 @@ The following client apps support this setting. This list isn't exhaustive and i
 - Adobe Acrobat Reader mobile app
 - iAnnotate for Office 365
 - Microsoft Cortana
+- Microsoft Dynamics 365 for Phones
+- Micorsoft Dynamics 365 Sales
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Power Automate
@@ -164,7 +166,6 @@ The following client apps support this setting. This list isn't exhaustive and i
 - Microsoft To Do
 - Microsoft Word
 - Microsoft Whiteboard Services
-- Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
 - Notate for Intune
