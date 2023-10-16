@@ -10,32 +10,30 @@ ms.topic: conceptual
 ms.date: 10/13/2023
 ---
 
-# Relevance scoring in vector search
+# Searching and relevance in vector search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 This article is for developers who need a deeper understanding of relevance scoring for vector queries in Azure Cognitive Search.
 
-## Scoring algorithms used in vector search
+## Vector search supported algorithms 
 
 Azure Cognitive Search provides the following scoring algorithms for vector search:
 
-| Algorithm | Usage | Range |
-|-----------|-------------|-------|
-|`exhaustiveKnn` | Calculates the distances between all pairs of data points. | Metric dependent, usually 0 < 1.00 |
-| `hnsw` | Creates proximity graphs for organizing and querying vector content. | Metric dependent, usually 0 < 1.00. |
++ `exhaustiveKnn`: Calculates the distances between the query vector and all data points, making it very computationally intensive for large datasets. Because the algorithm does not require fast random access of data points, this algorithm will **not** consume vector index size quota.
++ `hnsw`: Organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while maintaining a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm will consume vector index size quota.
 
 Vector search algorithms are specified in a search index, and then specified on the field definition (also in the index):
 
 + [Create a vector index](vector-search-how-to-create-index.md)
 
-Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. However, there's a subset of parameters that can be modified in a [query request](vector-search-how-to-query.md).
+Algorithm parameters that are used to initialize the index during index creation are *immutable* and cannot be changed after the index is built. Some parameters that affect the query-time characteristics may be modified.Some of these parameters can be modified in a [query request](vector-search-how-to-query.md).
 
 Each algorithm has different memory requirements, which affect [vector index size](vector-search-index-size.md), predicated on memory usage. When evaluating algorithms, remember:
 
-+ `hnsw`, which accesses proximity graphs stored in memory, adds overhead to vector index size.
-+ `exhaustiveKnn` doesn't load the entire vector index into memory. As such, it has no vector index size overhead, meaning it doesn't contribute to index size.
++ `hnsw`, which accesses HNSW graphs stored in memory, adds overhead to vector index size because these additional data structures consume space, and fast random access requires the full index to be loaded into memory.
++ `exhaustiveKnn` doesn't load the entire vector index into memory. As such, it has no vector index size overhead, meaning it doesn't contribute to vector index size.
 
 <a name="eknn"></a>
 
