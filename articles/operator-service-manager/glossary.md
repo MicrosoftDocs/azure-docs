@@ -50,7 +50,7 @@ A Network Function Definition Group (NFDG) is a collection of all the versions o
 A Network Function Definition Version (NFDV) is a template for deploying a Network Function (NF) on a particular version.  The collection of all Network Function Definition Version (NFDVs) for a given Network Function (NF) is known as a Network Function Definition Group (NFDG).
 
 ### Network Function Virtualization Infrastructure (NFVI)
-A Network Function Virtualization Infrastructure (NFVI) represents a location where a Network Function (NF) can be instantiated, such as a Custom location of an arc enabled Kubernetes cluster or an Azure region.
+A Network Function Virtualization Infrastructure (NFVI) represents a location where a Network Function (NF) can be instantiated, such as a Custom location of an Arc-enabled Kubernetes cluster or an Azure region.
 
 ### Network Service Design (NSD)
 A Network Service Design (NSD) describes a network service of a specific type, created and uploaded by the designer. Network Service Designs (NSDs) have multiple versions (NSDVersions). The NSDVersions include mapping rules, references to Config Group Schemas and resource element templates.

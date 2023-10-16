@@ -16,7 +16,7 @@ Azure Operator Service Manager (AOSM) provides three distinct interfaces caterin
 - Network Service Designer
 - Network Service Operator
 
-In practice, multiple of these roles could be performed by the same person if necessary.
+In practice, multiple of these roles can be performed by the same person if necessary.
 
 :::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram showing three interfaces catering to three roles: Publisher, Designer and Operator." lightbox="media/roles-interfaces-diagram.png":::
 
@@ -24,13 +24,13 @@ In practice, multiple of these roles could be performed by the same person if ne
 
 The Network Function (NF) Publisher creates and publishes network functions to Azure Operator Service Manager (AOSM).  Publisher responsibilities include:
 - Create the network function.
-- Encode that in a Network Function Design (NFD).
+- Encode that in a Network Function Definition (NFD).
 - Determine the deployment parameters to expose to the Service Designer.
-- Onboard the Network Function Design (NFD) to the Azure Operator Service Manager (AOSM).
+- Onboard the Network Function Definition (NFD) to Azure Operator Service Manager (AOSM).
 - Upload the associated artifacts.
-- Validate the Network Function Design (NFD).
+- Validate the Network Function Definition (NFD).
 
-The term *Publisher* is synonymous. The Network Function (NF) Publisher is responsible for creating/updating these Azure Operator Service Manager (AOSM) objects:
+The term *Publisher* is synonymous. The Network Function (NF) Publisher is responsible for creating/updating these Azure Operator Service Manager (AOSM) resources:
 - Publisher
 - Artifact Store
 - Artifact Manifest
@@ -39,7 +39,7 @@ The term *Publisher* is synonymous. The Network Function (NF) Publisher is respo
 
 ## Service Designer - Role 2
 
-The Service Designer is responsible for building a Network Service Design (NSD). The Service Designer takes a collection of Network Function Design (NFDs) from various Network Function (NF) Publishers. When collecting the Network Function Designs (NFDs) is complete, the Service Designer combines them together along with Azure infrastructure to create a cohesive service.  The Service Designer determines how to parametrize the service by defining one or more Configuration Group Schemas (CGSs). The Configuration Group Schemas (CGSs) define the inputs that the Service Operator must supply in the Configuration Group Values (CGVs).
+The Service Designer is responsible for building a Network Service Design (NSD). The Service Designer takes a collection of Network Function Definition (NFDs) from various Network Function (NF) Publishers. When collecting the Network Function Definitions (NFDs) is complete, the Service Designer combines them together along with Azure infrastructure to create a cohesive service.  The Service Designer determines how to parametrize the service by defining one or more Configuration Group Schemas (CGSs). The Configuration Group Schemas (CGSs) define the inputs that the Service Operator must supply in the Configuration Group Values (CGVs).
 
 The Service Designer determines how inputs from the Service Operator map down to parameters required by the Network Function (NF) Publishers and the Azure infrastructure.
 

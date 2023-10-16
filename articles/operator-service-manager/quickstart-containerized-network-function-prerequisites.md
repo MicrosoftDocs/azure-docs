@@ -67,9 +67,9 @@ For those utilizing Containerized Network Functions, it's essential to ensure th
 
 ### Configure Containerized Network Function (CNF) deployment
 
-For deployments of Containerized Network Functions (CNFs), it's crucial to have the following installed on the machine from which you're executing the CLI:
+For deployments of Containerized Network Functions (CNFs), it's crucial to have the following stored on the machine from which you're executing the CLI:
 
-- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `input.json` configuration file.
+- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `input.json` configuration file. When following this quickstart, you download the required helm package.
 - **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `input.json` file that you need to populate with your specific configuration.
 
     ```azurecli
@@ -78,8 +78,8 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
 
 - **Images for your CNF** - Here are the options:
   - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
-  - The image name of the source docker image from local machine. This image name is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed.
-- **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. You can either leave the values as blank strings to have every value as a deployment parameter or use the `--interactive` option to interactively make choices.
+  - The image name of the source docker image from local machine. This image name is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed. This quickstart guides you through downloading an nginx docker image to use for this option.
+- **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `input.json` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. Alternatively use the `--interactive` CLI argument to interactively make choices. This quickstart guides you through creation of this file.
 
 When configuring the `input.json` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `input.json` should resemble the following structure:
 
@@ -455,7 +455,7 @@ data:
     }
 ```
 
-**Deployment Configuration:** The `deployment.yaml` file showcases specific lines pertinent to `imagePullSecrets` and `image`. Be sure to observe their structured format, as Azure Operator Service Manager (AOSM) furnishes the necessary values for these fields during deployment.
+**Deployment Configuration:** The `deployment.yaml` file showcases specific lines pertinent to `imagePullSecrets` and `image`. Be sure to observe their structured format, as Azure Operator Service Manager (AOSM) furnishes the necessary values for these fields during deployment. For more information, see [Helm package requirements](helm-requirements.md).
 
 **Sample deployment.yaml file**
 

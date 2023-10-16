@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 
 This article shows you how to create a Site using the Azure portal.  A site is the collection of assets that represent one or more instances of nodes in a network service that should be discussed and managed in a similar manner.
 
-A site may represent:
+A site can represent:
 
 - A physical location such as DC or rack(s).
 - A node in the network that needs to be upgraded separately (early or late) vs other nodes.
@@ -55,12 +55,12 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
     :::image type="content" source="media/network-service-design-version-name.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
 
-1. Navigate to the **Add NFVI** tab of the **Create site** screen and enter *ubuntu_NFVI*" for the **NFVI name**, select **Azure Core** as the **NFVI type** and select **UK South** for the **NFVI location**.
+1. Navigate to the **Add NFVI** tab of the **Create site** screen and enter *ubuntu_NFVI*" for the **NFVI name**.
 
     :::image type="content" source="media/create-site-add-ubuntu.png" alt-text="Screenshot showing the NFVI tab where you enter the name, type and location of the NFVI.":::
 
     > [!NOTE]
-    > This example features a single Network Function Virtual Infrastructure (NFVI) named ubuntu_NFVI. If you modified the nsdg_name in the input.json file while publishing NSD, the NFVI name should be <nsdg_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
+    > This example features a single Network Function Virtual Infrastructure (NFVI) named ubuntu_NFVI. If you modified the nsd_name in the input.json file while publishing NSD, the NFVI name should be <nsd_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
 
 1. Select **Review + create**, then select **Create**.
 

@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 
 This article helps you create a Containerized Network Functions (CNF) site using the Azure portal. A site is the collection of assets that represent one or more instances of nodes in a network service that should be discussed and managed in a similar manner. 
 
-A site may represent:
+A site can represent:
 - A physical location such as DC or rack(s). 
 - A node in the network that needs to be upgraded separately (early or late) vs other nodes. 
 - Resources serving particular class of customer. 
@@ -42,12 +42,12 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     |---------|---------|
     |NFVI Name     |  Enter nginx_NFVI.       |
     |NFVI Type     |   Select Azure Core.      |
-    |NFVI Location    |    Select UK South.     |
+    |NFVI Location    |    Select the location you used for your prerequisite resource.     |
 
     :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
 
     > [!NOTE]
-    > This example features a single Network Function Virtual Infrastructure (NFVI) named nginx_NFVI. If you modified the nsdg_name in the input.json file while publishing the NSD, the NFVI name should be <nsdg_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
+    > This example features a single Network Function Virtual Infrastructure (NFVI) named nginx_NFVI. If you modified the nsd_name in the input.json file while publishing the NSD, the NFVI name should be <nsd_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
 
 1. Select **Review + create**, then select **Create**.
 

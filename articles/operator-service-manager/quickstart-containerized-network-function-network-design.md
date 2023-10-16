@@ -56,7 +56,7 @@ Here's a sample **input-cnf-nsd.json**:
 }
 ``````
 - **publisher_name** - Name of the Publisher resource you want your definition published to. Created if it doesn't already exist.
-- **publisher_resource_group_name** - Resource group for the Publisher resource. Created if it doesn't already exist.
+- **publisher_resource_group_name** - Resource group for the Publisher resource. Created if it doesn't already exist. For this quickstart, it's recommended you use the same Resource Group that you used when publishing the Network Function Definition.
 - **acr_artifact_store_name** - Name of the ACR Artifact Store resource. Created if it doesn't already exist.
 - **location** - The Azure location to use when creating resources.
 - **network_function**:
@@ -67,7 +67,7 @@ Here's a sample **input-cnf-nsd.json**:
   - *publisher_offering_location* - The region that the NFDV is published to.
   - *type* - Type of Network Function. Valid values are cnf or vnf.
   - *multiple_instances* - Valid values are true or false.  Controls whether the NSD should allow arbitrary numbers of this type of NF. If set to false only a single instance is allowed. Only supported on VNFs. For CNFs this value must be set to false.
-- **nsdg_name** - The Network Service Design Group name. The collection of Network Service Design versions. Created if it doesn't already exist.
+- **nsd_name** - The Network Service Design Group name. The collection of Network Service Design versions. Created if it doesn't already exist.
 - **nsd_version** - The version of the NSD being created. In the format of A.B.C.
 - **nsdv_description** - The description of the NSDV.
 
@@ -79,6 +79,16 @@ Initiate the build process for the Network Service Definition (NSD) using the fo
 az aosm nsd build -f input-cnf-nsd.json
 ```
 After the build process completes, review the generated files to gain insights into the NSD's architecture and structure.
+
+These files are created:
+
+|Files  |Description  |
+|---------|---------|
+|**artifact_manifest.bicep**     |   A bicep template for creating the Publisher and artifact stores.      |
+|**configMappings**     |      Converts the config group values inputs to the deployment parameters required for each NF.   |
+|**nsd_definition.bicep**     |   A bicep template for creating the NSDV itself.      |
+|**schemas**    |     Defines to the inputs required in the config group values for this NSDV.    |
+|**nginx-nfdg_nf.bicep**    |   A bicep template for deploying the NF.  Uploaded to the artifact store.      |
 
 ## Publish the Network Service Design (NSD)
 

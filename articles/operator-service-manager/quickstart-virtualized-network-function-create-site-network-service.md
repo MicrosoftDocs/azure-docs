@@ -35,13 +35,13 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
     |Setting|Value| 
     |---|---| 
-    |**Subscription**| Select your subscription| 
-    |**Resource group**| Create a resource group *operatorresourcegroup*.| 
-    |**Name**| Enter *ubuntu-sns*| 
-    |**Region**| Select **UK South**| 
-    |**Site**| Enter *ubuntu-vm-site*|
-    |**Managed Identity Type** | User Assigned |
-    |**User Assigned Identity** |Select **identity-for-ubuntu-vm-sns**|
+    |**Subscription**| Select your subscription.| 
+    |**Resource group**| Select *operatorresourcegroup*.| 
+    |**Name**| Enter *ubuntu-sns*.| 
+    |**Region**| Select the location you used for your prerequisite resources.| 
+    |**Site**| Enter *ubuntu-vm-site*.|
+    |**Managed Identity Type** | User Assigned. |
+    |**User Assigned Identity** |Select **identity-for-ubuntu-vm-sns**.|
 
     :::image type="content" source="media/basics-tab-virtual-network-function.png" alt-text="Screenshot showing the Basics page where the details for the Site Network Service are input.":::
 
@@ -88,7 +88,10 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
     ```
 
    > [!NOTE]
-   > Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the `managedIdentity` resource ID. Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub`.     
+   > Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the `managedIdentity` resource ID.
+
+
+    Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub` or can be created following [Generate new keys and Get public keys ](/azure/virtual-machines/ssh-keys-portal).
 
 1. Select **Review + create**.
 1. Select **Create**.

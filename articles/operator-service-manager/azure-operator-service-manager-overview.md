@@ -13,7 +13,7 @@ Azure Operator Service Manager is an Azure service designed to assist telecom op
 
 ## Orchestrate operator services across Azure platforms
 
-As part of the Azure AI Operations program, Azure Operator Service Manager transforms the traditional operator service management experience into a modern cloud service. Support for Azure For Operator platforms, like Azure Operator Nexus and services like Azure Operator 5G Core, operators can simplify complex service deployments. This simplification ensures carrier grade service reliability while accelerating both service innovation and service monetization.
+As part of the Azure AI Operations program, Azure Operator Service Manager transforms the traditional operator service management experience into a modern cloud service. With support for Azure For Operator platforms, like Azure Operator Nexus and services like Azure Operator 5G Core, operators can simplify complex service deployments. This simplification ensures carrier grade service reliability while accelerating both service innovation and service monetization.
 
 :::image type="content" source="media/overview-unified-service.png" alt-text="Diagram that shows unified service orchestration across Azure domains.":::
 
@@ -57,7 +57,7 @@ Leverage Azure Operator Service manager’s approach to service composition, dep
 
 ### Optimize capital expenses
 
-Ease the path to Azure cloud savings with on-demand placement of service resources.  Operators can realize, up to, a 40% reduction in capital expenses, by breaking the traditional cycle of advanced capacity purchasing.
+Ease the path to Azure cloud savings with on-demand placement of service resources.  Operators can realize up to a 40% reduction in capital expenses, by breaking the traditional cycle of advanced capacity purchasing.
 
 ### Reduce energy expense
 
