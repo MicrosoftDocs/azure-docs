@@ -2,7 +2,7 @@
 groups:
 - id: connection-type
   title: Types of creating connection in app service
-  prompt: Choose the type to create connection
+  prompt: Choose a connection method.
   pivots:
   - id: manual
     title: Manual

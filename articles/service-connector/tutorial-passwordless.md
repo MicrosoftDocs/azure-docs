@@ -59,7 +59,7 @@ For Azure Container Apps, you can deploy the application code via the `az contai
 
 ---
 
-Then you can check the log or call the application to see if it can connect to the database on Azure successfully.
+Then you can check the log or call the application to see if it can connect to the Azure database successfully.
 
 ### Troubleshooting
 
