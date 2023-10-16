@@ -20,8 +20,8 @@ ms.date: 01/25/2022
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
 - Once a secret, key, certificate, or key vault is deleted, it will remain recoverable for a configurable period of 7 to 90 calendar days. If no configuration is specified the default recovery period will be set to 90 days. This provides users with sufficient time to notice an accidental secret deletion and respond.
-- Two operations must be made to permanently delete a secret. First a user must delete the object, which puts it into the soft-deleted state. Second, a user must purge the object in the soft-deleted state. The purge operation requires additional access policy permissions. These additional protections reduce the risk of a user accidentally or maliciously deleting a secret or a key vault.  
-- To purge a secret in the soft-deleted state, a service principal must be granted an additional "purge" access policy permission. The purge access policy permission isn't granted by default to any service principal including key vault and subscription owners and must be deliberately set. By requiring an elevated access policy permission to purge a soft-deleted secret, it reduces the probability of accidentally deleting a secret.
+- Two operations must be made to permanently delete a secret. First a user must delete the object, which puts it into the soft-deleted state. Second, a user must purge the object in the soft-deleted state. These additional protections reduce the risk of a user accidentally or maliciously deleting a secret or a key vault.  
+- To purge a secret, key, certificate in the soft-deleted state, a security principal must be granted "purge" operation permission.
 
 ## Supporting interfaces
 
