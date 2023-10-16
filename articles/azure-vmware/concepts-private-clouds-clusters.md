@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 10/12/2023
+ms.date: 10/14/2023
 ms.custom: engagement-fy23
 ---
 
@@ -31,8 +31,8 @@ Each Azure VMware Solution architectural component has the following function:
 - Azure Subscription: Provides controlled access, budget, and quota management for the Azure VMware Solution.
 - Azure Region: Groups data centers into Availability Zones (AZs) and then groups AZs into regions.
 - Azure Resource Group: Places Azure services and resources into logical groups.
-- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts.
-- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts.
+- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files and Pure Cloud Block Store are also supported.
+- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files and Pure Cloud Block Store are also supported.
 - VMware HCX: Delivers mobility, migration, and network extension services.
 - VMware Site Recovery: Automates disaster recovery and storage replication services with VMware vSphere Replication. Third-party disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
 - Dedicated Microsoft Enterprise Edge (D-MSEE): Router that connects Azure cloud and the Azure VMware Solution private cloud instance.
