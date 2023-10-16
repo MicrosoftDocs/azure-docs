@@ -233,155 +233,155 @@ The reserved instances listed are expiring soon or recently expired. Your resour
 
 Learn more about [Reservation - ReservedInstancePurchaseNew (Configure automatic renewal for your expiring reservation)](https://aka.ms/reservedinstances).
 
-### Buy virtual machine reserved instance to save money over pay-as-you-go costs
+### Buy virtual machine reserved instances to save money over pay-as-you-go costs
 
-Reserved instance can provide a significant discount over pay-as-you-go prices. With reserved instance, you can prepurchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the last 30 days and recommend money-saving reserved instances.
+Reserved instances can provide a significant discount over pay-as-you-go prices. With reserved instances, you can prepurchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the last 30 days and recommend money-saving reserved instances.
 
 Learn more about [Virtual machine - ReservedInstance (Buy virtual machine reserved instances to save money over pay-as-you-go costs)](https://aka.ms/reservedinstances).
 
-### Consider App Service reserved instance to save over your on-demand costs
+### Consider App Service reserved instances to save over your on-demand costs
 
-We analyzed your App Service usage pattern over the selected term, look-back period, and recommend reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase hourly usage for the App Service plan and save over your Pay-as-you-go costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over selected Term, look-back period.
+We analyzed your App Service usage pattern over the selected term, look-back period, and recommend reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase hourly usage for the App Service plan and save over your Pay-as-you-go costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over selected Term, look-back period.
 
-Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Cosmos DB reserved instance to save over your pay-as-you-go costs
 
-We analyzed your Azure Cosmos DB usage pattern over last 30 days and calculate reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
+We analyzed your Azure Cosmos DB usage pattern over last 30 days and calculate reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
 
-Learn more about [Subscription - CosmosDBReservedCapacity (Consider Azure Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - CosmosDBReservedCapacity (Consider Azure Cosmos DB reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider virtual machine reserved instance to save over your on-demand costs
+### Consider virtual machine reserved instances to save over your on-demand costs
 
-Reserved instance can provide a significant discount over on-demand prices. With reserved instance, you can prepurchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the selected Term, look-back period, and recommend money-saving reserved instances.
+Reserved instances can provide a significant discount over on-demand prices. With reserved instances, you can prepurchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the selected Term, look-back period, and recommend money-saving reserved instances.
 
-Learn more about [Subscription - ReservedInstance (Consider virtual machine reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - ReservedInstance (Consider virtual machine reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider Cosmos DB reserved instance to save over your pay-as-you-go costs
+### Consider Cosmos DB reserved instances to save over your pay-as-you-go costs
 
-We analyzed your Cosmos DB usage pattern over selected Term, look-back period and calculate reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over the selected Term, look-back period. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
+We analyzed your Cosmos DB usage pattern over selected Term, look-back period and calculate reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over the selected Term, look-back period. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
 
-Learn more about [Subscription - CosmosDBReservedCapacity (Consider Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - CosmosDBReservedCapacity (Consider Cosmos DB reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs
+### Consider SQL PaaS DB reserved instances to save over your pay-as-you-go costs
 
-We analyzed your SQL PaaS usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase hourly usage for your SQL PaaS deployments and save over your SQL PaaS compute costs. SQL license is charged separately and is not discounted by the reservation. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your SQL PaaS usage pattern over last 30 days and recommend reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase hourly usage for your SQL PaaS deployments and save over your SQL PaaS compute costs. SQL license is charged separately and is not discounted by the reservation. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - SQLReservedCapacity (Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - SQLReservedCapacity (Consider SQL PaaS DB reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider App Service stamp fee reserved instance to save over your on-demand costs
+### Consider App Service stamp fee reserved instances to save over your on-demand costs
 
-We analyzed your App Service isolated environment stamp fees usage pattern over last 30 days and recommend reserved instance purchase to maximize your savings. With reserved instance, you can prepurchase hourly usage for the isolated environment stamp fee and save over your pay-as-you-go costs. Reserved instance only applies to the stamp fee and not to the App Service instances. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over last 30 days.
+We analyzed your App Service isolated environment stamp fees usage pattern over last 30 days and recommend reserved instances purchase to maximize your savings. With reserved instances, you can prepurchase hourly usage for the isolated environment stamp fee and save over your pay-as-you-go costs. Reserved instances only applies to the stamp fee and not to the App Service instances. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over last 30 days.
 
-Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service stamp fee reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service stamp fee reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs
+### Consider Database for MariaDB reserved instances to save over your pay-as-you-go costs
 
-We analyzed your Azure Database for MariaDB usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase MariaDB hourly usage and save over your compute costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Database for MariaDB usage pattern over last 30 days and recommend reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase MariaDB hourly usage and save over your compute costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - MariaDBSQLReservedCapacity (Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - MariaDBSQLReservedCapacity (Consider Database for MariaDB reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider Database for MySQL reserved instance to save over your pay-as-you-go costs
+### Consider Database for MySQL reserved instances to save over your pay-as-you-go costs
 
-We analyzed your MySQL Database usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase MySQL hourly usage and save over your compute costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your MySQL Database usage pattern over last 30 days and recommend reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase MySQL hourly usage and save over your compute costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - MySQLReservedCapacity (Consider Database for MySQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - MySQLReservedCapacity (Consider Database for MySQL reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs
+### Consider Database for PostgreSQL reserved instances to save over your pay-as-you-go costs
 
-We analyzed your Database for PostgreSQL usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase PostgreSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Database for PostgreSQL usage pattern over last 30 days and recommend reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase PostgreSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - PostgreSQLReservedCapacity (Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - PostgreSQLReservedCapacity (Consider Database for PostgreSQL reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider Cache for Redis reserved instance to save over your pay-as-you-go costs
+### Consider Cache for Redis reserved instances to save over your pay-as-you-go costs
 
-We analyzed your Cache for Redis usage pattern over last 30 days and calculated reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase Cache for Redis hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Cache for Redis usage pattern over last 30 days and calculated reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase Cache for Redis hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - RedisCacheReservedCapacity (Consider Cache for Redis reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - RedisCacheReservedCapacity (Consider Cache for Redis reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs
+### Consider Azure Synapse Analytics (formerly SQL DW) reserved instances to save over your pay-as-you-go costs
 
-We analyze your Azure Synapse Analytics usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance, you can prepurchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyze your Azure Synapse Analytics usage pattern over last 30 days and recommend reserved instances purchase that maximizes your savings. With reserved instances, you can prepurchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse Analytics (formerly SQL DW) reserved instances to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### (Preview) Consider Blob storage reserved instance to save on Blob v2 and Data Lake storage Gen2 costs
 
-We analyzed your Azure Blob and Data Lake storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Blob storage reserved instance applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Blob and Data Lake storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Blob storage reserved instances applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instance to save on Blob v2 and and Data Lake storage Gen2 costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Dedicated Host reserved instance to save over your on-demand costs
 
-We analyzed your Azure Dedicated Host usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Dedicated Host usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - AzureDedicatedHostReservedCapacity (Consider Azure Dedicated Host reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - AzureDedicatedHostReservedCapacity (Consider Azure Dedicated Host reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Data Factory reserved instance to save over your on-demand costs
 
-We analyzed your Data Factory usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Data Factory usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - DataFactorybReservedCapacity (Consider Data Factory reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - DataFactorybReservedCapacity (Consider Data Factory reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Data Explorer reserved instance to save over your on-demand costs
 
-We analyzed your Azure Data Explorer usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Data Explorer usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - AzureDataExplorerReservedCapacity (Consider Azure Data Explorer reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - AzureDataExplorerReservedCapacity (Consider Azure Data Explorer reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Files reserved instance to save over your on-demand costs
 
-We analyzed your Azure Files usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Files usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - AzureFilesReservedCapacity (Consider Azure Files reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - AzureFilesReservedCapacity (Consider Azure Files reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure VMware Solution reserved instance to save over your on-demand costs
 
-We analyzed your Azure VMware Solution usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure VMware Solution usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - AzureVMwareSolutionReservedCapacity (Consider Azure VMware Solution reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - AzureVMwareSolutionReservedCapacity (Consider Azure VMware Solution reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider NetApp Storage reserved instance to save over your on-demand costs
+### Consider NetApp Storage reserved instances to save over your on-demand costs
 
-We analyzed your NetApp Storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your NetApp Storage usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - NetAppStorageReservedCapacity (Consider NetApp Storage reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - NetAppStorageReservedCapacity (Consider NetApp Storage reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider Azure Managed Disk reserved instance to save over your on-demand costs
+### Consider Azure Managed Disk reserved instances to save over your on-demand costs
 
-We analyzed your Azure Managed Disk usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Managed Disk usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - AzureManagedDiskReservedCapacity (Consider Azure Managed Disk reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - AzureManagedDiskReservedCapacity (Consider Azure Managed Disk reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider Red Hat reserved instance to save over your on-demand costs
+### Consider Red Hat reserved instances to save over your on-demand costs
 
-We analyzed your Red Hat usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Red Hat usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - RedHatReservedCapacity (Consider Red Hat reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - RedHatReservedCapacity (Consider Red Hat reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider RedHat OSA reserved instance to save over your on-demand costs
+### Consider RedHat OSA reserved instances to save over your on-demand costs
 
-We analyzed your RedHat Open Source Assurance (OSA) usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your RedHat Open Source Assurance (OSA) usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - RedHatOsaReservedCapacity (Consider RedHat OSA reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - RedHatOsaReservedCapacity (Consider RedHat OSA reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider SapHana reserved instance to save over your on-demand costs
+### Consider SapHana reserved instances to save over your on-demand costs
 
-We analyzed your SapHana usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your SapHana usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - SapHanaReservedCapacity (Consider SapHana reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - SapHanaReservedCapacity (Consider SapHana reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider SuseLinux reserved instance to save over your on-demand costs
+### Consider SuseLinux reserved instances to save over your on-demand costs
 
-We analyzed your SuseLinux usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your SuseLinux usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - SuseLinuxReservedCapacity (Consider SuseLinux reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - SuseLinuxReservedCapacity (Consider SuseLinux reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
-### Consider VMware Cloud Simple reserved instance
+### Consider VMware Cloud Simple reserved instances
 
-We analyzed your VMware Cloud Simple usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your VMware Cloud Simple usage over last 30 days and calculated reserved instances purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - VMwareCloudSimpleReservedCapacity (Consider VMware Cloud Simple reserved instance )](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - VMwareCloudSimpleReservedCapacity (Consider VMware Cloud Simple reserved instances )](https://aka.ms/rirecommendations).
 
 ### Purchasing a savings plan for compute could unlock lower prices
 
@@ -406,7 +406,6 @@ Learn more about [ExpressRoute circuit - ExpressRouteCircuit (Delete ExpressRout
 We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. Reconfigure this gateway, or delete it if you do not intend to use it anymore.
 
 Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
-
 
 
 
