@@ -194,7 +194,7 @@ Access the application with the output endpoint. The page should appear as you s
 
 ## 6. Clean up resources
 
-You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
+You can delete the Azure resource group, which includes all the resources in the resource group.
 
 ::: zone pivot="sc-standard, sc-consumption-plan"
 
