@@ -1206,25 +1206,35 @@ public class Counter
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName(nameof(Counter))]
-public static Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
-{
-    return dispatcher.DispatchAsync(operation =>
+public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
     {
-        switch (operation.Name.ToLowerInvariant())
+        return dispatcher.DispatchAsync(operation =>
         {
-            case "add":
-                operation.State.SetState(operation.State.GetState<int>() + operation.GetInput<int>());
-                break;
-            case "reset":
+            if (operation.State.GetState(typeof(int)) is null)
+            {
                 operation.State.SetState(0);
-                break;
-            case "get":
-                operation.State.GetState<int>();
-                break;
-        }
-    });
-}
+            }
+
+            switch (operation.Name.ToLowerInvariant())
+            {
+                case "add":
+                    int state = operation.State.GetState<int>();
+                    state += operation.GetInput<int>();
+                    operation.State.SetState(state);
+                    return new(state);
+                case "reset":
+                    operation.State.SetState(0);
+                    break;
+                case "get":
+                    return new((operation.State.GetState(typeof(int)) as int?) ?? 0);
+                case "delete": 
+                    operation.State.SetState(null);
+                    break; 
+            }
+
+            return default;
+        });
+    }
 ```
 
 Durable entities can also be modeled as classes in .NET. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
