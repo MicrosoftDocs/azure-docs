@@ -135,6 +135,49 @@ To list all file shares and snapshots in a storage account, run the following Az
 az storage share list --account-name <storage-account-name> --include-snapshots
 ```
 ---
+
+### Mount an NFS Azure file share snapshot
+
+To mount the NFS Azure file share to a Linux VM (NFS client) and restore files from a snapshot, follow these steps.
+
+1. Run the following command in a console:
+   
+   ```bash
+   sudo mount -o vers=4,minorversion=1,proto=tcp,sec=sys $server:/nfs4account/share /media/nfs
+   ```
+   
+1. Change the directory to `/media/nfs/.snapshots` so you can view the available snapshots. The `.snapshots` directory is hidden by default, but you can access and read from it like any directory.
+   
+   ```bash
+   cd /media/nfs/.snapshots
+   ```
+   
+1. List the contents of the `.snapshots` folder.
+   
+   ```bash
+   ls
+   ```
+   
+1. Each snapshot has its own directory that serves as a recovery point. Change to the snapshot directory for which you want to restore files.
+   
+   ```bash
+   cd <snapshot-name>
+   ```
+   
+1. List the contents of the directory to view a list of files and directories to be recovered.
+   
+   ```bash
+   ls
+   ```
+   
+1. Copy all files and directories from the snapshot to complete the restore.
+   
+   ```bash
+   cp -r <snapshot-name> ../restore
+   ```
+   
+The files and directories from the snapshot should now be available in the `/media/nfs/restore` directory.
+
 ## Next steps
 
 - Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
