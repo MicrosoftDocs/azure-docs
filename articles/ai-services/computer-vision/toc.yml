@@ -164,10 +164,8 @@ items:
           href: how-to/shelf-model-customization.md
         - name: Check planogram compliance
           href: how-to/shelf-planogram.md
-      - name: Call the Image retrieval APIs
+      - name: Call the Multi-modal embeddings APIs
         href: how-to/image-retrieval.md
-      - name: Call the Video retrieval APIs
-        href: how-to/video-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
       - name: Configure a storage account
@@ -200,7 +198,7 @@ items:
         href: concept-model-customization.md
       - name: Product Recognition
         href: concept-shelf-analysis.md
-      - name: Image retrieval
+      - name: Multi-modal embeddings
         href: concept-image-retrieval.md
       - name: Background removal
         href: concept-background-removal.md
@@ -352,9 +350,9 @@ items:
       href: /javascript/api/overview/azure/cognitiveservices-face-readme
     - name: Python
       href: /python/api/overview/azure/cognitiveservices-vision-face-readme
-- name: Spatial Analysis
-  items: 
-  - name: Spatial Analysis overview
+- name: Video Analysis
+  items:
+  - name: Video Analysis Overview
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:
@@ -376,6 +374,8 @@ items:
       href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
+    - name: Call the Video retrieval APIs
+      href: how-to/video-retrieval.md
     - name: Use the Spatial Analysis container
       items:
       - name: Set up the host machine and run the container
