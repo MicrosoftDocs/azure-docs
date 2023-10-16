@@ -16,7 +16,7 @@ This article provides an overview of Service Connector.
 
 ## What is Service Connector used for?
 
-Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
+Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples using Service Connector to simplify the service-to-service connection experience.
 
 * **WebApp/Functions/Container Apps/Spring Apps + Database:** Use Service Connector to connect PostgreSQL, MySQL, or Azure Cosmos DB to your App Service/Container Apps/Spring Apps.
 * **WebApp/Functions/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.

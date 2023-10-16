@@ -12,9 +12,9 @@ ms.date: 09/18/2023
 In this tutorial, you learn how to configure a Python function with Storage Queue as trigger by completing the following tasks:
 
 1. Use Visual Studio Code to create a Python function project.
-2. Use Visual Studio Code to run the function locally.
-3. Use Azure CLI to create Service Connector connection between Azure Function and Storage Queue.
-4. Use Visual Studio to deploy your function.
+1. Use Visual Studio Code to run the function locally.
+1. Use Azure CLI to create Service Connector connection between Azure Function and Storage Queue.
+1. Use Visual Studio to deploy your function.
 
 An overview of the function project components in this tutorial:
 
