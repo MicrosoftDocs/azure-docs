@@ -41,11 +41,11 @@ sections:
           ```
           
       - question: |
-         Can I deploy Azure Virtual Desktop across multiple Azure Active Directory tenants?
+         Can I deploy Azure Virtual Desktop across multiple Microsoft Entra tenants?
         answer: |
-          Users must be in the same Azure Active Directory (Azure AD) tenant as their assigned workspace, host pool, and app group. Having everything in the same tenant lets you assign users to proper role-based access control (RBAC) roles so they can access their resources.
+          Users must be in the same Microsoft Entra tenant as their assigned workspace, host pool, and app group. Having everything in the same tenant lets you assign users to proper role-based access control (RBAC) roles so they can access their resources.
 
-          However, you can deploy virtual machines (VMs) in a different Azure AD tenant if they're joined to either the same AD as the user or an AD that has a trust relationship with the user's AD.
+          However, you can deploy virtual machines (VMs) in a different Microsoft Entra tenant if they're joined to either the same AD as the user or an AD that has a trust relationship with the user's AD.
           
       - question: |
          What are location restrictions?
@@ -90,7 +90,7 @@ sections:
       - question: |
          Does Azure Virtual Desktop support guest users?
         answer: |
-          Azure Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would manage the guest users' user objects in both Azure AD and Active Directory like local accounts.
+          Azure Virtual Desktop doesn't support Microsoft Entra guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Microsoft Entra ID. The other company would manage the guest users' user objects in both Microsoft Entra ID and Active Directory like local accounts.
           
           You can't use your own licenses for the benefit of a third party. Also, Azure Virtual Desktop doesn't currently support Microsoft Account (MSA).
           
@@ -138,7 +138,7 @@ sections:
       - question: |
          Can I manage Azure Virtual Desktop environments with Azure Lighthouse?
         answer: |
-          Azure Lighthouse doesn't fully support managing Azure Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
+          Azure Lighthouse doesn't fully support managing Azure Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Microsoft Entra ID tenant user management, Lighthouse customers still need to sign in to the Microsoft Entra ID that customers use to manage users.
           
           You also can't use CSP sandbox subscriptions with the Azure Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
           
@@ -180,7 +180,7 @@ sections:
       - question: |
          When I'm testing migration, can I have the two different Azure Virtual Desktop environments exist in the same tenant?
         answer: |
-          Yes. You can have both deployments within the same Azure Active Directory tenant.
+          Yes. You can have both deployments within the same Microsoft Entra tenant.
 
       - question: |
          Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?

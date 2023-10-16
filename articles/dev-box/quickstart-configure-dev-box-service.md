@@ -32,8 +32,8 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
-- Azure AD. Your organization must use Azure AD for identity and access management.
-- User licenses. To use Dev Box, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
+- Microsoft Entra ID. Your organization must use Microsoft Entra ID for identity and access management.
+- User licenses. To use Dev Box, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Microsoft Entra ID P1. These licenses are available independently and are included in the following subscriptions:
   - Microsoft 365 F3
   - Microsoft 365 E3, Microsoft 365 E5
   - Microsoft 365 A3, Microsoft 365 A5
@@ -158,16 +158,18 @@ You must have a virtual network and subnet available for your network connection
 
 ### Create the network connection
 
-You now need a [network connection](concept-dev-box-concepts.md#network-connection) to associate the virtual network and subnet with the dev center. A network connection specifies the type of join dev boxes use to join your Azure AD domain, either an Azure AD join or a hybrid Active Directory join. Choose an Azure AD join unless you have a specific requirement for a hybrid join, like connecting to on-premises resources.
+You now need a [network connection](concept-dev-box-concepts.md#network-connection) to associate the virtual network and subnet with the dev center. A network connection specifies the type of join dev boxes use to join your Microsoft Entra domain, either a Microsoft Entra join or a hybrid Active Directory join. Choose a Microsoft Entra join unless you have a specific requirement for a hybrid join, like connecting to on-premises resources.
 
 - To determine which type of join is appropriate for your dev boxes, refer to:
    
-   - [Azure AD joined devices](/azure/active-directory/devices/concept-directory-join).
-   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-hybrid-join).
+   - [Microsoft Entra joined devices](../active-directory/devices/concept-directory-join.md).
+   - [Microsoft Entra hybrid joined devices](../active-directory/devices/concept-hybrid-join.md).
 
 To create the network connection, complete the steps on the relevant tab.
 
-#### [Azure AD join](#tab/AzureADJoin/)
+<a name='azure-ad-join'></a>
+
+#### [Microsoft Entra join](#tab/AzureADJoin/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -181,14 +183,14 @@ To create the network connection, complete the steps on the relevant tab.
 
    Name|Value|
    |----|----|
-   |**Domain join type**|Select **Azure active directory join**.|
+   |**Domain join type**|Select **Microsoft Entra join**.|
    |**Subscription**|Select the subscription in which you want to create the network connection.|
    |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a descriptive name for your network connection.|
    |**Virtual network**|Select the virtual network that you want the network connection to use.|
    |**Subnet**|Select the subnet that you want the network connection to use.|
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-native-join.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, including the option for Azure Active Directory join.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-native-join.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, including the option for Microsoft Entra join.":::
 
 1. Select **Review + Create**.
 
@@ -196,7 +198,9 @@ To create the network connection, complete the steps on the relevant tab.
 
 1. When the deployment is complete, select **Go to resource**. The network connection appears on the **Network connections** page.
 
-#### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
+<a name='hybrid-azure-ad-join'></a>
+
+#### [Microsoft Entra hybrid join](#tab/HybridAzureADJoin/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -210,7 +214,7 @@ To create the network connection, complete the steps on the relevant tab.
 
    |Name|Value|
    |----|----|
-   |**Domain join type**|Select **Hybrid Azure active directory join**.|
+   |**Domain join type**|Select **Microsoft Entra hybrid join**.|
    |**Subscription**|Select the subscription in which you want to create the network connection.|
    |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a descriptive name for your network connection.|
@@ -221,7 +225,7 @@ To create the network connection, complete the steps on the relevant tab.
    |**AD username UPN**| Enter the username, in user principal name (UPN) format, that you want to use for connecting the Cloud PCs to your Active Directory domain. For example: `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
    |**AD domain password**| Enter the password for the user. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-hybrid-join.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, including the option for hybrid Azure Active Directory join.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-hybrid-join.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, including the option for Microsoft Entra hybrid join.":::
 
 1. Select **Review + Create**.
 

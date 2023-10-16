@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Azure AI Video Indexer account types
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 This article gives an overview of Azure AI Video Indexer accounts types and provides links to other articles for more details.
 
 ## Trial account

@@ -3,7 +3,7 @@ title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
-ms.date: 05/26/2023
+ms.date: 10/13/2023
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -329,6 +329,8 @@ az deployment group create \
 
 ---
 
+Currently, you can't deploy a template spec with a [.bicepparam file](./parameter-files.md).
+
 ## Versioning
 
 When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
@@ -404,6 +406,8 @@ Both the template and its versions can have tags. The tags are applied or inheri
 ## Link to template specs
 
 After creating a template spec, you can link to that template spec in a Bicep module. The template spec is deployed when you deploy the Bicep file containing that module. For more information, see [File in template spec](./modules.md#path-to-module).
+
+To create aliases for template specs intended for module linking, see [Aliases for modules](./bicep-config-modules.md#aliases-for-modules).
 
 ## Next steps
 

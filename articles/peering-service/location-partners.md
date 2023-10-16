@@ -117,7 +117,7 @@ The following table provides information on the Peering Service connectivity par
 | Mumbai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | New York | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | San Jose | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
-| Santiago | [PIT Chile] (https://www.pitchile.cl/wp/maps/) |
+| Santiago | [PIT Chile](https://www.pitchile.cl/wp/maps/) |
 | Seattle | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Singapore | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 

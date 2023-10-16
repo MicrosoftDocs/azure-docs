@@ -297,7 +297,7 @@ Delete your cluster using the following steps:
 ---
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory (Azure AD) service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and doesn't require that you provision or rotate any secrets.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and doesn't require that you provision or rotate any secrets.
 
 ## Next steps
 

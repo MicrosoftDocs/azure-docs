@@ -221,6 +221,8 @@
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
+    - name: Data security dashboard
+      href: data-aware-security-dashboard-overview.md  
   - name: Improve your container security posture
     items:
     - name: Agentless container posture
@@ -568,7 +570,7 @@
         href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
       - name: Disable vulnerabilities on images
         href: disable-vulnerability-findings-containers.md
-      - name: Subassessment REST API
+      - name: REST API
         href: subassessment-rest-api.md 
     - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys

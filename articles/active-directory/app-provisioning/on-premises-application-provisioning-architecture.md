@@ -90,7 +90,7 @@ You can define one or more matching attribute(s) and prioritize them based on th
 
 
 ## Agent best practices
-- Using the same agent for the on-premises provisioning feature along with Workday / SuccessFactors / Microsoft Entra Connect Cloud Sync is currently unsupported. We are actively working to support on-premises provisioning on the same agent as the other provisioning scenarios.
+- Using the same agent for the on-premises provisioning feature along with Workday / SuccessFactors / Microsoft Entra Connect cloud sync is currently unsupported. We are actively working to support on-premises provisioning on the same agent as the other provisioning scenarios.
 - - Avoid all forms of inline inspection on outbound TLS communications between agents and Azure. This type of inline inspection causes degradation to the communication flow.
 - The agent must communicate with both Azure and your application, so the placement of the agent affects the latency of those two connections. You can minimize the latency of the end-to-end traffic by optimizing each network connection. Each connection can be optimized by:
   - Reducing the distance between the two ends of the hop.
@@ -143,7 +143,7 @@ You can also check whether all the required ports are open.
      - Microsoft Entra Connect Provisioning Agent Package
 
 ## Provisioning agent history
-This article lists the versions and features of Microsoft Entra Connect Provisioning Agent that have been released. The Microsoft Entra ID team regularly updates the Provisioning Agent with new features and functionality. Please ensure that you do not use the same agent for on-premises provisioning and Cloud Sync / HR-driven provisioning.
+This article lists the versions and features of Microsoft Entra Connect Provisioning Agent that have been released. The Microsoft Entra team regularly updates the Provisioning Agent with new features and functionality. Please ensure that you do not use the same agent for on-premises provisioning and cloud sync / HR-driven provisioning.
 
 Microsoft provides direct support for the latest agent version and one version before.
 

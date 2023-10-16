@@ -116,12 +116,22 @@ sections:
       - question: |
           Does the anycast IP of my Front Door remain the same throughout its lifetime?
         answer:  |
-          The IP address of your Front Door's frontend anycast is fixed and may not change as long as you use the Front Door. However, the fixed IP address of your Front Door's frontend anycast isn't a guarantee. Avoid relying on the IP directly.
+          The IP address of your Front Door's frontend anycast is fixed and might not change as long as you use the Front Door. However, the fixed IP address of your Front Door's frontend anycast isn't a guarantee. Avoid relying on the IP directly.
 
       - question: |
           Does Azure Front Door offer static or dedicated IPs?
         answer:  |
           Azure Front Door is a dynamic service that routes traffic to the best available backend. It doesn't offer static or dedicated frontend anycast IPs at this time.
+      
+      - question: |
+          Does AFD provide telemetry to show which rules engine rule AFD processes for each request?
+        answer:  |
+          Yes. Refer to the MatchedRulesSetName property under [Access Logs](front-door-diagnostics.md).
+          
+      - question: |
+          Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
+        answer:  |
+          Yes. For more details, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
 
       - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
@@ -136,7 +146,7 @@ sections:
           The deployment time for new Front Door configurations varies depending on the type of change. Typically, it takes between 3 and 20 minutes for the changes to propagate to all our edge locations worldwide.
           
           > [!NOTE]  
-          > Custom TLS/SSL certificate updates may take longer, from several minutes up to an hour, to be deployed globally.
+          > Custom TLS/SSL certificate updates might take longer, from several minutes up to an hour, to be deployed globally.
           
           Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there's no risk of outage.
           
@@ -226,7 +236,7 @@ sections:
     questions:
   
       - question: | 
-          How does Azure Front Door handle **domain fronting** behavior? 
+          How does Azure Front Door handle domain fronting behavior? 
         answer: |
           Domain fronting is a technique that allows an attacker to hide the true destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           

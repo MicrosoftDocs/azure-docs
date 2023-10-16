@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure. In this tutorial, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using the Azure portal. This type of connection requires the native VPN client to be configured on each connecting client computer.
 
-* This article applies to certificate and RADIUS authentication. For Azure AD authentication, see [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* This article applies to certificate and RADIUS authentication. For Microsoft Entra authentication, see [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 * For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 In this tutorial, you learn how to:
@@ -49,7 +49,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* **Microsoft Entra authentication:** See [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 
 ### Configuration steps
 

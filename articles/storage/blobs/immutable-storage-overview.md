@@ -156,6 +156,8 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Feature support
 
+This feature is incompatible with Point in Time Restore and Last Access Tracking. 
+
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps

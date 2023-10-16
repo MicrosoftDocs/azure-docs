@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 10/04/2023
 ms.author: victorh
 ---
 
@@ -120,11 +120,11 @@ If bot protection is enabled, incoming requests that match bot rules are logged.
 
 ## Configuration
 
-You can configure and deploy all WAF policies by using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale by using Firewall Manager integration (preview). For more information, see [Use Azure Firewall Manager to manage Azure Web Application Firewall policies (preview)](../shared/manage-policies.md).
+You can configure and deploy all WAF policies by using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale by using Firewall Manager integration. For more information, see [Use Azure Firewall Manager to manage Azure Web Application Firewall policies](../shared/manage-policies.md).
 
 ## Monitoring
 
-Monitoring for a WAF on Azure Front Door is integrated with Azure Monitor to track alerts and easily monitor traffic trends.
+Monitoring for a WAF on Azure Front Door is integrated with Azure Monitor to track alerts and easily monitor traffic trends. For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
 
 ## Next steps
 

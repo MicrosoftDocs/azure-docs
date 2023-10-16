@@ -146,7 +146,7 @@
       href: cloud-sync/how-to-gmsa-cmdlets.md
     - name: How to map usertype with cloud sync
       href: cloud-sync/how-to-map-usertype.md
-    - name: Microsoft Entra cloud sync insights workbook
+    - name: Microsoft Entra Connect cloud sync insights workbook
       href: cloud-sync/how-to-cloud-sync-workbook.md
   - name: Develop
     items:
@@ -156,7 +156,7 @@
       href: cloud-sync/how-to-inbound-synch-ms-graph.md
     - name: Expression Builder
       href: cloud-sync/how-to-expression-builder.md
-    - name: Azure AD synchronization API 
+    - name: Microsoft Entra synchronization API 
       href: /graph/api/resources/synchronization-overview
   - name: Troubleshoot
     items:

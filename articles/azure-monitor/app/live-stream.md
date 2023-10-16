@@ -283,11 +283,11 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
 
-- **Recommended:** Secure the Live Metrics channel by using [Azure Active Directory (Azure AD) authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
+- **Recommended:** Secure the Live Metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 - **Legacy (no longer recommended):** Set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section.
 
 > [!NOTE]
-> On September 30, 2025, API keys used to stream Live Metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send Live Metrics data to your Application Insights resource. Authenticated telemetry ingestion for Live Metrics streaming to Application Insights will need to be done with [Azure AD authentication for Application Insights](./azure-ad-authentication.md).
+> On September 30, 2025, API keys used to stream Live Metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send Live Metrics data to your Application Insights resource. Authenticated telemetry ingestion for Live Metrics streaming to Application Insights will need to be done with [Microsoft Entra authentication for Application Insights](./azure-ad-authentication.md).
 
 It's possible to try custom filters without having to set up an authenticated channel. Select any of the filter icons and authorize the connected servers. If you choose this option, you have to authorize the connected servers once every new session or whenever a new server comes online.
 
@@ -450,6 +450,6 @@ If you open the Live Metrics pane, the SDKs switch to a higher frequency mode an
 ## Next steps
 
 * [Monitor usage with Application Insights](./usage-overview.md)
-* [Use Diagnostic Search](./diagnostic-search.md)
+* [Use Diagnostic Search](./search-and-transaction-diagnostics.md?tabs=transaction-search)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)
