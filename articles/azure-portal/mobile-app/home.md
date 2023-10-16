@@ -11,7 +11,7 @@ Azure mobile app **Home** surfaces the most essential information and the resour
 
 ## Display cards
 
-Azure mobile app **Home** consists of customizable display cards that show information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
+Azure mobile app **Home** consists of customizable display cards that show information and let you quickly access frequently used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
 
 Current card options include:
 
