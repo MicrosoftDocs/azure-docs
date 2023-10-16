@@ -39,6 +39,7 @@ Once a service connection is created, developers can validate and check the heal
 **Compute Services:**
 
 * Azure App Service
+* Azure Functions
 * Azure Spring Apps
 * Azure Container Apps
 
@@ -69,9 +70,8 @@ What's more, Service Connector is also supported in the following client tools w
 
 * **Azure Powershell:** manage connections with commands in Azure PowerShell.
 * **Terraform:** create and delete connections with infrastructure as code tool (be aware of the [limitations](known-limitations.md)).
-* **Visual Studio:** manage connections of a project by integrating with Connected Services feature in Visual Studio.
-* **Visual Studio Code:** manage connections in VS Code Azure extension.
-* **Intellij:** list connections of Azure compute services in Azure Toolkit for Intellij.
+* **Visual Studio:** manage connections of a project by integrating with [Connected Services](https://learn.microsoft.com/visualstudio/azure/overview-connected-services) feature in Visual Studio.
+* **Intellij:** list connections of Azure compute services in [Azure Toolkit for Intellij](https://learn.microsoft.com/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 
