@@ -467,6 +467,8 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
