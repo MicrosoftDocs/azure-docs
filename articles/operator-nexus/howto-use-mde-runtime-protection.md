@@ -83,7 +83,7 @@ az networkcloud cluster scan-runtime \
 --scan-activity Scan
 ```
 
-## Retrieve MDE Scan Information from Each Node
+## Retrieve MDE scan information from each node
 This section provides the steps to retrieve MDE scan information.
 First we need to retrieve the list of node names of your Undercloud cluster.
 The following command assigns the list of node names to an environment variable.
