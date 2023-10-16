@@ -247,6 +247,9 @@ Monitoring for Azure Machine Learning endpoints is possible via integration with
 
 For more information on monitoring, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
+### Secret injection in online deployments
+
+Add notes here ...
 
 ## Next steps
 
