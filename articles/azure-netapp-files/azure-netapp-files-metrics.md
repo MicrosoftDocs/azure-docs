@@ -147,12 +147,14 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 ## Cool access metrics
 
-* *Volume cool tier size*
-    <!-- to add-->
+* *Volume cool tier size*   
+    Volume footprint for the cool tier.
 
-* *Volume cool tier data read size*
+* *Volume cool tier data read size*   
+    Data read in using `GET` per volume.
 
-* *Volume cool tier data write size*
+* *Volume cool tier data write size*   
+    Data tiered out using `PUT` per volume. 
  
 ## Next steps
 
