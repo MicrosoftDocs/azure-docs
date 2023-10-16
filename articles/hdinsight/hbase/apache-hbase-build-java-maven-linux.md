@@ -4,7 +4,7 @@ description: Learn how to use Apache Maven to build a Java-based Apache HBase ap
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seodec18, devx-track-java, devx-track-azurepowershell, devx-track-extended-java
-ms.date: 09/23/2022
+ms.date: 10/16/2023
 ---
 
 # Build Java applications for Apache HBase
