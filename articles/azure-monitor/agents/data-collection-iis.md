@@ -17,7 +17,14 @@ The Internet Information Service (IIS) logs data to the local disk of Windows ma
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
+- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint). 
+
+    If your virtual machine and Log Analytics workspace are in the same region, you need one data collection endpoint in the same region.
+
+    If your virtual machine and Log Analytics workspace are in different regions, you need a data collection endpoint in each region.
+
+    For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
+
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that runs IIS. 
     - An IIS log file in W3C format must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
@@ -43,10 +50,11 @@ To create the data collection rule in the Azure portal:
 
     [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
 
-1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
+1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, **Platform Type**, and **Data collection endpoint**:
 
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
+    - **Data collection endpoint** specifies the data collection endpoint used to collect data. The data collection endpoint must be in the same region as the Log Analytics workspace.    
 
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
@@ -59,7 +67,9 @@ To create the data collection rule in the Azure portal:
         If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
     1. Select **Enable Data Collection Endpoints**.
-    1. Select a data collection endpoint for each of the resources associate to the data collection rule.
+    1. Select a data collection endpoint for each of the virtual machines associate to the data collection rule. 
+    
+        This data collection endpoint sends configuration files to the virtual machine and must be in the same region as the virtual machine.          
 
     [ ![Screenshot that shows the Resources tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 
