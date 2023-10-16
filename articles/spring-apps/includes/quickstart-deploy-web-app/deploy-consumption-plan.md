@@ -24,7 +24,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-You must use the bash script to prepare the project locally. Use the following steps to clone and run the app locally:
+Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
 
 [!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
 

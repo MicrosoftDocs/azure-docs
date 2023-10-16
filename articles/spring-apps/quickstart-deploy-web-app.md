@@ -46,8 +46,8 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 This article provides the following options for deploying to Azure Spring Apps:
 
-- The **Azure portal** option is the easiest and fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- The **Azure CLI** option is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
+- The Azure portal is the easiest and fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The Azure CLI is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -126,7 +126,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 1. Access the application with the output application URL. The page should appear as you saw in localhost.
 
-1. Check each resource deployment detail, which is useful for investigating any deployment issues.
+1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -154,7 +154,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 1. Access the application URL. The page should appear as you saw in localhost.
 
-1. Check each resource deployment detail, which is useful for investigating any deployment issues.
+1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -178,7 +178,7 @@ Access the application with the output endpoint. The page should appear as you s
 
 1. Access the application URL. The page should appear as you saw in localhost.
 
-1. Check each resource deployment detail, which is useful for investigating any deployment issues.
+1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 

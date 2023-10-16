@@ -35,7 +35,7 @@ Use the following steps to create a Service Bus instance:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create namespace page for Service Bus creation." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
 
-1. Select **Review and Create** to review the creation parameters. Then select **Create** to finish creating the Service Bus instance.
+1. Select **Review and Create** to review the creation parameters. Then, select **Create** to finish creating the Service Bus instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
