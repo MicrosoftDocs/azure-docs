@@ -47,11 +47,9 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 
 |  K8s version | Nexus GA  | End of life                    | Platform support   |
 |--------------|-----------|--------------------------------|--------------------|
-| 1.23         | Jun 2023  | Apr 2023                       | Until 1.29 GA      |
-| 1.24         | Jun 2023  | Jul 2023                       | Until 1.30 GA      |
 | 1.25         | Jun 2023  | Dec 2023                       | Until 1.31 GA      |
 | 1.26         | Sep 2023  | Mar 2024                       | Until 1.32 GA      |
-| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   |        -           |
+| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   | Until 1.33 GA      |
 | 1.28         | Nov 2023  | Oct 2024                       | Until 1.34 GA      |
 
 
