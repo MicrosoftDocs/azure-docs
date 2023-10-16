@@ -17,7 +17,7 @@ Next, create a passwordless connection with Service Connector.
 > [!NOTE]
 > If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution in Cloud Shell.
 
-### [Azure SQL Database](#tab/sqldatabase)
+### [Azure SQL Database](#tab/sqldatabase-sc)
 
 The following Azure CLI command uses a `--client-type` parameter.
 
@@ -25,7 +25,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Choose a client type and run the corresponding command.
 
-    #### [User-assigned managed identity](#tab/userassigned)
+    #### [User-assigned managed identity](#tab/userassigned-sc)
 
     ```azurecli-interactive
     az webapp connection create sql \
@@ -38,7 +38,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --client-type dotnet
     ```
 
-    #### [System-assigned managed identity](#tab/systemassigned)
+    #### [System-assigned managed identity](#tab/systemassigned-sc)
 
     ```azurecli-interactive
     az webapp connection create sql \
@@ -53,7 +53,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ---
 
-### [Azure Database for MySQL](#tab/mysql)
+### [Azure Database for MySQL](#tab/mysql-sc)
 
 Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
@@ -83,7 +83,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Choose a client type and run the corresponding command.
 
-    #### [User-assigned managed identity](#tab/userassigned)
+    #### [User-assigned managed identity](#tab/userassigned-sc)
 
     ```azurecli-interactive
     az webapp connection create mysql-flexible \
@@ -96,7 +96,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --client-type java
     ```
 
-    #### [System-assigned managed identity](#tab/systemassigned)
+    #### [System-assigned managed identity](#tab/systemassigned-sc)
 
     ```azurecli-interactive
     az webapp connection create mysql-flexible \
@@ -111,7 +111,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ---
 
-### [Azure Database for PostgreSQL](#tab/postgresql)
+### [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
 The following Azure CLI command uses a `--client-type` parameter.
 
@@ -119,7 +119,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Choose a client type and run the corresponding command.
 
-    #### [User-assigned managed identity](#tab/userassigned)
+    #### [User-assigned managed identity](#tab/userassigned-sc)
 
     ```azurecli-interactive
     az webapp connection create postgres-flexible \
@@ -132,7 +132,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --client-type java
     ```
 
-    #### [System-assigned managed identity](#tab/systemassigned)
+    #### [System-assigned managed identity](#tab/systemassigned-sc)
 
     ```azurecli-interactive
     az webapp connection create postgres-flexible \
@@ -170,17 +170,17 @@ In this section, connectivity to the Azure database in your code follows the `De
 3. Add the token to your connection string.
 4. Open the connection.
 
-### [Azure SQL Database](#tab/sqldatabase)
+### [Azure SQL Database](#tab/sqldatabase-sc)
 
 [!INCLUDE [code sample for postgres Microsoft Entra authentication connection](./code-sql-me-id.md)]
 
 
-### [Azure Database for MySQL](#tab/mysql)
+### [Azure Database for MySQL](#tab/mysql-sc)
 
 [!INCLUDE [code sample for mysql Microsoft Entra authentication connection](./code-mysql-me-id.md)]
 
 
-### [Azure Database for PostgreSQL](#tab/postgresql)
+### [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
 [!INCLUDE [code sample for sql Microsoft Entra authentication connection](./code-postgres-me-id.md)]
 
