@@ -58,15 +58,24 @@ Example output files:
 1. Under the chosen container, directory path would be `WestEurope/CA/factory1`, delta table folder name would be **device-table**.
 2. Under the chosen container, directory path would be `Test`, delta table folder name would be **demo**.
 3. Under the chosen container, delta table folder name would be **mytable**.
+   
+
+## Creating a new table
+
+If there is not already a Delta Lake table with the same name and in the location specified by the Delta Path name, by default, Azure Stream Analaytics will create a new Delta Table. This new table will be created with the same configuration:
+- [Writer Version 2 ](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#writer-version-requirements)
+- [Reader Version 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#writer-version-requirements)
+- The table will be [Append-Only](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#append-only-tables)
+- The table schema will be created with the first record encountered.
 
 ## Writing to the table
 
-To create a new Delta Lake table, you need to specify a Delta Path Name that doesn't lead to any existing tables. If there's already a Delta Lake table existing with the same name and in the location specified by the Delta Path name, by default, Azure Stream Analytics writes new records to the existing table.
+If there's already a Delta Lake table existing with the same name and in the location specified by the Delta Path name, by default, Azure Stream Analytics writes new records to the existing table.
 
 ### Exactly once delivery
 
 
-The transaction log enables Delta Lake to guarantee exactly once processing. Azure Stream Analytics also provides exactly once delivery when output data to Azure Data Lake Storage Gen2 during one single job run.
+The transaction log enables Delta Lake to guarantee exactly once processing. Azure Stream Analytics also provides exactly once delivery when outputting data to Azure Data Lake Storage Gen2 during a single job run.
 
 ### Schema enforcement
 
@@ -75,14 +84,27 @@ Schema enforcement means that all new writes to a table are enforced to be compa
 
 All records of output data are projected to the schema of the existing table. If the output is being written to a new delta table, the table schema will be created with the first record. If the incoming data has one extra column compared to the existing table schema, it will be written in the table without the extra column. If the incoming data is missing one column compared to the existing table schema, it will be written in the table with the column being null.
 
+If there is no intersection between the schema of the delta table and the schema of a record of the streaming job, this will be considered an instance of schema conversion failure. Please note that this is not the only case that would be considered schema conversion failure.
 
 At the failure of schema conversion, the job behavior will follow the [output data error handing policy](stream-analytics-output-error-policy.md) configured at the job level.
 
+### Delta Log Checkpoints
+
+The Stream Analytics job will create Delta Log checkpoints periodically.
+
 ## Limitations
 
-- Dynamic partition key isn't supported.
-- Writing to Delta lake is append only.
+- Dynamic partition key(specifying the name of a column of the record schema in the Delta Path) isn't supported.
+- Multiple partition columns are not supported. If multiple partition columns are desired, the recommendation is to use a composite key in the query and then specify it as the partition column.
+    - A composite key can be created in the query for example: "SELECT concat (col1, col2) AS compositeColumn INTO [blobOutput] FROM [input]".
+- Writing to Delta Lake is append only.
 - Schema checking in query testing isn't available.
+- Small file compaction is not performed by Stream Analytics.
+- All data files will be created without compression.
+- The [Date and Decimal types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#valid-feature-names-in-table-features) are not supported.
+- Writing to existing tables of Writer Version 7 or above with writer features will fail.
+    - Example: Writing to existing tables with [Deletion Vectors](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#deletion-vectors) enabled will fail.
+    - The exceptions here are the [changeDataFeed and appendOnly Writer Features](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#valid-feature-names-in-table-features).
 
 ## Next steps
 
