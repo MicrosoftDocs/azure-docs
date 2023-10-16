@@ -50,10 +50,7 @@ Register the auto image build triggers feature:
 az feature register --namespace Microsoft.VirtualMachineImages --name Triggers
 ```
 
-To register the auto image build triggers feature using PowerShell, run the following command:
-```azurepowershell-interactive
-Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name Triggers
-```
+
 ### Set variables
 First, you need to set some variables that you'll repeatedly use in commands.
 
