@@ -21,7 +21,7 @@ This page shows the supported authentication types and client types of Azure Dat
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Functions, Container Apps, and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps, and Azure Spring Apps:
 
 | Client type               |  System-assigned managed identity  |   User-assigned managed identity   |      Secret/connection string      |         Service principal         |
 | ------------------------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |

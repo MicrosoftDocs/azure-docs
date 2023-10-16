@@ -34,7 +34,7 @@ Supported authentication and clients for App Service, Functions, Container Apps 
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-### [Azure ](#tab/app-service)Functions
+### [Azure Functions](#tab/azure-functions)
 
 | Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
 | ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |

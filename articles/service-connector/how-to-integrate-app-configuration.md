@@ -20,7 +20,7 @@ This page shows the supported authentication types and client types of Azure App
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Functions, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
 ### [Azure App Service](#tab/app-service)
 
@@ -32,7 +32,7 @@ Supported authentication and clients for App Service, Functions, Container Apps 
 | Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-### [Azure F](#tab/app-service)unctions
+### [Azure Functions](#tab/azure-functions)
 
 | Client type |  System-assigned managed identity  |   User-assigned managed identity   |      Secret/connection string      |         Service principal         |
 | ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
