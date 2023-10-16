@@ -32,16 +32,10 @@ In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph)
   You can also install the Python driver for Gremlin by using the `pip` command line:
 
    ```bash
-   pip install gremlinpython==3.4.13
+   pip install gremlinpython==3.7.*
    ```
 
 - [Git](https://git-scm.com/downloads).
-
-> [!NOTE]
-> This quickstart requires a graph database account created after December 20, 2017. Existing accounts will support Python once they’re migrated to general availability.
-
-> [!NOTE]
-> We currently recommend using gremlinpython==3.4.13 with Gremlin (Graph) API as we haven't fully tested all language-specific libraries of version 3.5.* for use with the service.
 
 ## Create a database account
 

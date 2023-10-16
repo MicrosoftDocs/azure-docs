@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-portal.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-tutorial",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/resource-move.md",
             "redirect_url": "/azure/network-watcher/frequently-asked-questions",
             "redirect_document_id": false

@@ -133,7 +133,7 @@ You can also learn more about
 [manage-gpos]: manage-group-policy.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-create]: tutorial-create-instance.md
-[whatis-azuread]: ../active-directory/fundamentals/whatis.md
+[whatis-azuread]: /azure/active-directory/fundamentals/whatis
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [create-forest-trust]: tutorial-create-forest-trust.md
 [administration-concepts]: administration-concepts.md

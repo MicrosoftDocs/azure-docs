@@ -35,7 +35,7 @@ For more information, including links to example binding code that you can refer
 
 ### [v4](#tab/node-v4)
 
-Example binding for Node.js v4 (preview) not yet available.
+Example binding for Node.js model v4 not yet available.
 
 --- 
 
@@ -65,7 +65,7 @@ The way you define the output binding depends on the version of your Python mode
 
 ### [v4](#tab/node-v4)
 
-Example binding for Node.js v4 (preview) not yet available.
+Example binding for Node.js model v4 not yet available.
 
 --- 
 The way you define the output binding depends on the version of your Node.js model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=typescript#manually-add-bindings-based-on-examples).

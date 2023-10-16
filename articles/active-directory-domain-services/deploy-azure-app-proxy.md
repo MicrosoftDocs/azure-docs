@@ -18,7 +18,7 @@ ms.author: justinha
 
 With Microsoft Entra Domain Services, you can lift-and-shift legacy applications running on-premises into Azure. Microsoft Entra application proxy then helps you support remote workers by securely publishing those internal applications part of a Domain Services managed domain so they can be accessed over the internet.
 
-If you're new to the Microsoft Entra application proxy and want to learn more, see [How to provide secure remote access to internal applications](../active-directory/app-proxy/application-proxy.md).
+If you're new to the Microsoft Entra application proxy and want to learn more, see [How to provide secure remote access to internal applications](/azure/active-directory/app-proxy/application-proxy).
 
 This article shows you how to create and configure a Microsoft Entra application proxy connector to provide secure access to applications in a managed domain.
 
@@ -51,7 +51,7 @@ To create a VM for the Microsoft Entra application proxy connector, complete the
 
 Perform the following steps to download the Microsoft Entra application proxy connector. The setup file you download is copied to your App Proxy VM in the next section.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
 1. Search for and select **Enterprise applications**.
 1. Select **Application proxy** from the menu on the left-hand side. To create your first connector and enable App Proxy, select the link to **download a connector**.
 1. On the download page, accept the license terms and privacy agreement, then select **Accept terms & Download**.
@@ -75,7 +75,7 @@ With a VM ready to be used as the Microsoft Entra application proxy connector, n
         > For example, if the Microsoft Entra domain is *contoso.com*, the global administrator should be `admin@contoso.com` or another valid alias on that domain.
 
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
-   * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/app-proxy/application-proxy-troubleshoot.md).
+   * If connector registration fails, see [Troubleshoot Application Proxy](/azure/active-directory/app-proxy/application-proxy-troubleshoot).
 1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Microsoft Entra application proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. On the Application proxy page in the Microsoft Entra admin center, the new connector is listed with a status of *Active*, as shown in the following example:
 
@@ -113,13 +113,13 @@ If you deploy multiple Microsoft Entra application proxy connectors, you must co
 
 ## Next steps
 
-With the Microsoft Entra application proxy integrated with Domain Services, publish applications for users to access. For more information, see [publish applications using Microsoft Entra application proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md).
+With the Microsoft Entra application proxy integrated with Domain Services, publish applications for users to access. For more information, see [publish applications using Microsoft Entra application proxy](/azure/active-directory/app-proxy/application-proxy-add-on-premises-application).
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/tutorial-create-host-portal.md
+[azure-bastion]: /azure/bastion/tutorial-create-host-portal
 [Get-ADComputer]: /powershell/module/activedirectory/get-adcomputer
 [Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer

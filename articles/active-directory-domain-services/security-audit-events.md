@@ -32,9 +32,9 @@ The following table outlines scenarios for each destination resource type.
 
 | Target Resource | Scenario |
 |:---|:---|
-|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Domain Services security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Domain Services security audit events, [Create an event hub using Microsoft Entra admin center](../event-hubs/event-hubs-create.md)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Microsoft Entra admin center directly.<br /><br />Before you enable Domain Services security audit events, [Create a Log Analytics workspace in the Microsoft Entra admin center.](../azure-monitor/logs/quick-create-workspace.md)|
+|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Domain Services security audit events, first [Create an Azure Storage account](/azure/storage/common/storage-account-create).|
+|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Domain Services security audit events, [Create an event hub using Microsoft Entra admin center](/azure/event-hubs/event-hubs-create)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Microsoft Entra admin center directly.<br /><br />Before you enable Domain Services security audit events, [Create a Log Analytics workspace in the Microsoft Entra admin center.](/azure/azure-monitor/logs/quick-create-workspace)|
 
 ## Enable security audit events using the Microsoft Entra admin center
 
@@ -88,20 +88,20 @@ To enable Domain Services security and DNS audit events using Azure PowerShell, 
 
 1. Create the target resource for the audit events.
 
-    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
-    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Azure event hubs** - [Create an event hub using Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Domain Services permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
+    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration).
+    * **Azure storage** - [Create a storage account using Azure PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell)
+    * **Azure event hubs** - [Create an event hub using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Domain Services permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
 
         > [!IMPORTANT]
         > Ensure you set the authorization rule on the event hub namespace and not the event hub itself.
 
-1. Get the resource ID for your Domain Services managed domain using the [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
+1. Get the resource ID for your Domain Services managed domain using the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
 
     ```azurepowershell
     $aadds = Get-AzResource -name aaddsDomainName
     ```
 
-1. Configure the Azure Diagnostic settings using the [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) cmdlet to use the target resource for Microsoft Entra Domain Services audit events. In the following examples, the variable *$aadds.ResourceId* is used from the previous step.
+1. Configure the Azure Diagnostic settings using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to use the target resource for Microsoft Entra Domain Services audit events. In the following examples, the variable *$aadds.ResourceId* is used from the previous step.
 
     * **Azure storage** - Replace *storageAccountId* with your storage account name:
 
@@ -133,10 +133,10 @@ To enable Domain Services security and DNS audit events using Azure PowerShell, 
 
 Log Analytic workspaces let you view and analyze the security and DNS audit events using Azure Monitor and the Kusto query language. This query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax. For more information to get started with Kusto query languages, see the following articles:
 
-* [Azure Monitor documentation](../azure-monitor/index.yml)
-* [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
-* [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-* [Create and share dashboards of Log Analytics data](../azure-monitor/visualize/tutorial-logs-dashboards.md)
+* [Azure Monitor documentation](/azure/azure-monitor/)
+* [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial)
+* [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries)
+* [Create and share dashboards of Log Analytics data](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
 
 The following sample queries can be used to start analyzing audit events from Domain Services.
 
@@ -245,7 +245,7 @@ The following audit event categories are available:
 
 For specific information on Kusto, see the following articles:
 
-* [Overview](/azure/kusto/query/) of the Kusto query language.
-* [Kusto tutorial](/azure/kusto/query/tutorial) to familiarize you with query basics.
-* [Sample queries](/azure/kusto/query/samples) that help you learn new ways to see your data.
-* Kusto [best practices](/azure/kusto/query/best-practices) to optimize your queries for success.
+* [Overview](/azure/data-explorer/kusto/query/) of the Kusto query language.
+* [Kusto tutorial](/azure/data-explorer/kusto/query/tutorials/learn-common-operators) to familiarize you with query basics.
+* [Sample queries](/azure/data-explorer/kusto/query/tutorials/learn-common-operators) that help you learn new ways to see your data.
+* Kusto [best practices](/azure/data-explorer/kusto/query/best-practices) to optimize your queries for success.

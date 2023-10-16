@@ -44,6 +44,9 @@ To select the VMs for the move, follow these steps:
  
 2.	In the DemoTestVM1 resource pane, select **Availability + scaling** > **edit**. 
     :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling.png" alt-text="Screenshot of Availability + scaling option."::: 
+
+    Alternatively, in the **DemoTestVM1** overview plane, you can select **Availability + scale** > **Availability + scaling**.
+    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling-home.png" alt-text="Screenshot of Availability + scaling homepage."::: 
  
 ### Select the target availability zones
 
@@ -55,7 +58,7 @@ To select the target availability zones, follow these steps:
     >[!Important]
     >If you select an unsupported VM to move, the validation fails. In this case, you must restart the workflow with the correct selection of VM. Refer to the [Support Matrix](../reliability/migrate-vm.md#support-matrix) to learn more about unsupported VMs type.
 
-1. If Azure recommends to optimize the VM size, you must select the appropriate VM size that can increase the chances of successful deployment in the selected zone. Alternatively, you can also change the zone while keeping the same source VM size. 
+1. If Azure recommends optimizing the VM size, you must select the appropriate VM size that can increase the chances of successful deployment in the selected zone. Alternatively, you can also change the zone while keeping the same source VM size. 
    
     :::image type="content" source="./media/tutorial-move-regional-zonal/aure-recommendation.png" alt-text="Screenshot showing Azure recommendation to increase virtual machine size.":::
 
@@ -135,4 +138,4 @@ To manually remove the move collection that was made, follow these steps:
 
 ## Next steps
 
-Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-machines-regional-zonal-powershell.md).
+Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell or CLI](./move-virtual-machines-regional-zonal-powershell.md).

@@ -45,7 +45,7 @@ To complete this tutorial, you need the following resources and privileges:
   * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * The *LDP.exe* tool installed on your computer.
   * If needed, [install the Remote Server Administration Tools (RSAT)][rsat] for *Active Directory Domain Services and LDAP*.
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable secure LDAP.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable secure LDAP.
 
 ## Sign in to the Microsoft Entra admin center
 
@@ -338,12 +338,12 @@ In this tutorial, you learned how to:
 > [Configure password hash synchronization for a hybrid Microsoft Entra environment](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [secure-domain]: secure-your-domain.md
 
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
-[ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[ldap-query-basics]: /windows/win32/ad/creating-a-query-filter
 [New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

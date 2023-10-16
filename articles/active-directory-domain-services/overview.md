@@ -105,10 +105,10 @@ To get started, [create a managed domain using the Microsoft Entra admin center]
 [compare]: compare-identity-solutions.md
 [synchronization]: synchronization.md
 [tutorial-create]: tutorial-create-instance.md
-[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
-[password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
-[availability-zones]: ../reliability/availability-zones-overview.md
-[forest-trusts]: concepts-resource-forest.md
+[azure-ad-connect]: /azure/active-directory/hybrid/connect/whatis-azure-ad-connect
+[password-hash-sync]: /azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization
+[availability-zones]: /azure/reliability/availability-zones-overview
+[forest-trusts]: ./concepts-forest-trust.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
 [concepts-replica-sets]: concepts-replica-sets.md

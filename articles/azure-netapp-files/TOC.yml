@@ -355,9 +355,7 @@
         href: cross-region-replication-delete.md
       - name: Re-establish volume replication relationships
         href: reestablish-deleted-volume-relationships.md
-    - name: Manage availability zones
-      items:
-      - name: Test disaster recovery
+      - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
     - name: Manage availability zones and cross-zone replication
       items: 

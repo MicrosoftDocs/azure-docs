@@ -116,7 +116,7 @@ Check if you've disabled an application with the identifier *00000002-0000-0000-
 
 To check the status of this application and enable it if needed, complete the following steps:
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com), seearch for and select **Enterprise applications**. 
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Enterprise applications**. 
 1. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
 1. In the search box, enter *00000002-0000-0000-c000-00000000000*. Select the application, then choose **Properties**.
 1. If **Enabled for users to sign-in** is set to *No*, set the value to *Yes*, then select **Save**.
@@ -180,5 +180,5 @@ If you continue to have issues, [open an Azure support request][azure-support] f
 [password-policy]: password-policy.md
 [check-health]: check-health.md
 [troubleshoot-alerts]: troubleshoot-alerts.md
-[Remove-MsolUser]: /powershell/module/MSOnline/Remove-MsolUser
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[Remove-MsolUser]: /powershell/module/msonline/remove-msoluser
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support

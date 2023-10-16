@@ -29,7 +29,7 @@ To complete this article, you need the following resources:
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Microsoft Entra ID](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
 * You need Domain Services Contributor Azure role to create the required Domain Services resources.
 
 ## DNS naming requirements
@@ -341,11 +341,11 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
-[availability-zones]: ../reliability/availability-zones-overview.md
-[portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
-[powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
+[availability-zones]: /azure/reliability/availability-zones-overview
+[portal-deploy]: /azure/azure-resource-manager/templates/deploy-portal
+[powershell-deploy]: /azure/azure-resource-manager/templates/deploy-powershell
 [scoped-sync]: scoped-synchronization.md
-[resource-forests]: concepts-resource-forest.md
+[resource-forests]: ./concepts-forest-trust.md
 
 <!-- EXTERNAL LINKS -->
 [Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
@@ -358,6 +358,6 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [Register-AzResourceProvider]: /powershell/module/Az.Resources/Register-AzResourceProvider
 [New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
+[cloud-shell]: /azure/active-directory/develop/configure-app-multi-instancing
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain
-[New-AzResourceGroupDeployment]: /powershell/module/Az.Resources/New-AzResourceGroupDeployment
+[New-AzResourceGroupDeployment]: /powershell/module/az.resources/new-azresourcegroupdeployment

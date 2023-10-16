@@ -23,18 +23,19 @@ Verify the following requirements:
 
 | Requirement | Description |
 | --- | --- |
-| **Subscription permissions** | Ensure you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles. |
+| **Subscription permissions** | Ensure you have *Owner* access on the subscription containing the resources that you want to move.<br/><br/> [Managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) needs these permissions: <br> - Permission to write or create resources in user subscription, available with the *Contributor role*. <br> - Permission to create role assignments. Typically available with the *Owner* or *User Access Administrator* roles, or with a custom role that has the `Microsoft.Authorization` role assignments or write permission assigned. This permission isn't needed if the data share resource's managed identity is already granted access to the Azure data store. <br> [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles. |
 | **VM support** |  [Review](../resource-mover/common-questions.md) the supported regions. <br><br>  - Check supported [compute](../resource-mover/support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](../resource-mover/support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](../resource-mover/support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
+| **VM health status** | The VMs you want to move must be in a healthy state before attempting the  zonal move. Ensure that all pending reboots and mandatory updates are complete and the Virtual Machine is working and is in a healthy state before attempting the VM zonal move. |
 
 
-### Review PowerShell requirements
+### Review PowerShell and CLI requirements
 
-Most move resources operations are the same whether using the Azure portal or PowerShell, with a couple of exceptions.
+Most move resources operations are the same whether using the Azure portal or PowerShell or CLI, with a couple of exceptions.
 
-| Operation | Portal | PowerShell |
+| Operation | Portal | PowerShell/CLI |
 | --- | --- | --- |
-| Create a move collection | A move collection (a list of all the regional VMs that you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You can use [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) to: <br> - Assign a managed identity to the collection.  <br> - Add regional VMs to the collection. |
-| Resource move operations | Validate steps and validates the *User* setting changes. **Initiate move** starts the move process and creates a copy of source VM in the target zone and finalizes the move of the newly created VM in the target zone. | [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) to: <br> - Resolve dependencies <br> - Perform the move. <br> - Commit the move. | 
+| **Create a move collection** | A move collection (a list of all the regional VMs that you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You can use [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) or [CLI cmdlets](https://learn.microsoft.com/cli/azure/resource-mover?view=azure-cli-latest) to: <br> - Assign a managed identity to the collection.  <br> - Add regional VMs to the collection. |
+| **Resource move operations** | Validate steps and validates the *User* setting changes. **Initiate move** starts the move process and creates a copy of source VM in the target zone. It also finalizes the move of the newly created VM in the target zone. | [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) or [CLI cmdlets](https://learn.microsoft.com/cli/azure/resource-mover?view=azure-cli-latest) to: <br> - Add regional VMs to the collection <br> - Resolve dependencies <br> - Perform the move. <br> - Commit the move. | 
 
 ### Sample values
 
@@ -526,61 +527,52 @@ az resource-mover move-collection initiate-move --move-resources "/subscriptions
 
 ## Commit
 
-After the initial move, you can decide whether you want to commit the move or discard it. Commit completes the move to the target region. After committing, a source regional VM will be in a state of *Delete source pending* and you can decide if you want to delete it.
+After the initial move, you must commit the move or discard it. **Commit** completes the move to the target region. 
 
-**To commit the move:**
+**Commit the move as follows:**
 
-1. Commit the move as follows:
+  # [PowerShell](#tab/PowerShell)
 
-    # [PowerShell](#tab/PowerShell)
+  ```
+  Invoke-AzResourceMover-VMZonalMoveCommit -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResource $('psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’) -MoveResourceInputType "MoveResourceId"
+  ```
 
-    ```
-    Invoke-AzResourceMover-VMZonalMoveCommit -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResource $('psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’) -MoveResourceInputType "MoveResourceId"
-    ```
+  **Output**:
 
-    **Output**:
+  ```powershell
+  AdditionalInfo : 
+  Code           : 
+  Detail         : 
+  EndTime        : 9/22/2023 5:26:55 AM 
+  Id             : /subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/RegionToZone-DemoMCRG/providers/Microsoft.Migrate/moveCollections/RegionToZone-DemoMC/operations/35dd1d93-ba70-4dc9-a17f-7d8ba48678d8 
+  Message        : 
+  Name           : 35dd1d93-ba70-4dc9-a17f-7d8ba48678d8 
+  Property       : Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Any 
+  StartTime      : 9/22/2023 5:26:54 AM 
+  Status         : Succeeded 
+  ```    
 
-    ```powershell
-    AdditionalInfo : 
-    Code           : 
-    Detail         : 
-    EndTime        : 9/22/2023 5:26:55 AM 
-    Id             : /subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/RegionToZone-DemoMCRG/providers/Microsoft.Migrate/moveCollections/RegionToZone-DemoMC/operations/35dd1d93-ba70-4dc9-a17f-7d8ba48678d8 
-    Message        : 
-    Name           : 35dd1d93-ba70-4dc9-a17f-7d8ba48678d8 
-    Property       : Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Any 
-    StartTime      : 9/22/2023 5:26:54 AM 
-    Status         : Succeeded 
-    ```    
+  # [CLI](#tab/CLI)
 
-   # [CLI](#tab/CLI)
+  ```azurecli-interactive
+  az resource-mover move-collection commit --move-resources "/subscriptions/<Subscription-id>/resourceGroups/clidemo-RG/providers/Microsoft.Migrate/moveCollections/cliDemo-zonalMC/moveResources/vm-demoMR" --validate-only false --name cliDemo-zonalMC --resource-group clidemo-RG
+  ``` 
 
-    ```azurecli-interactive
-    az resource-mover move-collection commit --move-resources "/subscriptions/<Subscription-id>/resourceGroups/clidemo-RG/providers/Microsoft.Migrate/moveCollections/cliDemo-zonalMC/moveResources/vm-demoMR" --validate-only false --name cliDemo-zonalMC --resource-group clidemo-RG
-    ``` 
+  **Output**:
 
-    **Output**:
+  ```azurecli
+  {
+    "endTime": "9/21/2023 11:47:14 AM",
+    "id": "/subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/clidemo-RG/providers/Microsoft.Migrate/moveCollections/cliDemo-zonalMC/operations/34c0d405-672f-431a-8879-582c48940b4a",
+    "name": "34c0d405-672f-431a-8879-582c48940b4a",
+    "resourceGroup": "clidemo-RG",
+    "startTime": "9/21/2023 11:45:13 AM",
+    "status": "Succeeded"
+  }
+  ```
 
-    ```azurecli
-    {
-      "endTime": "9/21/2023 11:47:14 AM",
-      "id": "/subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/clidemo-RG/providers/Microsoft.Migrate/moveCollections/cliDemo-zonalMC/operations/34c0d405-672f-431a-8879-582c48940b4a",
-      "name": "34c0d405-672f-431a-8879-582c48940b4a",
-      "resourceGroup": "clidemo-RG",
-      "startTime": "9/21/2023 11:45:13 AM",
-      "status": "Succeeded"
-    }
-    ```
+  ---
 
-    ---
-
-2. Verify that all regional VMs have moved to the target region:
-    
-    ```
-    Get-AzResourceMover-VMZonalMoveMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS " -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
-    ```
-    
-3. All resources are now in a *Delete Source Pending* state in the target region.
 
 ## Delete source regional VMs
 

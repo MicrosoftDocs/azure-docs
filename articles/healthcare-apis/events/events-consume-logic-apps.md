@@ -1,6 +1,6 @@
 ---
-title: Consume events with Logic Apps - Azure Health Data Services
-description: Learn how to consume FHIR events with Logic Apps.
+title: Consume FHIR events with Logic Apps - Azure Health Data Services
+description: Learn how to consume FHIR events with Logic Apps to enable automation workflows.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -259,7 +259,7 @@ The options in this example are:
 
 - Method is "Get"
 - URL is `"concat('https://', triggerBody()?['subject'], '/_history/', triggerBody()?['dataVersion'])"`.
-- Authentication type is "Managed Identity".
+- Authentication type is **Managed Identity**.
 - Audience is `"concat('https://', triggerBody()?['data']['resourceFhirAccount'])"`.
 
 ### Allow FHIR Reader access to your Logic App
@@ -282,7 +282,7 @@ When you've specified the first four steps, add the role assignment by Managed i
 
 ### Add a condition
 
-After you have given FHIR Reader access to your app, go back to the Logic App workflow Designer. Then add a condition to determine whether the event is one you want to process. Select the **+** below HTTP to "Choose an operation". On the right, search for the word "condition". Select on **Built-in** to display the Control icon. Next select **Actions** and choose **Condition**.
+After you have given FHIR Reader access to your app, go back to the Logic App workflow Designer. Then add a condition to determine whether the event is one you want to process. Select the **+** below HTTP to "Choose an operation". On the right, search for the word **Condition**. Select on **Built-in** to display the Control icon. Next select **Actions** and choose **Condition**.
 
 When the condition is ready, you can specify what actions happen if the condition is true or false.
 

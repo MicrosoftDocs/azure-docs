@@ -390,14 +390,10 @@
           href: functions-reference-csharp.md
         - name: Execution mode comparison
           href: dotnet-isolated-in-process-differences.md
-    - name: Node.js
-      items:
-        - name: JavaScript
-          href: functions-reference-node.md?tabs=javascript
-        - name: TypeScript
-          href: functions-reference-node.md?tabs=typescript
-        - name: Upgrade to model v4.x
-          href: functions-node-upgrade-v4.md
+    - name: JavaScript
+      href: functions-reference-node.md?tabs=javascript
+    - name: TypeScript
+      href: functions-reference-node.md?tabs=typescript
     - name: Java
       href: functions-reference-java.md
     - name: PowerShell
@@ -543,6 +539,10 @@
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
           href: migrate-version-1-version-4.md
+        - name: Node.js
+          items:
+            - name: Migrate to model v4.x
+              href: functions-node-upgrade-v4.md
         - name: Update Java versions
           href: update-java-versions.md  
     - name: Monitor
@@ -675,8 +675,10 @@
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
           href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
-          displayName: troubleshoot 
-        - name: Python functions
+          displayName: troubleshoot
+        - name: Node.js
+          href: functions-node-troubleshoot.md
+        - name: Python
           items:
             - name: General troubleshooting
               href: recover-python-functions.md
