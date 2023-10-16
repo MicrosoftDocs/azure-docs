@@ -23,7 +23,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 [!INCLUDE [GDPR-related guidance](./includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
-The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
+The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identification, touchless access control, and face blurring for privacy.
 
 You can use the Face service through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
 
@@ -46,7 +46,9 @@ For a more structured approach, follow a Training module for Face.
 
 ## Example use cases
 
-**Identity verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or to recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeated when they access a digital or physical service.
+**User verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or to recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Verification can be done once when a person is onboarded, and repeated when they access a digital or physical service. [use case](tbd)
+
+**Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, video, or a 3D mask of the user's face. [Verify with liveness](use-case-verify-with-liveness.md)
 
 **Touchless access control**: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.
 
@@ -73,14 +75,17 @@ You can try out Face detection quickly and easily in your browser using Vision S
 should have links to all the liveness docs TBD:
 
 concept
+- [Face liveness concepts](concept-liveness.md)
+Tutorial
 - [Face liveness Tutorial](Tutorials/liveness.md)
-howto
-reference
+how-to
+- [Detect liveness](how-to/detect-liveness.md)
 
-refs
+[Face liveness SDK reference docs](tbd)
 
 
-## Identity verification
+
+## Face recognition
 
 Modern enterprises and apps can use the Face identification and Face verification operations to verify that a user is who they claim to be.
 
@@ -100,7 +105,7 @@ The verification operation answers the question, "Do these two faces belong to t
 
 Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for access control, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID. It can also be used as a final check on the results of an Identification API call.
 
-For more information about identity verification, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
+For more information about Face recognition, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
 
 ## Find similar faces
