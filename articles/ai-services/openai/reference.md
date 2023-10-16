@@ -442,6 +442,12 @@ curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 |--|--|--|--|--|
 | `dataRefreshIntervalInMinutes` | string | Required | 0 | The data refresh interval in minutes. If you want to run a single ingestion job without a schedule, set this parameter to `0`. |
 | `completionAction` | string | Optional | `cleanUpAssets` | What should happen to the assets created during the ingestion process upon job completion. Valid values are `cleanUpAssets` or `keepAllAssets`. `keepAllAssets` leaves all the intermediate assets for users interested in reviewing the intermediate results, which can be helpful for debugging assets. `cleanUpAssets` removes the assets after job completion. |
+| `searchServiceEndpoint` | string | Required | The endpoint of the search resource in which the data will be ingested. |
+| `searchServiceAdminKey` | string | Optional | null | If provided, the key will be used to authenticate with the `searchServiceEndpoint`. If not provided, the system-assigned identity of the Azure OpenAI resource will be used. In this case, the system-assigned identity must have "Search Service Contributor" role assignment on the search resource. |
+| `storageConnectionString` | string | Required | The connection string for the storage account where the input data is located. An account key has to be provided in the connection string. It should look something like `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` |
+| `storageContainer` | string | Required | The name of the container where the input data is located. | `embeddingEndpoint` | string | Optional | null | Not required if you use semantic or only keyword search. It is required if you use vector, hybrid, or hybrid + semantic search |
+| embeddingKey | string | Optional | null | The key of the embedding endpoint. This is required if the embedding endpoint is not empty. |
+
 
 ### List ingestion jobs
 
