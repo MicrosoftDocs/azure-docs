@@ -111,7 +111,7 @@ Standard service with cool access can be enabled during the creation of a new vo
         This option specifies whether the volume will support cool access. 
  
     * **Coolness Period**
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days.    
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 183 days.    
 
     * **Cool Access Retrieval Policy**   
         This option defines how data is retrieved from the cool tier, whether it is sent to both the performance tier (Azure NetApp Files Standard service-level storage) and the client, or sent to only the client.
@@ -135,7 +135,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
     * **Enable Cool Access**  
         This option specifies whether the volume will support cool access. 
     * **Coolness Period**  
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days. 
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 183 days. 
     * **Cool Access Retrieval Policy**   
         This option defines how data is retrieved from the cool tier, whether it is sent to both the performance tier (Azure NetApp Files Standard service-level storage) and the client, or sent to only the client.
         * `Default`: There is no change to the retrieval behavior of cool data with this value. Data is retrieved from the cool tier on reads. 
