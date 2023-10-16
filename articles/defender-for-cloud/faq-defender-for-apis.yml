@@ -23,7 +23,11 @@ sections:
 
       - question: I use Azure API Management Consumption tier offering. Can I use Defender for APIs?
         answer: No, support for Azure API Management consumption tier is currently not available.
-
+      
+      - question: How does Defender for APIs handle support for API revisions in Azure API Management
+        answer: API revisions in Azure API Management will be shown as separate API endpoints within Defender for APIs, as each API revision is unique and may have its own security insights. 
+                Offline Azure API Management API revisions will not be shown in the onboarding or security insights blades of Defender for APIs, as offline revisions do not allow any traffic to be sent to them, and pose no risk from a security perspective.
+              
   - name: Questions related to region/geo 
     questions:
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
@@ -49,6 +53,10 @@ sections:
     
       - question: We use a custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
         answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint
+
+      - question: Does Defender for APIs support APIs published in multi-region Azure API Management deployments?
+        answer: There is currently limited support for API security insights for APIs published in Azure API Management multi-region deployments. Security insights, including data classifications, assessments of inactive APIs, unauthenticated APIs, and external APIs, is limited to supporting API traffic to the primary region (no support for security insights for secondary regions).
+                All security detections and subsequently generated security alerts will work for API traffic sent to both primary and secondary regions.
 
   - name: Questions about alerts in Defender for APIs 
     questions:
