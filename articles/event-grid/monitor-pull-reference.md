@@ -8,16 +8,16 @@ ms.date: 04/28/2023
 
 # Monitor data reference for Azure Event Grid's pull delivery (Preview)
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's pull delivery. 
+This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's pull delivery.
 
 [!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Metrics
 
-### Microsoft.EventGrid/namespaces 
+### Microsoft.EventGrid/namespaces
 
-| Metric name | Display name | Description | 
-| ----------- | ------------ | ----------- | 
+| Metric name | Display name | Description |
+| ----------- | ------------ | ----------- |
 | SuccessfulPublishedEvents | Successful published events | Number of published events to a topic or topic space in a namespace. |
 | FailedPublishedEvents | Failed to publish events | Number of events that failed because Event Grid didn't accept them. This count doesn't include events that were published but failed to reach Event Grid due to a network issue. | 
 | SuccessfulReceivedEvents | Successful received event | Number of events that were successfully returned to (received by) clients. |
