@@ -215,20 +215,20 @@ sections:
           ```
  
       - question: |
-          Can I use an existing Azure Active Directory tenant to create an HDInsight cluster that has the ESP?
+          Can I use an existing Microsoft Entra tenant to create an HDInsight cluster that has the ESP?
         answer: |
-          Enable Azure Active Directory Domain Services (Azure AD DS) before you can create an HDInsight cluster with ESP. Open-source Hadoop relies on Kerberos for Authentication (as opposed to OAuth).
+          Enable Microsoft Entra Domain Services before you can create an HDInsight cluster with ESP. Open-source Hadoop relies on Kerberos for Authentication (as opposed to OAuth).
           
-          To join VMs to a domain, you must have a domain controller. Azure AD DS is the managed domain controller, and is considered an extension of Azure Active Directory. Azure AD DS provides all the Kerberos requirements to build a secure Hadoop cluster in a managed way. HDInsight as a managed service integrates with Azure AD DS to provide security.
+          To join VMs to a domain, you must have a domain controller. Microsoft Entra Domain Services is the managed domain controller, and is considered an extension of Microsoft Entra ID. Microsoft Entra Domain Services provides all the Kerberos requirements to build a secure Hadoop cluster in a managed way. HDInsight as a managed service integrates with Microsoft Entra Domain Services to provide security.
           
       - question: |
-          Can I use a self-signed certificate in an Azure AD-DS secure LDAP setup and provision an ESP cluster?
+          Can I use a self-signed certificate in a Microsoft Entra Domain Services secure LDAP setup and provision an ESP cluster?
         answer: |
           Using a certificate issued by a certificate authority is recommended. But using a self-signed certificate is also supported on ESP. For more information, see:
           
-          - [Enable Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
+          - [Enable Microsoft Entra Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
           
-          - [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
+          - [Tutorial: Configure secure LDAP for an Microsoft Entra Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
       
       - question: |
           Can I install Data Analytics Studio (DAS) as an ESP cluster?
@@ -266,10 +266,10 @@ sections:
           LLAP is enabled for security reasons (Apache Ranger), not performance. Use larger node VMs to accommodate for the resource usage of LLAP (for example, minimum D13V2). 
 
       - question: |
-          How can I add additional Azure AD groups after creating an ESP cluster?
+          How can I add additional Microsoft Entra groups after creating an ESP cluster?
         answer: |
           There are two ways to achieve this goal:
-          1- You can recreate the cluster and add the additional group at the time of cluster creation. If you're using scoped synchronization in AAD-DS, make sure group B is included in the scoped synchronization.
+          1- You can recreate the cluster and add the additional group at the time of cluster creation. If you're using scoped synchronization in Microsoft Entra Domain Services, make sure group B is included in the scoped synchronization.
           2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you've created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 
           
   - name: Storage
@@ -318,11 +318,11 @@ sections:
       - question: |
           Are there any Ranger plugins for storage?
         answer: |
-          Currently, no Ranger plugin exists for blob storage and Azure Data Lake Storage Gen1 or Gen2. For ESP clusters, you should use Azure Data Lake Storage. You can at least set fine-grain permissions manually at the file system level using HDFS tools. Also, when using Azure Data Lake Storage, ESP clusters will do some of the file system access control using Azure Active Directory at the cluster level. 
+          Currently, no Ranger plugin exists for blob storage and Azure Data Lake Storage Gen1 or Gen2. For ESP clusters, you should use Azure Data Lake Storage. You can at least set fine-grain permissions manually at the file system level using HDFS tools. Also, when using Azure Data Lake Storage, ESP clusters will do some of the file system access control using Microsoft Entra ID at the cluster level. 
           
           You can assign data access policies to your users' security groups by using the Azure Storage Explorer. For more information, see:
           
-          - [How do I set permissions for Azure AD users to query data in Data Lake Storage Gen2 by using Hive or other services?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
+          - [How do I set permissions for Microsoft Entra users to query data in Data Lake Storage Gen2 by using Hive or other services?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
           - [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md)
           
       - question: |
@@ -358,9 +358,9 @@ sections:
           - `Tez Dag View`: *https:\//\<cluster name>.azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/*
           
       - question: |
-          How do I retrieve the configuration details from HDI cluster by using an Azure Active Directory user?
+          How do I retrieve the configuration details from HDI cluster by using a Microsoft Entra user?
         answer: |
-          To negotiate proper authentication tokens with your Azure AD user, go through the gateway by using the following format:
+          To negotiate proper authentication tokens with your Microsoft Entra user, go through the gateway by using the following format:
           
           * https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
           

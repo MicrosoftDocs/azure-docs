@@ -11,7 +11,7 @@ metadata:
   ms.date: 10/24/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
-  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any other questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor.
   
 
 sections:
@@ -221,7 +221,7 @@ sections:
       - question: |
            I see some gaps in metric data, why is this occurring?   
         answer: |
-           During node updates you may see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
+           During node updates you might see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
            
   - name: Change Analysis
     questions:
@@ -419,9 +419,9 @@ sections:
           Yes, but you need to [onboard to Defender for Cloud](agents/azure-monitor-agent-overview.md#supported-services-and-features) (previously Azure Security Center). It's available as an extension to Azure Monitor Agent, which collects Linux auditd logs via AUOMS.	
       
       - question: |
-          Is Azure Arc required for Azure Active Directory-joined machines?
+          Is Azure Arc required for Microsoft Entra joined machines?
         answer: |
-          No. Azure Active Directory-joined (or hybrid Azure Active Directory-joined) machines running Windows 10 or 11 (client OS) **do not require Azure Arc** to be installed. Instead, you can use the Windows MSI installer for Azure Monitor Agent, which is [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
+          No. Microsoft Entra joined (or Microsoft Entra hybrid joined) machines running Windows 10 or 11 (client OS) **do not require Azure Arc** to be installed. Instead, you can use the Windows MSI installer for Azure Monitor Agent, which is [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use Azure Monitor Agent?
@@ -515,7 +515,7 @@ sections:
           - Supported by Microsoft
           - Brings in Azure Specific features such as:
               - Preserves traces with service components using Application Insights SDKs
-              - [Azure Active Directory (Azure AD) Authentication](app/azure-ad-authentication.md)
+              - [Microsoft Entra authentication](app/azure-ad-authentication.md)
               - [Offline Storage and Automatic Retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
               - [Statsbeat](app/statsbeat.md)
               - [Application Insights Standard Metrics](app/standard-metrics.md)
@@ -549,9 +549,9 @@ sections:
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :warning:    | :white_check_mark: | :white_check_mark: |
           | [Custom Events](app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
-          | [Azure Active Directory authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Microsoft Entra authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
           | Detect Resource Context for VM/VMSS and App Svc                                                                    | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
           | Detect Resource Context for AKS and Functions                                                                      | :x:                | :x:                | :x:                | :white_check_mark: |           
@@ -595,7 +595,7 @@ sections:
       - question: |
           Can I use the Azure Monitor Exporter as a standalone component?
         answer: |
-          Yes, we understand some customers may want to instrument using a "piecemeal approach". However, the distro provides easiest way to get started with the best experience on Azure.
+          Yes, we understand some customers might want to instrument using a "piecemeal approach". However, the distro provides easiest way to get started with the best experience on Azure.
 
       - question: |
           What's the difference between manual and auto-instrumentation?
@@ -620,12 +620,12 @@ sections:
       - question: |
           Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
         answer: |
-          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You may need your cluster admin to assign this permission.
+          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You might need your cluster admin to assign this permission.
 
           For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
 
           - AKS without Kubernetes role-based access control (RBAC) authorization enabled
-          - AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+          - AKS enabled with Microsoft Entra SAML-based single sign-on
           - AKS enabled with Kubernetes RBAC authorization
           - AKS configured with the cluster role binding clusterMonitoringUser
           - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
@@ -758,7 +758,7 @@ sections:
           For a detailed look at the issue, see this [GitHub page](https://github.com/moby/moby/issues/22920).
           
       - question: |
-          How do I resolve Azure Active Directory errors when I enable live logs?
+          How do I resolve Microsoft Entra errors when I enable live logs?
         answer: |
           You might see the following error: "The reply url specified in the request doesn't match the reply urls configured for the application: '<application ID\>'." For the solution, see [View container data in real time with Container insights](containers/container-insights-livedata-setup.md#configure-azure-ad-integrated-authentication).
           
@@ -935,13 +935,3 @@ sections:
         answer: |
           The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview#collected-data) for information on the default frequencies. See [Create SQL monitoring profile](/azure/azure-sql/database/sql-insights-enable#create-sql-monitoring-profile) for instructions on customizing frequencies.
           
-additionalContent: |
-
-  ## Next steps
-  
-  If your question isn't answered here, see more questions and answers at the following forums:
-
-  - [Log Analytics](/answers/topics/azure-monitor.html)
-  - [Application Insights](/answers/topics/azure-monitor.html)
-
-  For general feedback on Azure Monitor, see the [feedback forum](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).

@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 
 The Microsoft Entra provisioning logs provide details about the provisioning events that occur in your tenant. You can use the information captured in the provisioning logs to help troubleshoot issues with a provisioned user.
 
-This article describes the options for downloading the provisioning logs from the Microsoft Entra portal as well as how to analyze the logs. Error codes and special considerations are also included.
+This article describes the options for downloading the provisioning logs from the Microsoft Entra admin center as well as how to analyze the logs. Error codes and special considerations are also included.
 
 ## Prerequisites
 
