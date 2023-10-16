@@ -1,9 +1,8 @@
-
 ---
 title: Tutorial - Enable Inline Image Support
-author: jopeng
-ms.author: jopeng
-ms.date: 03/27/2023
+author: <TODO>
+ms.author: <TODO>
+ms.date: <TODO>
 ms.topic: include
 ms.service: azure-communication-services
 ---
