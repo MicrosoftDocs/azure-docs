@@ -134,6 +134,7 @@ To list all file shares and snapshots in a storage account, run the following Az
 ```azurecli
 az storage share list --account-name <storage-account-name> --include-snapshots
 ```
+---
 
 ### Delete an NFS file share snapshot
 
