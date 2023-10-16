@@ -40,7 +40,7 @@ sections:
       - question: |
           Can I use MSIX app attach outside of Azure Virtual Desktop?
         answer: |
-          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
+          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We don't provide management software for MSIX app attach outside of Azure Virtual Desktop. For more information on how to test MSIX packages outside of Azure Virtual Desktop, see [Test MSIX packages](app-attach.md).
 
       - question: |
           Can I run two versions of the same application at the same time?
