@@ -192,7 +192,7 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
-1. On the opened **Set certificate name** page, enter your certificate name, tick Enable auto sync checkbox if needed, and then select **Apply**.
+1. On the opened **Set certificate name** page, enter your certificate name, tick Enable auto sync checkbox if needed, and then select **Apply**. For more details of certificate auto sync, see [here](#certificate-auto-sync).
 
    :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of setting certificate name.":::
 
@@ -222,6 +222,30 @@ az spring certificate list \
 ```
 
 ---
+
+### Certificate auto sync
+
+Certificate stored in key vault may get renewed before it expires. DevOps team in your organization may also replace it with a new one regularly, since your organization may have some security policies in certificate management. Once you enable auto sync for a certificate, Azure Spring Apps will start to poll your key vault for a new version regularly (usually every 24 hours). If a new version is found, Azure Spring Apps will import it, and then reload it for various components using the certificate, such as App custom domain, Application Configuration Service, without causing any downtime.
+
+> [!NOTE]
+> This feature works with private certificates and public certificates imported from key vault. It is unavailable to content certificate, which is uploaded by customer.
+
+You may choose to enable or disable certificate auto sync feature during importing a certificate from key vault to Azure Spring Apps.
+
+![image-20230918131452296](../MSFT/Azure-Spring-Cloud-Wiki/.attachments/image-20230918131452296.png)
+
+az spring certificate add --name MyCertName --vault-uri MyKeyVaultUri --vault-certificate-name MyKeyVaultCertName **--enable-auto-sync true** --service MyCluster --resource-group MyResourceGroup
+
+If you do not add this option or explicitly add `--enable-auto-sync false`, auto sync won't be enabled for this certificate.
+
+
+
+You may also enable or disable this feature for a certificate that has already been imported to Azure Spring Apps.
+
+![image-20230918143313014](../MSFT/Azure-Spring-Cloud-Wiki/.attachments/image-20230918143313014.png)
+
+az spring certificate update --name MyCertName **--enable-auto-sync true** --service MyCluster --resource-group MyResourceGroup
+
 
 > [!IMPORTANT]
 > To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in the [Add SSL Binding](#add-ssl-binding) section.
