@@ -22,7 +22,7 @@ There are a few solutions that let you avoid SNAT port limitations with Service 
 
 2. If your destination is an Azure service that supports [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), you can avoid SNAT port exhaustion issues by using [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) (supported on all node types). To configure service endpoints, you need to add the following to the ARM template for the cluster resource and deploy:
 
-#### ARM Template:
+#### ARM template:
     
 ```json
     "serviceEndpoints": [ 
