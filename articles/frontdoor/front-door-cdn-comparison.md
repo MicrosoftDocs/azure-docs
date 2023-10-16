@@ -17,7 +17,7 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 :::image type="content" source="./media/front-door-cdn-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
 > [!NOTE]
-> To switch between tiers, you will need to recreate the Azure Front Door profile. You can use the [**migration capability**](../migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](../tier-upgrade.md).
+> To switch between tiers, you will need to recreate the Azure Front Door profile. You can use the [**migration capability**](migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](tier-upgrade.md).
 > 
 
 ## Service comparison
@@ -81,4 +81,4 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 ## Next steps
 
 * Learn how to [create an Azure Front Door](create-front-door-portal.md).
-* Learn how about the [Azure Front Door architecture](../front-door-routing-architecture.md). 
+* Learn how about the [Azure Front Door architecture](front-door-routing-architecture.md). 
