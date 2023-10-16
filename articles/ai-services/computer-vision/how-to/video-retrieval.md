@@ -6,10 +6,9 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 10/16/2023
 ms.author: pafarley
 ms.custom: 
 ---
