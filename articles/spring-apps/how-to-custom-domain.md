@@ -243,7 +243,7 @@ You may also enable or disable this feature for a certificate that has already b
 
 #### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to enable or disable certificate auto sync for your imported certificate:
+Use the following steps to enable or disable auto sync for your imported certificate:
 
 1. Go to the list of Private Key Certificates or Public Key Certificates.
 1. Scroll to the right.
@@ -253,7 +253,7 @@ Use the following steps to enable or disable certificate auto sync for your impo
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to enable certificate auto sync for an imported certificate:
+Use the following command to enable auto sync for an imported certificate:
 
 ```azurecli
 az spring certificate update \
@@ -263,7 +263,7 @@ az spring certificate update \
     --enable-auto-sync true
 ```
 
-Use the following command to disable certificate auto sync for an imported certificate:
+Use the following command to disable auto sync for an imported certificate:
 
 ```azurecli
 az spring certificate update \
