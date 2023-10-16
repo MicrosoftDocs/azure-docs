@@ -13,6 +13,9 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without performing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
 
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+
 ## Kubernetes version upgrades
 
 When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed.
@@ -364,3 +367,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [k8s-api]: https://kubernetes.io/docs/reference/using-api/api-concepts/
 [container-insights]:/azure/azure-monitor/containers/container-insights-log-query#resource-logs
 [support-policy-user-customizations-agent-nodes]: support-policies.md#user-customization-of-agent-nodes
+[intro-azure-linux]: ../azure-linux/intro-azure-linux.md
