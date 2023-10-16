@@ -2875,6 +2875,8 @@
         href: webmethods-integration-cloud-tutorial.md
       - name: WebTMA
         href: webtma-tutorial.md
+      - name: WebXT Recognition
+        href: webxt-recognition-tutorial.md
       - name: Wedo
         href: wedo-tutorial.md
       - name: Weekdone
