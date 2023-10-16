@@ -23,13 +23,18 @@ Azure Monitor Agent uses data collection endpoints to collect:
 This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
 ## Components of a data collection endpoint
-A data collection endpoint includes the following components:
 
-| Component | Description |
-|:---|:---|
-| Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`.<br>The configuration access endpoint needs to be in the same region as the monitored resources. |
-| Logs ingestion endpoint | The endpoint used to ingest logs to the data ingestion pipeline.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`.<br>The Logs ingestion endpoint needs to be in the same region as the destination Log Analytics workspace. |
-| Network access control lists | Network access control rules for the endpoints. |
+A data collection endpoint includes components that send configuration files and receive collected data. 
+
+Based on your deployment, you may need to create one or more data collection endpoints because of regionality considerations.
+
+This table describes the components and related regionality considerations:
+
+| Component | Description | Regionality considerations |
+|:---|:---|:---|
+| Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. | Needs to be in the same region as the monitored resources.|
+| Logs ingestion endpoint | The endpoint used to ingest logs to the data ingestion pipeline.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |Needs to be in the same region as the destination Log Analytics workspace. |
+| Network access control lists | Network access control rules for the endpoints. | |
 
 ## How to set up data collection endpoints based on your deployment
 
