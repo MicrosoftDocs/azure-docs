@@ -35,9 +35,6 @@ Note that images added via "Upload from this device" renders on Teams side, and 
 
 Also note that only files uploaded via "drag-and-drop" or via attachment menu of "Upload from this device" and "Attach cloud files" are supported. Some messages with embedded media (such as video clips, audio messages, weather cards, etc.) are adaptive card, which currently isn't supported.
 
-[!INCLUDE [Teams File Attachment Interop with JavaScript SDK](./includes/meeting-interop-features-file-attachment-javascript.md)]
-
-
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Teams File Attachment Interop with JavaScript SDK](./includes/meeting-interop-features-file-attachment-javascript.md)] 
 ::: zone-end
