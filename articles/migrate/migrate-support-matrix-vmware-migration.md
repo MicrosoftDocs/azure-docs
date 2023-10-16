@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 09/29/2023
+ms.date: 10/16/2023
 ms.custom: engagement-fy23
 ---
 
@@ -53,6 +53,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and will not impact ongoing replication cycle.
 **Dynamic disk** | - An OS disk as a dynamic disk is not supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. Note that you will need help from OS support for conversion of dynamic to basic disk type.
+**Ultra disk** | Ultra disk migration is not supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium type and change it to Ultra disk after migration.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Not supported.

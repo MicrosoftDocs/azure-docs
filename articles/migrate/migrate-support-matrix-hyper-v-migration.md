@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 09/01/2023
+ms.date: 10/16/2023
 ms.custom: engagement-fy24
 ---
 
@@ -47,6 +47,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Encrypted disks/volumes**    | Not supported for migration.|
 | **RDM/passthrough disks**      | Not supported for migration.|
 | **Shared disk** | VMs using shared disks aren't supported for migration.|
+| **Ultra disk** | Ultra disk migration is not supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium type and change it to Ultra disk after migration.|
 | **NFS**                        | NFS volumes mounted as volumes on the VMs won't be replicated.|
 | **ReiserFS**                   | Not supported.
 | **ISCSI**                      | VMs with iSCSI targets aren't supported for migration.
