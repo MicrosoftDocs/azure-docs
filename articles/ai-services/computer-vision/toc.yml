@@ -332,7 +332,7 @@ items:
       href: concept-face-recognition.md
   - name: Tutorials
     items:
-    - name: Add users to a Face service
+    - name: Add users to a Face identification app
       items:
       - name: Best practices for enrolling users
         href: enrollment-overview.md
