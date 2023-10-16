@@ -21,6 +21,12 @@ zone_pivot_groups: openai-use-your-data
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+[Reference](../python/api/overview/azure/?view=azure-python) | [Source code](https://github.com/Azure/azure-sdk-for-python) | [Package (pypi)](https://pypi.org/project/azure/) | [Samples](https://github.com/Azure-Samples/azure-samples-python-management)
+
+::: zone-end
+
 In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
 
 
