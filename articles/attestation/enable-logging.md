@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 10/16/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -44,7 +44,7 @@ You can create a new Log Analytics workspace using one of these methods:
 
  You can enable logging for Azure Attestation by using the Azure PowerShell, or the Azure portal. 
 
- ### Using Powershell with storage account as destination
+ ### Using PowerShell with storage account as destination
 
 ```powershell
 
@@ -64,7 +64,7 @@ You can create a new Log Analytics workspace using one of these methods:
 
 ```
 
- When logging is enabled, logs are will be automatically created for you in **Containers** section of the specified storage account. Please expect some delay for the logs to appear in containers section. 
+ When logging is enabled, logs are automatically created for you in **Containers** section of the specified storage account. Please expect some delay for the logs to appear in containers section. 
 
  ### Using portal
 
@@ -72,7 +72,7 @@ To configure diagnostic settings in the Azure portal, follow these steps:
 
 1. From the Resource pane menu, select **Diagnostic settings**, and then **Add diagnostic setting**
 2. Under **Category groups**, select both **audit** and **allLogs**.
-3. If Azure Log Analytics is the destination, select **Send to Log Analytics workspace** and choose your subscription and workspace from the drop-down menus. You may also select **Archive to a storage account** and choose your subscription and storage account from the drop-down menus.
+3. If Azure Log Analytics is the destination, select **Send to Log Analytics workspace** and choose your subscription and workspace from the drop-down menus. You might also select **Archive to a storage account** and choose your subscription and storage account from the drop-down menus.
 4. When you have selected your desired options, select **Save**.
 
 ## Access your logs from storage account 
@@ -106,7 +106,7 @@ To access logs in the Azure portal, follow these steps:
 1. Open your storage account and click on **Containers** from resource pane menu
 2. Select **insights-logs-operational** and follow the navigation shown in the below screenshot to locate a json file and view the logs
 
-![View logs](./media/view-logs.png)
+![Screenshot of logs in Azure portal experience.](./media/view-logs.png#lightbox)
 
 ## Use Azure Monitor logs  
 
@@ -115,4 +115,4 @@ You can use Azure Monitor logs to review activity in Azure Attestation resourc
 ## Next steps 
 
 - For information on how to interpret logs, see [Azure Attestation logging](view-logs.md)
-- To learn more about using Azure Monitor for analyzing Azure Attestation logs, see [Monitoring Azure Attestation](monitor-logs.md) . 
+- To learn more about using Azure Monitor for analyzing Azure Attestation logs, see [Monitoring Azure Attestation](monitor-logs.md). 
