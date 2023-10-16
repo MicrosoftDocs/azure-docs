@@ -64,5 +64,5 @@ In the [automated machine learning configuration](/python/api/azureml-train-auto
 
 ## Next steps
 
-* For more information on using Azure ML Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* For more information on using Azure Machine Learning Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML project from Microsoft Research](https://www.microsoft.com/research/project/automl/)
