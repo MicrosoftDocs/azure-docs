@@ -45,12 +45,12 @@ View the upcoming version releases on the Nexus Kubernetes release calendar.
 
 For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
-|  K8s version | Nexus GA  | End of life                    | Platform support   |
-|--------------|-----------|--------------------------------|--------------------|
-| 1.25         | Jun 2023  | Dec 2023                       | Until 1.31 GA      |
-| 1.26         | Sep 2023  | Mar 2024                       | Until 1.32 GA      |
-| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   | Until 1.33 GA      |
-| 1.28         | Nov 2023  | Oct 2024                       | Until 1.34 GA      |
+|  K8s version | Nexus GA  | End of life                    | Extended Availability |
+|--------------|-----------|--------------------------------|-----------------------|
+| 1.25         | Jun 2023  | Dec 2023                       | Until 1.31 GA         |
+| 1.26         | Sep 2023  | Mar 2024                       | Until 1.32 GA         |
+| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   | Until 1.33 GA         |
+| 1.28         | Nov 2023  | Oct 2024                       | Until 1.34 GA         |
 
 
 *\* Indicates the version is designated for Long Term Support*
@@ -100,15 +100,12 @@ Operator Nexus supports three minor versions of Kubernetes:
 
 * The latest GA minor version released in Operator Nexus (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version also supports a maximum of two latest stable patches while the previous patches are under platform support for the lifetime of the minor version.
+  * Each supported minor version also supports a maximum of two latest stable patches while the previous patches are under `Extended availability policy` for the lifetime of the minor version.
 
 Operator Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
 
 * Duration of support – How long is a version actively maintained. At the end of the supported period, the version is “End of life.”
-* Platform support – How long can a version be selected for deployment after "End of life."
-
-> [!NOTE]
-> Platform support policy is a reduced support plan for EOL Kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Microsoft will provide best effort support, but may ultimately recommend an upgrade in order to resolve an issue. Customers are responsible for upgrading to a supported or LTS version of Kubernetes to receive full support.
+* Extended availability – How long can a version be selected for deployment after "End of life."
 
 The supported window of Kubernetes versions on Operator Nexus is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
 
@@ -146,32 +143,26 @@ Supported versions:
 
 ### End of life (EOL)
 
-End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade is to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Platform Support` may be utilized to return to a supported version.
+End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade is to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Extended availability` may be utilized to return to a supported version.
 
-## Platform support policy
+## Extended availability policy
 
-Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers only receive support from Microsoft for Operator Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
+During the extended availability period for unsupported Kubernetes versions (i.e., EOL Kubernetes versions), users do not receive security patches or bug fixes. For detailed information on support categories, please refer to the following table.
 
-Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
-
-This table outlines support guidelines for Community Support compared to Platform support.
-
-| Support category                         | Community Support (N-2) | Platform Support (N-3)           |
+| Support category                         | N-2 to N                | Extended availability            |
 |------------------------------------------|-------------------------|----------------------------------|
 | Upgrades from N-3 to a supported version | Supported               | Supported                        |
-| Platform availability                    | Supported               | Supported                        |
 | Node pool scaling                        | Supported               | Supported                        |
 | Cluster or node pool creation            | Supported               | Supported                        |
-| Storage, Networking related issues       | Supported               | Supported except for bug fixes and retired components |
-| Infrastructure SLA                       | Supported               | Supported                        |
-| Platform SLA                             | Supported               | Not supported                    |
 | Kubernetes components (including Add-ons)| Supported               | Not supported                    |
 | Component updates                        | Supported               | Not supported                    |
 | Component hotfixes                       | Supported               | Not supported                    |
-| Applying bug fixes                       | Supported               | Not supported                    |
+| Applying Kubernetes bug fixes            | Supported               | Not supported                    |
 | Applying security patches                | Supported               | Not supported                    |
-| Kubernetes API support                   | Supported               | Not supported                    |
 | Node image upgrade                       | Supported               | Not supported                    |
+
+> [!NOTE]
+> Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on kubernetes upstream.
 
 > [!NOTE]
 > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components aren't supported for N-3.
@@ -236,9 +227,9 @@ Downgrades aren't supported.
 
 If you don't upgrade your cluster, you continue to receive support for the Kubernetes version you're running until the end of the support period. After that, you'll no longer receive support for your cluster. You need to upgrade your cluster to a supported version to continue receiving support.
 
-### What happens if I don't upgrade my cluster before the end of the platform support period?
+### What happens if I don't upgrade my cluster before the end of the Extended availability period?
 
-If you don't upgrade your cluster before the end of the platform support period, you'll no longer be able to upgrade your cluster to a supported version or scale-out agent pools. You need to recreate your cluster using a supported version to continue receiving support.
+If you don't upgrade your cluster before the end of the Extended availability period, you'll no longer be able to upgrade your cluster to a supported version or scale-out agent pools. You need to recreate your cluster using a supported version to continue receiving support.
 
 ### What does 'Outside of Support' mean?
 
@@ -266,14 +257,14 @@ To upgrade from *1.12.x* -> *1.14.x*:
 1. Upgrade from *1.12.x* -> *1.13.x*.
 2. Upgrade from *1.13.x* -> *1.14.x*.
 
-### Can I create a new cluster during its platform support window?
+### Can I create a new cluster during its extended availability window?
 
-Yes, you can create a new 1.xx.x cluster during its platform support window. However, we recommend that you create a new cluster with the latest supported version.
+Yes, you can create a new 1.xx.x cluster during its extended availability window. However, we recommend that you create a new cluster with the latest supported version.
 
-### Can I upgrade a cluster to a newer version during its platform support window?
+### Can I upgrade a cluster to a newer version during its extended availability window?
 
-Yes, you can upgrade an N-3 cluster to N-2 during its platform support window. However, N-4 to N-3 upgrades aren't supported.
+Yes, you can upgrade an N-3 cluster to N-2 during its extended availability window.
 
-### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
+### I'm on an extended availability window, can I still add new node pools? Or will I have to upgrade?
 
-Yes, You're allowed to add node pools to the cluster.
+Yes, you're allowed to add node pools to the cluster.
