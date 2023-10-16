@@ -164,7 +164,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
 
    The following example shows the **Results** tab with the noted columns and data in each row:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/results-table.png" alt-text="Screenshot shows Application Insights, query, Results tab, and operation events from workflow run.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/results-table.png" alt-text="Screenshot shows Application Insights, query, Results tab, and operation events from workflow run." lightbox="media/enable-enhanced-telemetry-standard-workflows/requests-table/results-table.png":::
 
    | Column | Description | Example |
    |--------|-------------|---------|
@@ -177,7 +177,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
 
    The following example shows the expanded details for the **Request** trigger:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/request-trigger-details.png" alt-text="Screenshot shows Application Insights, Results tab for Request trigger, and details.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/request-trigger-details.png" alt-text="Screenshot shows Application Insights, Results tab for Request trigger, and details." lightbox="media/enable-enhanced-telemetry-standard-workflows/requests-table/request-trigger-details.png":::
 
    | Property | Description | Example |
    |----------|-------------|---------|
@@ -193,7 +193,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
 
    The following example shows the expanded details for the **Compose** action:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/compose-action-details.png" alt-text="Screenshot shows Application Insights, Results tab for Compose action, and details.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/compose-action-details.png" alt-text="Screenshot shows Application Insights, Results tab for Compose action, and details." lightbox="media/enable-enhanced-telemetry-standard-workflows/requests-table/compose-action-details.png":::
 
    | Property | Description | Example |
    |----------|-------------|---------|
@@ -341,7 +341,7 @@ You can create a query against the Requests table to view a subset of operation 
 
    The following example shows the expanded details for the **HTTP** action:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/http-action-retry-details.png" alt-text="Screenshot shows Application Insights, Results tab for HTTP action, and details.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/requests-table/http-action-retry-details.png" alt-text="Screenshot shows Application Insights, Results tab for HTTP action, and details." lightbox="media/enable-enhanced-telemetry-standard-workflows/requests-table/http-action-retry-details.png":::
 
    The **success** and **resultCode** property values indicate that the **HTTP** action failed. Along with the properties described in [Query the Requests table for all trigger and action events](#requests-table-view-all-trigger-action-events), the record contains the following information, which include three retry attempts:
 
@@ -488,7 +488,7 @@ You can create a query against the Exceptions table to view the exception events
 
    The following example shows the expanded exception for the **Compose** action and details about the exception:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/exceptions-table/exception-details.png" alt-text="Screenshot shows Application Insights, Results tab for exception events with the exception event for the Compose action expanded, and exception details.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/exceptions-table/exception-details.png" alt-text="Screenshot shows Application Insights, Results tab for exception events with the exception event for the Compose action expanded, and exception details." lightbox="media/enable-enhanced-telemetry-standard-workflows/exceptions-table/exception-details.png":::
 
    | Property | Description |
    |----------|-------------|
@@ -543,7 +543,7 @@ You can create a query against the Dependencies table to view the dependency eve
 
    The following example shows a dependency event for the specified workflow, including records for the operation events in the parent workflow from the Requests table and then a dependency record from the Dependencies table:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/dependencies-table/dependency-details.png" alt-text="Screenshot shows Application Insights, Results tab with dependency events for a specific workflow.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/dependencies-table/dependency-details.png" alt-text="Screenshot shows Application Insights, Results tab with dependency events for a specific workflow." lightbox="media/enable-enhanced-telemetry-standard-workflows/dependencies-table/dependency-details.png":::
 
    For the operation event records, the **itemType** column shows their record types as **request**. For the dependency record, the **itemType** column indicates the record type as **dependency**.
 
@@ -695,7 +695,7 @@ With the telemetry enhancements in Application Insights, you also get workflow i
 
    When you're done, the Metrics dashboard shows a chart with your finished workflow executions.
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/metrics-dashboard.png" alt-text="Screenshot shows Application Insights with Metrics dashboard and chart that shows number of finished workflow executions over time.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/metrics-dashboard.png" alt-text="Screenshot shows Application Insights with Metrics dashboard and chart that shows number of finished workflow executions over time." lightbox="media/enable-enhanced-telemetry-standard-workflows/metrics-dashboard.png":::
 
 <a name="filter-by-workflow"></a>
 
@@ -715,7 +715,7 @@ When you enable multidimensional metrics in the Metrics dashboard, you can targe
 
 1. From the **Values** list, select the workflows you want.
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/multidimensional-metrics.png" alt-text="Screenshot shows Application Insights with Metrics dashboard and chart with multidimensional metrics.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/multidimensional-metrics.png" alt-text="Screenshot shows Application Insights with Metrics dashboard and chart with multidimensional metrics." lightbox="media/enable-enhanced-telemetry-standard-workflows/multidimensional-metrics.png":::
 
 <a name="view-live-metrics"></a>
 
@@ -729,7 +729,7 @@ With Application Insights enhanced telemetry enabled, you can view near real-tim
 
    The **Live metrics** page shows the log data and other metrics, for example:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/live-metrics.png" alt-text="Screenshot shows Azure portal and Application Insights menu with selected item named Live metrics.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/live-metrics.png" alt-text="Screenshot shows Azure portal and Application Insights menu with selected item named Live metrics." lightbox="media/enable-enhanced-telemetry-standard-workflows/live-metrics.png":::
 
 For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](../azure-monitor/app/live-stream.md).
 
@@ -750,7 +750,7 @@ With Application Insights enhanced telemetry enabled, you can stream verbose deb
 
    The **Log stream** page connects to your Application Insights instance and shows the debugging output. For example, the following output includes request and response calls among other information:
 
-   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/log-stream.png" alt-text="Screenshot shows Azure portal and Standard logic app menu with selected item named Log stream.":::
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/log-stream.png" alt-text="Screenshot shows Azure portal and Standard logic app menu with selected item named Log stream." lightbox="media/enable-enhanced-telemetry-standard-workflows/log-stream.png":::
 
 ## Next steps
 
