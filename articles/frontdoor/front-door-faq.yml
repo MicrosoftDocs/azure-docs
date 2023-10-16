@@ -126,7 +126,7 @@ sections:
       - question: |
           Does AFD provide telemetry to show which rules engine rule AFD processes for each request?
         answer:  |
-          Yes. Refer to MatchedRulesSetName property under [Access Logs](/front-door-diagnostics.md)
+          Yes. Refer to MatchedRulesSetName property under [Access Logs](front-door-diagnostics.md)
           
       - question: |
           Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
