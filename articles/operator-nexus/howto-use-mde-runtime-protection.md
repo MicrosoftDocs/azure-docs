@@ -9,9 +9,9 @@ ms.date: 10/15/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Introduction to the Microsoft Defender Runtime Protection Service
+# Introduction to the Microsoft Defender runtime protection service
 
-The Microsoft Defender (MDE) Runtime Protection service provides the tools to configure and manage runtime protection on all nodes of an Undercloud cluster.
+The Microsoft Defender (MDE) runtime protection service provides the tools to configure and manage runtime protection for a Nexus cluster.
 
 The Azure CLI allows you to configure runtime protection ***Enforcement Level*** and the ability to trigger ***MDE Scan*** on all nodes.
 This document provides the steps to execute those tasks.
@@ -31,17 +31,17 @@ To help with configuring and triggering MDE scans, define these environment vari
 # SUBSCRIPTION_ID: Subscription of your Undercloud cluster
 export SUBSCRIPTION_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 # RESOURCE_GROUP: Resource group of your Undercloud cluster
-export RESOURCE_GROUP="contorso-cluster-rg"
+export RESOURCE_GROUP="contoso-cluster-rg"
 # MANAGED_RESOURCE_GROUP: Managed resource group managed by your Undercloud cluster
-export MANAGED_RESOURCE_GROUP="contorso-cluster-managed-rg"
+export MANAGED_RESOURCE_GROUP="contoso-cluster-managed-rg"
 # CLUSTER_NAME: Name of your Undercloud cluster
 export CLUSTER_NAME="contoso-cluster"
 ```
 
-## Configuring Enforcement Level
-The `az networkcloud cluster update` allows you to update of the settings for cluster runtime protection *enforcement level* by using the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"`.
+## Configuring enforcement level
+The `az networkcloud cluster update` allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"`.
 
-The following command configures the `enforcement level` protection on all nodes of your Undercloud cluster.
+The following command configures the `enforcement level` for your Cluster.
 
 ```bash
 az networkcloud cluster update \
@@ -65,14 +65,14 @@ az networkcloud cluster update \
 --runtime-protection-configuration enforcement-level="<enforcement level>"
 ```
 
-where `<enforcement level>` value MUST be different from `Disabled`.
+where `<enforcement level>` value must be a value other than `Disabled`.
 
 > [!NOTE]
 >As you have noted, the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
 
-If you want to disable MDE service on all nodes of an Undercloud cluster, then `<enforcement level>` shall be equal to `Disabled`.
+If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
-## Triggering MDE Scan on All Nodes
+## Triggering MDE scan on all nodes
 Once you have enabled the MDE service on all nodes of your Undercloud cluster, you can trigger an MDE scan with the following command.
 
 ```bash
@@ -95,7 +95,7 @@ nodes=$(az networkcloud baremetalmachine list \
 | jq -r '.[].machineName')
 ```
 
-With the list of node names, we can start the process to extract MDE agent information for each node of your Undercloud cluster.
+With the list of node names, we can start the process to extract MDE agent information for each node of your Cluster.
 The following command will prepare MDE agent information from each node.
 
 ```bash
@@ -124,24 +124,23 @@ Writing to /hostfs/tmp/runcommand
 
 ================================
 Script execution result can be found in storage account: 
- https://cm9454mpfsq9st.blob.core.windows.net/bmm-run-command-output/d8b0cbd1-33eb-4b83-b4c4-6b3f68086555-action-bmmdataextcmd.tar.gz?se=2023-10-13T20%3A53%3A41Z&sig=yQlXoiRaQo2Iryf%2FZ44oWhVR9ykqZiEZdlbVXeXHJ9I%3D&sp=r&spr=https&sr=b&st=2023-10-13T16%3A53%3A41Z&sv=2019-12-12
-
+ <url to download mde scan results>
  ...
 ```
 
-## Extracting MDE Scan Results
+## Extracting MDE scan results
 The extraction of MDE scan requires a few manual steps: To download the MDE scan report and extract the scan run information, and scan detailed result report.
 This section will guide you on each of these steps.
 
-### Download the Scan Report
-As indicated earlier the MDE agent information response provide the URL storing the detailed report data.
+### 1. Download the scan report
+As indicated earlier the MDE agent information response provides the URL storing the detailed report data.
 
-Download the report from the returned URL (for example, https://cm9454mpfsq9st.blob.core.windows.net/bmm-run-command-output/d8b0cbd1-33eb-4b83-b4c4-6b3f68086555-action-bmmdataextcmd.tar.gz?se=2023-10-13T20%3A53%3A41Z&sig=yQlXoiRaQo2Iryf%2FZ44oWhVR9ykqZiEZdlbVXeXHJ9I%3D&sp=r&spr=https&sr=b&st=2023-10-13T16%3A53%3A41Z&sv=2019-12-12 ), and open the file `mde-agent-information.json`.
+Download the report from the returned URL `<url to download mde scan results>`, and open the file `mde-agent-information.json`.
 
 The `mde-agent-information.json` file contains lots of information about the scan and it can be overwhelming to analyze such long detailed report.
 This guide provides a few examples of extracting some essential information that can help you decide if you need to analyze thoroughly the report.
 
-### Extracting the List of MDE Scans
+### 2. Extracting the list of MDE scans
 The `mde-agent-information.json` file contains a detailed scan report but you might want to focus first on a few details.
 This section details the steps to extract the list of scans run providing the information such as start and end time for each scan, threats found, state (succeeded or failed), etc.
 
@@ -185,7 +184,7 @@ date -d @$(echo "1697204573732/1000" | bc) "+%Y-%m-%dT%H:%M:%S"
 2023-10-13T13:42:53
 ```
 
-### Extracting the MDE Scan Results
+### 3. Extracting the MDE scan results
 This section details the steps to extract the report about the list of threats identified during the MDE scans.
 To extract the scan result report from `mde-agent-information.json` file, execute the following command.
 
