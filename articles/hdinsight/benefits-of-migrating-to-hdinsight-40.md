@@ -33,7 +33,7 @@ HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of w
   - Information schema.
 - Performance advantage
   - Result caching - Caching query results allow a previously computed query result to be reused
-  - Dynamic materialized views - Pre-computation of summaries
+  - Dynamic materialized views - Precomputation of summaries
   - ACID V2 performance improvements in both storage format and execution engine
 - Security
   - GDPR compliance enabled on Apache Hive transactions
@@ -74,7 +74,7 @@ HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of w
   - Spark Cruise - an automatic computation reuse system for Spark.
 - Performance advantage
   - Result caching - Caching query results allow a previously computed query result to be reused
-  - Dynamic materialized views - Pre-computation of summaries
+  - Dynamic materialized views - Precomputation of summaries
 - Security
   - GDPR compliance enabled for Spark transactions
 
@@ -164,18 +164,18 @@ Added timestamp column for Parquet vectorization and format under LLAP.
 1.	You can enable and disable the query result cache from command line. You might want to do so to debug a query.
 1.	Disable the query result cache by setting the following parameter to false:  `hive.query.results.cache.enabled=false`
 1.	Hive stores the query result cache in `/tmp/hive/__resultcache__/`. By default, Hive allocates 2 GB for the query result cache. You can change this setting by configuring the following parameter in bytes: `hive.query.results.cache.max.size`
-1.	Changes to query processing: During query compilation, check the results cache to see if it already has the query results. If there's a cache hit, then the query plan will be set to a `FetchTask` that will read from the cached location.
+1.	Changes to query processing: During query compilation, check the results cache to see if it already has the query results. If there's a cache hit, then the query plan is set to a `FetchTask` that reads from the cached location.
 
 During query execution:
 
 Parquet `DataWriteableWriter` relies on `NanoTimeUtils` to convert a timestamp object into a binary value. This query calls `toString()` on the timestamp object, and then parses the String.
 
 1. If the results cache can be used for this query
-    1. The query will be the `FetchTask` reading from the cached results directory. 
-    1. No cluster tasks will be required.
+    1. The query is `FetchTask` reading from the cached results directory. 
+    1. No cluster tasks is required.
 1. If the results cache can't be used, run the cluster tasks as normal
     1. Check if the query results that have been computed are eligible to add to the results cache.
-    1. If results can be cached, the temporary results generated for the query will be saved to the results cache. Steps may need to be done here to ensure the query results directory isn't deleted by query clean-up.
+    1. If results can be cached, the temporary results generated for the query is saved to the results cache. Steps may need to perform here to ensure the query results directory isn't deleted by query clean-up.
 
 ## SQL features
 
@@ -229,7 +229,7 @@ For more information, see https://cwiki.apache.org/confluence/display/Hive/Suppo
 
 ### Metastore `CachedStore`
 
-Hive metastore operation takes much time and thus slow down Hive compilation. In some extreme case, it takes much longer than the actual query run time. Especially, we find the latency of cloud db is high and 90% of total query runtime is waiting for metastore SQL database operations. Based on this observation, the metastore operation performance will be greatly enhanced, if we have a memory structure which cache the database query result.
+Hive metastore operation takes much time and thus slow down Hive compilation. In some extreme case, it takes longer than the actual query run time. Especially, we find the latency of cloud db is high and 90% of total query runtime is waiting for metastore SQL database operations. Based on this observation, the metastore operation performance is enhanced, if we have a memory structure which cache the database query result.
 
 `hive.metastore.rawstore.impl=org.apache.hadoop.hive.metastore.cache.CachedStore`
 
