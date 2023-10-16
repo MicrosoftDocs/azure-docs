@@ -192,7 +192,9 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
-1. On the opened **Set certificate name** page, enter your certificate name, and then select **Apply**.
+1. On the opened **Set certificate name** page, enter your certificate name, tick Enable auto sync checkbox if needed, and then select **Apply**.
+
+   :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of setting certificate name.":::
 
 1. When you have successfully imported your certificate, it displays in the list of **Private Key Certificates**.
 
