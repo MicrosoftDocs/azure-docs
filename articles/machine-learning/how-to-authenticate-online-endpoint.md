@@ -1,5 +1,5 @@
 ---
-title: Authenticate to an online endpoint
+title: Authenticate and authorize to an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn to authenticate clients to an Azure Machine Learning online endpoint
 services: machine-learning
@@ -13,9 +13,13 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Key and token-based authentication for online endpoints
+# Authenticate and authorize for online endpoints
 
-When consuming an online endpoint from a client, you can use either a _key_ or a _token_. Keys don't expire, tokens do.
+When consuming an online endpoint from a client, you can use either a _key_ or a _token_. A key doesn't change unless you regenerate it, while a token expires after some time.
+
+## Control plane and data plane operations
+
+This article focuses on online endpoint authentication for data plane operations. Data plane operations include sending scoring requests to an online endpoint. Control plane operations include ...
 
 ## Configure the endpoint authentication
 
