@@ -19,7 +19,7 @@ First, prepare the Spring project to run locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
+This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
