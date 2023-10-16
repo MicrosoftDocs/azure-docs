@@ -159,7 +159,7 @@ During the extended availability period for unsupported Kubernetes versions (tha
 | Component hotfixes                       | Supported               | Not supported                    |
 | Applying Kubernetes bug fixes            | Supported               | Not supported                    |
 | Applying security patches                | Supported               | Not supported                    |
-| Node image upgrade                       | Supported               | Not supported                    |
+| Node image security patches              | Supported               | Not supported                    |
 
 > [!NOTE]
 > Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on kubernetes upstream.
