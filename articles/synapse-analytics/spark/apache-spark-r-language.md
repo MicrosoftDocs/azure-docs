@@ -149,7 +149,7 @@ To establish a ```sparklyr``` connection, you can use the following connection m
 ```r
 spark_version <- "<enter Spark version>"
 config <- spark_config()
-sc <- spark_connect(master = "yarn", version = spark_version, spark_home = "/opt/spark", config = config)
+sc <- spark_connect(master = "yarn", version = spark_version, spark_home = "/opt/spark", config = config, method='synapse')
 ```
 
 ## Next steps

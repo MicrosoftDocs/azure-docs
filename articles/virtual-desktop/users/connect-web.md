@@ -46,7 +46,7 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
    | Azure cloud *(most common)* | [https://client.wvd.microsoft.com/arm/webclient/](https://client.wvd.microsoft.com/arm/webclient/) |
    | Azure cloud (classic) | [https://client.wvd.microsoft.com/webclient/index.html](https://client.wvd.microsoft.com/webclient/index.html) |
    | Azure US Gov | [https://rdweb.wvd.azure.us/arm/webclient/](https://rdweb.wvd.azure.us/arm/webclient/) |
-   | Azure China 21Vianet | [https://rdweb.wvd.azure.cn/arm/webclient/](https://rdweb.wvd.azure.cn/arm/webclient/) |
+   | Azure operated by 21Vianet | [https://rdweb.wvd.azure.cn/arm/webclient/](https://rdweb.wvd.azure.cn/arm/webclient/) |
 
 1. Sign in with your user account. Once you've signed in successfully, your workspaces should show the desktops and applications that have been made available to you by your admin.
 
@@ -55,7 +55,7 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
 1. A prompt for **Access local resources** may be displayed asking you confirm which local resources you want to be available in the remote session. Make your selection, then select **Allow**.
 
 >[!TIP]
->If you've already signed in to the web browser with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
+>If you've already signed in to the web browser with a different Microsoft Entra account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
 
 ## Preview features
 

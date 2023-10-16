@@ -1,21 +1,21 @@
 ---
-title: Automate employee offboarding tasks after their last day of work with Azure portal
-description: Tutorial for post off-boarding users from an organization using Lifecycle workflows with Azure portal.
+title: Automate employee offboarding tasks after their last day of work with the Microsoft Entra admin center
+description: Tutorial for post off-boarding users from an organization using Lifecycle workflows with the Microsoft Entra admin center.
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2022
-ms.author: amsliu
+ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
-# Automate employee offboarding tasks after their last day of work with Azure portal
+# Automate employee offboarding tasks after their last day of work with the Microsoft Entra admin center
 
-This tutorial provides a step-by-step guide on how to configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Azure portal.
+This tutorial provides a step-by-step guide on how to configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Microsoft Entra admin center.
 
 This post off-boarding scenario runs a scheduled workflow and accomplishes the following tasks:
  
@@ -30,7 +30,7 @@ This post off-boarding scenario runs a scheduled workflow and accomplishes the f
 
 ##  Before you begin
 
-As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-user-accounts.md).
 
 The scheduled leaver scenario can be broken down into the following:
 -	**Prerequisite:** Create a user account that represents an employee leaving your organization
@@ -41,30 +41,27 @@ The scheduled leaver scenario can be broken down into the following:
 
 ## Create a workflow using scheduled leaver template
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Microsoft Entra admin center.
 
-Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Azure portal.
-
- 1. Sign in to the [Azure portal](https://portal.azure.com).
- 2. On the right, select **Azure Active Directory**.
- 3. Select **Identity Governance**.
- 4. Select **Lifecycle workflows**.
- 5. On the **Overview** page, select **New workflow**. 
+ 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
+ 2. Select **Identity Governance**.
+ 3. Select **Lifecycle workflows**.
+ 4. On the **Overview** page, select **New workflow**. 
     :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
- 6. From the templates, select **Select** under **Post-offboarding of an employee**.
+ 5. From the templates, select **Select** under **Post-offboarding of an employee**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/select-leaver-template.png" alt-text="Screenshot of selecting a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/select-leaver-template.png":::
 
- 7. Next, you'll configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
+ 6. Next, you'll configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
    :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-basics.png" alt-text="Screenshot of leaver template basics information for a workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-basics.png":::
  
- 8. Next, you'll configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
+ 7. Next, you'll configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
    :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-scope.png" alt-text="Screenshot of reviewing scope details for a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-scope.png":::
 
- 9. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you're finished.
+ 8. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you're finished.
    :::image type="content" source="media/tutorial-lifecycle-workflows/review-leaver-tasks.png" alt-text="Screenshot of leaver workflow tasks." lightbox="media/tutorial-lifecycle-workflows/review-leaver-tasks.png":::
 
-10. On the review blade, verify the information is correct and select **Create**.
+9. On the review blade, verify the information is correct and select **Create**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/create-leaver-workflow.png" alt-text="Screenshot of a leaver workflow being created." lightbox="media/tutorial-lifecycle-workflows/create-leaver-workflow.png":::
 
 >[!NOTE]
@@ -76,7 +73,7 @@ Now that the workflow is created, it will automatically run the workflow every 3
 >[!NOTE]
 >Be aware that you currently cannot run a workflow on-demand if it is set to disabled.  You need to set the workflow to enabled to use the on-demand feature.
 
-To run a workflow on-demand, for users using the Azure portal, do the following steps:
+To run a workflow on-demand, for users using the Microsoft Entra admin center, do the following steps:
 
 1. On the workflow screen, select the specific workflow you want to run.
 2. Select **Run on demand**.
@@ -110,5 +107,5 @@ After running your workflow on-demand and checking that everything is working fi
   :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of workflow enabled schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Preparing user accounts for Lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Automate employee offboarding tasks after their last day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-scheduled-leaver)

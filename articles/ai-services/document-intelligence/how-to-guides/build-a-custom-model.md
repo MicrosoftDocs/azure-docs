@@ -1,11 +1,10 @@
 ---
-title: "Build and train a custom model"
+title: "Build and train a custom model - Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
 description: Learn how to build, label, and train a custom model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -61,7 +60,7 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
 
 1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Document Intelligence Studio.":::
+    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot of Create a project in the Document Intelligence Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
@@ -70,11 +69,11 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
     > [!IMPORTANT]
     > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](../concept-custom-neural.md#supported-regions).
 
-    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Document Intelligence resource.":::
+    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot of Select the Document Intelligence resource.":::
 
 1. Next select the storage account you used to upload your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
-    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
+    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot of Select the storage account.":::
 
 1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
@@ -86,7 +85,7 @@ The files you uploaded to storage are listed on the left of your screen, with th
 
 1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type.
 
-    :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
+    :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot of Create a label.":::
 
 1. Enter a name for the field.
 
@@ -106,7 +105,7 @@ With your dataset labeled, you're now ready to train your model. Select the trai
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 
-    :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
+    :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot of Train model dialog":::
 
 1. Select **Train** to initiate the training process.
 
@@ -175,7 +174,7 @@ Follow these tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of form documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
 If you want to use manually labeled data, upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](../label-tool.md) (or your own UI) to generate these files.
 

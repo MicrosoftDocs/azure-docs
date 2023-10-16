@@ -1,11 +1,10 @@
 ---
-title: What is Document Intelligence Studio?
+title: What is Document Intelligence (formerly Form Recognizer) Studio?
 titleSuffix: Azure AI services
 description: Learn how to set up and use Document Intelligence Studio to test features of Azure AI Document Intelligence on the web.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -20,7 +19,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. The studio provides a platform for you to experiment with the different Document Intelligence models and sample returned data in an interactive manner without the need to write code.
 
-The studio supports Document Intelligence v3.0 models and v3.0 model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+The studio supports Document Intelligence v3.0 models and v3.0 model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
 ## Get started using Document Intelligence Studio
 
@@ -44,7 +43,7 @@ The studio supports Document Intelligence v3.0 models and v3.0 model training. P
       * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
       * Enter the values in the appropriate fields.
 
-      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 1. Once you've completed configuring your resource, you're able to try the different models offered by Document Intelligence Studio. From the front page, select any Document Intelligence model to try using with a no-code approach.
 

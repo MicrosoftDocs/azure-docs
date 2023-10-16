@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 09/15/2023
 ms.author: jfields
 ---
 
@@ -155,8 +155,5 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Next steps
 
-- To view active tasks, see [View analytic information about active tasks](usage-analytics-active-tasks.md).
-- To view assigned permissions and usage of the group and the group members, see [View analytic information about groups](usage-analytics-groups.md).
-- To view active resources, see [View analytic information about active resources](usage-analytics-active-resources.md).
 - To view the permission usage of access keys for a given user, see [View analytic information about access keys](usage-analytics-access-keys.md).
 - To view assigned permissions and usage of the serverless functions, see [View analytic information about serverless functions](usage-analytics-serverless-functions.md).

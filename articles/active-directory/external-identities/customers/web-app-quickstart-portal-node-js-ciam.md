@@ -16,7 +16,7 @@ ms.date: 06/06/2023
 
 # Portal quickstart for Node.js/Express web app
 
-> In this quickstart, you download and run a code sample that demonstrates how a Node.js/Express web app can sign in users with Azure Active Directory for customers.
+> In this quickstart, you download and run a code sample that demonstrates how a Node.js/Express web app can sign in users with Microsoft Entra ID for customers.
 >
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > 1. Make sure you've installed [Node.js](https://nodejs.org/en/download/).

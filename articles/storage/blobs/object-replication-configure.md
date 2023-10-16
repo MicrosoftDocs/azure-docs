@@ -5,7 +5,7 @@ description: Learn how to configure object replication to asynchronously copy bl
 services: storage
 author: normesta
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/05/2022
 ms.author: normesta
@@ -219,12 +219,12 @@ az storage account or-policy show \
 
 ## Configure object replication using a JSON file
 
-If you don't have permissions to the source storage account or if you want to use more than 10 container pairs, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
+If you don't have permissions to the source storage account or if you want to use more than 10 container pairs, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Microsoft Entra tenant from the destination account, then you can use this approach to configure object replication.
 
 For information about how to author a JSON file that contains the policy definition, see [Policy definition file](object-replication-overview.md#policy-definition-file).
 
 > [!NOTE]
-> Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
+> Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md).
 
 The examples in this section show how to configure the object replication policy on the destination account, and then get the JSON file for that policy that another user can use to configure the policy on the source account.
 
@@ -406,6 +406,6 @@ az storage account or-policy delete \
 ## Next steps
 
 - [Object replication for block blobs](object-replication-overview.md)
-- [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
+- [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Enable and manage blob versioning](versioning-enable.md)
 - [Process change feed in Azure Blob storage](storage-blob-change-feed-how-to.md)

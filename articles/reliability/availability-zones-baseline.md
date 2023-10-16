@@ -111,7 +111,7 @@ For specialized workloads on Azure as below examples, please refer to the respec
     - [Migrate Azure Kubernetes Service (AKS) and MySQL Flexible Server workloads to availability zone support](/azure/reliability/migrate-workload-aks-mysql)
 
 - Oracle  
-    - [Oracle on Azure architecture design](/azure/architecture/solution-ideas/articles/oracle-on-azure-start-here  )
+    - [Oracle on Azure architecture design](/azure/architecture/solution-ideas/articles/oracle-on-azure-start-here)
 
 
 #### Do you want to achieve Business Continuity and Disaster Recovery in the same Azure region due to compliance, data residency, or governance requirements? 

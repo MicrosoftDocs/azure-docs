@@ -1,13 +1,12 @@
 ---
-title: Invoice data extraction – Document Intelligence
+title: Invoice data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Automate invoice data extraction with Document Intelligence's invoice model to extract accounts payable data including invoice line items.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/10/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -99,17 +98,17 @@ See how data, including customer information, vendor details, and line items, is
 
 * An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
 
 1. On the Document Intelligence Studio home page, select **Invoices**
 
-1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample invoice or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot: analyze invoice menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
@@ -156,74 +155,102 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker-end
 
-::: moniker range=">=doc-intel-3.0.0"
-
 ## Supported languages and locales
 
 >[!NOTE]
 > Document Intelligence auto-detects language and locale data.
 
+:::moniker range="doc-intel-3.1.0"
+
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), United Kingdom (-uk), India (-in)|
-| &bullet; Spanish (es) |Spain (es)|
-| &bullet; German (de) | Germany (de)|
-| &bullet; French (fr) | France (fr) |
-| &bullet; Italian (it) | Italy (it)|
-| &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
-| &bullet; Dutch (nl) | Netherlands (nl)|
-| &bullet; Czech (cs) | Czechoslovakia (cz)|
-| &bullet; Danish (da) | Denmark (dk)|
-| &bullet; Estonian (et) | Estonia (ee)|
-| &bullet; Finnish (fi) | Finland (fl)|
-| &bullet; Croation (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
-| &bullet; Hungarian (hu) | Hungary (hu)|
-| &bullet; Icelandic (is) | Iceland (is)|
-| &bullet; Japanese (ja) | Japan (ja)|
-| &bullet; Korean (ko) | Korea (kr)|
-| &bullet; Lithuanian (lt) | Lithuania (lt)|
-| &bullet; Latvian (lv) | Latvia (lv)|
-| &bullet; Malay (ms) | Malasia (ms)|
-| &bullet; Norwegian (nb) | Norway (no)|
-| &bullet; Polish (pl) | Poland (pl)|
-| &bullet; Romanian (ro) | Romania (ro)|
-| &bullet; Slovak (sk) | Slovakia (sv)|
-| &bullet; Slovenian (sl) | Slovenia (sl)|
+| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
+| &bullet; Spanish (`es`) |Spain (`es`)|
+| &bullet; German (`de`) | Germany (`de`)|
+| &bullet; French (`fr`) | France (`fr`) |
+| &bullet; Italian (`it`) | Italy (`it`)|
+| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
+| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
+| &bullet; Czech (`cs`) | Czech Republic (`cz`)|
+| &bullet; Danish (`da`) | Denmark (`dk`)|
+| &bullet; Estonian (`et`) | Estonia (`ee`)|
+| &bullet; Finnish (`fi`) | Finland (`fl`)|
+| &bullet; Croatian (`hr`) | Bosnia and Herzegovina (`ba`), Croatia (`hr`), Serbia (`rs`)|
+| &bullet; Hungarian (`hu`) | Hungary (`hu`)|
+| &bullet; Icelandic (`is`) | Iceland (`is`)|
+| &bullet; Japanese (`ja`) | Japan (`ja`)|
+| &bullet; Korean (`ko`) | Korea (`kr`)|
+| &bullet; Lithuanian (`lt`) | Lithuania (`lt`)|
+| &bullet; Latvian (`lv`) | Latvia (`lv`)|
+| &bullet; Malay (`ms`) | Malaysia (`ms`)|
+| &bullet; Norwegian (`nb`) | Norway (`no`)|
+| &bullet; Polish (`pl`) | Poland (`pl`)|
+| &bullet; Romanian (`ro`) | Romania (`ro`)|
+| &bullet; Slovak (`sk`) | Slovakia (`sv`)|
+| &bullet; Slovenian (`sl`) | Slovenia (`sl`)|
 | &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
-| &bullet; Albanian (sq) | Albania (al)|
-| &bullet; Swedish (sv) | Sweden (se)|
-| &bullet; Chinese (simplified (zh-hans) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
+| &bullet; Albanian (`sq`) | Albania (`al`)|
+| &bullet; Swedish (`sv`) | Sweden (`se`)|
+| &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
+| &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
-| &bullet; ARS | United States (us) |
-| &bullet; AUD | Australia (au) |
-| &bullet; BRL | United States (us) |
-| &bullet; CAD | Canada (ca) |
-| &bullet; CLP | United States (us) |
-| &bullet; CNY | United States (us) |
-| &bullet; COP | United States (us) |
-| &bullet; CRC | United States (us) |
-| &bullet; CZK | United States (us) |
-| &bullet; DKK | United States (us) |
-| &bullet; EUR | United States (us) |
-| &bullet; GBP | United Kingdom (uk) |
-| &bullet; HUF | United States (us) |
-| &bullet; IDR | United States (us) |
-| &bullet; INR | United States (us) |
-| &bullet; ISK | United States (us) |
-| &bullet; JPY | Japan (jp) |
-| &bullet; KRW | United States (us) |
-| &bullet; NOK | United States (us) |
-| &bullet; PAB | United States (us) |
-| &bullet; PEN | United States (us) |
-| &bullet; PLN | United States (us) |
-| &bullet; RON | United States (us) |
-| &bullet; RSD | United States (us) |
-| &bullet; SEK | United States (us) |
-| &bullet; TWD | United States (us) |
-| &bullet; USD | United States (us) |
+| &bullet; ARS | Argentine Peso (`ar`) |
+| &bullet; AUD | Australian Dollar (`au`) |
+| &bullet; BRL | Brazilian Real (`br`) |
+| &bullet; CAD | Canadian Dollar (`ca`) |
+| &bullet; CLP | Chilean Peso (`cl`) |
+| &bullet; CNY | Chinese Yuan (`cn`) |
+| &bullet; COP | Colombian Peso (`co`) |
+| &bullet; CRC | Costa Rican Coldón (`us`) |
+| &bullet; CZK | Czech Koruna (`cz`) |
+| &bullet; DKK | Danish Krone (`dk`) |
+| &bullet; EUR | Euro (`eu`) |
+| &bullet; GBP | British Pound Sterling (`gb`) |
+| &bullet; GGP | Guernsey Pound (`gg`) |
+| &bullet; HUF | Hungarian Forint (`hu`) |
+| &bullet; IDR | Indonesian Rupiah (`id`) |
+| &bullet; INR | Indian Rupee (`in`) |
+| &bullet; ISK | Icelandic Króna (`us`) |
+| &bullet; JPY | Japanese Yen (`jp`) |
+| &bullet; KRW | South Korean Won (`kr`) |
+| &bullet; NOK | Norwegian Krone (`no`) |
+| &bullet; PAB | Panamanian Balboa (`pa`) |
+| &bullet; PEN | Peruvian Sol (`pe`) |
+| &bullet; PLN | Polish Zloty (`pl`) |
+| &bullet; RON | Romanian Leu (`ro`) |
+| &bullet; RSD | Serbian Dinar (`rs`) |
+| &bullet; SEK | Swedish Krona (`se`) |
+| &bullet; TWD | New Taiwan Dollar (`tw`) |
+| &bullet; USD | United States Dollar (`us`) |
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+| Supported languages | Details |
+|:----------------------|:---------|
+| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
+| &bullet; Spanish (`es`) |Spain (`es`)|
+| &bullet; German (`de`) | Germany (`de`)|
+| &bullet; French (`fr`) | France (`fr`) |
+| &bullet; Italian (`it`) | Italy (`it`)|
+| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
+| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
+
+| Supported Currency Codes | Details |
+|:----------------------|:---------|
+| &bullet; BRL | Brazilian Real (`br`) |
+| &bullet; GBP | British Pound Sterling (`gb`) |
+| &bullet; CAD | Canada (`ca`) |
+| &bullet; EUR | Euro (`eu`) |
+| &bullet; GGP | Guernsey Pound (`gg`) |
+| &bullet; INR | Indian Rupee (`in`) |
+| &bullet; USD | United States (`us`) |
+:::moniker-end
+
+:::moniker range=">=doc-intel-3.0.0"
 
 ## Field extraction
 
@@ -353,7 +380,7 @@ The JSON output has three parts:
 
 ## Migration guide
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 

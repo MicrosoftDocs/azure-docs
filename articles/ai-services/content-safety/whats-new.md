@@ -5,8 +5,7 @@ description: Stay up to date on recent releases and updates to Azure AI Content 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: overview
 ms.date: 04/07/2023
@@ -26,11 +25,15 @@ The Azure AI Content Safety service is now generally available as a cloud servic
 - The return formats of the Analyze APIs have changed. See the [Quickstarts](./quickstart-text.md) for the latest examples.
 - The names and return formats of several APIs have changed. See the [Migration guide](./how-to/migrate-to-general-availability.md) for a full list of breaking changes. Other guides and quickstarts now reflect the GA version.
 
+### Content Safety Java and JavaScript SDKs
+
+The Azure AI Content Safety service is now available through Java and JavaScript SDKs. The SDKs are available on [Maven](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) and [npm](https://www.npmjs.com/package/@azure-rest/ai-content-safety). Follow a [quickstart](./quickstart-text.md) to get started.
+
 ## July 2023
 
 ### Content Safety C# SDK
 
-The Azure AI Content Safety service is now available through a C# SDK. The SDK is available on [NuGet](https://www.nuget.org/packages/Azure.AI.ContentSafety/). Follow the [quickstart](./quickstart-text.md) to get started.
+The Azure AI Content Safety service is now available through a C# SDK. The SDK is available on [NuGet](https://www.nuget.org/packages/Azure.AI.ContentSafety/). Follow a [quickstart](./quickstart-text.md) to get started.
 
 ## May 2023
 

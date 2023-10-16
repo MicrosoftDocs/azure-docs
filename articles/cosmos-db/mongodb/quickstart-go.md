@@ -14,11 +14,12 @@ ms.custom: mode-api, devx-track-azurecli, ignite-2022, devx-track-go
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](create-mongodb-dotnet.md)
+>
+> * [.NET](quickstart-dotnet.md)
 > * [Python](quickstart-python.md)
 > * [Java](quickstart-java.md)
-> * [Node.js](create-mongodb-nodejs.md)
-> * [Golang](quickstart-go.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
 >  
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB account by using the Azure Cloud Shell, clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 

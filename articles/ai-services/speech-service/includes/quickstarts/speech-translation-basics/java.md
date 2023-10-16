@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 06/08/2022
 ms.author: eur
@@ -43,7 +43,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.30.0</version>
+            <version>1.32.1</version>
             </dependency>
         </dependencies>
     </project>

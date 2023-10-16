@@ -19,7 +19,7 @@ To perform the procedures in this article, make sure that you have:
 
 - An on-premises management console [installed](install-software-on-premises-management-console.md), [activated, and configured](activate-deploy-management.md)
 
-- One or more OT sensors [installed](install-software-ot-sensor.md), [activated, and configured](activate-deploy-sensor.md). To assign your OT sensor to a site and zone, make sure that you have at least one site and zone configured.
+- One or more OT sensors [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md). To assign your OT sensor to a site and zone, make sure that you have at least one site and zone configured.
 
 - Access to both your on-premises management console and OT sensors as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 

@@ -5,8 +5,9 @@ services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 07/24/2023
+ms.date: 09/25/2023
 ms.author: greglin
 ---
 
@@ -100,6 +101,15 @@ EOF
 ```
 
 2. Define the _ApplicationLoadBalancer_ resource, specifying the subnet ID the Application Gateway for Containers association resource should deploy into.  The association establishes connectivity from Application Gateway for Containers to the defined subnet (and connected networks where applicable) to be able to proxy traffic to a defined backend.
+
+> [!Note]
+> When the ALB Controller creates the Application Gateway for Containers resources in ARM, it'll use the following naming conventions for its resources:
+> - alb-\<8 randomly generated characters\> to define the Application Gateway for Containers resource
+> - as-\<8 randomly generated characters\> to define the association resource
+>
+> If you would like to change the name of the resources created in Azure, consider following the [bring your own deployment strategy](quickstart-create-application-gateway-for-containers-byo-deployment.md).
+
+Run the following command to create the Application Gateway for Containers resource and association.
 
 ```bash
 kubectl apply -f - <<EOF

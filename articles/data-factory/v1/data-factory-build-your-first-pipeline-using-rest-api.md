@@ -41,7 +41,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory.
 * Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to:
-  1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
+  1. Create a Web application named **ADFGetStartedApp** in Microsoft Entra ID.
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
@@ -246,7 +246,7 @@ The **defines** section specifies runtime settings that are passed to the hive s
 
 The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
-In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
 > [!NOTE]
 > See "Pipeline JSON" in [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md) for details about JSON properties used in the preceding example.
@@ -272,7 +272,9 @@ $adf = "FirstDataFactoryREST"
 ```
 
 
-## Authenticate with AAD
+<a name='authenticate-with-aad'></a>
+
+## Authenticate with Microsoft Entra ID
 
 ```powershell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };

@@ -1,11 +1,10 @@
 ---
-title: Business card data extraction - Document Intelligence
+title: Business card data extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: OCR and machine learning based business card scanning in Document Intelligence extracts key data from business cards.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -75,7 +74,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 * An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -86,11 +85,11 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. On the Document Intelligence Studio home page, select **Business cards**.
 
-1. You can analyze the sample business card or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample business card or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/business-card-analyze.png" alt-text="Screenshot: analyze business card menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
@@ -215,9 +214,9 @@ See how data, including name, job title, address, email, and company name, is ex
 * **en-gb**
 * **en-in**
 
-### Migration guide and REST API v3.0
+### Migration guide and REST API v3.1
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 

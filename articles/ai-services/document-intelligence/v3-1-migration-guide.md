@@ -1,11 +1,10 @@
 ---
-title: "How-to: Migrate your Document Intelligence to v3.1."
+title: "How-to: Migrate Document Intelligence (formerly Form Recognizer) applications to v3.1."
 titleSuffix: Azure AI services
 description: In this how-to guide, learn the differences between Document Intelligence API v3.0 and v3.1 and how to move to the newer version of the API.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -15,13 +14,17 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD004 -->
 # Document Intelligence v3.1 migration
 
+::: moniker range="<=doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+::: moniker-end
+
 > [!IMPORTANT]
 >
 > Document Intelligence REST API v3.1 introduces breaking changes in the REST API request and analyze response JSON.
 
 ## Migrating from v3.1 preview API version
 
-Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview-v3-1.md).
 
 The `2023-07-31` (GA) API has a few updates and changes from the preview API version:
 
@@ -64,7 +67,7 @@ Compared with v3.0, Document Intelligence v3.1 introduces several new features a
 * [Custom classification model](concept-custom-classifier.md) for document splitting and classification.
 * Language expansion and new fields support in [Invoice](concept-invoice.md) and [Receipt](concept-receipt.md) model.
 * New document type support in [ID document](concept-id-document.md) model.
-* New prebuilt [Health insurance card](concept-insurance-card.md) model.
+* New prebuilt [Health insurance card](concept-health-insurance-card.md) model.
 * Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If add-on features are requested for Office/HTML files, an empty array is returned without errors.
 * Model expiration for custom extraction and classification models - Our new custom models build upon on a large base model that we update periodically for quality improvement. An expiration date is introduced to all custom models to enable the retirement of the corresponding base models.  Once a custom model expires, you need to retrain the model using the latest API version (base model).
 

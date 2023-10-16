@@ -16,7 +16,7 @@ ms.date: 08/16/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In a real-world scenario, where the issuer and verifier are separate organizations, the verifier uses *their own* Azure AD tenant to perform the verification of the credential that was issued by the other organization. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
+In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Microsoft Entra tenant. In a real-world scenario, where the issuer and verifier are separate organizations, the verifier uses *their own* Microsoft Entra tenant to perform the verification of the credential that was issued by the other organization. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
 
 As a verifier, you unlock privileges to subjects that possess verified credential expert cards. In this tutorial, you run a sample application from your local computer that asks you to present a verified credential expert card, and then verifies it.
 
@@ -25,7 +25,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 >
 > - Download the sample application code to your local computer
-> - Set up Microsoft Entra Verified ID on your Azure AD tenant
+> - Set up Microsoft Entra Verified ID on your Microsoft Entra tenant
 > - Gather credentials and environment details to set up your sample application, and update the sample application with your verified credential expert card details
 > - Run the sample application and initiate a verifiable credential issuance process
 
@@ -64,7 +64,7 @@ git clone git@github.com:Azure-Samples/active-directory-verifiable-credentials-d
 
 Create a client secret for the registered application you created. The sample application uses the client secret to prove its identity when it requests tokens.
 
-1. In Azure AD, go to **App registrations**.
+1. In Microsoft Entra ID, go to **App registrations**.
 
 1. Select the **verifiable-credentials-app** application you created earlier.
 

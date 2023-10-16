@@ -18,22 +18,16 @@ ms.custom: template-how-to
 Scheduled workflows by default run every 3 hours, but can also run on-demand so that they can be applied to specific users whenever you see fit. A workflow can be run on demand for any user, and doesn't take into account whether or not a user meets the workflow's execution conditions. Running a workflow on-demand allows you to test workflows before their scheduled run. This testing, on a set of users up to 10 at a time, allows you to see how a workflow will run before it processes a larger set of users. Testing your workflow before their scheduled runs helps you proactively solve potential lifecycle issues more quickly.
 
 
-## Run a workflow on-demand in the Azure portal
+## Run a workflow on-demand in the Microsoft Entra admin center
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-Use the following steps to run a workflow on-demand.
+Use the following steps to run a workflow on-demand:
 
 >[!NOTE]
 >To be run on demand, the  workflow must be enabled.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Type in **Identity Governance** on the search bar near the top of the page and select it.
-
-1. On the left menu, select **Lifecycle workflows**.
-
-1. select **Workflows**
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. On the workflow screen, select the specific workflow you want to run.
 

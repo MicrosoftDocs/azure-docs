@@ -79,6 +79,9 @@
         href: tutorial-enable-container-aws.md
       - name: Protect your Google Cloud Platform (GCP) project containers
         href: tutorial-enable-container-gcp.md
+      - name: How to enable Defender for Containers components
+        displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+        href: defender-for-containers-enable.md
     - name: Protect your key vaults with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
@@ -218,6 +221,8 @@
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
+    - name: Data security dashboard
+      href: data-aware-security-dashboard-overview.md  
   - name: Improve your container security posture
     items:
     - name: Agentless container posture
@@ -233,6 +238,9 @@
     - name: Reference list of GCP recommendations
       displayName: gcp, recommendations
       href: recommendations-reference-gcp.md
+    - name: Reference list of DevOps recommendations
+      displayName: devops, recommendations
+      href: recommendations-reference-devops.md
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
@@ -285,6 +293,9 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+      - name: Testing the attack path and security explorer
+        displayName: attack paths, paths, security explorer, test 
+        href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
   - name: Data-aware security posture
     items:
     - name: Enable data-aware security posture
@@ -544,9 +555,6 @@
     - name: How does Defender for Containers work?
       displayName: containers
       href: defender-for-containers-architecture.md
-    - name: Enable Defender for Containers
-      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
-      href: defender-for-containers-enable.md
     - name: Vulnerability assessment for Azure powered by Qualys
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
@@ -561,7 +569,9 @@
       - name: View and remediate vulnerabilities for running images
         href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
       - name: Disable vulnerabilities on images
-        href: disable-vulnerability-findings-containers.md  
+        href: disable-vulnerability-findings-containers.md
+      - name: REST API
+        href: subassessment-rest-api.md 
     - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-elastic.md
@@ -631,6 +641,9 @@
       - name: Enable Defender for SQL servers on machines
         href: defender-for-sql-usage.md
         displayName: hybrid, arc, Azure Defender
+      - name: Migrate to SQL server-targeted Azure Monitoring Agent's autoprovisioning process
+        href: defender-for-sql-autoprovisioning.md
+        displayName: defender for sql, autoprovisioning, auto provisioning, auto-provisioning
       - name: Scan your SQL resources for vulnerabilities
         href: defender-for-sql-on-machines-vulnerability-assessment.md
         displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
@@ -670,18 +683,30 @@
       href: defender-for-storage-malware-scan.md
     - name: Sensitive data threat detection
       href: defender-for-storage-data-sensitivity.md
-    - name: Enable and configure with Defender for Storage
+    - name: Enable and configure Defender for Storage
       items:
       - name: Protect your storage with Defender for Storage
         href: tutorial-enable-storage-plan.md
-      - name: Additional configurations for Defender for Storage
-        href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
       - name: Required permissions
         href: support-matrix-defender-for-storage.md
-      - name: Setting up response to Malware Scanning
+      - name: Enable options
+        items:
+        - name: Enable with the Azure policy (recommended)
+          href: defender-for-storage-policy-enablement.md
+        - name: Enable with Infrastructure as Code
+          href: defender-for-storage-infrastructure-as-code-enablement.md
+        - name: Enable with REST API
+          href: defender-for-storage-rest-api-enablement.md
+        - name: Enable with the Azure portal
+          href: defender-for-storage-azure-portal-enablement.md  
+      - name: Advanced configurations for malware scanning
+        href: advanced-configurations-for-malware-scanning.md
+      - name: Setup response to malware scanning
         href: defender-for-storage-configure-malware-scan.md
-      - name: Test and run a Proof of Concept
+      - name: Test and run a proof of concept
         href: defender-for-storage-test.md
+      - name: Understanding malware scanning results
+        href: understand-malware-scan-results.md  
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Common questions about Defender for Storage
@@ -860,7 +885,13 @@
     - name: Agentless Container Posture Management
       href: episode-thirty-three.md
     - name: Understanding the DevOps Threat Matrix
-      href: episode-thirty-four.md              
+      href: episode-thirty-four.md
+    - name: Security alert correlation
+      href: episode-thirty-five.md
+    - name: Defender CSPM support for GCP and more updates
+      href: episode-thirty-six.md
+    - name: Capabilities to counter identity-based supply chain attacks
+      href: episode-thirty-seven.md               
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

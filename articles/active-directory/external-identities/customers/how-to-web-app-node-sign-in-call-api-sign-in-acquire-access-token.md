@@ -200,7 +200,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
 
 - The `handleRedirect` method handles `/redirect` route:
     
-    - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](how-to-web-app-node-sample-sign-in-call-api.md#register-the-web-app).
+    - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](./sample-web-app-node-sign-in-call-api.md#register-the-web-app).
     
     - This endpoint implements the second leg of auth code flow uses. It uses the authorization code to request an ID token by using MSAL's [acquireTokenByCode](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbycode) method.
     

@@ -5,7 +5,7 @@ services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 09/27/2022
+ms.date: 08/10/2023
 ms.author: clemensv
 ms.custom: include file
 

@@ -1,6 +1,6 @@
 ---
-title: Use Windows Local Administrator Password Solution (LAPS) with Azure AD (preview)
-description: Manage your device's local administrator password with Azure AD LAPS.
+title: Use Windows Local Administrator Password Solution (LAPS) with Microsoft Entra ID (preview)
+description: Manage your device's local administrator password with Microsoft Entra LAPS.
 
 services: active-directory
 ms.service: active-directory
@@ -15,26 +15,26 @@ ms.custom: references_regions
 
 ms.collection: M365-identity-device-management
 ---
-# Windows Local Administrator Password Solution in Azure AD (preview)
+# Windows Local Administrator Password Solution in Microsoft Entra ID (preview)
 
 > [!IMPORTANT]
-> Azure AD support for Windows Local Administrator Password Solution is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Entra ID support for Windows Local Administrator Password Solution is currently in preview.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-Every Windows device comes with a built-in local administrator account that you must secure and protect to mitigate any Pass-the-Hash (PtH) and lateral traversal attacks. Many customers have been using our standalone, on-premises [Local Administrator Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) product for local administrator password management of their domain joined Windows machines. With Azure AD support for Windows LAPS, we're providing a consistent experience for both Azure AD joined and hybrid Azure AD joined devices.
+Every Windows device comes with a built-in local administrator account that you must secure and protect to mitigate any Pass-the-Hash (PtH) and lateral traversal attacks. Many customers have been using our standalone, on-premises [Local Administrator Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) product for local administrator password management of their domain joined Windows machines. With Microsoft Entra ID support for Windows LAPS, we're providing a consistent experience for both Microsoft Entra joined and Microsoft Entra hybrid joined devices.
 
-Azure AD support for LAPS includes the following capabilities:
+Microsoft Entra ID support for LAPS includes the following capabilities:
 
-- **Enabling Windows LAPS with Azure AD** - Enable a tenant wide policy and a client-side policy to backup local administrator password to Azure AD.
+- **Enabling Windows LAPS with Microsoft Entra ID** - Enable a tenant wide policy and a client-side policy to backup local administrator password to Microsoft Entra ID.
 - **Local administrator password management** - Configure client-side policies to set account name, password age, length, complexity, manual password reset and so on.
 - **Recovering local administrator password** - Use API/Portal experiences for local administrator password recovery.
-- **Enumerating all Windows LAPS enabled devices** - Use API/Portal experiences to enumerate all Windows devices in Azure AD enabled with Windows LAPS.
+- **Enumerating all Windows LAPS enabled devices** - Use API/Portal experiences to enumerate all Windows devices in Microsoft Entra ID enabled with Windows LAPS.
 - **Authorization of local administrator password recovery** - Use role based access control (RBAC) policies with custom roles and administrative units.
 - **Auditing local administrator password update and recovery** - Use audit logs API/Portal experiences to monitor password update and recovery events.
 - **Conditional Access policies for local administrator password recovery** - Configure Conditional Access policies on directory roles that have the authorization of password recovery.
 
 > [!NOTE]  
-> Windows LAPS with Azure AD is not supported for Windows devices that are [Azure AD registered](concept-azure-ad-register.md).
+> Windows LAPS with Microsoft Entra ID is not supported for Windows devices that are [Microsoft Entra registered](concept-device-registration.md).
 
 Local Administrator Password Solution isn't supported on non-Windows platforms.
 
@@ -53,7 +53,7 @@ This feature is now available in the following Azure clouds:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 ### Operating system updates
 
@@ -67,37 +67,39 @@ This feature is now available on the following Windows OS platforms with the spe
 
 ### Join types
 
-LAPS is supported on Azure AD joined or hybrid Azure AD joined devices only. Azure AD registered devices aren't supported. 
+LAPS is supported on Microsoft Entra joined or Microsoft Entra hybrid joined devices only. Microsoft Entra registered devices aren't supported. 
 
 ### License requirements
 
-LAPS is available to all customers with Azure AD Free or higher licenses. Other related features like administrative units, custom roles, Conditional Access, and Intune have other licensing requirements.
+LAPS is available to all customers with Microsoft Entra ID Free or higher licenses. Other related features like administrative units, custom roles, Conditional Access, and Intune have other licensing requirements.
 
 ### Required roles or permission
 
-Other than the built-in Azure AD roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Azure AD custom roles](/azure/active-directory/roles/custom-create) or administrative units to authorize local administrator password recovery. For example,
+Other than the built-in Microsoft Entra roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Microsoft Entra custom roles](/azure/active-directory/roles/custom-create) or administrative units to authorize local administrator password recovery. For example,
 
 - Custom roles must be assigned the *microsoft.directory/deviceLocalCredentials/password/read* permission to authorize local administrator password recovery. During the preview, you must create a custom role and grant permissions using the [Microsoft Graph API](/azure/active-directory/roles/custom-create#create-a-role-with-the-microsoft-graph-api) or [PowerShell](/azure/active-directory/roles/custom-create#create-a-role-using-powershell). Once you have created the custom role, you can assign it to users.
 
-- You can also create an Azure AD [administrative unit](/azure/active-directory/roles/administrative-units), add devices, and assign the Cloud Device Administrator role scoped to the administrative unit to authorize local administrator password recovery.
+- You can also create a Microsoft Entra ID [administrative unit](/azure/active-directory/roles/administrative-units), add devices, and assign the Cloud Device Administrator role scoped to the administrative unit to authorize local administrator password recovery.
 
-## Enabling Windows LAPS with Azure AD
+<a name='enabling-windows-laps-with-azure-ad'></a>
 
-To enable Windows LAPS with Azure AD, you must take actions in Azure AD and the devices you wish to manage. We recommend organizations [manage Windows LAPS using Microsoft Intune](/mem/intune/protect/windows-laps-policy). However, if your devices are Azure AD joined but you're not using Microsoft Intune or Microsoft Intune isn't supported (like for Windows Server 2019/2022), you can still deploy Windows LAPS for Azure AD manually. For more information, see the article [Configure Windows LAPS policy settings](/windows-server/identity/laps/laps-management-policy-settings).
+## Enabling Windows LAPS with Microsoft Entra ID
 
-1. Sign in to the **Azure portal** as a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
-1. Browse to **Azure Active Directory** > **Devices** > **Device settings**
+To enable Windows LAPS with Microsoft Entra ID, you must take actions in Microsoft Entra ID and the devices you wish to manage. We recommend organizations [manage Windows LAPS using Microsoft Intune](/mem/intune/protect/windows-laps-policy). However, if your devices are Microsoft Entra joined but you're not using Microsoft Intune or Microsoft Intune isn't supported (like for Windows Server 2019/2022), you can still deploy Windows LAPS for Microsoft Entra ID manually. For more information, see the article [Configure Windows LAPS policy settings](/windows-server/identity/laps/laps-management-policy-settings).
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
+1. Browse to **Identity** > **Devices** > **Overview** > **Device settings**
 1. Select **Yes** for the Enable Local Administrator Password Solution (LAPS) setting and select **Save**. You may also use the Microsoft Graph API [Update deviceRegistrationPolicy](/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true).
-1. Configure a client-side policy and set the **BackUpDirectory** to be Azure AD.
+1. Configure a client-side policy and set the **BackUpDirectory** to be Microsoft Entra ID.
 
    - If you're using Microsoft Intune to manage client side policies, see [Manage Windows LAPS using Microsoft Intune](/mem/intune/protect/windows-laps-policy)
    - If you're using Group Policy Objects (GPO) to manage client side policies, see [Windows LAPS Group Policy](/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy)
 
 ## Recovering local administrator password and password metadata
 
-To view the local administrator password for a Windows device joined to Azure AD, you must be granted the *microsoft.directory/deviceLocalCredentials/password/read* action.
+To view the local administrator password for a Windows device joined to Microsoft Entra ID, you must be granted the *microsoft.directory/deviceLocalCredentials/password/read* action.
 
-To view the local administrator password metadata for a Windows device joined to Azure AD,  you must be granted the *microsoft.directory/deviceLocalCredentials/standard/read* action.
+To view the local administrator password metadata for a Windows device joined to Microsoft Entra ID,  you must be granted the *microsoft.directory/deviceLocalCredentials/standard/read* action.
 
 The following built-in roles are granted these actions by default:
 
@@ -117,11 +119,11 @@ You can also use Microsoft Graph API [Get deviceLocalCredentialInfo](/graph/api/
 
 ## List all Windows LAPS enable devices
 
-To list all Windows LAPS enabled devices in Azure AD, you can browse to **Azure Active Directory** > **Devices** > **Local administrator password recovery (Preview)** or use the Microsoft Graph API.
+To list all Windows LAPS enabled devices, you can browse to  **Identity** > **Devices** > **Overview** > **Local administrator password recovery (Preview)** or use the Microsoft Graph API.
 
 ## Auditing local administrator password update and recovery
 
-To view audit events, you can browse to **Azure Active Directory** > **Devices** >  **Audit logs**, then use the **Activity** filter and search for **Update device local administrator password** or **Recover device local administrator password** to view the audit events.
+To view audit events, you can browse to  **Identity** > **Devices** > **Overview** > **Audit logs**, then use the **Activity** filter and search for **Update device local administrator password** or **Recover device local administrator password** to view the audit events.
 
 ## Conditional Access policies for local administrator password recovery
 
@@ -132,21 +134,27 @@ Conditional Access policies can be scoped to the built-in roles like Cloud Devic
 
 ## Frequently asked questions
 
-### Is Windows LAPS with Azure AD management configuration supported using Group Policy Objects (GPO)?
+<a name='is-windows-laps-with-azure-ad-management-configuration-supported-using-group-policy-objects-gpo'></a>
 
-Yes, for [hybrid Azure AD joined](concept-hybrid-join.md) devices only. See see [Windows LAPS Group Policy](/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy).
+### Is Windows LAPS with Microsoft Entra management configuration supported using Group Policy Objects (GPO)?
 
-### Is Windows LAPS with Azure AD management configuration supported using MDM?
+Yes, for [Microsoft Entra hybrid joined](concept-hybrid-join.md) devices only. See see [Windows LAPS Group Policy](/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy).
 
-Yes, for [Azure AD join](concept-azure-ad-join.md)/[hybrid Azure AD join](concept-hybrid-join.md) ([co-managed](/mem/configmgr/comanage/overview)) devices. Customers can use [Microsoft Intune](/mem/intune/protect/windows-laps-overview) or any other third party MDM of their choice.
+<a name='is-windows-laps-with-azure-ad-management-configuration-supported-using-mdm'></a>
 
-### What happens when a device is deleted in Azure AD?
+### Is Windows LAPS with Microsoft Entra management configuration supported using MDM?
 
-When a device is deleted in Azure AD, the LAPS credential that was tied to that device is lost and the password that is stored in Azure AD is lost. Unless you have a custom workflow to retrieve LAPS passwords and store them externally, there's no method in Azure AD to recover the LAPS managed password for a deleted device.
+Yes, for [Microsoft Entra join](concept-directory-join.md)/[Microsoft Entra hybrid join](concept-hybrid-join.md) ([co-managed](/mem/configmgr/comanage/overview)) devices. Customers can use [Microsoft Intune](/mem/intune/protect/windows-laps-overview) or any other third party MDM of their choice.
+
+<a name='what-happens-when-a-device-is-deleted-in-azure-ad'></a>
+
+### What happens when a device is deleted in Microsoft Entra ID?
+
+When a device is deleted in Microsoft Entra ID, the LAPS credential that was tied to that device is lost and the password that is stored in Microsoft Entra ID is lost. Unless you have a custom workflow to retrieve LAPS passwords and store them externally, there's no method in Microsoft Entra ID to recover the LAPS managed password for a deleted device.
 
 ### What roles are needed to recover LAPS passwords?
 
-The following built-in roles Azure AD roles have permission to recover LAPS passwords: Global Administrator, Cloud Device Administrator, and Intune Administrator.
+The following built-in roles Microsoft Entra roles have permission to recover LAPS passwords: Global Administrator, Cloud Device Administrator, and Intune Administrator.
 
 ### What roles are needed to read LAPS metadata?
 
@@ -154,7 +162,7 @@ The following built-in roles are supported to view metadata about LAPS including
 
 ### Are custom roles supported?
 
-Yes. If you have Azure AD Premium, you can create a custom role with the following RBAC permissions:
+Yes. If you have Microsoft Entra ID P1 or P2, you can create a custom role with the following RBAC permissions:
 
 - To read LAPS metadata: *microsoft.directory/deviceLocalCredentials/standard/read*
 - To read LAPS passwords: *microsoft.directory/deviceLocalCredentials/password/read*

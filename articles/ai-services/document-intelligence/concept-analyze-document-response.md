@@ -1,11 +1,10 @@
 ---
-title: Document Intelligence APIs analyze document response
+title: Document Intelligence (formerly Form Recognizer) APIs analyze document response
 titleSuffix: Azure AI services
 description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
@@ -168,6 +167,9 @@ A language element describes the detected language for content specified via spa
 
 ### Semantic elements
 
+> [!NOTE]
+> The semantic elements discussed here apply to Document Intelligence prebuilt models. Your custom models may return different data representations. For example, date and time returned by a custom model may be represented in a pattern that differs from standard ISO 8601 formatting.
+
 #### Document
 
 A document is a semantically complete unit.  A file may contain multiple documents, such as multiple tax forms within a PDF file, or multiple receipts within a single page.  However, the ordering of documents within the file doesn't fundamentally affect the information it conveys.
@@ -177,7 +179,15 @@ A document is a semantically complete unit.  A file may contain multiple documen
 
 The document type describes documents sharing a common set of semantic fields, represented by a structured schema, independent of its visual template or layout.  For example, all documents of type "receipt" may contain the merchant name, transaction date, and transaction total, although restaurant and hotel receipts often differ in appearance.
 
-A document element includes the list of recognized fields from among the fields specified by the semantic schema of the detected document type.  A document field may be extracted or inferred.  Extracted fields are represented via the extracted content and optionally its normalized value, if interpretable.  Inferred fields don't have content property and are represented only via its value.  Array fields don't include a content property, as the content can be concatenated from the content of the array elements.  Object fields do contain a content property that specifies the full content representing the object, which may be a superset of the extracted subfields.
+A document element includes the list of recognized fields from among the fields specified by the semantic schema of the detected document type:
+
+* A document field may be extracted or inferred.  Extracted fields are represented via the extracted content and optionally its normalized value, if interpretable.  
+
+* An inferred field doesn't have content property and is represented only via its value.  
+
+* An array field doesn't include a content property. The content can be concatenated from the content of the array elements.  
+
+* An object field does contain a content property that specifies the full content representing the object that may be a superset of the extracted subfields.
 
 The semantic schema of a document type is described via the fields it may contain.  Each field schema is specified via its canonical name and value type.  Field value types include basic (ex. string), compound (ex. address), and structured (ex. array, object) types.  The field value type also specifies the semantic normalization performed to convert detected content into a normalization representation.  Normalization may be locale dependent.
 

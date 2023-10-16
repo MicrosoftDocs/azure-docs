@@ -149,7 +149,7 @@ sections:
           - Privileged containers should be avoided
           - Running containers as root user should be avoided
           - Services should listen on allowed ports only
-          - SQL servers should have an Azure Active Directory administrator provisioned
+          - SQL servers should have an Microsoft Entra administrator provisioned
           - Usage of host networking and ports should be restricted
           - Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
 
@@ -162,6 +162,7 @@ sections:
           - You've included the accounts in the **Users** section of your MFA CA policy (or one of the groups in the **Groups** section)
           - The Azure Management app ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), or all apps, are included in the **Apps** section of your MFA CA policy
           - The Azure Management app ID isn't excluded in the **Apps** section of your MFA CA policy
+          - OR condition is used with only MFA, or AND condition is used with MFA 
  
       - question: |
           We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
@@ -213,7 +214,7 @@ sections:
           - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
           - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
           - Identity recommendations don't identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
-          - Identity recommendations don't support Azure AD conditional access policies with included Directory Roles instead of users and groups.
+          - Identity recommendations don't support Microsoft Entra conditional access policies with included Directory Roles instead of users and groups.
  
   
       - question: |

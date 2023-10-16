@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 10/03/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -92,13 +92,13 @@ Azure Bastion is deployed within VNets or peered VNets, and is associated to an 
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
-### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+### <a name="azure-ad-guests"></a>Does Bastion support Microsoft Entra guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+Yes, [Microsoft Entra guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Microsoft Entra guest users can't connect to Azure VMs via Microsoft Entra authentication. Non-guest users are supported via Microsoft Entra authentication. For more information about Microsoft Entra authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
 
-No, custom domains are not supported with Bastion shareable links. Users will receive a certificate error upon trying to add specific domains in the CN/SAN of the Bastion host certificate.
+No, custom domains aren't supported with Bastion shareable links. Users receive a certificate error upon trying to add specific domains in the CN/SAN of the Bastion host certificate.
 
 ## <a name="vm"></a>VM features and connection FAQs
 
@@ -111,13 +111,19 @@ In order to make a connection, the following roles are required:
 * Reader role on the Azure Bastion resource.
 * Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
+Additionally, the user must have the rights (if required) to connect to the VM. For example, if the user is connecting to a Windows VM via RDP and isn't a member of the local Administrators group, they must be a member of the Remote Desktop Users group.
+
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
-No. When you connect to a VM using Azure Bastion, you don't need a public IP on the Azure virtual machine that you're connecting to. The Bastion service will open the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
+No. When you connect to a VM using Azure Bastion, you don't need a public IP on the Azure virtual machine that you're connecting to. The Bastion service opens the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 No. You can access your virtual machine from the Azure portal using your browser. For available connections and methods, see [About VM connections and features](vm-about.md).
+
+### <a name="rdpusers"></a>Do users need specific rights on a target VM for RDP connections?
+
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 
@@ -131,6 +137,10 @@ No. You don't need to install an agent or any software on your browser or your A
 
 See [About VM connections and features](vm-about.md) for supported features.
 
+### <a name="shareable-links-passwords"></a>Is Reset Password available for local users connecting via shareable link?
+
+No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button may appear.
+
 ### <a name="audio"></a>Is remote audio available for VMs?
 
 Yes. See [About VM connections and features](vm-about.md#audio).
@@ -141,11 +151,11 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Microsoft Entra users. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
-### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 
-No, access to Windows Server VMs by Azure Bastion doesn't require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+Bastion does not support connecting to a VM that is set up as an RDS session host.
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
@@ -173,7 +183,11 @@ To set your target language as your keyboard layout on a Windows workstation, na
 
 ### <a name="shortcut"></a>Is there a keyboard solution to toggle focus between a VM and browser?
 
-Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser. 
+Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser.
+
+### <a name="keyboard-focus"></a>How do I take keyboard or mouse focus back from an instance?
+
+Click the Windows key twice in a row to take back focus within the Bastion window.
 
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
@@ -219,7 +233,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
 
-### My privatelink.azure.com cannot resolve to management.privatelink.azure.com
+### My privatelink.azure.com can't resolve to management.privatelink.azure.com
 
 This may be due to the Private DNS zone for privatelink.azure.com linked to the Bastion virtual network causing management.azure.com CNAMEs to resolve to management.privatelink.azure.com behind the scenes. Create a CNAME record in their privatelink.azure.com zone for management.privatelink.azure.com to arm-frontdoor-prod.trafficmanager.net to enable successful DNS resolution.
 

@@ -1,11 +1,10 @@
 ---
-title: "Build and train a custom classifier"
+title: "Build and train a custom classifier -  Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
 description: Learn how to label, and build a custom document classification model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar

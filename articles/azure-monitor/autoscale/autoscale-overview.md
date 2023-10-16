@@ -115,7 +115,6 @@ The full list of configurable fields and descriptions is available in the [Autos
 
 For code examples, see:
 
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-template.md)
 * [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
 * [Tutorial: Automatically scale a virtual machine scale set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 
@@ -143,7 +142,6 @@ To learn more about autoscale, see the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-template.md)
 * [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
 * [Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 * [Autoscale CLI reference](/cli/azure/monitor/autoscale)

@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on
-description: Learn to configure F5 BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
+description: Learn to configure F5 BIG-IP Access Policy Manager (APM) and Microsoft Entra SSO for header-based authentication
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -16,44 +16,44 @@ ms.custom: not-enterprise-apps
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on 
 
-Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to header-based applications, using F5 BIG-IP advanced configuration. BIG-IP published applications and Azure AD configuration benefits:
+Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to header-based applications, using F5 BIG-IP advanced configuration. BIG-IP published applications and Microsoft Entra configuration benefits:
 
-* Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
+* Improved Zero Trust governance through Microsoft Entra preauthentication and Conditional Access 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
   * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
-* Full SSO between Azure AD and BIG-IP published services
+* Full SSO between Microsoft Entra ID and BIG-IP published services
 * Managed identities and access from one control plane
-  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
+  * See, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
+* [Integrate F5 BIG-IP with Microsoft Entra ID](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
 
-For this scenario, there's a legacy application using HTTP authorization headers to control access to protected content. Ideally, Azure AD manages application access, however legacy lacks a modern authentication protocol. Modernization takes effort and time, while introducing downtime costs and risks. Instead, deploy a BIG-IP between the public internet and the internal application to gate inbound access to the application.
+For this scenario, there's a legacy application using HTTP authorization headers to control access to protected content. Ideally, Microsoft Entra ID manages application access, however legacy lacks a modern authentication protocol. Modernization takes effort and time, while introducing downtime costs and risks. Instead, deploy a BIG-IP between the public internet and the internal application to gate inbound access to the application.
 
-A BIG-IP in front of the application enables overlay of the service with Azure AD preauthentication and header-based SSO. The configuration improves the application security posture.
+A BIG-IP in front of the application enables overlay of the service with Microsoft Entra preauthentication and header-based SSO. The configuration improves the application security posture.
 
 ## Scenario architecture
 
 The secure hybrid access solution for this scenario is made up of:
 
-* **Application** - BIG-IP published service to be protected by Azure AD SHA
-* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SSO to the BIG-IP
-  * With SSO, Azure AD provides the BIG-IP required session attributes, including user identifiers
+* **Application** - BIG-IP published service to be protected by Microsoft Entra SHA
+* **Microsoft Entra ID** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SSO to the BIG-IP
+  * With SSO, Microsoft Entra ID provides the BIG-IP required session attributes, including user identifiers
 * **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before header-based SSO to the back-end application
 
-The following diagram illustrates the user flow with Azure AD, BIG-IP, APM and an application.
+The following diagram illustrates the user flow with Microsoft Entra ID, BIG-IP, APM and an application.
 
-   ![Diagram of the user flow with Azure AD, BIG-IP, APM and an application](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
+   ![Diagram of the user flow with Microsoft Entra ID, BIG-IP, APM and an application](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
 1. User connects to application SAML SP endpoint (BIG-IP).
-2. BIG-IP APM access policy redirects user to Azure AD (SAML IdP).
-3. Azure AD preauthenticates user and applies ConditionalAccess policies.
+2. BIG-IP APM access policy redirects user to Microsoft Entra ID (SAML IdP).
+3. Microsoft Entra preauthenticates user and applies ConditionalAccess policies.
 4. User is redirected to BIG-IP (SAML SP) and SSO occurs using issued SAML token. 
-5. BIG-IP injects Azure AD attributes as headers in request to the application. 
+5. BIG-IP injects Microsoft Entra attributes as headers in request to the application. 
 6. Application authorizes request and returns payload.
 
 ## Prerequisites
@@ -62,7 +62,7 @@ For the scenario you need:
 
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* For the account, have Azure AD Application Admin permissions
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
@@ -70,8 +70,8 @@ For the scenario you need:
   * F5 BIG-IP Access Policy Manager™ (APM) standalone license
   * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
   * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
-* User identities synchronized from an on-premises directory to Azure AD
-  * [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+* User identities synchronized from an on-premises directory to Microsoft Entra ID
+  * [Microsoft Entra Connect Sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
   * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A header-based application or an IIS header app for testing
@@ -84,25 +84,29 @@ The following instructions are an advanced configuration method, a flexible way 
    >[!NOTE]
    > Replace example strings or values with those from your environment.
 
-## Add F5 BIG-IP from the Azure AD gallery
+<a name='add-f5-big-ip-from-the-azure-ad-gallery'></a>
+
+## Add F5 BIG-IP from the Microsoft Entra gallery
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Azure AD. The trust establishes the integration for BIG-IP to hand off preauthentication and Conditional Access to Azure AD, before granting access to the published service.
+To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Microsoft Entra ID. The trust establishes the integration for BIG-IP to hand off preauthentication and Conditional Access to Microsoft Entra ID, before granting access to the published service.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
-1. With an account that has Application Administrator permissions, sign in to the [Azure portal](https://azure.microsoft.com/features/azure-portal).
-2. In the left navigation pane, select the **Azure Active Directory** service.
-3. Go to **Enterprise Applications**.
-4. On the top ribbon, select **+ New application**.
-5. In the gallery, search for **F5**.
-6. Select **F5 BIG-IP APM Azure AD integration**.
-7. Enter an application **Name**.
-8. Select **Add/Create**. 
-9. The name reflects the service.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+3. On the top ribbon, select **+ New application**.
+4. In the gallery, search for **F5**.
+5. Select **F5 BIG-IP APM Azure AD integration**.
 
-## Configure Azure AD SSO 
+6. Enter an application **Name**.
+7. Select **Add/Create**. 
+8. The name reflects the service.
+
+<a name='configure-azure-ad-sso-'></a>
+
+## Configure Microsoft Entra SSO 
 
 1. The new **F5** application properties appear
 2. Select **Manage** > **Single sign-on**
@@ -114,9 +118,9 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 8. Repeat for **Reply URL** and include the APM SAML endpoint path. For example, `https://mytravel.contoso.com/saml/sp/profile/post/acs`
 
    >[!NOTE]
-   >In this configuration, the SAML flow operates in IdP mode: Azure AD issues the user a SAML assertion before being redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports IdP and SP modes.
+   >In this configuration, the SAML flow operates in IdP mode: Microsoft Entra ID issues the user a SAML assertion before being redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports IdP and SP modes.
 
-9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
+9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Microsoft Entra sign-out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
 
    ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
 
@@ -140,23 +144,25 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 19. Select **Save** the configuration.
 20. Close the view.
-21. Observe the **User Attributes & Claims** section properties. Azure AD issues users properties for BIG-IP APM authentication and SSO to the back-end application.
+21. Observe the **User Attributes & Claims** section properties. Microsoft Entra ID issues users properties for BIG-IP APM authentication and SSO to the back-end application.
 
    ![Screenshot of User Attributes and Claims information such as surname, email address, identity, etc.](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
    > [!NOTE]
-   > Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Azure AD. Define directory memberships and user objects in Azure AD before claims can be issued. See, [Configure group claims for applications by using Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+   > Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Microsoft Entra ID. Define directory memberships and user objects in Microsoft Entra ID before claims can be issued. See, [Configure group claims for applications by using Microsoft Entra ID](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 22. In the **SAML Signing Certificate** section, select **Download**. 
 23. The **Federation Metadata XML** file is saved on your computer.
 
    ![Screenshot of the Download link for Federation Metadata XML on the SAML Signing Certificate dialog.](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
 
-SAML signing certificates created by Azure AD have a lifespan of three years.
+SAML signing certificates created by Microsoft Entra ID have a lifespan of three years.
 
-### Azure AD authorization
+<a name='azure-ad-authorization'></a>
 
-By default, Azure AD issues tokens to users granted access to an application.
+### Microsoft Entra authorization
+
+By default, Microsoft Entra ID issues tokens to users granted access to an application.
 
 1. In the application's configuration view, select **Users and groups**.
 2. Select **+ Add user** and in **Add Assignment**, select **Users and groups**.
@@ -164,7 +170,7 @@ By default, Azure AD issues tokens to users granted access to an application.
 4. Select **Select**.
 5. Select **Assign**.
 
-Azure AD SAML federation trust is complete. Next, set up BIG-IP APM to publish the web application, configured with properties to complete SAML preauthentication trust.
+Microsoft Entra SAML federation trust is complete. Next, set up BIG-IP APM to publish the web application, configured with properties to complete SAML preauthentication trust.
 
 ## Advanced configuration
 
@@ -172,14 +178,14 @@ Use the following sections to configure SAML, header SSO, access profile, and mo
 
 ### SAML configuration
 
-Create the BIG-IP SAML service provider and corresponding SAML IdP objects to federate the published application, with Azure AD.
+Create the BIG-IP SAML service provider and corresponding SAML IdP objects to federate the published application, with Microsoft Entra ID.
 
 1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services** > **Create**.
 
    ![Screenshot the Create option under the SAML Service Provider tab.](./media/f5-big-ip-header-advanced/create-saml-sp.png)
 
 2. Enter a **Name**.
-3. Enter the **Entity ID** defined in Azure AD.
+3. Enter the **Entity ID** defined in Microsoft Entra ID.
 
    ![Screenshot of Name and Entity ID input on the Create New SAML SP Service dialog.](./media/f5-big-ip-header-advanced/new-saml-sp-information.png)
 
@@ -350,7 +356,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
    ![Screenshot of the Source Address Translation option.](./media/f5-big-ip-header-advanced/change-source-address.png)
 
-9. For **Access Policy**, select the **Access Profile** created earlier. This action binds the Azure AD SAML preauthentication profile and headers SSO policy to the virtual server.
+9. For **Access Policy**, select the **Access Profile** created earlier. This action binds the Microsoft Entra SAML preauthentication profile and headers SSO policy to the virtual server.
 10. For **Per-Request Policy**, select **SSO_Headers**.
 
    ![Screenshot of entries for Access Profile and Pre-Request Policy.](./media/f5-big-ip-header-advanced/set-access-profile.png)
@@ -364,11 +370,12 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 Use the BIG-IPs session management setting to define the conditions for user session termination or continuation. Create policy with **Access Policy** > **Access Profiles**. Select an application from the list.
 
-Regarding SLO functionality, a SLO URI in Azure AD ensures an IdP initiated sign out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Azure AD SAML sign-out endpoint, for SP initiated sign out. Therefore, enable the APM to know when a user signs out.
+Regarding SLO functionality, a SLO URI in Microsoft Entra ID ensures an IdP-initiated sign-out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Microsoft Entra SAML sign-out endpoint, for SP initiated sign-out. Therefore, enable the APM to know when a user signs out.
+
 
 If there's no BIG-IP web portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. The application session can be reinstated through SSO. Therefore, SP-initiated sign out needs careful consideration. 
 
-To ensure sessions terminate securely, add an SLO function to your application **Sign out** button. Enable it to redirect the client to the Azure AD SAML sign-out endpoint. For the SAML sign out endpoint for your tenant, go to **App Registrations** > **Endpoints**.
+To ensure sessions terminate securely, add an SLO function to your application **Sign out** button. Enable it to redirect the client to the Microsoft Entra SAML sign-out endpoint. For the SAML sign out endpoint for your tenant, go to **App Registrations** > **Endpoints**.
 
 If you can't change the app, enable the BIG-IP to listen for the app sign-out call and trigger SLO. To learn more:
 
@@ -384,7 +391,7 @@ If you can't change the app, enable the BIG-IP to listen for the app sign-out ca
 ## Test
 
 1. As a user, select the application external URL, or in the MyApps portal select the application icon. 
-2. Authenticate to Azure AD.
+2. Authenticate to Microsoft Entra ID.
 3. You're redirected to the BIG-IP virtual server for the app and signed in with SSO.
 4. The injected header output appears by the header-based application.
 
@@ -412,14 +419,14 @@ BIG-IP logs have information to help isolate authentication and SSO issues. Incr
 
 ### BIG-IP error message
 
-If a BIG-IP error appears after redirection, the issue likely relates to SSO from Azure AD to the BIG-IP. 
+If a BIG-IP error appears after redirection, the issue likely relates to SSO from Microsoft Entra ID to the BIG-IP. 
 
 1. Navigate to **Access Policy** > **Overview**.
 2. Select **Access reports**.
 3. Run the report for the last hour.
 4. Review the logs for clues. 
 5. For your session, select the **View session variables** link. 
-6. Verify the APM receives the expected claims from Azure AD.
+6. Verify the APM receives the expected claims from Microsoft Entra ID.
 
 ### No BIG-IP error message
 

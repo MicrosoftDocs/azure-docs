@@ -4,13 +4,14 @@ description: Apprentice mode gives you confidence in the Personalizer service an
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 07/26/2022
 ---
 
 # Configure the Personalizer learning behavior
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [Apprentice mode](concept-apprentice-mode.md) gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
 

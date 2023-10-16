@@ -1,8 +1,8 @@
 ---
 title: Drawing tools events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/23/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -31,10 +31,7 @@ The following image shows a screenshot of the complete working sample that demon
 <!------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Drawing tools events" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>Drawing tools events</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true]
 
 -------------------------------------------------------------------->
 
@@ -44,7 +41,7 @@ Let's see some common scenarios that use the drawing tools events.
 
 ### Select points in polygon area
 
-This code demonstrates how to monitor an event of a user drawing shapes. For this example, the code monitors shapes of polygons, rectangles, and circles. Then, it determines which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, the code loops through all the data points on the map. It checks if there's an intersection of the point and the area of the drawn shape. This example makes use of the open-source [Turf.js](https://turfjs.org/) library to perform a spatial intersection calculation.
+This code demonstrates how to monitor an event of a user drawing shapes. For this example, the code monitors shapes of polygons, rectangles, and circles. Then, it determines which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, the code loops through all the data points on the map. It checks if there's an intersection of the point and the area of the drawn shape. This example makes use of the open-source [Turf.js] library to perform a spatial intersection calculation.
 
 For a complete working sample of how to use the drawing tools to draw polygon areas on the map with points within them that can be selected, see [Select data in drawn polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Select data in drawn polygon area sample code].
 
@@ -53,10 +50,7 @@ For a complete working sample of how to use the drawing tools to draw polygon ar
 <!-------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Select data in drawn polygon area" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Select data in drawn polygon area</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result]
 ---------------------------------------------------------------->
 
 ### Draw and search in polygon area
@@ -70,10 +64,7 @@ For a complete working sample of how to use the drawing tools to search for poin
 <!-------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Draw and search in polygon area" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw and search in polygon area</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true]
 ---------------------------------------------------------------->
 
 ### Create a measuring tool
@@ -85,10 +76,7 @@ For a complete working sample of how to use the drawing tools to measure distanc
 :::image type="content" source="./media/drawing-tools-events/create-a-measuring-tool.png" alt-text="Screenshot showing a map displaying the measuring tool sample.":::
 
 <!-------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Measuring tool" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Measuring tool</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true]
 ---------------------------------------------------------------->
 
 ## Next steps
@@ -96,27 +84,32 @@ For a complete working sample of how to use the drawing tools to measure distanc
 Learn how to use other features of the drawing tools module:
 
 > [!div class="nextstepaction"]
-> [Get shape data](map-get-shape-data.md)
+> [Get shape data]
 
 > [!div class="nextstepaction"]
-> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Interaction types and keyboard shortcuts]
 
 Learn more about the services module:
 
 > [!div class="nextstepaction"]
-> [Services module](how-to-use-services-module.md)
+> [Services module]
 
 Check out more code samples:
 
 > [!div class="nextstepaction"]
-> [Code sample page](https://aka.ms/AzureMapsSamples)
+> [Code sample page]
 
 [Azure Maps Samples]:https://samples.azuremaps.com
-[Drawing tools events]: https://samples.azuremaps.com/drawing-tools-module/drawing-tools-events
-[Drawing tools events sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20tools%20events/Drawing%20tools%20events.html
-[Select data in drawn polygon area]: https://samples.azuremaps.com/drawing-tools-module/select-data-in-drawn-polygon-area
-[Select data in drawn polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Select%20data%20in%20drawn%20polygon%20area/Select%20data%20in%20drawn%20polygon%20area.html
-[Draw and search polygon area]: https://samples.azuremaps.com/drawing-tools-module/draw-and-search-polygon-area
-[Draw and search polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Draw%20and%20search%20polygon%20area/Draw%20and%20search%20polygon%20area.html
-[Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool
+[Code sample page]: https://aka.ms/AzureMapsSamples
 [Create a measuring tool sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Create%20a%20measuring%20tool/Create%20a%20measuring%20tool.html
+[Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool
+[Draw and search polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Draw%20and%20search%20polygon%20area/Draw%20and%20search%20polygon%20area.html
+[Draw and search polygon area]: https://samples.azuremaps.com/drawing-tools-module/draw-and-search-polygon-area
+[Drawing tools events sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20tools%20events/Drawing%20tools%20events.html
+[Drawing tools events]: https://samples.azuremaps.com/drawing-tools-module/drawing-tools-events
+[Get shape data]: map-get-shape-data.md
+[Interaction types and keyboard shortcuts]: drawing-tools-interactions-keyboard-shortcuts.md
+[Select data in drawn polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Select%20data%20in%20drawn%20polygon%20area/Select%20data%20in%20drawn%20polygon%20area.html
+[Select data in drawn polygon area]: https://samples.azuremaps.com/drawing-tools-module/select-data-in-drawn-polygon-area
+[Services module]: how-to-use-services-module.md
+[Turf.js]: https://turfjs.org

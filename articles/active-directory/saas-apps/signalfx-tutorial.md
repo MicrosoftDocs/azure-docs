@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx'
-description: Learn how to configure single sign-on between Azure Active Directory and SignalFx.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with SignalFx'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SignalFx.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with SignalFx
 
-In this tutorial, you will learn how to integrate SignalFx with Azure Active Directory (Azure AD). When you integrate SignalFx with Azure AD, you can:
+In this tutorial, you will learn how to integrate SignalFx with Microsoft Entra ID. When you integrate SignalFx with Microsoft Entra ID, you can:
 
-* Control from Azure AD who has access to SignalFx.
-* Enable your users to be automatically signed-in to SignalFx with their Azure AD accounts.
+* Control from Microsoft Entra ID who has access to SignalFx.
+* Enable your users to be automatically signed-in to SignalFx with their Microsoft Entra accounts.
 * Manage your accounts in one location (the Azure portal).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SignalFx single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you will configure and test Azure AD SSO in a test environment.
+In this tutorial, you will configure and test Microsoft Entra SSO in a test environment.
 
 * SignalFx supports **IDP** initiated SSO.
 * SignalFx supports **Just In Time** user provisioning.
@@ -39,13 +39,11 @@ In this tutorial, you will configure and test Azure AD SSO in a test environment
 
 Use these instructions to add the SignalFx application to your list of managed SaaS apps.
 
-1. Log into the Azure portal.
-1. On the left-side navigation window, select **Azure Active Directory**.
-1. Select **Enterprise applications**, and then select **All applications**.
-1. Select **New application**.
-1. In the **Add from the gallery** section, in the search box, enter and select **SignalFx**.
-     * You may need to wait a few minutes for the application to be added to your tenant.
-1. Leave the Azure portal open, and then open a new web tab.    
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SignalFx** in the search box.
+1. Select **SignalFx** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Leave the Microsoft Entra admin center open, and then open a new browser tab.
 
 ## Step 2: Begin SignalFx SSO configuration
 
@@ -53,7 +51,7 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 
 1. In the newly opened tab, access and log into the SignalFx UI. 
 1. In the top menu, click **Integrations**. 
-1. In the search field, enter and select **Azure Active Directory**.
+1. In the search field, enter and select **Microsoft Entra ID**.
 1. Click **Create New Integration**.
 1. In **Name**, enter an easily recognizable name that your users will understand.
 1. Mark **Show on login page**.
@@ -63,11 +61,13 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 1. Copy the **Integration ID**. You will need this information in a later step. 
 1. Leave the SignalFx UI open. 
 
-## Step 3: Configure Azure AD SSO
+<a name='step-3-configure-azure-ad-sso'></a>
 
-Use these instructions to enable Azure AD SSO in the Azure portal.
+## Step 3: Configure Microsoft Entra SSO
 
-1. Return to the Azure portal, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
+Use these instructions to enable Microsoft Entra SSO.
+
+1. Return to the Microsoft Entra admin center, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -97,38 +97,44 @@ Use these instructions to enable Azure AD SSO in the Azure portal.
 
     ![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up SignalFx** section, copy the **Azure AD Identifier** value. You will need this information in a later step in the SignalFx UI. 
+1. On the **Set up SignalFx** section, copy the **Microsoft Entra Identifier** value. You will need this information in a later step in the SignalFx UI. 
 
-## Step 4: Create an Azure AD test user
+<a name='step-4-create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+## Step 4: Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-## Step 5: Assign the Azure AD test user
+<a name='step-5-assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SignalFx.
+## Step 5: Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **SignalFx**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SignalFx.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SignalFx**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Step 6: Complete the SignalFx SSO configuration 
 
-1. Open the previous tab, and return to the SignalFx UI to view the current Azure Active Directory integration page. 
-1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded from Azure portal.
-1. Next to **Azure AD Identifier**, paste the **Azure AD Identifier** value that you copied earlier from the Azure portal. 
-1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier from the Azure portal. 
+1. Open the previous tab, and return to the SignalFx UI to view the current Microsoft Entra integration page. 
+1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded previously.
+1. Next to **Microsoft Entra Identifier**, paste the **Microsoft Entra Identifier** value that you copied earlier. 
+1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier. 
 1. Click **Save**.
 
 ## Step 7: Test SSO
@@ -137,7 +143,7 @@ Review the following information regarding how to test SSO, as well as expectati
 
 ### Test logins
 
-* To test the login, you should use a private / incognito window, or you can log out of the Azure portal. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
+* To test the login, you should use a private / incognito window, or you can log out. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
 
 * When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the MyApps and try again.
     * When you click the SignalFx tile in the MyApps, you should be automatically logged into the SignalFx. 

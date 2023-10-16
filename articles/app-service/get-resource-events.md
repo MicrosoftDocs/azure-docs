@@ -4,7 +4,7 @@ description: Learn how to get resource events through Activity Logs and Event Gr
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-
+author: msangapu-msft
 ---
 # Get resource events in Azure App Service
 

@@ -43,9 +43,11 @@ There are no limits on maximum file size.
 ### Chunked Transfer Encoding Support
 Microsoft CDN supports transfer encoding response but only up to a maximum of 8-MB content size. For chunked transfer encoded response that greater than 8 MB, Microsoft CDN only cache and serve the first 8 MB of content.
 
-## Optimize for delivery of large files with Azure CDN from Verizon
+<a name='optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon'></a>
 
-**Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** endpoints deliver large files without a cap on file size. More features are turned on by default to make delivery of large files faster.
+## Optimize for delivery of large files with Azure CDN from Edgio
+
+**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** endpoints deliver large files without a cap on file size. More features are turned on by default to make delivery of large files faster.
 
 ### Complete cache fill
 
@@ -53,7 +55,7 @@ The default complete cache fill feature enables the CDN to pull a file into the 
 
 Complete cache fill is most useful for large assets. Typically, users don't download them from start to finish. They use progressive download. The default behavior forces the edge server to initiate a background fetch of the asset from the origin server. Afterward, the asset is in the edge server's local cache. After the full object is in the cache, the edge server fulfills byte-range requests to the CDN for the cached object.
 
-The default behavior can be disabled through the rules engine in **Azure CDN Premium from Verizon**.
+The default behavior can be disabled through the rules engine in **Azure CDN Premium from Edgio**.
 
 ### Peer cache fill hot-filing
 
@@ -61,7 +63,7 @@ The default peer cache fills hot-filing feature uses a sophisticated proprietary
 
 ### Conditions for large file optimization
 
-Large file optimization features for **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** are turned on by default when you use the general web delivery optimization type. There are no limits on maximum file size. 
+Large file optimization features for **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** are turned on by default when you use the general web delivery optimization type. There are no limits on maximum file size. 
 
 
 ## Optimize for delivery of large files with Azure CDN Standard from Akamai
@@ -136,4 +138,3 @@ Consider the following aspects for this optimization type:
 - For chunks cached at the CDN, there are no other requests to the origin until the content expires or it's evicted from the cache.
 
 - Users can make range requests to the CDN, which are treated like any normal file. Optimization applies only if it's a valid file type and the byte range is between 10 MB and 150 GB. If the average file size requested is smaller than 10 MB, use general web delivery instead.
-

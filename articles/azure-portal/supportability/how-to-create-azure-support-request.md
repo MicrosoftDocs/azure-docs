@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 11/18/2022
+ms.date: 08/03/2023
 ---
 
 # Create an Azure support request
@@ -26,7 +26,7 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 You must have the appropriate access to a subscription before you can create a support request for it. This means you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
 
-To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
+To create a support request without a subscription, for example a Microsoft Entra scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 > [!IMPORTANT]
 > If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](../../role-based-access-control/resource-provider-operations.md#microsoftsupport) permission).
@@ -39,7 +39,7 @@ To start a support request from anywhere in the Azure portal:
 
    :::image type="content" source="media/how-to-create-azure-support-request/helpandsupportnewlower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
 
-1. Select **Create a support request**. Follow the prompts to provide information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
+1. Select **Create a support request**.
 
    :::image type="content" source="media/how-to-create-azure-support-request/newsupportrequest2lower.png" alt-text="Screenshot of the Help + support page with Create a support request link.":::
 
@@ -51,11 +51,11 @@ To start a support request in the context of the resource you're currently worki
 
    :::image type="content" source="media/how-to-create-azure-support-request/incontext2lower.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
 
-1. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from a resource, some options are pre-selected for you.
+   When you start the support request process from a resource, some options are pre-selected for you, based on that resource.
 
 ## Create a support request
 
-We'll walk you through some steps to gather information about your problem and help you solve it. Each step is described in the following sections.
+After you create a new support request, you'll need to provide some information to help us understand the problem. This information is gathered in a few separate sections.
 
 ### Problem description
 
@@ -74,7 +74,7 @@ Once you've provided all of these details, select **Next**.
 
 Based on the information you provided, we'll show you recommended solutions you can use to try and resolve the problem. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
-If you're still unable to resolve the issue, continue creating your support request by selecting **Next**.
+If you're still unable to resolve the issue, continue creating your support request by selecting **Return to support request**, then selecting **Next**.
 
 ### Additional details
 
@@ -109,7 +109,7 @@ When you allow collection of [advanced diagnostic information](https://azure.mic
 - [Microsoft Azure Service Fabric logs](/troubleshoot/azure/general/fabric-logs)
 - [StorSimple support packages and device logs](https://support.microsoft.com/topic/storsimple-support-packages-and-device-logs-cb0a1c7e-6125-a5a7-f212-51439781f646)
 - [SQL Server on Azure Virtual Machines logs](/troubleshoot/azure/general/sql-vm-logs)
-- [Azure Active Directory logs](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs)
+- [Microsoft Entra logs](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs)
 - [Azure Stack Edge support package and device logs](/troubleshoot/azure/general/azure-stack-edge-support-package-device-logs)
 - [Azure Synapse Analytics logs](/troubleshoot/azure/general/synapse-analytics-apache-spark-pools-diagnostic-logs)
 

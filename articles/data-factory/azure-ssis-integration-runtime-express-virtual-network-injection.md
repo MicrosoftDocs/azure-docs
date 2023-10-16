@@ -121,7 +121,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
     |-------------------|------|
     | <b>Azure Public</b> | _\*.frontend.clouddatahub.net_ |
     | <b>Azure Government</b> | _\*.frontend.datamovement.azure.us_ |
-    | <b>Azure China 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
+    | <b>Microsoft Azure operated by 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
 
   - If you use Azure SQL Database server/Managed Instance to host SSISDB, you must open ports *1433, 11000-11999* for outbound TCP traffic with *0.0.0.0/0* or your Azure SQL Database server/Managed Instance FQDN as destination.
 

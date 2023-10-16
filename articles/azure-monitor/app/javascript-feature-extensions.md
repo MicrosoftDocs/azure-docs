@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript feature extensions (Click A
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 10/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -88,7 +88,7 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 			};
 			// Application Insights JavaScript (Web) SDK Loader Script code
 			!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-					src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+					src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
 					crossOrigin: "anonymous",
 					cfg: configObj // configObj is defined above.
 			});
@@ -173,6 +173,8 @@ When you define the `data-parentid` or `data-*-parentid` attribute, the plug-in 
 
 If you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, precedence is given to `data-parentid` or `data-*-parentid`.
 
+If the "Click Event rows with no parentId value" telemetry warning appears, see [Fix the "Click Event rows with no parentId value" warning](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#fix-the-click-event-rows-with-no-parentid-value-warning).
+
 For examples showing which value is fetched as the `parentId` for different configurations, see [Examples of `parentid` key](#examples-of-parentid-key).
 
 > [!CAUTION]
@@ -249,6 +251,8 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (e.g. NAVIGATIONBACK).
 
 #### Sample usage with behaviorValidator
+
+Here's a sample of what a behavior map validator might look like. Yours could look different, depending on your organization's taxonomy and the events you collect.
 
 ```js
 var clickPlugin = Microsoft.ApplicationInsights.ClickAnalyticsPlugin;
@@ -444,7 +448,11 @@ See a [simple web app with the Click Analytics Autocollection Plug-in enabled](h
 
 The following examples show which value is fetched as the `parentId` for different configurations.
 
+The examples show how if `parentDataTag` is defined but the plug-in can't find this tag under the DOM tree, the plug-in uses the `id` of its closest parent element.
+
 ### Example 1
+
+In example 1, the `parentDataTag` isn't declared and `data-parentid` or `data-*-parentid` isn't defined in any element. This example shows a configuration where a value for `parentId` isn't collected.
 
 ```javascript
 export const clickPluginConfigWithUseDefaultContentNameOrId = {
@@ -459,15 +467,17 @@ export const clickPluginConfigWithUseDefaultContentNameOrId = {
 }; 
 
 <div className="test1" data-id="test1parent">
-     <div>Test1</div>
+      <div>Test1</div>
       <div><small>with id, data-id, parent data-id defined</small></div>
       <Button id="id1" data-id="test1id" variant="info" onClick={trackEvent}>Test1</Button>
-     </div>
+</div>
 ```
 
-For example 1, for clicked element `<Button>`, the value of `parentId` is `“not_specified”`, because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
+For clicked element `<Button>` the value of `parentId` is `“not_specified”`, because no `parentDataTag` details are defined and no parent element id is provided within the current element.
 
 ### Example 2
+
+In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how parent id details are collected.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -488,9 +498,11 @@ export const clickPluginConfigWithParentDataTag = {
    </div>
 ```
 
-For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence. If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
+For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` is directly defined within the element. Therefore, this value takes precedence over all other parent ids or id details defined in its parent elements.
        
-### Example 3 
+### Example 3
+
+In example 3, `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined. This example shows how declaring `parentDataTag` can be helpful to collect a value for `parentId` for cases when dynamic elements don't have an `id` or `data-*-id`.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -512,7 +524,7 @@ export const clickPluginConfigWithParentDataTag = {
   </div>
 </div>
 ```
-For example 3, for clicked element `<Button>`, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` is `test6parent`. It's `test6parent` because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
+For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the id of its closest parent will be used when parent id details are not directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
 
 If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 

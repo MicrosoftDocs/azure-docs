@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, ignite-2022
 ---
 
-# Set up no-code AutoML training with the studio UI 
+# Set up no-code AutoML training for tabular data with the studio UI 
 
 In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio).
 
@@ -271,7 +271,7 @@ To generate a Responsible AI dashboard for a particular model,
 
     ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection.png)
 
-3. Proceed to the **Compute** page of the setup form and choose the **Serverless** as your compute.
+3. Proceed to the **Compute** page of the setup form and choose the **Serverless** option for your compute.
 
     ![Serverless compute selection](media/how-to-use-automated-ml-for-ml-models/compute-serverless.png)
 

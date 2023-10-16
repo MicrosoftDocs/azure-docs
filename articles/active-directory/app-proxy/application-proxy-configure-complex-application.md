@@ -1,6 +1,6 @@
 ---
-title: Complex applications for Azure Active Directory Application Proxy
-description: Provides an understanding of complex application in Azure Active Directory Application Proxy, and how to configure one. 
+title: Complex applications for Microsoft Entra application proxy
+description: Provides an understanding of complex application in Microsoft Entra application proxy, and how to configure one. 
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 09/15/2023
 ms.author: dhruvinshah
 ms.reviewer: dhruvinshah
 ---
 
-# Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
+# Understanding Microsoft Entra application proxy Complex application scenario (Preview)
 
-When applications are made up of multiple individual web application using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
-1. Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
-2. CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
+When applications are made up of multiple individual web application using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Microsoft Entra application proxy apps and the following problems might arise:
+1. Pre-authentication- The client must separately acquire an access token or cookie for each Microsoft Entra application proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
+2. CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Microsoft Entra application proxy Cloud service, since these requests cannot contain authentication information.
 3. Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
 The following figure shows an example for complex application domain structure.
 
 :::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-structure-1.png" alt-text="Diagram of domain structure for a complex application showing resource sharing between primary and secondary application.":::
 
-With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
+With [Microsoft Entra application proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
 
 :::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-flow-1.png" alt-text="Diagram of a Complex application with multiple application segments definition.":::
 
@@ -51,13 +51,13 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Pre-requisites
 Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
+- You need to enable Application Proxy and install a connector that has line of sight to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
 ## Configure application segment(s) for complex application. 
 
 > [!NOTE]
-> Two application segment per complex distributed application are supported for [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory). License requirement for more than two application segments per complex application to be announced soon.
+> Two application segment per complex distributed application are supported for [Microsoft Entra ID P1 or P2 subscription](https://azure.microsoft.com/pricing/details/active-directory). License requirement for more than two application segments per complex application to be announced soon.
 
 To publish complex distributed app through Application Proxy with application segments:
 
@@ -75,7 +75,7 @@ To publish complex distributed app through Application Proxy with application se
 
 5. In the External Url field, drop down the list and select the custom domain you want to use.
 
-6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta).
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta&preserve-view=true).
 
 7. Select Create.
 
@@ -97,10 +97,10 @@ Alternatively, a DNS entry with a CNAME record for every individual application 
 for example in above instance  >`'home.contoso.ashcorp.us'` points to > `home-ashcorp1.msappproxy.net`
 
 
-For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
+For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md).
 
 ## See also
-- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) 
-- [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
-- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md)
-- [Understand and solve Azure Active Directory Application Proxy CORS issues](application-proxy-understand-cors-issues.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md) 
+- [Plan a Microsoft Entra application proxy deployment](application-proxy-deployment-plan.md) 
+- [Remote access to on-premises applications through Microsoft Entra application proxy](application-proxy.md)
+- [Understand and solve Microsoft Entra application proxy CORS issues](application-proxy-understand-cors-issues.md)

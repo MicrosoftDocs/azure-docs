@@ -7,13 +7,19 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
 # SSL offloading with Application Gateway for Containers - Ingress API (preview)
 
 This document helps set up an example application that uses the _Ingress_ resource from [Ingress API](https://kubernetes.io/docs/concepts/services-networking/ingress/):
+
+## Background
+
+Application Gateway for Containers enables SSL [offloading](/azure/architecture/patterns/gateway-offloading) for better backend performance. See the following example scenario:
+
+![A figure showing SSL offloading with Application Gateway for Containers.](./media/how-to-ssl-offloading-ingress-api/ssl-offloading.png)
 
 ## Prerequisites
 
@@ -71,6 +77,7 @@ spec:
 EOF
 ```
 
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 
@@ -172,7 +179,7 @@ status:
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the command below to get the FQDN.
 
 ```bash
-fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'')
+fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
 Curling this FQDN should return responses from the backend as configured on the HTTPRoute.

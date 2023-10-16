@@ -336,7 +336,7 @@ This section explains two methods for migrating to managed identity authenticati
 
 ### Existing clusters with a service principal
 
-AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
+AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Microsoft Azure operated by 21Vianet cloud, and Azure Government cloud are currently supported for this migration.
 
 > [!NOTE]
 > Minimum Azure CLI version 2.49.0 or higher.
@@ -367,7 +367,7 @@ AKS clusters with a service principal must first disable monitoring and then upg
 
 ### Existing clusters with system or user-assigned identity
 
-AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
+AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure operated by 21Vianet cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
 
 > [!NOTE]
 > Minimum Azure CLI version 2.49.0 or higher.
@@ -444,7 +444,6 @@ Use the following procedure if you're not using managed identity authentication.
 
 3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
 
-
 4. Enable monitoring for the AKS cluster.
 
     ```cli
@@ -456,7 +455,11 @@ Use the following procedure if you're not using managed identity authentication.
 
 - When you enable managed identity authentication, a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
+- You must be on a machine on the same private network to access live logs from a private cluster.
+
 ## Next steps
 
 * If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
+
+

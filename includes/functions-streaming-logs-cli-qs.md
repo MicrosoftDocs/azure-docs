@@ -6,7 +6,7 @@ ms.date: 10/18/2020
 ms.author: glenga
 ---
 
-Run the following command to view near real-time [streaming logs](../articles/azure-functions/functions-run-local.md#enable-streaming-logs):
+Run the following command to view near real-time streaming logs:
 
 ```console
 func azure functionapp logstream <APP_NAME> 

@@ -208,9 +208,9 @@ You can view your remote desktops and apps as either a tile view (default) or li
 
 1. If you want to switch to Tile view, select **List**, then select **Tile view**.
 
-## Enable Windows Insider releases
+## Enable Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
+If you want to help us test new builds of the Azure Virtual Desktop app before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
 
 > [!NOTE]
 > Insider releases shouldn't be used in production.
@@ -227,7 +227,7 @@ Insider releases are made available in the Azure Virtual Desktop Store app once 
 
 1. Open the **Azure Virtual Desktop** app. The title in the top left-hand corner should be **Azure Virtual Desktop (Insider)**:
 
-   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop Store app with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-insider.png" alt-text="A screenshot of the Azure Virtual Desktop Store app with Insider features enabled. The title is highlighted in a red box.":::
 
 If you already have configured the Azure Virtual Desktop Store app to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the Azure Virtual Desktop app](#update-the-azure-virtual-desktop-app).
 

@@ -2,7 +2,7 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: include
 ms.date: 07/19/2023
 ---
@@ -16,13 +16,27 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-Use the following steps to prepare the sample locally.
+### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [prepare-spring-project-git-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-git-event-driven.md)]
+The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to prepare the sample locally:
+
+[!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
+
+---
 
 ## 3. Prepare the cloud environment
 
 The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-enterprise-azure-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ### 3.1. Provide names for each resource
 
@@ -147,13 +161,23 @@ Now, both the Service Bus and the app in Azure Spring Apps have been created, bu
              SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTYSOURCEENABLED=false
    ```
 
+---
+
 ## 4. Deploy the app to Azure Spring Apps
 
-Now the cloud environment is ready. Deploy the app by using the following command:
+### [Azure portal](#tab/Azure-portal-ent)
+
+The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+The cloud environment is now ready. Deploy the app by using the following command:
 
 ```azurecli
 az spring app deploy \
     --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
-    --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
+    --artifact-path target/simple-event-driven-app-0.0.2-SNAPSHOT.jar
 ```
+
+---

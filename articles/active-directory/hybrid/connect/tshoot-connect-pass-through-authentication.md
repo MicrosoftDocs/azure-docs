@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Troubleshoot Pass-through Authentication'
-description: This article describes how to troubleshoot Azure Active Directory (Azure AD) Pass-through Authentication.
+title: 'Microsoft Entra Connect: Troubleshoot Pass-through Authentication'
+description: This article describes how to troubleshoot Microsoft Entra pass-through authentication.
 services: active-directory
 keywords: Troubleshoot Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -17,26 +17,26 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot Azure Active Directory Pass-through Authentication
+# Troubleshoot Microsoft Entra pass-through authentication
 
-This article helps you find troubleshooting information about common issues regarding Azure AD Pass-through Authentication.
+This article helps you find troubleshooting information about common issues regarding Microsoft Entra pass-through authentication.
 
 > [!IMPORTANT]
-> If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account or a Hybrid Identity Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
+> If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account or a Hybrid Identity Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../../fundamentals/add-users.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
 
 ## General issues
 
 ### Check status of the feature and Authentication Agents
 
-Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Entra admin center](https://entra.microsoft.com/).
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Microsoft Entra Connect** blade on the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-![Screnshot shows Entra admin center - Azure AD Connect blade.](./media/tshoot-connect-pass-through-authentication/azure-ad-connect-blade.png)
+![Screnshot shows Microsoft Entra admin center - Microsoft Entra Connect blade.](./media/tshoot-connect-pass-through-authentication/azure-ad-connect-blade.png)
 
-![Screenhot shows Entra admin center - Pass-through Authentication blade.](./media/tshoot-connect-pass-through-authentication/pta-server-list.png)
+![Screenhot shows Microsoft Entra admin center - Pass-through Authentication blade.](./media/tshoot-connect-pass-through-authentication/pta-server-list.png)
 
 ### User-facing sign-in error messages
 
-If the user is unable to sign into using Pass-through Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen:
+If the user is unable to sign into using Pass-through Authentication, they may see one of the following user-facing errors on the Microsoft Entra sign-in screen:
 
 |Error|Description|Resolution
 | --- | --- | ---
@@ -71,15 +71,15 @@ To confirm that this is the issue, first test that the Pass-through Authenticati
 If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
-> If the Azure AD Connect server isn't domain joined, a requirement mentioned in [Azure AD Connect: Prerequisites](./how-to-connect-install-prerequisites.md#installation-prerequisites), the invalid username/password issue occurs.
+> If the Microsoft Entra Connect server isn't domain joined, a requirement mentioned in [Microsoft Entra Connect: Prerequisites](./how-to-connect-install-prerequisites.md#installation-prerequisites), the invalid username/password issue occurs.
 
-### Sign-in failure reasons on the Azure portal (needs Premium license)
+### Sign-in failure reasons on the [Microsoft Entra admin center](https://entra.microsoft.com) (needs Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../../reports-monitoring/concept-sign-ins.md) on the [Entra admin center](https://entra.microsoft.com/).
+If your tenant has a Microsoft Entra ID P1 or P2 license associated with it, you can also look at the [sign-in activity report](../../reports-monitoring/concept-sign-ins.md) on the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-[![Screenshot shows Entra admin center - Sign-ins report,](./media/tshoot-connect-pass-through-authentication/sign-in-report.png)](./media/tshoot-connect-pass-through-authentication/sign-in-report.png#lightbox)
+[![Screenshot shows Microsoft Entra admin center - Sign-ins report,](./media/tshoot-connect-pass-through-authentication/sign-in-report.png)](./media/tshoot-connect-pass-through-authentication/sign-in-report.png#lightbox)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure portal](https://portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
+Navigate to **Microsoft Entra ID** -> **Sign-ins** on the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
@@ -95,7 +95,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure portal](htt
 | 80014 | Validation request responded after maximum elapsed time exceeded. | Authentication agent timed out. Open a support ticket with the error code, correlation ID, and timestamp to get more details on this error
 
 > [!IMPORTANT]
-> Pass-through Authentication Agents authenticate Azure AD users by validating their usernames and passwords against Active Directory by calling the [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera). As a result, if you have set the "Logon To" setting in Active Directory to limit workstation logon access, you will have to add servers hosting Pass-through Authentication Agents to the list of "Logon To" servers as well. Failing to do this will block your users from signing into Azure AD.
+> Pass-through Authentication Agents authenticate Microsoft Entra users by validating their usernames and passwords against Active Directory by calling the [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera). As a result, if you have set the "Logon To" setting in Active Directory to limit workstation logon access, you will have to add servers hosting Pass-through Authentication Agents to the list of "Logon To" servers as well. Failing to do this will block your users from signing into Microsoft Entra ID.
 
 ## Authentication Agent installation issues
 
@@ -111,7 +111,7 @@ Ensure that the server on which the Authentication Agent has been installed can 
 
 ### Registration of the Authentication Agent failed due to token or account authorization errors
 
-Ensure that you use a cloud-only Global Administrator account or a Hybrid Identity Administrator account for all Azure AD Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
+Ensure that you use a cloud-only Global Administrator account or a Hybrid Identity Administrator account for all Microsoft Entra Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
 
 ### An unexpected error occurred
 
@@ -119,21 +119,23 @@ Ensure that you use a cloud-only Global Administrator account or a Hybrid Identi
 
 ## Authentication Agent uninstallation issues
 
-### Warning message when uninstalling Azure AD Connect
+<a name='warning-message-when-uninstalling-azure-ad-connect'></a>
 
-If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
+### Warning message when uninstalling Microsoft Entra Connect
 
-Ensure that your setup is [highly available](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
+If you have Pass-through Authentication enabled on your tenant and you try to uninstall Microsoft Entra Connect, it shows you the following warning message: "Users will not be able to sign-in to Microsoft Entra ID unless you have other Pass-through Authentication agents installed on other servers."
+
+Ensure that your setup is [highly available](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) before you uninstall Microsoft Entra Connect to avoid breaking user sign-in.
 
 ## Issues with enabling the feature
 
 ### Enabling the feature failed because there were no Authentication Agents available
 
-You need to have at least one active Authentication Agent to enable Pass-through Authentication on your tenant. You can install an Authentication Agent by either installing Azure AD Connect or a standalone Authentication Agent.
+You need to have at least one active Authentication Agent to enable Pass-through Authentication on your tenant. You can install an Authentication Agent by either installing Microsoft Entra Connect or a standalone Authentication Agent.
 
 ### Enabling the feature failed due to blocked ports
 
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+Ensure that the server on which Microsoft Entra Connect is installed can communicate with our service URLs and ports listed [here](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 
 ### Enabling the feature failed due to token or account authorization errors
 
@@ -143,9 +145,11 @@ Ensure that you use a cloud-only Global Administrator account when enabling the 
 
 Depending on the type of issue you may have, you need to look in different places for Pass-through Authentication Agent logs.
 
-### Azure AD Connect logs
+<a name='azure-ad-connect-logs'></a>
 
-For errors related to installation, check the Azure AD Connect logs at **%ProgramData%\AADConnect\trace-\*.log**.
+### Microsoft Entra Connect logs
+
+For errors related to installation, check the Microsoft Entra Connect logs at `%ProgramData%\AADConnect\trace-*.log`.
 
 ### Authentication Agent event logs
 

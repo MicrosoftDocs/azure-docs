@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Azure AD Connect cloud sync documentation
-summary:  Azure AD Connect cloud sync helps simplify and automate the management of Azure AD users, through cloud-managed rules for synchronizing those users from existing AD forests.
+title: Microsoft Entra Cloud Sync documentation
+summary:  Microsoft Entra Cloud Sync helps simplify and automate the management of Microsoft Entra users, through cloud-managed rules for synchronizing those users from existing AD forests.
 
 
 
 metadata:
   author: billmath
-  description: Cloud sync helps simplify and automate the management of Azure AD users, through cloud-managed rules for synchronizing those users from existing AD forests.
+  description: Cloud sync helps simplify and automate the management of Microsoft Entra users, through cloud-managed rules for synchronizing those users from existing AD forests.
   ms.author: billmath
   ms.collection: na
   ms.date: 02/28/2023
@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD Connect cloud sync?
+          - text: What is Microsoft Entra Cloud Sync?
             url: what-is-cloud-sync.md
  
   # Card
@@ -32,9 +32,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Integrate a single AD forest with a single Azure AD tenant
+          - text: Integrate a single AD forest with a single Microsoft Entra tenant
             url: tutorial-single-forest.md
-          - text: Integrate an existing forest and a new forest with a single Azure AD tenant
+          - text: Integrate an existing forest and a new forest with a single Microsoft Entra tenant
             url: tutorial-existing-forest.md
           - text: Pilot cloud sync for an existing synced AD forest 
             url: tutorial-pilot-aadc-aadccp.md
@@ -45,11 +45,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Prerequisites for Azure AD Connect cloud sync
+          - text: Prerequisites for Microsoft Entra Cloud Sync
             url: how-to-prerequisites.md
-          - text: Install Azure AD Connect cloud sync
+          - text: Install Microsoft Entra Cloud Sync
             url: how-to-install.md
-          - text: Azure AD Connect provisioning agent configuration
+          - text: Microsoft Entra Provisioning Agent configuration
             url: how-to-configure.md
       - linkListType: reference
         links:

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure confidential computing
-summary: Azure confidential computing offers solutions to enable the isolation your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
+summary: Azure confidential computing offers solutions to enable isolation of your sensitive data while it's being processed in the cloud. Learn how to deploy any application on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. 
 
 metadata:
   title: Azure confidential computing
@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: What is confidential computing?
             url: overview.md
-          - text: What is Azure confidential computing?
+          - text: What products are available?
             url: overview-azure-products.md
           - text: Choose your confidential computing offering
             url: use-cases-scenarios.md 
@@ -64,7 +64,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Confidential VM options on AMD
+          - text: Azure confidential VM options on AMD
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
@@ -90,6 +90,8 @@ landingContent:
             url: guest-attestation-example.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
+          - text: Deploy a virtual machine scale set using hardened image
+            url: vmss-deployment-from-hardened-linux-image.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
@@ -176,7 +178,7 @@ landingContent:
             url: ../virtual-machines/dcv3-series.md
 ## Row 2
 # Card
-  - title: Secure key release (SKR)
+  - title: Concepts
     linkLists:
       - linkListType: concept
         links: 

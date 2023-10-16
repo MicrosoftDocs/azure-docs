@@ -1,9 +1,8 @@
 ---
-title: Use Document Intelligence containers in disconnected environments
+title: Use Document Intelligence (formerly Form Recognizer) containers in disconnected environments
 titleSuffix: Azure AI services
 description: Learn how to run Cognitive Services Docker containers disconnected from the internet.
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 author: laujan
 manager: nitinme
 ms.topic: reference
@@ -119,7 +118,7 @@ The following example shows the formatting for the `docker run` command to use w
 
 ```docker
 
-docker run --rm -it -p 5000:5000 \
+docker run --rm -it -p 5000:5050 \
 
 -v {LICENSE_MOUNT} \
 
@@ -166,7 +165,7 @@ Placeholder | Value | Format or example |
   **Example `docker run` command**
 
 ```docker
-docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
+docker run --rm -it -p 5000:5050 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
 
 -v {LICENSE_MOUNT} \
 
@@ -194,7 +193,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5000"
+    - "5000:5050"
  layout:
   container_name: azure-cognitive-service-layout
   image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
@@ -265,9 +264,8 @@ services:
   ports:
     - "5001:5001"
   user: "1000:1000" # echo $(id -u):$(id -g)
+```
 
-
- ```
 ::: moniker-end
 
 ## Other parameters and commands

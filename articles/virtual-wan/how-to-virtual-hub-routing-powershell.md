@@ -80,6 +80,11 @@ The steps in this section help you set up routing configuration for a virtual ne
    $updatedRoutingConfiguration= New-AzRoutingConfiguration -AssociatedRouteTable $associatedTable.Id -Label @("testLabel") -Id @($propagatedTable.Id) -StaticRoute @($staticRoute)
    ```
 
+> [!NOTE]
+> For updates, when using the `New-AzRoutingConfiguration`, all exisiting cofiguration needs to be provided, such as AssociatedRouteTables, Labels and/or StaticRoutes.
+> This command creates a new configuration, which will overwrite existing configurations, when the `Update-AzVirtualHubVnetConnection` is executed.
+
+
 1. Update the existing virtual network connection.
 
    ```azurepowershell-interactive

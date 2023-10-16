@@ -1,6 +1,6 @@
 ---
-title: Automate Microsoft Entra Identity Governance tasks with Azure Automation
-description: Learn how to write PowerShell scripts in Azure Automation to interact with Azure Active Directory entitlement management and other features.
+title: Automate Microsoft Entra ID Governance tasks with Azure Automation
+description: Learn how to write PowerShell scripts in Azure Automation to interact with Microsoft Entra entitlement management and other features.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -18,13 +18,13 @@ ms.reviewer:
 ms.collection: M365-identity-device-management
 ms.custom:
 ---
-# Automate Microsoft Entra Identity Governance tasks via Azure Automation and Microsoft Graph
+# Automate Microsoft Entra ID Governance tasks via Azure Automation and Microsoft Graph
 
-[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
+[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Microsoft Entra features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Microsoft Entra ID at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Microsoft Entra tasks from a simple script.
 
-Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Azure AD without needing a user context.
+Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Microsoft Entra ID without needing a user context.
 
-This article shows you how to get started using Azure Automation for Microsoft Entra Identity Governance, by creating a simple runbook that queries entitlement management via Microsoft Graph PowerShell.
+This article shows you how to get started using Azure Automation for Microsoft Entra ID Governance, by creating a simple runbook that queries entitlement management via Microsoft Graph PowerShell.
 
 ## Create an Azure Automation account
 
@@ -36,7 +36,7 @@ Using Azure Automation requires you to have an Azure subscription.
 
 **Prerequisite role**: Azure subscription or resource group owner
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
+1. Sign in to the [Azure portal](https://portal.azure.com) . Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
 
 1. Select the subscription or resource group, and select **Create**.  Type **Automation**, select the **Automation** Azure service from Microsoft, then select **Create**.
 
@@ -45,9 +45,9 @@ Using Azure Automation requires you to have an Azure subscription.
 
 ## Create a self-signed key pair and certificate on your computer
 
-So that it can operate without needing your personal credentials, the Azure Automation account you created will need to authenticate itself to Azure AD with a certificate.
+So that it can operate without needing your personal credentials, the Azure Automation account you created will need to authenticate itself to Microsoft Entra ID with a certificate.
 
-If you already have a key pair for authenticating your service to Azure AD, and a certificate that you received from a certificate authority, skip to the next section.
+If you already have a key pair for authenticating your service to Microsoft Entra ID, and a certificate that you received from a certificate authority, skip to the next section.
 
 To generate a self-signed certificate,
 
@@ -59,7 +59,7 @@ To generate a self-signed certificate,
     $cert | ft Thumbprint
    ```
 
-1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you'll remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Azure AD services.
+1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you'll remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Microsoft Entra services.
 
 ## Upload the key pair to Azure Automation
 
@@ -79,21 +79,23 @@ By default, Azure Automation doesn't have any PowerShell modules preloaded for M
 
 1. In the Azure portal for the Azure Automation account, select **Modules** and then **Browse gallery**.
 
-1. In the Search bar, type **Microsoft.Graph.Authentication**. Select the module, select **Import**, and select **OK** to have Azure AD begin importing the module.  After selecting OK, importing a module may take several minutes.  Don't attempt to add more Microsoft Graph modules until the Microsoft.Graph.Authentication module import has completed, since those other modules have Microsoft.Graph.Authentication as a prerequisite.
+1. In the Search bar, type **Microsoft.Graph.Authentication**. Select the module, select **Import**, and select **OK** to have Microsoft Entra ID begin importing the module.  After selecting OK, importing a module may take several minutes.  Don't attempt to add more Microsoft Graph modules until the Microsoft.Graph.Authentication module import has completed, since those other modules have Microsoft.Graph.Authentication as a prerequisite.
 
 1. Return to the **Modules** list and select **Refresh**.  Once the Status of the **Microsoft.Graph.Authentication** module has changed to **Available**, you can import the next module.
 
-1. If you're using the cmdlets for Azure AD identity governance features, such as entitlement management, then repeat the import process for the module **Microsoft.Graph.Identity.Governance**.
+1. If you're using the cmdlets for Microsoft Entra ID Governance features, such as entitlement management, then repeat the import process for the module **Microsoft.Graph.Identity.Governance**.
 
 1. Import other modules that your script may require, such as **Microsoft.Graph.Users**.  For example, if you're using Identity Protection, then you may wish to import the **Microsoft.Graph.Identity.SignIns** module.
 
 ## Create an app registration and assign permissions
 
-Next, you'll create an app registration in Azure AD, so that Azure AD recognizes your Azure Automation runbook's certificate for authentication.
+Next, you'll create an app registration in Microsoft Entra ID, so that Microsoft Entra ID recognizes your Azure Automation runbook's certificate for authentication.
 
 **Prerequisite role**: Global Administrator or other administrator who can consent applications to application permissions
 
-1. In the Azure portal, browse to **Azure Active Directory** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+
+1. Browse to > **Identity** > **Applications** > **App registrations**.
 
 1. Select **New registration**.
 
@@ -120,7 +122,7 @@ Next, you'll create an app registration in Azure AD, so that Azure AD recognizes
 
 ## Create Azure Automation variables
 
-In this step, you'll create in the Azure Automation account three variables that the runbook uses to determine how to authenticate to Azure AD.
+In this step, you'll create in the Azure Automation account three variables that the runbook uses to determine how to authenticate to Microsoft Entra ID.
 
 1. In the Azure portal, return to the Azure Automation account.
 
@@ -128,7 +130,7 @@ In this step, you'll create in the Azure Automation account three variables that
 
 1. Create a variable named **Thumbprint**.  Type, as the value of the variable, the certificate thumbprint that was generated earlier.
 
-1. Create a variable named **ClientId**.  Type, as the value of the variable, the client ID for the application registered in Azure AD.
+1. Create a variable named **ClientId**.  Type, as the value of the variable, the client ID for the application registered in Microsoft Entra ID.
 
 1. Create a variable named **TenantId**.  Type, as the value of the variable, the tenant ID of the directory where the application was registered.
 
@@ -156,13 +158,13 @@ Connect-MgGraph -clientId $ClientId -tenantId $TenantId -certificatethumbprint $
 
 1. If the run of your runbook is successful, then the message **Welcome to Microsoft Graph!** will appear.
 
-Now that you have verified that your runbook can authenticate to Microsoft Graph, extend your runbook by adding cmdlets for interacting with Azure AD features.
+Now that you have verified that your runbook can authenticate to Microsoft Graph, extend your runbook by adding cmdlets for interacting with Microsoft Entra features.
 
 ## Extend the runbook to use Entitlement Management
 
 If the app registration for your runbook has the **EntitlementManagement.Read.All** or **EntitlementManagement.ReadWrite.All** permissions, then it can use the entitlement management APIs.
 
-1. For example, to get a list of Azure AD entitlement management access packages, you can update the above-created runbook, and replace the text with the following PowerShell.
+1. For example, to get a list of Microsoft Entra entitlement management access packages, you can update the above-created runbook, and replace the text with the following PowerShell.
 
 ```powershell
 Import-Module Microsoft.Graph.Authentication
@@ -170,10 +172,13 @@ $ClientId = Get-AutomationVariable -Name 'ClientId'
 $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
 $auth = Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
-Select-MgProfile -Name beta
 Import-Module Microsoft.Graph.Identity.Governance
-$ap = Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop
-$ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
+$ap = @(Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop)
+if ($null -eq $ap -or $ap.Count -eq 0) {
+   ConvertTo-Json @()
+} else {
+   $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json -AsArray
+}
 ```
 
 2. Select **Test pane**, and select **Start**.  Wait a few seconds for the Azure Automation processing of your runbook script to complete.
@@ -203,7 +208,7 @@ If you wish to send the output of your runbook to another service, then you may 
 
 1. In Azure Logic Apps, create a Logic App in the Logic Apps Designer starting with **Recurrence**.
 
-1. Add the operation **Create job** from **Azure Automation**.  Authenticate to Azure AD, and select the Subscription, Resource Group, Automation Account created earlier.  Select **Wait for Job**.
+1. Add the operation **Create job** from **Azure Automation**.  Authenticate to Microsoft Entra ID, and select the Subscription, Resource Group, Automation Account created earlier.  Select **Wait for Job**.
 
 1. Add the parameter **Runbook name** and type the name of the runbook to be started.  If the runbook has input parameters, then you can provide the values to them.
 
@@ -220,7 +225,7 @@ If you created a self-signed certificate following the steps above for authentic
 There are two places where you can see the expiration date in the Azure portal.
 
 * In Azure Automation, the **Certificates** screen displays the expiration date of the certificate.
-* In Azure AD, on the app registration, the **Certificates & secrets** screen displays the expiration date of the certificate used for the Azure Automation account.
+* In Microsoft Entra ID, on the app registration, the **Certificates & secrets** screen displays the expiration date of the certificate used for the Azure Automation account.
 
 ## Next steps
 

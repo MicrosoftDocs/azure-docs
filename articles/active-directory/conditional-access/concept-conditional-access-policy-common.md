@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 10/11/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,9 +32,10 @@ Microsoft recommends these policies as the base for all organizations. We recomm
 - [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
 - [Securing security info registration](howto-conditional-access-policy-registration.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require multifactor authentication for admins accessing Microsoft admin portals](how-to-policy-mfa-admin-portals.md)
 - [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
 - [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
-- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
+- [Require compliant or Microsoft Entra hybrid joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
 
 # [Zero Trust](#tab/zero-trust)
 
@@ -46,12 +47,12 @@ These policies as a group help support a [Zero Trust architecture](/security/zer
 - [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
 - [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
 - [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
-- [Require multifactor authentication for risky sign-ins](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
-- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
+- [Require multifactor authentication for risky sign-ins](howto-conditional-access-policy-risk.md) **Requires Microsoft Entra ID P2**
+- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Microsoft Entra ID P2**
 - [Block access for unknown or unsupported device platform](howto-policy-unknown-unsupported-device.md)
 - [No persistent browser session](howto-policy-persistent-browser-session.md)
 - [Require approved client apps or app protection policies](howto-policy-approved-app-or-app-protection.md)
-- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
+- [Require compliant or Microsoft Entra hybrid joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
 - [Require multifactor authentication for admins accessing Microsoft admin portals](how-to-policy-mfa-admin-portals.md)
 
 # [Remote work](#tab/remote-work)
@@ -62,9 +63,9 @@ These policies help secure organizations with remote workers.
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 - [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
 - [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
-- [Require multifactor authentication for risky sign-ins](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
-- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
-- [Require compliant or hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
+- [Require multifactor authentication for risky sign-ins](howto-conditional-access-policy-risk.md) **Requires Microsoft Entra ID P2**
+- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Microsoft Entra ID P2**
+- [Require compliant or Microsoft Entra hybrid joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
 - [Block access for unknown or unsupported device platform](howto-policy-unknown-unsupported-device.md)
 - [No persistent browser session](howto-policy-persistent-browser-session.md)
 - [Require approved client apps or app protection policies](howto-policy-approved-app-or-app-protection.md)
@@ -72,12 +73,12 @@ These policies help secure organizations with remote workers.
 
 # [Protect administrator](#tab/protect-administrator)
 
-These policies are directed at highly privileged administrators in your environment, where compromise may cause the most damage.
+These policies are directed at highly privileged administrators in your environment, where compromise might cause the most damage.
 
 - [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 - [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
-- [Require compliant or hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
+- [Require compliant or Microsoft Entra hybrid joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
 - [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
 
 # [Emerging threats](#tab/emerging-threats)
@@ -88,12 +89,12 @@ Policies in this category provide new ways to protect against compromise.
 
 ---
 
-Find these templates in the **[Microsoft Entra admin center](https://entra.microsoft.com)** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each category.
+Find these templates in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each category.
 
 :::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Screenshot that shows how to create a Conditional Access policy from a preconfigured template in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
 
 > [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. Simply navigate to **Microsoft Entra admin center** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Policies**, select the policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. You can find these policies in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Conditional Access** > **Policies**. Select a policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
 
 By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning on each policy.
 

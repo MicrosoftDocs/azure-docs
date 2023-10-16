@@ -1,11 +1,10 @@
 ---
-title: Custom neural document model - Document Intelligence
+title: Custom neural document model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -17,7 +16,6 @@ monikerRange: '>=doc-intel-3.0.0'
 # Document Intelligence custom neural model
 
 [!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
-
 
 Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
@@ -47,7 +45,68 @@ Neural models support documents that have the same information, but different pa
 
 ## Supported languages and locales
 
-1. Neural models now support added languages in the ```v3.1 and v3.0``` APIs.
+>[!NOTE]
+> Document Intelligence auto-detects language and locale data.
+
+:::moniker range="doc-intel-3.1.0"
+
+Neural models now support added languages for the ```v3.1``` APIs.
+
+|Language| Code (optional) |
+|:-----|:----:|
+|Afrikaans| `af`|
+|Albanian| `sq`|
+|Arabic|`ar`|
+|Bulgarian|`bg`|
+|Chinese (Han (Simplified variant))| `zh-Hans`|
+|Chinese (Han (Traditional variant))|`zh-Hant`|
+|Croatian|`hr`|
+|Czech|`cs`|
+|Danish|`da`|
+|Dutch|`nl`|
+|Estonian|`et`|
+|Finnish|`fi`|
+|French|`fr`|
+|German|`de`|
+|Hebrew|`he`|
+|Hindi|`hi`|
+|Hungarian|`hu`|
+|Indonesian|`id`|
+|Italian|`it`|
+|Japanese|`ja`|
+|Korean|`ko`|
+|Latvian|`lv`|
+|Lithuanian|`lt`|
+|Macedonian|`mk`|
+|Marathi|`mr`|
+|Modern Greek (1453-)|`el`|
+|Nepali (macrolanguage)|`ne`|
+|Norwegian|`no`|
+|Panjabi|`pa`|
+|Persian|`fa`|
+|Polish|`pl`|
+|Portuguese|`pt`|
+|Romanian|`rm`|
+|Russian|`ru`|
+|Slovak|`sk`|
+|Slovenian|`sl`|
+|Somali (Arabic)|`so`|
+|Somali (Latin)|`so-latn`|
+|Spanish|`es`|
+|Swahili (macrolanguage)|`sw`|
+|Swedish|`sv`|
+|Tamil|`ta`|
+|Thai|`th`|
+|Turkish|`tr`|
+|Ukrainian|`uk`|
+|Urdu|`ur`|
+|Vietnamese|`vi`|
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+Neural models now support added languages for the ```v3.0``` APIs.
 
 | Languages | API version |
 |:--:|:--:|
@@ -57,6 +116,8 @@ Neural models support documents that have the same information, but different pa
 | French |  `2023-07-31` (GA)|
 | Spanish |  `2023-07-31` (GA)|
 | Dutch |  `2023-07-31` (GA)|
+
+:::moniker-end
 
 ## Tabular fields
 
@@ -132,7 +193,7 @@ Values in training cases should be diverse and representative. For example, if a
 
 ## Training a model
 
-Custom neural models are available in the [v3.0 and v3.1 APIs](v3-migration-guide.md).
+Custom neural models are available in the [v3.0 and v3.1 APIs](v3-1-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|

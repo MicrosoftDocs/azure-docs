@@ -31,7 +31,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 ### Prerequisites
 
-**Step 1- Configure the key vault**
+**Step 1: Configure the key vault**
 
 1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?
 2. Using customer-managed keys with Azure Data Manager for Energy requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
@@ -44,12 +44,12 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
       2. Under **Settings**, choose **Properties**.
       3. In the **purge protection** section, choose **Enable purge protection**.
 
-**Step 2 - Add a key**
+**Step 2: Add a key**
 1.	Next, add a key to the key vault.
 2.	To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](../key-vault/keys/quick-create-portal.md).
 3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](../cosmos-db/how-to-setup-customer-managed-keys.md#generate-a-key-in-azure-key-vault).
 
-**Step 3 - Choose a managed identity to authorize access to the key vault**
+**Step 3: Choose a managed identity to authorize access to the key vault**
 1.	When you enable customer-managed keys for an existing Azure Data Manager for Energy instance you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault.
 2.	You can create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 

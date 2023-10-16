@@ -33,7 +33,7 @@ This model requires a training and Validation dataset. The datasets must be in M
 
 1.  Specify the **Primary Metric** you want AutoML to use to measure your model's success.
 
-1. (Optional) Select the language your dataset consists of. Visit this link for a [full list of supported languages.](../how-to-auto-train-nlp-models.md#language-settings
+1. (Optional) Select the language your dataset consists of. Visit this link for a [full list of supported languages.](../how-to-auto-train-nlp-models.md#language-settings)
 
 1. (Optional) You are able to configure Hyperparameters. Visit this link for a [full list of configurable Hyperparameters](../how-to-auto-train-nlp-models.md#supported-hyperparameters)
 

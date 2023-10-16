@@ -106,26 +106,12 @@ productDirectory:
         - ai-machine-learning
       url: ai-services/computer-vision/overview-identity.md
     # Card
-    - title: Anomaly Detector
-      summary: Easily add anomaly detection capabilities to your apps
-      imageSrc: ai-services/media/service-icons/anomaly-detector.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/anomaly-detector/index.yml
-    # Card
     - title: Content Safety
       summary: An AI service that detects unwanted contents
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
       url: ai-services/content-moderator/index.yml
-    # Card
-    - title: Personalizer
-      summary: An AI service that delivers a personalized user experience
-      imageSrc: ai-services/media/service-icons/personalizer.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/personalizer/index.yml
     # Card
     - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -150,20 +136,13 @@ productDirectory:
         - web
       url: search/index.yml
     # Card
-    - title: Metrics Advisor
-      summary: An AI service that monitors metrics and diagnoses issues
-      imageSrc: ai-services/media/service-icons/metrics-advisor.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/metrics-advisor/index.yml
-    # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
       imageSrc: ai-services/media/service-icons/video-indexer.svg
       azureCategories:
         - ai-machine-learning
         - media
-      url: ./azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
@@ -247,6 +226,13 @@ productDirectory:
       azureCategories:
         - integration
       url: energy-data-services/index.yml
+    # Card
+    - title: Azure Data Manager for Agriculture (Preview)
+      summary: Create a more sustainable future by innovating with agriculture data
+      imageSrc: data-manager-for-agri/media/icon/data-manager-for-agriculture.svg
+      azureCategories:
+        - integration
+      url: data-manager-for-agri/index.yml
     # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
@@ -357,6 +343,13 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/index.yml
+    # Card
+    - title: HDInsight on AKS
+      summary: Deploy Apache Spark, Apache Flink, and Trino workloads without managing and monitoring containers
+      imageSrc: media/index/hdinsight-aks.svg
+      azureCategories:
+        - analytics
+      url: hdinsight-aks/index.yml
     # Card
     - title: Log Analytics
       summary: Full observability into your applications, infrastructure, and network
@@ -510,21 +503,13 @@ productDirectory:
         - containers
       url: container-instances/index.yml
     # Card
-    - title: Linux Virtual Machines
-      summary: Provision virtual machines for Ubuntu, Red Hat, and more
+    - title: Virtual Machines
+      summary: Provision virtual machines for Ubuntu, Red Hat, Windows, and more
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - featured
         - compute
       url: ./virtual-machines/index.yml
-    # Card
-    - title: Service Fabric
-      summary: Develop microservices and orchestrate containers on Windows or Linux
-      imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
-      azureCategories:
-        - compute
-        - containers
-      url: service-fabric/index.yml
     # Card
     - title: SQL Server on Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
@@ -548,6 +533,14 @@ productDirectory:
         - compute
       url: virtual-machine-scale-sets/index.yml
     # Card
+    - title: Service Fabric
+      summary: Develop microservices and orchestrate containers on Windows or Linux
+      imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
+      azureCategories:
+        - compute
+        - containers
+      url: service-fabric/index.yml
+    # Card
     - title: Web Apps
       summary: Quickly create and deploy mission critical web apps at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
@@ -565,14 +558,6 @@ productDirectory:
         - compute
         - azure-virtual-desktop
       url: virtual-desktop/index.yml
-    # Card
-    - title: Windows Virtual Machines
-      summary: Provision Windows virtual machines in seconds
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      azureCategories:
-        - featured
-        - compute
-      url: ./virtual-machines/index.yml
     # Card
     - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers
@@ -822,6 +807,15 @@ productDirectory:
         - devops
       url: load-testing/index.yml
     # Card
+    - title: Microsoft Playwright Testing (Preview)
+      summary: Run end-to-end Playwright tests at scale
+      imageSrc: ./media/index/playwright-testing-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+        - web
+      url: playwright-testing/index.yml
+    # Card
     - title: Azure Managed Grafana
       summary: Deploy Grafana dashboards as a fully managed Azure service
       imageSrc: ./media/index/managed-grafana.svg
@@ -847,7 +841,7 @@ productDirectory:
         - azure-virtual-desktop
       url: dev-box/index.yml
     # Card
-    - title: Azure Active Directory (AD)
+    - title: Microsoft Entra ID
       summary: Synchronize on-premises directories and enable single sign-on
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
       azureCategories:
@@ -916,14 +910,14 @@ productDirectory:
         - iot
       url: iot-edge/index.yml
     # Card
-    - title: Azure Active Directory External Identities
+    - title: Microsoft Entra External ID
       summary: Consumer identity and access management in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
       azureCategories:
         - identity
       url: active-directory/external-identities/index.yml
     # Card
-    - title: Azure Active Directory Domain Services
+    - title: Microsoft Entra Domain Services
       summary: Join Azure virtual machines to a domain without domain controllers
       imageSrc: https://static.docs.com/ui/media/product/azure/ad-domain-services.svg
       azureCategories:
@@ -1674,7 +1668,7 @@ additionalContent:
           summary: A dedicated cloud for U.S. government agencies and their partners.
           url: azure-government/index.yml
         # Card
-        - title: Azure China
+        - title: Microsoft Azure operated by 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
     - title: Partner solutions

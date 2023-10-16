@@ -47,7 +47,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M416ms_v2, M416s_v2| 16 | 20000 |
+| M416ms_v2, M416s_8_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
 | M192ids_v2, M192idms_v2, M192is_v2, M192ims_v2, | 16 | 20000 |
 | M128ms, M128s, M128ds_v2, M128dms_v2, M128s_v2, M128ms_v2 | 16 | 20000 |

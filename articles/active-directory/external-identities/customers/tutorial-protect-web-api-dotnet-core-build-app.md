@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Secure an ASP.NET web API registered in the Azure AD for customer's tenant"
-description: Learn how to secure a ASP.NET web API registered in the Azure AD for customer's tenant
+title: "Tutorial: Secure an ASP.NET web API registered in a customer tenant"
+description: Learn how to secure a ASP.NET web API registered in the Microsoft Entra External ID for customer's tenant
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -11,12 +11,11 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
-ms.custom: developer
-
-#Customer intent: As a dev, I want to secure my ASP.NET Core web API registered in the Azure AD customer's tenant.
+ms.custom: developer, devx-track-dotnet
+#Customer intent: As a dev, I want to secure my ASP.NET Core web API registered in the Microsoft Entra ID for customers tenant.
 ---
 
-# Tutorial: Secure an ASP.NET web API registered in the Azure AD for customer's tenant
+# Tutorial: Secure an ASP.NET web API registered in a customer tenant
 
 Web APIs may contain information that requires user authentication and authorization. Applications can use delegated access, acting on behalf of a signed-in user, or app-only access, acting only as the application's own identity when calling protected web APIs.
 
@@ -233,7 +232,7 @@ In this section, we add code to the placeholders we created. The focus here isn'
 
 1. Since we granted permissions for this API to be called either using delegated permissions on behalf of the user or application permissions where the client calls as itself and not on the user's behalf, it's important to know whether the call is being made by the app on its own behalf. The easiest way to do this is the claims to find whether the access token contains the `idtyp` optional claim. This `idtyp` claim is the easiest way for the API to determine whether a token is an app token or an app + user token. We recommend enabling the `idtyp` optional claim.
 
-    If the `idtyp` claim isn't enabled, you can use the `roles` and `scp` claims to determine whether the access token is an app token or an app + user token. An access token issued by Azure AD has at least one of the two claims. Access tokens issued to a user have the `scp` claim. Access tokens issued to an application have the `roles` claim. Access tokens that contain both claims are issued only to users, where the `scp` claim designates the delegated permissions, while the `roles` claim designates the user's role. Access tokens that have neither aren't to be honored.
+    If the `idtyp` claim isn't enabled, you can use the `roles` and `scp` claims to determine whether the access token is an app token or an app + user token. An access token issued by Microsoft Entra External ID has at least one of the two claims. Access tokens issued to a user have the `scp` claim. Access tokens issued to an application have the `roles` claim. Access tokens that contain both claims are issued only to users, where the `scp` claim designates the delegated permissions, while the `roles` claim designates the user's role. Access tokens that have neither aren't to be honored.
 
     ```csharp
     private bool IsAppMakingRequest()

@@ -1,14 +1,13 @@
 ---
-title: Language support - Document Intelligence
+title: Language support - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Learn more about the human languages that are available with Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD036 -->
@@ -34,11 +33,11 @@ Azure AI Document Intelligence models support many languages. Our language suppo
 Model | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-business-card.png" link="concept-business-card.md#supported-languages-and-locales"::: [**Business card**](concept-business-card.md#supported-languages-and-locales)| Extract business contact details.|
-|:::image type="icon" source="media/overview/icon-insurance-card.png" link="concept-insurance-card.md#supported-languages-and-locales"::: [**Health insurance**](concept-insurance-card.md#supported-languages-and-locales)| Extract health insurance details.|
+|:::image type="icon" source="media/overview/icon-insurance-card.png" link="concept-health-insurance-card.md#supported-languages-and-locales"::: [**Health insurance**](concept-health-insurance-card.md#supported-languages-and-locales)| Extract health insurance details.|
 |:::image type="icon" source="media/overview/icon-id-document.png" link="concept-id-document.md#supported-document-types"::: [**ID document**](concept-id-document.md#supported-document-types)| Extract identification and verification details.|
 |:::image type="icon" source="media/overview/icon-invoice.png" link="concept-invoice.md#supported-languages-and-locales"::: [**Invoice**](concept-invoice.md#supported-languages-and-locales)| Extract customer and vendor details.|
 |:::image type="icon" source="media/overview/icon-receipt.png" link="concept-receipt.md#supported-languages-and-locales"::: [**Receipt**](concept-receipt.md#supported-languages-and-locales)| Extract sales transaction details.|
-|:::image type="icon" source="media/overview/icon-w2.png" link="concept-w2.md#supported-languages-and-locales":::  [**W-2 form**](concept-w2.md#supported-languages-and-locales)| Extract taxable compensation details.|
+|:::image type="icon" source="media/overview/icon-w2.png" link="concept-tax-document.md#supported-languages-and-locales":::  [**Tax document models**](concept-tax-document.md#supported-languages-and-locales)| Extract taxable form details.|
 
 ## Custom models and containers
 

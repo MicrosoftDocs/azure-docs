@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Resilience through monitoring and analytics
 
-Monitoring maximizes the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your infrastructure and applications. Alerts proactively notify you when issues are found with your service or applications. They allow you to identify and address issues before the end users of your service notice them. [Azure AD Log Analytics](https://azure.microsoft.com/services/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features) helps you analyze, search the audit logs and sign-in logs, and build custom views.
+Monitoring maximizes the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your infrastructure and applications. Alerts proactively notify you when issues are found with your service or applications. They allow you to identify and address issues before the end users of your service notice them. [Microsoft Entra ID Log Analytics](https://azure.microsoft.com/services/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features) helps you analyze, search the audit logs and sign-in logs, and build custom views.
 
 Watch this video to learn how to set up monitoring and reporting in Azure AD B2C using Azure Monitor.
 
@@ -47,10 +47,10 @@ For example, track the following metrics, since a sudden drop in either will lea
 
    - **Previous period**: Create temporal charts to show changes in the Total requests and Success rate (%) over some previous period for reference purposes, for example, last week.
 
-- **Alerting**: Using log analytics define [alerts](../../azure-monitor/alerts/alerts-log.md) that get triggered when there are sudden changes in the key indicators. These changes may negatively impact the SLOs. Alerts use various forms of notification methods including email, SMS, and webhooks. Start by defining a criterion that acts as a threshold against which alert will be triggered. For example:
+- **Alerting**: Using log analytics define [alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md) that get triggered when there are sudden changes in the key indicators. These changes may negatively impact the SLOs. Alerts use various forms of notification methods including email, SMS, and webhooks. Start by defining a criterion that acts as a threshold against which alert will be triggered. For example:
   - Alert against abrupt drop in Total requests: Trigger an alert when number of total requests drop abruptly. For example, when there's a 25% drop in the total number of requests compared to previous period, raise an alert.  
   - Alert against significant drop in Success rate (%): Trigger an alert when success rate of the selected policy significantly drops.
-  - Upon receiving an alert, troubleshoot the issue using [Log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), [Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md), and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for Azure AD B2C. After you resolve the issue and deploy an updated application or policy, it continues to monitor the key indicators until they return back to normal range.
+  - Upon receiving an alert, troubleshoot the issue using [Log Analytics](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md), [Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md), and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for Azure AD B2C. After you resolve the issue and deploy an updated application or policy, it continues to monitor the key indicators until they return back to normal range.
 
 - **Service alerts**: Use the [Azure AD B2C service level alerts](../../service-health/service-health-overview.md) to get notified of service issues, planned maintenance, health advisory, and security advisory.
 

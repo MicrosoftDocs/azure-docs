@@ -5,8 +5,7 @@ description: Learn how to customize text moderation in Content Safety by using y
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 07/20/2023

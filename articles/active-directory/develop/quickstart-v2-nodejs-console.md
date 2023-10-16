@@ -19,7 +19,7 @@ ms.custom: mode-api, devx-track-js
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
-> > [Quickstart: Node.js console app that calls an API](console-app-quickstart.md?pivots=devlang-nodejs)
+> > [Quickstart: Acquire a token and call Microsoft Graph from a Node.js console app](quickstart-console-app-nodejs-acquire-token.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -85,7 +85,7 @@ ms.custom: mode-api, devx-track-js
 > node . --op getUsers
 > ```
 > 
-> You should see on the console output some JSON fragment representing a list of users in your Azure AD directory.
+> You should see on the console output some JSON fragment representing a list of users in your Microsoft Entra directory.
 > 
 > ## About the code
 > 

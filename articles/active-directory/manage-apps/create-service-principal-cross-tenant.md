@@ -13,10 +13,10 @@ ms.author: jomondi
 ms.reviewer: karavar
 ms.custom: mode-other, devx-track-azurecli
 zone_pivot_groups: enterprise-apps-cli
-#Customer intent: As an administrator of an Azure AD tenant, I want to create an enterprise application using client ID for a multi-tenant application provided by a service provider or independent software vendor.
+#Customer intent: As an administrator of a Microsoft Entra tenant, I want to create an enterprise application using client ID for a multi-tenant application provided by a service provider or independent software vendor.
 ---
 
-# Create an enterprise application from a multi-tenant application in Azure Active Directory
+# Create an enterprise application from a multi-tenant application in Microsoft Entra ID
 
 In this article, you'll learn how to create an enterprise application in your tenant using the client ID for a multi-tenant application. An enterprise application refers to a service principal within a tenant. The service principal discussed in this article is the local representation, or application instance, of a global application object in a single tenant or directory. 
 
@@ -26,9 +26,9 @@ If you have verified that the application isn't in your tenant, proceed with any
 
 ## Prerequisites
 
-To add an enterprise application to your Azure AD tenant, you need:
+To add an enterprise application to your Microsoft Entra tenant, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 - The client ID (also called appId in Microsoft Graph) of the multi-tenant application.
 

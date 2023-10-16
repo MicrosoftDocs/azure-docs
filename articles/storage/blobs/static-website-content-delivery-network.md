@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to cache static website content from an Azure Storage account by using Azure Content Delivery Network (CDN).
 author: normesta
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
@@ -60,7 +60,7 @@ You can enable Azure CDN for your static website directly from your storage acco
 
 If you no longer want to cache an object in Azure CDN, you can take one of the following steps:
 
-- Make the container private instead of public. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
+- Make the container private instead of public. For more information, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 - Disable or delete the CDN endpoint by using the Azure portal.
 - Modify your hosted service to no longer respond to requests for the object.
 

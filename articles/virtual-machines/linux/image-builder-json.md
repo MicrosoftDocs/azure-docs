@@ -4,11 +4,11 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 07/17/2023
+ms.date: 09/18/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, devx-track-linux
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, devx-track-linux, devx-track-azurecli
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -575,6 +575,7 @@ The `PowerShell` customizer supports running PowerShell scripts and inline comma
     "name":   "<name>",
     "scriptUri": "<path to script>",
     "runElevated": <true false>,
+    "runAsSystem": <true false>,
     "sha256Checksum": "<sha256 checksum>"
   },
   {
@@ -582,7 +583,8 @@ The `PowerShell` customizer supports running PowerShell scripts and inline comma
     "name": "<name>",
     "inline": "<PowerShell syntax to run>",
     "validExitCodes": [<exit code>],
-    "runElevated": <true or false>
+    "runElevated": <true or false>,
+    "runAsSystem": <true or false>
   }
 ]
 ```
@@ -596,6 +598,7 @@ customize: [
     name:   '<name>'
     scriptUri: '<path to script>'
     runElevated: <true false>
+    runAsSystem: <true false>
     sha256Checksum: '<sha256 checksum>'
   }
   {
@@ -604,6 +607,7 @@ customize: [
     inline: '<PowerShell syntax to run>'
     validExitCodes: [<exit code>]
     runElevated: <true or false>
+    runAsSystem: <true or false>
   }
 ]
 ```
@@ -617,6 +621,7 @@ Customize properties:
 - **inline** – Inline commands to be run, separated by commas.
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command. The property avoids reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
+- **runAsSystem** - Optional, boolean, determines whether the PowerShell script should be run as the System user.
 - **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
     To generate the sha256Checksum, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet in PowerShell.
@@ -1163,13 +1168,9 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```json
 "optimize": { 
-
       "vmboot": { 
-
         "state": "Enabled" 
-
-      } 
-
+      }
     }
 ```
 
@@ -1184,6 +1185,8 @@ optimize: {
 ```
 ---
 
+- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 ## Properties: source
 
@@ -1391,6 +1394,9 @@ SharedImageVersion properties:
 ## Properties: stagingResourceGroup
 
 The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service creates for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+> [!IMPORTANT]
+> The staging resource group specified cannot be associated with another image template, must be empty (no resources inside), in the same region as the image template, and have either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource.
 
 # [JSON](#tab/json)
 

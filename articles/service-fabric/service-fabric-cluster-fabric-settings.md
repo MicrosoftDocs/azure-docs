@@ -140,7 +140,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|AdminOnlyHttpAudit |Bool, default is true | Dynamic | Exclude HTTP requests which doesn't impact the state of the cluster from auditing. Currently; only requests of "GET" type are excluded; but this is subject to change. |
+|AdminOnlyHttpAudit |Bool, default is true | Dynamic | Exclude HTTP requests, which doesn't impact the state of the cluster from auditing. Currently; only requests of "GET" type are excluded; but this is subject to change. |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, default is true | Dynamic |Whether or not impersonation is required when accessing diagnostic stores on behalf of the application. |
 |AppEtwTraceDeletionAgeInDays |Int, default is 3 | Dynamic |Number of days after which we delete old ETL files containing application ETW traces. |
 |ApplicationLogsFormatVersion |Int, default is 0 | Dynamic |Version for application logs format. Supported values are 0 and 1. Version 1 includes more fields from the ETW event record than version 0. |
@@ -189,7 +189,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ConnectionInitializationTimeout |Time in seconds, default is 2 |Dynamic|Specify timespan in seconds. Connection timeout interval for each time client tries to open a connection to the gateway.|
 |HealthOperationTimeout |Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. The timeout for a report message sent to Health Manager. |
 |HealthReportRetrySendInterval |Time in seconds, default is 30, minimum is 1 |Dynamic|Specify timespan in seconds. The interval at which the reporting component resends accumulated health reports to Health Manager. |
-|HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component sends accumulated health reports to Health Manager. |
+|HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which the reporting component sends accumulated health reports to Health Manager. |
 |KeepAliveIntervalInSeconds |Int, default is 20 |Static|The interval at which the FabricClient transport sends keep-alive messages to the gateway. For 0; keepAlive is disabled. Must be a positive value. |
 |MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |
 |NodeAddresses |string, default is "" |Static|A collection of addresses (connection strings) on different nodes that can be used to communicate with the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
@@ -380,7 +380,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ApplicationHostCloseTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. When Fabric exit is detected in a self activated processes; FabricRuntime closes all of the replicas in the user's host (applicationhost) process. This is the timeout for the close operation. |
 | CnsNetworkPluginCnmUrlPort | wstring, default is L"48080" | Static | Azure cnm api url port |
 | CnsNetworkPluginCnsUrlPort | wstring, default is L"10090" | Static | Azure cns url port |
-|ContainerServiceArguments|string, default is "-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) manages docker daemon (except on windows client machines like Win10). This configuration allows user to specify custom arguments that should be passed to docker daemon when starting it. When custom arguments are specified, Service Fabric doesn't pass any other argument to Docker engine except '--pidfile' argument. Hence users shouldn't specify '--pidfile' argument as part of their customer arguments. Also, the custom arguments should ensure that docker daemon listens on default name pipe on Windows (or Unix domain socket on Linux) for Service Fabric to be able to communicate with it.|
+|ContainerServiceArguments|string, default is "-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) manages docker daemon (except on windows client machines like Windows 10). This configuration allows user to specify custom arguments that should be passed to docker daemon when starting it. When custom arguments are specified, Service Fabric doesn't pass any other argument to Docker engine except '--pidfile' argument. Hence users shouldn't specify '--pidfile' argument as part of their customer arguments. Also, the custom arguments should ensure that docker daemon listens on default name pipe on Windows (or Unix domain socket on Linux) for Service Fabric to be able to communicate with it.|
 |ContainerServiceLogFileMaxSizeInKb|int, default is 32768|Static|Maximum file size of log file generated by docker containers.  Windows only.|
 |ContainerImageDownloadTimeout|int, number of seconds, default is 1200 (20 mins)|Dynamic|Number of seconds before download of image times out.|
 |ContainerImagesToSkip|string, image names separated by vertical line character, default is ""|Static|Name of one or more container images that shouldn't be deleted.  Used with the PruneContainerImages parameter.|
@@ -395,7 +395,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
 |DisableContainers|bool, default is FALSE|Static|Config for disabling containers - used instead of DisableContainerServiceStartOnContainerActivatorOpen which is deprecated config |
-|DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker dameon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD doesn't responds within this time period; SF resends the request if top level operation still has remaining time.  With Hyper-V container; DD sometimes take much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to add more pressure on DD. This config allows you to disable this retry and wait for DD to respond. |
+|DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker daemon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD doesn't responds within this time period; SF resends the request if top level operation still has remaining time.  With Hyper-V container; DD sometimes takes much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to add more pressure on DD. This config allows you to disable this retry and wait for DD to respond. |
 |DisableLivenessProbes | wstring, default is L"" | Static | Config to disable Liveness probes in cluster. You can specify any non-empty value for SF to disable probes. |
 |DisableReadinessProbes | wstring, default is L"" | Static | Config to disable Readiness probes in cluster. You can specify any non-empty value for SF to disable probes. |
 |DnsServerListTwoIps | Bool, default is FALSE | Static | This flag adds the local dns server twice to help alleviate intermittent resolve issues. |
@@ -496,10 +496,20 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, default is None|Dynamic|Determines the set of MetricActivityThresholds for the metrics in the cluster. Balancing will work if maxNodeLoad is greater than MetricActivityThresholds. For defrag metrics it defines the amount of load equal to or below which Service Fabric will consider the node empty |
 
+## MetricActivityThresholdsPerNodeType
+| **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|KeyStringValueMap, default is None|Static|Configuration that specifies metric activity thresholds per node type. |
+
 ## MetricBalancingThresholds
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Determines the set of MetricBalancingThresholds for the metrics in the cluster. Balancing will work if maxNodeLoad/minNodeLoad is greater than MetricBalancingThresholds. Defragmentation will work if maxNodeLoad/minNodeLoad in at least one FD or UD is smaller than MetricBalancingThresholds. |
+
+## MetricBalancingThresholdsPerNodeType
+| **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|KeyStringValueMap, default is None|Static|Configuration that specifies metric balancing thresholds per node type. |
 
 ## MetricLoadStickinessForSwap
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
@@ -576,6 +586,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, default is 10 | Dynamic |Maximum interval (in seconds) after which a new performance counter binary file is created. |
 |SamplingIntervalInSeconds |Int, default is 60 | Dynamic |Sampling interval for performance counters being collected. |
 
+## MinLoadBalancingIntervalsPerNodeType
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup |KeyStringValueMap, default is None | Static |Configuration that specifies min load balancing intervals per node type. |
+
 ## PlacementAndLoadBalancing
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -628,7 +644,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PreferredPrimaryDomainsConstraintPriority| Int, default is 1 | Dynamic| Determines the priority of preferred primary domain constraint: 0: Hard; 1: Soft; negative: Ignore |
 |PreferUpgradedUDs|bool, default is FALSE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs. Starting with SF 7.0, the default value for this parameter is changed from TRUE to FALSE.|
 |PreventTransientOvercommit | Bool, default is false | Dynamic|Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kinds of overcommits and on-demand defrag (also known as placementWithMove) will be disabled. |
+|RelaxUnlimitedPartitionBasedAutoScaling | Bool, default is false | Dynamic|Allow partition based auto-scaling for -1 upper scaling limit exceeds number of available nodes. If config is enabled; maximum partition count is calculated as ratio of available load and default partition load. If RelaxUnlimitedPartitionBasedAutoScaling is enabled; maximum partition count won't be less than number of available nodes. |
+|RelaxUnlimitedInstanceBasedAutoScaling | Bool, default is false | Dynamic|Allow instance based auto-scaling for -1 upper scaling limit exceeds number of available nodes. If config is enabled; maximum partition count is calculated as ratio of available load and default instance load. If RelaxUnlimitedInstanceBasedAutoScaling is enabled; maximum instance count won't be less than number of available nodes. If service doesn't allow multi-instance on the same node; enabling RelaxUnlimitedInstanceBasedAutoScaling config doesn't have impact on that service. If AllowCreateUpdateMultiInstancePerNodeServices config is disabled; enabling RelaxUnlimitedInstanceBasedAutoScaling config doesn't have impact. |
 |ScaleoutCountConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of scaleout count constraint: 0: Hard; 1: Soft; negative: Ignore. |
+|SeparateBalancingStrategyPerNodeType | Bool, default is false |Dynamic| Balancing configuration per node type Enable or disable balancing per node type feature. |
 |SubclusteringEnabled|Bool, default is FALSE | Dynamic |Acknowledge subclustering when calculating standard deviation for balancing |
 |SubclusteringReportingPolicy| Int, default is 1 |Dynamic|Defines how and if the subclustering health reports are sent: 0: Don't report; 1: Warning; 2: OK |
 |SwapPrimaryThrottlingAssociatedMetric | string, default is ""|Static| The associated metric name for this throttling. |
@@ -729,14 +748,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|string, default is ""|Static|Azure Active Directory Cert Endpoint Format, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|string, default is ""|Static|Microsoft Entra Cert Endpoint Format, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|string, default is ""|Static|Native Client application name or ID representing Fabric Clients |
 |AADClusterApplication|string, default is ""|Static|Web API application name or ID representing the cluster |
-|AADLoginEndpoint|string, default is ""|Static|Azure Active Directory Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
+|AADLoginEndpoint|string, default is ""|Static|Microsoft Entra Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|string, default is ""|Static|Tenant ID (GUID) |
 |AcceptExpiredPinnedClusterCertificate|bool, default is FALSE|Dynamic|Flag indicating whether to accept expired cluster certificates declared by thumbprint Applies only to cluster certificates; so as to keep the cluster alive. |
 |AdminClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients in admin role. It's a comma-separated name list. |
-|AADTokenEndpointFormat|string, default is ""|Static|Azure Active Directory Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|string, default is ""|Static|Microsoft Entra Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, default is ""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |
 |AdminClientIdentities|string, default is ""|Dynamic|Windows identities of fabric clients in admin role; used to authorize privileged fabric operations. It's a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically assigned admin role; so is group ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|string, default is /home/sfuser/sfusercerts |Static|Folder where AppRunAsAccountGroup X509 certificates and private keys are located |
@@ -744,7 +763,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CertificateHealthReportingInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(3600 * 8)|Static|Specify timespan in seconds. Specify interval for certificate health reporting; default to 8 hours; setting to 0 disables certificate health reporting |
 |ClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients to talk to the cluster; cluster uses this to authorize incoming connection. It's a comma-separated name list. |
 |ClientClaimAuthEnabled|bool, default is FALSE|Static|Indicates if claim-based authentication is enabled on clients; setting this true implicitly sets ClientRoleEnabled. |
-|ClientClaims|string, default is ""|Dynamic|All possible claims expected from clients for connecting to gateway. This is a 'OR' list: ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... each ClaimsEntry is a "AND" list: ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
+|ClientClaims|string, default is ""|Dynamic|All possible claims expected from clients for connecting to gateway. This is a 'OR' list: ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... each ClaimsEntry is an "AND" list: ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
 |ClientIdentities|string, default is ""|Dynamic|Windows identities of FabricClient; naming gateway uses this to authorize incoming connections. It's a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically allowed; so are group ServiceFabricAllowedUsers and ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, default is FALSE|Static|Indicates if client role is enabled; when set to true; clients are assigned roles based on their identities. For V2; enabling this means client not in AdminClientCommonNames/AdminClientIdentities can only execute read-only operations. |
 |ClusterCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates allowed to join the cluster; a comma-separated name list. |
@@ -780,6 +799,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ActivateNode |string, default is "Admin" |Dynamic| Security configuration for activation a node. |
+|AddRemoveConfigurationParameterOverrides |wstring, default is L"Admin" |Dynamic|Add/remove configuration parameter overrides|
 |CancelTestCommand |string, default is "Admin" |Dynamic| Cancels a specific TestCommand - if it's in flight. |
 |CodePackageControl |string, default is "Admin" |Dynamic| Security configuration for restarting code packages. |
 |CreateApplication |string, default is "Admin" | Dynamic|Security configuration for application creation. |
@@ -873,6 +893,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ToggleVerboseServicePlacementHealthReporting | string, default is "Admin\|\|User" |Dynamic| Security configuration for Toggling Verbose ServicePlacement HealthReporting. |
 |UnprovisionApplicationType |string, default is "Admin" |Dynamic| Security configuration for application type unprovisioning. |
 |UnprovisionFabric |string, default is "Admin" |Dynamic| Security configuration for MSI and/or Cluster Manifest unprovisioning. |
+|UnreliableLeaseBehavior |wstring, default is L"Admin" |Dynamic| Adding/Removing unreliable Lease behavior |
 |UnreliableTransportControl |string, default is "Admin" |Dynamic| Unreliable Transport for adding and removing behaviors. |
 |UpdateService |string, default is "Admin" |Dynamic|Security configuration for service updates. |
 |UpgradeApplication |string, default is "Admin" |Dynamic| Security configuration for starting or interrupting application upgrades. |
@@ -928,13 +949,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|
 |ServiceRunAsAccountName |String | Not Allowed |The account name under which to run fabric host service. |
 |SkipContainerNetworkResetOnReboot|bool, default is FALSE|NotAllowed|Whether to skip resetting container network on reboot.|
-|SkipFirewallConfiguration |Bool, default is false | Dynamic |Specifies if firewall settings need to be set by the system or not. This applies only if you're using windows firewall. If you're using third party firewalls, then you must open the ports for the system and applications to use |
+|SkipFirewallConfiguration |Bool, default is false | Dynamic |Specifies if firewall settings need to be set by the system or not. This applies only if you're using Windows Defender Firewall. If you're using third-party firewalls, then you must open the ports for the system and applications to use |
 
 ## TokenValidationService
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|Providers |string, default is "DSTS" |Static|Comma separated list of token validation providers to enable (valid providers are: DSTS; Azure Active Directory). Currently only a single provider can be enabled at any time. |
+|Providers |string, default is "DSTS" |Static|Comma separated list of token validation providers to enable (valid providers are: DSTS; Microsoft Entra ID). Currently only a single provider can be enabled at any time. |
 
 ## Trace/Etw
 

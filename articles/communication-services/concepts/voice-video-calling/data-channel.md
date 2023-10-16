@@ -32,15 +32,15 @@ The Data Channel API enables real-time messaging during audio and video calls. W
 
 ## Common use cases
 
-These are two common use cases:
+The Data Channel feature has two common use cases:
 
 ### Messaging between participants in a call
 
 The Data Channel API enables the transmission of binary type messages among call participants.
 With appropriate serialization in the application, it can deliver various message types for different purposes.
-There are also other liberies or services providing the messaging functionalities.
+There are also other libraries or services providing the messaging functionalities.
 Each of them has its advantages and disadvantages. You should choose the suitable one for your usage scenario.
-For example, the Data Channel API offers the advantage of low-latency communication, and simplifies user management as there is no need to maintain a separate participant list.
+For example, the Data Channel API offers the advantage of low-latency communication, and simplifies user management as there's no need to maintain a separate participant list.
 However, the data channel feature doesn't provide message persistence and doesn't guarantee that message won't be lost in an end-to-end manner.
 If you need the stateful messaging or guaranteed delivery, you may want to consider alternative solutions.
 
@@ -78,7 +78,7 @@ Upon creation, a channel can be configured to be one of the two Reliability opti
 
 A `lossy` channel means the order of messages isn't guaranteed and a message can be silently dropped when sending fails. It generally affords a faster data transfer speed.
 
-A `durable` channel means the SDK guarantees a lossless and ordered message delivery. In cases when a message can't be delivered, an exception will be thrown by the SDK.
+A `durable` channel means the SDK guarantees a lossless and ordered message delivery. In cases when a message can't be delivered, the SDK will throw an exception.
 In the Web SDK, the durability of the channel is ensured through a reliable SCTP connection. However, it doesn't imply that message won't be lost in an end-to-end manner.
 In the context of a group call, it signifies the prevention of message loss between the sender and server.
 In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
@@ -105,7 +105,7 @@ Upon creating a sender object with a new channelId, the sender object is in open
 If the `close()` API is invoked on the sender object, the session becomes closed and can no longer facilitate message sending.
 At the same time, the sender object notifies all participants in the call that the session is closed.
 
-If a sender object is created with an already existing channelId, the existing sender object associated with the channelId will be closed and any messages sent from the newly created sender object will be recognized as part of a new session.
+If a sender object is created with an already existing channelId, the existing sender object associated with the channelId will be closed and any messages sent from the newly created sender object will be recognized as part of the new session.
 
 From the receiver's perspective, messages coming from different sessions on the sender's side are directed to distinct receiver objects.
 If the SDK identifies a new session associated with an existing channelId on the receiver's side, it creates a new receiver object.
@@ -123,7 +123,7 @@ For instance, consider a scenario where a sender sends three messages. Initially
 ## Limitations
 
 ### Message size
-The maximum allowable size for a single message is 32 KB. If you need to send data larger than this limit, you'll need to divide the data into multiple messages.
+The maximum allowable size for a single message is 32 KB. If you need to send data larger than the limit, you'll need to divide the data into multiple messages.
 
 ### Participant list
 The maximum number of participants in a list is limited to 64. If you want to specify more participants, you'll need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
@@ -142,5 +142,5 @@ These measures are in place to prevent flooding when a significant number of par
 ## Next steps
 For more information, see the following articles:
 
-- Learn about [QuickStart - Add messaging to your calling app](../../quickstarts/voice-video-calling/get-started-data-channel.md)
+- Learn about [QuickStart - Add data channel to your calling app](../../quickstarts/voice-video-calling/get-started-data-channel.md)
 - Learn more about [Calling SDK capabilities](../../quickstarts/voice-video-calling/getting-started-with-calling.md)

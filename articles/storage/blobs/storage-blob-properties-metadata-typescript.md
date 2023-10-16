@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 03/21/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
@@ -14,7 +14,18 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Manage blob properties and metadata with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-manage-properties-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-blob.md)]
+
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
+
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
+    - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
+    - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)
+    - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization)
+    - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization)
 
 ## About properties and metadata
 

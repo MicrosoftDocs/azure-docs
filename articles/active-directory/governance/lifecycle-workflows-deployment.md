@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/31/2023
+ms.date: 10/12/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Plan a Lifecycle Workflow deployment
 
-[Lifecycle Workflows](what-are-lifecycle-workflows.md) help your organization to manage Azure AD users by increasing automation. With Lifecycle Workflows, you can:
+[Lifecycle Workflows](what-are-lifecycle-workflows.md) help your organization to manage Microsoft Entra users by increasing automation. With Lifecycle Workflows, you can:
 
 -  **Extend** your HR-driven provisioning process with other workflows that simplify and automate tasks.  
 - **Centralize** your workflow process so you can easily create and manage workflows all in one location.
@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 - **Reduce** or remove manual tasks that were done in the past with automated Lifecycle Workflows
 - **Apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
 
-Lifecycle Workflows are an [Azure AD Identity Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [access reviews](access-reviews-overview.md),[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these questions:
+Lifecycle Workflows are an [Microsoft Entra ID Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [access reviews](access-reviews-overview.md),[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these questions:
 
  - Which users should have access to which resources?
  - What are those users doing with that access?
@@ -38,7 +38,7 @@ Lifecycle Workflows are an [Azure AD Identity Governance](identity-governance-ov
  
 Planning your Lifecycle Workflow deployment is essential to make sure you achieve your desired governance strategy for users in your organization.
 
-For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/deployment-plans.md)
+For more information on deployment plans, see [Microsoft Entra deployment plans](../architecture/deployment-plans.md)
 
 ## License requirements
 
@@ -56,13 +56,13 @@ Consider your organizational needs to determine the strategy for deploying Lifec
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that project roles are clear.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that project roles are clear.
 
 For Lifecycle Workflows, you'll likely include representatives from the following teams within your organization:
 
 - **IT administration** manages your IT infrastructure and administers your cloud investments and software as a service (SaaS) apps. This team:
 
-   * Reviews Lifecycle Workflows to infrastructure and apps, including Microsoft 365 and Azure AD.
+   * Reviews Lifecycle Workflows to infrastructure and apps, including Microsoft 365 and Microsoft Entra ID.
    * Schedules and runs Lifecycle Workflows on users.
    * Ensures that programmatic Lifecycle Workflows, via GRAPH or extensibility, are governed and reviewed.
 
@@ -92,7 +92,7 @@ Communication is critical to the success of any new business process. Proactivel
 
 ### Communicate changes in accountability
 
-Lifecycle Workflows support shifting responsibility of manual processes to business owners. Decoupling these processes from the IT department drives more accuracy and automation.  This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
+Lifecycle Workflows support shifting responsibility of manual processes to business owners. Establish clear process and understanding of each team’s responsibilities. Decoupling these processes from the IT department drives more accuracy and automation. This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
 
 
 
@@ -109,8 +109,8 @@ The following information is important information about your organization and t
 
 |Item|Description|Documentation|
 |-----|-----|-----|
-|Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)<br><br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
-|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have extra attributes that are used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
+|Inbound Provisioning|You have a process to create user accounts for employees in Microsoft Entra such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Microsoft Entra ID.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Microsoft Entra ID](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Microsoft Entra ID](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect-v2.md)<br><br>[Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)<br><br>[API-driven inbound provisioning (Public preview)](../app-provisioning/inbound-provisioning-api-configure-app.md)|
+|Attribute synchronization|The accounts in Microsoft Entra ID have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Microsoft Entra Connect or cloud sync. You have extra attributes that are used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Understanding parts of a workflow
 
@@ -136,7 +136,7 @@ The following table provides information that you need to be aware of as you cre
 
 The following is additional information you should be aware of.
 
- -    You can't enable the schedule for the Real-Time Leaver scenario.  This is by design.
+ -    You can't enable the schedule for the Real-Time **Leaver** and **Mover** scenario.  This is by design.
 
 
 
@@ -163,6 +163,8 @@ Before building a Lifecycle Workflow in the portal, you should determine which s
 |Pre-Offboarding of an employee|Remove user from selected groups</br>Remove user from selected Teams|
 |Offboard an employee|Disable User Account</br>Remove user from all groups</br>Remove user from all Teams|
 |Post-Offboarding of an employee|Remove all licenses for user</br>Remove user from all Teams</br>Delete User Account|
+|Real-time employee change|Run a Custom Task Extension|
+|Real-time employee termination|Remove users from all Groups and Teams and delete the user account|
 
 For more information on the built-in templates, see [Lifecycle Workflow templates.](lifecycle-workflow-templates.md)
 
@@ -189,13 +191,13 @@ You can also choose from the numerous user attributes as well.
 
 However before selecting an attribute to use in your execution condition, you need to ensure that the attribute is either populated with data or that you can begin populating it with the required data.
 
-Not all of these attributes are populated by default so you should verify with your HR administrator or IT administrators when using HR inbound cloud only provisioning, Azure AD Connect, or cloud sync.
+Not all of these attributes are populated by default so you should verify with your HR administrator or IT administrators when using HR inbound cloud only provisioning, Microsoft Entra Connect, or cloud sync.
 
 ### Time information 
 The following is some important information regarding time zones that you should be aware of when designing workflows.
 - Workday and SAP SF will always send the time in Coordinated Universal Time or UTC.
 -  if you're in a single time zone it's recommended that you hardcode the time portion to something that works for you.  An example would be 5am for new hire scenarios and 10pm for last day of work scenarios.
-- It's recommended, that if you're using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP hasn't expired after being sent to an employee who may be in a different timezone.  For more information, see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
+- It's recommended, that if you're using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP hasn't expired after being sent to an employee who may be in a different timezone.  For more information, see [Configure Temporary Access Pass in Microsoft Entra ID to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
 For more information, see [How to synchronize attributes for Lifecycle Workflows](../governance/how-to-lifecycle-workflow-sync-attributes.md)
 
@@ -204,22 +206,27 @@ Now that we've determined the scenario and the who and when, you should consider
 
 |Task|Description|Relevant Scenarios|
 |-----|-----|-----|
-|Add user to groups|Add user to selected groups| Joiner - Leaver|
-|Add user to selected teams| Add user to Teams| Joiner - Leaver|
-|Delete User Account| Delete user account in Azure AD| Leaver|
+|Add user to groups|Add user to selected groups| Joiner - Leaver - Mover|
+|Add user to selected teams| Add user to Teams| Joiner - Leaver - Mover|
+|Delete User Account| Delete user account in Microsoft Entra ID| Leaver|
 |Disable User Account| Disable user account in the directory| Joiner - Leaver|
 |Enable User Account| Enable user account in the directory| Joiner - Leaver|
 |Generate TAP and Send Email| Generate Temporary Access Pass and send via email to user's manager| Joiner|
 |Remove all licenses of user| Remove all licenses assigned to the user| Leaver|
-|Remove user from all groups| Remove user from all Azure AD group memberships| Leaver|
+|Remove user from all groups| Remove user from all Microsoft Entra group memberships| Leaver|
 |Remove user from all Teams| Remove user from all Teams memberships| Leaver|
-|Remove user from selected groups| Remove user from membership of selected Azure AD groups| Joiner - Leaver|
-|Remove user from selected Teams| Remove user from membership of selected Teams| Joiner - Leaver|
-|Run a Custom Task Extension| Run a Custom Task Extension to callout to an external system| Joiner - Leaver|
+|Remove user from selected groups| Remove user from membership of selected Microsoft Entra groups| Joiner - Leaver - Mover|
+|Remove user from selected Teams| Remove user from membership of selected Teams| Joiner - Leaver - Mover|
+|Run a Custom Task Extension| Run a Custom Task Extension to callout to an external system| Joiner - Leaver - Mover|
 |Send email after user's last day| Send offboarding email to user's manager after the last day of work| Leaver|
 |Send email before user's last day| Send offboarding email to user's manager before the last day of work| Leaver|
 |Send email on user's last day| Send offboarding email to user's manager on the last day of work| Leaver|
 |Send Welcome Email| Send welcome email to new hire| Joiner|
+|Send onboarding reminder email|Send onboarding reminder email to user’s manager| Joiner|
+|Request user access package assignment|Request user assignement to selected access packages|Joiner-Mover|
+|Remove access package assignement for user|Remove user assignment from selected access packages| Leaver=Mover|
+|Remove all access package assignments for user|Remove all access packages assigned to the user|Leaver|
+|Cancel all pending access package assignement requests for users|Cancel all pending access package assignement requests for users|Leaver|
 
 
 For more information on tasks, see [Lifecycle Workflow tasks](lifecycle-workflow-tasks.md).
@@ -256,7 +263,7 @@ In your pilot, we recommend that you:
 * Start with Lifecycle Workflows where the results are applied to a small subset of users.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot.](../fundamentals/deployment-plans.md).
+For more information, see [Best practices for a pilot.](../architecture/deployment-plans.md).
 
 
 
@@ -268,7 +275,7 @@ Using the on-demand feature allows you to test and evaluate whether the Lifecycl
 Once you have completed testing, you can either rework the Lifecycle Workflow or get ready for a broader distribution.
 
 ### Audit logs
-You can also get more information from the audit logs.  These logs can be accessed in the portal under Azure Active Directory/monitoring.  For more information, see [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md) and [Lifecycle workflow history.](lifecycle-workflow-history.md)
+You can also get more information from the audit logs.  These logs can be accessed in the portal under Microsoft Entra ID/monitoring.  For more information, see [Audit logs in Microsoft Entra ID](../reports-monitoring/concept-audit-logs.md) and [Lifecycle workflow history.](lifecycle-workflow-history.md)
 
 
 

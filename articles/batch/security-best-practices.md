@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 11/15/2022
+ms.date: 09/13/2023
 ms.topic: conceptual
 ---
 
@@ -27,13 +27,15 @@ Pools can also be configured in one of two node communication modes, classic or 
 In the classic node communication model, the Batch service initiates communication to the compute nodes, and compute nodes
 also require communicating to Azure Storage. In the simplified node communication model, compute nodes initiate communication
 with the Batch service. Due to the reduced scope of inbound/outbound connections required, and not requiring Azure Storage
-outbound access for baseline operation, the recommendation is to use the simplified node communication model.
+outbound access for baseline operation, the recommendation is to use the simplified node communication model. The classic
+node communication model will be
+[retired on March 31, 2026](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
 
 ### Batch account authentication
 
-Batch account access supports two methods of authentication: Shared Key and [Azure Active Directory (Azure AD)](batch-aad-auth.md).
+Batch account access supports two methods of authentication: Shared Key and [Microsoft Entra ID](batch-aad-auth.md).
 
-We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Azure AD using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
+We strongly recommend using Microsoft Entra ID for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Microsoft Entra ID using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
 
 ### Batch account pool allocation mode
 
@@ -52,17 +54,49 @@ By default, endpoints with public IP addresses are used to communicate with Batc
 
 ### Batch account API
 
- When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Azure Active Directory (Azure AD) authentication.
+ When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Microsoft Entra authentication.
 
 ### Azure Resource Manager
 
 In addition to operations specific to a Batch account, [management operations](/rest/api/batchmanagement/) apply to single and multiple Batch accounts. These management operations are accessed via Azure Resource Manager.
 
-Batch management operations via Azure Resource Manager are encrypted using HTTPS, and each request is authenticated using Azure AD authentication.
+Batch management operations via Azure Resource Manager are encrypted using HTTPS, and each request is authenticated using Microsoft Entra authentication.
 
-### Batch pool nodes
+### Batch pool compute nodes
 
 The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH (this access is enabled by default, with communication via load balancers).
+
+#### Batch compute node OS
+
+Batch supports both Linux and Windows operating systems. Batch supports Linux with an aligned node agent for a subset of Linux OS
+distributions. It's recommended that the operating system is kept up-to-date with the latest patches provided by the OS
+publisher.
+
+Batch support for images and node agents phase out over time, typically aligned with publisher support timelines. It's
+recommended to avoid using images with impending end-of-life (EOL) dates or images that are past their EOL date.
+It's your responsibility to periodically refresh your view of the EOL dates pertinent to your pools and migrate your workloads
+before the EOL date occurs. If you're using a custom image with a specified node agent, ensure that you follow Batch support
+end-of-life dates for the image for which your custom image is derived or aligned with. An image without a specified
+`batchSupportEndOfLife` date indicates that such a date hasn't been determined yet by the Batch service. Absence of a date
+doesn't indicate that the respective image will be supported indefinitely. An EOL date may be added or updated in the future
+at any time. EOL dates can be discovered via the
+[`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
+[PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or
+[Azure CLI](/cli/azure/batch/pool/supported-images).
+
+#### Windows OS Transport Layer Security (TLS)
+
+The Batch node agent doesn't modify operating system level defaults for SSL/TLS versions or cipher suite ordering. In Windows,
+SSL/TLS versions and cipher suite order is controlled at the operating system level, and therefore the Batch node agent adopts
+the settings set by the image used by each compute node. Although the Batch node agent attempts to utilize the
+most secure settings available when possible, it can still be limited by operating system level settings.  We recommend that
+you review your OS level defaults and set them appropriately for the most secure mode that is amenable for your workflow and
+organizational requirements. For more information, please visit
+[Manage TLS](https://learn.microsoft.com/windows-server/security/tls/manage-tls) for cipher suite order enforcement and
+[TLS registry settings](https://learn.microsoft.com/windows-server/security/tls/tls-registry-settings) for SSL/TLS version
+control for Schannel SSP. Note that some setting changes require a reboot to take effect. Utilizing a newer operating system
+with modern security defaults or a [custom image](batch-sig-images.md) with modified settings is recommended instead of
+application of such settings with a Batch start task.
 
 ### Restricting access to Batch endpoints
 

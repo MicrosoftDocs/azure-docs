@@ -1,12 +1,11 @@
 ---
-title: Document Intelligence quotas and limits
+title: Service quotas and limits - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices for working within Azure AI Document Intelligence service Quotas and Limits
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -91,7 +90,11 @@ This article contains both a quick reference and detailed description of Azure A
 | Adjustable | No |Yes <sup>3</sup>|
 | **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
 | Adjustable | No | No |
+| **Max number of document types (classes) * Classifier** | 500 | 500 (default value) |
+| Adjustable | No | No |
 | **Training dataset size * Classifier** | 1GB | 1GB (default value) |
+| Adjustable | No | No |
+| **Min number of samples per class * Classifier** | 5 | 5 (default value) |
 | Adjustable | No | No |
 
 ::: moniker-end

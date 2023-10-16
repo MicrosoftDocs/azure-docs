@@ -29,7 +29,9 @@ Because you might want the same sign-in experience for all of your customer-faci
 
 If you already registered your application in your customer tenant, you can add it to the new user flow. This step activates the sign-up and sign-in experience for users who visit your application. An application can have only one user flow, but a user flow can be used by multiple applications.
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory** > **External Identities** > **User flows**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Browse to **Identity** > **External Identities** > **User flows**.
 
 1. From the list, select your user flow.
 

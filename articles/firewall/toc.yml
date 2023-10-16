@@ -42,42 +42,59 @@ items:
     href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
 - name: Concepts
   items:
-    - name: Azure Firewall Basic features
-      href: basic-features.md
-    - name: Azure Firewall Standard features
-      href: features.md
-    - name: Azure Firewall Premium features
-      href: premium-features.md
-    - name: Azure Firewall preview features
-      href: firewall-preview.md
-    - name: Choose an Azure Firewall SKU
-      href: choose-firewall-sku.md
-    - name: IDPS signature rule categories
-      href: idps-signature-categories.md
-    - name: Azure Firewall Premium in the portal
-      href: premium-portal.md
-    - name: Azure Firewall Premium certificates
-      href: premium-certificates.md
+    - name: SKU
+      items:
+      - name: Basic
+        items:
+        - name: Azure Firewall Basic features
+          href: basic-features.md
+      - name: Standard
+        items:
+        - name: Azure Firewall Standard features
+          href: features.md
+      - name: Premium
+        items:
+        - name: Azure Firewall Premium features
+          href: premium-features.md
+        - name: Azure Firewall Premium in the portal
+          href: premium-portal.md
+        - name: Azure Firewall Premium certificates
+          href: premium-certificates.md
+        - name: IDPS signature rule categories
+          href: idps-signature-categories.md
+
+      - name: Choose an Azure Firewall SKU
+        href: choose-firewall-sku.md
+    - name: Preview
+      items:
+      - name: Azure Firewall preview features
+        href: firewall-preview.md
+    - name: Tags
+      items:
+      - name: FQDN tags
+        href: fqdn-tags.md
+      - name: Service tags
+        href: service-tags.md
+    - name: Logs
+      items:
+      - name: Structured Firewall Logs
+        href: firewall-structured-logs.md
+      - name: Logs and metrics
+        href: logs-and-metrics.md
+    - name: Policy
+      items:
+      - name: Policy rule sets
+        href: policy-rule-sets.md
+      - name: Policy Analytics
+        href: policy-analytics.md
     - name: Azure Firewall web categories
       href: web-categories.md
-    - name: FQDN tags
-      href: fqdn-tags.md
     - name: Infrastructure FQDNs
       href: infrastructure-fqdns.md
-    - name: Logs and metrics
-      href: logs-and-metrics.md
-    - name: Structured Firewall Logs
-      href: firewall-structured-logs.md
     - name: Threat intelligence
       href: threat-intel.md
-    - name: Policy rule sets
-      href: policy-rule-sets.md
-    - name: Policy Analytics
-      href: policy-analytics.md
     - name: Rule processing logic
       href: rule-processing.md
-    - name: Service tags
-      href: service-tags.md
     - name: IP Groups
       href: ip-groups.md
     - name: Forced tunneling
@@ -106,6 +123,8 @@ items:
       href: explicit-proxy.md
     - name: Multi hub and spoke
       href: firewall-multi-hub-spoke.md
+    - name: Azure Firewall with Microsoft Sentinel
+      href: firewall-sentinel-overview.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -197,6 +216,8 @@ items:
   items:
   - name: FAQ
     href: firewall-faq.yml
+  - name: Known issues
+    href: firewall-known-issues.md
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap

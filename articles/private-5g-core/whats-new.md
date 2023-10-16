@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Private 5G Core?
 description: Discover what's new in Azure Private 5G Core
-author: robswain
-ms.author: robswain
+author: paulcarter
+ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 05/31/2023
+ms.date: 09/21/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -22,6 +22,50 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## September 2023
+### Packet core 2308
+
+**Type:** New release
+
+**Date available:** September 21, 2023
+
+The 2308 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2308 release notes](azure-private-5g-core-release-notes-2308.md).
+
+### 10 DNs
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the number of supported data networks (DNs) increases from three to ten, including with layer 2 traffic separation. If more than 6 DNs are required, a shared switch for access and core traffic is needed.
+
+### Default MTU values 
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the default MTU values are changed as follows:
+- UE MTU: 1440 (was 1300)
+-	Access MTU: 1500 (was 1500)
+-	Data MTU: 1440 (was 1500)
+
+Customers upgrading to 2308 see a change in the MTU values on their packet core.
+
+When the UE MTU is set to any valid value (see API Spec) then the other MTUs will be set to:
+- Access MTU: UE MTU + 60
+- Data MTU: UE MTU
+  
+Rollbacks to Packet Core versions earlier than 2308 are not possible if the UE MTU field is changed following an upgrade.
+
+### MTU Interop setting
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the MTU Interop setting is deprecated and cannot be set for Packet Core versions 2308 and above.
+
 ## July 2023
 ### Packet core 2307
 
@@ -31,6 +75,21 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 The 2307 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2307 release notes](azure-private-5g-core-release-notes-2307.md).
 
+### UE usage tracking
+
+**Type:** New feature
+
+**Date available:** July 31, 2023
+
+The UE usage tracking messages in Azure Event Hubs are now encoded in AVRO file container format, which enables you to consume these events via Power BI or Azure Stream Analytics (ASA). If you want to enable this feature for your deployment, contact your support representative.
+
+### Unknown User cause code mapping in 4G deployments
+
+**Type:** New feature
+
+**Date available:** July 31, 2023
+
+In this release, the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
 ### 2023-06-01 API
 
 **Type:** New release
@@ -45,6 +104,16 @@ ARM API users with existing resources can continue to use the 2022-04-01-preview
 ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
  
 Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API cannot go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+
+### New cloud monitoring option - Azure Monitor Workbooks
+
+**Type:** New feature
+
+**Date available:** July 12, 2023
+
+You can now use Azure Monitor Workbooks to monitor your private mobile network. Workbooks provide versatile tools for visualizing and analyzing data. You can use workbooks to gain insights into your connected resources - including the packet core, Azure Stack Edge devices and Kubernetes clusters - using a range of visualization options. You can create new workbooks or customize one of the included templates to suit your needs.
+
+See [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md) to learn more.
 
 ## June 2023
 

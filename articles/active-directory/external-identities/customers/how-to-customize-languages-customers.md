@@ -9,28 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 09/25/2023
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to add customized browser languages to my app's authentication experience.
 ---
 # Customize the language of the authentication experience
 
-You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements. If you don't make any changes to the elements, the default elements will be displayed.
+You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
 ## Prerequisites
 
-- If you haven't already created your own Azure AD customer tenant, create one now.
+- If you haven't already created your own Microsoft Entra customer tenant, create one now.
 - [Register an application](how-to-register-ciam-app.md).  
-- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md).
 - Review the file size requirements for each image you want to add. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted.
 
 ## Add browser language under Company branding
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-1. In the search bar, type and select **Company branding**.
-1. Under **Browser language customizations**, select **Add browser language**. 
+1. Browse to **Company branding** > **Browser language customizations** > **Add browser language**. 
 
    :::image type="content" source="media/how-to-customize-languages-customers/company-branding-add-browser-language.png" alt-text="Screenshot of the browser language customizations tab." lightbox="media/how-to-customize-languages-customers/company-branding-add-browser-language.png":::
 
@@ -77,7 +76,7 @@ The following languages are supported in the customer tenant:
    - Spanish (Spain)
    - Swedish (Sweden)
    - Thai (Thailand)
-   - Turkish (Turkey)
+   - Turkish (Türkiye)
    - Ukrainian (Ukraine)
    
 6. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, **Sign-in form**, and **Text** tabs. For detailed instructions, see [Customize the branding and end-user experience](how-to-customize-branding-customers.md).
@@ -87,19 +86,18 @@ The following languages are supported in the customer tenant:
 
 Language customization in the customer tenant allows your user flow to accommodate different languages to suit your customer's needs.  You can use languages to modify the strings displayed to your customers as part of the attribute collection process during sign-up.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).  
 2. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-3. In the left menu, select **Azure Active Directory** > **External Identities**.
-4. Select **User flows**.
-5. Select the user flow that you want to enable for translations.
-6. Select **Languages**.
-7. On the **Languages** page for the user flow, select the language that you want to customize.
-8. Expand **Sign up and sign in (Preview)**.
-9. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
+3. Browse to **Identity** > **External Identities** > **User flows**.
+4. Select the user flow that you want to enable for translations.
+5. Select **Languages**.
+6. On the **Languages** page for the user flow, select the language that you want to customize.
+7. Expand **Sign up and sign in (Preview)**.
+8. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
 
    :::image type="content" source="media/how-to-customize-languages-customers/language-customization-flow.png" alt-text="Screenshot the shows how to add languages under a user flow." lightbox="media/how-to-customize-languages-customers/language-customization-flow.png":::
 
-The downloaded file will be in JSON format and will include both built-in and custom attributes, as well as other page-level and error strings:
+The downloaded file is in JSON format and includes both built-in and custom attributes, as well as other page-level and error strings:
 
 ```http
 {
@@ -156,12 +154,12 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 }  
 ```
 
-10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
-11. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
+9. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically. The override appears under the **Configured** tab.
+10. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
 
    :::image type="content" source="media/how-to-customize-languages-customers/remove-download-override-file.png" alt-text="Screenshot the shows how to remove or download the modified JSON file." lightbox="media/how-to-customize-languages-customers/remove-download-override-file.png":::
    
-12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. You'll see the updated attributes on the sign-up page:
+11. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. The updated attributes on the sign-up page appear as follows:
 
    :::image type="content" source="media/how-to-customize-languages-customers/customized-attributes.png" alt-text="Screenshot of the modified sign-up page attributes.":::
 
@@ -173,6 +171,31 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 Languages that are read right-to-left, such as Arabic and Hebrew, are displayed in the opposite direction compared to languages that are read left-to-right. The customer tenant supports right-to-left functionality and features for languages that work in a right-to-left environment for entering, and displaying data. Right-to-left readers can interact in a natural reading manner. 
 
 :::image type="content" source="media/how-to-customize-languages-customers/right-to-left-language-support.png" alt-text="Screenshot showing the right-to-left language support." lightbox="media/how-to-customize-languages-customers/right-to-left-language-support.png":::
+
+## Remove the browser language customization
+
+When no longer needed, you can remove the language customization from your customer tenant in the admin center or with the Microsoft Graph API. 
+
+### Remove the language customization in the admin center
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Browse to **Company branding** > **Browser language customizations**
+
+1. Select the language you want to delete and then select **Delete** and **OK**.
+
+   :::image type="content" source="media/how-to-customize-languages-customers/company-branding-delete-browser-language.png" alt-text="Screenshot of the browser language customizations tab and the delete button." lightbox="media/how-to-customize-languages-customers/company-branding-delete-browser-language.png":::
+
+### Remove the language customization with the Microsoft Graph API
+
+1. Sign in to the [MS Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) with your customer tenant account:  `https://developer.microsoft.com/en-us/graph/graph-explorer?tenant=<your-tenant-name.onmicrosoft.com>`.
+
+1. Query the default branding object using the Microsoft Graph API: `https://graph.microsoft.com/v1.0/organization/<your-tenant-ID>/branding/localizations`. To confirm that you're signed in to your customer tenant, verify the tenant name on the right side of the screen.
+1. [Remove the localized branding object](/graph/api/organizationalbrandinglocalization-delete).
+
+   :::image type="content" source="media/how-to-customize-branding-customers/msgraph-ciam-branding.png" alt-text="Screenshot of MS Graph API with CIAM tenant logged in." lightbox="media/how-to-customize-branding-customers/msgraph-ciam-branding.png":::
+
+1. Wait a few minutes for the changes to take effect.
 
 ## Next steps
 

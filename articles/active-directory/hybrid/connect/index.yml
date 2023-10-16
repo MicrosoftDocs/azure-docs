@@ -60,16 +60,16 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Azure AD Connect cloud sync?
+          - text: What is Microsoft Entra Cloud Sync?
             url: how-to-connect-install-express.md
 
 
   # Card
-  - title: Azure AD Connect reference
+  - title: Microsoft Entra Connect reference
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Azure AD Connect?
+          - text: What is Microsoft Entra Connect?
             url: how-to-connect-install-express.md
 
   # Card
@@ -77,10 +77,5 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Azure AD Provisioning Agent?
+          - text: What is Microsoft Entra provisioning Agent?
             url: how-to-connect-install-express.md
-
-
-
-
-

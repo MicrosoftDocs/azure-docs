@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "kubernetesClusterName":{
-        "value": "myNexusAKSCluster"
+        "value": "myNexusK8sCluster"
       },
       "extendedLocation": {
         "value": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"

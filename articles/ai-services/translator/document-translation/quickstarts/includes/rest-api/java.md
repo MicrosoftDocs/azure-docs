@@ -3,8 +3,7 @@ title: "Quickstart: Document Translation Java"
 description: 'Document Translation processing using the REST API and Java programming language'
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar

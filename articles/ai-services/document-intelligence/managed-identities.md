@@ -1,11 +1,10 @@
 ---
-title: Create and use managed identities with Document Intelligence
+title: Create and use managed identities with Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Understand how to create and  use managed identity with Document Intelligence
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -17,11 +16,11 @@ monikerRange: '<=doc-intel-3.1.0'
 
 [!INCLUDE [applies to v3.1, v3.0, v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
 
-Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
+Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources:
 
 :::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
+* You can use managed identities to grant access to any resource that supports Microsoft Entra authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
@@ -56,14 +55,14 @@ To get started, you need:
   * If your storage account is behind a firewall, **you must enable the following configuration**: </br></br>
 
   * On your storage account page, select **Security + networking** → **Networking** from the left menu.
-    :::image type="content" source="media/managed-identities/security-and-networking-node.png" alt-text="Screenshot: security + networking tab.":::
+    :::image type="content" source="media/managed-identities/security-and-networking-node.png" alt-text="Screenshot of security + networking tab.":::
 
   * In the main window, select **Allow access from selected networks**.
-  :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
+  :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot of Selected networks radio button selected.":::
 
   * On the selected networks page, navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) checkbox is enabled.
 
-    :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
+    :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot of allow trusted services checkbox, portal view":::
 * A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
 ## Managed identity assignments
@@ -88,7 +87,7 @@ In the following steps, we enable a system-assigned managed identity and grant D
 
 1. In the left rail, Select **Identity** from the **Resource Management** list:
 
-    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
+    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot of resource management identity tab in the Azure portal.":::
 
 1. In the main window, toggle the **System assigned Status** tab to **On**.
 
@@ -98,11 +97,11 @@ You need to grant Document Intelligence access to your storage account before it
 
 1. Under **Permissions** select **Azure role assignments**:
 
-    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
+    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot of enable system-assigned managed identity in Azure portal.":::
 
 1. On the Azure role assignments page that opens, choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
 
-    :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
+    :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot of Azure role assignments page in the Azure portal.":::
 
     > [!NOTE]
     >
@@ -117,15 +116,15 @@ You need to grant Document Intelligence access to your storage account before it
     |**Resource**| **_The name of your storage resource_**|
     |**Role** | **_Storage Blob Data Reader_**—allows for read access to Azure Storage blob containers and data.|
 
-     :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
+     :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot of add role assignments page in the Azure portal.":::
 
 1. After you've received the _Added Role assignment_ confirmation message, refresh the page to see the added role assignment.
 
-    :::image type="content" source="media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
+    :::image type="content" source="media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot of Added role assignment confirmation pop-up message.":::
 
 1. If you don't see the change right away, wait and try refreshing the page once more. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
-    :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
+    :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot of Azure role assignments window.":::
 
  That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Document Intelligence specific access rights to your storage resource without having to manage credentials such as SAS tokens.
 
