@@ -85,18 +85,18 @@ For more information, enter the command `man fstab` from the Linux command line.
 
 If your mount failed, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
-### NFS file share snapshots (preview)
+## NFS file share snapshots (preview)
 
 Customers using NFS Azure file shares can now create, list, and delete snapshots of NFS Azure file shares. This allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
 
 > [!NOTE]
 > This preview only supports management APIs (`AzRmStorageShare`), not data plane APIs (`AzStorageShare`).
 
-#### Regional availability for NFS Azure file share snapshots
+### Regional availability for NFS Azure file share snapshots
 
 [!INCLUDE [files-nfs-snapshot-regions](../../../includes/files-nfs-snapshot-regions.md)]
 
-#### Create a snapshot of an NFS file share
+### Create a snapshot of an NFS file share
 
 You can create a snapshot of an NFS file share using Azure PowerShell or Azure CLI.
 
@@ -116,7 +116,25 @@ az storage share snapshot --name <file-share-name> --account-name <storage-accou
 ```
 ---
 
+### List snapshots for an NFS file share
 
+You can list all file shares in a storage account, including the share snapshots, using Azure PowerShell or Azure CLI.
+
+# [Azure PowerShell](#tab/powershell)
+
+To list all file shares and snapshots in a storage account, run the following PowerShell command. Replace `<resource-group-name>` and `<storage-account-name>` with your own values.
+
+```azurepowershell
+Get-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -IncludeSnapshot
+```
+
+# [Azure CLI](#tab/cli)
+To list all file shares and snapshots in a storage account, run the following Azure CLI command. Replace `<storage-account-name>` with your own value.
+
+```azurecli
+az storage share list --account-name <storage-account-name> --include-snapshots
+```
+---
 ## Next steps
 
 - Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
