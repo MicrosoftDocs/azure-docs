@@ -21,18 +21,18 @@ This article describes how to set up Azure Communications Gateway for Operator C
 
 You must have carried out all the steps in [Deploy Azure Communications Gateway](deploy.md).
 
-You must have access to a user account with the Azure Active Directory Global Admin role.
+You must have access to a user account with the Microsoft Entra Global Administrator role.
 
 ## Add the Project Synergy application to your Azure tenancy
 
 > [!NOTE]
 >This step and the next step ([Assign an Admin user to the Project Synergy application](#assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. If you've already gone through onboarding, go to [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
 
-The Operator Connect and Teams Phone Mobile programs require your Azure Active Directory tenant to contain a Microsoft application called Project Synergy. Operator Connect and Teams Phone Mobile inherit permissions and identities from your Azure Active Directory tenant through the Project Synergy application. The Project Synergy application also allows configuration of Operator Connect or Teams Phone Mobile and assigning users and groups to specific roles.
+The Operator Connect and Teams Phone Mobile programs require your Microsoft Entra tenant to contain a Microsoft application called Project Synergy. Operator Connect and Teams Phone Mobile inherit permissions and identities from your Microsoft Entra tenant through the Project Synergy application. The Project Synergy application also allows configuration of Operator Connect or Teams Phone Mobile and assigning users and groups to specific roles.
 
 To add the Project Synergy application:
 
-1. Check whether the Azure Active Directory (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+1. Check whether the Microsoft Entra ID (`AzureAD`) module is installed in PowerShell. Install it if necessary.
     1. Open PowerShell.
     1. Run the following command and check whether `AzureAD` appears in the output.
        ```azurepowershell
@@ -46,8 +46,8 @@ To add the Project Synergy application:
             Install-Module AzureAD
             ```
         1. Close your PowerShell admin window.
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
-1. Select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Admin.
+1. Select **Microsoft Entra ID**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
@@ -79,7 +79,7 @@ Each Azure Communications Gateway resource automatically receives a [system-assi
 1. Select your Communications Gateway resource.
 1. Select **Identity**.
 1. In **System assigned**, copy the **Object (principal) ID**.
-1. Search for the value of **Object (principal) ID** with the search bar. You should see an enterprise application with that value under the **Azure Active Directory** subheading. You might need to select **Continue searching in Azure Active Directory** to find it.
+1. Search for the value of **Object (principal) ID** with the search bar. You should see an enterprise application with that value under the **Microsoft Entra ID** subheading. You might need to select **Continue searching in Microsoft Entra ID** to find it.
 1. Make a note of the **Object (principal) ID**.
 1. Select the enterprise application.
 1. Check that the **Object ID** matches the **Object (principal) ID** value that you copied.
@@ -94,7 +94,7 @@ Azure Communications Gateway contains services that need to access the Operator 
 
 Do the following steps in the tenant that contains your Project Synergy application.
 
-1. Check whether the Azure Active Directory (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+1. Check whether the Microsoft Entra ID (`AzureAD`) module is installed in PowerShell. Install it if necessary.
     1. Open PowerShell.
     1. Run the following command and check whether `AzureAD` appears in the output.
        ```azurepowershell
@@ -108,8 +108,8 @@ Do the following steps in the tenant that contains your Project Synergy applicat
             Install-Module AzureAD
             ```
         1. Close your PowerShell admin window.
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
-1. Select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Administrator.
+1. Select **Microsoft Entra ID**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
@@ -175,12 +175,12 @@ To enable the application, add the Application ID of the system-assigned managed
 1. Log into the [Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Add a new **Application Id**, using the Application ID that you found.
 
-## Register your deployment's domain name in Active Directory
+## Register your deployment's domain name in Microsoft Entra
 
-Microsoft Teams only sends traffic to domains that you've confirmed that you own. Your Azure Communications Gateway deployment automatically receives an autogenerated fully qualified domain name (FQDN). You need to add this domain name to your Active Directory tenant as a custom domain name, share the details with your onboarding team and then verify the domain name. This process confirms that you own the domain.
+Microsoft Teams only sends traffic to domains that you've confirmed that you own. Your Azure Communications Gateway deployment automatically receives an autogenerated fully qualified domain name (FQDN). You need to add this domain name to your Microsoft Entra tenant as a custom domain name, share the details with your onboarding team and then verify the domain name. This process confirms that you own the domain.
 
 1. Navigate to the **Overview** of your Azure Communications Gateway resource and select **Properties**. Find the field named **Domain**. This name is your deployment's domain name.
-1. Complete the following procedure: [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name).
+1. Complete the following procedure: [Add your custom domain name to Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name).
 1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
 1. Complete the following procedure: [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name).
 

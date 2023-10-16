@@ -20,7 +20,7 @@ Based on the scope of access that you allow, a developer who has the Deployment 
 * View the project environment types. 
 * Create an environment.
 * Read, write, delete, or perform actions (like deploy or reset) on their own environment.
-* Read or perform actions (like deploy or reset) on environments that other users created.
+* Read environments that other users created.
 
 When you assign the role at the project level, the user can perform the preceding actions on all environment types enabled at the project level. When you assign the role to specific environment types, the user can perform the actions only on the respective environment types.
 

@@ -102,7 +102,7 @@ This section provides the steps to register an application to add app roles in M
 
 1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="../../media/tutorial-authenticate-client-with-gateway/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -133,7 +133,7 @@ This section provides the steps to register an application to add app roles in M
 
 The Books RESTful API app acts as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `SPA`.
 
-1. Go back to your tenant in **Azure Active Directory**.
+1. Go back to your tenant in **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -159,7 +159,7 @@ The Books RESTful API app acts as a resource server, which is protected by Micro
 
 ### 3.5. Update the configuration of Books Service app
 
-Update the configuration of `spring.cloud.azure.active-directory` in the `books-service` application configuration file to match the following example. Be sure to replace the placeholders with your own values you created in the previous step.
+Locate *books-service/src/main/resources/application.yml* file for the `books-service` app. Update the configuration in the `spring.cloud.azure.active-directory` section to match the following example. Be sure to replace the placeholders with the values you created previously.
 
 ```yaml
 spring:
@@ -253,4 +253,3 @@ node server.js
 
 > [!NOTE]
 > The SPA app is a static web application, which can be deployed to any web server.
-

@@ -1,5 +1,5 @@
 ---
-title: What is Azure AI Content Safety? (preview)
+title: What is Azure AI Content Safety? 
 titleSuffix: Azure AI services
 description: Learn how to use Content Safety to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.custom: references_regions, build-2023, build-2023-dataai
 #Customer intent: As a developer of content management software, I want to find out whether Azure AI Content Safety is the right solution for my moderation needs.
 ---
 
-# What is Azure AI Content Safety? (preview)
+# What is Azure AI Content Safety? 
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
@@ -56,11 +56,11 @@ There are different types of analysis available from this service. The following
 
 [Azure AI Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with provided sample content.
 
-Content Safety Studio not only contains the out-of-the-box AI models, but also includes Microsoft's built-in terms blocklists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
+Content Safety Studio not only contains out-of-the-box AI models but also includes Microsoft's built-in terms blocklists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
 
 Studio also lets you set up a moderation workflow, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real time, whether user-generated or AI-generated.
 
-All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (block rate, block volume, category proportions, language proportions and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
+All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (block rate, block volume, category proportions, language proportions, and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
 
 > [!div class="nextstepaction"]
 > [Content Safety Studio](https://contentsafety.cognitive.azure.com)
@@ -84,34 +84,47 @@ The maximum size for image submissions is 4 MB, and image dimensions must be bet
 
 ## Security
 
-### Use Azure Active Directory or Managed Identity to manage access
+<a name='use-azure-active-directory-or-managed-identity-to-manage-access'></a>
 
-For enhanced security, you can use Azure Active Directory (Azure AD) or Managed Identity (MI) to manage access to your resources.
+### Use Microsoft Entra ID or Managed Identity to manage access
+
+For enhanced security, you can use Microsoft Entra ID or Managed Identity (MI) to manage access to your resources.
 * Managed Identity is automatically enabled when you create a Content Safety resource.
-* Azure Active Directory is supported in both API and SDK scenarios. Refer to the general AI services guideline of [Authenticating with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory). You can also grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure portal, refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+* Microsoft Entra ID is supported in both API and SDK scenarios. Refer to the general AI services guideline of [Authenticating with Microsoft Entra ID](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory). You can also grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure portal, refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### Encryption of data at rest
 
-Learn how Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md). Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+Learn how Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md). Customer-managed keys (CMK), also known as Bring Your Own Key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 ## Pricing
 
-Currently, the public preview features are available in the **F0 and S0** pricing tier.
+Currently, Content Safety has an **F0 and S0** pricing tier.
 
 ## Service limits
 
 ### Language support
 
-Content Safety models have been specifically trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality may vary. In all cases, you should do your own testing to ensure that it works for your application.
+Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 
-### Region / location
+### Region/location
 
-To use the preview APIs, you must create your Azure AI Content Safety resource in a supported region. Currently, the public preview features are available in the following Azure regions: 
+To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
 
+- Australia East
+- Canada East
+- Central US
 - East US
+- East US 2
+- France Central
+- Japan East
+- North Central US
+- South Central US
+- Switzerland North
+- UK South
 - West Europe
+- West US 2
 
 Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
 

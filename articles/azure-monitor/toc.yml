@@ -43,11 +43,9 @@ items:
       items:
       - name: Data Collection Basics
         href: app/opentelemetry-overview.md
-      - name: Create a resource
-        href: app/create-workspace-resource.md
-      - name: Autoinstrumentation
+      - name: Automatic instrumentation
         items:
-        - name: Supported Scenarios
+        - name: Autoinstrumentation supported scenarios
           href: app/codeless-overview.md
         - name: Azure VM and Virtual Machine Scale Sets
           href: app/azure-vm-vmss-apps.md
@@ -102,33 +100,29 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
-        - name: Node.js (supplemental)
-          items:
-          - name: Node.js OpenTelemetry exporter
-            href: app/opentelemetry-nodejs-exporter.md
         - name: Python (supplemental)
           items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
+      - name: Client-side JavaScript SDK
+        items:
+        - name: Get Started with JavaScript SDK
+          displayName: browser, client-side, JavaScript (Web) SDK Loader Script
+          href: app/javascript-sdk.md
+        - name: Configure JavaScript SDK
+          href: app/javascript-sdk-configuration.md
+        - name: Enable React, React Native, Angular
+          href: app/javascript-framework-extensions.md
+        - name: Enable Click Analytics
+          href: app/javascript-feature-extensions.md
+        - name: Upgrade
+          href: app/javascript-sdk-upgrade.md
+        - name: Troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
       - name: Application Insights SDK (Classic API)
         items:
-        - name: Client-side JavaScript
-          items:
-          - name: Get Started with JavaScript SDK
-            displayName: browser, client-side, JavaScript (Web) SDK Loader Script
-            href: app/javascript-sdk.md
-          - name: Configure JavaScript SDK
-            href: app/javascript-sdk-configuration.md
-          - name: Enable React, React Native, Angular
-            href: app/javascript-framework-extensions.md
-          - name: Enable Click Analytics
-            href: app/javascript-feature-extensions.md
-          - name: Upgrade
-            href: app/javascript-sdk-upgrade.md
-          - name: Troubleshooting
-            href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
         - name: .NET
           items:
             - name: ASP.NET Core
@@ -189,7 +183,7 @@ items:
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
           - name: Distributed tracing and telemetry correlation
-            href: app/distributed-tracing-telemetry-correlation.md
+            href: app/distributed-trace-data.md
             displayName: correlation headers, w3c, distributed tracing, tracing
           - name: Exceptions
             href: app/asp-net-exceptions.md        
@@ -205,8 +199,15 @@ items:
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
+          - name: Microsoft Entra authentication
+            href: app/azure-ad-authentication.md
+          - name: IP address collection
+            href: app/ip-collection.md
+            displayName: geolocation, IP collection, IP tracking, IP storage
         - name: SDK support policy
           href: app/sdk-support-guidance.md
+      - name: Create a resource
+        href: app/create-workspace-resource.md
       - name: Upgrade from classic resources and iKey
         items:
         - name: Migrate to a workspace-based resource
@@ -240,12 +241,6 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-      - name: Transaction search
-        href: app/diagnostic-search.md
-        items:
-        - name: Transaction diagnostics
-          href: app/transaction-diagnostics.md
-          displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
@@ -270,6 +265,8 @@ items:
           href: app/usage-heart.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
+      - name: Transaction Search and Diagnostics
+        href: app/search-and-transaction-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler
@@ -364,14 +361,9 @@ items:
         href: app/resources-roles-access-control.md
       - name: Application data collection, retention, and storage
         href: app/data-retention-privacy.md
-      - name: Azure AD authentication
-        href: app/azure-ad-authentication.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: IP address collection
-        href: app/ip-collection.md
-        displayName: geolocation, IP collection, IP tracking, IP storage
       - name: Separate development, test, and production
         href: app/separate-resources.md
     - name: Tutorials
@@ -387,7 +379,7 @@ items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
       - name: Q&A forum (general questions)
-        href: /answers/topics/24223/azure-monitor
+        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
@@ -520,19 +512,19 @@ items:
         - name: Managed identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-managed-identity.md
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-active-directory.md
-        - name: Azure Active Directory pod identity
+        - name: Microsoft Entra pod identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
-        - name: Azure Active Directory workload identity (preview)
+        - name: Microsoft Entra Workload ID (preview)
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md    
-      - name: Prometheus Azure Active Directory authorization proxy
+      - name: Prometheus Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
       - name: Private link data ingestion
@@ -910,7 +902,7 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
-  - name: Use Azure AD authentication
+  - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
@@ -955,7 +947,7 @@ items:
           - name: Configure Grafana with managed system identity
             displayName: Prometheus
             href: essentials/prometheus-grafana.md
-          - name: Configure Grafana with Azure Active Directory
+          - name: Configure Grafana with Microsoft Entra ID
             displayName: Prometheus
             href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
         - name: Query using Azure workbooks
@@ -1255,7 +1247,7 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
-          - name: Application Insights API access with Azure Active Directory
+          - name: Application Insights API access with Microsoft Entra ID
             href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 

@@ -18,7 +18,7 @@ ms.reviewer: besiler
 
 # Learn about the sign-in log activity details
 
-Microsoft Entra ID logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+Microsoft Entra logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 - [Learn about the sign-in logs](concept-sign-ins.md).
 - [Customize and filter the sign-in logs](howto-customize-filter-logs.md)

@@ -40,7 +40,7 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 >[!Important]
 >We recommend using:
 >
-> - Azure Active Directory (Azure AD) in all solutions that are built with an Azure Maps account using Creator services. For more information about Azure AD, see [Azure AD authentication].
+> - Microsoft Entra ID in all solutions that are built with an Azure Maps account using Creator services. For more information about Microsoft Entra ID, see [Microsoft Entra authentication].
 >
 >- Role-based access control settings. Using these settings, map makers can act as the Azure Maps Data Contributor role, and Creator map data users can act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control].
 
@@ -60,7 +60,10 @@ Creator services create, store, and use various data types that are defined and 
 
 Creator collects indoor map data by converting an uploaded drawing package. The drawing package represents a constructed or remodeled facility. For information about drawing package requirements, see [Drawing package requirements].
 
-Use [Data Upload] to upload a drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Follow the steps outlined in the [How to create data registry] article to upload the drawing package into your Azure storage account then register it in your Azure Maps account.
+
+> [!IMPORTANT]
+> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is required to convert the uploaded package into indoor map data.
 
 ## Convert a drawing package
 
@@ -228,7 +231,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Wayfinding (preview)
 
-The [Wayfinding service] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the minimum width of openings and may optionally exclude elevators or stairs when navigating between levels as a result.
+The [Wayfinding service] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the minimum width of openings and can optionally exclude elevators or stairs when navigating between levels as a result.
 
 Creator wayfinding is powered by [Havok].
 
@@ -314,7 +317,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Alias API]: /rest/api/maps/v2/alias
 [Conversion service]: /rest/api/maps/v2/conversion
 [Creator - map configuration Rest API]: /rest/api/maps/2023-03-01-preview/map-configuration
-[Data Upload]: /rest/api/maps/data-v2/update
 [Dataset Create]: /rest/api/maps/v2/dataset/create
 [Dataset service]: /rest/api/maps/v2/dataset
 [Feature State service]: /rest/api/maps/v2/feature-state
@@ -343,6 +345,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Drawing package requirements]: drawing-requirements.md
 [Drawing package warnings and errors]: drawing-conversion-error-codes.md
+[How to create data registry]: how-to-create-data-registries.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
