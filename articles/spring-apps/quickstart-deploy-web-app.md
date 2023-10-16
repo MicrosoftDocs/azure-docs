@@ -114,11 +114,13 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ## 5. Validate the web app
 
-Now you can access the deployed app to see whether it works. Use the following steps to validate:
+Now you can access the deployed app to see whether it works.
 
 ::: zone pivot="sc-enterprise"
 
 ### [Azure portal](#tab/Azure-portal-ent)
+
+Use the following steps to validate:
 
 1. After the deployment finishes, you can find the application URL from the deployment outputs:
 
@@ -129,6 +131,8 @@ Now you can access the deployed app to see whether it works. Use the following s
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
 ### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to validate:
 
 1. After the deployment finishes, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
 
@@ -147,6 +151,8 @@ Now you can access the deployed app to see whether it works. Use the following s
 ::: zone pivot="sc-consumption-plan"
 
 ### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to validate:
 
 1. After the deployment finishes, you can find the application URL from the deployment outputs:
 
@@ -172,6 +178,8 @@ Access the application with the output endpoint. The page should appear as you s
 
 ### [Azure portal](#tab/Azure-portal)
 
+Use the following steps to validate:
+
 1. After the deployment finishes, find the application URL from the deployment outputs:
 
    :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-standard.png" alt-text="Diagram that shows the standard app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-standard.png":::
@@ -194,7 +202,7 @@ Access the application with the output endpoint. The page should appear as you s
 
 ## 6. Clean up resources
 
-You can delete the Azure resource group, which includes all the resources in the resource group.
+Be sure to delete the resources you created in this article when you no longer need them. You can delete the Azure resource group, which includes all the resources in the resource group.
 
 ::: zone pivot="sc-standard, sc-consumption-plan"
 

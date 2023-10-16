@@ -157,15 +157,13 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now that the cloud environment is prepared, the application is ready to deploy. 
-
 ### [Azure portal](#tab/Azure-portal-ent)
 
 [!INCLUDE [deploy-web-app-on-azure-portal](../../includes/quickstart-deploy-web-app/deploy-web-app-azure-portal.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to deploy the app:
+Now that the cloud environment is prepared, the application is ready to deploy. Use the following command to deploy the app:
 
 ```azurecli
 az spring app deploy \

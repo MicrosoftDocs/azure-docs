@@ -15,8 +15,6 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-First, prepare the Spring project to run locally.
-
 ### [Azure portal](#tab/Azure-portal)
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
@@ -196,13 +194,13 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 
 ## 4. Deploy the app to Azure Spring Apps
 
-You can now deploy the app to Azure Spring Apps.
-
 ### [Azure portal](#tab/Azure-portal)
 
 [!INCLUDE [deploy-web-app-on-azure-portal](../../includes/quickstart-deploy-web-app/deploy-web-app-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+You can now deploy the app to Azure Spring Apps.
 
 Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
@@ -244,7 +242,7 @@ Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use the following steps to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps:
+You can now deploy the app to Azure Spring Apps. Use the following steps to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps:
 
 1. Use the following command to package a deployable copy of your application:
 
