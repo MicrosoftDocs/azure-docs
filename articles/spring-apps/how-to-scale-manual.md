@@ -59,7 +59,7 @@ Be sure to select **Save** to apply your scaling settings.
 After a few seconds, the scaling changes you make are reflected on the **Overview** page of the app. Select **App instance** in the navigation pane for details about the instance of the app.
 
 > [!NOTE]
-> If you want to understand more information about the maximum number of CPU, memory, and instance count, please refer to the quota page per pricing plan, see [Quotas and service plans for Azure Spring Apps](./quotas.md).
+> For more information about the maximum number of CPUs, the amount of memory, and the instance count, see [Quotas and service plans for Azure Spring Apps](./quotas.md).
 
 ## Next steps
 
