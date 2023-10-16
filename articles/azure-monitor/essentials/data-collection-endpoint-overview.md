@@ -39,14 +39,14 @@ A data collection endpoint includes the following components:
     
     :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-one-region.png" alt-text="A diagram that shows resources in a single region sending data and receiving configuration files using a data collection endpoint.":::
 
-- **Scenario: Monitored resources in one or more regions send data to a Log Analytics workspaces in a different region**
+- **Scenario: Monitored resources in one or more regions send data to a Log Analytics workspace in a different region**
 
     - Create a data collection endpoint in each region to send configuration files to the resources in that region.
     - Send data from all resources to a data collection endpoint in the region where your destintation Log Analytics workspaces are located. 
     
     :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality.png" alt-text="A diagram that shows resources in two regions sending data and receiving configuration files using data collection endpoints.":::
 
-- **Scenario: Monitored resources in multiple regions send data to multiple Log Analytics workspaces in different regions**
+- **Scenario: Monitored resources in one or more regions regions send data to multiple Log Analytics workspaces in different regions**
 
      - Create a data collection endpoint in each region with monitored resources to send configuration files to the resources in that region.
      - Create a data collection endpoint in each region a destination Log Analytics workspaces to send data to the Log Analytics workspaces in that region.
