@@ -51,11 +51,11 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal-ent)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
@@ -172,7 +172,7 @@ After the deployment finishes, access the application with the output endpoint. 
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal-ent)
 
 After the deployment finishes, use the following steps to find the application URL from the deployment outputs:
 
@@ -182,7 +182,7 @@ After the deployment finishes, use the following steps to find the application U
 
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 Now you can access the deployed app to see whether it works. Use the following steps to validate:
 

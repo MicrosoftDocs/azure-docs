@@ -19,11 +19,11 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal-ent)
 
 [!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 [!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
