@@ -122,10 +122,10 @@ You might receive any of the following errors when you try to deploy an Azure Op
     - **Fix**: Go to the [Azure OpenAI Studio](https://oai.azure.com/portal) and delete the deployments of the model you're trying to deploy.
 
 - **Failed to create deployment**
-    - **Fix**: Azure OpenAI failed to create. This is due to Quota issues, make sure you have enough quota for the deployment. The default quota for fine-tuned models is 2 deployment per customer.
+    - **Fix**: Azure OpenAI failed to create. This is due to quota issues, make sure you have enough quota for the deployment. The default quota for fine-tuned models is 2 deployment per customer.
 
 - **Failed to get Azure OpenAI resource**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You either aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix**: Unable to create the resource. You either aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Model Not Deployable**
     - **Fix**: This usually happens while trying to deploy a GPT-4 model. Due to high demand you need to [apply for access to use GPT-4 models](/azure/ai-services/openai/concepts/models#gpt-4-models).
