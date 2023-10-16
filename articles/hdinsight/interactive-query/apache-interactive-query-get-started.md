@@ -23,7 +23,7 @@ You can access the Hive service in the Interactive Query cluster only via Apache
 For information about creating a HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Choose the Interactive Query cluster type.
 
 > [!IMPORTANT]
-> The minimum headnode size for Interactive Query clusters is Standard_D13_v2. See the [Azure VM Sizing Chart](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)for more information.
+> The minimum headnode size for Interactive Query clusters is Standard_D13_v2. For more information, see the [Azure Virtual Machine Sizing Chart](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
 
 ## Execute Apache Hive queries from Interactive Query
 
