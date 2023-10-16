@@ -22,6 +22,28 @@ Azure AI Vision supports liveness detection in Switch/Obj-C for iOS development 
 - **Security with liveness anti-spoofing**: Biometric data is in secure Azure storage, so the developer does not have to worry about building secure storage or preventing data breaches. No images are saved. We're also introducing passive liveness detection in the Vision SDK to help developers distinguish between real people and spoofs, to prevent counterfeiters who use masks, photos, and videos from getting around the verification process. A liveness score is returned as an attribute of a face that is identified, so the developer can easily write logic to both check for face liveness and verify the user.
 - **Responsible AI**: To prevent face matching without the user's awareness, the SDK has a technical control to make sure the person is looking at the camera before any image is sent to the service for recognition.
 
+## Detection modes
+
+### Passive liveness detection
+
+Passive mode is the default option and is suitable for most scenarios with no additional action needed from the user. There are two methods used in passive liveness detection:
+- **Static image model**: The model analyzes the background/periphery of the input image to check that it is not fixed. This is to prevent spoofing attacks using a printed photo.
+- **Passive flashing light model**: The SDK changes the color of the user's device and analyzes how the lighting changes are reflected on their face.
+
+Requires normal indoor lighting and high screen brightness for optimal performance.​
+
+### Active liveness detection
+
+Active mode is more reliable than Passive. It combines the passive mode with user face pose instructions. It's designed to only require user participation when the lighting conditions are not ideal.
+
+## Accessibility
+
+tbd
+
+## Abuse monitoring
+
+
+
 ## Examples
 
 The following example demonstrates the JSON response returned by tbd
