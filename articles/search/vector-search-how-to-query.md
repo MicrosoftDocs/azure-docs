@@ -261,7 +261,9 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
 A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can include filters on other fields in the same index.
 
-In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+In **2023-07-01-Preview**, a filter in a pure vector query is effectively processed as a post-query operation. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+
+In **2023-10-01-Preview**, a filter can be either pre-query or post-query. The default is pre-query. If you require the post-query action instead, set the `vectorFiltermode` parameter.
 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
@@ -270,12 +272,12 @@ In contrast with full text search, a filter in a pure vector query is effectivel
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces filter options. This version adds:
 
-+ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution.
-+ `filter` provides the criteria, which is applied to a filterable text field ("category" in this example)
++ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution. Valid values are `preFilter` (default), `postFilter`, and null.
++ `filter` provides the criteria.
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-The filter criteria are applied before the search engine executes the vector query.
+The filter criteria are applied to a filterable text field ("category" in this example) before the search engine executes the vector query.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
@@ -310,7 +312,7 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-The filter criteria are applied after the search engine executes the vector query.
+In this API version, there is no pre-filter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
