@@ -534,11 +534,7 @@
       },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/d365community/forum/b822bb63-8b26-ec11-b6e6-000d3a4f0789",
-        "articles/active-directory/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
-        "articles/active-directory/develop/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
-        "articles/active-directory/external-identities/customers/*.md": "https://aka.ms/microsoftentraexternalid",
         "articles/active-directory-b2c/**/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
-        "articles/active-directory-domain-services/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
         "articles/advisor/**/*.md": "https://feedback.azure.com/d365community/forum/44a8566e-0525-ec11-b6e6-000d3a4f0858",
         "articles/aks/**/*.md": "https://feedback.azure.com/d365community/forum/aabe212a-f724-ec11-b6e6-000d3a4f0da0",
         "articles/analysis-services/**/*.md": "https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858",
@@ -733,9 +729,7 @@
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
       },
       "feedback_system": {
-        "articles/active-directory/**/*.md": "GitHub",
-        "articles/active-directory/user-help/*.md": "None",
-        "articles/active-directory-b2c/*.md": "GitHub",
+        "articles/active-directory-b2c/*.md": "None",
         "articles/ai-services/Academic-Knowledge/**/*.md": "None",
         "articles/ai-services/custom-decision-service/**/*.md": "None",
         "articles/ai-services/Emotion/**/*.md": "None",
@@ -1503,12 +1497,6 @@
       },
       "sensitive-language-wl": {
         "exclude": [
-          "articles/active-directory/app-provisioning/sap-successfactors-integration-reference.md",
-          "articles/active-directory/authentication/howto-mfa-nps-extension-advanced.md",
-          "articles/active-directory/hybrid/how-to-connect-health-adfs-risky-ip.md",
-          "articles/active-directory/hybrid/how-to-connect-sso-quick-start.md",
-          "articles/active-directory/hybrid/reference-connect-government-cloud.md",
-          "articles/active-directory/saas-apps/g-suite-provisioning-tutorial.md",
           "articles/application-gateway/application-gateway-backend-health-troubleshooting.md",
           "articles/app-service/reference-app-settings.md",
           "articles/ai-services/content-moderator/review-tool-user-guide/configure.md",
