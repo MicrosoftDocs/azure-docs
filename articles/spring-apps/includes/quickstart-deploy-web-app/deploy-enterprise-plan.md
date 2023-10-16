@@ -20,7 +20,7 @@ Use the following steps to clone and run the app locally.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
+The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
