@@ -24,7 +24,10 @@ ms.date: 08/29/2023
    ```cmd
    go get github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
    ```
-
+1. Enable dependency tracking for your code.
+    ```cmd
+    go mod init example/azure-openai
+    ```
 ## Create the Go app
 
 1. From the project directory, open the *sample.go* file and add the following code:
