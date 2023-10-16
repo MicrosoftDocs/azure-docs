@@ -93,7 +93,7 @@ items:
     - name: Deploy a private mobile network - Azure portal
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
     - name: Configure Azure Private 5G Core network for accessing UE IP addresses
-      href: configure-access-for-ue-ip-addresses.md
+      href: configure-access-for-user-equipment-ip-addresses.md
   - name: Slices
     items:
     - name: Create and manage network slices - Azure portal

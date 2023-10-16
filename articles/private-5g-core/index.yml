@@ -65,7 +65,7 @@ landingContent:
           - text: Deploy a private mobile network - Azure portal
             url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
           - text: Configure Azure Private 5G Core network for accessing UE IP addresses
-            url: configure-access-for-ue-ip-addresses.md
+            url: configure-access-for-user-equipment-ip-addresses.md
           - text: Create and manage network slices - Azure portal
             url: create-manage-network-slices.md
           - text: Create a network slice - ARM template
