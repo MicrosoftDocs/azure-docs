@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 To reuse the Service Bus instance creation steps in other articles, a separate markdown file is used to describe how to provision Service Bus instance.
 
-[!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
+[!INCLUDE [provision-service-bus](provision-service-bus.md)]
 
 -->
 Use the following steps to create a Service Bus instance:

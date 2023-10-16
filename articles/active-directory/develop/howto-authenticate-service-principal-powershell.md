@@ -1,6 +1,6 @@
 ---
 title: Create an Azure app identity (PowerShell)
-description: Describes how to use Azure PowerShell to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a certificate.
+description: Describes how to use Azure PowerShell to create a Microsoft Entra application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a certificate.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -23,7 +23,7 @@ When you have an app or script that needs to access resources, you can set up an
 * Use a certificate for authentication when executing an unattended script.
 
 > [!IMPORTANT]
-> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure Active Directory (Azure AD) authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
+> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Microsoft Entra authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
 This article shows you how to create a service principal that authenticates with a certificate. To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -33,7 +33,7 @@ You must have the [latest version](/powershell/azure/install-azure-powershell) o
 
 ## Required permissions
 
-To complete this article, you must have sufficient permissions in both your Azure AD and Azure subscription. Specifically, you must be able to create an app in the Azure AD, and assign the service principal to a role.
+To complete this article, you must have sufficient permissions in both your Microsoft Entra ID and Azure subscription. Specifically, you must be able to create an app in Microsoft Entra ID, and assign the service principal to a role.
 
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -63,7 +63,7 @@ Sleep 20
 New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.AppId
 ```
 
-The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure AD. If your script doesn't wait long enough, you'll see an error stating: "Principal {ID} doesn't exist in the directory {DIR-ID}." To resolve this error, wait a moment then run the **New-AzRoleAssignment** command again.
+The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Microsoft Entra ID. If your script doesn't wait long enough, you'll see an error stating: "Principal {ID} doesn't exist in the directory {DIR-ID}." To resolve this error, wait a moment then run the **New-AzRoleAssignment** command again.
 
 You can scope the role assignment to a specific resource group by using the **ResourceGroupName** parameter. You can scope to a specific resource by also using the **ResourceType** and **ResourceName** parameters. 
 
@@ -86,7 +86,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### Provide certificate through automated PowerShell script
 
-Whenever you sign in as a service principal, provide the tenant ID of the directory for your AD app. A tenant is an instance of Azure AD.
+Whenever you sign in as a service principal, provide the tenant ID of the directory for your AD app. A tenant is an instance of Microsoft Entra ID.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -146,7 +146,7 @@ Param (
 ```
 
 ### Provide certificate through automated PowerShell script
-Whenever you sign in as a service principal, provide the tenant ID of the directory for your AD app. A tenant is an instance of Azure AD.
+Whenever you sign in as a service principal, provide the tenant ID of the directory for your AD app. A tenant is an instance of Microsoft Entra ID.
 
 ```powershell
 Param (
@@ -211,13 +211,13 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 You may get the following errors when creating a service principal:
 
-* **"Authentication_Unauthorized"** or **"No subscription found in the context."** - You see this error when your account doesn't have the [required permissions](#required-permissions) on the Azure AD to register an app. Typically, you see this error when only admin users in your Azure Active Directory can register apps, and your account isn't an admin. Ask your administrator to either assign you to an administrator role, or to enable users to register apps.
+* **"Authentication_Unauthorized"** or **"No subscription found in the context."** - You see this error when your account doesn't have the [required permissions](#required-permissions) on the Microsoft Entra ID to register an app. Typically, you see this error when only admin users in your Microsoft Entra ID can register apps, and your account isn't an admin. Ask your administrator to either assign you to an administrator role, or to enable users to register apps.
 
 * Your account **"does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."** - You see this error when your account doesn't have sufficient permissions to assign a role to an identity. Ask your subscription administrator to add you to User Access Administrator role.
 
 ## Next steps
 
-* To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+* To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) or [Create an Azure service principal with Azure CLI](/cli/azure/azure-cli-sp-tutorial-2).
 * For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md).
-* For more information about Azure AD authentication, see [Authentication Scenarios for Azure AD](./authentication-vs-authorization.md).
+* For more information about Microsoft Entra authentication, see [Authentication Scenarios for Microsoft Entra ID](./authentication-vs-authorization.md).
 * For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.

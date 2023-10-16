@@ -28,29 +28,7 @@ All of these capabilities are available as part of the [Defender CSPM](concept-c
 
 ## Agentless discovery and visibility within Kubernetes components
 
-Agentless discovery for Kubernetes provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
-
-### How does agentless discovery for Kubernetes work?
-
-The discovery process is based on snapshots taken at intervals:
-
-:::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
-
-When you enable the agentless discovery for Kubernetes extension, the following process occurs:
-
-- **Create**: Defender for Cloud creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
-- **Assign**: Defender for Cloud assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope. The role contains the following permissions:
-
-  - AKS read (Microsoft.ContainerService/managedClusters/read)
-  - AKS Trusted Access with the following permissions:
-  - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/write
-  - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/read
-  - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/delete
-
-   Learn more about [AKS Trusted Access](/azure/aks/trusted-access-feature).
-
-- **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
-- **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
+Agentless discovery for Kubernetes provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
 
 ### What's the refresh interval?
 

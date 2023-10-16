@@ -19,10 +19,10 @@ items:
     href: best-practices-plan.md
   - name: Configure data collection
     href: best-practices-data-collection.md
-  - name: Analysis and visualizations
+  - name: Understand analysis and visualization tools
     href: best-practices-analysis.md
-  - name: Configure alerts and automated actions
-    href: best-practices-alerts.md
+  - name: Plan alerts and automated actions
+    href: alerts/alerts-plan.md
   - name: Optimize costs
     href: best-practices-cost.md
 - name: Monitoring scenarios
@@ -43,9 +43,9 @@ items:
       items:
       - name: Data Collection Basics
         href: app/opentelemetry-overview.md
-      - name: Auto-instrumentation
+      - name: Automatic instrumentation
         items:
-        - name: Supported Scenarios
+        - name: Autoinstrumentation supported scenarios
           href: app/codeless-overview.md
         - name: Azure VM and Virtual Machine Scale Sets
           href: app/azure-vm-vmss-apps.md
@@ -68,7 +68,60 @@ items:
           href: app/kubernetes-codeless.md
         - name: ASP.NET on-premises agent
           href: app/application-insights-asp-net-agent.md
-      - name: Application Insights SDKs
+      - name: OpenTelemetry Distro
+        items:
+        - name: Get started with OpenTelemetry (.NET, Node.js, Python and Java)
+          href: app/opentelemetry-enable.md
+        - name: Configure OpenTelemetry
+          href: app/opentelemetry-configuration.md
+        - name: Add and modify OpenTelemetry
+          href: app/opentelemetry-add-modify.md
+        - name: Java (supplemental)
+          items:
+          - name: Spring Boot
+            href: app/java-spring-boot.md
+          - name: Profiler
+            href: app/java-standalone-profiler.md
+          - name: Get started (supplemental)
+            href: app/java-get-started-supplemental.md
+          - name: Configuration
+            items:
+            - name: General
+              href: app/java-standalone-config.md
+            - name: JMX metrics
+              href: app/java-jmx-metrics-configuration.md
+            - name: Sampling overrides
+              href: app/java-standalone-sampling-overrides.md
+            - name: Telemetry processors
+              items:
+                - name: Overview
+                  href: app/java-standalone-telemetry-processors.md
+                - name: Examples
+                  href: app/java-standalone-telemetry-processors-examples.md
+          - name: Upgrade from 2.x
+            href: app/java-standalone-upgrade-from-2x.md
+        - name: Python (supplemental)
+          items:
+          - name: Migrate from Opencensus
+            href: app/opentelemetry-python-opencensus-migrate.md
+        - name: FAQ
+          href: /azure/azure-monitor/faq#opentelemetry
+      - name: Client-side JavaScript SDK
+        items:
+        - name: Get Started with JavaScript SDK
+          displayName: browser, client-side, JavaScript (Web) SDK Loader Script
+          href: app/javascript-sdk.md
+        - name: Configure JavaScript SDK
+          href: app/javascript-sdk-configuration.md
+        - name: Enable React, React Native, Angular
+          href: app/javascript-framework-extensions.md
+        - name: Enable Click Analytics
+          href: app/javascript-feature-extensions.md
+        - name: Upgrade
+          href: app/javascript-sdk-upgrade.md
+        - name: Troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
+      - name: Application Insights SDK (Classic API)
         items:
         - name: .NET
           items:
@@ -117,32 +170,8 @@ items:
                 href: app/performance-counters.md
         - name: Node.js
           href: app/nodejs.md
-        - name: Python
-          items:
-          - name: Overview
-            displayName: python, Python, OpenCenus, OpenTelemetry, py
-            href: app/opencensus-python.md
-          - name: Dependencies
-            href: app/opencensus-python-dependency.md
-          - name: Requests
-            href: app/opencensus-python-request.md
-        - name: Client-side JavaScript
-          items:
-          - name: Get Started with JavaScript SDK
-            displayName: browser, client-side, Javascript (Web) SDK Loader Script
-            href: app/javascript-sdk.md
-          - name: Configure JavaScript SDK
-            href: app/javascript-sdk-configuration.md
-          - name: Enable React, React Native, Angular
-            href: app/javascript-framework-extensions.md
-          - name: Enable Click Analytics
-            href: app/javascript-feature-extensions.md
-          - name: Upgrade
-            href: app/javascript-sdk-upgrade.md
-          - name: Troubleshooting
-            href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-          - name: FAQ
-            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
+        - name: Python OpenCensus (deprecated)
+          href: /previous-versions/azure/azure-monitor/app/opencensus-python
         - name: Advanced SDK topics
           items:
           - name: Application Insights API summary
@@ -154,14 +183,12 @@ items:
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
           - name: Distributed tracing and telemetry correlation
-            href: app/distributed-tracing-telemetry-correlation.md
+            href: app/distributed-trace-data.md
             displayName: correlation headers, w3c, distributed tracing, tracing
           - name: Exceptions
             href: app/asp-net-exceptions.md        
           - name: Log traces
             href: app/asp-net-trace-logs.md
-          - name: Remove Application Insights
-            href: app/remove-application-insights.md
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
             href: app/sampling.md
@@ -172,50 +199,13 @@ items:
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
+          - name: Microsoft Entra authentication
+            href: app/azure-ad-authentication.md
+          - name: IP address collection
+            href: app/ip-collection.md
+            displayName: geolocation, IP collection, IP tracking, IP storage
         - name: SDK support policy
           href: app/sdk-support-guidance.md
-      - name: OpenTelemetry Distro
-        items:
-        - name: Get started with OpenTelemetry (.NET, Node.js, Python and Java)
-          href: app/opentelemetry-enable.md
-        - name: Configure OpenTelemetry
-          href: app/opentelemetry-configuration.md
-        - name: Add and modify OpenTelemetry
-          href: app/opentelemetry-add-modify.md
-        - name: Java (supplemental)
-          items:
-          - name: Spring Boot
-            href: app/java-spring-boot.md
-          - name: Profiler
-            href: app/java-standalone-profiler.md
-          - name: Get started (supplemental)
-            href: app/java-get-started-supplemental.md
-          - name: Configuration
-            items:
-            - name: General
-              href: app/java-standalone-config.md
-            - name: JMX metrics
-              href: app/java-jmx-metrics-configuration.md
-            - name: Sampling overrides
-              href: app/java-standalone-sampling-overrides.md
-            - name: Telemetry processors
-              items:
-                - name: Overview
-                  href: app/java-standalone-telemetry-processors.md
-                - name: Examples
-                  href: app/java-standalone-telemetry-processors-examples.md
-          - name: Upgrade from 2.x
-            href: app/java-standalone-upgrade-from-2x.md
-        - name: Node.js (supplemental)
-          items:
-          - name: Node.js OpenTelemetry exporter
-            href: app/opentelemetry-nodejs-exporter.md
-        - name: Python (supplemental)
-          items:
-          - name: Migrate from Opencensus
-            href: app/opentelemetry-python-opencensus-migrate.md
-        - name: FAQ
-          href: /azure/azure-monitor/faq#opentelemetry
       - name: Create a resource
         href: app/create-workspace-resource.md
       - name: Upgrade from classic resources and iKey
@@ -224,7 +214,7 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-    - name: Features
+    - name: Experiences
       items:
       - name: Application dashboard
         displayName: dashboard, Application Insights dashboard
@@ -251,35 +241,9 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-      - name: Transaction diagnostics
-        href: app/transaction-diagnostics.md
-        displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
-      - name: Transaction search
-        href: app/diagnostic-search.md
-      - name: Smart detection
-        href: alerts/proactive-diagnostics.md
-        items:
-        - name: Upgrade to alerts
-          href: alerts/alerts-smart-detections-migration.md
-        - name: Failure anomalies
-          href: alerts/proactive-failure-diagnostics.md
-        - name: Performance anomalies
-          href: alerts/smart-detection-performance.md
-        - name: Trace degradation
-          href: alerts/proactive-trace-severity.md
-        - name: Exception volume
-          href: alerts/proactive-exception-volume.md
-        - name: Memory leak
-          href: alerts/proactive-potential-memory-leak.md
-        - name: Security detection
-          href: alerts/proactive-application-security-detection-pack.md
-        - name: Manage smart detection rules
-          href: alerts/proactive-arm-config.md
-        - name: E-mail notification
-          href: alerts/proactive-email-notification.md
       - name: Usage (user behavior analytics)
         items:
         - name: Overview
@@ -299,21 +263,19 @@ items:
           href: app/usage-flows.md
         - name: HEART Framework
           href: app/usage-heart.md
-      - name: GitHub and Azure DevOps integration
-        items:
-        - name: Work Item integration
-          href: app/work-item-integration.md
-        - name: Release annotations
-          href: app/annotations.md
-        - name: Continuous monitoring
-          href: app/continuous-monitoring.md
+      - name: Release and work item insights
+        href: app/release-and-work-item-insights.md
+      - name: Transaction Search and Diagnostics
+        href: app/search-and-transaction-diagnostics.md
+    - name: Code analysis
+      items:
       - name: Profiler
         items:
         - name: Overview
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-overview.md
         - name: Enable Profiler
-          items:        
+          items:
           - name: Azure App Service
             href: profiler/profiler.md
           - name: Azure Functions app
@@ -332,7 +294,7 @@ items:
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-data.md
         - name: Configure
-          items:        
+          items:
           - name: Configure Profiler
             href: profiler/profiler-settings.md
           - name: Configure BYOS (Bring Your Own Storage)
@@ -370,6 +332,27 @@ items:
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
           href: snapshot-debugger/snapshot-debugger-troubleshoot.md
+      - name: Smart detection
+        href: alerts/proactive-diagnostics.md
+        items:
+        - name: Upgrade to alerts
+          href: alerts/alerts-smart-detections-migration.md
+        - name: Failure anomalies
+          href: alerts/proactive-failure-diagnostics.md
+        - name: Performance anomalies
+          href: alerts/smart-detection-performance.md
+        - name: Trace degradation
+          href: alerts/proactive-trace-severity.md
+        - name: Exception volume
+          href: alerts/proactive-exception-volume.md
+        - name: Memory leak
+          href: alerts/proactive-potential-memory-leak.md
+        - name: Security detection
+          href: alerts/proactive-application-security-detection-pack.md
+        - name: Manage smart detection rules
+          href: alerts/proactive-arm-config.md
+        - name: E-mail notification
+          href: alerts/proactive-email-notification.md
     - name: Administration and security
       items:
       - name: Manage Application Insights
@@ -378,14 +361,9 @@ items:
         href: app/resources-roles-access-control.md
       - name: Application data collection, retention, and storage
         href: app/data-retention-privacy.md
-      - name: Azure AD authentication
-        href: app/azure-ad-authentication.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: IP address collection
-        href: app/ip-collection.md
-        displayName: geolocation, IP collection, IP tracking, IP storage
       - name: Separate development, test, and production
         href: app/separate-resources.md
     - name: Tutorials
@@ -400,10 +378,8 @@ items:
       items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
-      - name: Application Insights FAQ
-        href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
-        href: /answers/topics/24223/azure-monitor
+        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
@@ -491,6 +467,9 @@ items:
     - name: Monitor Kubernetes
       displayName: containers
       href: containers/monitor-kubernetes.md
+    - name: Best practices
+      displayName: containers, kubernetes
+      href: best-practices-containers.md
     - name: Prometheus
       items:
       - name: Enable on AKS cluster
@@ -533,18 +512,27 @@ items:
         - name: Managed identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-managed-identity.md
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-active-directory.md
-        - name: Azure Active Directory pod identity
+        - name: Microsoft Entra pod identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
+        - name: Microsoft Entra Workload ID (preview)
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md    
-      - name: Prometheus Azure Active Directory authorization proxy
+      - name: Prometheus Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
+      - name: Private link data ingestion
+        displayName: Private link data ingestion
+        href: essentials/private-link-data-ingestion.md
+      - name: Private link data query
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
     - name: Container insights
       items:
       - name: Overview
@@ -579,6 +567,8 @@ items:
           href: containers/container-insights-agent-config.md
         - name: Enable ContainerLogv2
           href: containers/container-insights-logging-v2.md
+        - name: Migrate from ContainerLog to ContainerLogV2
+          href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
         - name: Authentication
@@ -912,7 +902,7 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
-  - name: Use Azure AD authentication
+  - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
@@ -957,7 +947,7 @@ items:
           - name: Configure Grafana with managed system identity
             displayName: Prometheus
             href: essentials/prometheus-grafana.md
-          - name: Configure Grafana with Azure Active Directory
+          - name: Configure Grafana with Microsoft Entra ID
             displayName: Prometheus
             href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
         - name: Query using Azure workbooks
@@ -1246,7 +1236,8 @@ items:
           href: logs/workspace-expression.md
         - name: resource expression
           href: logs/resource-expression.md
-        - name: Query Azure Data Explorer from Azure Monitor
+        - name: Query data in Azure Data Explorer or Resource Graph
+          displayName: arg(), adx()        
           href: logs/azure-monitor-data-explorer-proxy.md
       - name: API
         items:
@@ -1256,7 +1247,7 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
-          - name: Application Insights API access with Azure Active Directory
+          - name: Application Insights API access with Microsoft Entra ID
             href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
@@ -1298,6 +1289,8 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
+    - name: Best practices
+      href: best-practices-alerts.md
     - name: Alert rules
       items:
         - name: Create or edit an alert rule
@@ -1596,6 +1589,8 @@ items:
       href: essentials/rest-api-walkthrough.md
     - name: Migrate to the metrics getBatch API
       href: essentials/migrate-to-batch-api.md
+    - name: Migrate from the alertsSummary API
+      href: alerts/migrate-from-alerts-summary-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates

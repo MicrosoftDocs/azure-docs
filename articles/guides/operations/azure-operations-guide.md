@@ -102,7 +102,7 @@ Services for storing and managing data:
 
 Services for building and operating applications:
 
-- Azure Active Directory (Azure AD)
+- Microsoft Entra ID
 
 - Azure Service Bus for connecting distributed systems
 

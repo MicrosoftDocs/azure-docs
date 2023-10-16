@@ -75,9 +75,9 @@ To control image versions, you'll want to import them into your own Azure Contai
 REGISTRY_NAME=<REGISTRY_NAME>
 SOURCE_REGISTRY=registry.k8s.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v1.2.1
+CONTROLLER_TAG=v1.8.1
 PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
-PATCH_TAG=v1.1.1
+PATCH_TAG=v20230407
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 
@@ -95,9 +95,9 @@ $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
 $SourceRegistry = "registry.k8s.io"
 $ControllerImage = "ingress-nginx/controller"
-$ControllerTag = "v1.2.1"
+$ControllerTag = "v1.8.1"
 $PatchImage = "ingress-nginx/kube-webhook-certgen"
-$PatchTag = "v1.1.1"
+$PatchTag = "v20230407"
 $DefaultBackendImage = "defaultbackend-amd64"
 $DefaultBackendTag = "1.5"
 
@@ -133,7 +133,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install ingress-nginx ingress-nginx/ingress-nginx \
-    --version 4.1.3 \
+    --version 4.7.1 \
     --namespace ingress-basic \
     --create-namespace \
     --set controller.replicaCount=2 \
@@ -208,7 +208,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install ingress-nginx ingress-nginx/ingress-nginx \
-    --version 4.1.3 \
+    --version 4.7.1 \
     --namespace ingress-basic \
     --create-namespace \
     --set controller.replicaCount=2 \

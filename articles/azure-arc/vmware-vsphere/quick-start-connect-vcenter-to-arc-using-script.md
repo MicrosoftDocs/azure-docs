@@ -4,6 +4,8 @@ description: In this quickstart, you'll learn how to use the helper script to co
 ms.topic: quickstart 
 ms.custom: references_regions
 ms.date: 09/05/2022
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
 ---
@@ -54,7 +56,7 @@ This account is used for the ongoing operation of Azure Arc-enabled VMware vSphe
 
 ### Workstation
 
-You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy.
+You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy. The workstation must also have outbound network connectivity to the ESXi host backing the datastore. Datastore connectivity is needed for uploading the Arc resource bridge image to the datastore as part of the onboarding.    
 
 ## Prepare vCenter Server
 

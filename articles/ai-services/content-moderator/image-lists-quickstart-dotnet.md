@@ -5,8 +5,7 @@ description: How to moderate images with custom image lists using the Content Mo
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: pafarley

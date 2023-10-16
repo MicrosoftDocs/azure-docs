@@ -7,9 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 09/29/2023
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure Cognitive Search
@@ -385,3 +384,7 @@ Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing pol
 ## `Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.`
 
 This warning is passed from the Language service of Azure AI services. In some cases, it's safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
+
+## `Error: Cannot write more bytes to the buffer than the configured maximum buffer size`
+
+Indexers have [document size limits](search-limits-quotas-capacity.md#indexer-limits). Make sure that the documents in your data source are smaller than the supported size limit, as documented for your service SKU. 

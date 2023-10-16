@@ -1,10 +1,12 @@
 ---
 title: ISO 27001 Shared Services blueprint sample controls
 description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 Shared Services blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The following article details how the Azure Blueprints ISO 27001 Shared Services blueprint sample
 maps to the ISO 27001 controls. For more information about the controls, see

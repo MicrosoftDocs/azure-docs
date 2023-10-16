@@ -44,7 +44,7 @@ A container using *subPath volume mount* won't receive secret updates when it's 
 2. Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability using the [`az aks create`][az-aks-create] command and enable the `azure-keyvault-secrets-provider` add-on.
 
     > [!NOTE]
-    > If you want to use Azure AD workload identity, you must also use the `--enable-oidc-issuer` and `--enable-workload-identity` parameters, such as in the following example:
+    > If you want to use Microsoft Entra Workload ID, you must also use the `--enable-oidc-issuer` and `--enable-workload-identity` parameters, such as in the following example:
     >
     > ```azurecli-interactive
     > az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-oidc-issuer --enable-workload-identity
@@ -123,7 +123,7 @@ A container using *subPath volume mount* won't receive secret updates when it's 
 
 The Secrets Store CSI Driver allows for the following methods to access an Azure key vault:
 
-* An [Azure Active Directory workload identity][aad-workload-identity]
+* An [Microsoft Entra Workload ID][aad-workload-identity]
 * A user-assigned or system-assigned managed identity
 
 Follow the instructions in [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods] for your chosen method.
@@ -337,6 +337,31 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 |total_rotation_reconcile|The total number of rotation reconciles.|`os_type=<runtime os>`, `rotated=<true or false>`|
 |total_rotation_reconcile_error|The total number of rotation reconciles with error.|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
 |total_rotation_reconcile_error|The distribution of how long it took to rotate secrets-store content for pods.|`os_type=<runtime os>`|
+
+## Migrate from open-source to AKS-managed Secrets Store CSI Driver
+
+1. Uninstall the open-source Secrets Store CSI Driver using the following `helm delete` command.
+
+    ```bash
+    helm delete <release name>
+    ```
+
+    > [!NOTE]
+    > If you installed the driver and provider using deployment YAMLs, you can delete the components using the following `kubectl delete` command.
+    >
+    > ```bash
+    > # Delete AKV provider pods from Linux nodes
+    > kubectl delete -f https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/deployment/provider-azure-installer.yaml
+    >
+    > # Delete AKV provider pods from Windows nodes
+    > kubectl delete -f https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/deployment/provider-azure-installer-windows.yaml
+    > ```
+
+2. Upgrade your existing AKS cluster with the feature using the [`az aks enable-addons`][az-aks-enable-addons] command.
+
+    ```azurecli-interactive
+    az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
+    ```
 
 ## Troubleshooting
 

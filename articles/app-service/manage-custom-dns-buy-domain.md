@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 01/31/2023
 ms.custom: seodec18
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Buy an App Service domain and configure an app with it

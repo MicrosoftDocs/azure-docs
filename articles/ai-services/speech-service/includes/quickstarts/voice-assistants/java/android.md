@@ -5,8 +5,7 @@ description: Learn how to create a custom voice assistant in Java on Android by 
 services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw

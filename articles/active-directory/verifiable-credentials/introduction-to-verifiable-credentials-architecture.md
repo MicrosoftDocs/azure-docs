@@ -26,7 +26,7 @@ This architectural overview introduces the capabilities and components of the Mi
 
 ## Approaches to identity
 
-Today most organizations use centralized identity systems to provide employees credentials. They also use various methods to bring customers, partners, vendors, and relying parties into the organization’s trust boundaries. These methods include federation, creating and managing guest accounts with systems like Azure AD B2B, and creating explicit trusts with relying parties. Most business relationships have a digital component, so enabling some form of trust between organizations requires significant effort. 
+Today most organizations use centralized identity systems to provide employees credentials. They also use various methods to bring customers, partners, vendors, and relying parties into the organization’s trust boundaries. These methods include federation, creating and managing guest accounts with systems like Microsoft Entra B2B, and creating explicit trusts with relying parties. Most business relationships have a digital component, so enabling some form of trust between organizations requires significant effort. 
 
 ### Centralized identity systems
 
@@ -140,7 +140,7 @@ These use cases demonstrate how centralized identities and decentralized identit
 
 ### Distributing initial credentials
 
-Alice accepts employment with Woodgrove. As part of the onboarding process, an Azure Active Directory (AD) account is created for Alice to use inside of the Woodgrove trust boundary. Alice’s manager must figure out how to enable Alice, who works remotely, to receive initial sign-in information in a secure way. In the past, the IT department might have provided those credentials to their manager, who would print them and hand them to Alice. This doesn’t work with remote employees.
+Alice accepts employment with Woodgrove. As part of the onboarding process, a Microsoft Entra account is created for Alice to use inside of the Woodgrove trust boundary. Alice’s manager must figure out how to enable Alice, who works remotely, to receive initial sign-in information in a secure way. In the past, the IT department might have provided those credentials to their manager, who would print them and hand them to Alice. This doesn’t work with remote employees.
 
 VCs can add value to centralized systems by augmenting the credential distribution process. Instead of needing the manager to provide credentials, Alice can use their VC as proof of identity to receive their initial username and credentials for centralized systems access. Alice presents the proof of identity they added to their wallet as part of the onboarding process. 
 
@@ -164,7 +164,7 @@ By combining centralized and decentralized identity architectures for onboarding
 
 ![Accessing resources inside of the trust boundary](media/introduction-to-verifiable-credentials-architecture/inside-trust-boundary.png)
 
-As an employee, Alice is operating inside of the trust boundary of Woodgrove. Woodgrove acts as the identity provider (IDP) and maintains complete control of the identity and the configuration of the apps Alice uses to interact within the Woodgrove trust boundary. To use resources in the Azure AD trust boundary, Alice provides potentially multiple forms of proof of identification to sign in Woodgrove’s trust boundary and access the resources inside of Woodgrove’s technology environment. This is a typical scenario that is well served using a centralized identity architecture. 
+As an employee, Alice is operating inside of the trust boundary of Woodgrove. Woodgrove acts as the identity provider (IDP) and maintains complete control of the identity and the configuration of the apps Alice uses to interact within the Woodgrove trust boundary. To use resources in the Microsoft Entra ID trust boundary, Alice provides potentially multiple forms of proof of identification to sign in Woodgrove’s trust boundary and access the resources inside of Woodgrove’s technology environment. This is a typical scenario that is well served using a centralized identity architecture. 
 
 * Woodgrove manages the trust boundary and using good security practices provides the least-privileged level of access to Alice based on the job performed. To maintain a strong security posture, and potentially for compliance reasons, Woodgrove must also be able to track employees’ permissions and access to resources and must be able to revoke permissions when the employment is terminated.
 
@@ -229,7 +229,7 @@ In this flow, the credential holder interacts with the issuer to request a verif
 
 1. The holder starts the flow by using a browser or native application to access the issuer’s web frontend. There, the issuer website drives the user to collect data and executes issuer-specific logic to determine whether the credential can be issued, and its content.) 
 
-1. The issuer web frontend calls the Entra Verified ID service to generate a VC issuance request. 
+1. The issuer web frontend calls the Microsoft Entra Verified ID service to generate a VC issuance request. 
 
 1. The web frontend renders a link to the request as a QR code or a device-specific deep link (depending on the device).
 
@@ -251,7 +251,7 @@ In this flow, the credential holder interacts with the issuer to request a verif
 
    1. Depending on the VC contract requirements, the wallet might require the holder to collect additional information, for example asking for self-issued attributes, or navigating through an OIDC flow to obtain an id_token.
 
-1. Submits the artifacts required by the contract to the Entra Verified ID service. The Entra Verified ID service returns the VC, signed with the issuer’s DID key and the wallet securely stores the VC.
+1. Submits the artifacts required by the contract to the Microsoft Entra Verified ID service. The Microsoft Entra Verified ID service returns the VC, signed with the issuer’s DID key and the wallet securely stores the VC.
 
 For detailed information on how to build an issuance solution and architectural considerations, see [Plan your Microsoft Entra Verified ID issuance solution](plan-issuance-solution.md).
 
@@ -263,7 +263,7 @@ In this flow, a holder interacts with a relying party (RP) to present a VC as pa
 
 1. The holder starts the flow by using a browser or native application to access the relying party’s web frontend.
 
-1. The web frontend calls the Entra Verified ID service to generate a VC presentation request.
+1. The web frontend calls the Microsoft Entra Verified ID service to generate a VC presentation request.
 
 1. The web frontend renders a link to the request as a QR code or a device-specific deep link (depending on the device).
 
@@ -280,7 +280,7 @@ In this flow, a holder interacts with a relying party (RP) to present a VC as pa
 
    * After the subject consents to use of the VC, the wallet generates a unique pairwise DID between the subject and the RP. 
 
-   Then, the wallet sends a presentation response payload to the Entra Verified ID service signed by the subject. It contains: 
+   Then, the wallet sends a presentation response payload to the Microsoft Entra Verified ID service signed by the subject. It contains: 
 
    * The VC(s) the subject consented to.
 
@@ -288,9 +288,9 @@ In this flow, a holder interacts with a relying party (RP) to present a VC as pa
 
    * The RP DID as the “audience” of the payload.
 
-1. The Entra Verified ID service validates the response sent by the wallet. Depending on how the original presentation request was created in step 2, this validation can include checking the status of the presented VC with the VC issuer for cases such as revocation.
+1. The Microsoft Entra Verified ID service validates the response sent by the wallet. Depending on how the original presentation request was created in step 2, this validation can include checking the status of the presented VC with the VC issuer for cases such as revocation.
 
-1. Upon validation, the Entra Verified ID service calls back the RP with the result. 
+1. Upon validation, the Microsoft Entra Verified ID service calls back the RP with the result. 
 
 For detailed information on how to build a validation solution and architectural considerations, see [Plan your Microsoft Entra Verified ID verification solution](plan-verification-solution.md).
 

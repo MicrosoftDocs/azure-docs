@@ -1,6 +1,6 @@
 ---
-title: Security considerations for Azure Active Directory Application Proxy
-description: Covers security considerations for using Azure AD Application Proxy
+title: Security considerations for Microsoft Entra application proxy
+description: Covers security considerations for using Microsoft Entra application proxy
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,28 +8,28 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/02/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Security considerations for accessing apps remotely with Azure Active Directory Application Proxy
+# Security considerations for accessing apps remotely with Microsoft Entra application proxy
 
-This article explains the components that work to keep your users and applications safe when you use Azure Active Directory Application Proxy.
+This article explains the components that work to keep your users and applications safe when you use Microsoft Entra application proxy.
 
-The following diagram shows how Azure AD enables secure remote access to your on-premises applications.
+The following diagram shows how Microsoft Entra ID enables secure remote access to your on-premises applications.
 
- ![Diagram of secure remote access through Azure AD Application Proxy](./media/application-proxy-security/secure-remote-access.png)
+ ![Diagram of secure remote access through Microsoft Entra application proxy](./media/application-proxy-security/secure-remote-access.png)
 
 ## Security benefits
 
-Azure AD Application Proxy offers many security benefits including authenticated access, Conditional Access, traffic termination, all outbound access, cloud scale analytics and machine learning, and remote access as a service. It is important to note that even with all of the added security provided by Application Proxy, the systems being accessed must continually be updated with the latest patches.
+Microsoft Entra application proxy offers many security benefits including authenticated access, Conditional Access, traffic termination, all outbound access, cloud scale analytics and machine learning, and remote access as a service. It is important to note that even with all of the added security provided by Application Proxy, the systems being accessed must continually be updated with the latest patches.
 
 ### Authenticated access 
 
-If you choose to use Azure Active Directory preauthentication, then only authenticated connections can access your network.
+If you choose to use Microsoft Entra preauthentication, then only authenticated connections can access your network.
 
-Azure AD Application Proxy relies on the Azure AD security token service (STS) for all authentication.  Preauthentication, by its very nature, blocks a significant number of anonymous attacks, because only authenticated identities can access the back-end application.
+Microsoft Entra application proxy relies on the Microsoft Entra security token service (STS) for all authentication.  Preauthentication, by its very nature, blocks a significant number of anonymous attacks, because only authenticated identities can access the back-end application.
 
 If you choose Passthrough as your preauthentication method, you don't get this benefit. 
 
@@ -39,27 +39,27 @@ Apply richer policy controls before connections to your network are established.
 
 With [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md), you can define restrictions on how users are allowed to access your applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
-You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Defender for Cloud Apps via Azure AD Conditional Access to provide real-time monitoring and controls, via [access](/cloud-app-security/access-policy-aad) and [session](/cloud-app-security/session-policy-aad) policies
+You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Defender for Cloud Apps via Microsoft Entra Conditional Access to provide real-time monitoring and controls, via [access](/cloud-app-security/access-policy-aad) and [session](/cloud-app-security/session-policy-aad) policies
 
 ### Traffic termination
 
 All traffic is terminated in the cloud.
 
-Because Azure AD Application Proxy is a reverse-proxy, all traffic to back-end applications is terminated at the service. The session can get reestablished only with the back-end server, which means that your back-end servers are not exposed to direct HTTP traffic. This configuration means that you are better protected from targeted attacks.
+Because Microsoft Entra application proxy is a reverse-proxy, all traffic to back-end applications is terminated at the service. The session can get reestablished only with the back-end server, which means that your back-end servers are not exposed to direct HTTP traffic. This configuration means that you are better protected from targeted attacks.
 
 ### All access is outbound 
 
 You don't need to open inbound connections to the corporate network.
 
-Application Proxy connectors only use outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required investments in web application firewall products to analyze traffic and protect the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
+Application Proxy connectors only use outbound connections to the Microsoft Entra application proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required investments in web application firewall products to analyze traffic and protect the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
 
-For more information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
+For more information about connectors, see [Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md).
 
 ### Cloud-scale analytics and machine learning 
 
 Get cutting-edge security protection.
 
-Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attempts are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
+Because it's part of Microsoft Entra ID, Application Proxy can leverage [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attempts are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
 
 Many of these reports and events are already available through an API for integration with your security information and event management (SIEM) systems.
 
@@ -67,9 +67,9 @@ Many of these reports and events are already available through an API for integr
 
 You don’t have to worry about maintaining and patching on-premises servers.
 
-Unpatched software still accounts for a large number of attacks. Azure AD Application Proxy is an Internet-scale service that Microsoft owns, so you always get the latest security patches and upgrades.
+Unpatched software still accounts for a large number of attacks. Microsoft Entra application proxy is an Internet-scale service that Microsoft owns, so you always get the latest security patches and upgrades.
 
-To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes `User-agent: * Disallow: /`.
+To improve the security of applications published by Microsoft Entra application proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes `User-agent: * Disallow: /`.
 
 #### Azure DDoS protection service
 
@@ -77,10 +77,10 @@ Applications published through Application Proxy are protected against Distribut
 
 ## Under the hood
 
-Azure AD Application Proxy consists of two parts:
+Microsoft Entra application proxy consists of two parts:
 
 * The cloud-based service: This service runs in Azure, and is where the external client/user connections are made.
-* [The on-premises connector](application-proxy-connectors.md): An on-premises component, the connector listens for requests from the Azure AD Application Proxy service and handles connections to the internal applications. 
+* [The on-premises connector](application-proxy-connectors.md): An on-premises component, the connector listens for requests from the Microsoft Entra application proxy service and handles connections to the internal applications. 
 
 A flow between the connector and the Application Proxy service is established when:
 
@@ -97,7 +97,7 @@ The connector uses a client certificate to authenticate to the Application Proxy
 
 When the connector is first set up, the following flow events take place:
 
-1. The connector registration to the service happens as part of the installation of the connector. Users are prompted to enter their Azure AD admin credentials. The token acquired from this authentication is then presented to the Azure AD Application Proxy service.
+1. The connector registration to the service happens as part of the installation of the connector. Users are prompted to enter their Microsoft Entra admin credentials. The token acquired from this authentication is then presented to the Microsoft Entra application proxy service.
 2. The Application Proxy service evaluates the token. It checks whether the user is a Global Administrator in the tenant. If the user is not an administrator, the process is terminated.
 3. The connector generates a client certificate request and passes it, along with the token, to the Application Proxy service. The service in turn verifies the token and signs the client certificate request.
 4. The connector uses the client certificate for future communication with the Application Proxy service.
@@ -128,15 +128,15 @@ To learn more about what takes place in each of these steps, keep reading.
 
 If you configured the app to use Passthrough as its preauthentication method, the steps in this section are skipped.
 
-If you configured the app to preauthenticate with Azure AD, users are redirected to the Azure AD STS to authenticate, and the following steps take place:
+If you configured the app to preauthenticate with Microsoft Entra ID, users are redirected to the Microsoft Entra STS to authenticate, and the following steps take place:
 
 1. Application Proxy checks for any Conditional Access policy requirements for the specific application. This step ensures that the user has been assigned to the application. If two-step verification is required, the authentication sequence prompts the user for a second authentication method.
 
-2. After all checks have passed, the Azure AD STS issues a signed token for the application and redirects the user back to the Application Proxy service.
+2. After all checks have passed, the Microsoft Entra STS issues a signed token for the application and redirects the user back to the Application Proxy service.
 
-3. Application Proxy verifies that the token was issued to the correct application. It performs other checks also, such as ensuring that the token was signed by Azure AD, and that it is still within the valid window.
+3. Application Proxy verifies that the token was issued to the correct application. It performs other checks also, such as ensuring that the token was signed by Microsoft Entra ID, and that it is still within the valid window.
 
-4. Application Proxy sets an encrypted authentication cookie to indicate that authentication to the application has occurred. The cookie includes an expiration timestamp that's based on the token from Azure AD and other data, such as the user name that the authentication is based on. The cookie is encrypted with a private key known only to the Application Proxy service.
+4. Application Proxy sets an encrypted authentication cookie to indicate that authentication to the application has occurred. The cookie includes an expiration timestamp that's based on the token from Microsoft Entra ID and other data, such as the user name that the authentication is based on. The cookie is encrypted with a private key known only to the Application Proxy service.
 
 5. Application Proxy redirects the user back to the originally requested URL.
 
@@ -169,6 +169,6 @@ Some processing of the application may occur here. If you configured Application
 
 ## Next steps
 
-[Network topology considerations when using Azure AD Application Proxy](application-proxy-network-topology.md)
+[Network topology considerations when using Microsoft Entra application proxy](application-proxy-network-topology.md)
 
-[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)

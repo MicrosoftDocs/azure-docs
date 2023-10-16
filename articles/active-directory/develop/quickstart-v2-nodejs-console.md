@@ -85,7 +85,7 @@ ms.custom: mode-api, devx-track-js
 > node . --op getUsers
 > ```
 > 
-> You should see on the console output some JSON fragment representing a list of users in your Azure AD directory.
+> You should see on the console output some JSON fragment representing a list of users in your Microsoft Entra directory.
 > 
 > ## About the code
 > 

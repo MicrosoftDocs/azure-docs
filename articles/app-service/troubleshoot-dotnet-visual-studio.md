@@ -6,6 +6,8 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18, devx-track-dotnet
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 ## Overview

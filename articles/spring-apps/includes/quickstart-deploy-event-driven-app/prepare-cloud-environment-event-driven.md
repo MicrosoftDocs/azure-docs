@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [provision-event-driven](../../includes/quickstart-deploy-event-driven-app/provision-event-driven.md)]
+[!INCLUDE [provision-event-driven](provision-event-driven.md)]
 
 -->
 
@@ -18,13 +18,17 @@ The main resources you need to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal)
 
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-standard-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 ### 3.1. Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create a Service Bus instance
 
-[!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
+[!INCLUDE [provision-service-bus](provision-service-bus.md)]
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -57,7 +61,7 @@ Use the following steps to create an Azure Spring Apps instance:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane of the Deployment page." lightbox="../../media/quickstart-deploy-event-driven-app/notifications.png":::
 
-### 3.4 Connect app instance to Service Bus instance
+### 3.4. Connect app instance to Service Bus instance
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
@@ -81,10 +85,10 @@ Use the following steps to create an Azure Spring Apps instance:
    azd auth login
    ```
 
-1. Use the following command to enable the Azure Spring Apps features:
+   The console outputs messages similar to the following example:
 
-   ```bash
-   azd config set alpha.springapp on
+   ```text
+   Logged in to Azure.
    ```
 
 1. Use the following command to set the template using the **standard** plan:

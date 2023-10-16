@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect cloud sync new agent configuration'
+title: 'Microsoft Entra Cloud Sync new agent configuration'
 description: This article describes how to install cloud sync.
 services: active-directory
 author: billmath
@@ -13,11 +13,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Create a new configuration for Azure AD Connect cloud sync
+# Create a new configuration for Microsoft Entra Cloud Sync
 
-The following document will guide you through configuring Azure AD Connect cloud sync.  
+The following document will guide you through configuring Microsoft Entra Cloud Sync.  
 
-The following documentation demonstrates the new guided user experience for Azure AD Connect cloud sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
+The following documentation demonstrates the new guided user experience for Microsoft Entra Cloud Sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-19.png" alt-text="Screenshot of enable preview features." lightbox="media/how-to-configure/new-ux-configure-19.png":::
 
@@ -30,28 +30,26 @@ For additional information and an example of how to configure cloud sync, see th
 ## Configure provisioning
 To configure provisioning, follow these steps.
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
  
  :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
  
- 4. Select **New configuration**.
+ 3. Select **New configuration**.
  :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration." lightbox="media/how-to-configure/new-ux-configure-1.png":::
- 5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
+ 4. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
  
  :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration." lightbox="media/how-to-configure/new-ux-configure-2.png":::
 
- 6.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
+ 5.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
 
   :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen." lightbox="media/how-to-configure/new-ux-configure-3.png":::
 
- 7. The configuration is split in to the following 5 sections.
+ 6. The configuration is split in to the following 5 sections.
 
 |Section|Description|
 |-----|-----|
-|1. Add [scoping filters](#scope-provisioning-to-specific-users-and-groups)|Use this section to define what objects appear in Azure AD|
-|2. Map [attributes](#attribute-mapping)|Use this section to map attributes between your on-premises users/groups with Azure AD objects|
+|1. Add [scoping filters](#scope-provisioning-to-specific-users-and-groups)|Use this section to define what objects appear in Microsoft Entra ID|
+|2. Map [attributes](#attribute-mapping)|Use this section to map attributes between your on-premises users/groups with Microsoft Entra objects|
 |3. [Test](#on-demand-provisioning)|Test your configuration before deploying it|
 |4. View [default properties](#accidental-deletions-and-email-notifications)|View the default setting prior to enabling them and make changes where appropriate|
 |5. Enable [your configuration](#enable-your-configuration)|Once ready, enable the configuration and users/groups will begin synchronizing|
@@ -85,7 +83,7 @@ You can configure groups and organizational units within a configuration.
  7. Once you've changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
-Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
+Microsoft Entra Cloud Sync allows you to easily map attributes between your on-premises user/group objects and the objects in Microsoft Entra ID.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of map attributes icon." lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
@@ -101,14 +99,14 @@ After saving, you should see a message telling you what you still need to do to 
 For more information, see [attribute mapping](how-to-attribute-mapping.md).
 
 ## Directory extensions and custom attribute mapping.
-Azure AD Connect cloud sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
+Microsoft Entra Cloud Sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
 
 ## On-demand provisioning
-Azure AD Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
+Microsoft Entra Cloud Sync allows you to test configuration changes, by applying these changes to a single user or group.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of test icon." lightbox="media/how-to-configure/new-ux-configure-8.png":::
 
-You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  
+You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Microsoft Entra ID.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-9.png" alt-text="Screenshot of on-demand provisioning." lightbox="media/how-to-configure/new-ux-configure-9.png":::
 
@@ -151,9 +149,7 @@ Cloud sync monitors the health of your configuration and places unhealthy object
 
 ## Restart provisioning 
 If you don't want to wait for the next scheduled run, trigger the provisioning run by using the **Restart sync** button. 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
  4. Under **Configuration**, select your configuration.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-14.png" alt-text="Screenshot of restarting sync." lightbox="media/how-to-configure/new-ux-configure-14.png":::
@@ -163,14 +159,12 @@ If you don't want to wait for the next scheduled run, trigger the provisioning r
 ## Remove a configuration
 To delete a configuration, follow these steps.
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 4. Under **Configuration**, select your configuration.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Under **Configuration**, select your configuration.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-15.png" alt-text="Screenshot of deletion." lightbox="media/how-to-configure/new-ux-configure-15.png":::
 
- 5. At the top of the configuration screen, select **Delete configuration**.
+ 4. At the top of the configuration screen, select **Delete configuration**.
 
 >[!IMPORTANT]
 >There's no confirmation prior to deleting a configuration. Make sure this is the action you want to take before you select **Delete**.
@@ -179,4 +173,4 @@ To delete a configuration, follow these steps.
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

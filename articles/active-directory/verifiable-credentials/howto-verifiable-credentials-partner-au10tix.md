@@ -7,14 +7,14 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 10/12/2023
 ms.author: barclayn
 # Customer intent: As a developer, I'm looking for information about the open standards that are supported by Microsoft Entra Verified ID.
 ---
 
 # Configure Verified ID by AU10TIX as your Identity Verification Partner
 
-In this article, we cover the steps needed to integrate Microsoft Entra Verified ID with [AU10TIX](https://www.au10tix.com/). AU10TIX is a global leader in identity verification enabling companies to scale up their business by accelerating onboarding scenarios and ongoing verification throughout the customer lifecycle. It is an automated solution for the verification of ID documents + biometrics in 8 seconds or less. AU10TIX supports the verification of documents in over 190 countries/regions reading documents in their regional languages.
+In this article, we cover the steps needed to integrate Microsoft Entra Verified ID with [AU10TIX](https://www.au10tix.com/). AU10TIX is an automated solution for the verification of ID documents + biometrics. AU10TIX supports the verification of documents in over 190 countries/regions reading documents in their regional languages.
 
 To learn more about AU10TIX and its complete set of solutions, visit https://www.au10tix.com/.
 
@@ -22,10 +22,10 @@ To learn more about AU10TIX and its complete set of solutions, visit https://www
 
 Before you can continue with the steps below you need to meet the following requirements:
 
-- A tenant [configured](verifiable-credentials-configure-tenant.md) for Entra Verified ID service.
+- A tenant [configured](verifiable-credentials-configure-tenant.md) for Microsoft Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - You need to have completed the onboarding process with Au10tix.
-    - To create a AU10TIX account, submit the form on this [page](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/).
+    - To create a AU10TIX account, submit the form on this [page](https://www.au10tix.com/solutions/verifiable-credentials/).
 
 
 >[!IMPORTANT]

@@ -16,9 +16,9 @@ ms.custom: developer, devx-track-js
 
 # Use role-based access control in your Node.js web application
 
-Role-based access control (RBAC) is a mechanism to enforce authorization in applications. Azure Active Directory (Azure AD) for customers allows you to define application roles for your application and assign those roles to users and groups. The roles you assign to a user or group define their level of access to the resources and operations in your application. When Azure AD for customers issues a security token for an authenticated user, it includes the names of the roles you've assigned the user or group in the security token's roles claim. 
+Role-based access control (RBAC) is a mechanism to enforce authorization in applications. Microsoft Entra ID for customers allows you to define application roles for your application and assign those roles to users and groups. The roles you assign to a user or group define their level of access to the resources and operations in your application. When External ID for customers issues a security token for an authenticated user, it includes the names of the roles you've assigned the user or group in the security token's roles claim. 
 
-You can also configure your Azure AD for customers tenant to return the group memberships of the user. Developers can then use security groups to implement RBAC in their applications, where the memberships of the user in specific groups are interpreted as their role memberships. 
+You can also configure your External ID for customers tenant to return the group memberships of the user. Developers can then use security groups to implement RBAC in their applications, where the memberships of the user in specific groups are interpreted as their role memberships. 
 
 Once you assign users and groups to roles, the *roles* claim is emitted in your security token. However, to emit the *groups* membership claim in security tokens, you need additional configuration in your customer's tenant.
 
@@ -87,11 +87,11 @@ let groups = tokenResponse.idTokenClaims.groups;
 The groups claim value is the group's *objectId*. If a user is a member of multiple groups, the `groups` string contains all groups separated by a comma, such as `7f0621bc-b758-44fa-a2c6-...,6b35e65d-f3c8-4c6e-9538-...`.
 
 > [!NOTE] 
-> If you assign a user [Azure AD in-built roles](../../roles/permissions-reference.md) or commonly known as directory roles, those roles appear in the *groups* claim of the security token. 
+> If you assign a user [Microsoft Entra in-built roles](../../roles/permissions-reference.md) or commonly known as directory roles, those roles appear in the *groups* claim of the security token. 
 
 ## Handle groups overage
 
-To ensure that the size of the security token doesn’t exceed the HTTP header size limit, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
+To ensure that the size of the security token doesn’t exceed the HTTP header size limit, External ID for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
 
 ### Detect group overage in your source code 
 

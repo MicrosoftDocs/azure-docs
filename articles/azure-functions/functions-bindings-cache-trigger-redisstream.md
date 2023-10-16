@@ -5,10 +5,10 @@ author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
-ms.service: cache
-ms.topic: conceptual
+ms.service: azure-functions
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.topic: reference
 ms.date: 08/07/2023
-
 ---
 
 # RedisStreamTrigger Azure Function (preview)
@@ -20,7 +20,7 @@ The `RedisStreamTrigger` reads new entries from a stream and surfaces those elem
 | Streams | Yes   | Yes               | Yes                          |
 
 > [!IMPORTANT]
-> Redis triggers are not currently supported on Azure Functions Consumption plan.
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md). 
 >
 
 ## Example
@@ -29,7 +29,15 @@ The `RedisStreamTrigger` reads new entries from a stream and surfaces those elem
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
-### [In-process](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
+
+The isolated process examples aren't available in preview.
+
+```csharp
+//TBD
+```
+
+### [In-process model](#tab/in-process)
 
 ```csharp
 
@@ -40,14 +48,6 @@ public static void StreamsTrigger(
 {
     logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
 }
-```
-
-### [Isolated process](#tab/isolated-process)
-
-The isolated process examples aren't available in preview.
-
-```csharp
-//TBD
 ```
 
 ---
@@ -77,9 +77,9 @@ The isolated process examples aren't available in preview.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-### [v3](#tab/javasscript-v1)
+### [v3](#tab/node-v3)
 
-Each sample uses the same `index.js` file, with binding data in the `function.json` file.
+This sample uses the same `index.js` file, with binding data in the `function.json` file.
 
 Here's the `index.js` file:
 
@@ -110,7 +110,7 @@ From `function.json`, here's the binding data:
 }
 ```
 
-### [v4](#tab/javascript-v2)
+### [v4](#tab/node-v4)
 
 The JavaScript v4 programming model example isn't available in preview.
 
@@ -119,7 +119,7 @@ The JavaScript v4 programming model example isn't available in preview.
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-Each sample uses the same `run.ps1` file, with binding data in the `function.json` file.
+This sample uses the same `run.ps1` file, with binding data in the `function.json` file.
 
 Here's the `run.ps1` file:
 
@@ -156,7 +156,7 @@ From `function.json`, here's the binding data:
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
-Each sample uses the same `__init__.py` file, with binding data in the `function.json` file.
+This sample uses the same `__init__.py` file, with binding data in the `function.json` file.
 
 Here's the `__init__.py` file:
 

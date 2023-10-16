@@ -1,6 +1,7 @@
 ---
 title: Build a real-time code-streaming app by using Socket.IO and host it on Azure
 description: Learn how to build an app that allows coders to share coding activities with their audience in real time by using Web PubSub for Socket.IO. 
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -388,7 +389,7 @@ As mentioned [earlier](#the-finished-app), you have two user roles on the client
 
 ### Locate the repo
 
-The preceding sections covered the core logic related to synchronizing the editor state between viewers and the writer. You can find the complete code in the [examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream).
+The preceding sections covered the core logic related to synchronizing the editor state between viewers and the writer. You can find the complete code in the [examples repository](https://aka.ms/awps/sio/sample/codestream).
 
 ### Clone the repo
 
@@ -397,7 +398,7 @@ You can clone the repo and run `npm install` to install project dependencies.
 ### Start the server
 
 ```bash
-node index.js <web-pubsub-connection-string>
+node server.js <web-pubsub-connection-string>
 ```
 
 This is the connection string that you received in [an earlier step](#get-a-connection-string).

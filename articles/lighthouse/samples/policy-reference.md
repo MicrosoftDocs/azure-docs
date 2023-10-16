@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Lighthouse
 description: Lists Azure Policy built-in policy definitions for Azure Lighthouse. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 08/08/2023
+ms.date: 10/10/2023
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---

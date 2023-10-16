@@ -1,6 +1,7 @@
 ---
 title: Migrate a self-hosted Socket.IO app to be fully managed on Azure
 description: Learn how to migrate a Socket.IO chat app to Azure.
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 07/21/2023

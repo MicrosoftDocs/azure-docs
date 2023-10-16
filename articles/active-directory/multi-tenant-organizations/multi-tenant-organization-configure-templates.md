@@ -1,6 +1,6 @@
 ---
 title: Configure multi-tenant organization templates using Microsoft Graph API (Preview)
-description: Learn how to configure multi-tenant organization templates in Azure Active Directory using the Microsoft Graph API.
+description: Learn how to configure multi-tenant organization templates in Microsoft Entra ID using the Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 09/22/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -25,7 +25,7 @@ This article describes how to configure a policy template for your multi-tenant 
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
+- For license information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and templates for the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 

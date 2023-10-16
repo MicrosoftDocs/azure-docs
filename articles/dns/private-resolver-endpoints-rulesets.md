@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/07/2023
+ms.date: 09/11/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -106,7 +106,7 @@ A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule f
 #### Rule processing
 
 - If multiple DNS servers are entered as the destination for a rule, the first IP address that is entered is used unless it doesn't respond. An exponential backoff algorithm is used to determine whether or not a destination IP address is responsive. Destination addresses that are marked as unresponsive aren't used for 30 minutes.
-- Certain domains are ignored when using a wildcard rule for DNS resolution, because they are reserved for Azure services. See [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for a list of domains that are reserved. The two-label DNS names listed in this article (ex: windows.net, azure.com, azure.net, windowsazure.us) are reserved for Azure services.
+- Certain domains are ignored when using a wildcard rule for DNS resolution, because they are reserved for Azure services. See [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for a list of domains that are reserved. The two-label DNS names listed in this article (for example: windows.net, azure.com, azure.net, windowsazure.us) are reserved for Azure services.
 
 > [!IMPORTANT]
 > - You can't enter the Azure DNS IP address of 168.63.129.16 as the destination IP address for a rule. Attempting to add this IP address will output the error: **Exception while making add request for rule**. 

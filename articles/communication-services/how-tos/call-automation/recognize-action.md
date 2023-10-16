@@ -46,12 +46,12 @@ This guide will help you get started with recognizing DTMF input provided by par
 |RecognizeFailed|500|8512|Unknown internal server error.|
 | RecognizeFailed | 400 | 8510 | Action failed, initial silence timeout reached | 
 | RecognizeFailed | 400 | 8532 | Action failed, inter-digit silence timeout reached. | 
-| RecognizeFailed | 400 | 8565 | Action failed, bad request to Cognitive Services. Check input parameters. | 
-| Recognize Failed | 400 | 8565 | Action failed, bad request to Cognitive Services. Unable to process payload provided, check the play source input | 
-| RecognizeFailed | 401 | 8565 | Action failed, cognitive services authentication error. |
-| RecognizeFailed | 403 | 8565 | Action failed, forbidden request to cognitive services, free subscription used by the request ran out of quota. | 
-| RecognizeFailed | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the cognitive services subscription. | 
-| RecognizeFailed | 408 | 8565 | Action failed, request to Cognitive Services timed out. | 
+| RecognizeFailed | 400 | 8565 | Action failed, bad request to Azure AI services. Check input parameters. | 
+| Recognize Failed | 400 | 8565 | Action failed, bad request to Azure AI services. Unable to process payload provided, check the play source input | 
+| RecognizeFailed | 401 | 8565 | Action failed, Azure AI services authentication error. |
+| RecognizeFailed | 403 | 8565 | Action failed, forbidden request to Azure AI services, free subscription used by the request ran out of quota. | 
+| RecognizeFailed | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the Azure AI services subscription. | 
+| RecognizeFailed | 408 | 8565 | Action failed, request to Azure AI services timed out. | 
 | RecognizeFailed | 500	| 8511	| Action failed, encountered failure while trying to play the prompt. | 
 | RecognizeFailed | 500	| 8512	| Unknown internal server error. | 
 

@@ -7,12 +7,27 @@ ms.reviewer: sanjaymi
 ms.date: 10/04/2022
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sql-migration-content
 ---
 
 # Known Issues With Migrations To Azure Database for MySQL
 
 Known issues associated with migrations to Azure Database for MySQL are described in the following sections.
+
+## Schema Migration Issue for v8.0 MySQL Flexible Server target
+
+- **Error**: A migration to a MySQL Flexible Server with engine version 8.0.30 or higher can fail when the feature to generate invisible primary keys for InnoDB tables is enabled (see [MySQL :: MySQL 8.0 Reference Manual :: 13.1.20.11 Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)).  The failure may occur when migrating table schema from the source to the target, when applying changes during the replication phase of online migrations, when retrying a migration, or when migrating to a target where the schema has been migrated manually.
+
+  **Potential error message**:
+  - "Unknown error."
+  - "Failed to generate invisible primary key. Auto-increment column already exists."
+  - "The column 'my_row_id' in the target table 'table name' in database 'database' does not exist on the source table."
+
+  **Limitation**: Migration to MySQL Flexible Server instance where sql_generate_invisible_primary_key is enabled is not supported by DMS.
+
+  **Workaround**: Set the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server to OFF. The server parameter can be found in the Server parameters Blade under the All tab for the target MySQL Flexible Server. Additionally, drop the target database and start over the DMS migration to not have any mismatched schemas.
 
 ## Incompatible SQL Mode
 
@@ -94,17 +109,17 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
 - **Error**: An error occurred as referencing table cannot be found.
 
-  **Potential error message**: The pipeline was unable to create the schema of object '{object}' for activity '{activity}' using strategy MySqlSchemaMigrationViewUsingTableStrategy because of a query execution.   
+  **Potential error message**: The pipeline was unable to create the schema of object '{object}' for activity '{activity}' using strategy MySqlSchemaMigrationViewUsingTableStrategy because of a query execution.
 
-  **Limitation**: The error can occur when the view is referring to a table that has been deleted or renamed, or when the view was created with incorrect or incomplete information.
+  **Limitation**: The error can occur when the view is referring to a table that has been deleted or renamed, or when the view was created with incorrect or incomplete information. This error can happen if a subset of tables are migrated, but the tables they depend on are not.
 
-  **Workaround**: We recommend migrating views manually.
+  **Workaround**: We recommend migrating views manually. Check if all tables referenced in foreign keys and CREATE VIEW statements are selected for migration.
 
 ## All pooled connections broken
 
 - **Error**: All connections on the source server were broken.  
 
-  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error isn't recoverable. 
+  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error isn't recoverable. Additionally, this error occurs if an attempt to migrate a server is made during the maintenance window.
 
   **Workaround**: The migration must be restarted, and we recommend increasing the performance of the source server. Another issue is scripts that kill long running connections, prevents these scripts from working.
 

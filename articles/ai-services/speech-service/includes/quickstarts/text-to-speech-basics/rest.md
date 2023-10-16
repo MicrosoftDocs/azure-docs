@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 03/15/2022
+ms.date: 08/25/2023
 ms.author: eur
 ---
 
@@ -20,13 +20,11 @@ ms.author: eur
 
 ## Synthesize to a file
 
-At a command prompt, run the following cURL command. Optionally you can rename `output.mp3` to another output filename.
-
-**Choose your target environment**
+At a command prompt, run the following cURL command. Optionally, you can rename *output.mp3* to another output filename.
 
 # [Windows](#tab/windows)
 
-```terminal
+```console
 curl --location --request POST "https://%SPEECH_REGION%.tts.speech.microsoft.com/cognitiveservices/v1" ^
 --header "Ocp-Apim-Subscription-Key: %SPEECH_KEY%" ^
 --header "Content-Type: application/ssml+xml" ^
@@ -37,7 +35,7 @@ curl --location --request POST "https://%SPEECH_REGION%.tts.speech.microsoft.com
 
 # [Linux](#tab/linux)
 
-```terminal
+```console
 curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1" \
 --header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
 --header 'Content-Type: application/ssml+xml' \
@@ -52,7 +50,7 @@ curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.co
 
 # [macOS](#tab/macos)
 
-```terminal
+```console
 curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1" \
 --header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
 --header 'Content-Type: application/ssml+xml' \
@@ -68,11 +66,13 @@ curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.co
 * * *
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-The provided text should be output to an audio file named output.mp3.
+The provided text should be output to an audio file named *output.mp3*.
 
-To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
+
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 For more information, see [Text to speech REST API](../../../rest-text-to-speech.md).
 

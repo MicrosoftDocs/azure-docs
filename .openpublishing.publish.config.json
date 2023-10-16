@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-functions-dapr-extension",
+      "url": "https://github.com/Azure/azure-functions-dapr-extension",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-docs-snippets-pr",
       "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
       "branch": "main",
@@ -245,6 +251,12 @@
     {
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-nodejs-v4",
+      "url": "https://github.com/Azure/azure-functions-nodejs-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -462,6 +474,12 @@
       "path_to_root": "azureml-examples-featurestore",
       "url": "https://github.com/Azure/azureml-examples",
       "branch": "featurestore/pup",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-temp-fix",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "temp-fix-doc-error",
       "branch_mapping": {}
     },
     {
@@ -969,8 +987,86 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-nosql-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-nosql-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-mongodb-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-mongodb-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-mongodb-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-cassandra-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-cassandra-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-cassandra-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-python-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1016,9 +1112,15 @@
 		"branch": "main",
 		"branch_mapping": {}
 	  },
+    {
+    "path_to_root": "playwright-testing-service",
+    "url": "https://github.com/microsoft/playwright-testing-service",
+    "branch": "main",
+    "branch_mapping": {}
+    },
 	  {
       "path_to_root": "microsoft-graph",
-      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
+      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs-contrib",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1031,6 +1133,12 @@
     {
       "path_to_root": "azure-proactive-resiliency-library",
       "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-reference-other-repo",
+      "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
     }
@@ -1088,9 +1196,9 @@
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
-  "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
   "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
   "articles/communication-services/.openpublishing.redirection.communication-services.json",
+  "articles/communications-gateway/.openpublishing.redirection.communications-gateway.json",
   "articles/confidential-computing/.openpublishing.redirection.json",
   "articles/container-apps/.openpublishing.redirection.container-apps.json",
   "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
@@ -1098,11 +1206,15 @@
   "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
   "articles/data-factory/.openpublishing.redirection.data-factory.json",
   "articles/data-lake-analytics/.openpublishing.redirection.data-lake-analytics.json",
+  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json",
+  "articles/dev-box/.openpublishing.redirection.dev-box.json",
   "articles/digital-twins/.openpublishing.redirection.digital-twins.json",
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/hdinsight-aks/.openpublishing.redirection.hdinsight-aks.json",
   "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
+  "articles/internet-peering/.openpublishing.redirection.internet-peering.json",
   "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
   "articles/iot-central/.openpublishing.redirection.iot-central.json",
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
@@ -1117,9 +1229,12 @@
   "articles/mariadb/.openpublishing.redirection.mariadb.json",
   "articles/marketplace/.openpublishing.redirection.marketplace.json",
   "articles/mysql/.openpublishing.redirection.mysql.json",
+  "articles/network-watcher/.openpublishing.redirection.network-watcher.json",
   "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+  "articles/peering-service/.openpublishing.redirection.peering-service.json",
   "articles/postgresql/.openpublishing.redirection.postgresql.json",
   "articles/purview/.openpublishing.redirection.purview.json",
+  "articles/route-server/.openpublishing.redirection.route-server.json",
   "articles/sap/.openpublishing.redirection.sap.json",
   "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
   "articles/spatial-anchors/.openpublishing.redirection.spatial-anchors.json",
@@ -1129,9 +1244,6 @@
   "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
-  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
-  "articles/dev-box/.openpublishing.redirection.dev-box.json",
-  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json",
-  "articles/network-watcher/.openpublishing.redirection.network-watcher.json"
+  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
 ]
 }

@@ -17,7 +17,7 @@
     href: quickstart-connect-cluster.md
 - name: Tutorials
   items:
-  - name: Deploy configurations using GitOps
+  - name: Deploy applications using GitOps
     displayName: flux, tutorial, controller
     href: tutorial-use-gitops-flux2.md
   - name: Implement CI/CD with GitOps
@@ -67,8 +67,8 @@
         href: conceptual-custom-locations.md
   - name: Deploy applications to cluster
     items:
-      - name: Configurations and GitOps
-        displayName: flux, deploy, applications
+      - name: Application deployment with GitOps
+        displayName: flux, deploy, configuration
         href: conceptual-gitops-flux2.md
       - name: CI/CD workflow using GitOps
         displayName: flux, pipeline
@@ -171,7 +171,15 @@
     href: /powershell/module/az.connectedkubernetes#connected-kubernetes
 - name: Resources
   items:
-    - name: Region availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
-    - name: Azure Arc jumpstart
-      href: https://azurearcjumpstart.io
+  - name: Azure Arc Jumpstart
+    href: https://azurearcjumpstart.io
+  - name: Microsoft Q&A for Azure Arc
+    href: /answers/tags/146/azure-arc
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858

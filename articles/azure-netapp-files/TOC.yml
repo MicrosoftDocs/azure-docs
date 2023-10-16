@@ -273,6 +273,8 @@
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
+      - name: Access SMB volume from Microsoft Entra joined Windows VM
+        href: access-smb-volume-from-windows-client.md
     - name: Manage volume capacity and performance 
       items:
       - name: Monitor the capacity of a volume
@@ -299,7 +301,7 @@
           href: application-volume-group-manage-volumes.md
         - name: Delete an application volume group
           href: application-volume-group-delete.md
-        - name: Configure application volume groups for REST API
+        - name: Configure application volume groups using REST API
           href: configure-application-volume-group-sap-hana-api.md
   - name: Manage data protection  
     items:
@@ -353,9 +355,7 @@
         href: cross-region-replication-delete.md
       - name: Re-establish volume replication relationships
         href: reestablish-deleted-volume-relationships.md
-    - name: Manage availability zones
-      items:
-      - name: Test disaster recovery
+      - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
     - name: Manage availability zones and cross-zone replication
       items: 
@@ -373,6 +373,8 @@
       href: azure-netapp-files-sdk-cli.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot using diagnose and solve problems tool 
+      href: troubleshoot-diagnose-solve-problems.md
     - name: Troubleshoot capacity pool errors 
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot volume errors
@@ -385,6 +387,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot user access on LDAP volumes
+      href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
 - name: Reference
@@ -434,4 +438,4 @@
   - name: Azure Files and Azure NetApp Files comparison
     href: ../storage/files/storage-files-netapp-comparison.md
   - name: Azure NetApp Files on Microsoft Q&A
-    href: /answers/topics/25532/azure-netapp-files.html
+    href: /answers/topics/25532/azure-netapp-files

@@ -1,14 +1,12 @@
 ---
 title: Update Network Watcher extension to the latest version 
-description: Learn how to update the Azure Network Watcher extension to the latest version.
-services: virtual-machines
+description: Learn how to update the Azure Network Watcher Agent virtual machine (VM) extension to the latest version.
 author: halkazwini
-tags: azure-resource-manager
-ms.service: virtual-machines
-ms.topic: conceptual
-ms.date: 07/12/2023
 ms.author: halkazwini
-ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
+ms.service: virtual-machines
+ms.topic: concept-article
+ms.date: 08/30/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Update Azure Network Watcher extension to the latest version
@@ -22,7 +20,7 @@ ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
 
 ## Latest version
 
-The latest version of the Network Watcher extension is `1.4.2573.1`.
+[!INCLUDE [Network Watcher agent version](../../../includes/virtual-machines-extensions-network-watcher-agent-version.md)].
 
 ### Identify latest version
 

@@ -25,6 +25,8 @@ items:
       href: concept-sign-in-log-activity-details.md
     - name: Provisioning logs
       href: concept-provisioning-logs.md
+    - name: Microsoft Graph activity logs
+      href: /graph/microsoft-graph-activity-logs-overview?toc=/azure/active-directory/reports-monitoring/toc.json&bc=/azure/active-directory/reports-monitoring/breadcrumb/toc.json
   - name: How-to guides 
     expanded: true
     items:
@@ -34,6 +36,8 @@ items:
       href: howto-customize-filter-logs.md
     - name: Analyze sign-ins
       href: quickstart-analyze-sign-in.md
+    - name: Analyze provisioning logs
+      href: howto-analyze-provisioning-logs.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
     - name: Access logs with Microsoft Graph  
@@ -63,7 +67,7 @@ items:
     items:
       - name: Migrate ADAL to MSAL
         href: recommendation-migrate-from-adal-to-msal.md
-      - name: Migrate apps from AD FS to Azure AD
+      - name: Migrate apps from AD FS to Microsoft Entra ID
         href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
       - name: Migrate to Microsoft authenticator
         href: recommendation-migrate-to-authenticator.md
@@ -88,14 +92,14 @@ items:
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
-    - name: Sign-ins using legacy authentication  
-      href: workbook-legacy authentication.md
+    - name: Multifactor authentication gaps 
+      href: workbook-mfa-gaps.md 
     - name: Risk analysis
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
-    - name: Multifactor authentication gaps 
-      href: workbook-mfa-gaps.md   
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
 
 - name: Identity monitoring
   expanded: true
@@ -124,7 +128,7 @@ items:
 - name: Common troubleshooting scenarios
   expanded: false
   items:
-  - name: Manage inactive user accounts in Azure AD
+  - name: Manage inactive user accounts in Microsoft Entra ID
     href: howto-manage-inactive-user-accounts.md
   - name: View applied Conditional Access policies
     href: how-to-view-applied-conditional-access-policies.md
@@ -142,13 +146,13 @@ items:
 - name: Reference
   expanded: false
   items:
-  - name: Azure Active Directory SLA performance
+  - name: Microsoft Entra SLA performance
     href: reference-azure-ad-sla-performance.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
     href: /graph/api/resources/directoryaudit
-  - name: Azure AD recommendations API reference
+  - name: Microsoft Entra recommendations API reference
     href: /graph/api/resources/recommendations-api-overview
   - name: Application credential activity API reference
     href: /graph/api/resources/appcredentialsigninactivity

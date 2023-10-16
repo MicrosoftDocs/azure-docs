@@ -17,11 +17,11 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 
 Accessing data from external sources is a common pattern. Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  
 
-Azure Synapse Analytics uses Azure Active Directory (Azure AD) passthrough by default for authentication between resources. If you need to connect to a resource using other credentials, use the mssparkutils directly. The mssparkutils simplifies the process of retrieving SAS tokens, Azure AD tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
+Azure Synapse Analytics uses Microsoft Entra passthrough by default for authentication between resources. If you need to connect to a resource using other credentials, use the mssparkutils directly. The mssparkutils simplifies the process of retrieving SAS tokens, Microsoft Entra tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
 
-Azure AD passthrough uses permissions assigned to you as a user in Azure AD, rather than permissions assigned to Synapse or a separate service principal. For example, if you want to use Azure AD passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
+Microsoft Entra passthrough uses permissions assigned to you as a user in Microsoft Entra ID, rather than permissions assigned to Synapse or a separate service principal. For example, if you want to use Microsoft Entra passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
 
-When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault. Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault. Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, you will authenticate using your user Azure Active Directory credential.
+When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault. Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault. Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, you will authenticate using your user Microsoft Entra credential.
 
 For more information, see [linked services](../../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context).
 
@@ -74,7 +74,7 @@ Get result:
 
 #### ADLS Gen2 Primary Storage
 
-Accessing files from the primary Azure Data Lake Storage uses Azure Active Directory passthrough for authentication by default and doesn't require the explicit use of the mssparkutils. The identity used in the passthrough authentication differs based on a few factors. By default, interactive notebooks are executed using the user's identity, but it can be changed to the workspace managed service identity (MSI). Batch jobs and non-interactive executions of the notebook use the Workspace MSI.
+Accessing files from the primary Azure Data Lake Storage uses Microsoft Entra passthrough for authentication by default and doesn't require the explicit use of the mssparkutils. The identity used in the passthrough authentication differs based on a few factors. By default, interactive notebooks are executed using the user's identity, but it can be changed to the workspace managed service identity (MSI). Batch jobs and non-interactive executions of the notebook use the Workspace MSI.
 
 ::: zone pivot = "programming-language-scala"
 
@@ -309,7 +309,7 @@ The output will look like
 
 #### GetSecret()
 
-To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault. The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret. Otherwise, connecting directly to Azure Key Vault will use the user's Azure Active Directory (Azure AD) credential. In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
+To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault. The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret. Otherwise, connecting directly to Azure Key Vault will use the user's Microsoft Entra credential. In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
 
 In government clouds, please provide the fully qualified domain name of the keyvault.
 
@@ -355,7 +355,7 @@ While Azure Synapse Analytics supports a variety of linked service connections (
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL
- - Azure Database for Postgre SQL
+ - Azure Database for PostgreSQL
  - Azure Data Lake Store (Gen1)
  - Azure Key Vault
  - Azure Machine Learning

@@ -78,15 +78,15 @@ Open the link in a browser. The result will be similar to this example:
 
 ## Troubleshooting guide
 1. If the Azure Function extension failed to deploy the local function to the Azure cloud, it's likely due to the version of Visual Studio Code and the Azure Function extension being used having a bug. This version combination has been tested to work: Visual Studio Code version `1.68.1` and Azure Function extension version `1.2.1`.
-2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started). More specifically, the highlight note in the section "Set up application constants", and compare with the sample app of the version you are consuming.
+2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](/azure/communication-services/quickstarts/chat/get-started). More specifically, the highlight note in the section "Set up application constants", and compare with the sample app of the version you are consuming.
 
 ## (Optional) secure the Azure Function endpoint
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, one option is to use your own secured endpoint to provision your own tokens.
 
-With extra configuration, this sample supports connecting to an Azure Active Directory (Azure AD) protected endpoint so that user log is required for the app to fetch an Azure Communication Services token. The user will be required to sign in with Microsoft account to access the app. This setup increases the security level while users are required to log in. Decide whether to enable it based on the use cases.
+With extra configuration, this sample supports connecting to a Microsoft Entra protected endpoint so that user log is required for the app to fetch an Azure Communication Services token. The user will be required to sign in with Microsoft account to access the app. This setup increases the security level while users are required to log in. Decide whether to enable it based on the use cases.
 
-Note that we currently don't support Azure AD in sample code. Follow the links below to enable it in your app and Azure Function:
+Note that we currently don't support Microsoft Entra ID in sample code. Follow the links below to enable it in your app and Azure Function:
 
-[Register your app under Azure Active Directory (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
+[Register your app under Microsoft Entra ID (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
 
-[Configure your App Service or Azure Functions app to use Azure AD log in](../../app-service/configure-authentication-provider-aad.md).
+[Configure your App Service or Azure Functions app to use Microsoft Entra ID log in](../../app-service/configure-authentication-provider-aad.md).

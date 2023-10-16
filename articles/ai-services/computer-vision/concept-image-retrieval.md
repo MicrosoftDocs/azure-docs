@@ -6,8 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 03/06/2023
 ms.author: pafarley
@@ -28,11 +27,13 @@ Vector search, on the other hand, searches large collections of vectors in high-
 Image retrieval has a variety of applications in different fields, including: 
 
 - Digital asset management: Image retrieval can be used to manage large collections of digital images, such as in museums, archives, or online galleries. Users can search for images based on visual features and retrieve the images that match their criteria.
-- Medical image retrieval: Image retrieval can be used in medical imaging to search for images based on their diagnostic features or disease patterns. This can help doctors or researchers to identify similar cases or track disease progression.
 - Security and surveillance: Image retrieval can be used in security and surveillance systems to search for images based on specific features or patterns, such as in, people & object tracking, or threat detection. 
 - Forensic image retrieval: Image retrieval can be used in forensic investigations to search for images based on their visual content or metadata, such as in cases of cyber-crime.
 - E-commerce: Image retrieval can be used in online shopping applications to search for similar products based on their features or descriptions or provide recommendations based on previous purchases.
 - Fashion and design: Image retrieval can be used in fashion and design to search for images based on their visual features, such as color, pattern, or texture. This can help designers or retailers to identify similar products or trends.
+
+> [!CAUTION]
+> Image Retrieval is not designed analyze medical images for diagnostic features or disease patterns. Please do not use Image Retrieval for medical purposes.
 
 ## What are vector embeddings? 
 
@@ -46,6 +47,9 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 :::image type="content" source="media/image-retrieval.png" alt-text="Diagram of image retrieval process.":::
 
 1. Vectorize Images and Text: the Image Retrieval APIs, **VectorizeImage** and **VectorizeText**, can be used to extract feature vectors out of an image or text respectively. The APIs return a single feature vector representing the entire input.
+   > [!NOTE]
+   > Image Retrieval does not do any biometric processing of human faces. For face detection and identification, see the [Azure AI Face service](./overview-identity.md).
+
 1. Measure similarity: Vector search systems typically use distance metrics, such as cosine distance or Euclidean distance, to compare vectors and rank them by similarity. The [Vision studio](https://portal.vision.cognitive.azure.com/) demo uses [cosine distance](./how-to/image-retrieval.md#calculate-vector-similarity) to measure similarity.  
 1. Retrieve Images: Use the top _N_ vectors similar to the search query and retrieve images corresponding to those vectors from your photo library to  provide as the final result.
 

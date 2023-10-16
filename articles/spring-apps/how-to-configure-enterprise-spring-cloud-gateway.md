@@ -36,11 +36,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
-
-- Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 
 ## Enable or disable VMware Spring Cloud Gateway
 
@@ -186,7 +182,7 @@ VMware Spring Cloud Gateway supports authentication and authorization through si
 | `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |
 
-To set up SSO with Azure Active Directory, see [Set up single sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
+To set up SSO with Microsoft Entra ID, see [Set up single sign-on using Microsoft Entra ID for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
 
 You can use the Azure portal or the Azure CLI to edit SSO properties.
 

@@ -21,6 +21,8 @@
           href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Optimize costs
           href: best-practices-cost.md
+        - name: Windows vs. Linux containers
+          href: windows-vs-linux-containers.md
 - name: Quickstarts
   expanded: true
   items:
@@ -50,6 +52,8 @@
           href: learn/quick-windows-container-deploy-cli.md
         - name: Use Azure PowerShell
           href: learn/quick-windows-container-deploy-powershell.md
+        - name: Use the Azure portal
+          href: learn/quick-windows-container-deploy-portal.md
     - name: Develop applications
       expanded: true
       items:
@@ -120,8 +124,14 @@
               href: cis-ubuntu.md
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
+            - name: CIS Windows Server benchmark
+              href: cis-windows.md
     - name: Networking
-      href: concepts-network.md
+      items:
+        - name: Concepts
+          href: concepts-network.md
+        - name: CNI networking
+          href: azure-cni-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -184,8 +194,6 @@
       items:
         - name: Plan and execute a migration
           href: aks-migration.md
-        - name: Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Wildfly
@@ -217,7 +225,7 @@
            - name: Create a private cluster
              href: private-clusters.md
            - name: Access a private cluster remotely
-             href: command-invoke.md
+             href: access-private-cluster.md
         - name: Integration
           items:      
             - name: Integrate ACR with an AKS cluster
@@ -281,8 +289,10 @@
             
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
-            - name: Connect to cluster nodes
+            - name: Connect securely to cluster nodes
               href: node-access.md
+            - name: Manage SSH key 
+              href: manage-ssh-node-access.md
         - name: Node pools
           items:
             - name: Create node pools
@@ -291,7 +301,7 @@
               href: manage-node-pools.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
-            - name: Multi-instance GPU Node pool
+            - name: Multi-instance GPU node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
@@ -311,23 +321,27 @@
               href: virtual-nodes-portal.md
     - name: Workloads
       items:       
-        - name: Use Vertical Pod Autoscaler
-          href: vertical-pod-autoscaler.md
+        - name: Vertical Pod Autoscaler
+          items:
+            - name: About Vertical Pod Autoscaler 
+              href: vertical-pod-autoscaler.md
+            - name: Vertical Pod Autoscaler API reference
+              href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
           href: use-metrics-server-vertical-pod-autoscaler.md
-        - name: Use proximity placement groups
+        - name: Proximity placement groups
           href: reduce-latency-ppg.md
-        - name: Use Cluster Autoscaler
+        - name: Cluster Autoscaler
           href: cluster-autoscaler.md
-        - name: Use Availability Zones
+        - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management
       items:
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
-        - name: Use tags
+        - name: Tags
           href: use-tags.md
-        - name: Use labels
+        - name: Labels
           href: use-labels.md
     - name: Security and authentication
       items:
@@ -337,6 +351,8 @@
           href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Image security
           items:
+            - name: Validate signed images with Image Integrity
+              href: image-integrity.md
             - name: Remove vulnerable images with ImageCleaner
               href: image-cleaner.md
             - name: Scan images in your CI/CD Workflow
@@ -379,51 +395,29 @@
               href: use-cvm.md
             - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
-        - name: Workload security
-          items:
-            - name: Secrets Store CSI Driver
-              items:
-                - name: Secrets Store CSI Driver configuration
-                  href: csi-secrets-store-driver.md
-                - name: Provide Azure Key Vault access
-                  href: csi-secrets-store-identity-access.md
-                - name: Configure TLS for NGINX ingress controller
-                  href: csi-secrets-store-nginx-tls.md
-            - name: Use Azure AD pod identity
-              href: use-azure-ad-pod-identity.md
-            - name: Migrate your app from pod identity to workload identity
-              href: workload-identity-migrate-from-pod-identity.md
-            - name: Secure pod traffic with network policies
-              href: use-network-policies.md
-            - name: Use Pod Sandboxing
-              href: use-pod-sandboxing.md
-            - name: Use pod security policies
-              href: use-pod-security-policies.md
-            - name: Use Pod Security Admission
-              href: use-psa.md
         - name: Role-based access control and authorization
           items: 
             - name: Use managed identities
               href: use-managed-identity.md
             - name: Create service principal
               href: kubernetes-service-principal.md
-            - name: Enable Azure Active Directory integration
+            - name: Enable Microsoft Entra integration
               items:
-                - name: AKS-managed Azure AD
+                - name: AKS-managed Microsoft Entra ID
                   items: 
-                    - name: Enable AKS-managed Azure AD integration
+                    - name: Enable AKS-managed Microsoft Entra integration
                       href: managed-azure-ad.md
                     - name: Manage local accounts
                       href: manage-local-accounts-managed-azure-ad.md
                     - name: Cluster access control
                       href: access-control-managed-azure-ad.md
-                - name: Azure AD integration (legacy)
+                - name: Microsoft Entra integration (legacy)
                   href: azure-ad-integration-cli.md
                 - name: Enable GMSA integration
                   href: use-group-managed-service-accounts.md
             - name: Use Azure RBAC for Kubernetes authorization
               href: manage-azure-rbac.md
-            - name: Use Kubernetes RBAC with Azure AD integration
+            - name: Use Kubernetes RBAC with Microsoft Entra integration
               href: azure-ad-rbac.md
             - name: Update cluster credentials
               href: update-credentials.md
@@ -431,16 +425,6 @@
               href: control-kubeconfig-access.md
             - name: Control deployments with Azure Policy
               href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Node security
-          items:
-            - name: Use Confidential Virtual Machines
-              href: use-cvm.md
-            - name: Use Dedicated Hosts with AKS
-              href: use-azure-dedicated-hosts.md
-            - name: Enable host-based encryption
-              href: enable-host-encryption.md
-            - name: Enable FIPS
-              href: enable-fips-nodes.md
         - name: Application security
           items:
             - name: Create an OIDC Issuer for your cluster
@@ -453,15 +437,15 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity
+            - name: Microsoft Entra pod identity
               href: use-azure-ad-pod-identity.md
-            - name: Use Pod Sandboxing
+            - name: Pod Sandboxing
               href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
-            - name: Use pod security policies
+            - name: Pod security policies
               href: use-pod-security-policies.md
-            - name: Use Pod Security Admission
+            - name: Pod Security Admission
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
@@ -501,7 +485,7 @@
           items:
             - name: Configure outbound type for AKS
               href: egress-outboundtype.md
-            - name: Use a user defined route for egress
+            - name: Use a user-defined route for egress
               href: egress-udr.md
             - name: Use an HTTP proxy
               href: http-proxy.md
@@ -515,24 +499,26 @@
               href: limit-egress-traffic.md
         - name: Ingress
           items:
-            - name: Use ingress-nginx
-              items:
-                - name: Create an ingress controller
-                  href: ingress-basic.md
-                - name: Use TLS with an ingress controller
-                  href: ingress-tls.md
             - name: Use application routing add-on 
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
+                - name: Migrate from HTTP application routing to the application routing add-on
+                  href: app-routing-migration.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
+            - name: Use unmanaged ingress-nginx
+              items:
+                - name: Create an ingress controller
+                  href: ingress-basic.md
+                - name: Use TLS with an ingress controller
+                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -619,6 +605,8 @@
           href: ../azure-monitor/containers/container-insights-onboard.md
         - name: Collect Prometheus metrics
           href: ../azure-monitor/containers/container-insights-prometheus.md
+        - name: Monitor Kubernetes object events
+          href: events.md
         - name: Monitor kube-audit events
           href: monitor-apiserver.md
         - name: Monitor reference
@@ -667,6 +655,8 @@
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
+        - name: Windows AKS partner solutions
+          href: windows-aks-partner-solutions.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm
@@ -693,6 +683,14 @@
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Deploy Kubernetes applications
+          items:
+            - name: Deploy Kubernetes applications from Azure Marketplace
+              href: deploy-marketplace.md
+            - name: Deploy Kubernetes applications with ARM template
+              href: deploy-application-template.md
+            - name: Deploy Kubernetes applications with Azure CLI
+              href: deploy-application-az-cli.md
         - name: Dapr
           items:
             - name: Create the Dapr extension
@@ -711,20 +709,8 @@
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md
-    - name: Use Windows Server containers
-      items:
-        - name: Windows Server containers FAQ
-          href: windows-faq.md
-        - name: Upgrade from Windows Server 2019 to 2022
-          href: upgrade-windows-2019-2022.md
-        - name: Connect remotely
-          href: rdp.md
-        - name: Use HostProcess containers
-          href: use-windows-hpc.md
-        - name: Create Dockerfiles for Windows Server containers
-          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
-        - name: Optimize Dockerfiles for Windows Server containers
-          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
+        - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
+          href: open-ai-secure-access-quickstart.md
     - name: DevOps
       items:
         - name: Azure DevOps Project
@@ -781,4 +767,8 @@
     - name: FAQ
       href: faq.md
 - name: Support and troubleshooting
-  href: aks-support-help.md
+  items:
+    - name: Support options for AKS
+      href: aks-support-help.md
+    - name: Troubleshooting documentation for AKS
+      href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes

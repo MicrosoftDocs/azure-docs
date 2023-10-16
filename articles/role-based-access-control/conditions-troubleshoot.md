@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 01/07/2023
+ms.date: 09/20/2023
 ms.author: rolyon
 ---
 
@@ -67,7 +67,7 @@ When you try to add a role assignment with a condition, **Principal** does not a
 
 Instead, you see the message:
 
-To use principal (user) attributes, you must have all of the following: Azure AD Premium P1 or P2 license, Azure AD permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role), and custom security attributes defined in Azure AD.
+To use principal (user) attributes, you must have all of the following: Microsoft Entra ID P1 or P2 license, Microsoft Entra permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role), and custom security attributes defined in Microsoft Entra ID.
 
 ![Screenshot showing principal message when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
 
@@ -75,15 +75,15 @@ To use principal (user) attributes, you must have all of the following: Azure AD
 
 You don't meet the prerequisites. To use principal attributes, you must have **all** of the following:
 
-- Azure AD Premium P1 or P2 license
-- Azure AD permissions for the signed-in user to read at least one attribute set
-- Custom security attributes defined in Azure AD
+- Microsoft Entra ID P1 or P2 license
+- Microsoft Entra permissions for the signed-in user to read at least one attribute set
+- Custom security attributes defined in Microsoft Entra ID
 
 **Solution**
 
-1. Open **Azure Active Directory** > **Custom security attributes**.
+1. Open **Microsoft Entra ID** > **Custom security attributes**.
 
-    If the **Custom security attributes** page is disabled, you don't have an Azure AD Premium P1 or P2 license. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
+    If the **Custom security attributes** page is disabled, you don't have a Microsoft Entra ID P1 or P2 license. Open **Microsoft Entra ID** > **Overview** and check the license for your tenant.
 
     ![Screenshot that shows Custom security attributes page disabled in Azure portal.](./media/conditions-troubleshoot/attributes-disabled.png)
 
@@ -91,7 +91,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 
     ![Screenshot that shows Custom security attributes Get started page.](./media/conditions-troubleshoot/attributes-get-started.png)
 
-1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-manage.md).
+1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-manage.md).
 
     - [Attribute Definition Reader](../active-directory/roles/permissions-reference.md#attribute-definition-reader)
     - [Attribute Assignment Reader](../active-directory/roles/permissions-reference.md#attribute-assignment-reader)
@@ -101,7 +101,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
     > [!IMPORTANT]
     > By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
-1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
 
     When finished, you should be able to read at least one attribute set. **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
 
@@ -109,7 +109,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 
 ### Symptom - Principal does not appear in Attribute source when using PIM 
 
-When you try to add a role assignment with a condition using [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
+When you try to add a role assignment with a condition using [Microsoft Entra Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
 
 ![Screenshot showing Principal in Attribute source list when adding a condition using Privileged Identity Management.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
 
@@ -229,6 +229,48 @@ There is an existing expression, but no actions have been selected as a target.
 
 In the **Add action** section, add one or more actions that the expression should target.
 
+### Symptom - No options available error
+
+When you attempt to add an expression, you get the following message:
+
+`No options available`
+
+**Cause**
+
+You selected to target multiple actions and there aren't any attributes that apply to all of the currently selected actions.
+
+**Solution**
+
+In the **Add action** section, select fewer actions to target. To target the actions you removed, add multiple conditions.
+
+### Symptom - Role definition IDs not found
+
+When you attempt to add an expression, you get the following message:
+
+`Cannot find built-in or custom role definitions with IDs: <role IDs>. These IDs were removed. Check that the IDs are valid and try to add again. You can also refresh the page or sign out and sign in again.`
+
+**Cause**
+
+One or more role definition IDs that you attempted to add for the [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+
+**Solution**
+
+Use the condition editor to select the role. If you recently added the custom role, refresh the page or sign out and sign in again.
+
+### Symptom - Principal IDs not found
+
+When you attempt to add an expression, you get the following message:
+
+`Cannot find users, groups, or service principals in Azure Active Directory with principal IDs: <principal IDs>. These IDs were removed. Check that the IDs are valid and try to add again. You can also refresh the page or sign out and sign in again.`
+
+**Cause**
+
+One or more principal IDs that you attempted to add for the [Principal ID](conditions-authorization-actions-attributes.md#principal-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+
+**Solution**
+
+Use the condition editor to select the principal. If you recently added the principal, refresh the page or sign out and sign in again.
+
 ## Error messages in Azure PowerShell
 
 ### Symptom - Resource attribute is not valid error
@@ -316,4 +358,4 @@ Disable history expansion with the command `set +H`. To re-enable history expans
 
 - [Azure role assignment condition format and syntax](conditions-format.md)
 - [FAQ for Azure role assignment conditions](conditions-faq.md)
-- [Troubleshoot custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)

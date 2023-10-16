@@ -213,17 +213,24 @@ the page.
 ## Creating Forwarding Rule to Endpoint
 
 1. Login and copy script [ip_fwd.sh](https://github.com/sajitsasi/az-ip-fwd/blob/main/ip_fwd.sh) to your backend server VMs. 
-2. Run the script on with the following options:<br/>
-    **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
-    <FQDN/IP> is your target SQL Server IP.<br/>
+
+2. Run the script with the following options:
+   
+    ```bash
+    sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433
+    ```
+   Set the placeholder `<FQDN/IP>` is your target SQL Server IP.
     
     > [!NOTE] 
     > FQDN doesn't work for on-premises SQL Server unless you add a record in Azure DNS zone.
     
-3. Run below command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
-    **sudo iptables -t nat -v -L PREROUTING -n --line-number**
+4. Run the following command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/command-record-1.png" alt-text="Screenshot that shows the command record.":::
+   ```bash
+   sudo iptables -t nat -v -L PREROUTING -n --line-number**
+   ```
+
+   :::image type="content" source="./media/tutorial-managed-virtual-network/command-record-1.png" alt-text="Screenshot that shows the command record.":::
 
     > [!NOTE]
     > If you have more than one SQL Server or data sources, you need to define multiple load balancer rules and IP table records with different ports. Otherwise, there will be some conflict. For example,<br/>
@@ -245,7 +252,7 @@ data factory from the resources list.
 4. Select + **New** under **Managed private endpoints**.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private link service list.
-7. Add <FQDN>,<port> of your target on-premises SQL Server. By default, port is 1433.
+7. Add the `<FQDN>,<port>` of your target on-premises SQL Server. By default, port is 1433.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Screenshot that shows the private endpoint settings.":::
 

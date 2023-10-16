@@ -30,6 +30,9 @@
   - name: Deployment overview
     displayName: resource bridge, arcappliance
     href: ./resource-bridge/deploy-cli.md
+  - name: Upgrade
+    displayName: update, resource bridge
+    href: ./resource-bridge/upgrade.md
   - name: Maintenance
     displayName: resource bridge, appliance
     href: ./resource-bridge/maintenance.md
@@ -69,3 +72,18 @@
      items:
       - name: Azure Arc resource bridge
         href: /cli/azure/arcappliance
+- name: Resources
+  items:
+  - name: Azure Arc Jumpstart
+    href: https://azurearcjumpstart.io
+  - name: Microsoft Q&A for Azure Arc
+    href: /answers/tags/146/azure-arc
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858
+

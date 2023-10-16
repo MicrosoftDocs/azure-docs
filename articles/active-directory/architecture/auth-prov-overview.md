@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory synchronization protocol overview
-description: Architectural guidance on integrating Azure AD with legacy synchronization protocols
+title: Microsoft Entra synchronization protocol overview
+description: Architectural guidance on integrating Microsoft Entra ID with legacy synchronization protocols
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,13 +16,13 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory integrations with synchronization protocols
+# Microsoft Entra integrations with synchronization protocols
 
-Microsoft Azure Active Directory (Azure AD) enables integration with many synchronization protocols. The synchronization integrations enable you to sync user and group data to Azure AD, and then user Azure AD management capabilities. Some sync patterns also enable automated provisioning.
+Microsoft Entra ID enables integration with many synchronization protocols. The synchronization integrations enable you to sync user and group data to Microsoft Entra ID, and then user Microsoft Entra management capabilities. Some sync patterns also enable automated provisioning.
 
 ## Synchronization patterns
 
-The following table presents Azure AD integration with synchronization patterns and their capabilities. Select the name of a pattern to see
+The following table presents Microsoft Entra integration with synchronization patterns and their capabilities. Select the name of a pattern to see
 
 * A detailed description
 

@@ -22,7 +22,7 @@ This article helps you provision nodes with schedulable GPUs on new and existing
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 > [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 ## Get the credentials for your cluster
 
@@ -45,7 +45,7 @@ There are two ways to add the NVIDIA device plugin:
 ### Update your cluster to use the AKS GPU image (preview)
 
 > [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
@@ -188,7 +188,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
             value: "gpu"
             effect: "NoSchedule"
           containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
+          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
             name: nvidia-device-plugin-ctr
             securityContext:
               allowPrivilegeEscalation: false
