@@ -74,7 +74,7 @@ Service Connector reduces the amount of efforts needed to connect Azure Function
 |                | Configure Identity     | Make sure system identity is enabled when using system identity to authenticate.                                                           | User                      | Service Connector      |
 |                | Permission Assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                                          | User                      | Service Connector      |
 
-When using Service Connector with function bindings, pay special attention to the function App Settings' key name configured by Service Connector. Make sure it's same with the name defined in `connection` property in the binding file. If it's different, change the name in the binding file or use Service Connector `customize keys` feature to customize [Service Connector&#39;s default configuration names](./how-to-integrate-storage-blob.md).
+When using Service Connector with function bindings, pay special attention to the function's key name configured by Service Connector. Make sure it's the same key name as the one defined in `connection` property in the binding file. If it's different, change the name in the binding file or use Service Connector's `customize keys` feature to customize [Service Connector&#39;s default configuration names](./how-to-integrate-storage-blob.md).
 
 ### SDK
 
@@ -100,7 +100,7 @@ When using Service Connector with function bindings, pay special attention to th
 
 ## Next steps
 
-Read how to integrate with target service to learn the different configurations needed by different target services and authentication types.
+Learn how to integrate different target services and read about the their configuration settings and authentication methods.
 
 > [!div class="nextstepaction"]
 > [Learn about how to integrate storage blob](./how-to-integrate-storage-blob.md)
