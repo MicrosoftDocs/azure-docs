@@ -75,7 +75,7 @@ Organizations who have enabled [password hash synchronization](../hybrid/connect
 
 This configuration provides organizations two new capabilities:
 
-- Risky hybrid users can self-remediate without administrators intervention. When a password is changed on-premises, user risk is now automatically remediated within Entra ID Protection, bringing the user to a safe state.
+- Risky hybrid users can self-remediate without administrators intervention. When a password is changed on-premises, user risk is now automatically remediated within Entra ID Protection, resetting the current user risk state.
 - Organizations can proactively deploy [user risk policies that require password changes](howto-identity-protection-configure-risk-policies.md#user-risk-policy-in-conditional-access) to confidently protect their hybrid users. This option strengthens your organization's security posture and simplifies security management by ensuring that user risks are promptly addressed, even in complex hybrid environments.
 
 :::image type="content" source="media/howto-identity-protection-remediate-unblock/allow-on-premises-password-reset-user-risk.png" alt-text="Screenshot showing the location of the Allow on-premises password change to reset user risk checkbox." lightbox="media/howto-identity-protection-remediate-unblock/allow-on-premises-password-reset-user-risk.png":::
