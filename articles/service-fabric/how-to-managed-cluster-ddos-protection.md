@@ -50,6 +50,7 @@ The following section describes the steps that should be taken to use DDoS Netwo
    ```
 
    Note the **Id** of the previous output as **PrincipalId** for use in a later step
+   
    |Role definition name|Role definition ID|
    |----|-------------------------------------|
    |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
@@ -94,8 +95,8 @@ The following section describes the steps that should be taken to use DDoS Netwo
    -ResourceGroupName <resourceGroupName>
    ```
 
-3.	Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) that assigns roles and adds DDoS Protection configuration as part of the service fabric managed cluster creation. Update the template with `principalId`, `ddosProtectionPlanName` and `ddosProtectionPlanId` obtained above.
-4.	You can also modify your existing ARM template and add new property `ddosProtectionPlanId` under Microsoft.ServiceFabric/managedClusters resource that takes the resource ID of the DDoS Protection Network Protection Plan.
+4.	Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) that assigns roles and adds DDoS Protection configuration as part of the service fabric managed cluster creation. Update the template with `principalId`, `ddosProtectionPlanName` and `ddosProtectionPlanId` obtained above.
+5.	You can also modify your existing ARM template and add new property `ddosProtectionPlanId` under Microsoft.ServiceFabric/managedClusters resource that takes the resource ID of the DDoS Protection Network Protection Plan.
 
   	   #### ARM template:
          
@@ -107,4 +108,4 @@ The following section describes the steps that should be taken to use DDoS Netwo
          "properties":  {
          "ddosProtectionPlanId": "[parameters('ddosProtectionPlanId')]"
          }
-   ```
+      ```
