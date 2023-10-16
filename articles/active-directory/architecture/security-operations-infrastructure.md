@@ -170,7 +170,7 @@ Synchronizing identity between your on-premises environment and your cloud envir
 
 Logging of Microsoft Entra Connect operations occurs in different ways:
 
-* The Microsoft Entra Connect wizard logs data to \ProgramData\AADConnect . Each time the wizard is invoked, a timestamped trace log file is created. The trace log can be imported into Sentinel or other 3<sup data-htmlnode="">rd</sup> party security information and event management (SIEM) tools for analysis.
+* The Microsoft Entra Connect wizard logs data to `\ProgramData\AADConnect`. Each time the wizard is invoked, a timestamped trace log file is created. The trace log can be imported into Sentinel or other 3<sup data-htmlnode="">rd</sup> party security information and event management (SIEM) tools for analysis.
 
 * Some operations initiate a PowerShell script to capture logging information. To collect this data, you must make sure script block logging in enabled.
 
