@@ -242,10 +242,9 @@ flight_df.select("FlightDate", "Reporting_Airline", "Flight_Number_Reporting_Air
 display(flight_df)
 ```
 
-Enter this script to run some basic analysis queries against the data.
+Enter this script to run some basic analysis queries against the data. You can choose to run the entire block, highlight each query and run it separately with **CTRL + SHIFT + ENTER**, or enter each query into a separate cmd cell and run it there.
 
 ```python
-# Run each of these queries, preferably in a separate cmd cell for separate analysis
 # create a temporary sql view for querying flight information
 flight_data = spark.read.parquet('/mnt/flightdata/parquet/flights')
 flight_data.createOrReplaceTempView('FlightTable')
@@ -270,15 +269,21 @@ print('Airlines that fly to/from Texas: ', airlines_flying_from_texas.count())
 airlines_flying_from_texas.show(100, False)
 
 # List airlines by average arrival delay (negative values indicate early flights)
-avg_arrival_delay=spark.sql("SELECT Reporting_Airline, count(*) AS NumFlights, avg(DepDelay) AS AverageDepDelay, avg(ArrDelay) AS AverageArrDelay FROM FlightTable GROUP BY Reporting_Airline ORDER BY AverageArrDelay DESC")
+avg_arrival_delay=spark.sql(
+    "SELECT Reporting_Airline, count(*) AS NumFlights, avg(DepDelay) AS AverageDepDelay, avg(ArrDelay) AS AverageArrDelay FROM FlightTable GROUP BY Reporting_Airline ORDER BY AverageArrDelay DESC")
+print("Airlines by average arrival delay")
 avg_arrival_delay.show()
 
 # List airlines by the highest percentage of delayed flights. A delayed flight is one with a  departure or arrival delay that is greater than 15 minutes
 spark.sql("DROP VIEW IF EXISTS totalFlights")
 spark.sql("DROP VIEW IF EXISTS delayedFlights")
-spark.sql("CREATE TEMPORARY VIEW totalFlights AS SELECT Reporting_Airline, count(*) AS NumFlights FROM FlightTable GROUP BY Reporting_Airline")
-spark.sql("CREATE TEMPORARY VIEW delayedFlights AS SELECT Reporting_Airline, count(*) AS NumDelayedFlights FROM FlightTable WHERE DepDelay>15 or ArrDelay>15 GROUP BY Reporting_Airline")
-percent_delayed_flights=spark.sql("SELECT totalFlights.Reporting_Airline, totalFlights.NumFlights, delayedFlights.NumDelayedFlights, delayedFlights.NumDelayedFlights/totalFlights.NumFlights*100 AS PercentFlightsDelayed FROM totalFlights INNER JOIN delayedFlights ON totalFlights.Reporting_Airline = delayedFlights.Reporting_Airline ORDER BY PercentFlightsDelayed DESC")
+spark.sql(
+    "CREATE TEMPORARY VIEW totalFlights AS SELECT Reporting_Airline, count(*) AS NumFlights FROM FlightTable GROUP BY Reporting_Airline")
+spark.sql(
+    "CREATE TEMPORARY VIEW delayedFlights AS SELECT Reporting_Airline, count(*) AS NumDelayedFlights FROM FlightTable WHERE DepDelay>15 or ArrDelay>15 GROUP BY Reporting_Airline")
+percent_delayed_flights=spark.sql(
+    "SELECT totalFlights.Reporting_Airline, totalFlights.NumFlights, delayedFlights.NumDelayedFlights, delayedFlights.NumDelayedFlights/totalFlights.NumFlights*100 AS PercentFlightsDelayed FROM totalFlights INNER JOIN delayedFlights ON totalFlights.Reporting_Airline = delayedFlights.Reporting_Airline ORDER BY PercentFlightsDelayed DESC")
+print("Airlines by percentage of flights delayed")
 percent_delayed_flights.show()
 ```
 
