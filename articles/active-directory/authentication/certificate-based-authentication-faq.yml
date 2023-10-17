@@ -109,7 +109,7 @@ sections:
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
         answer: |
-          The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
+          The policy is cached. After a policy update, it might take up to an hour for the changes to take effect.
       
       - question: |
           Why do I see the certificate-based authentication option after it fails?
