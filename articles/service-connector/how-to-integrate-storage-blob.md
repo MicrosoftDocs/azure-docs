@@ -7,8 +7,6 @@ ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 06/13/2022
-zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-authtype
 ---
 
 # Integrate Azure Blob Storage with Service Connector
@@ -41,7 +39,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and sample codes
 
-Reference the connection details and sample codes in following tables, accordings to your connection's authentication type and client type, to connect compute services to Azure Blob Storage. Please go to beginning of the documentation to choose authentication type.
+Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Blob Storage.
 
 ::: zone pivot="system-identity"
 
