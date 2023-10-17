@@ -77,7 +77,7 @@ If sourcing the CNF images from an existing ACR, you need to have `Reader`/`AcrP
 
 If you don't have the subscription-wide permissions then you can run the `az aosm nfd publish` command using the `--no-subscription-permissions` flag to pull the image to your local machine and then push it to the Artifact Store using manifest credentials scoped only to the store. Requires docker to be installed locally.
 
-# Azure Operator Service Manager (AOSM) CLI extension overview
+## Azure Operator Service Manager (AOSM) CLI extension overview
 
 Network Function Publishers and Service Designers use the Azure CLI extension to help with the publishing of Network Function Definitions (NFDs) and Network Service Designs (NSDs).
 
@@ -265,8 +265,6 @@ Delete a published design and the publisher, artifact stores and NSD group:
 ## Edit the build output before publishing
 
 The `az aosm` CLI extension is intended to provide support for publishing Azure Operator Service Manager designs and definitions. It provides the building blocks for creating complex custom designs and definitions. You can edit the files output by the `build` command before running the `publish` command, to add more complex or custom features.
-
-The full API reference for Azure Operator Service Manager can be found here [REST API Browser](/rest/api/?branch=main&branchFallbackFrom=pr-en-us-255302&view=Azure), then search for and select *Hybrid Network* Service.
 
 The following sections describe some common ways that you can use to edit the built files before publishing.
 
