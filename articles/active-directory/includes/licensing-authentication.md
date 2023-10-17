@@ -28,5 +28,5 @@ The following table lists features that are available for authentication in the 
 | MFA for on-premises applications | | | | :white_check_mark: | :white_check_mark: |
 | Conditional Access | | | | :white_check_mark: | :white_check_mark: |
 | Risk-based Conditional Access | | | | | :white_check_mark: |
-| Self-service password reset (SSPR) |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-| SSPR with writeback | | | |:white_check_mark:|:white_check_mark:|
+| Self-service password reset (SSPR) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| SSPR with writeback | | | | :white_check_mark: | :white_check_mark: |
