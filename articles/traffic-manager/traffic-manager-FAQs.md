@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/14/2023
+ms.date: 10/02/2023
 ms.author: greglin 
 ---
 
@@ -100,7 +100,7 @@ Geographic routing type can be used in any scenario where an Azure customer need
 
 ### How do I decide if I should use Performance routing method or Geographic routing method?
 
-The key difference between these two popular routing methods is that in Performance routing method your primary goal is to send traffic to the endpoint that can provide the lowest latency to the caller, whereas, in Geographic routing the primary goal is to enforce a geo fence for your callers so that you can deliberately route them to a specific endpoint. The overlap happens since there's a correlation between geographical closeness and lower latency, although this isn't always true. There might be an endpoint in a different geography that can provide a better latency experience for the caller and in that case Performance routing will send the user to that endpoint but Geographic routing will always send them to the endpoint you've mapped for their geographic region. To further make it clear, consider the following example - with Geographic routing you can make uncommon mappings such as send all traffic from Asia to endpoints in the US and all US traffic to endpoints in Asia. In that case, Geographic routing will deliberately do exactly what you have configured it to do and performance optimization isn't a consideration. 
+The key difference between these two popular routing methods is that in Performance routing method your primary goal is to send traffic to the endpoint that can provide the lowest latency to the caller, whereas, in Geographic routing the primary goal is to enforce a geo fence for your callers so that you can deliberately route them to a specific endpoint. The overlap happens since there’s a correlation between geographical closeness and lower latency, although this isn’t always true. There might be an endpoint in a different geography that can provide a better latency experience for the caller and in that case Performance routing sends the user to that endpoint but Geographic routing always sends them to the endpoint you’ve mapped for their geographic region. To further make it clear, consider the following example - with Geographic routing you can make uncommon mappings such as send all traffic from Asia to endpoints in the US and all US traffic to endpoints in Asia. In that case, Geographic routing deliberately does exactly what you have configured it to do and performance optimization isn’t a consideration. 
 >[!NOTE]
 >There may be scenarios where you might need both performance and geographic routing capabilities, for these scenarios nested profiles can be great choice. For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send those traffic to the best endpoint within that set. 
 
@@ -114,7 +114,7 @@ Traffic Manager looks at the source IP of the query (this most likely is a local
 
 ### Is it guaranteed that Traffic Manager can correctly determine the exact geographic location of the user in every case?
 
-No, Traffic Manager can't guarantee that the geographic region we infer from the source IP address of a DNS query will always correspond to the user's location due to the following reasons:
+No, Traffic Manager can’t guarantee that the geographic region we infer from the source IP address of a DNS query always corresponds to the user's location due to the following reasons:
 
 - First, as described in the previous FAQ, the source IP we see is that of a DNS resolver doing the lookup on behalf of the user. While the geographic location of the DNS resolver is a good proxy for the geographic location of the user, it can also be different depending upon the footprint of the DNS resolver service and the specific DNS resolver service a customer has chosen to use. 
 As an example, a customer located in Malaysia could specify in their device's settings use a DNS resolver service whose DNS server in Singapore might get picked to handle the query resolutions for that user/device. In that case, Traffic Manager can only see the resolver's IP that corresponds to the Singapore location. Also, see the earlier FAQ regarding client subnet address support on this page.
@@ -162,11 +162,11 @@ The IP addresses to associate with an endpoint can be specified in two ways. Fir
 
 ### How can I specify a fallback endpoint when using Subnet routing?
 
-In a profile with Subnet routing, if you have an endpoint with no subnets mapped to it, any request that doesn't match with other endpoints will be directed to here. It's highly recommended that you have such a fallback endpoint in your profile since Traffic Manager will return an NXDOMAIN response if a request comes in and it isn't mapped to any endpoints or if it's mapped to an endpoint but that endpoint is unhealthy.
+In a profile with Subnet routing, if you have an endpoint with no subnets mapped to it, any request that doesn’t match with other endpoints are directed to here. It’s highly recommended that you have such a fallback endpoint in your profile since Traffic Manager returns an NXDOMAIN response if a request comes in and it isn’t mapped to any endpoints or if it’s mapped to an endpoint but that endpoint is unhealthy.
 
 ### What happens if an endpoint is disabled in a Subnet routing type profile?
 
-In a profile with Subnet routing, if you have an endpoint with that is disabled, Traffic Manager will behave as if that endpoint and the subnet mappings it has doesn't exist. If a query that would have matched with its IP address mapping is received and the endpoint is disabled, Traffic Manager will return a fallback endpoint (one with no mappings) or if such an endpoint isn't present, will return an NXDOMAIN response.
+In a profile with Subnet routing, if you have an endpoint with that is disabled, Traffic Manager behaves as if that endpoint and the subnet mappings it has doesn’t exist. If a query that would have matched with its IP address mapping is received and the endpoint is disabled, Traffic Manager returns a fallback endpoint (one with no mappings) or if such an endpoint isn’t present, returns an NXDOMAIN response.
 
 ## Traffic Manager MultiValue traffic routing method
 
@@ -177,11 +177,11 @@ Another use for MultiValue routing method is if an endpoint is "dual-homed" to b
 
 ### How many endpoints are returned when MultiValue routing is used?
 
-You can specify the maximum number of endpoints to be returned and MultiValue will return no more than that many healthy endpoints when a query is received. The maximum possible value for this configuration is 10.
+You can specify the maximum number of endpoints to be returned and MultiValue returns no more than that many healthy endpoints when a query is received. The maximum possible value for this configuration is 10.
 
 ### Will I get the same set of endpoints when MultiValue routing is used?
 
-We can't guarantee that the same set of endpoints will be returned in each query. This is also affected by the fact that some of the endpoints might go unhealthy at which point they won't be included in the response
+We can’t guarantee that the same set of endpoints are returned in each query. This is also affected by the fact that some of the endpoints might go unhealthy at which point they won’t be included in the response
 
 ## Real User Measurements
 
@@ -209,7 +209,7 @@ You can also turn off Real User Measurements by deleting your key. Once you dele
 
 ### Can I use Real User Measurements with client applications other than web pages?
 
-Yes, Real User Measurements is designed to ingest data collected through different type of end-user clients. This FAQ will be updated as new types of client applications get supported.
+Yes, Real User Measurements is designed to ingest data collected through different type of end-user clients. This FAQ is updated as new types of client applications get supported.
 
 ### How many measurements are made each time my Real User Measurements enabled web page is rendered?
 
@@ -237,7 +237,7 @@ While you are in control of what is embedded on your web page, we strongly disco
 
 ### Will it be possible for others to see the key I use with Real User Measurements?
 
-When you embed the measurement script to a web page, it will be possible for others to see the script and your Real User Measurements (RUM) key. But it's important to know that this key is different from your subscription ID and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key won't compromise your Azure account safety.
+When you embed the measurement script to a web page, it is possible for others to see the script and your Real User Measurements (RUM) key. But it’s important to know that this key is different from your subscription ID and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key won’t compromise your Azure account safety.
 
 ### Can others abuse my RUM key?
 
@@ -245,11 +245,11 @@ While it's possible for others to use your key to send wrong information to Azur
 
 ### Do I need to put the measurement JavaScript in all my web pages?
 
-Real User Measurements delivers more value as the number of measurements increase. Having said that, it is your decision as to whether you need to put it in all your web pages or a select few. Our recommendation is to start by putting it in your most visited page where a user is expected to stay on that page five seconds or more.
+Real User Measurements delivers more value as the number of measurements increase. Having said that, it's your decision as to whether you need to put it in all your web pages or a select few. Our recommendation is to start by putting it in your most visited page where a user is expected to stay on that page five seconds or more.
 
 ### Can information about my end users be identified by Traffic Manager if I use Real User Measurements?
 
-When the provided measurement JavaScript is used, Traffic Manager will have visibility into the client IP address of the end user and the source IP address of the local DNS resolver they use. Traffic Manager uses the client IP address only after having it truncated to not be able to identify the specific end user who sent the measurements.
+When the provided measurement JavaScript is used, Traffic Manager has visibility into the client IP address of the end user and the source IP address of the local DNS resolver they use. Traffic Manager uses the client IP address only after having it truncated to not be able to identify the specific end user who sent the measurements.
 
 ### Does the webpage measuring Real User Measurements need to be using Traffic Manager for routing?
 
@@ -269,10 +269,10 @@ As mentioned in the previous answer, the server-side components of Real User Mea
 
 Traffic View is a feature of Traffic Manager that helps you understand more about your users and how their experience is. It uses the queries received by Traffic Manager and the network latency intelligence tables that the service maintains to provide you with the following:
 
-- The regions from where your users are connecting to your endpoints in Azure.
+- The regions where users reside that are connecting to your endpoints in Azure.
 - The volume of users connecting from these regions.
-- The Azure regions  to which they're getting routed to.
-- Their latency experience to these Azure regions.
+- The Azure regions to which they’re being routed.
+- The users' latency experience routing to these Azure regions.
 
 This information is available for you to consume through geographical map overlay and tabular views in the portal in addition to being available as raw data for you to download.
 
@@ -290,15 +290,15 @@ The DNS queries served by Azure Traffic Manager do consider ECS information to i
 
 ### How many days of data does Traffic View use?
 
-Traffic View creates its output by processing the data from the seven days preceding the day before when it's viewed by you. This is a moving window and the latest data will be used each time you visit.
+Traffic View creates its output by processing the data from the seven days preceding the day before when it’s viewed by you. This is a moving window and the latest data is used each time you visit.
 
 ### How does Traffic View handle external endpoints?
 
-When you use external endpoints hosted outside Azure regions in a Traffic Manager profile, you can choose to have it mapped to an Azure region, which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region's latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile, you can choose to have it mapped to an Azure region, which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region's latency metrics are used when creating the Traffic View output. If no Azure region is specified, the latency information is empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
 
-During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile.
+During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View is disabled for a profile.
 
 >[!NOTE]
 >If you enabled Traffic View at a subscription level during the preview time, you now need to re-enable it for each of the profile under that subscription.
@@ -335,6 +335,8 @@ Typically, Traffic Manager is used to direct traffic to applications deployed in
 
 Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group or subscription, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
 
+For more information, see [To move an endpoint](traffic-manager-manage-endpoints.md#to-move-an-endpoint).
+
 ## Traffic Manager endpoint monitoring
 
 ### Is Traffic Manager resilient to Azure region failures?
@@ -370,7 +372,7 @@ Traffic manager can't provide any certificate validation, including:
 
 ### Do I use an IP address or a DNS name when adding an endpoint?
 
-Traffic Manager supports adding endpoints using three ways to refer them – as a DNS name, as an IPv4 address and as an IPv6 address. If the endpoint is added as an IPv4 or IPv6 address the query response will be of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response will be of record type CNAME. Adding endpoints as IPv4 or IPv6 address is permitted only if the endpoint is of type **External**.
+Traffic Manager supports adding endpoints using three ways to refer them – as a DNS name, as an IPv4 address and as an IPv6 address. If the endpoint is added as an IPv4 or IPv6 address the query response is of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response is of record type CNAME. Adding endpoints as IPv4 or IPv6 address is permitted only if the endpoint is of type **External**.
 All routing methods and monitoring settings are supported by the three endpoint addressing types.
 
 ### What types of IP addresses can I use when adding an endpoint?
@@ -428,7 +430,7 @@ Yes. You can specify TCP as the monitoring protocol and Traffic Manager can init
 When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for an SYN-ACK response from the endpoint for a period of time (specified in the timeout settings).
 
 - If an SYN-ACK response is received within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. A FIN or FIN-ACK is the expected response from the Traffic Manager when it regularly terminates a socket.
-- If an SYN-ACK response is received after the specified timeout, the Traffic Manager will respond with an RST to reset the connection.
+- If an SYN-ACK response is received after the specified timeout, Traffic Manager responds with an RST to reset the connection.
 
 ### How fast does Traffic Manager move my users away from an unhealthy endpoint?
 
@@ -448,7 +450,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 ### How can I assign HTTP headers to the Traffic Manager health checks to my endpoints?
 
 Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level overrides the profile level 1.
-One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint's HTTP(S) request logs
+One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multitenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint's HTTP(S) request logs
 
 ### What host header do endpoint health checks use?
 

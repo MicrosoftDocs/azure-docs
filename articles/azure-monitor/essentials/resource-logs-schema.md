@@ -48,7 +48,7 @@ The schema for resource logs varies depending on the resource and log category. 
 
 | Service or feature | Schema and documentation |
 | --- | --- |
-| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md), [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Microsoft Entra ID | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md), [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Azure Analysis Services | [Azure Analysis Services: Set up diagnostic logging](../../analysis-services/analysis-services-logging.md) |
 | Azure API Management | [API Management resource logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Azure App Service | [App Service logs](../../app-service/troubleshoot-diagnostic-logs.md)
@@ -93,7 +93,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
-| Azure Video Indexer|[Monitor Azure Video Indexer data reference](../../azure-video-indexer/monitor-video-indexer-data-reference.md)|
+| Azure Video Indexer|[Monitor Azure Video Indexer data reference](/azure/azure-video-indexer/monitor-video-indexer-data-reference)|
 | Azure Virtual Network | Schema not available |
 | Azure Web PubSub | [Monitoring Azure Web PubSub data reference](../../azure-web-pubsub/howto-monitor-data-reference.md) |
 | Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|

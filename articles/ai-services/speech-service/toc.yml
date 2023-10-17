@@ -270,7 +270,7 @@ items:
         - name: Voice assistants FAQ
           href: faq-voice-assistants.yml
         - name: Voice Assistants Samples (GitHub)
-          href: http://aka.ms/speech/va-samples
+          href: https://aka.ms/speech/va-samples
         - name: Custom Commands
           items:
             - name: Custom Commands overview
@@ -342,9 +342,9 @@ items:
         href: how-to-select-audio-input-devices.md
     - name: Access control and authentication
       items:
-      - name: Role-based access with Azure Active Directory 
+      - name: Role-based access with Microsoft Entra ID 
         href: role-based-access-control.md
-      - name: Use Azure Active Directory Authentication
+      - name: Use Microsoft Entra authentication
         href: how-to-configure-azure-ad-auth.md
     - name: Endpoint connections
       items:

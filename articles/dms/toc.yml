@@ -79,8 +79,8 @@
   - name: Migrate SQL Server
     expanded: true
     items:
-    - name: to Azure SQL Database (offline) in Azure Data Studio
-      href: tutorial-sql-server-azure-sql-database-offline-ads.md
+    - name: to Azure SQL Database (offline)
+      href: tutorial-sql-server-azure-sql-database-offline.md
     - name: to Azure SQL Managed Instance (online) in Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) in Azure Data Studio

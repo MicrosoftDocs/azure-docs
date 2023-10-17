@@ -737,8 +737,6 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
-  - id: vision-studio
-    title: Vision Studio
 - id: programming-languages-content-safety
 # Owner: pafarley
   title: Programming languages
@@ -750,6 +748,10 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-two-with-js-spx
 # Owner: erhopf
   title: Programming languages
@@ -1119,6 +1121,15 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+# Owner: msangapu
+- id: app-service-portal-azd
+  title: App Service deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-developer-cli
+    title: Azure Developer CLI
 - id: app-service-platform-windows-linux-sphere-rtos
   #CBroad
   title: App Service platform
@@ -1634,6 +1645,14 @@ groups:
     title: Android
   - id: programming-language-rest
     title: REST
+- id: acs-dev-environment-vs-vscode
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines

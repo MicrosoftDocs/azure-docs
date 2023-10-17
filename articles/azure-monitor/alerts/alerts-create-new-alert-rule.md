@@ -217,7 +217,7 @@ To edit an existing alert rule:
         |---------|---------|
         |Number of violations|The number of violations that trigger the alert.|
         |Evaluation period|The time period within which the number of violations occur. |
-        |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|<br> 
+        |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|
 
         > [!NOTE]
         > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
@@ -492,7 +492,7 @@ ARM templates for activity log alerts contain additional properties for the cond
 |---------|---------|
 |resourceId|The resource ID of the affected resource in the activity log event on which the alert is generated.|
 |category|The category of the activity log event. Possible values are `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.        |
-|caller|The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.        |
+|caller|The email address or Microsoft Entra identifier of the user who performed the operation of the activity log event.        |
 |level     |Level of the activity in the activity log event for the alert. Possible values are `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.|
 |operationName     |The name of the operation in the activity log event. Possible values are `Microsoft.Resources/deployments/write`.        |
 |resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |

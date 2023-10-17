@@ -27,7 +27,7 @@ With the Microsoft Entra **Usage and insights** reports, you can get an applicat
 To access the data from Usage and insights you must have:
 
 * A Microsoft Entra tenant
-* A Microsoft Entra ID P1 or P2 (P1/P2) license to view the sign-in data
+* A Microsoft Entra ID P1 or P2 license to view the sign-in data
 * A user in the Reports Reader, Security Reader, Security Administrator, or Global Administrator role.
 
 ## Access Usage and insights 

@@ -6,7 +6,7 @@ ms.author: rdunstan
 ms.custom: subject-cost-optimization
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 09/06/2023
+ms.date: 10/09/2023
 ---
 
 # Plan and manage costs for Azure Communications Gateway
@@ -31,6 +31,8 @@ When you deploy Azure Communications Gateway, you're charged for how you use the
 
 - A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
     - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
+    - Operator Connect and Microsoft Teams Direct Routing are fixed networks.
+    - Teams Phone Mobile is a mobile network.
     - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
 - A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
 
@@ -45,7 +47,9 @@ For example, if you have 28,000 users assigned to the deployment each month, you
 If you choose to deploy the Number Management Portal by selecting the API Bridge option, you'll also be charged for the Number Management Portal. Fees work in the same way as the other meters: a service fee meter and a per-user meter. The number of users charged for the Number Management Portal is always the same as the number of users charged on the other Azure Communications Gateway meters.
 
 > [!NOTE]
-> A user is any telephone number that meets all the following criteria.
+> A Microsoft Teams Direct Routing user is any telephone number configured with Direct Routing on Azure Communications Gateway. Billing for the user starts as soon as you have configured the number.
+> 
+> An Operator Connect or Teams Phone Mobile user is any telephone number that meets all the following criteria.
 >
 > - You have provisioned the number within your Operator Connect or Teams Phone Mobile environment.
 > - The number is configured for connectivity through Azure Communications Gateway.

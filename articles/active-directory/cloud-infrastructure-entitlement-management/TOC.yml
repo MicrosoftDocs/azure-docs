@@ -21,14 +21,19 @@
         href: onboard-azure.MD
       - name: Onboard a GCP project
         href: onboard-gcp.md
-      - name: Configure AWS IAM Identity Center as an identity provider
-        href: how-to-configure-aws-iam.md
       - name: Enable or disable the controller after onboarding is complete
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
       - name: Create folders to organize your Authorization Systems
         href: how-to-create-folders.md
+    - name: Configure third-party integrations 
+      expanded: false
+      items:
+      - name: Configure AWS IAM Identity Center as an identity provider
+        href: how-to-configure-aws-iam.md
+      - name: Configure Okta as an identity provider
+        href: how-to-configure-okta-as-an-identity-provider.md 
     - name: View information about your Authorization Systems
       expanded: false
       items:

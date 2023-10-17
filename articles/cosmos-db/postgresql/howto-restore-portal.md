@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: how-to
-ms.date: 09/17/2023
+ms.date: 10/02/2023
 ---
 
 # Backup and point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -96,7 +96,7 @@ back up and running:
   and client applications to the new cluster.
 * Ensure appropriate [networking settings for private or public access](./concepts-security-overview.md#network-security) are in place for
   users to connect. These settings aren't copied from the original cluster.
-* Ensure appropriate [logins](./howto-create-users.md) and database level permissions are in place.
+* Ensure appropriate [logins](./how-to-configure-authentication.md#configure-native-postgresql-authentication) and database level permissions are in place.
 * Configure [alerts](./howto-alert-on-metric.md#suggested-alerts), as appropriate.
 
 ## Next steps

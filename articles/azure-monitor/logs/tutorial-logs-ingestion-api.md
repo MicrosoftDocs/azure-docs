@@ -16,7 +16,7 @@ The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows
 
 The steps required to configure the Logs ingestion API are as follows:
 
-1. [Create an Azure AD application](#create-azure-ad-application) to authenticate against the API.
+1. [Create a Microsoft Entra application](#create-azure-ad-application) to authenticate against the API.
 3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
 2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to.
 4. [Create a data collection rule (DCR)](#create-data-collection-rule) to direct the data to the target table. 
@@ -37,10 +37,12 @@ Go to your workspace in the **Log Analytics workspaces** menu in the Azure porta
 
 :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot that shows the workspace resource ID.":::
 
-## Create Azure AD application
-Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+<a name='create-azure-ad-application'></a>
 
-1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
+## Create Microsoft Entra application
+Start by registering a Microsoft Entra application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+
+1. On the **Microsoft Entra ID** menu in the Azure portal, select **App registrations** > **New registration**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-registration.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-registration.png" alt-text="Screenshot that shows the app registration screen.":::
 

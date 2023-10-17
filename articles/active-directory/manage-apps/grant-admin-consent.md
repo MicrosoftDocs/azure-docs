@@ -131,7 +131,7 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
 4. Confirm that you've granted tenant wide admin consent by running the following request.   
     
   ```powershell
-   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
+   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'AllPrincipals'" 
   ```      
 ## Grant admin consent for application permissions
 
@@ -154,11 +154,11 @@ In the following example, you grant the Microsoft Graph enterprise application (
 ```powershell
  $params = @{
   "PrincipalId" ="b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94"
-  "ResourceId" = "2cab1707-656d-40cc-8522-3178a184e03d"
+  "ResourceId" = "7ea9e944-71ce-443d-811c-71e8047b557a"
   "AppRoleId" = "df021288-bdef-4463-88db-98f22de89214"
 }
 
-New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId '2cab1707-656d-40cc-8522-3178a184e03d' -BodyParameter $params | 
+New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' -BodyParameter $params | 
   Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
 ```
 

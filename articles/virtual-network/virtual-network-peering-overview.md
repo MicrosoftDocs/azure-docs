@@ -28,7 +28,7 @@ The benefits of using virtual network peering, whether local or global, include:
 
 * The ability for resources in one virtual network to communicate with resources in a different virtual network.
 
-* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
+* The ability to transfer data between virtual networks across Azure subscriptions, Microsoft Entra tenants, deployment models, and Azure regions.
 
 * The ability to peer virtual networks created through the Azure Resource Manager.
 

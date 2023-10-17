@@ -2502,8 +2502,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-nagios-zabbix-scom.md",
-            "redirect_url": "/azure/azure-monitor/platform/alert-management-solution",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/azure-monitor/platform/alert-management-solution"
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-solution-alert-management.md",
@@ -6333,6 +6332,46 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/opencensus-python.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/remove-application-insights.md",
+            "redirect_url": "/azure/azure-monitor/app/asp-net-core#how-can-i-uninstall-the-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/continuous-monitoring.md",
+            "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=continuous-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/annotations.md",
+            "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=release-annotations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opentelemetry-nodejs-exporter.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable?tabs=nodejs",
+            "redirect_document_id": false
+            },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/work-item-integration.md",
+            "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=work-item-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/diagnostic-search.md",
+            "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing-telemetry-correlation.md",
+            "redirect_url": "/dotnet/api/microsoft.applicationinsights.extensibility.operationcorrelationtelemetryinitializer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/transaction-diagnostics.md",
+            "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-diagnostics",
             "redirect_document_id": false
         },
         {

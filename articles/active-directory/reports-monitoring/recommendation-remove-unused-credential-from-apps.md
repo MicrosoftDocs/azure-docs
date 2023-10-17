@@ -41,7 +41,7 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 1. Navigate to the **Certificates & Secrets** section of the app registration.
 
-    ![Screenshot of the Certificates and secrets section of Azure AD.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
+    ![Screenshot of the Certificates and secrets section of Microsoft Entra ID.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
 
 1. Locate the unused credential and remove it.
 

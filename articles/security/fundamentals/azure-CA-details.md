@@ -18,7 +18,7 @@ This article provides the details of the root and subordinate Certificate Author
 
 ## Certificate Authority details
 
-Any entity trying to access Azure Active Directory (Azure AD) identity services via the TLS/SSL protocols will be presented with certificates from the CAs listed in this article. Different services may use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
+Any entity trying to access Microsoft Entra identity services via the TLS/SSL protocols will be presented with certificates from the CAs listed in this article. Different services may use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
 
 **How to read the certificate details:**
 - The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.

@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 08/15/2023
+ms.date: 10/05/2023
 ms.topic: reference
 ---
 
@@ -44,6 +44,10 @@ Connectivity to Arc-enabled server endpoints is required for:
    <sup>*</sup>Only required for guest management enabled.
 
 [!INCLUDE [network-requirements](servers/includes/network-requirements.md)]
+
+### Subset of endpoints for ESU only
+
+[!INCLUDE [esu-network-requirements](servers/includes/esu-network-requirements.md)]
 
 For more information, see [Connected Machine agent network requirements](servers/network-requirements.md).
 
