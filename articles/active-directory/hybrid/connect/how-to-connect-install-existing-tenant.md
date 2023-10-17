@@ -85,8 +85,7 @@ To prevent untrusted on-premises users from matching with a cloud user that has 
 ## Create a new on-premises Active Directory from data in Microsoft Entra ID
 Some customers start with a cloud-only solution with Microsoft Entra ID and they do not have an on-premises AD. Later they want to consume on-premises resources and want to build an on-premises AD based on Microsoft Entra data. Microsoft Entra Connect cannot help you for this scenario. It does not create users on-premises and it does not have any ability to set the password on-premises to the same as in Microsoft Entra ID.
 
-If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Microsoft Entra Domain Services](../../../active-directory-domain-services/index.yml) instead.
+If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Microsoft Entra Domain Services](../../develop/configure-app-multi-instancing.md) instead.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).
-

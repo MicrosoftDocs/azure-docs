@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # AD FS sign-ins in Microsoft Entra ID with Connect Health - preview
 
-AD FS sign-ins can now be integrated into the Microsoft Entra sign-ins report by using Connect Health. The [Microsoft Entra sign-ins Report](../../reports-monitoring/concept-all-sign-ins.md) report includes information about when users, applications, and managed resources sign in to Microsoft Entra ID and access resources. 
+AD FS sign-ins can now be integrated into the Microsoft Entra sign-ins report by using Connect Health. The [Microsoft Entra sign-ins Report](../../reports-monitoring/concept-sign-ins.md) report includes information about when users, applications, and managed resources sign in to Microsoft Entra ID and access resources. 
 
 The Connect Health for AD FS agent correlates multiple Event IDs from AD FS, dependent on the server version, to provide information about the request and error details if the request fails. This information is correlated to the Microsoft Entra sign-in report schema and displayed in the Microsoft Entra sign-in report UX. Alongside the report, a new Log Analytics stream is available with the AD FS data and a new Azure Monitor Workbook template. The template can be used and modified for an in-depth analysis for scenarios such as AD FS account lockouts, bad password attempts, and spikes of unexpected sign-in attempts.
 
