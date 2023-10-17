@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 10/17/2023
 
 ms.author: justinha
 author: justinha
@@ -46,6 +46,7 @@ Combined registration supports the authentication methods and actions in the fol
 | Office phone* | Yes | Yes | Yes |
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
+| Passwords | No | Yes | No |
 | App passwords* | Yes | No | Yes |
 | FIDO2 security keys*| Yes | No | Yes |
 
