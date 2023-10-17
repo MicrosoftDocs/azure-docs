@@ -96,7 +96,7 @@ Here are some considerations when sending large messages on Azure Service Bus -
 - Batching isn't supported. 
 - Service Bus Explorer doesn't support sending or receiving large messages. 
 
-
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ### Enabling large messages support for a new queue (or topic)
 

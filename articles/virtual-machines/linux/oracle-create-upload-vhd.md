@@ -185,7 +185,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
 7. Install the python-pyasn1 package by running the following command:
 
     ```bash
-    sudo yum install python-pyasn1
+    sudo yum install python3-pyasn1
     ```
 
 8. Run the following command to clear the current yum metadata and install any updates:

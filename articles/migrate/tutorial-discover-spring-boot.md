@@ -71,7 +71,7 @@ After you have performed server discovery and software inventory using the Azure
 
 #### Bring your own Kubernetes cluster
 
-1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you don't have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
+1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you do not have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
 
     > [!Note]
     > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project.

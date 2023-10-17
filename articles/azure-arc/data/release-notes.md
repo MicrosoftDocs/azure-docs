@@ -19,17 +19,13 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## October 10, 2023
 
-### Image tag
-
-`v1.24.0_2023-10-10`
+**Image tag**: `v1.24.0_2023-10-10`
 
 For complete release version information, review [Version log](version-log.md#october-10-2023).
 
 ## September 12, 2023
 
-### Image tag
-
-`v1.23.0_2023-09-12`
+**Image tag**: `v1.23.0_2023-09-12`
 
 For complete release version information, review [Version log](version-log.md#september-12-2023).
 
@@ -39,9 +35,7 @@ For complete release version information, review [Version log](version-log.md#se
 
 ## August 8, 2023
 
-### Image tag
-
-`v1.22.0_2023-08-08`
+**Image tag**: `v1.22.0_2023-08-08`
 
 For complete release version information, review [Version log](version-log.md#august-8-2023).
 
@@ -53,9 +47,7 @@ For complete release version information, review [Version log](version-log.md#au
 
 ## July 11, 2023
 
-### Image tag
-
-`v1.21.0_2023-07-11`
+**Image tag**: `v1.21.0_2023-07-11`
 
 For complete release version information, review [Version log](version-log.md#july-11-2023).
 
@@ -65,9 +57,7 @@ For complete release version information, review [Version log](version-log.md#ju
 
 ## June 13, 2023
 
-### Image tag
-
-`v1.20.0_2023-06-13`
+**Image tag**: `v1.20.0_2023-06-13`
 
 For complete release version information, review [Version log](version-log.md#june-13-2023).
 
@@ -78,9 +68,7 @@ For complete release version information, review [Version log](version-log.md#ju
 
 ## May 9, 2023
 
-### Image tag
-
-`v1.19.0_2023-05-09`
+**Image tag**: `v1.19.0_2023-05-09`
 
 For complete release version information, review [Version log](version-log.md#may-9-2023).
 
@@ -108,9 +96,7 @@ New for this release:
 
 ## April 12, 2023
 
-### Image tag
-
-`v1.18.0_2023-04-11`
+**Image tag**: `v1.18.0_2023-04-11`
 
 For complete release version information, see [Version log](version-log.md#april-11-2023).
 
@@ -129,9 +115,7 @@ New for this release:
 
 ## March 14, 2023
 
-### Image tag
-
-`v1.17.0_2023-03-14`
+**Image tag**: `v1.17.0_2023-03-14`
 
 For complete release version information, see [Version log](version-log.md#march-14-2023).
 
@@ -145,9 +129,7 @@ New for this release:
 
 ## February 14, 2023
 
-### Image tag
-
-`v1.16.0_2023-02-14`
+**Image tag**: `v1.16.0_2023-02-14`
 
 For complete release version information, see [Version log](version-log.md#february-14-2023).
 
@@ -177,9 +159,7 @@ New for this release:
 
 ## January 13, 2023
 
-### Image tag
-
-`v1.15.0_2023-01-10`
+**Image tag**: `v1.15.0_2023-01-10`
 
 For complete release version information, see [Version log](version-log.md#january-13-2023).
 
@@ -193,9 +173,7 @@ New for this release:
 
 ## December 13, 2022
 
-### Image tag
-
-`v1.14.0_2022-12-13`
+**Image tag**: `v1.14.0_2022-12-13`
 
 For complete release version information, see [Version log](version-log.md#december-13-2022).
 
@@ -217,9 +195,7 @@ New for this release:
 
 ## November 8, 2022
 
-### Image tag
-
-`v1.13.0_2022-11-08`
+**Image tag**: `v1.13.0_2022-11-08`
 
 For complete release version information, see [Version log](version-log.md#november-8-2022).
 
@@ -233,9 +209,7 @@ New for this release:
 
 ## October 11, 2022
 
-### Image tag
-
-`v1.12.0_2022-10-11`
+**Image tag**: `v1.12.0_2022-10-11`
 
 For complete release version information, see [Version log](version-log.md#october-11-2022).
 
@@ -264,9 +238,7 @@ The following properties in the Arc SQL Managed Instance status will be deprecat
 
 ## September 13, 2022
 
-### Image tag
-
-`v1.11.0_2022-09-13`
+**Image tag**: `v1.11.0_2022-09-13`
 
 For complete release version information, see [Version log](version-log.md#september-13-2022).
 
@@ -299,9 +271,7 @@ New for this release:
 
 This release is published August 9, 2022.
 
-### Image tag
-
-`v1.10.0_2022-08-09`
+**Image tag**: `v1.10.0_2022-08-09`
 
 For complete release version information, see [Version log](version-log.md#august-9-2022).
 
@@ -317,9 +287,7 @@ For complete release version information, see [Version log](version-log.md#augus
 
 This release is published July 12, 2022
 
-### Image tag
-
-`v1.9.0_2022-07-12`
+**Image tag**: `v1.9.0_2022-07-12`
 
 For complete release version information, see [Version log](version-log.md#july-12-2022).
 
@@ -347,9 +315,7 @@ For complete release version information, see [Version log](version-log.md#july-
 
 This release is published June 14, 2022.
 
-### Image tag
-
-`v1.8.0_2022-06-14`
+**Image tag**: `v1.8.0_2022-06-14`
 
 For complete release version information, see [Version log](version-log.md#june-14-2022).
 
@@ -376,9 +342,7 @@ For complete release version information, see [Version log](version-log.md#june-
 
 This release is published May 24, 2022.
 
-### Image tag
-
-`v1.7.0_2022-05-24`
+**Image tag**: `v1.7.0_2022-05-24`
 
 For complete release version information, see [Version log](version-log.md#may-24-2022).
 
@@ -408,9 +372,7 @@ Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Criti
 
 This release is published May 4, 2022.
 
-### Image tag
-
-`v1.6.0_2022-05-02`
+**Image tag**: `v1.6.0_2022-05-02`
 
 For complete release version information, see [Version log](version-log.md#may-4-2022).
 
@@ -458,9 +420,7 @@ Added upgrade experience for Data Controller in direct and indirect connectivity
 
 This release is published April 6, 2022.
 
-### Image tag
-
-`v1.5.0_2022-04-05`
+**Image tag**: `v1.5.0_2022-04-05`
 
 For complete release version information, see [Version log](version-log.md#april-6-2022).
 
@@ -515,9 +475,7 @@ During direct connected mode data controller creation, you can now specify the l
 
 This release is published March 8, 2022.
 
-### Image tag
-
-`v1.4.1_2022-03-08`
+**Image tag**: `v1.4.1_2022-03-08`
 
 For complete release version information, see [Version log](version-log.md#march-8-2022).
 
@@ -528,9 +486,7 @@ For complete release version information, see [Version log](version-log.md#march
 
 This release is published February 25, 2022.
 
-### Image tag
-
-`v1.4.0_2022-02-25`
+**Image tag**: `v1.4.0_2022-02-25`
 
 For complete release version information, see [Version log](version-log.md#february-25-2022).
 
@@ -563,9 +519,7 @@ The following improvements are available in [Azure Data Studio](/sql/azure-data-
 
 This release is published January 27, 2022.
 
-### Image tag
-
-`v1.3.0_2022-01-27`
+**Image tag**: `v1.3.0_2022-01-27`
 
 For complete release version information, see [Version log](version-log.md#january-27-2022).
 
