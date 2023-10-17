@@ -1,6 +1,6 @@
 ---
-title: Using Cross region copy of Virtual Machine Restore Points
-description: Using Cross region copy of VM Restore Points how to
+title: Using Cross region copy of VM Restore Points how to guide
+description: Using Cross region copy of VM Restore Points how to guide
 author: aarthiv
 ms.author: aarthiv
 ms.service: virtual-machines
