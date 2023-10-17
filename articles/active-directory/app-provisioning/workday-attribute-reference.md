@@ -206,7 +206,7 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 ## Custom XPATH values
 The table below provides a list of other commonly used custom XPATH API expressions when provisioning workers from Workday to Active Directory or Microsoft Entra ID. Please test the XPATH API expressions provided here with your version of Workday referring to the instructions captured in the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
 
-To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](/contribute) to the article. 
+To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](/contribute/) to the article. 
 
 > [!div class="mx-tdBreakAll"]
 > | \# | Workday Attribute Name  | Workday API version | Workday XPATH API expression   |

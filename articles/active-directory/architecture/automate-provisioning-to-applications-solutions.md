@@ -141,7 +141,7 @@ After users are provisioned into Microsoft Entra ID, use Lifecycle Workflows (LC
 [Learn more about Microsoft Entra Lifecycle Workflows](../governance/what-are-lifecycle-workflows.md)
 
 > [!Note]
-> For scenarios not covered by LCW, customers can leverage the extensibility of [Logic Applications](../..//logic-apps/logic-apps-overview.md).
+> For scenarios not covered by LCW, customers can leverage the extensibility of [Logic Applications](/azure/logic-apps/logic-apps-overview).
 
 ### Reconcile changes made directly in the target system
 
