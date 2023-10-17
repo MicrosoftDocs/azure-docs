@@ -143,3 +143,4 @@ Continue on to any of the following optional quickstarts:
 - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Integrate Azure Open AI into the Fitness Store](quickstart-fitness-store-azure-open-ai.md)

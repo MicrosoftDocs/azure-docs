@@ -340,3 +340,4 @@ Continue on to any of the following optional quickstarts:
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 - [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
+- [Integrate Azure Open AI into the Fitness Store](quickstart-fitness-store-azure-open-ai.md)

@@ -30,10 +30,11 @@ This architecture shows an application composed of smaller applications with a g
 
 This quickstart applies this architecture to a Fitness Store application. This application is composed of the following services split up by domain:
 
-- Three Java Spring Boot applications:
+- Four Java Spring Boot applications:
   - **Catalog Service** contains an API for fetching available products.
   - **Payment Service** validates and processes payments for users' orders.
   - **Identity Service** provides reference to the authenticated user.
+  - **Assist Service** provides AI functionality to the fitness store.
 
 - One Python application:
   - **Cart Service** manages users' items that have been selected for purchase.
