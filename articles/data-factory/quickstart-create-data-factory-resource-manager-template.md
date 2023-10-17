@@ -14,9 +14,6 @@ ms.date: 10/25/2022
 
 # Quickstart: Create an Azure Data Factory using ARM template
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Current version](quickstart-create-data-factory-resource-manager-template.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

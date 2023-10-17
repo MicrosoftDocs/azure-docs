@@ -12,9 +12,7 @@ ms.author: jianleishen
 ---
 
 # Copy data to or from a file system by using Azure Data Factory or Azure Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-file-system-connector.md)
-> * [Current version](connector-file-system.md)
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from file system. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).

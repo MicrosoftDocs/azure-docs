@@ -13,9 +13,6 @@ ms.date: 03/31/2023
 
 # Copy and transform data in Azure Cosmos DB analytical store by using Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Current version](connector-azure-cosmos-analytical-store.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Data Flow to transform data in Azure Cosmos DB analytical store. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
