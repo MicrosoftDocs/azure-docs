@@ -15,42 +15,42 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-This section isn't required to prepare the jar package for deployment, the Deploy to azure button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/spring-petclinic-microservices/releases).
+The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
 ## 3. Prepare the cloud environment
 
 The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
-Use [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
+This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create Azure resources
 
 Use the following steps to create all the Azure resources that the app depends on:
 
-1. Select the following **Deploy to Azure** button:
+1. Select the following **Deploy to Azure** button to launch the deployment experience in the Azure portal:
 
-   [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fspring-petclinic-microservices%2Fazure%2Finfra%2Fazuredeploy.json)
+   :::image type="content" source="../../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FASA-Samples-Event-Driven-Application%2Fmain%2Finfra%2Fazuredeploy-asa-standard.json":::
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 
-   | Setting         | Suggested Value                  | Description                                                                                                                                                                                                                                                                                        |
-   -----------------|----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription               | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                          |
-   | Resource group             | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                                  |
-   | Region                     | The region closest to your users | The region is used to create the resource group.                                                                                                                                                                                                                                                           |
+   | Setting            | Suggested value                   | Description                                                                                                                                                                 |
+   |--------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
+   | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
+   | **Region**         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png" alt-text="Screenshot of the Azure portal showing the custom deployment for microservice." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png" alt-text="Screenshot of the Azure portal that shows the custom deployment for microservice." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png":::
 
-1. Select **Review and Create** to review your selections. Select **Create** to deploy the app to Azure Spring Apps.
+1. Select **Review and Create** to review your selections. Then select **Create** to deploy the app to Azure Spring Apps.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the custom deployment notifications pane open." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the custom deployment notifications pane open." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png":::
 
 ## 4. Deploy the apps to Azure Spring Apps
 
-The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.

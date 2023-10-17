@@ -19,11 +19,11 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
+Use the following steps to delete the entire resource group, including the newly created service instance:
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, then select the name of your resource group.
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
+1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -33,7 +33,7 @@ Use the following command to delete all the Azure resources used in this sample 
 azd down
 ```
 
-The following list describes the command interactions:
+The following list describes the command interaction:
 
 - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Press <kbd>y</kbd>.
 

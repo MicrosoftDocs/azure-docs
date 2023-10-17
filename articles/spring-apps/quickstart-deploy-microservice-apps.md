@@ -40,15 +40,17 @@ This article provides the following options for deploying to Azure Spring Apps:
 ::: zone pivot="sc-standard"
 
 This article provides the following options for deploying to Azure Spring Apps:
-- The Azure portal and Maven plugin are a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
-- The Azure Developer CLI is a more efficient way to automatically create resources and deploy applications through simple commands. It covers application code and infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
+
+- The **Azure portal and Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+- The **Azure Developer CLI** option is a more efficient way to automatically create resources and deploy applications through simple commands. The Azure Developer CLI uses a template to provision the Azure resources needed and to deploy the application code. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
 This article provides the following option for deploying to Azure Spring Apps:
-- The Azure portal is the easiest and fastest way to create resources and deploy applications with one-click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+
+- The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
 
 ::: zone-end
 
@@ -124,7 +126,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Integrate with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+> [Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
 
 > [!div class="nextstepaction"]
 > [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
@@ -139,23 +141,23 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 > [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Using Log Analytics with Azure Spring Apps](./quickstart-setup-log-analytics.md)
+> [Quickstart: Set up a Log Analytics workspace](./quickstart-setup-log-analytics.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Monitoring with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+> [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
 > [!div class="nextstepaction"]
 > [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Introduction to the sample app - Azure Spring Apps](./quickstart-sample-app-introduction.md)
+> [Quickstart: Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
 > [!div class="nextstepaction"]
 > [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
 For more information, see the following articles:
 
-- [Azure Pet Clinic](https://github.com/Azure-Samples/spring-petclinic-microservices)
+- [Azure Pet Clinic microservices](https://github.com/Azure-Samples/spring-petclinic-microservices)
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-- [Spring on Azure](/azure/developer/java/spring/)
-- [Spring Cloud Azure](/azure/developer/java/spring-framework/)
+- [Azure for Spring developers](/azure/developer/java/spring/)
+- [Spring Cloud Azure documentation](/azure/developer/java/spring-framework/)
