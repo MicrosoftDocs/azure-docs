@@ -54,7 +54,7 @@ Evaluate the following list:
 Use log files to investigate and monitor. See the following articles for more:
 
 * [Audit logs in Microsoft Entra ID](../reports-monitoring/concept-audit-logs.md)
-* [Sign-in logs in Microsoft Entra ID (preview)](../reports-monitoring/concept-all-sign-ins.md)
+* [Sign-in logs in Microsoft Entra ID (preview)](../reports-monitoring/concept-sign-ins.md)
 * [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)
 
 ### Audit logs and automation tools
@@ -62,14 +62,14 @@ Use log files to investigate and monitor. See the following articles for more:
 From the Azure portal, you can view Microsoft Entra audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. Use the Azure portal to integrate Microsoft Entra logs with other tools to automate monitoring and alerting:
 
 * **Microsoft Sentinel** – security analytics with security information and event management (SIEM) capabilities
-  * [What is Microsoft Sentinel?](../../sentinel/overview.md)
+  * [What is Microsoft Sentinel?](/azure/sentinel/overview)
 * **Sigma rules** - an open standard for writing rules and templates that automated management tools can use to parse log files. If there are Sigma templates for our recommended search criteria, we added a link to the Sigma repo. Microsoft doesn't write, test, or manage Sigma templates. The repo and templates are created, and collected, by the IT security community.
   * [SigmaHR/sigma](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)
 * **Azure Monitor** – automated monitoring and alerting of various conditions. Create or use workbooks to combine data from different sources.
-  * [Azure Monitor overview](../../azure-monitor/overview.md)
+  * [Azure Monitor overview](/azure/azure-monitor/overview)
 * **Azure Event Hubs integrated with a SIEM** - integrate Microsoft Entra logs with SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic with Azure Event Hubs
-  * [Azure Event Hubs-A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md)
-  * [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+  * [Azure Event Hubs-A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+  * [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/howto-stream-logs-to-event-hub.md)
 * **Microsoft Defender for Cloud Apps** – discover and manage apps, govern across apps and resources, and conform cloud app compliance
   * [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 * **Identity Protection** - detect risk on workload identities across sign-in behavior and offline indicators of compromise
