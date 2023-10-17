@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Entra Connect cloud sync new agent configuration'
+title: 'Microsoft Entra Cloud Sync new agent configuration'
 description: This article describes how to install cloud sync.
 services: active-directory
 author: billmath
@@ -13,11 +13,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Create a new configuration for Microsoft Entra Connect cloud sync
+# Create a new configuration for Microsoft Entra Cloud Sync
 
-The following document will guide you through configuring Microsoft Entra Connect cloud sync.  
+The following document will guide you through configuring Microsoft Entra Cloud Sync.  
 
-The following documentation demonstrates the new guided user experience for Microsoft Entra Connect cloud sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
+The following documentation demonstrates the new guided user experience for Microsoft Entra Cloud Sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-19.png" alt-text="Screenshot of enable preview features." lightbox="media/how-to-configure/new-ux-configure-19.png":::
 
@@ -83,7 +83,7 @@ You can configure groups and organizational units within a configuration.
  7. Once you've changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
-Microsoft Entra Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Microsoft Entra ID.  
+Microsoft Entra Cloud Sync allows you to easily map attributes between your on-premises user/group objects and the objects in Microsoft Entra ID.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of map attributes icon." lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
@@ -99,10 +99,10 @@ After saving, you should see a message telling you what you still need to do to 
 For more information, see [attribute mapping](how-to-attribute-mapping.md).
 
 ## Directory extensions and custom attribute mapping.
-Microsoft Entra Connect cloud sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
+Microsoft Entra Cloud Sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
 
 ## On-demand provisioning
-Microsoft Entra Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
+Microsoft Entra Cloud Sync allows you to test configuration changes, by applying these changes to a single user or group.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of test icon." lightbox="media/how-to-configure/new-ux-configure-8.png":::
 
@@ -173,4 +173,4 @@ To delete a configuration, follow these steps.
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

@@ -4,7 +4,7 @@ description: An introduction to Interactive Query, also called Apache Hive LLAP,
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 08/23/2022
+ms.date: 10/16/2023
 #Customer intent: As a developer new to Interactive Query in Azure HDInsight, I want to have a basic understanding of Interactive Query so I can decide if I want to use it rather than build my own cluster.
 ---
 
@@ -23,7 +23,7 @@ You can access the Hive service in the Interactive Query cluster only via Apache
 For information about creating a HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Choose the Interactive Query cluster type.
 
 > [!IMPORTANT]
-> The minimum headnode size for Interactive Query clusters is Standard_D13_v2. See the [Azure VM Sizing Chart](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)for more information.
+> The minimum headnode size for Interactive Query clusters is Standard_D13_v2. For more information, see the [Azure Virtual Machine Sizing Chart](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
 
 ## Execute Apache Hive queries from Interactive Query
 

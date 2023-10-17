@@ -59,7 +59,7 @@ Partition key reached maximum size of {...} GB
 This error means that your current [partitioning design](../partitioning-overview.md#logical-partitions) and workload is trying to store more than the allowed amount of data for a given partition key value. There is no limit to the number of logical partitions in your container but the size of data each logical partition can store is limited. You can reach to support for clarification.
 
 ## Non-data operations are not allowed
-This scenario happens when [attempting to perform non-data operations](../how-to-setup-rbac.md#permission-model) using Azure Active Directory (Azure AD) identities. On this scenario, it's common to see errors like the ones below:
+This scenario happens when [attempting to perform non-data operations](../how-to-setup-rbac.md#permission-model) using Microsoft Entra identities. On this scenario, it's common to see errors like the ones below:
 
 ```
 Operation 'POST' on resource 'calls' is not allowed through Azure Cosmos DB endpoint
@@ -70,7 +70,7 @@ Forbidden (403); Substatus: 5300; The given request [PUT ...] cannot be authoriz
 
 ### Solution
 Perform the operation through Azure Resource Manager, Azure portal, Azure CLI, or Azure PowerShell.
-If you are using the [Azure Functions Azure Cosmos DB Trigger](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) make sure the `CreateLeaseContainerIfNotExists` property of the trigger isn't set to `true`. Using Azure AD identities blocks any non-data operation, such as creating the lease container.
+If you are using the [Azure Functions Azure Cosmos DB Trigger](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) make sure the `CreateLeaseContainerIfNotExists` property of the trigger isn't set to `true`. Using Microsoft Entra identities blocks any non-data operation, such as creating the lease container.
 
 ## Next steps
 * Configure [IP Firewall](../how-to-configure-firewall.md).

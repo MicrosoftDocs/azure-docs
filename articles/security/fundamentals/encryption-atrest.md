@@ -59,9 +59,11 @@ As described previously, the goal of encryption at rest is that data that is per
 
 The storage location of the encryption keys and access control to those keys is central to an encryption at rest model. The keys need to be highly secured but manageable by specified users and available to specific services. For Azure services, Azure Key Vault is the recommended key storage solution and provides a common management experience across services. Keys are stored and managed in key vaults, and access to a key vault can be given to users or services. Azure Key Vault supports customer creation of keys or import of customer keys for use in customer-managed encryption key scenarios.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-Permissions to use the keys stored in Azure Key Vault, either to manage or to access them for Encryption at Rest encryption and decryption, can be given to Azure Active Directory accounts.
+### Microsoft Entra ID
+
+Permissions to use the keys stored in Azure Key Vault, either to manage or to access them for Encryption at Rest encryption and decryption, can be given to Microsoft Entra accounts.
 
 ### Envelope Encryption with a Key Hierarchy
 

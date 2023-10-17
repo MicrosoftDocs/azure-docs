@@ -13,7 +13,7 @@ ms.custom: subject-rbac-steps, ignite-2022
 
 Azure Stream Analytics supports managed identity authentication for Azure Cosmos DB output. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.  
 
-A managed identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource. For more information on managed identities for Azure Stream Analytics, see [Managed identities for Azure Stream Analytics](stream-analytics-managed-identities-overview.md).
+A managed identity is a managed application registered in Microsoft Entra ID that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource. For more information on managed identities for Azure Stream Analytics, see [Managed identities for Azure Stream Analytics](stream-analytics-managed-identities-overview.md).
 
 This article shows you how to enable system-assigned managed identity for an Azure Cosmos DB output of a Stream Analytics job through the Azure portal. Before you can enable system-assigned managed identity, you must first have a Stream Analytics job and an Azure Cosmos DB resource.
 
@@ -27,7 +27,7 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
    :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::  
 
-3. A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
+3. A service principal for the Stream Analytics job's identity is created in Microsoft Entra ID. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
 
    When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:  
 
@@ -44,7 +44,7 @@ For the Stream Analytics job to access your Azure Cosmos DB using managed identi
 | Cosmos DB Built-in Data Contributor|
 
 > [!IMPORTANT]
-> Azure Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Azure Active Directory for your Azure Cosmos DB account, please see [configure role-based access control with Azure Active Directory for your Azure Cosmos DB account documentation.](../cosmos-db/how-to-setup-rbac.md)
+> Azure Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Microsoft Entra ID for your Azure Cosmos DB account, please see [configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account documentation.](../cosmos-db/how-to-setup-rbac.md)
 
 The following command can be used to authenticate your ASA job with Azure Cosmos DB. The `$accountName` and `$resourceGroupName` are for your Azure Cosmos DB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your Azure Cosmos DB account for this command to work properly.
 

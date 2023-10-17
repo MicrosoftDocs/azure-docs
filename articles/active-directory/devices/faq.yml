@@ -167,7 +167,7 @@ sections:
           
       - question: My users can't search printers from Microsoft Entra joined devices. How can I enable printing from those devices?
         answer: |
-          To deploy printers for Microsoft Entra joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
+          Organizations can choose to [deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) or [Universal Print](/universal-print/fundamentals/universal-print-whatis) for their Microsoft Entra joined devices.
           
           
           

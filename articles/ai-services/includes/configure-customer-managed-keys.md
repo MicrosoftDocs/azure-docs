@@ -13,17 +13,17 @@ ms.author: egeaney
 
 ## Customer-managed keys with Azure Key Vault
 
-When you use customer-managed keys, you must use Azure Key Vault to store them. You can either create your own keys and store them in a key vault, or you can use the Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+When you use customer-managed keys, you must use Azure Key Vault to store them. You can either create your own keys and store them in a key vault, or you can use the Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
 When you create a new Azure AI services resource, it's always encrypted by using Microsoft-managed keys. It's not possible to enable customer-managed keys when you create the resource. Customer-managed keys are stored in Key Vault. The key vault needs to be provisioned with access policies that grant key permissions to the managed identity that's associated with the Azure AI services resource. The managed identity is available only after the resource is created by using the pricing tier that's required for customer-managed keys.
 
-Enabling customer-managed keys also enables a system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), a feature of Azure AD. After the system-assigned managed identity is enabled, this resource is registered with Azure AD. After being registered, the managed identity is given access to the key vault that's selected during customer-managed key setup. 
+Enabling customer-managed keys also enables a system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), a feature of Microsoft Entra ID. After the system-assigned managed identity is enabled, this resource is registered with Microsoft Entra ID. After being registered, the managed identity is given access to the key vault that's selected during customer-managed key setup. 
 
 > [!IMPORTANT]
 > If you disable system-assigned managed identities, access to the key vault is removed and any data that's encrypted with the customer keys is no longer accessible. Any features that depend on this data stop working.
 
 > [!IMPORTANT]
-> Managed identities don't currently support cross-directory scenarios. When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned behind the scenes. If you subsequently move the subscription, resource group, or resource from one Azure AD directory to another, the managed identity that's associated with the resource isn't transferred to the new tenant, so customer-managed keys might no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+> Managed identities don't currently support cross-directory scenarios. When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned behind the scenes. If you subsequently move the subscription, resource group, or resource from one Microsoft Entra directory to another, the managed identity that's associated with the resource isn't transferred to the new tenant, so customer-managed keys might no longer work. For more information, see **Transferring a subscription between Microsoft Entra directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## Configure Key Vault
 

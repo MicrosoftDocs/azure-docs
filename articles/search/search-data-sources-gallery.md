@@ -427,11 +427,13 @@ Our Confluence (Cloud Version) Connector is an enterprise grade indexing connect
 
 ---
 
-### Azure AD
+<a name='azure-ad'></a>
+
+### Microsoft Entra ID
 
 by [BA Insight](https://www.bainsight.com)
 
-The BA Insight Azure Active Directory Connector makes it possible to surface content from your Azure Active Directory tenancy into a single consolidated search index, along with content from other repositories, making searches such as employee look-up or expertise locator a reality.
+The BA Insight Microsoft Entra Connector makes it possible to surface content from your Microsoft Entra tenancy into a single consolidated search index, along with content from other repositories, making searches such as employee look-up or expertise locator a reality.
 
 [More details](https://www.bainsight.com/connectors/azure-active-directory-connector-for-sharepoint-azure-elasticsearch/)
 
@@ -451,11 +453,13 @@ The BA Insight Azure Active Directory Connector makes it possible to surface con
 
 ---
 
-### Azure AD
+<a name='azure-ad'></a>
+
+### Microsoft Entra ID
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Microsoft Azure Active Directory (Azure AD) and intelligently searching it with Azure Cognitive Search. It indexes objects from Azure AD via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
+Secure enterprise search connector for reliably indexing content from Microsoft Entra ID and intelligently searching it with Azure Cognitive Search. It indexes objects from Microsoft Entra ID via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
 
 [More details](https://www.raytion.com/connectors/raytion-azure-ad-connector)
 

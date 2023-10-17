@@ -73,7 +73,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
-    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
+    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Microsoft Entra identities](./concept-enable-rbac.md).
 
 1. Open *Program.cs* and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
