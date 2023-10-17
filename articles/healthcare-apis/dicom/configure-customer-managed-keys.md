@@ -43,7 +43,11 @@ The system assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 2. On the **Access control (IAM)** page select **Add role assignment**.
 
+:::image type="content" source="media/kv-access-control.png" alt-text="Screenshot of the Access control (IAM) view for the key vault." lightbox="media/kv-access-control.png":::
+
 3. On the Add role assignment page, select the **Key Vault Crypto Officer** role and then select **Next**.
+
+:::image type="content" source="media/kv-crypto-officer-role.png" alt-text="Screenshot of the Key Vault Crypto Officer role selected in the Job function roles tab." lightbox="media/kv-crypto-officer-role.png":::
 
 4. On the Members tab, select **Managed Identity** and **Select members**.
 
@@ -57,6 +61,67 @@ The system assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 ## Use an ARM template to update the encryption key
 
+Once the key has been created, the DICOM service will need to be updated with the key URL.  
+
+1. In the key vault, select **Keys** and then select the key for the DICOM service.  
+
+:::image type="content" source="media/kv-keys-list.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-keys-list.png":::
+
+2. Select the key version and copy the **Key Identifier**.  This is the Key Url you will use in the next step.
+
+:::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-key-url.png":::
+
+3. Use Azure portal to **Deploy a custom template** and use following ARM template to update the key.  
+
+``` json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String"
+        },
+        "dicomServiceName": {
+            "type": "String"
+        },
+        "keyEncryptionKeyUrl": {
+            "type": "String"
+        },
+        "region": {
+            "defaultValue": "West US 3",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+            "apiVersion": "2023-06-01-preview",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
+            "location": "[parameters('region')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "encryption": {
+                    "customerManagedKeyEncryption": {
+                        "keyEncryptionKeyUrl": "[parameters('keyEncryptionKeyUrl')]"
+                    }
+                }
+            }
+        }
+    ]
+}
+
+```
+
+4. When prompted, select the appropriate values for the resource group, region, workspace, and DICOM service name.  In the **Key Encryption Key Url** field, enter the Key Identifier copied from the key vault.  
+
+5. Select **Review + create** to deploy the key changes.
+
+When the deployment succeeds, the DICOM service data will be encrypted with the key provided.
+
 ## Losing access to the key
+
+
 
 ## Rotating they key
