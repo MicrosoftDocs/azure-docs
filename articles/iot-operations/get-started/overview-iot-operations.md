@@ -1,113 +1,110 @@
 ---
 title: What is Azure IoT Operations – enabled by Azure Arc Preview?
-description: Azure IoT Operations is a unified data plane for the edge. It's composed of a set data services that run on Azure Arc-enabled edge Kubernetes clusters.
+description: Azure IoT Operations is a unified data plane for the edge. It's composed of various data services that run on Azure Arc-enabled edge Kubernetes clusters.
 author: dominicbetts
 ms.author: dobett
-ms.topic: conceptual #Required.
-ms.date: 09/08/2023
+ms.topic: conceptual
+ms.date: 01/17/2023
 ---
-
-<!--
-Remove all the comments in this template before you sign off or merge to the main branch.
-
-This template provides the basic structure of a Feature availability article pattern. See the
-[instructions - Feature availability](../level4/article-feature-availability.md) in the pattern
-library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
--->
-
-<!-- 1. H1 ------------------------------------------------------------------------------
-
-Required: Use an H1 that includes the feature name and the product or service name.
-
--->
 
 # What is Azure IoT Operations – enabled by Azure Arc Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-<!-- 2. Overview ------------------------------------------------------------------------
+_Azure IoT Operations – enabled by Azure Arc_ is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
-Required: Lead with an overview that briefly describes what the feature does. Provide
-links to more detailed information about the feature. Consider including a video or
-image that provides a high-level view of how the feature works.
+Azure IoT Operations:
 
--->
+* Is built from ground up by using Kubernetes native applications.
+* Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
+* Is highly extensible, scalable, resilient, and secure.
+* Lets you manage all edge services from the cloud by using Azure Arc.
+* Can integrate customer workloads into the platform to create a unified solution.
+* Supports GitOps configuration as code for deployment and updates.
+* Natively integrates with [Azure Event Hubs](/azure/event-hubs/azure-event-hubs-kafka-overview) and [Microsoft Fabric](/fabric/) in the cloud.
 
-[Overview]
-TODO: Add your overview
+## Architecture overview
 
-<!-- 3. Use cases -----------------------------------------------------------------------
+:::image type="content" source="media/azure-iot-operations-architecture.png" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations.":::
 
-Optional: List a few key scenarios that you can use the feature in.
+There are two core elements in the Azure IoT Operations architecture:
 
--->
+* **Azure IoT Operations – enabled by Azure Arc**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
+  * **Azure IoT Data Processor** - a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
+  * **Azure IoT MQ** - an edge-native MQTT broker that powers event-driven architectures.
+  * **Azure IoT OPC UA Broker** - an OPC UA broker that handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
+* **Azure IoT Operations Experience portal**. This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment.
 
-## Use cases
-TODO: Add use cases
+## Deploy
 
-<!-- 4. Article body --------------------------------------------------------------------
+Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-Required: In a series of H2 sections, provide basic information about how the feature
-works. Consider including:
+[Azure IoT Orchestrator](../deploy/overview-deploy-iot-operations.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
-- A *Requirements* section. List the software, networking components, tools, and
-product or service versions that you need to run the feature.
-- A *Considerations* section. Explain which configuration settings to use to optimize
-feature performance.
-- Examples. Show practical ways to use the feature, or provide code for implementing
-the feature.
+## Manage devices and assets
 
--->
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations Experience portal](../manage-devices-assets/howto-configure-assets-endpoint.md) to manage the devices and assets that you want to connect to.
 
-[Article body]
-TODO: Add your article body
+The [OPC UA Broker](../manage-devices-assets/concept-opcua-broker-overview.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 
-<!-- 5. Availability and pricing information --------------------------------------------
+The [Azure IoT Akri](../manage-devices-assets/concept-akri-overview.md) component helps you discover and connect to other types of devices and assets.
 
-Optional: Discuss the feature's availability and pricing.
+## Publish and subscribe with MQTT
 
-- If the feature isn't available in all regions, provide a link to a list of supported
-regions.
-- If customers are charged for using the feature, provide a link to pricing information.
+[Azure IoT MQ (MQ)](../pub-sub-mqtt/overview-iot-mq.md) is an MQTT broker that runs on the edge. It lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
 
-Don't hard-code specific regions or costs. Instead, provide links to sites that manage
-and maintain that information.
+Examples of how components in Azure IoT Operations use MQ include:
 
---->
+* OPC UA Broker publishes data from OPC UA servers and other leaf devices to MQTT topics.
+* Data Processor pipelines subscribe to MQTT topics to retrieve messages for processing.
+* North-bound cloud connectors subscribe to MQTT topics to fetch messages for forwarding to cloud services.
 
-[Availability and pricing information]
-TODO: Add your availability and pricing information
+## Process messages
 
-<!-- 6. Limitations ---------------------------------------------------------------------
+Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use the [Data Processor](../process-data/overview-data-processor.md) pipelines to process messages.
 
-Optional: List the feature's constraints, limitations, and known issues in an H2
-section. If possible, also include the following information:
+A Data Processor pipeline typically:
 
-- State that upcoming releases address the known issues.
-- Describe workarounds for limitations.
-- Discuss the environments that the feature works best in.
+1. Subscribes to an MQTT topic to retrieve messages.
+1. Processes the messages by using one or more configurable stages.
+1. Sends the processed messages to a destination such as a Microsoft Fabric data lake for storage and analysis.
 
-Use an H2 header of *Limitations* or *Known issues.*
+## Connect to the cloud
 
---->
+To connect to the cloud from Azure IoT Operations, you have the following options:
 
-## Limitations
-TODO: Add your Limitations
+The north-bound cloud connectors let you connect MQ directly to cloud services such as:
 
-<!-- 7. Next steps ----------------------------------------------------------------------
+* [Azure Event Grid](../connect-to-cloud/howto-use-mqtt-bridge-event-grid.md)
+* [Azure Messaging Services](../connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md)
 
-Optional: In an H2 section called *Next steps*, list resources such as the following
-types of material:
+The Data Processor pipeline destinations let you connect to cloud services such as:
 
-- A quickstart, get-started guide, or tutorial that explains how to get started with the
-feature
-- An overview of the product or service that the feature's a part of
-- Reference information for the feature, product, or service
+* [Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
+* [Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
 
---->
+## Visualize and analyze telemetry
+
+To visualize and analyze telemetry from your devices and assets, you can use cloud services such as:
+
+* [Microsoft Fabric](/fabric/get-started/fabric-trial)
+* [Power BI](https://powerbi.microsoft.com/)
+
+## Secure communication
+
+To secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture, use the Azure IoT Layered Network Management component.
+
+## Validated environments
+
+Project Alice Springs ships as a set of Azure Arc-enabled Kubernetes services and is intended for use with [CNCF](https://www.cncf.io/) conformant [Arc validated partner products](/azure/azure-arc/kubernetes/validation-program). Currently, Microsoft has validated Project Alice Springs against the following fixed-set of infrastructures and environments:
+
+| Environment | Version |
+| ----------- | ------- |
+| AKS-EE on Windows 11 IoT Enterprise <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 16-GB RAM | AksEdge-k3s-1.25.8-1.2.414.0 |
+| K3s on Ubuntu 22.04.2 <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 32-GB RAM| K3s version 1.27.3 |
+
+See also the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ## Next step
-TODO: Add your next steps
+
+Try the [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md).
