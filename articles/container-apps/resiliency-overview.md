@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 10/17/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -18,18 +18,19 @@ ms.custom: ignite-fall-2023
 
 In the context of Azure Container Apps, resiliency policies are configured as child resources on a [container app](./container-app-resiliency.md) or [Dapr component](./dapr-resiliency.md). When an application initiates a network request, the callee (either the container app or Dapr component associated with the resiliency policies) dictates how timeouts, retries, and other resiliency policies are applied.
 
-You can [define resiliency policies](#defining-resiliency-policies) using either Bicep, the Azure CLI, and the Azure Portal.
+Whether your [container apps communicate with each other directly](./container-app-resiliency.md), or [use `dapr invoke` for service-to-service communication](./dapr-resiliency.md), resiliency policies are configured and applied the same. 
 
-## Resiliency policy example
+You can define resiliency policies using either Bicep, the Azure CLI, and the Azure Portal.
 
-The following example demonstrates a basic resiliency policy. You can learn mor
+## Resiliency policy structure
+
+The following Bicep example demonstrates all possible resiliency policy configurations.
 
 ```bicep
 resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@2023-08-01-preview' = {
   name: 'myResiliencyPolicy'
   parent: '${appName}'
   properties: {
-    target: 'aca-app-name'
     timeoutPolicy: {
         responseTimeoutInSeconds: 15
         connectionTimeoutInSeconds: 5
