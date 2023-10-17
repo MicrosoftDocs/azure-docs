@@ -14,7 +14,7 @@ ms.custom: template-tutorial
 
 ## Prerequisites
 
-For copying a RestorePoint across region, you need to pre-create a RestorePoint in the local region.
+For copying a RestorePoint across region, you need to pre-create a RestorePoint in the target region.
 Learn more about [cross region copy and its limitation](virtual-machines-copy-restore-points-copy.md) before copying a restore points.
 
 ### Create Restore Point Collection in target region
