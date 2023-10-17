@@ -78,6 +78,6 @@ Update-AzHost
       [<CommonParameters>]
 ```
 
-For more info on Update-AzHost, check out the [Update-AzHost reference docs](https://learn.microsoft.com/powershell/module/az.compute/update-azhost).
+For more info on Update-AzHost, check out the [Update-AzHost reference docs](/powershell/module/az.compute/update-azhost).
 
 ---
