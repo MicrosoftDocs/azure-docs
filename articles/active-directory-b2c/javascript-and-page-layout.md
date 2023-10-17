@@ -37,12 +37,13 @@ The `<script>` tag should be added in the `<head>` tag in three ways:
 	<script src="my-script.js" async></script>
 
 3. Using `addEventListener()` method that attaches an event handler to a document.
-
-	`<script>
-	    document.addEventListener("DOMContentLoaded", function () {
-		// Your JavaScript code here
-	    });
-	</script>`
+        ```javascript
+	  <script>
+	      document.addEventListener("DOMContentLoaded", function () {
+		  // Your JavaScript code here
+	      });
+	  </script>
+	```
 
 To enable JavaScript and advance HTML tags and attributes:
 
