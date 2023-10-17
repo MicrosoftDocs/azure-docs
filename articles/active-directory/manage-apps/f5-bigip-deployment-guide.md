@@ -276,7 +276,7 @@ Confirm you can connect to the BIG-IP VM web config and sign in with the credent
 
 To connect to the CLI:
 
-- [Azure Bastion service](../../bastion/bastion-overview.md): Connect to VMs in a VNet, from any location
+- [Azure Bastion service](/azure/bastion/bastion-overview): Connect to VMs in a VNet, from any location
 - SSH client, such as PowerShell with the just-in-time (JIT) approach
 - Serial Console: In the portal, in the VM menu, Support and troubleshooting section. It doesn't support file transfers.
 - From the internet: Configure the BIG-IP primary IP with a public IP. Add an NSG rule to allow SSH traffic. Restrict your trusted IP source.  
@@ -429,7 +429,7 @@ When the BIG-IP system is provisioned, we recommend a full configuration backup.
 10. Save the user configuration set (UCS) archive locally.
 11. Select **Download**.
 
-You can create a backup of the entire system disk using [Azure snapshots](../../virtual-machines/windows/snapshot-copy-managed-disk.md). This tool provides contingency for testing between TMOS versions, or rolling back to a fresh system.
+You can create a backup of the entire system disk using [Azure snapshots](../develop/configure-app-multi-instancing.md). This tool provides contingency for testing between TMOS versions, or rolling back to a fresh system.
 
 ```PowerShell
 # Install modules

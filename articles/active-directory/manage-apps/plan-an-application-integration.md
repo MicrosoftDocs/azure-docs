@@ -51,7 +51,7 @@ Before integrating applications with Microsoft Entra ID, it is important to know
 
 ### Access management inventory
 
-* How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) for example?
+* How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [Azure RBAC](/azure/role-based-access-control/role-assignments-portal) for example?
 * Who needs access to what?
 
 Maybe you don't have the answers to all of these questions up front but that's okay.  This guide can help you answer some of those questions and make some informed decisions.
@@ -59,7 +59,7 @@ Maybe you don't have the answers to all of these questions up front but that's o
 ### Find unsanctioned cloud applications with Cloud Discovery
 
 As mentioned above, there may be applications that haven't been managed by your organization until now.  As part of the inventory process, it is possible to find unsanctioned cloud applications. See
-[Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+[Set up Cloud Discovery](/defender-cloud-apps/set-up-cloud-discovery).
 
 <a name='integrating-applications-with-azure-ad'></a>
 

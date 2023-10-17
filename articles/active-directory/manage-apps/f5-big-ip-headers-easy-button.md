@@ -21,7 +21,7 @@ Learn to secure header-based applications with Microsoft Entra ID, with F5 BIG-I
 Integrating a BIG-IP with Microsoft Entra ID provides many benefits, including:
 * Improved Zero Trust governance through Microsoft Entra preauthentication and Conditional Access 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
-  * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
+  * See, [Zero Trust security](/azure/security/fundamentals/zero-trust)
 * Full SSO between Microsoft Entra ID and BIG-IP published services
 * Managed identities and access from one control plane
   * See, the [Microsoft Entra admin center](https://entra.microsoft.com) 

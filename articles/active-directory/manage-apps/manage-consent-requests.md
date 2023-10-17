@@ -37,14 +37,14 @@ This article provides guidance on managing consent to applications and evaluatin
 
 ## Auditing and monitoring
 
-- [Audit apps and granted permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in your organization to ensure that no unwarranted or suspicious applications have previously been granted access to data.
+- [Audit apps and granted permissions](/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) in your organization to ensure that no unwarranted or suspicious applications have previously been granted access to data.
 
 - Review the [Detect and Remediate Illicit Consent Grants in Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) article for more best practices and safeguards against suspicious applications that request OAuth consent.
 
 - If your organization has the appropriate license:
 
-    - Use other [OAuth application auditing features in Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
-    - Use [Azure Monitor Workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md)  to monitor permissions and consent-related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This information can help you prioritize applications for administrators to review and decide whether to grant them admin consent.
+    - Use other [OAuth application auditing features in Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-risky-oauth).
+    - Use [Azure Monitor Workbooks](../reports-monitoring/howto-use-workbooks.md)  to monitor permissions and consent-related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This information can help you prioritize applications for administrators to review and decide whether to grant them admin consent.
 
 ### Other considerations for reducing friction
 

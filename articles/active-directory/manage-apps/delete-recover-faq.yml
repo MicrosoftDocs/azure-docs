@@ -26,9 +26,9 @@ sections:
       - question: |
           When I create applications, and get a Directory_QuotaExceeded error, how can I avoid this problem? 
         answer: |
-            > A nonadmin user can create no more than 250 Microsoft Entra resources that include applications and service principals. Both active resources and deleted resources that are available to restore count toward this quota. Even if you delete more applications that you don't need, they still add count to the quota. To free up the quota, you need to [permanently delete](restore-application.md#permanently-delete-an-enterprise-application) objects in the deleted items container.
+            > A nonadmin user can create no more than 250 Microsoft Entra resources that include applications and service principals. Both active resources and deleted resources that are available to restore count toward this quota. Even if you delete more applications that you don't need, they still add count to the quota. To free up the quota, you need to [permanently delete](/azure/active-directory/develop/configure-app-multi-instancing#permanently-delete-an-enterprise-application) objects in the deleted items container.
             >
-            > For more information about the service limits, see [Azure resource management](../../azure-resource-manager/management/azure-subscription-service-limits.md?msclkid=6cb6cc54c68711ec93eb9539fce3cc28#azure-active-directory-limits).
+            > For more information about the service limits, see [Azure resource management](/azure/azure-resource-manager/management/azure-subscription-service-limits?msclkid=6cb6cc54c68711ec93eb9539fce3cc28#azure-active-directory-limits).
             >
             >
       - question: |
@@ -38,7 +38,7 @@ sections:
             >
             > To learn how to view deleted application objects through the Microsoft Entra admin center, see [View restorable applications](../develop/howto-restore-app.md#view-your-deleted-applications).
             >
-            > Deleted service principals can't be viewed through the Microsoft Entra admin center. To learn how to view your restorable service principals using PowerShell or Microsoft Graph API, see [View restorable service principals](restore-application.md#view-restorable-enterprise-applications).
+            > Deleted service principals can't be viewed through the Microsoft Entra admin center. To learn how to view your restorable service principals using PowerShell or Microsoft Graph API, see [View restorable service principals](/azure/active-directory/develop/configure-app-multi-instancing#view-restorable-enterprise-applications).
             >
             >
       - question: |
