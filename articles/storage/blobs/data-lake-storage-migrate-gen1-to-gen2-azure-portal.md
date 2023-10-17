@@ -6,7 +6,7 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 06/20/2023
+ms.date: 10/16/2023
 ms.service: azure-data-lake-storage
 ---
 
@@ -76,9 +76,9 @@ As you create the account, make sure to configure settings with the following va
 
 ## Step 2: Verify Azure role-based access control (Azure RBAC) role assignments
 
-For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription.
+For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Microsoft Entra user identity in the scope of the storage account, parent resource group, or subscription.
 
-For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Azure AD identity in the scope of the Gen1 account, parent resource group, or subscription.
+For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Microsoft Entra identity in the scope of the Gen1 account, parent resource group, or subscription.
 
 ## Step 3: Migrate Azure Data Lake Analytics workloads
 
@@ -123,7 +123,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.  
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration. Because the time to complete each task varies, the progress bar won't advance at a consistent rate. For example, the progress bar might quickly advance to 50 percent, but then take a bit more time to complete the remaining 50 percent. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of progress bar when migrating data.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
@@ -157,7 +157,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration. Because the time to complete each task varies, the progress bar won't advance at a consistent rate. For example, the progress bar might quickly advance to 50 percent, but then take a bit more time to complete the remaining 50 percent. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of progress bar when performing a complete migration.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
@@ -224,7 +224,7 @@ The following functionality isn't supported in the compatibility layer.
 
 - Chunk-encoding for append operations.
 
-- Any API calls that use `https://management.azure.com/`  as the Azure Active Directory (Azure AD) token audience.
+- Any API calls that use `https://management.azure.com/`  as the Microsoft Entra token audience.
 
 - File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`).
 
@@ -242,10 +242,10 @@ The following table shows the approximate speed of each migration processing tas
 | Processing task                        | Speed                                 |
 |----------------------------------------|---------------------------------------|
 | Data copy                              | 9 TB per hour                        |
-| Data validation                        | 9 million files per hour              |
-| Metadata copy                          | 4 million files and folders per hour  |
-| Metadata processing                    | 25 million files and folders per hour |
-| Additional metadata processing (data copy option)<sup>1</sup> | 50 million files and folders per hour |
+| Data validation                        | 9 million files or folders per hour              |
+| Metadata copy                          | 4 million files or folders per hour  |
+| Metadata processing                    | 25 million files or folders per hour |
+| Additional metadata processing (data copy option)<sup>1</sup> | 50 million files or folders per hour |
 
 <sup>1</sup>    The additional metadata processing time applies only if you choose the **Copy data to a new Gen2 account** option. This processing time does not apply if you choose the **Complete migration to a new gen2 account** option.
 

@@ -54,7 +54,7 @@ Azure Virtual Desktop will issue at most one access charge for a given user in a
 Here's a summary of the two types of licenses for Azure Virtual Desktop you can choose from:
 
 - An eligible Windows or Microsoft 365 license:
-  - Grants Azure Virtual Desktop access rights for *internal users* only. It doesn't grant permission to external users, not even identities you create in your own Azure Active Directory tenant.
+  - Grants Azure Virtual Desktop access rights for *internal users* only. It doesn't grant permission to external users, not even identities you create in your own Microsoft Entra tenant.
   - Paid in advance through a subscription
   - Same cost per user each month regardless of user behavior
   - Includes entitlements to some other Microsoft products and services

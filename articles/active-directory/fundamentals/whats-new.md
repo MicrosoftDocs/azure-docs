@@ -29,7 +29,7 @@ Microsoft Entra ID (previously known as Azure AD) receives improvements on an on
 - Deprecated functionality
 - Plans for changes
 
-> ![NOTE] 
+> [!NOTE] 
 > If you're currently using Azure AD today or are have previously deployed Azure AD in your organizations, you can continue to use the service without interruption. All existing deployments, configurations, and integrations continue to function as they do today without any action from you.
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
@@ -615,13 +615,13 @@ The Converged Authentication Methods Policy enables you to manage all authentica
 
 ---
 
-### General Availability - Support for Directory Extensions using Azure AD Cloud Sync
+### General Availability - Support for Directory Extensions using Azure AD cloud sync
 
-**Type:** New feature   
-**Service category:** Provisioning                        
-**Product capability:** Azure Active Directory Connect Cloud Sync                
+**Type:** New feature
+**Service category:** Provisioning
+**Product capability:** Azure AD Connect cloud sync
 
-Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
+Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Connect cloud sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to map the needed attributes using the attribute mapping experience of cloud sync. For more information, see [Directory extensions and custom attribute mapping in cloud sync](../hybrid/cloud-sync/custom-attribute-mapping.md).
 
 ---
 
