@@ -24,7 +24,7 @@ Microsoft Entra ID uses identity and access management (IAM) as the control plan
 
 You're entirely responsible for all layers of security for your on-premises IT environment. When you use Azure services, prevention and response are the joint responsibilities of Microsoft as the cloud service provider and you as the customer.
 
-* For more information on the shared responsibility model, see [Shared responsibility in the cloud](../../security/fundamentals/shared-responsibility.md).
+* For more information on the shared responsibility model, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 * For more information on securing access for privileged users, see [Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID](../roles/security-planning.md).
 * For a wide range of videos, how-to guides, and content of key concepts for privileged identity, see [Privileged Identity Management documentation](../privileged-identity-management/index.yml).
 
@@ -36,17 +36,17 @@ The log files you use for investigation and monitoring are:
 
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
-* [Azure Key Vault insights](../../key-vault/key-vault-insights-overview.md)
+* [Azure Key Vault insights](/azure/key-vault/key-vault-insights-overview)
 
 From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)**. Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](/azure/sentinel/overview)**. Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
 * **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)**. Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Monitor](/azure/azure-monitor/overview)**. Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Enables Microsoft Entra logs to be pushed to other SIEMs such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)** integrated with a SIEM. Enables Microsoft Entra logs to be pushed to other SIEMs such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/howto-stream-logs-to-event-hub.md).
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)**. Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
 
@@ -123,7 +123,7 @@ You can monitor privileged account sign-in events in the Microsoft Entra sign-in
 | - | - | - | - | - |
 | Sign-in failure, bad password threshold | High | Microsoft Entra sign-in log | Status = Failure<br>-and-<br>error code = 50126 | Define a baseline threshold and then monitor and adjust to suit your organizational behaviors and limit false alerts from being generated.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PrivilegedAccountsSigninFailureSpikes.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Failure because of Conditional Access requirement |High | Microsoft Entra sign-in log | Status = Failure<br>-and-<br>error code = 53003<br>-and-<br>Failure reason = Blocked by Conditional Access | This event can be an indication an attacker is trying to get into the account.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/UserAccounts-CABlockedSigninSpikes.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Privileged accounts that don't follow naming policy| | Azure subscription | [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where the sign-in name doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
+| Privileged accounts that don't follow naming policy| | Azure subscription | [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)| List role assignments for subscriptions and alert where the sign-in name doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
 | Interrupt |  High, medium | Microsoft Entra Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure reason = Authentication failed during strong authentication request | This event can be an indication an attacker has the password for the account but can't pass the multi-factor authentication challenge.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/AADPrivilegedAccountsFailedMFA.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Privileged accounts that don't follow naming policy| High | Microsoft Entra directory | [List Microsoft Entra role assignments](../roles/view-assignments.md)| List role assignments for Microsoft Entra roles and alert where the UPN doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
 | Discover privileged accounts not registered for multi-factor authentication | High | Microsoft Graph API| Query for IsMFARegistered eq false for admin accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audit and investigate to determine if the event is intentional or an oversight. |
@@ -152,14 +152,14 @@ Monitor all completed and attempted changes by a privileged account. This data e
 
 Privileged accounts that have been assigned permissions in Microsoft Entra Domain Services can perform tasks for Microsoft Entra Domain Services that affect the security posture of your Azure-hosted virtual machines that use Microsoft Entra Domain Services. Enable security audits on virtual machines and monitor the logs. For more information on enabling Microsoft Entra Domain Services audits and for a list of sensitive privileges, see the following resources:
 
-* [Enable security audits for Microsoft Entra Domain Services](../../active-directory-domain-services/security-audit-events.md)
+* [Enable security audits for Microsoft Entra Domain Services](/entra/identity/domain-services/security-audit-events)
 * [Audit Sensitive Privilege Use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)
 
 | What to monitor  | Risk level | Where | Filter/subfilter | Notes |
 | - | - | - | - | - |
 | Attempted and completed changes | High | Microsoft Entra audit logs | Date and time<br>-and-<br>Service<br>-and-<br>Category and name of the activity (what)<br>-and-<br>Status = Success or failure<br>-and-<br>Target<br>-and-<br>Initiator or actor (who) | Any unplanned changes should be alerted on immediately. These logs should be retained to help with any investigation. Any tenant-level changes should be investigated immediately (link out to Infra doc) that would lower the security posture of your tenant. An example is excluding accounts from multifactor authentication or Conditional Access. Alert on any additions or changes to applications. See [Microsoft Entra security operations guide for Applications](security-operations-applications.md). |
 | **Example**<br>Attempted or completed change to high-value apps or services | High | Audit log | Service<br>-and-<br>Category and name of the activity | Date and time, Service, Category and name of the activity, Status = Success or failure, Target, Initiator or actor (who) |
-| Privileged changes in Microsoft Entra Domain Services | High | Microsoft Entra Domain Services | Look for event [4673](/windows/security/threat-protection/auditing/event-4673) | [Enable security audits for Microsoft Entra Domain Services](../../active-directory-domain-services/security-audit-events.md)<br>For a list of all privileged events, see [Audit Sensitive Privilege use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use). |
+| Privileged changes in Microsoft Entra Domain Services | High | Microsoft Entra Domain Services | Look for event [4673](/windows/security/threat-protection/auditing/event-4673) | [Enable security audits for Microsoft Entra Domain Services](/entra/identity/domain-services/security-audit-events)<br>For a list of all privileged events, see [Audit Sensitive Privilege use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use). |
 
 ## Changes to privileged accounts
 
@@ -225,7 +225,7 @@ You can monitor privileged account changes by using Microsoft Entra audit logs a
 | Elevation not occurring on SAW/PAW| High| Microsoft Entra sign-in logs| Device ID <br>-and-<br>Browser<br>-and-<br>OS<br>-and-<br>Compliant/Managed<br>Correlate with:<br>Service = PIM<br>-and-<br>Category = Role management<br>-and-<br>Activity type = Add member to role completed (PIM activation)<br>-and-<br>Status = Success or failure<br>-and-<br>Modified properties = Role.DisplayName| If this change is configured, any attempt to elevate on a non-PAW/SAW device should be investigated immediately because it could indicate an attacker is trying to use the account.<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Elevation to manage all Azure subscriptions| High| Azure Monitor| Activity Log tab <br>Directory Activity tab <br> Operations Name = Assigns the caller to user access admin <br> -and- <br> Event category = Administrative <br> -and-<br>Status = Succeeded, start, fail<br>-and-<br>Event initiated by| This change should be investigated immediately if it isn't planned. This setting could allow an attacker access to Azure subscriptions in your environment. |
 
-For more information about managing elevation, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). For information on monitoring elevations by using information available in the Microsoft Entra logs, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md), which is part of the Azure Monitor documentation.
+For more information about managing elevation, see [Elevate access to manage all Azure subscriptions and management groups](/azure/role-based-access-control/elevate-access-global-admin). For information on monitoring elevations by using information available in the Microsoft Entra logs, see [Azure Activity log](/azure/azure-monitor/essentials/activity-log), which is part of the Azure Monitor documentation.
 
 For information about configuring alerts for Azure roles, see [Configure security alerts for Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-alerts.md).
 

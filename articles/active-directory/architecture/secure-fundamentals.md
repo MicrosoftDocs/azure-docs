@@ -61,7 +61,7 @@ Non-production environments are commonly referred to as sandbox environments.
 
 **Human identities** are user objects that generally represent people in an organization. These identities are either created and managed directly in Microsoft Entra ID or are synchronized from an on-premises Active Directory to Microsoft Entra ID for a given organization. These types of identities are referred to as **local identities**. There can also be user objects invited from a partner organization or a social identity provider using [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md). In this content, we refer to these types of identity as **external identities**.
 
-**Non-human identities** include any identity not associated with a human. This type of identity is an object such as an application that requires an identity to run. In this content, we refer to this type of identity as a **workload identity**. Various terms are used to describe this type of identity, including [application objects and service principals](../../marketplace/manage-aad-apps.md).
+**Non-human identities** include any identity not associated with a human. This type of identity is an object such as an application that requires an identity to run. In this content, we refer to this type of identity as a **workload identity**. Various terms are used to describe this type of identity, including [application objects and service principals](../develop/configure-app-multi-instancing.md).
 
 * **Application object**. A Microsoft Entra application is defined by its application object. The object resides in the Microsoft Entra tenant where the application registered. The tenant is known as the application's "home" tenant.
 
@@ -69,7 +69,7 @@ Non-production environments are commonly referred to as sandbox environments.
 
   * **Multi-tenant** applications allow identities from any Microsoft Entra tenant to authenticate.
 
-* **Service principal object**. Although there are [exceptions](../../marketplace/manage-aad-apps.md), application objects can be considered the *definition* of an application. Service principal objects can be considered an instance of an application. Service principals generally reference an application object, and one application object is referenced by multiple service principals across directories.
+* **Service principal object**. Although there are [exceptions](../develop/configure-app-multi-instancing.md), application objects can be considered the *definition* of an application. Service principal objects can be considered an instance of an application. Service principals generally reference an application object, and one application object is referenced by multiple service principals across directories.
 
 **Service principal objects** are also directory identities that can perform tasks independently from human intervention. The service principal defines the access policy and permissions for a user or application in the Microsoft Entra tenant. This mechanism enables core features such as authentication of the user or application during sign-in and authorization during resource access.
 
@@ -93,7 +93,7 @@ Some legacy scenarios required a human identity to be used in *non-human* scenar
 
   * **Microsoft Entra Domain Joined**. Devices that are owned by the organization and joined to the organization's Microsoft Entra tenant. Typically a device purchased and managed by an organization that is joined to Microsoft Entra ID and managed by a service such as [Microsoft Intune](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/microsoft-intune).
 
-  * **Microsoft Entra registered**. Devices not owned by the organization, for example, a personal device, used to access company resources. Organizations may require the device be enrolled via [Mobile Device Management (MDM)](https://www.microsoft.com/itshowcase/mobile-device-management-at-microsoft), or enforced through [Mobile Application Management (MAM)](/office365/enterprise/office-365-client-support-mobile-application-management) without enrollment to access resources. This capability can be provided by a service such as Microsoft Intune.
+  * **Microsoft Entra registered**. Devices not owned by the organization, for example, a personal device, used to access company resources. Organizations may require the device be enrolled via [Mobile Device Management (MDM)](https://www.microsoft.com/itshowcase/mobile-device-management-at-microsoft), or enforced through [Mobile Application Management (MAM)](/mem/intune/apps/apps-supported-intune-apps) without enrollment to access resources. This capability can be provided by a service such as Microsoft Intune.
 
 * **Group objects** contain objects for the purposes of assigning resource access, applying controls, or configuration. Group objects contain attributes that have the required information about the group including the name, description, group members, group owners, and the group type. Groups in Microsoft Entra ID take multiple forms based on an organization's requirements and can be mastered in Microsoft Entra ID or synchronized from on-premises Active Directory Domain Services (AD DS).
 

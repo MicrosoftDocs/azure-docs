@@ -38,7 +38,7 @@ In addition to the outcomes achieved with a single tenant architecture as descri
 
 * **Object footprint** - Applications that write to Microsoft Entra ID and/or other Microsoft Online services through Microsoft Graph or other management interfaces can operate in a separate object space. This enables development teams to perform tests during the software development lifecycle without affecting other tenants.
 
-* **Quotas** - Consumption of tenant-wide [Azure Quotas and Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) is separated from that of the other tenants.
+* **Quotas** - Consumption of tenant-wide [Azure Quotas and Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) is separated from that of the other tenants.
 
 ### Configuration separation
 
@@ -68,7 +68,7 @@ Another approach could have been to utilize the capabilities of Microsoft Entra 
 
 ## Multi-tenant resource isolation
 
-With a new tenant, you have a separate set of administrators. Organizations can choose to use corporate identities through [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md). Similarly, organizations can implement [Azure Lighthouse](../../lighthouse/overview.md) for cross-tenant management of Azure resources so that non-production Azure subscriptions are managed by identities in the production counterpart. Azure Lighthouse can't be used to manage services outside of Azure, such as Microsoft Intune. For Managed Service Providers (MSPs), [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide&preserve-view=true) is an admin portal that helps secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
+With a new tenant, you have a separate set of administrators. Organizations can choose to use corporate identities through [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md). Similarly, organizations can implement [Azure Lighthouse](/azure/lighthouse/overview) for cross-tenant management of Azure resources so that non-production Azure subscriptions are managed by identities in the production counterpart. Azure Lighthouse can't be used to manage services outside of Azure, such as Microsoft Intune. For Managed Service Providers (MSPs), [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide&preserve-view=true) is an admin portal that helps secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
 
 This will allow users to continue to use their corporate credentials, while achieving the benefits of separation.
 
