@@ -73,7 +73,7 @@
   - name: Azure AD B2C (link to documentation)
     href: /azure/active-directory-b2c/overview
   - name: Multi-tenant organizations documentation (link to documentation)
-    href: ../multi-tenant-organizations/overview.md
+    href: /azure/active-directory/multi-tenant-organizations/overview
 - name: How-to guides
   expanded: false
   items:
