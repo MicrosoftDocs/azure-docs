@@ -32,11 +32,11 @@ ms.author: radeltch
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 
-For on-premises development, you can use either HANA System Replication or use shared storage to establish high availability (HA) for SAP HANA.
-On Azure virtual machines (VMs), HANA System Replication on Azure is currently the only supported HA function.
+For on-premises development, you can use either HANA System Replication or use shared storage to establish high availability (HA) for SAP HANA. On Azure Virtual Machines, HANA System Replication on Azure is currently the only supported HA function.
+
 SAP HANA Replication consists of one primary node and at least one secondary node. Changes to the data on the primary node are replicated to the secondary node synchronously or asynchronously.
 
-This article describes how to deploy and configure the VMs, install the cluster framework, and install and configure SAP HANA System Replication.
+This article describes how to deploy and configure virtual machines (VMs), install the cluster framework, and install and configure SAP HANA System Replication.
 
 In the example configurations, installation commands, instance number **03**, and HANA System ID **HN1** are used.
 
@@ -47,7 +47,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [1928533], which has:
   * The list of Azure VM sizes that are supported for the deployment of SAP software.
   * Important capacity information for Azure VM sizes.
-  * The supported SAP software, and operating system (OS) and database combinations.
+  * The supported SAP software and operating system (OS) and database combinations.
   * The required SAP kernel version for Windows and Linux on Microsoft Azure.
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux.
@@ -61,13 +61,13 @@ Read the following SAP Notes and papers first:
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)
+* [SAP HANA System Replication in a Pacemaker cluster](https://access.redhat.com/articles/3004101)
 * General RHEL documentation:
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-  * [HANA scale-up system replication with RHEL HA add-on](https://access.redhat.com/articles/3004101)
-* Azure specific RHEL documentation:
+  * [HANA Scale-Up System Replication with RHEL HA Add-On](https://access.redhat.com/articles/3004101)
+* Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/solutions/3193782)
@@ -78,18 +78,18 @@ To achieve HA, SAP HANA is installed on two VMs. The data is replicated by using
 
 ![Diagram that shows SAP HANA high availability overview.](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
-SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
+The SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
 * Front-end IP address: 10.0.0.13 for hn1-db
 * Probe Port: 62503
 
 ## Deploy for Linux
 
-Azure Marketplace contains images qualified for SAP HANA with the High Availability add-on, which you can use to deploy new VMs using various versions of Red Hat.
+Azure Marketplace contains images qualified for SAP HANA with the High Availability add-on, which you can use to deploy new VMs by using various versions of Red Hat.
 
 ### Deploy Linux VMs manually via the Azure portal
 
-This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
+This document assumes that you've already deployed a resource group, an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), and a subnet.
 
 Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the HANA system. You can deploy a VM in any one of the availability options: scale set, availability zone, or availability set.
 
@@ -97,7 +97,7 @@ Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the H
 >
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-During VM configuration, you can create or select exiting load balancer in networking section. If you're creating a new load balancer, follow these steps:
+During VM configuration, you can create or select an existing load balancer in the networking section. If you're creating a new load balancer, follow these steps:
 
    1. Create a front-end IP pool:
 
@@ -132,10 +132,10 @@ During VM configuration, you can create or select exiting load balancer in netwo
       1. Increase the idle timeout to **30 minutes**.
       1. Select **HA Ports**.
       1. Increase the idle timeout to **30 minutes**.
-      1. Make sure to **enable Floating IP**.
+      1. Make sure to enable **Floating IP**.
       1. Select **OK**.
 
-For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
+For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694][2388694].
 
 > [!IMPORTANT]
 > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
@@ -144,7 +144,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 > See also SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Install SAP HANA
@@ -232,7 +232,7 @@ The steps in this section use the following prefixes:
    10.0.0.5 hn1-db-0
    10.0.0.6 hn1-db-1
 
-1. **[A]** Configure RHEL for HANA.
+1. **[A]** Perform RHEL for HANA configuration.
 
    Configure RHEL as described in the following notes:
    * [2447641 - Additional packages required for installing SAP HANA SPS 12 on RHEL 7.X](https://access.redhat.com/solutions/2447641)
@@ -246,7 +246,7 @@ The steps in this section use the following prefixes:
 
    To install SAP HANA System Replication, see [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://access.redhat.com/articles/3004101).
 
-   1. Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
+   Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
    1. Choose installation: Enter **1**.
    1. Select additional components for installation: Enter **1**.
    1. Enter **Installation Path** [/hana/shared]: Select Enter.
@@ -300,7 +300,7 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Configure the firewall.
 
-   Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1 and NW1.
+   Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
@@ -331,7 +331,7 @@ The steps in this section use the following prefixes:
    hdbsql -u SYSTEM -p "[passwd]" -i 03 -d SYSTEMDB 'CREATE DATABASE NW1 SYSTEM USER PASSWORD "<passwd>"'
    ```
 
-1. **[1]** Configure System Replication on the first node.
+1. **[1]** Configure system replication on the first node.
 
    Back up the databases as <hanasid\>adm:
 
@@ -354,7 +354,7 @@ The steps in this section use the following prefixes:
    hdbnsutil -sr_enable --name=SITE1
    ```
 
-1. **[2]** Configure System Replication on the second node.
+1. **[2]** Configure system replication on the second node.
 
    Register the second node to start the system replication. Run the following command as <hanasid\>adm:
 
@@ -407,7 +407,7 @@ The steps in this section use the following prefixes:
 
 1. **[1]** Create the required users.
 
-   Run the following command as root. Make sure to replace the values for HANA System ID (ex. **HN1**), instance number (**03**), and any user names, with the values of your SAP HANA installation:
+   Run the following command as root. Make sure to replace the values for HANA System ID (for example, **HN1**), instance number (**03**), and any user names, with the values of your SAP HANA installation:
 
    ```bash
    PATH="$PATH:/usr/sap/HN1/HDB03/exe"
@@ -440,7 +440,7 @@ The steps in this section use the following prefixes:
    hdbsql -d HN1 -u system -i 03 "BACKUP DATA USING FILE ('initialbackup')"
    ```
 
-1. **[1]** Configure System Replication on the first node.
+1. **[1]** Configure system replication on the first node.
 
    Create the primary site as <hanasid\>adm:
 
@@ -449,7 +449,7 @@ The steps in this section use the following prefixes:
    hdbnsutil -sr_enable –-name=SITE1
    ```
 
-1. **[2]** Configure System Replication on the secondary node.
+1. **[2]** Configure system replication on the secondary node.
 
    Register the secondary site as <hanasid\>adm:
 
@@ -476,7 +476,7 @@ This important step optimizes the integration with the cluster and improves the 
    sudo yum install -y resource-agents-sap-hana
    ```
 
-1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.
+1. **[A]** Install the HANA `system replication hook`. The hook needs to be installed on both HANA DB nodes.
 
    > [!TIP]
    > The Python hook can only be implemented for HANA 2.0.
@@ -489,7 +489,7 @@ This important step optimizes the integration with the cluster and improves the 
         chown -R hn1adm:sapsys /hana/shared/myHooks
        ```
 
-   1. Stop HANA on both nodes. Run as <sid\>adm:  
+   1. Stop HANA on both nodes. Run as <sid\>adm.  
 
        ```bash
        sapcontrol -nr 03 -function StopSystem
@@ -507,7 +507,7 @@ This important step optimizes the integration with the cluster and improves the 
        ha_dr_saphanasr = info
        ```
 
-1. **[A]** The cluster requires `sudoers` configuration on each cluster node for <sid\>adm. In this example, that's achieved by creating a new file. Use the `visudo` command to edit the `20-saphana` dropin file as `root`.
+1. **[A]** The cluster requires `sudoers` configuration on each cluster node for <sid\>adm. In this example, that's achieved by creating a new file. Use the `visudo` command to edit the `20-saphana` drop-in file as `root`.
 
     ```bash
     sudo visudo -f /etc/sudoers.d/20-saphana
@@ -544,11 +544,11 @@ This important step optimizes the integration with the cluster and improves the 
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
     ```
 
-For more information on the implementation of the SAP HANA system replication hook, see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
+For more information on the implementation of the SAP HANA System Replication hook, see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
 
 ## Create SAP HANA cluster resources
 
-Create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes. Throughout these instructions, be sure to substitute your instance number, HANA system ID, IP addresses, and system names, where appropriate:
+Create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes. Throughout these instructions, be sure to substitute your instance number, HANA system ID, IP addresses, and system names, where appropriate.
 
    ```bash
 sudo pcs property set maintenance-mode=true
@@ -561,7 +561,7 @@ sudo pcs resource create SAPHanaTopology_HN1_03 SAPHanaTopology SID=HN1 Instance
 Next, create the HANA resources.
 
 > [!NOTE]
-> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 If you're building a cluster on **RHEL 7.x**, use the following commands:  
 
@@ -612,7 +612,7 @@ sudo pcs property set maintenance-mode=false
 To configure `priority-fencing-delay` for SAP HANA (applicable only as of pacemaker-2.0.4-6.el8 or higher), the following commands need to be executed.
 
 > [!NOTE]
-> If you have a two-node cluster, you can configure the `priority-fencing-delay cluster property. This property introduces a delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+> If you have a two-node cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces a delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
 >
 > The property `priority-fencing-delay` is applicable for pacemaker-2.0.4-6.el8 version or higher. If you're setting up `priority-fencing-delay` on an existing cluster, make sure to unset the `pcmk_delay_max` option in the fencing device.
 
@@ -653,21 +653,23 @@ Use the command `sudo pcs status` to check the state of the cluster resources cr
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 ```
 
-## Configure HANA active/read enabled system replication in Pacemaker cluster
+## Configure HANA active/read-enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. 
 
-This section describes the additional steps that are required to manage HANA Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP.
+To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary SAPHana resource.
 
-Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in above segments of the documentation.  
+This section describes the other steps that are required to manage HANA active/read-enabled system replication in a Red Hat HA cluster with a second virtual IP.
 
-![Diagram that shows SAP HANA high availability with read-enabled secondary.](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+Before you proceed further, make sure that you've fully configured the Red Hat HA cluster managing a SAP HANA database, as described in preceding segments of the documentation.  
 
-### Additional setup in Azure load balancer for active/read-enabled setup
+![Diagram that shows SAP HANA HA with read-enabled secondary.](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-To proceed with additional steps on provisioning second virtual IP, make sure you've configured Azure Load Balancer as described in the [Deploy Linux VMs manually via Azure portal](#deploy-linux-vms-manually-via-azure-portal) section.
+### Additional setup in Azure Load Balancer for active/read-enabled setup
 
-1. For **standard** load balancer, follow these steps on the same load balancer that you had created in an earlier section.
+To proceed with more steps on provisioning a second virtual IP, make sure that you've configured Azure Load Balancer as described in the [Deploy Linux VMs manually via Azure portal](#deploy-linux-vms-manually-via-azure-portal) section.
+
+1. For a **standard** load balancer, follow these steps on the same load balancer that you created in an earlier section.
 
    a. Create a second front-end IP pool:
 
@@ -679,23 +681,23 @@ To proceed with additional steps on provisioning second virtual IP, make sure yo
 
    b. Create a health probe:
 
-   * Open the load balancer, select **health probes** and select **Add**.
+   * Open the load balancer, select **health probes**, and select **Add**.
    * Enter the name of the new health probe (for example, **hana-secondaryhp**).
    * Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to **5** and the **Unhealthy threshold** value set to **2**.
    * Select **OK**.
 
    c. Create the load-balancing rules:
 
-   * Open the load balancer, select **load balancing rules** and select **Add**.
+   * Open the load balancer, select **load balancing rules**, and select **Add**.
    * Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
    * Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
    * Select **HA Ports**.
    * Make sure to enable **Floating IP**.
    * Select **OK**.
 
-### Configure HANA active/read enabled system replication
+### Configure HANA active/read-enabled system replication
 
-The steps to configure HANA system replication are described in the [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication) section. If you're deploying a read-enabled secondary scenario, while you're configuring system replication on the second node, run the following command as **hanasid**adm:
+The steps to configure HANA System Replication are described in the [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication) section. If you're deploying a read-enabled secondary scenario while you're configuring system replication on the second node, run the following command as **hanasid**adm:
 
 ```bash
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -753,13 +755,13 @@ Be aware of the second virtual IP behavior while you're testing a HANA cluster c
 
 1. On testing a server crash, the second virtual IP resources (**secvip_HN1_03**) and the Azure Load Balancer port resource (**secnc_HN1_03**) run on the primary server alongside the primary virtual IP resources. So, until the time that the secondary server is down, applications that are connected to the read-enabled HANA database connect to the primary HANA database. The behavior is expected because you don't want applications that are connected to the read-enabled HANA database to be inaccessible until the time the secondary server is unavailable.
 
-1. During failover and fallback of the second virtual IP address, it might happen that the existing connections on applications that use the second virtual IP to connect to the HANA database might get interrupted.
+1. During failover and fallback of the second virtual IP address, the existing connections on applications that use the second virtual IP to connect to the HANA database might get interrupted.
 
-The setup maximizes the time that the second virtual IP resource will be assigned to a node where a healthy SAP HANA instance is running.
+The setup maximizes the time that the second virtual IP resource is assigned to a node where a healthy SAP HANA instance is running.
 
 ## Test the cluster setup
 
-This section describes how you can test your setup. Before you start a test, make sure that Pacemaker doesn't have any failed action (via pcs status), there are no unexpected location constraints (for example, leftovers of a migration test), and that HANA is in sync state, for example, with `systemReplicationStatus`:
+This section describes how you can test your setup. Before you start a test, make sure that Pacemaker doesn't have any failed action (via pcs status), there are no unexpected location constraints (for example, leftovers of a migration test), and that HANA is in sync state, for example, with `systemReplicationStatus`.
 
 ```bash
 sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
@@ -817,7 +819,7 @@ The migration creates location constraints that need to be deleted again. Do the
 pcs resource clear SAPHana_HN1_03-master
 ```
 
-Monitor the state of the HANA resource by using `pcs status`. After`` HANA is started on hn1-db-0`, the output should look like:
+Monitor the state of the HANA resource by using `pcs status`. After HANA is started on `hn1-db-0`, the output should look like:
 
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
@@ -852,9 +854,9 @@ Run the firewall rule to block the communication on one of the nodes.
 iptables -A INPUT -s 10.0.0.5 -j DROP; iptables -A OUTPUT -d 10.0.0.5 -j DROP
 ```
 
-When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes try to simultaneously fence each other, resulting in a fence race. To avoid such a situation, we recommend that you set [priority-fencing-delay](#create-sap-hana-cluster-resources) property in cluster configuration (applicable only for  [pacemaker-2.0.4-6.el8](https://access.redhat.com/errata/RHEA-2020:4804) or higher).
+When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes try to simultaneously fence each other, resulting in a fence race. To avoid such a situation, we recommend that you set the [priority-fencing-delay](#create-sap-hana-cluster-resources) property in cluster configuration (applicable only for  [pacemaker-2.0.4-6.el8](https://access.redhat.com/errata/RHEA-2020:4804) or higher).
 
-By enabling the `priority-fencing-delay property, the cluster introduces a delay in the fencing action specifically on the node hosting HANA master resource, allowing the node to win the fence race.
+By enabling the `priority-fencing-delay` property, the cluster introduces a delay in the fencing action specifically on the node hosting the HANA master resource, allowing the node to win the fence race.
 
 Run the following command to delete the firewall rule:
 
@@ -881,8 +883,9 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master.
-See [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523) for a description on how to simulate a network failure. In this example, we use the `net_breaker` script, as root, to block all access to the network.
+You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523). 
+
+In this example, we use the `net_breaker` script as root to block all access to the network:
 
 ```bash
 sh ./net_breaker.sh BreakCommCmd 10.0.0.6
@@ -941,7 +944,7 @@ You can test a manual failover by stopping the cluster on the `hn1-db-0` node, a
 pcs cluster stop
 ```
 
-After the failover, you can start the cluster again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the `hn1-db-0 node fails to start as secondary. In this case, configure the HANA instance as secondary by running this command as root:
+After the failover, you can start the cluster again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the `hn1-db-0` node fails to start as secondary. In this case, configure the HANA instance as secondary by running this command as root:
 
 ```bash
 pcs cluster start
