@@ -165,4 +165,4 @@ When a new Enterprise Application is created, a matching App Registration is als
 
 - [How to configure an Application Proxy application](./application-proxy-config-how-to.md)
 - [Access on-premises APIs with Microsoft Entra application proxy](./application-proxy-secure-api-access.md)
-- [Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps](../../logic-apps/logic-apps-examples-and-scenarios.md)
+- [Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps](/azure/logic-apps/logic-apps-examples-and-scenarios)

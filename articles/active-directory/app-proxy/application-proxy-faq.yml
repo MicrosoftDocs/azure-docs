@@ -92,7 +92,7 @@ sections:
       - question: |
          Is TLS 1.2 required for all connections?
         answer: |
-              Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) for useful references and resources.
+              Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](/purview/prepare-tls-1.2-in-office-365) for useful references and resources.
           
       - question: |
          Can I place a forward proxy device between the connector server(s) and the back-end application server?
@@ -116,7 +116,7 @@ sections:
       - question: |
          Does the Microsoft Entra application proxy connector have to be on the same subnet as the resource?
         answer: |
-              The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Microsoft Entra application proxy](application-proxy-network-topology.md).
+              The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Microsoft Entra application proxy](/azure/active-directory/develop/configure-app-multi-instancing).
           
       - question: |
          What versions of Windows Server can I install a connector on?
@@ -182,7 +182,7 @@ sections:
       - question: |
          How do I change the landing page my application loads?
         answer: |
-              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page is loaded when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Microsoft Entra application proxy](application-proxy-configure-custom-home-page.md)
+              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page is loaded when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Microsoft Entra application proxy](/azure/active-directory/develop/configure-app-multi-instancing)
 
       - question: |
          Why do I get redirected to a truncated URL when I try to access my published application whenever the  URL contains a "#"  (hashtag) character?
@@ -221,11 +221,11 @@ sections:
         answer: |
               Some responses sent by the published web applications might contain hard-coded URLs.
               In this case it must be ensured by using a link translation solution that the client always uses the correct URL.
-              Link translation solutions might be complex and might not work in all the scenarios. You can find [here](application-proxy-configure-hard-coded-link-translation.md) our documented solutions for link translation.
+              Link translation solutions might be complex and might not work in all the scenarios. You can find [here](/azure/active-directory/develop/configure-app-multi-instancing) our documented solutions for link translation.
               
               As best practice it is advised to use identical external and internal URLs. External and internal URLs are considered to be identical, if the `protocol://hostname:port/path/` in both URLs are identical.
               
-              This can be achieved by using the [Custom Domains](application-proxy-configure-custom-domain.md) feature.
+              This can be achieved by using the [Custom Domains](/azure/active-directory/develop/configure-app-multi-instancing) feature.
               
               Examples:
               
@@ -353,7 +353,7 @@ sections:
               * There is no SSO applied to the WebSocket request.
               * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Microsoft Entra Application Proxy.
               
-              The WebSocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
+              The WebSocket application doesn't have any unique publishing requirements, and can be [published](/azure/active-directory/develop/configure-app-multi-instancing) the same way as all your other Application Proxy applications. 
           
   - name: Link translation
     questions:
@@ -374,5 +374,5 @@ sections:
           1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration works since they have different external URLS.
           
           2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-             - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
-             - [Application Proxy Connector Management](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)
+             - [Application Proxy Application Management](/powershell/module/azuread/?preserve-view=true#application_proxy_application_management&preserve-view=true)
+             - [Application Proxy Connector Management](/powershell/module/azuread/?preserve-view=true#application_proxy_connector_management&preserve-view=true)

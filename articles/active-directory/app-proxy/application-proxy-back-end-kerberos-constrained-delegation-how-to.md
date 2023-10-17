@@ -160,4 +160,4 @@ If you still can't make progress, Microsoft support can assist you. Create a sup
 
 ## Next steps
 
-[Configure KCD on a managed domain](../../active-directory-domain-services/deploy-kcd.md).
+[Configure KCD on a managed domain](/entra/identity/domain-services/deploy-kcd).

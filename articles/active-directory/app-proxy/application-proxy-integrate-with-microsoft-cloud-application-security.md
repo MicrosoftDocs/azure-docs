@@ -22,7 +22,7 @@ Here are some examples of the types of policies you can create with Defender for
 - Use client certificates or device compliance to block access to specific applications from unmanaged devices.
 - Restrict user sessions from non-corporate networks. You can give restricted access to users accessing an application from outside your corporate network. For example, this restricted access can block the user from downloading sensitive documents.
 
-For more information, see [Protect apps with Microsoft Defender for Cloud Apps Conditional Access App Control](/cloud-app-security/proxy-intro-aad).
+For more information, see [Protect apps with Microsoft Defender for Cloud Apps Conditional Access App Control](/defender-cloud-apps/proxy-intro-aad).
 
 ## Requirements
 
@@ -61,4 +61,4 @@ To configure your application with the Conditional Access Application Control, f
 
 ## Test Conditional Access App Control
 
-To test the deployment of Microsoft Entra applications with Conditional Access Application Control, follow the instructions in [Test the deployment for Microsoft Entra apps](/cloud-app-security/proxy-deployment-aad).
+To test the deployment of Microsoft Entra applications with Conditional Access Application Control, follow the instructions in [Test the deployment for Microsoft Entra apps](/defender-cloud-apps/proxy-deployment-aad).
