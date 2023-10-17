@@ -6,9 +6,9 @@ author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: multi-tenant-organizations
+ms.subservice: multitenant-organizations
 ms.topic: conceptual
-ms.date: 10/18/2023
+ms.date: 10/17/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -27,31 +27,31 @@ Organizations often find themselves managing multiple tenants due to mergers and
 ## Hub and spoke
 The hub and spoke topology presents two common patterns:
 
-* **Option 1 (Application Hub):** In this option, you can integrate commonly used applications into a central hub tenant that users from across the organization can access. 
+* **Option 1 (application hub):** In this option, you can integrate commonly used applications into a central hub tenant that users from across the organization can access. 
 
-* **Option 2 (User Hub):** Alternatively, option 2 centralizes all your users in a single tenant and provisions them into spoke tenants where resources are managed.
+* **Option 2 (user hub):** Alternatively, option 2 centralizes all your users in a single tenant and provisions them into spoke tenants where resources are managed.
 
 
 Let's examine a few real-world scenarios and see how they align with each of these models.
-### Mergers and acquisitions (Application Hub)
+### Mergers and acquisitions (application hub)
 
 During mergers and acquisitions, the ability to quickly enable collaboration is crucial, allowing businesses to function cohesively while complex IT decisions are being made. For instance, when a newly acquired company's employees need immediate access to essential resources like a central SharePoint site or integrated applications such as Salesforce, cross-tenant synchronization proves invaluable. This synchronization process allows users from the acquired company to be provisioned into the application hub from day one, granting them access to SaaS apps, on-premises applications, and other cloud resources. The following diagram shows recently acquired tenants on the left and their users being provisioned into the parent company's tenant, which grants users access to the necessary resources.
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/Hub1.png" alt-text="Diagram that shows multiple source tenants synchronizing with a single target tenant.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/hub-1.png" alt-text="Diagram that shows multiple source tenants synchronizing with a single target tenant.":::
 
-## Separate collaboration and resource tenants (User Hub)
+## Separate collaboration and resource tenants (user hub)
 
 As organizations scale their usage of Azure, they often create dedicated tenants for managing critical Azure resources. Meanwhile, they rely on a central hub tenant for user provisioning. This model empowers administrators in the hub tenant to establish central security and governance policies while granting development teams greater autonomy to deploy required Azure resources. Cross-tenant synchronization supports this topology by enabling administrators to provision a subset of users into the spoke tenants and manage the lifecycle of those users.
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/Hub2.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/hub-2.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
 
 ## Mesh
 While some companies centralize their users within a single tenant, others have a more decentralized structure with applications, HR systems, and Active Directory domains integrated into each tenant. Cross-tenant synchronization offers the flexibility to choose which users are provisioned into each tenant.
 
-### Collaborate within a portfolio company (Mesh)
+### Collaborate within a portfolio company (mesh)
 In this scenario, each tenant represents a different company within the same parent organization. Administrators in each tenant have the flexibility to choose which users to provision. Tenants that closely collaborate, particularly in Microsoft Teams, provision all their users across tenants to create a seamless experience. 
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/Mesh.png" alt-text="Diagram that shows a hybrid topology synchronizing with multiple tenants.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/mesh.png" alt-text="Diagram that shows a hybrid topology synchronizing with multiple tenants.":::
 
 Cross-tenant synchronization is one way. An internal member user can be synchronized into multiple tenants as an external user. When the topology shows a synchronization going in both directions, it's a distinct set of users in each direction and each arrow is a separate configuration.
 
@@ -63,16 +63,9 @@ Consider Contoso and Litware, separate organizations engaged in a multi-year joi
 
 The following diagram shows how two organizations can just-in-time collaborate by using connected organizations and entitlement management.
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/ConnectedOrganization.png" alt-text="Diagram that shows just-in-time collaboration by using connected organizations and entitlement management.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/connected-organization.png" alt-text="Diagram that shows just-in-time collaboration by using connected organizations and entitlement management.":::
 
 ## Next steps
 
 - [What is cross-tenant synchronization?](cross-tenant-synchronization-overview.md)
 - [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md)
-
-
-### Production and test tenant (1:1)
-
-The simplest example of a multi-tenant organization is one with a production tenant and a test tenant. With cross-tenant synchronization, you can provision accounts from your production tenant into a test tenant. Within the test tenant, you can now assign those users the necessary roles and resources needed to try new features that may be in public preview, test new conditional access policies, governance capabilities, etc. By using cross-tenant synchronization, the lifecycle of these users is managed for you. When users change their name, change departments, or leave the company, those changes are reflected in the hub tenant. The following example shows the simplest topology where users in the production tenant are provisioned into the test tenant. 
-
-:::image type="content" source="./media/cross-tenant-synchronization-topology/topology-single-source-single-target.png" alt-text="Diagram that shows a single source tenant synchronizing with a single target tenant.":::
