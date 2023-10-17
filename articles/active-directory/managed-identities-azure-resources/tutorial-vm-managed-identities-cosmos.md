@@ -211,7 +211,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 ## Create an Azure Cosmos DB account
 
-Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need an Azure Cosmos DB account available where you have administrative rights. If you need to create an Azure Cosmos DB account for this tutorial, the [Azure Cosmos DB quickstart](../develop/configure-app-multi-instancing.md) provides detailed steps on how to do that.
+Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need an Azure Cosmos DB account available where you have administrative rights. If you need to create an Azure Cosmos DB account for this tutorial, the [Azure Cosmos DB quickstart](/azure/cosmos-db/sql/create-cosmosdb-resources-portal) provides detailed steps on how to do that.
 
 >[!NOTE]
 > Managed identities may be used to access any Azure resource that supports Microsoft Entra authentication. This tutorial assumes that your Azure Cosmos DB account will be configured as shown below.
@@ -392,7 +392,7 @@ Initialize your Azure Cosmos DB client:
 CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
 ```
 
-Then [read and write data](../develop/configure-app-multi-instancing.md).
+Then [read and write data](/azure/cosmos-db/sql/sql-api-dotnet-v3sdk-samples).
 
 ### Java
 
@@ -402,7 +402,7 @@ Initialize your Azure Cosmos DB client:
 CosmosAsyncClient Client = new CosmosClientBuilder().endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
 
-Then read and write data as described in [these samples](../develop/configure-app-multi-instancing.md)
+Then read and write data as described in [these samples](/azure/cosmos-db/sql/sql-api-java-sdk-samples)
 
 ### JavaScript
 
@@ -412,7 +412,7 @@ Initialize your Azure Cosmos DB client:
 const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
 ```
 
-Then read and write data as described in [these samples](../develop/configure-app-multi-instancing.md)
+Then read and write data as described in [these samples](/azure/cosmos-db/sql/sql-api-nodejs-samples)
 
 ## Clean up steps
 
@@ -462,4 +462,4 @@ Learn more about managed identities for Azure resources:
 Learn more about Azure Cosmos DB:
 
 - [Azure Cosmos DB resource model](/azure/cosmos-db/resource-model)
-- [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](../develop/configure-app-multi-instancing.md)
+- [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](/azure/cosmos-db/sql/sql-api-get-started)
