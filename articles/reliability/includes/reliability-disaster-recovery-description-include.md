@@ -16,4 +16,6 @@ When it comes to DR, Microsoft uses the [shared responsibility model](../busines
 
 Most services that run on Azure platform as a service (PaaS) offerings provide features and guidance to support DR. For some scenarios, you can use service-specific features to support fast recovery.
 
+When you plan to deploy your application, it's helpful to understand Azure regions and geographies. For more information, see [Azure cross-region replication](../cross-region-replication-azure.md).
+
 
