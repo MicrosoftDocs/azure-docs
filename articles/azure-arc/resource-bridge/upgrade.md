@@ -77,7 +77,7 @@ For Arc-enabled VMware, both cloud-managed upgrade and manual upgrade are suppor
 
 [Azure Arc VM management (preview) on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) supports upgrade of an Arc resource bridge on Azure Stack HCI, version 22H2 up until Arc resource bridge version 1.0.14 and `az arcappliance` CLI extension version 0.2.33. These upgrades can be done through manual upgrade or a support request for cloud-managed upgrade. For additional upgrades afterwards, you must transition to Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all components as a "validated recipe" package. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq). 
 
-For Arc-enabled SCVMM, the upgrade feature is not available yet. Review the steps for [performing the disaster recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps.  This will deploy a new resource bridge and reconnect pre-existing Azure resources.
+For Arc-enabled SCVMM, the upgrade feature isn't available yet. Review the steps for [performing the disaster recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps.  This deploys a new resource bridge and reconnect pre-existing Azure resources.
 
 ## Version releases
 
