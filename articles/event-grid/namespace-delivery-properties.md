@@ -21,7 +21,7 @@ When creating an event subscription in the Azure portal, you can use the **Deliv
 To set headers with a fixed value, provide the name of the header and its value in the corresponding fields:
 
 [IMAGE]
-:::image type="content" source="./media/delivery-properties/static-header-property.png" alt-text="Delivery properties - static":::
+:::image type="content" source="./media/delivery-properties/static-header-property.png" alt-text="Screenshot that shows the Delivery Properties tab of the Create Event Subscription page with an example static header.":::
 
 You might want to check **Is secret?** when you're providing sensitive data. The visibility of sensitive data on the Azure portal depends on the user's RBAC permission.
 
@@ -30,7 +30,7 @@ You might want to check **Is secret?** when you're providing sensitive data. The
 You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. Only JSON values of string, number and boolean are supported. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
 
 [IMAGE]
-:::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Delivery properties - dynamic":::
+:::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Screenshot that shows the Delivery Properties tab of the Create Event Subscription page with an example dynamic header.":::
 
 ## Examples
 

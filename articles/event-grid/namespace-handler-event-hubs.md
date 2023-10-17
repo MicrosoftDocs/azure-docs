@@ -13,19 +13,19 @@ Use **Event Hubs** when your solution gets events from Event Grid faster than it
 
 ## Message headers
 
-These are the properties you receive in the message headers:
+Here are the properties you receive in the message headers:
 
 | Property name | Description |
 | ------------- | ----------- |
 | aeg-subscription-name | Name of the event subscription. |
 | aeg-delivery-count | Number of attempts made for the event. |
-| aeg-output-event-id | System generated event id. |
-| aeg-compatibility-mode-enabled | This property is only available and set when delivering via Event Grid namespaces. Currently the only possible value is 'false'. It is intended to help event handlers to distinguish between events delivered via Event Grid namespaces vs Event Grid custom topics/system topics/partner namespaces etc. |
+| aeg-output-event-id | System generated event ID. |
+| aeg-compatibility-mode-enabled | This property is only available and set when delivering via Event Grid namespaces. Currently the only possible value is *false*. It's intended to help event handlers to distinguish between events delivered via Event Grid namespaces vs Event Grid custom topics/system topics/partner namespaces etc. |
 | aeg-metadata-version | Metadata version of the event. Represents the spec version for cloud event schema. |
 
 ## REST examples
 
-### Control plane push subscription sample payload with system assigned MSI
+### Control plane push subscription sample payload with system assigned identity
 
 ```json
 {
@@ -50,7 +50,7 @@ These are the properties you receive in the message headers:
 }
 ```
 
-### Control plane push subscription sample payload with user assigned MSI
+### Control plane push subscription sample payload with user assigned identity
 
 ```json
 {
