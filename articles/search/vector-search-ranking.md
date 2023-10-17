@@ -39,7 +39,7 @@ Exhaustive KNN support is available through [2023-10-01-Preview REST API](/rest/
 
 Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It guarantees finding the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use Exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations. -->
 
-## How nearest neighbor ranking works
+## How nearest neighbor search works
 
 Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
 
