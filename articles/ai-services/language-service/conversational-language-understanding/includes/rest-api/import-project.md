@@ -35,7 +35,7 @@ Use the following header to authenticate your request.
 
 ### Body
 
-The JSON body you send is similar to the following example. See the [reference documentation](/rest/api/language/2022-10-01-preview/conversational-analysis-authoring/import?tabs=HTTP#successful-import-project) for more details about the JSON object.
+The JSON body you send is similar to the following example. See the [reference documentation](/rest/api/language/2023-04-01/conversational-analysis-authoring/import?tabs=HTTP#successful-import-project) for more details about the JSON object.
 
 ```json
 {
