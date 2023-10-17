@@ -2,19 +2,19 @@
 title: View and download your organization's Azure pricing
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
 author: bandersmsft
-ms.reviewer: amberb
+ms.reviewer: paagraw
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 10/17/2022
 ms.author: banders
 ms.custom: seodec18
 ---
 
 # View and download your organization's Azure pricing
 
-Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) may view and download their pricing in the Azure portal. [Learn how to check your billing account type](#check-your-billing-account-type).
+Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) can view and download their pricing in the Azure portal. [Learn how to check your billing account type](#check-your-billing-account-type).
 
 ## Download pricing for an Enterprise Agreement
 
@@ -29,8 +29,11 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
 1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. It could take a while to prepare your file.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." :::
-1. When the file is ready to download, select **Download csv**.
+1. When the file is ready to download, select **Download file**.
 
+Starting January 2023 and later, a new version of the Azure Price Sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
+
+Azure reservation pricing is available in the Azure Price Sheet for the current billing period. If you want to maintain an ongoing record of Azure reservation pricing, we recommend that you download your Azure Price Sheet for each billing period.
 
 ## Download pricing for an MCA or MPA account
 
@@ -62,7 +65,7 @@ If you have an MCA, you can download pricing for the current billing period.
 
 ## Estimate costs with the Azure pricing calculator
 
-You may also use your organization’s pricing to estimate costs with the Azure pricing calculator.
+You can also use your organization’s pricing to estimate costs with the Azure pricing calculator.
 
 1. Go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 1. On the top right, select **Sign in**.
