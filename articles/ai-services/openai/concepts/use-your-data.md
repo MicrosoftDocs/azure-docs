@@ -64,6 +64,16 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
     This will impact the quality of Azure Cognitive Search and the model response. 
 
+## Custom parameters
+
+In the **Data parameters** section in Azure OpenAI Studio, you can modify following additional settings. 
+
+
+|Parameter name  | Description  |
+|---------|---------|
+|**Retreived documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You may want to increase the value when you have short documents or want to provide more context. The default value is 3.       |
+| **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high may cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
+
 ## Virtual network support & private endpoint support
 
 ### Azure OpenAI resources
@@ -93,12 +103,16 @@ Storage accounts in virtual networks, firewalls, and private endpoints are curre
 To add a new data source to your Azure OpenAI resource, you need the following Azure RBAC roles.
 
 
-|Azure RBAC role  |Needed when  |
-|---------|---------|
-|[Cognitive Services Contributor](../how-to/role-based-access-control.md#cognitive-services-contributor) | You want to use Azure OpenAI on your data. |
-|[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor)     | You plan to create a new Azure Cognitive Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
+|Azure RBAC role  | Which resource needs this role? | Needed when  |
+|---------|---------|---------|
+| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure Cognitive Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
+|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure Cognitive Search resource.    | You want to use Azure OpenAI on your data.        |
+|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure Cognitive Search resource.    | You plan to create a new Azure Cognitive Search index.        |
+|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure Cognitive Search and Azure OpenAI resources, to access the storage account.       |
+| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
+| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
+| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure Cognitive Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
+
 
 ## Document-level access control
 
