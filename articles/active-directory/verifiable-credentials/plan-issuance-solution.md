@@ -113,7 +113,7 @@ Your specific use cases determine your credential design. The use case determine
 
 * the claims that are needed in the credentials
 
-* if credentials needs to be revoked
+* if credentials need to be revoked
 
 ### Credential Use Cases
 
@@ -240,7 +240,7 @@ Your organization may have specific compliance needs related to your industry, t
 
 **Revoking credentials**: Determine if your organization needs to revoke credentials. For example, an admin may need to revoke credentials when an employee leaves the company. For more information, see [Revoke a previously issued verifiable credential](how-to-issuer-revoke.md).
 
-**Expiring credentials**: Determine how your credentials expire. For example, if you issue a VC as proof of having a driver’s license, it might expire after a few years. Other VCs can have a shorter validity to ensure users come back periodically to updated their the VC.
+**Expiring credentials**: Determine how your credentials expire. For example, if you issue a VC as proof of having a driver’s license, it might expire after a few years. Other VCs can have a shorter validity to ensure users come back periodically to update their VC.
 
 ## Plan for operations
 
