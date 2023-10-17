@@ -87,8 +87,8 @@ The External Identities collaboration feature in Microsoft Entra ID controls per
 
 Learn more:
 
-* [Manage external meetings and chat in Microsoft Teams](/microsoftteams/manage-external-access)
-* [Step 1. Determine your cloud identity model](/microsoft-365/enterprise/about-microsoft-365-identity)
+* [Manage external meetings and chat in Microsoft Teams](/microsoftteams/trusted-organizations-external-meetings-chat)
+* [Step 1. Determine your cloud identity model](/microsoft-365/enterprise/deploy-identity-solution-identity-model)
 * [Identity models and authentication for Microsoft Teams](/microsoftteams/identify-models-authentication)
 * [Sensitivity labels for Microsoft Teams](/microsoftteams/sensitivity-labels)
 
@@ -98,7 +98,7 @@ SharePoint administrators can find organization-wide settings in the SharePoint 
 
 Learn more: 
 * [SharePoint admin center](https://microsoft-admin.sharepoint.com) - access permissions are required
-* [Get started with the SharePoint admin center](/sharepoint/get-started-new-admin-center)
+* [Get started with the SharePoint admin center](/sharepoint/manage-sites-in-new-admin-center)
 * [External sharing overview](/sharepoint/external-sharing-overview)
 
 <a name='integrating-sharepoint-and-onedrive-with-azure-ad-b2b'></a>

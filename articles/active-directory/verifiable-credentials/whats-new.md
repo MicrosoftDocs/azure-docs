@@ -20,6 +20,12 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## October 2023
+
+- [Quick Verified ID setup](verifiable-credentials-configure-tenant-quick.md) introduced as preview which enables an admin to onboard a Microsoft Entra tenant with just one click of a button.
+- [MyAccount available now to simplify issuance of Workplace Credentials](verifiable-credentials-configure-tenant-quick.md#myaccount-available-now-to-simplify-issuance-of-workplace-credentials)
+- [Manual Verified ID setup](verifiable-credentials-configure-tenant.md) still available as an option to `Quick Verified ID setup`.
+
 ## September 2023
 
 Verified ID is retiring old Request Service API endpoints that were available before Verified ID was General Available. These APIs should not have been used since GA in August 2022, but if they are used in your app, you need to migrate. The API endpoints being retired are:
@@ -34,11 +40,11 @@ POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/is
 The first API was for creating an issuance or presentation request. The second API was for retrieving a request and the last two APIs was for a wallet completing issuance or presentation. The API endpoints to use since preview are the following.
 
 ```http
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/createPresentationRequest
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/createIssuanceRequest
-GET https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/presentationRequests/:requestId
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/completeIssuance
-POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/verifyPresentation
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/createPresentationRequest
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/createIssuanceRequest
+GET https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/presentationRequests/:requestId
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/completeIssuance
+POST https://verifiedid.did.msidentity.com/v1.0/verifiablecredentials/verifyPresentation
 ```
 
 Please note that the `/request` API is split into two depending on if you are creating an issuance or presentation request.
@@ -47,7 +53,7 @@ The retired API endpoints will not work after October 2023, 2023.
 
 ## August 2023
 
-The `presentation_verified` callback from the Request Service API now returns when a Verified ID credential was issued and when it expires. Business rules can use these values to see the time windoww of when the presented Verified ID credential is valid. An example of this is that it expires in an hour while the business required in needs to be valid until the end of the day.
+The `presentation_verified` callback from the Request Service API now returns when a Verified ID credential was issued and when it expires. Business rules can use these values to see the time window of when the presented Verified ID credential is valid. An example of this is that it expires in an hour while the business required in needs to be valid until the end of the day.
 
 ## June 2023
 
@@ -66,7 +72,7 @@ Instructions for setting up place of work verification on LinkedIn available [he
 - Admin API now supports [application access tokens](admin-api.md#authentication) and in addition to user bearer tokens.
 - Introducing the Microsoft Entra Verified ID [Services partner gallery](services-partners.md) listing trusted partners that can help accelerate your Microsoft Entra Verified ID implementation.
 - Improvements to our Administrator onboarding experience in the [Admin portal](verifiable-credentials-configure-tenant.md#register-decentralized-id-and-verify-domain-ownership) based on customer feedback.
-- Updates to our samples in [github](https://github.com/Azure-Samples/active-directory-verifiable-credentials) showcasing how to dynamically display VC claims.
+- Updates to our samples in [Github](https://github.com/Azure-Samples/active-directory-verifiable-credentials) showcasing how to dynamically display VC claims.
 
 ## February 2023
 
