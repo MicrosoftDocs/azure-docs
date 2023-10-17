@@ -34,7 +34,7 @@ This sample requires the [Azure Active Directory PowerShell 2.0 for Graph module
 
 | Command | Notes |
 |---|---|
-| [New-AzureADUserAppRoleAssignment](/powershell/module/AzureAD/new-azureaduserapproleassignment) | Assigns a user to an application role. |
+| [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment) | Assigns a user to an application role. |
 
 ## Next steps
 
