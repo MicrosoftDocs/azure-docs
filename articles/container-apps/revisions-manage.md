@@ -24,7 +24,7 @@ To update a container app, use the `az containerapp update` command.   With this
 
 # [Bash](#tab/bash)
 
-You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).  
+You can also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).  
 
 This example updates the container image. Replace the \<PLACEHOLDERS\> with your values.
 
@@ -122,9 +122,9 @@ echo $RevisionObject
 
 ## Revision copy
 
-To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps uses the configuration of the existing revision, which you may then modify.  
+To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps uses the configuration of the existing revision, which you can then modify.  
 
-With this command, you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
+With this command, you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You can also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
 
 This example copies the latest revision and sets the compute resource parameters.  (Replace the \<PLACEHOLDERS\> with your values.)
 
@@ -246,7 +246,7 @@ Restart-AzContainerAppRevision @CmdArgs
 
 ## Revision set mode
 
-The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. To set your container app to support [single revision mode](revisions.md#single-revision-mode) or [multiple revision mode](revisions.md#multiple-revision-mode), use the `az containerapp revision set-mode` command.  
+The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. To set your container app to support [single revision mode](revisions.md#revision-modes) or [multiple revision mode](revisions.md#revision-modes), use the `az containerapp revision set-mode` command.  
 
 The default setting is *single revision mode*. For more information about this command, see [`az containerapp revision set-mode`](/cli/azure/containerapp/revision#az-containerapp-revision-set-mode).
 
@@ -284,7 +284,7 @@ Update-AzContainerApp @CmdArgs
 
 ## Revision labels
 
-Labels provide a unique URL that you can use to direct traffic to a revision.  You can move a label between revisions to reroute traffic directed to the label's URL to a different revision.  For more information about revision labels, see [Revision Labels](revisions.md#revision-labels).
+Labels provide a unique URL that you can use to direct traffic to a revision.  You can move a label between revisions to reroute traffic directed to the label's URL to a different revision.  For more information about revision labels, see [Revision Labels](revisions.md#labels).
 
 You can add and remove a label from a revision.  For more information about the label commands, see [`az containerapp revision label`](/cli/azure/containerapp/revision/label)
 

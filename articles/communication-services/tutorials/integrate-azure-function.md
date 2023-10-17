@@ -83,10 +83,10 @@ Open the link in a browser. The result will be similar to this example:
 ## (Optional) secure the Azure Function endpoint
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, one option is to use your own secured endpoint to provision your own tokens.
 
-With extra configuration, this sample supports connecting to an Azure Active Directory (Azure AD) protected endpoint so that user log is required for the app to fetch an Azure Communication Services token. The user will be required to sign in with Microsoft account to access the app. This setup increases the security level while users are required to log in. Decide whether to enable it based on the use cases.
+With extra configuration, this sample supports connecting to a Microsoft Entra protected endpoint so that user log is required for the app to fetch an Azure Communication Services token. The user will be required to sign in with Microsoft account to access the app. This setup increases the security level while users are required to log in. Decide whether to enable it based on the use cases.
 
-Note that we currently don't support Azure AD in sample code. Follow the links below to enable it in your app and Azure Function:
+Note that we currently don't support Microsoft Entra ID in sample code. Follow the links below to enable it in your app and Azure Function:
 
-[Register your app under Azure Active Directory (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
+[Register your app under Microsoft Entra ID (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
 
-[Configure your App Service or Azure Functions app to use Azure AD log in](../../app-service/configure-authentication-provider-aad.md).
+[Configure your App Service or Azure Functions app to use Microsoft Entra ID log in](../../app-service/configure-authentication-provider-aad.md).

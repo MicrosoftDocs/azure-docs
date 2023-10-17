@@ -112,7 +112,7 @@
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
-    - name: Azure AD Authentication
+    - name: Microsoft Entra authentication
       href: flexible-server/concepts-azure-ad-authentication.md
     - name: Major Version Upgrade 
       href: flexible-server/concepts-major-version-upgrade.md
@@ -319,12 +319,12 @@
         displayName: application development, server parameters
     - name: Enable Authentication
       items:
-      - name: Configure Azure AD integration
+      - name: Configure Microsoft Entra integration
         href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName: application development, azure ad, active directory
       - name: Connect with Managed Identity
         href: flexible-server/how-to-connect-with-managed-identity.md
-      - name: Manage Azure AD users
+      - name: Manage Microsoft Entra users
         href: flexible-server/how-to-manage-azure-ad-users.md
       - name: Connect with SCRAM authentication
         href: flexible-server/how-to-connect-scram.md
@@ -482,7 +482,7 @@
       - name: Threat protection with Microsoft Defender for Cloud
         href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
         displayName: security, azure ad, active directory
       - name: Data encryption
@@ -614,7 +614,7 @@
         - name: Create users
           href: single-server/how-to-create-users.md
           displayName: non-admin user, application development
-        - name: Configure Azure AD integration
+        - name: Configure Microsoft Entra integration
           href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
           displayName: application development, azure ad, active directory
         - name: Connect with Managed Identity

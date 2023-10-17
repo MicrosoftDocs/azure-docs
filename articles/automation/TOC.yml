@@ -109,7 +109,7 @@
           href: how-to/runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
-        - name: Configure authentication with Azure AD
+        - name: Configure authentication with Microsoft Entra ID
           href: automation-use-azure-ad.md
         - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md

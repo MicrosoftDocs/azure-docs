@@ -16,7 +16,7 @@ This article describes how to enable Container insights to monitor a managed Kub
 - See [Prerequisites](./container-insights-onboard.md) for Container insights.
 - If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-## Enable monitoring
+## New AKS cluster
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -29,6 +29,10 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
 #### Existing cluster
+
+> [!NOTE]
+> When you enable Container Insights on legacy auth clusters, a managed identity is automatically created. This identity will not be available in case the cluster migrates to MSI Auth or if the Container Insights is disabled and hence this managed identity should not be used for anything else.
+
 This options enables Prometheus, Grafana, and Container insights on a cluster.
 
 1. Open the cluster's menu in the Azure portal and  select **Insights**.
@@ -78,35 +82,6 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 
 ```azurecli
 az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
-```
-
-### Enable Prometheus metrics
-
-Use the following command to install the metrics add-on on your cluster which enables Prometheus metrics. If you don't include the `azure-monitor-workspace-resource-id` parameter, a default Azure Monitor workspace is created in a resource group with the name `DefaultRG-<cluster_region>` and is named `DefaultAzureMonitorWorkspace-<mapped_region>`. If the existing Azure Monitor workspace is already linked to one or more Grafana workspaces, data is available in that Grafana workspace.
-
-```azurecli
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-resource-id>
-```
-
-Use the following command to install the metrics add-on on your cluster and create a link between the Azure Monitor workspace and the Grafana workspace.
-
-```azurecli
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
-```
-
-#### Optional parameters
-You can use the following optional parameters with the previous commands:
-
-| Parameter | Description |
-|:---|:---|
-| `--ksm-metric-annotations-allow-list` | Comma-separated list of Kubernetes annotations keys used in the resource's kube_resource_annotations metric. For example, kube_pod_annotations is the annotations metric for the pods resource. By default, this metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single `*` can be provided for each resource to allow any annotations, but this has severe performance implications. For example, `pods=[kubernetes.io/team,...],namespaces=[kubernetes.io/team],...`. |
-| `--ksm-metric-labels-allow-list` | Comma-separated list of more Kubernetes label keys that is used in the resource's kube_resource_labels metric kube_resource_labels metric. For example, kube_pod_labels is the labels metric for the pods resource. By default this metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them A single `*` can be provided for each resource to allow any labels, but i this has severe performance implications. For example, `pods=[app],namespaces=[k8s-label-1,k8s-label-n,...],...`. |
-| `--enable-windows-recording-rules` | lets you enable the recording rule groups required for proper functioning of the Windows dashboards. |
-
-**Use annotations and labels.**
-
-```azurecli
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
 ```
 
 

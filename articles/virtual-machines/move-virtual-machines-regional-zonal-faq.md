@@ -78,7 +78,7 @@ There are a couple of reasons you might not have the permissions. Consider the f
 
 ### How is managed identity used?
 
-Managed identity previously known as Managed Service Identity (MSI), is a feature that provides Azure services with an automatically managed identity in Azure AD. This identity is used to access Azure subscriptions and perform various tasks, such as moving resources to Availability Zones.
+Managed identity previously known as Managed Service Identity (MSI), is a feature that provides Azure services with an automatically managed identity in Microsoft Entra ID. This identity is used to access Azure subscriptions and perform various tasks, such as moving resources to Availability Zones.
 
 - Managed identity is used so that you can access Azure subscriptions to move resources to availability zones.
 - To move resources using a move collection, you need a system-assigned identity that has access to the subscription containing the resources you want to move. 

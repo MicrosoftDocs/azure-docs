@@ -13,7 +13,9 @@ ms.date: 03/01/2023
 
 # Five steps to integrate your apps with Microsoft Entra ID
 
-Learn to integrate your applications with Microsoft Entra ID, which is a cloud-based identity and access management service. Organizations use Microsoft Entra ID for secure authentication and authorization so customers, partners, and employees can access applications. With Microsoft Entra ID, features such as Conditional Access, Microsoft Entra multifactor authentication, single sign-on, and application provisioning make identity and access management easier to manage and more secure.
+Learn to integrate your applications with Microsoft Entra ID, which is a cloud-based identity and access management service. Organizations use Microsoft Entra ID for secure authentication and authorization so customers, partners, and employees can access applications. 
+
+With Microsoft Entra ID, features such as Conditional Access, Microsoft Entra multifactor authentication, single sign-on, and application provisioning make identity and access management easier to manage and more secure.
 
 Learn more:
 
@@ -35,21 +37,21 @@ Learn more:
 
 When your business acquires new applications, add them to the Microsoft Entra tenant. Establish a company policy of adding new apps to Microsoft Entra ID. 
 
-See, [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md)
+See: [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md)
 
-Microsoft Entra ID has a gallery of integrated applications to make it easy to get started. Add a gallery app to your Microsoft Entra organization (see, previous link) and learn about integrating software as a service (SaaS) tutorials.
+Microsoft Entra ID has a gallery of integrated applications to make it easy to get started. Add a gallery app to your Microsoft Entra organization (see previous link) and learn about integrating software as a service (SaaS) tutorials.
 
-See, [Tutorials for integrating SaaS applications with Microsoft Entra ID](../saas-apps/tutorial-list.md) 
+See: [Tutorials for integrating SaaS applications with Microsoft Entra ID](../saas-apps/tutorial-list.md) 
 
 ### Integration tutorials
 
 Use the following tutorials to learn to integrate common tools with Microsoft Entra single sign-on (SSO).
 
-* [Tutorial: Microsoft Entra SSO integration with ServiceNow](../saas-apps/servicenow-tutorial.md)
-* [Tutorial: Microsoft Entra SSO integration with Workday](../saas-apps/workday-tutorial.md)
-* [Tutorial: Microsoft Entra SSO integration with Salesforce](../saas-apps/salesforce-tutorial.md)
-* [Tutorial: Microsoft Entra SSO integration with AWS Single-Account Access](../saas-apps/amazon-web-service-tutorial.md)
-* [Tutorial: Microsoft Entra SSO integration with Slack](../saas-apps/slack-tutorial.md)
+* Tutorial: [Microsoft Entra SSO integration with ServiceNow](../saas-apps/servicenow-tutorial.md)
+* Tutorial: [Microsoft Entra SSO integration with Workday](../saas-apps/workday-tutorial.md)
+* Tutorial: [Microsoft Entra SSO integration with Salesforce](../saas-apps/salesforce-tutorial.md)
+* Tutorial: [Microsoft Entra SSO integration with AWS Single-Account Access](../saas-apps/amazon-web-service-tutorial.md)
+* Tutorial: [Microsoft Entra SSO integration with Slack](../saas-apps/slack-tutorial.md)
 
 ### Apps not in the gallery
 
@@ -71,7 +73,7 @@ Learn more:
 
 In addition, use the Active Directory Federation Services (AD FS) in the Azure portal to discover AD FS apps in your organization. Discover unique users that signed in to the apps, and see information about integration compatibility.
 
-See, [Review the application activity report](../manage-apps/migrate-adfs-application-activity.md)
+See: [Review the application activity report](../manage-apps/migrate-adfs-application-activity.md)
 
 ### Application migration
 
@@ -82,7 +84,7 @@ After you discover apps in your environment, prioritize the apps to migrate and 
 - Apps to be decommissioned, therefore not in migration
 - Apps that stay on-premises
 
-See, [Resources for migrating applications to Microsoft Entra ID](../manage-apps/migration-resources.md)
+See: [Resources for migrating applications to Microsoft Entra ID](../manage-apps/migration-resources.md)
 
 ## Integrate apps and identity providers
 
@@ -91,7 +93,7 @@ During discovery, there might be applications not tracked by the IT team, which 
 * Reduce on-premises user set-up, authentication, and IdP licensing fees
 * Lower administrative overhead with streamlined identity and access management process
 * Enable single sign-on (SSO) access to applications in the My Apps portal
-  * See, [Create collections on the My Apps portal](../manage-apps/access-panel-collections.md)
+  * See: [Create collections on the My Apps portal](../manage-apps/access-panel-collections.md)
 * Use Identity Protection and Conditional Access to increase data from app usage, and extend benefits to recently added apps
   * [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
   * [What is Conditional Access?](../conditional-access/overview.md)
@@ -102,8 +104,8 @@ To help manage app integration with Microsoft Entra ID, use the following materi
 
 You can download:
 
-* Zip file, [Editable Microsoft Entra App Integration One-Pager](https://aka.ms/AppOnePager)
-* Microsoft PowerPoint presentation, [Microsoft Entra application integration guidelines](https://aka.ms/AppGuideline)
+* Zip file: [Editable Microsoft Entra App Integration One-Pager](https://aka.ms/AppOnePager)
+* Microsoft PowerPoint presentation: [Microsoft Entra application integration guidelines](https://aka.ms/AppGuideline)
 
 ### Active Directory Federation Services
 
@@ -132,17 +134,17 @@ You can migrate apps that use a different cloud-based IdP. Your organization mig
 
 Traditionally, application security enabled access during a connection to a corporate network. However, organization grant access to apps for customers, partners, and/or employees, regardless of location. Application Proxy Service in Microsoft Entra connects on-premises apps to Microsoft Entra ID and doesn't require edge servers or more infrastructure.
 
-See, [Using Microsoft Entra application proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
+See: [Using Microsoft Entra application proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
 The following diagram illustrates Application Proxy Service processing a user request.
 
    ![Diagram of the Microsoft Entra application proxy Service processing a user request.](./media/five-steps-to-full-application-integration/app-proxy.png)
 
-See, [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md) 
+See: [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md) 
 
 In addition, integrate application delivery controllers like F5 BIG-IP APM, or Zscaler Private Access, with Microsoft Entra ID. Benefits are modern authentication and identity management, traffic management, and security features. We call this solution secure hybrid access. 
 
-See, [Secure hybrid access: Protect legacy apps with Microsoft Entra ID](../manage-apps/secure-hybrid-access.md)
+See: [Secure hybrid access: Protect legacy apps with Microsoft Entra ID](../manage-apps/secure-hybrid-access.md)
 
 For the following services, there are Microsoft Entra integration tutorials.
 

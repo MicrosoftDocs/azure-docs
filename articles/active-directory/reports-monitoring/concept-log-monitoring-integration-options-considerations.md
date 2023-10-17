@@ -62,7 +62,7 @@ There's a cost for sending data to a Log Analytics workspace, archiving data in 
 
 Because the size and cost for sending logs to an endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to an endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs. You can also get an estimate of your costs by downloading a sample of your logs and multiplying accordingly to get an estimate for one day.
 
-Other considerations for sending Microsoft Entra ID logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
+Other considerations for sending Microsoft Entra logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
 
 - [Azure Monitor logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
 - [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
