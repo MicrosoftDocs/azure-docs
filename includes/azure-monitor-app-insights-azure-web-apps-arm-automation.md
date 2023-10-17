@@ -37,17 +37,17 @@ For an example of a Resource Manager template with application settings configur
 
 ### Automate the creation of an Application Insights resource and link to your newly created App Service resource
 
-To create a Resource Manager template with all the default Application Insights settings configured, begin the process as if you were going to create a new web app with Application Insights enabled.
+To create a Resource Manager template with the default Application Insights settings, begin the process as if you were going to create a new web app with Application Insights enabled.
 
 1. Create a new App Service resource with your desired web app information. Enable Application Insights on the **Monitoring** tab.
 
 1. Select **Review + create**. Then select **Download a template for automation**.
 
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." :::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." lightbox="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png":::
 
     This option generates the latest Resource Manager template with all required settings configured.
     
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="Screenshot that shows an App Service web app template." border="false":::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="Screenshot that shows an App Service web app template." border="false" lightbox="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png":::
 
 In the following sample, replace all instances of `AppMonitoredSite` with your site name:
 
