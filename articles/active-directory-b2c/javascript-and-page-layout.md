@@ -24,7 +24,7 @@ With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-wit
 
 The `<script>` tag should be added in the `<head>` tag in three ways:  
 
-1. Adding `defer` attribute, it specifies that the script is downloaded in parallel to parsing the page, and executed after the page has finished parsing.
+1. Adding the `defer` attribute, which specifies that the script is downloaded in parallel to parsing the page, then the script is executed after the page has finished parsing:
 
 	`<script src="my-script.js" defer></script>`
 
