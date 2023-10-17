@@ -192,7 +192,7 @@ When you create a lab plan and you still have lab accounts in your Azure subscri
 | Classic Medium (Nested virtualization) | 4  | 16 | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
 | Classic Large (Nested virtualization) | 8 | 32 | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
 | Classic Small GPU (Compute) | 6 | 56 | [Standard_NC6](../virtual-machines/nc-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
-| Classic Small GPU (Visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Classic Small GPU (Visualization) | 6 | 56 | [Standard_NV6](../virtual-machines/nv-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 | Classic Medium GPU (Visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ## RBAC roles
