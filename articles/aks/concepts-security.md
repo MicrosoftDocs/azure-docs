@@ -26,7 +26,7 @@ This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
-As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
+As the entry point for the Supply Chain, it's important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It's not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
 
 ## Registry Security
 
@@ -76,9 +76,11 @@ For these types of hostile multi-tenant workloads, you should use physically iso
 
 ### Compute isolation
 
-Because of compliance or regulatory requirements, certain workloads may require a high degree of isolation from other customer workloads. For these workloads, Azure provides [isolated VMs](../virtual-machines/isolation.md) to use as the agent nodes in an AKS cluster. These VMs are isolated to a specific hardware type and dedicated to a single customer. 
+Because of compliance or regulatory requirements, certain workloads may require a high degree of isolation from other customer workloads. For these workloads, Azure provides:
 
-Select [one of the isolated VMs sizes](../virtual-machines/isolation.md) as the **node size** when creating an AKS cluster or adding a node pool.
+* [Isolated VMs](../virtual-machines/isolation.md) to use as the agent nodes in an AKS cluster. These VMs are isolated to a specific hardware type and dedicated to a single customer. Select [one of the isolated VMs sizes](../virtual-machines/isolation.md) as the **node size** when creating an AKS cluster or adding a node pool.
+* [Confidential Containers](use-confidential-containers.md) (preview), which is based on Kata Confidential Containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. It helps isolate your containers from other container groups/pods, as well as VM node OS kernel.
+* [Pod Sandboxing](use-pod-sandboxing.md) (preview) provides an isolation boundary between the container application, and the shared kernel and compute resources (CPU, memory, and network) of the container host.
 
 ## Cluster upgrades
 

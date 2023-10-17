@@ -2,19 +2,24 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/12/2023
+ms.date: 10/17/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 
-To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers is based on Kata Confidential Containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to achieve the following security goals:
+To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers is based on Kata Confidential Containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to protect your data and workloads from:
 
+* Your AKS cluster admin
+* The AKS control plane & daemon sets
+* The cloud and host operator
+* The AKS worker node operating system
+* Another pod running on the same VM node
 * Helps application owners protect data by enforcing application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc).
-* Help protects your data from Cloud Service Providers (CSPs)
+* Help protect your data from Cloud Service Providers (CSPs)
 
-Together with other security measures or data protection controls, as part of your overall architecture, helps you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
+Together with other security measures or data protection controls, as part of your overall architecture, it helps you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
-This article helps you understand this new feature, and how to implement and configure the following:
+This article helps you understand the Confidential Containers feature, and how to implement and configure the following:
 
 * Deploy or upgrade an AKS cluster using the Azure CLI
 * Add a security policy to your pod YAML
@@ -102,10 +107,11 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
 * Services, Load Balancers, and EndpointSlices only support the TCP protocol.
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
- 
+* Version 1 container images are not supported.
+
 ## Deploy a new cluster
 
-Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
+1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the Confidential Containers feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
     * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
@@ -118,11 +124,17 @@ Create an AKS cluster using the [az aks create][az-aks-create] command and speci
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
 
-The following example adds a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
+2. When the cluster is ready, get the cluster credentials using the [az aks get-credentials][az-aks-get-credentials] command.
 
-```azurecli-interactive
-az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> 
-```
+    ```azurecli-interactive
+    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```
+
+3. Add a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
+
+    ```azurecli-interactive
+    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> 
+    ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
@@ -222,21 +234,37 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
             env: 
               - name: SkrSideCarArgs
                 value: ewogICAiY2VydGNhY2hlIjogewogICAgICAiZW5kcG9pbnQiOiAiYW1lcmljYXMuYWNjY2FjaGUuYXp1cmUubmV0IiwKICAgICAgInRlZV90eXBlIjogIlNldlNucFZNIiwKICAgICAgImFwaV92ZXJzaW9uIjogImFwaS12ZXJzaW9uPTIwMjAtMTAtMTUtcHJldmlldyIKICAgfSAgICAgIAp9
-            resources:
-              requests:
-                memory: "512Mi"
-              limits:
-                memory: "512Mi"
-                cpu: "60m"
     ```
 
 1. Generate the deployment policy by running the following command. Replace `<path to pod yaml>` with the name of the manifest saved in the previous step.
 
     ```bash
-    az confcom katapolicygen -y <path to pod yaml>
+    az confcom katapolicygen -y myapplication.yml
     ```
 
-1. Upload keys to your Managed HSM instance with key release policy (Need details)
+1. Upload keys to your Managed HSM instance with key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
+
+    ```bash
+    go run /tools/importkey/main.go -c myapplication.yml -kh encryptionKey
+    ```
+
+  Upon successful import, you should see something similar to the following:
+
+    ```output
+    [34 71 33 117 113 25 191 84 199 236 137 166 201 103 83 20 203 233 66 236 121 110 223 2 122 99 106 20 22 212 49 224]
+    https://accmhsm.managedhsm.azure.net/keys/doc-sample-key-release/8659****0cdff08
+    {"version":"0.2","anyOf":[{"authority":"https://sharedeus2.eus2.test.attest.azure.net","allOf":[{"claim":"x-ms-sevsnpvm-hostdata","equals":"aaa7***7cc09d"},{"claim":"x-ms-compliance-status","equals":"azure-compliant-uvm"},{"claim":"x-ms-sevsnpvm-is-debuggable","equals":"false"}]}]}
+    ```
+
+1. Run the following commands to verify the key has been successfully imported:
+
+    ```azurecli-interactive
+    az account set --subscription "Subscription ID"
+    ```
+
+   ```azurecli-interactive
+   az keyvault key list --hsm-name <Name of HSM> -o table
+   ```
 
 1. Deploy the application by running the following command:
 
@@ -265,17 +293,7 @@ kubectl delete pod pod-name
 * Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
 
 <!-- EXTERNAL LINKS -->
-[kata-containers-overview]: https://katacontainers.io/
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
-[azurerm-azurelinux]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
-[kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
-[container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
-[kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
-[cloud-hypervisor]: https://www.cloudhypervisor.org
-[kata-container]: https://katacontainers.io 
 
 <!-- INTERNAL LINKS -->
 [pod-sandboxing-overview]: use-pod-sandboxing.md
@@ -286,3 +304,5 @@ kubectl delete pod pod-name
 [entra-id-workload-identity-prerequisites]: ../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
 [cluster-access-and-identity-options]: concepts-identity.md
 [DC8as-series]: ../virtual-machines/dcasccv5-dcadsccv5-series.md
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
