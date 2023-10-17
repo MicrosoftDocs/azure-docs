@@ -113,21 +113,6 @@ Once the data is uploaded and processed, you can access the consumption URL to q
     | render columnchart
     ```
 
-## Import dashboards
-
-To manually import dashboard JSON files:
-1. From the Data Product Security pane, select Permissions and add yourself as a reader by entering your email address and selecting **Add Readers**.
-1. From the Overview page, copy the consumption URL and open the URL in a new browser tab.
-1. Navigate to the Dashboards section in the consumption URL.
-1. Select **New Dashboard > Import Dashboard file**.
-1. Accept the default dashboard name and select **Create**.
-1. Select Settings (three dots) in top right corner and select **Data Sources**.
-1. Select Edit.
-1. Provide the consumption URI and select Connect.
-1. Select the appropriate database name for your Data Product instance.
-1. Accept default values for the rest and select Apply.
-1. Modify other options as applicable to view the data.
-
 ## Delete Azure resources
 
 When you have finished exploring Azure Operator Insights Data Product, you should delete the resources you've created to avoid unnecessary Azure costs.

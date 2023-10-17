@@ -6,7 +6,7 @@ metadata:
   ms.author: bettylew
   ms.service: operator-insights
   ms.topic: faq
-  ms.date: 10/16/2023
+  ms.date: 10/17/2023
 title: Azure Operator Insights frequently asked questions
 summary: |
     If you can't find answers to your questions and still need help, contact Microsoft Support.  
@@ -25,10 +25,6 @@ sections:
         answer: |
           Access is currently limited. For now, we're working with customers with an existing partnership with Microsoft and particular use cases. In addition to applying for initial access, 
           all requests for Azure Operator Insights are required to go through a use case review. [Apply here](https://aka.ms/AAn1mi6) for initial access.         
-      - question: |
-          After I apply for access, how long will I have to wait to get approved?
-        answer: |
-          We don't currently provide a timeline for access approval.
       - question: |
           In which Azure regions can I deploy Azure Operator Insights Data Products?
         answer: |
