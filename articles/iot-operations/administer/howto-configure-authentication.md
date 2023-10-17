@@ -49,7 +49,7 @@ The order of authentication methods in the array determines how Azure IoT MQ aut
 
 For each method, Azure IoT MQ first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `sat://`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, Azure IoT MQ then verifies if they are valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
-Specifically, for [custom authentication](#custom), Azure IoT MQ treats failure to communicate with the custom authentication server as *credentials not relevant*. This lets Azure IoT MQ fall back to other methods if the custom server is unreachable.
+For custom authentication, Azure IoT MQ treats failure to communicate with the custom authentication server as *credentials not relevant*. This lets Azure IoT MQ fall back to other methods if the custom server is unreachable.
 
 The authentication flow ends when:
 
