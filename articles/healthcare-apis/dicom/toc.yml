@@ -27,6 +27,13 @@ items:
       href: dicom-configure-azure-rbac.md
     - name: Enable audit and diagnostic logging
       href: enable-diagnostic-logging.md
+- name: DICOM conformance statements
+  expanded: false
+  items: 
+    - name: V2
+      href: dicom-services-conformance-statement-v2.md
+    - name: V1
+      href: dicom-services-conformance-statement.md
 - name: API reference
   expanded: true
   items: 
@@ -55,13 +62,6 @@ items:
           href: api-versioning-dicom-service.md
         - name: DICOM service API v2 changes
           href: dicom-service-v2-api-changes.md
-- name: DICOM conformance statements
-  expanded: false
-  items: 
-    - name: V2
-      href: dicom-services-conformance-statement-v2.md
-    - name: V1
-      href: dicom-services-conformance-statement.md
 - name: DICOM service open-source projects
   href: references-for-dicom-service.md
 - name: FAQ
