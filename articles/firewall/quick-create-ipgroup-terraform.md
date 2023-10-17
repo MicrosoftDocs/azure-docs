@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: victorh
-ms.date: 10/05/2023
+ms.date: 10/17/2023
 content_well_notification: 
   - AI-contribution
 ---
@@ -57,23 +57,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-ipgroups/providers.tf":::
 
 1. Create a file named `ssh.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/ssh.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-ipgroups/ssh.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-ipgroups/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-ipgroups/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-ipgroups/outputs.tf":::
 
 ## Initialize Terraform
 
