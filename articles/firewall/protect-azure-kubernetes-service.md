@@ -6,7 +6,7 @@ ms.service: firewall
 ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 services: firewall
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 10/17/2023
 ms.author: victorh
 ---
 
@@ -286,7 +286,7 @@ spec:
     spec:
       containers:
       - name: voting-storage
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/voting/storage:2.0
         args: ["--ignore-db-dir=lost+found"]
         resources:
           requests:
@@ -382,7 +382,7 @@ spec:
     spec:
       containers:
       - name: voting-app
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/voting/app:2.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -443,7 +443,7 @@ spec:
     spec:
       containers:
       - name: voting-analytics
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/voting/analytics:2.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
