@@ -142,7 +142,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: ./azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
@@ -503,21 +503,13 @@ productDirectory:
         - containers
       url: container-instances/index.yml
     # Card
-    - title: Linux Virtual Machines
-      summary: Provision virtual machines for Ubuntu, Red Hat, and more
+    - title: Virtual Machines
+      summary: Provision virtual machines for Ubuntu, Red Hat, Windows, and more
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - featured
         - compute
       url: ./virtual-machines/index.yml
-    # Card
-    - title: Service Fabric
-      summary: Develop microservices and orchestrate containers on Windows or Linux
-      imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
-      azureCategories:
-        - compute
-        - containers
-      url: service-fabric/index.yml
     # Card
     - title: SQL Server on Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
@@ -541,6 +533,14 @@ productDirectory:
         - compute
       url: virtual-machine-scale-sets/index.yml
     # Card
+    - title: Service Fabric
+      summary: Develop microservices and orchestrate containers on Windows or Linux
+      imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
+      azureCategories:
+        - compute
+        - containers
+      url: service-fabric/index.yml
+    # Card
     - title: Web Apps
       summary: Quickly create and deploy mission critical web apps at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
@@ -558,14 +558,6 @@ productDirectory:
         - compute
         - azure-virtual-desktop
       url: virtual-desktop/index.yml
-    # Card
-    - title: Windows Virtual Machines
-      summary: Provision Windows virtual machines in seconds
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      azureCategories:
-        - featured
-        - compute
-      url: ./virtual-machines/index.yml
     # Card
     - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers

@@ -114,7 +114,7 @@
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md
-- name: Logs & monitoring
+- name: Observability
   items:
     - name: Overview
       href: observability.md
@@ -211,6 +211,8 @@
           href: microservices-dapr-azure-resource-manager.md
         - name: Deploy a Dapr application using GitHub Actions
           href: dapr-github-actions.md
+        - name: Deploy Azure Functions with the Dapr extension
+          href: dapr-functions-extension.md
 - name: Networking, ingress, and network security
   items:
     - name: Architecture overview
