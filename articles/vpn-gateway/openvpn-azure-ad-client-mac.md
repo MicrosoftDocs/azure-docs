@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2023
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
@@ -40,6 +40,9 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
 1. Download and extract the VPN client profile configuration files.
 
 ## Import VPN client profile configuration files
+
+> [!NOTE]
+> [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
 
 1. On the Azure VPN Client page, select **Import**.
 
