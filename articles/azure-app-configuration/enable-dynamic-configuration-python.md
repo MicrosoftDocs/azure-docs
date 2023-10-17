@@ -25,23 +25,19 @@ The App Configuration Python provider includes built-in caching and refreshing c
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
-## Sentinel key
-
-A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
+## Add key-values
 
 Add the following key-value to your App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key            | Value             | Label       | Content type       |
 |----------------|-------------------|-------------|--------------------|
+| *message*      | *Hello World!*    | Leave empty | Leave empty        |
 | *sentinel*     | *1*               | Leave empty | Leave empty        |
 
+> [!NOTE]
+> A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
+
 ## Console applications
-
-1. Add the following key-values to your App Configuration store.
-
-    | Key            | Value             | Label       | Content type       |
-    |----------------|-------------------|-------------|--------------------|
-    | *message*      | *Hello World!*           | Leave empty | Leave empty        |
 
 1. Create a new Python file named *app.py* and add the following code:
 
