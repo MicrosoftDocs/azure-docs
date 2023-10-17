@@ -95,7 +95,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Topologies for cross-tenant synchronization
-            url: ../multi-tenant-organizations/cross-tenant-synchronization-topology
+            url: /azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-topology
       - linkListType: how-to-guide
         links:
           - text: Configure cross-tenant synchronization
