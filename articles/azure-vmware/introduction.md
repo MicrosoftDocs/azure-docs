@@ -106,7 +106,7 @@ The following three scenarios show examples of instances that would normally err
 	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false":::
 
 **Identify the host that can be removed without causing a vSAN FD imbalance**
-A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without impacting the vSAN FD balance and avoid any errors in the removal operation. 
+A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
 
 ### AV64 Supported RAID Configuration 
 
@@ -118,8 +118,6 @@ This table provides the list of RAID configuration supported and host requiremen
 |RAID-5 (Erasure Coding) |	1 |	4 |
 |RAID-1 (Mirroring) |	2 |	5 |
  
-
-
 ## Networking
 
 [!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
