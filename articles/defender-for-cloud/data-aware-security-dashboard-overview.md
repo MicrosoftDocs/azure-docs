@@ -30,15 +30,13 @@ You can select any element on the page to get more detailed information.
 
 ## Prerequisites
 
-Sensitive data discovery is available in the Defender CSPM.
-
 In order to view the dashboard, you must enable Defender CSPM and also enable the sensitive data discovery extensions button underneath.  In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan.
 
 :::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
 
 The feature is turned on at the subscription level.
 
-## Required Permissions and Roles
+## Required permissions and roles
 
 - The following permissions are required to view the dashboard for each subscription:
 
@@ -46,7 +44,7 @@ The feature is turned on at the subscription level.
   - Microsoft.Security/assessments/subassessments/read
   - Microsoft.Security/alerts/read
 
-- The minimum privileged RBAC role required is  **Security Reader**.
+The minimum privileged RBAC role required is  **Security Reader**.
 
 - Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
 
