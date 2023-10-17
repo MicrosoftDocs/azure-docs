@@ -132,7 +132,7 @@ Follow these steps to assign Microsoft Entra roles using PowerShell.
 
 ### Assign a role as eligible using PIM
 
-If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see [PowerShell for Microsoft Entra roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md).
+If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see [PowerShell for Microsoft Entra roles in Privileged Identity Management](/powershell/microsoftgraph/tutorial-pim?view=graph-powershell-1.0).
 
 
 1. Use [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0&preserve-view=true) to get the role you want to assign.

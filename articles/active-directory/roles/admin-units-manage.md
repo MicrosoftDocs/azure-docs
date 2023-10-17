@@ -89,7 +89,7 @@ $params = @{
 $adminUnitObj = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
-Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
+Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?branch=main&viewFallbackFrom=graph-powershell-beta&view=graph-powershell-1.0&preserve-view=true) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
 
 ```powershell
 Select-MgProfile -Name beta
@@ -122,7 +122,7 @@ $restrictedAU = New-AzureADMSAdministrativeUnit -DisplayName "Contoso Executive 
 
 ### Microsoft Graph API
 
-Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?branch=main) API to create a new administrative unit.
+Use the [Create administrativeUnit](/graph/api/directory-post-administrativeunits?branch=main) API to create a new administrative unit.
 
 Request
 

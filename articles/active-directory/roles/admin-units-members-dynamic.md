@@ -105,7 +105,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
 
 1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Microsoft Entra ID](../enterprise-users/groups-dynamic-membership.md).
 
-1. Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit with a dynamic membership rule.
+1. Use the [Create administrativeUnit](/graph/api/directory-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit with a dynamic membership rule.
     
     The following shows an example of a dynamic membership rule that applies to Windows devices.
 
