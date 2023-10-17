@@ -24,7 +24,7 @@ Content Safety recognizes four distinct categories of objectionable content.
 
 | Category  | Description         |
 | --------- | ------------------- |
-| Hate and Fairness      | Hate and fairness-related harms refer to any content that attacks or uses pejorative or discriminatory language with reference to a person or identity group on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. </br></br> Fairness is concerned with ensuring that AI systems treat all groups of people equitably without contributing to existing societal inequities. Similar to hate speech, fairness-related harms hinge upon disparate treatment of identity groups. |
+| Hate and Fairness      | Hate and fairness-related harms refer to any content that attacks or uses pejorative or discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. </br></br> Fairness is concerned with ensuring that AI systems treat all groups of people equitably without contributing to existing societal inequities. Similar to hate speech, fairness-related harms hinge upon disparate treatment of identity groups. |
 | Sexual  | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one's will, prostitution, pornography, and abuse.   |
 | Violence  | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns and related entities, such as manufactures, associations, legislation, and so on.    |
 | Self-Harm  | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one's body or kill oneself.  |
@@ -35,25 +35,25 @@ Classification can be multi-labeled. For example, when a text sample goes throug
 
 Every harm category the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
 
-**Text**: The current version of the text model supports the full 0-7 severity scale. The classifier will detect amongst all severities along this scale.
+**Text**: The current version of the text model supports the full 0-7 severity scale. The classifier detects amongst all severities along this scale.
 
-**Image**: The current version of the image model supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier will only return severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
+**Image**: The current version of the image model supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier only returns severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
 
 
-| 4 Severity Levels          |8 Severity Levels          | Label |
+| Four Severity Levels          |Eight Severity Levels          | Label |
 | --------                 | ----------- | -- |
-|Severity Level 0 – Safe   | Severity Level 0 and 1 – Safe   |Content might be related to violence, self-harm, sexual or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts which are appropriate for most audiences.  |
-|Severity Level 2 – Low    | Severity Level 2 and 3 – Low   |Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (e.g., gaming, literature) and depictions at low intensity.        |
+|Severity Level 0 – Safe   | Severity Level 0 and 1 – Safe   |Content might be related to violence, self-harm, sexual or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts that are appropriate for most audiences.  |
+|Severity Level 2 – Low    | Severity Level 2 and 3 – Low   |Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (for example, gaming, literature) and depictions at low intensity.        |
 |Severity Level 4 – Medium| Severity Level 4 and 5 – Medium   |Content that uses offensive, insulting, mocking, intimidating, or demeaning language towards specific identity groups, includes depictions of seeking and executing harmful instructions, fantasies, glorification, promotion of harm at medium intensity.      |
 |Severity Level 6 – High   | Severity Level 6-7 – High   |Content that displays explicit and severe harmful instructions, actions, damage, or abuse, includes endorsement, glorification, promotion of severe harmful acts, extreme or illegal forms of harm, radicalization, and non-consensual power exchange or abuse.        |
 
 
 | **Severity Level** | **Description** |
 | --- | --- |
-| Level 0 – Safe  | Content that may be related to violence, self-harm, sexual or hate & fairness categories, but the terms are used in general, journalistic, scientific, medical, or similar professional contexts that are **appropriate for most audiences**. This level does not include content unrelated to the above categories.  |
+| Level 0 – Safe  | Content that may be related to violence, self-harm, sexual or hate & fairness categories, but the terms are used in general, journalistic, scientific, medical, or similar professional contexts that are **appropriate for most audiences**. This level doesn't include content unrelated to the above categories.  |
 | Level 1 | Content that may be related to violence, self-harm, sexual or hate & fairness categories but the terms are used in general, journalistic, scientific, medial, and similar professional contexts that **may not be appropriate for all audiences**. This level may contain content that, in other contexts, may acquire a different meaning and higher severity level. Content can express **negative or positive sentiments towards identity groups or representations without endorsement of action.** |
 | Level 2 – Low  | Content that expresses **general hate speech that does not target identity groups**, expressions **targeting identity groups with positive sentiment or intent**, use cases exploring a **fictional world** (for example, gaming, literature) and depictions at low intensity. |
-| Level 3 | Content that expresses **prejudiced, judgemental or opinionated views**, including offensive use of language, stereotyping, and depictions aimed at **identity groups with negative sentiment**. |
+| Level 3 | Content that expresses **prejudiced, judgmental or opinionated views**, including offensive use of language, stereotyping, and depictions aimed at **identity groups with negative sentiment**. |
 | Level 4 – Medium  | Content that **uses offensive, insulting language towards identity groups, including fantasies or harm at medium intensity**. |
 | Level 5 | Content that displays harmful instructions, **attacks against identity groups**, and **displays of harmful actions** with the **aim of furthering negative sentiments**. |
 | Level 6 – High  | Content that displays **harmful actions, damage** , including promotion of severe harmful acts, radicalization, and non-consensual power exchange or abuse. |
