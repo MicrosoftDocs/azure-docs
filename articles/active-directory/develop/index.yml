@@ -136,7 +136,7 @@ conceptualContent:
           url: test-automate-integration-testing.md
           itemType: tutorial
         #- text: Deploy a web app with auth to Azure App Service
-        #  url: ../../app-service/scenario-secure-app-overview.md
+        #  url: /azure/app-service/scenario-secure-app-overview.md
         #  itemType: tutorial
     ## CARD 4 ######################
     - title: Build for security and resilience
@@ -168,7 +168,7 @@ tools:
     url: https://github.com/AzureAD/microsoft-authentication-library-for-android
     imageSrc: ./media/hub/android.svg
   - title: Angular
-    url: /javascript/api/@azure/msal-angular/
+    url: /javascript/api/%40azure/msal-angular/
     imageSrc: ./media/hub/angular.svg
   ## ROW 2 ######################
   - title: iOS & macOS
@@ -182,13 +182,13 @@ tools:
     imageSrc: /media/logos/logo_js.svg
   ## ROW 3 ######################
   - title: Node.js
-    url: /javascript/api/@azure/msal-node
+    url: /javascript/api/%40azure/msal-node/
     imageSrc: ./media/hub/node.svg
   - title: Python
     url: /entra/msal/python/
     imageSrc: /media/logos/logo_python.svg
   - title: React
-    url: /javascript/api/@azure/msal-react
+    url: /javascript/api/%40azure/msal-react/
     imageSrc: ./media/hub/react.svg
 ## BAND 4 - TOOLS END #######################################################################################################################################
 

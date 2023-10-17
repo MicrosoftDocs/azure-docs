@@ -94,6 +94,6 @@ Learn how to use the [Microsoft Authentication Library (MSAL) in a national clou
 
 National cloud documentation:
 
-- [Azure Government](../../azure-government/index.yml)
+- [Azure Government](/azure/azure-government/)
 - [Microsoft Azure operated by 21Vianet](/azure/china/)
-- [Azure Germany (Closed on October 29, 2021)](../../germany/index.yml)
+- [Azure Germany (Closed on October 29, 2021)](/azure/germany/)

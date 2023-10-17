@@ -278,9 +278,9 @@ The table below will show all corner cases where ACRS is added to the token's cl
 
 - [Granular Conditional Access for sensitive data and actions (Blog)](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
 - [Zero trust with the Microsoft identity platform](/security/zero-trust/identity-developer)
-- [Building Zero Trust ready apps with the Microsoft identity platform](/security/zero-trust/identity-developer)
+- [Building Zero Trust ready apps with the Microsoft identity platform](/security/zero-trust/develop/identity)
 - [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
 - [authenticationContextClassReference resource type - MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)
 - [Claims challenge, claims request, and client capabilities in the Microsoft identity platform](claims-challenge.md)
-- [Using authentication context with Microsoft Purview Information Protection and SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Using authentication context with Microsoft Purview Information Protection and SharePoint](/purview/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)

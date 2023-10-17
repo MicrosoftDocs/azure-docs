@@ -32,7 +32,7 @@ ms.author: henrymbugua
 
 <!--Reference-style links -->
 
-[aad-app-model-v2-overview]: v2-overview.md
+[aad-app-model-v2-overview]: ./v2-overview.md
 [microsoft-sdl]: https://www.microsoft.com/securityengineering/sdl/
 [preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all
 [auth-code-flow]: ../../v2-oauth2-auth-code-flow.md

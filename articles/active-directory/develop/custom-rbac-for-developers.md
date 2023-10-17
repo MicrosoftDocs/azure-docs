@@ -17,7 +17,7 @@ ms.reviewer: john.garland, maggie.marxen, ian.bennett
 
 # Role-based access control for application developers
 
-Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Microsoft Entra role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Microsoft Entra RBAC is used to manage Microsoft Entra resources. This article explains application-specific RBAC. For information about implementing application-specific RBAC, see [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md).
+Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](/azure/role-based-access-control/overview) and [Microsoft Entra role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Microsoft Entra RBAC is used to manage Microsoft Entra resources. This article explains application-specific RBAC. For information about implementing application-specific RBAC, see [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md).
 
 ## Roles definitions
 
@@ -58,7 +58,7 @@ App roles and groups both store information about user assignments in the Micros
 
 Using custom storage allows developers extra customization and control over how to assign roles to users and how to represent them. However, the extra flexibility also introduces more responsibility. For example, there's no mechanism currently available to include this information in tokens returned from Microsoft Entra ID. Applications must retrieve the roles if role information is maintained in a custom data store. Retrieving the roles is typically done using extensibility points defined in the middleware available to the platform that's being used to develop the application. Developers are responsible for properly securing the custom data store.
 
-Using [Azure AD B2C Custom policies](../../active-directory-b2c/custom-policy-overview.md) it's possible to interact with custom data stores and to include custom claims within a token.
+Using [Azure AD B2C Custom policies](/azure/active-directory-b2c/custom-policy-overview) it's possible to interact with custom data stores and to include custom claims within a token.
 
 ## Choose an approach
 
@@ -79,5 +79,5 @@ Although either app roles or groups can be used for authorization, key differenc
 
 ## Next steps
 
-- [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)
+- [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices)
 - To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)

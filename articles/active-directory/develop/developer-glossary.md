@@ -252,7 +252,7 @@ Many of the terms in this glossary are related to the OAuth 2.0 and OpenID Conne
 [AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:./authentication-vs-authorization.md
-[AAD-Dev-Guide]:../develop.md
+[AAD-Dev-Guide]:./configure-app-multi-instancing.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
 [Graph-Sp-Resource]: /graph/api/resources/serviceprincipal
@@ -264,7 +264,7 @@ Many of the terms in this glossary are related to the OAuth 2.0 and OpenID Conne
 [AAD-Multi-Tenant-Overview]:howto-convert-app-to-be-multi-tenant.md
 [AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
-[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
+[AAD-RBAC]: /azure/role-based-access-control/role-assignments-portal
 [JWT]: https://tools.ietf.org/html/rfc7519
 [Microsoft-Graph]: https://developer.microsoft.com/graph
 [O365-Perm-Ref]: /graph/permissions-reference

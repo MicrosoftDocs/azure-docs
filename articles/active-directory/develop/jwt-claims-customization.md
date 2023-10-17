@@ -250,7 +250,7 @@ Authorization: Bearer {token}
 ```
 
 ## Configure a custom signing key using PowerShell
-Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After you configure the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
+Use PowerShell to [instantiate an MSAL Public Client Application](/entra/msal/dotnet/getting-started/initializing-client-applications#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After you configure the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
 To run this script, you need:
 

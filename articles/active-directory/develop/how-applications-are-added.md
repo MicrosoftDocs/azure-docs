@@ -66,7 +66,7 @@ Like application objects, service principals can also be created through multipl
 
 - When users sign in to a third-party application integrated with Microsoft Entra ID
   - During sign-in, users are asked to give permission to the application to access their profile and other permissions. The first person to give consent causes a service principal that represents the application to be added to the directory.
-- When users sign in to Microsoft online services like [Microsoft 365](https://products.office.com/)
+- When users sign in to Microsoft online services like [Microsoft 365](www.microsoft.com/microsoft-365)
   - When you subscribe to Microsoft 365 or begin a trial, one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Microsoft 365.
   - Some Microsoft 365 services like SharePoint create service principals on an ongoing basis to allow secure communication between components including workflows.
 - When an admin adds an application from the app gallery (this will also create an underlying app object)

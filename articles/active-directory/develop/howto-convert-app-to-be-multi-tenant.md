@@ -158,7 +158,7 @@ To learn more about making API calls to Microsoft Entra ID and Microsoft 365 ser
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:./authentication-vs-authorization.md
 [AAD-Consent-Overview]:./application-consent-experience.md
-[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Dev-Guide]:./index.yml
 [AAD-Integrating-Apps]:./quickstart-register-app.md
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./how-to-integrate.md
@@ -176,7 +176,7 @@ To learn more about making API calls to Microsoft Entra ID and Microsoft 365 ser
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:./authentication-vs-authorization.md
 [AAD-Integrating-Apps]:./quickstart-register-app.md
-[AAD-Dev-Guide]:../develop.md
+[AAD-Dev-Guide]:./configure-app-multi-instancing.md
 [AAD-How-To-Integrate]: ./how-to-integrate.md
 [AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
