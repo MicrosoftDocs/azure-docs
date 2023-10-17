@@ -154,7 +154,12 @@ sections:
            
         answer: |
           This is commonly seen when a firewall rule setting blocks access to the CRL endpoint. 
-          
+
+      - question: |
+           Can Microsoft Entra CBA be used on SurfaceHub?
+        answer: |
+           Yes. This will work out of the box for most smart card / smart card reader combinations. If the smart card / smart card reader combination requires additional drivers these must be installed prior to using the smart card / smart card reader combination on the surface hub.
+      
 additionalContent: |
   ## Next steps
     If your question isn't answered here, see the following related topics:
