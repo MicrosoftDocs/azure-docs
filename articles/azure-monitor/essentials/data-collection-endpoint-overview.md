@@ -61,7 +61,7 @@ This table describes the components and related regionality considerations:
      
      - Send data from each monitored resource to the data collection endpoint in the region where the destination Log Analytics workspace is located.
       
-     :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png" alt-text="A diagram that shows monitored resources in multiple regions sending data to multiple Log Analytics workspaces in different regions using data collection endpoints." lightbox="media/data-collection-endpoint-overview/ata-collection-endpoint-regionality-multiple-workspaces.png":::
+     :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png" alt-text="A diagram that shows monitored resources in multiple regions sending data to multiple Log Analytics workspaces in different regions using data collection endpoints." lightbox="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png":::
 
 ## Create a data collection endpoint
 
