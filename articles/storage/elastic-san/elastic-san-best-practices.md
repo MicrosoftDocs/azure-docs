@@ -124,7 +124,7 @@ In cluster configurations, ensure iSCSI initiator names are unique across all no
 
 ## Elastic SAN optimizations
 
-Before deploying an Elastic SAN, determining the optimal size of what Elastic SAN you should deploy is necessary to achieving the right balance of performance for your workloads and cost. Use the following steps to determine the best sizing for you:
+Before deploying an Elastic SAN, determining the optimal size of the Elastic SAN you deploy is necessary to achieving the right balance of performance for your workloads and cost. Use the following steps to determine the best sizing for you:
 
 With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider adding more base capacity to your Elastic SAN deployment. The rest of your Elastic SAN's storage should use additional-capacity, to save on cost.
 
